@@ -12,7 +12,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
     IdleProvider.idle(5); // in seconds
     IdleProvider.timeout(120); // in seconds
 
-    $urlRouterProvider.otherwise("/dashboards/dashboard_1");
+    $urlRouterProvider.otherwise("/dashboard_1");
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
@@ -21,12 +21,13 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
 
     $stateProvider
 
-        .state('dashboards', {
+/*        .state('dashboards', {
             abstract: true,
             url: "/dashboards",
             templateUrl: "views/common/content.html",
-        })
-        .state('dashboards.dashboard_1', {
+        })*/
+
+        .state('dashboard_1', {
             url: "/dashboard_1",
             templateUrl: "views/dashboard_1.html",
             resolve: {
@@ -172,6 +173,79 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                     ]);
                 }
             }
+        })
+        //응답관리
+        .state('response_manage', {
+            url: "/response_manage",
+            templateUrl: "views/response_manage.html",
+            data: { pageTitle: 'response_manage' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            serie: true,
+                            name: 'angular-flot',
+                            files: [ 'js/plugins/flot/jquery.flot.js', 'js/plugins/flot/jquery.flot.time.js', 'js/plugins/flot/jquery.flot.tooltip.min.js', 'js/plugins/flot/jquery.flot.spline.js', 'js/plugins/flot/jquery.flot.resize.js', 'js/plugins/flot/jquery.flot.pie.js', 'js/plugins/flot/curvedLines.js', 'js/plugins/flot/angular-flot.js' ]
+                        },
+                        {
+                            serie: true,
+                            files: ['js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js', 'js/plugins/jvectormap/jquery-jvectormap-2.0.2.css']
+                        },
+                        {
+                            serie: true,
+                            files: ['js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js']
+                        },
+                        {
+                            name: 'ui.checkbox',
+                            files: ['js/bootstrap/angular-bootstrap-checkbox.js']
+                        }
+                    ]);
+                }
+            }
+        })
+        //접수관리
+        .state('rcept_manage', {
+            url: "/rcept_manage",
+            templateUrl: "views/rcept_manage.html",
+            data: { pageTitle: 'rcept_manage' },
+
+        })
+        //자재관리
+        .state('goods_manage', {
+            url: "/goods_manage",
+            templateUrl: "views/goods_manage.html",
+            data: { pageTitle: 'goods_manage' },
+
+        })
+        //직원관리
+        .state('emp_manage', {
+            url: "/emp_manage",
+            templateUrl: "views/emp_manage.html",
+            data: { pageTitle: 'emp_manage' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['css/plugins/iCheck/custom.css','js/plugins/iCheck/icheck.min.js']
+                        }
+                    ]);
+                }
+            }
+
+        })
+        //A/S관리
+        .state('as_manage', {
+            url: "/as_manage",
+            templateUrl: "views/as_manage.html",
+            data: { pageTitle: 'as_manage' },
+
+        })
+        //센터관리
+        .state('center_manage', {
+            url: "/center_manage",
+            templateUrl: "views/center_manage.html",
+            data: { pageTitle: 'center_manage' },
+
         })
         .state('layouts', {
             url: "/layouts",
@@ -562,6 +636,12 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
             url: "/autocomplete",
             templateUrl: "views/autocomplete.html",
             data: { pageTitle: 'Autocomplete' }
+
+        })
+        .state('forms.emp_manage', {
+            url: "/emp_manage",
+            templateUrl: "views/emp_manage.html",
+            data: { pageTitle: '직원관리' }
 
         })
         .state('forms.markdown', {

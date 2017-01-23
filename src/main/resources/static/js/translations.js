@@ -9,10 +9,10 @@ function config($translateProvider) {
 
             // Define all menu elements
             DASHBOARD: '기본설정',
-            GRAPHS: '센터관리',
-            MAILBOX: '직원관리',
-            WIDGETS: '정품시리얼',
-            METRICS: 'A/S관리',
+            GRAPHS: 'Graphs',
+            MAILBOX: 'Mailbox',
+            WIDGETS: 'Widgets',
+            METRICS: 'Metrics',
             FORMS: '부품주문관리',
             APPVIEWS: '통계관리',
             OTHERPAGES: '사내게시판',
@@ -25,7 +25,7 @@ function config($translateProvider) {
             MENULEVELS: 'Menu levels',
             ANIMATIONS: 'Animations',
             LANDING: 'Landing page',
-            LAYOUTS: '접수관리',
+            LAYOUTS: 'Layouts',
 
             // Define some custom text
             WELCOME: 'Welcome Amelia',

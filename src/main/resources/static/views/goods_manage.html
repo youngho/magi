@@ -1,0 +1,475 @@
+<!-- Wrapper-->
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div ng-include="'views/common/navigation.html'"></div>
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+        <!-- Page wrapper -->
+        <div ng-include="'views/common/topnavbar.html'"></div>
+
+        <!-- Main view  -->
+        <div class="wrapper wrapper-content  animated fadeInRight">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>자재관리</h5>
+
+                        </div>
+                        <div class="ibox-content">
+                            <div class="table-responsive">
+                                <table class="table table-hover issue-tracker">
+                                    <tr>
+                                        <th>
+                                            상태
+                                        </th>
+                                        <th>번호</th>
+                                        <th>ITEM1</th>
+                                        <th>ITEM2</th>
+                                        <th>ITEM3</th>
+                                        <th>ITEM4</th>
+                                    </tr>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-primary">Good</span>
+                                        </td>
+                                        <td>
+                                            1
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                CPU1
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            12.02.2015 10:00 am
+                                        </td>
+                                        <td>
+                                            <span class="pie">0.52,1.041</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                            <button class="btn btn-white btn-xs"> Rag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-primary">Good</span>
+                                        </td>
+                                        <td>
+                                            2
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                CPU2
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            10.02.2015 05:32 am
+                                        </td>
+                                        <td>
+                                            <span class="pie">3,2</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Rag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-primary">Good</span>
+                                        </td>
+                                        <td>
+                                            3
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                CPU3
+                                            </a>
+
+                                        </td>
+                                        <td>
+                                            02.03.2015 06:02 am
+                                        </td>
+                                        <td>
+                                            <span class="pie">1,2</span>
+                                            1d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-primary">Good</span>
+                                        </td>
+                                        <td>
+                                            4
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                CPU4
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            01.10.2015 11:02 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">4,2</span>
+                                            3d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Rag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-warning">Normal</span>
+                                        </td>
+                                        <td>
+                                            5
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                Memory1
+                                            </a>
+
+                                        </td>
+                                        <td>
+                                            28.11.2015 05:10 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">1,2</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-warning">Normal</span>
+                                        </td>
+                                        <td>
+                                            6
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                Memory2
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            18.09.2015 06:20 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">3,2</span>
+                                            3d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-warning">Normal</span>
+                                        </td>
+                                        <td>
+                                            7
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                Memory3
+                                            </a>
+
+                                        </td>
+                                        <td>
+                                            11.03.2015 07:30 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">3,2</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-warning">Normal</span>
+                                        </td>
+                                        <td>
+                                            8
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                Memory4
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            05.04.2015 08:40 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">3,2</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-warning">Normal</span>
+                                        </td>
+                                        <td>
+                                            9
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                Memory5
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            10.06.2014 08:10 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">5,7</span>
+                                            4d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                            <button class="btn btn-white btn-xs"> Cag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-warning">Normal</span>
+                                        </td>
+                                        <td>
+                                            10
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                Memory6
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            13.05.2014 09:20 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">2,7</span>
+                                            3d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Cag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-danger">Bad</span>
+                                        </td>
+                                        <td>
+                                            11
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                HDD1
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            12.02.2015 10:00 am
+                                        </td>
+                                        <td>
+                                            <span class="pie">0.52,1.041</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                            <button class="btn btn-white btn-xs"> Rag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-danger">Bad</span>
+                                        </td>
+                                        <td>
+                                            12
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                HDD2
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            10.02.2015 05:32 am
+                                        </td>
+                                        <td>
+                                            <span class="pie">3,2</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Rag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-danger">Bad</span>
+                                        </td>
+                                        <td>
+                                            13
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                HDD3
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            02.03.2015 06:02 am
+                                        </td>
+                                        <td>
+                                            <span class="pie">1,2</span>
+                                            1d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-danger">Bad</span>
+                                        </td>
+                                        <td>
+                                            14
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                HDD4
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            01.10.2015 11:02 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">4,2</span>
+                                            3d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Rag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-danger">Bad</span>
+                                        </td>
+                                        <td>
+                                            15
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                HDD5
+                                            </a>
+
+                                        </td>
+                                        <td>
+                                            28.11.2015 05:10 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">1,2</span>
+                                            2d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="label label-danger">Bad</span>
+                                        </td>
+                                        <td>
+                                            16
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                HDD6
+                                            </a>
+
+
+                                        </td>
+                                        <td>
+                                            18.09.2015 06:20 pm
+                                        </td>
+                                        <td>
+                                            <span class="pie">3,2</span>
+                                            3d
+                                        </td>
+                                        <td class="text-right">
+                                            <button class="btn btn-white btn-xs"> Tag</button>
+                                            <button class="btn btn-white btn-xs"> Mag</button>
+                                            <button class="btn btn-white btn-xs"> Dag</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Footer -->
+        <div ng-include="'views/common/footer.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->
