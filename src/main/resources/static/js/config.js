@@ -247,6 +247,13 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
             data: { pageTitle: 'center_manage' },
 
         })
+        //정품시리얼
+        .state('serial_manage', {
+            url: "/serial_manage",
+            templateUrl: "views/serial_manage.html",
+            data: { pageTitle: 'serial_manage' },
+
+        })
         .state('layouts', {
             url: "/layouts",
             templateUrl: "views/layouts.html",
