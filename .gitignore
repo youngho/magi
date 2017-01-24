@@ -1,5 +1,7 @@
 
 # Created by https://www.gitignore.io/api/eclipse,intellij,intellij+iml,webstorm,maven,gradle
+# npm Local modules
+node_modules/
 
 ### Eclipse ###
 
