@@ -20,7 +20,20 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
     });
 
     $stateProvider
-
+        .state('yield', {
+            url: "/yield",
+            templateUrl: "views/yield.html",
+            data: { pageTitle: 'TEST YIELD HIST' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js','js/jqGrid/i18n/grid.locale-en.js','js/jqGrid/jquery.jqGrid.min.js','js/jquery-ui/themes/base/jquery-ui.css','js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
         .state('dashboards', {
             abstract: true,
             url: "/dashboards",
