@@ -39,15 +39,16 @@
             }
         });
 
-
+``
         $("#jqGrid").jqGrid({
             url: '/tests',
             mtype: "GET",
             datatype: "json",
             colModel: colM,
             viewrecords: true,
-            //width: 780,
+            width: 780,
             height: 400,
+            shrinkToFit : false, /* RowWidth 고정 */
             rowNum: 20,
             pager: "#jqGridPager"
         });
