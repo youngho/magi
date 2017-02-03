@@ -1,6 +1,5 @@
 package kr.famos.base.mapper;
 
-import kr.famos.base.domain.LastTable;
 import kr.famos.base.domain.LastTablePn2m;
 import org.apache.ibatis.annotations.Select;
 
