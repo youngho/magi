@@ -23,7 +23,7 @@ public class MbtBoardYieldHistController {
 
     @RequestMapping(value="/mbtboardyieldhist")
     public ResponseEntity<List<MbtBoardYieldHist>> get() {
-        logger.info(" 이것은 MbtBoardYieldHistController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 MbtBoardYieldHistController 컨트롤러 호출입니다");
         List<MbtBoardYieldHist> mbtBoardYieldHistList = mbtBoardYieldHistMapper.readAllMbtBoardYieldHist();
         return new ResponseEntity<List<MbtBoardYieldHist>>(mbtBoardYieldHistList, HttpStatus.OK);
     }

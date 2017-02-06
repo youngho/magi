@@ -23,7 +23,7 @@ public class TestYieldHistErrController {
 
     @RequestMapping(value="/testyieldhisterr")
     public ResponseEntity<List<TestYieldHistErr>> get() {
-        logger.info(" 이것은 TestYieldHistErrController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 TestYieldHistErrController 컨트롤러 호출입니다");
         List<TestYieldHistErr> list = testYieldHistErrMapper.readAllTestYieldHistErr();
         return new ResponseEntity<List<TestYieldHistErr>>(list, HttpStatus.OK);
     }

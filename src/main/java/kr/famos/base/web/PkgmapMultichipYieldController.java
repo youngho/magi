@@ -23,7 +23,7 @@ public class PkgmapMultichipYieldController {
 
     @RequestMapping(value="/pkgmapmultichipyield")
     public ResponseEntity<List<PkgmapMultichipYield>> get() {
-        logger.info(" 이것은 PkgmapMultichipYieldController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 PkgmapMultichipYieldController 컨트롤러 호출입니다");
         List<PkgmapMultichipYield> list = pkgmapMultichipYieldMapper.readAllPkgmapMultichipYield();
         return new ResponseEntity<List<PkgmapMultichipYield>>(list, HttpStatus.OK);
     }

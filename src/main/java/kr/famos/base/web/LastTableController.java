@@ -24,7 +24,7 @@ public class LastTableController {
 
     @RequestMapping(value="/lastTable")
     public ResponseEntity<List<LastTable>> get() {
-        logger.info(" 이것은 LastTableController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 LastTableController 컨트롤러 호출입니다");
         List<LastTable> lastTableList = lastTableMapper.readAllLastTable();
         return  new ResponseEntity<List<LastTable>>(lastTableList, HttpStatus.OK);
     }

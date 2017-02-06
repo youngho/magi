@@ -23,7 +23,147 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
         .state('yield', {
             url: "/yield",
             templateUrl: "views/yield.html",
-            data: {pageTitle: 'TEST YIELD HIST'},
+            data: {pageTitle: 'YIELD ANALYSIS'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('map', {
+            url: "/map",
+            templateUrl: "views/map.html",
+            data: {pageTitle: 'MAP ANALYSIS'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('testbaseinfo', {
+            url: "/testbaseinfo",
+            templateUrl: "views/testbaseinfo.html",
+            data: {pageTitle: 'TEST BASE INFO'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('mbtBaseInfo', {
+            url: "/mbtBaseInfo",
+            templateUrl: "views/mbtBaseInfo.html",
+            data: {pageTitle: 'MBT BASE INFO'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('badBlockBaseInfo', {
+            url: "/badBlockBaseInfo",
+            templateUrl: "views/badBlockBaseInfo.html",
+            data: {pageTitle: 'BAD BLOCK BASE INFO'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('LOTINJudgmentOnInquiry', {
+            url: "/LOTINJudgmentOnInquiry",
+            templateUrl: "views/LOTINJudgmentOnInquiry.html",
+            data: {pageTitle: 'LOT IN Judgment On Inquiry'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('equipmentIP', {
+            url: "/equipmentIP",
+            templateUrl: "views/equipmentIP.html",
+            data: {pageTitle: 'EQUIPMENT IP'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('mbtBIBInfo', {
+            url: "/mbtBIBInfo",
+            templateUrl: "views/mbtBIBInfo.html",
+            data: {pageTitle: 'MBT BIB INFO'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('abnrmlPrcsAnals', {
+            url: "/abnrmlPrcsAnals",
+            templateUrl: "views/abnrmlPrcsAnals.html",
+            data: {pageTitle: 'ABNORMALITY PROCESS ANALYSIS'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('efficiencyAnalysis', {
+            url: "/efficiencyAnalysis",
+            templateUrl: "views/efficiencyAnalysis.html",
+            data: {pageTitle: 'EFFICIENCY ANALYSIS'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('usageResults', {
+            url: "/usageResults",
+            templateUrl: "views/usageResults.html",
+            data: {pageTitle: 'USAGE RESULTS'},
             resolve: {
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([

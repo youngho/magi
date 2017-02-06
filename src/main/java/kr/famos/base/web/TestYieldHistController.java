@@ -28,7 +28,7 @@ public class TestYieldHistController {
     public ResponseEntity<TestYieldHist> get(
             @PathVariable String sys_date) {
         TestYieldHist testYieldHist = testYieldHistMapper.readTestYieldHist(sys_date);
-        logger.info(sys_date + " 이것은 base 컨트롤러 호출입니다");
+        logger.debug(sys_date + " 이것은 base 컨트롤러 호출입니다");
 
         return new ResponseEntity<TestYieldHist> (testYieldHist, HttpStatus.OK);
     }

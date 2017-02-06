@@ -23,7 +23,7 @@ public class EquipmentLayoutController {
 
     @RequestMapping(value="/equipmentLayout")
     public ResponseEntity<List<EquipmentLayout>> get() {
-        logger.info(" 이것은 EquipmentLayoutController 호출입니다");
+        logger.debug(" 이것은 EquipmentLayoutController 호출입니다");
         List<EquipmentLayout> equipmentLayoutList = equipmentLayoutMapper.readAllEquipmentLayout();
         return new ResponseEntity<List<EquipmentLayout>>(equipmentLayoutList, HttpStatus.OK);
     }

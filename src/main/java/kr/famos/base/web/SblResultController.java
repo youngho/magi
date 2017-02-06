@@ -23,7 +23,7 @@ public class SblResultController {
 
     @RequestMapping(value="/SblResult")
     public ResponseEntity<List<SblResult>> get() {
-        logger.info(" 이것은 SblResultController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 SblResultController 컨트롤러 호출입니다");
         List<SblResult> list = sblResultMapper.readAllSblResult();
         return new ResponseEntity<List<SblResult>>(list, HttpStatus.OK);
     }

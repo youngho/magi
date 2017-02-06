@@ -23,7 +23,7 @@ public class LastTableEventController {
 
     @RequestMapping(value="/lasttableevent")
     public ResponseEntity<List<LastTableEvent>> get() {
-        logger.info(" 이것은 LastTableEventController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 LastTableEventController 컨트롤러 호출입니다");
         List<LastTableEvent> lastTableEventList = lastTableEventMapper.readAllLastTableEvent();
         return  new ResponseEntity<List<LastTableEvent>>(lastTableEventList, HttpStatus.OK);
     }

@@ -23,7 +23,7 @@ public class StIndexController {
 
     @RequestMapping(value="/stindex")
     public ResponseEntity<List<StIndex>> get() {
-        logger.info(" 이것은 StIndexController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 StIndexController 컨트롤러 호출입니다");
         List<StIndex> list = stIndexMapper.readAllStIndex();
         return new ResponseEntity<List<StIndex>>(list, HttpStatus.OK);
     }

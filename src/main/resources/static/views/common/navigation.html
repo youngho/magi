@@ -29,8 +29,8 @@
             <li ng-class="active">
                 <a href="#"><i class="fa fa-envelope"></i> <span class="nav-label">YIELD </span><span class="label label-warning pull-right">16/24</span></a>
                 <ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('mailbox')}">
-                    <li ui-sref-active="active"><a ui-sref="yield">YIELD 분석</a></li>
-                    <li ui-sref-active="active"><a ui-sref="MAP">MAP 분석</a></li>
+                    <li ui-sref-active="active"><a ui-sref="yield">{{ 'YIELDANALYSIS' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="map">{{ 'MAPANALYSIS' | translate }}</a></li>
                 </ul>
             </li>
 
@@ -38,33 +38,33 @@
                 <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">OPIRUS</span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">TEST 기준정보</a></li>
-                    <li><a href="graph_morris.html">MBT 기준정보</a></li>
-                    <li><a href="graph_morris.html">BAD BLOCK 기준정보</a></li>
-                    <li><a href="graph_morris.html">LOT IN 판정결과 조회</a></li>
-                    <li><a href="graph_morris.html">설비 IP 조회</a></li>
-                    <li><a href="graph_morris.html">MBT BIB INFO</a></li>
+                    <li ui-sref-active="active"><a ui-sref="testbaseinfo">{{ 'TESTBASEINFO' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="mbtBaseInfo">{{ 'MBTBASEINFO' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="badBlockBaseInfo">{{ 'BADBLOCKBASEINFO' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="LOTINJudgmentOnInquiry">{{ 'LOTINJUDGMENTONINQUIRY' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="equipmentIP">{{ 'EQUIPMENTIP' | translate }}</a></li>
+                    <li ui-sref-active="active"><a ui-sref="mbtBIBInfo">{{ 'MBTBIBINFO' | translate }}</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">이상처리</span><span
+                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{ 'ABNORMALITYPROCESS' | translate }}</span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">이상처리 분석</a></li>
+                    <li ui-sref-active="active"><a ui-sref="abnrmlPrcsAnals">{{ 'ABNORMALITYPROCESSANALYSIS' | translate }}</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">효율</span><span
+                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{ 'EFFICIENCY' | translate }}</span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">효율분석</a></li>
+                    <li ui-sref-active="active"><a ui-sref="efficiencyAnalysis">{{ 'EFFICIENCYANALYSIS' | translate }}</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">SMART 기술팀</span><span
+                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">{{ 'SMART' | translate }}</span><span
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
-                    <li><a href="graph_flot.html">사용실적</a></li>
+                    <li ui-sref-active="active"><a ui-sref="usageResults">{{ 'USAGERESULTS' | translate }}</a></li>
                 </ul>
             </li>
 

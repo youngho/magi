@@ -23,7 +23,7 @@ public class MbtYieldHsitController {
 
     @RequestMapping(value="/MbtYieldHsit")
     public ResponseEntity<List<MbtYieldHsit>> get() {
-        logger.info(" 이것은 MbtLastTableEventController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 MbtLastTableEventController 컨트롤러 호출입니다");
         List<MbtYieldHsit> list = mbtYieldHsitMapper.readAllMbtYieldHsit();
         return new ResponseEntity<List<MbtYieldHsit>>(list, HttpStatus.OK);
     }

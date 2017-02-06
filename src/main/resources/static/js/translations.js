@@ -6,9 +6,66 @@ function config($translateProvider) {
 
     $translateProvider
         .translations('en', {
+            YIELDANALYSIS: 'YIELD Analysis',
+            MAPANALYSIS: 'MAP Analysis',
+            TESTBASEINFO: 'TEST Base info',
+            MBTBASEINFO: 'MBT Base info',
+            BADBLOCKBASEINFO: 'BAD BLOCK Base info',
+            LOTINJUDGMENTONINQUIRY: 'LOT IN Judgment on inquiry',
+            EQUIPMENTIP: 'Equipment IP',
+            MBTBIBINFO: 'MBT BIB INFO',
+            ABNORMALITYPROCESS: 'Abnormality Process',
+            ABNORMALITYPROCESSANALYSIS: 'Abnormality Process analysis',
+            EFFICIENCY : 'Efficiency ',
+            EFFICIENCYANALYSIS : 'Efficiency analysis',
+            SMART : 'SMART Tech team',
+            USAGERESULTS : 'Usage results',
 
             // Define all menu elements
             DASHBOARD: 'Dashboard',
+            GRAPHS: 'Graphs',
+            MAILBOX: 'Mailbox',
+            WIDGETS: 'Widgets',
+            METRICS: 'Metrics',
+            FORMS: 'Forms',
+            APPVIEWS: 'App views',
+            OTHERPAGES: 'Other pages',
+            UIELEMENTS: 'UI elements',
+            MISCELLANEOUS: 'Miscellaneous',
+            GRIDOPTIONS: 'Grid options',
+            TABLES: 'Tables',
+            COMMERCE: 'E-commerce',
+            GALLERY: 'Gallery',
+            MENULEVELS: 'Menu levels',
+            ANIMATIONS: 'Animations',
+            LANDING: 'Landing page',
+            LAYOUTS: 'Layouts',
+
+            // Define some custom text
+            WELCOME: 'Welcome Amelia',
+            MESSAGEINFO: 'You have 42 messages and 6 notifications.',
+            SEARCH: 'Search for something...',
+            DEMO: 'Internationalization (sometimes shortened to \"I18N , meaning \"I - eighteen letters -N\") is the process of planning and implementing products and services so that they can easily be adapted to specific local languages and cultures, a process called localization . The internationalization process is sometimes called translation or localization enablement .'
+
+        })
+        .translations('ko', {
+            YIELDANALYSIS: 'YIELD Analysis',
+            MAPANALYSIS: 'MAP Analysis',
+            TESTBASEINFO: 'TEST 기준정보',
+            MBTBASEINFO: 'MBT 기준정보',
+            BADBLOCKBASEINFO: 'BAD BLOCK 기준정보',
+            LOTINJUDGMENTONINQUIRY: 'LOT IN 판정결과 조회',
+            EQUIPMENTIP: '설비 IP 조회',
+            MBTBIBINFO: 'MBT BIB INFO',
+            ABNORMALITYPROCESS: '이상처리',
+            ABNORMALITYPROCESSANALYSIS: '이상처리 분석',
+            EFFICIENCY: '효율',
+            EFFICIENCYANALYSIS: '효율분석',
+            SMART: 'SMART 기술팀',
+            USAGERESULTS: '사용실적',
+
+            // Define all menu elements
+            DASHBOARD: '대쉬보드',
             GRAPHS: 'Graphs',
             MAILBOX: 'Mailbox',
             WIDGETS: 'Widgets',

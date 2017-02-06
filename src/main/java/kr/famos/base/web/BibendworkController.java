@@ -24,7 +24,7 @@ public class BibendworkController {
 
     @RequestMapping(value="/bibendwork")
     public ResponseEntity<List<Bibendwork>> get() {
-        logger.info(" 이것은 BibendworkController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 BibendworkController 컨트롤러 호출입니다");
         List<Bibendwork> bibendworkList = bibendworkMapper.readAllBibendwork();
         return  new ResponseEntity<List<Bibendwork>>(bibendworkList, HttpStatus.OK);
     }

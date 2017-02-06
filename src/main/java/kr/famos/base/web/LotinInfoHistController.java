@@ -23,7 +23,7 @@ public class LotinInfoHistController {
 
     @RequestMapping(value="/lotininfohist")
     public ResponseEntity<List<LotinInfoHist>> get() {
-        logger.info(" 이것은 LotinInfoHistController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 LotinInfoHistController 컨트롤러 호출입니다");
         List<LotinInfoHist> list = lotinInfoHistMapper.readAllLotinInfoHist();
         return new ResponseEntity<List<LotinInfoHist>>(list, HttpStatus.OK);
     }

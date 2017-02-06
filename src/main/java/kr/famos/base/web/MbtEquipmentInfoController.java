@@ -23,7 +23,7 @@ public class MbtEquipmentInfoController {
 
     @RequestMapping(value="/MbtEquipmentInfo")
     public ResponseEntity<List<MbtEquipmentInfo>> get() {
-        logger.info(" 이것은 MbtEquipmentInfoController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 MbtEquipmentInfoController 컨트롤러 호출입니다");
         List<MbtEquipmentInfo> mbtEquipmentInfoList = mbtEquipmentInfoMapper.readAllMbtEquipmentInfo();
         return new ResponseEntity<List<MbtEquipmentInfo>>(mbtEquipmentInfoList, HttpStatus.OK);
     }

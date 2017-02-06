@@ -1,0 +1,62 @@
+<!-- Wrapper-->
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <div ng-include="'views/common/navigation.html'"></div>
+
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+        <!-- Page wrapper -->
+        <div ng-include="'views/common/topnavbar.html'"></div>
+
+        <!-- Main view  -->
+        <div class="row">
+            <div id="grid_container" class="col-lg-12">
+                <table id="jqGrid"></table>
+                <div id="jqGridPager"></div>
+                <div id="listLayout"></div>
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var colM = [];
+                        console.log("비동기 통신을 하여 json타입으로 호출한다.");
+                        $.ajax({
+                            url: '/base/20130101013529', async: false, dataType: 'json', success: function (data) {
+                                for (var key in data) {
+                                    colM.push({name: key, index: key, width: 100});
+                                }
+                                console.log(colM);
+                                $("#listLayout").html(data);
+                            }
+                        });
+
+                        $("#jqGrid").jqGrid({
+                            url: '/tests',
+                            mtype: "GET",
+                            datatype: "json",
+                            colModel: colM,
+                            viewrecords: true,
+                            //width: 780,
+                            //height: 250,
+                            rowNum: 20,
+                            shrinkToFit : true, /* RowWidth 고정 */
+                            pager: "#jqGridPager"
+                        });
+
+                    });
+                </script>
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+        <div ng-include="'views/common/footer.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->

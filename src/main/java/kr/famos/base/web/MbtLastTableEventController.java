@@ -23,7 +23,7 @@ public class MbtLastTableEventController {
 
     @RequestMapping(value="/mbtlasttableevent")
     public ResponseEntity<List<MbtLastTableEvent>> get() {
-        logger.info(" 이것은 MbtLastTableEventController 컨트롤러 호출입니다");
+        logger.debug(" 이것은 MbtLastTableEventController 컨트롤러 호출입니다");
         List<MbtLastTableEvent> list = mbtLastTableEventMapper.readAllMbtLastTableEvent();
         return new ResponseEntity<List<MbtLastTableEvent>>(list, HttpStatus.OK);
     }
