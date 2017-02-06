@@ -2,11 +2,11 @@
     <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <span minimaliza-sidebar></span>
-            <form role="search" class="navbar-form-custom" method="post" action="views/search_results.html">
+<!--            <form role="search" class="navbar-form-custom" method="post" action="views/search_results.html">
                 <div class="form-group">
                     <input type="text" placeholder="{{ 'SEARCH' | translate }}" class="form-control" name="top-search" id="top-search">
                 </div>
-            </form>
+            </form>-->
         </div>
         <ul class="nav navbar-top-links navbar-right">
             <!--<li>-->
@@ -19,8 +19,10 @@
                 <ul uib-dropdown-menu class="animated fadeInRight m-t-xs" ng-controller="translateCtrl">
                     <li><a ng-click="changeLanguage('en')">English</a></li>
                     <li><a ng-click="changeLanguage('es')">Spanish</a></li>
+                    <li><a ng-click="changeLanguage('ko')">Korean</a></li>
                 </ul>
             </li>
+            <!--
             <li uib-dropdown>
                 <a class="count-info" href uib-dropdown-toggle>
                     <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
@@ -119,6 +121,7 @@
                     </li>
                 </ul>
             </li>
+            -->
             <li>
                 <a ui-sref="login">
                     <i class="fa fa-sign-out"></i> Log out
