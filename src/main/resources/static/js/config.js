@@ -28,7 +28,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                 loadPlugin: function ($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
-                            files: ['js/jquery/jquery-3.1.1.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jqGrid/jquery.jqGrid.min.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                            files: ['js/jqGrid/jquery.jqGrid.min.js', 'js/jqGrid/i18n/grid.locale-en.js', 'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
                         }
                     ]);
                 }
