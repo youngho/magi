@@ -12,9 +12,9 @@ import java.util.List;
  */
 @Mapper
 public interface EquipmentLayoutMapper {
-    @Select("SELECT * FROM EQUIPMENTLAYOUT WHERE SYS_DATE = #{sys_date}")
+    @Select("SELECT * FROM EQUIPMENT_LAYOUT WHERE SYS_DATE = #{sys_date}")
     public EquipmentLayout readEquipmentLayout(@Param("sys_date") String name);
 
-    @Select("SELECT * FROM EQUIPMENTLAYOUT")
+    @Select("SELECT * FROM EQUIPMENT_LAYOUT")
     public List<EquipmentLayout> readAllEquipmentLayout();
 }
