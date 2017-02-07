@@ -28,4 +28,12 @@ public class LastTableController {
         List<LastTable> lastTableList = lastTableMapper.readAllLastTable();
         return  new ResponseEntity<List<LastTable>>(lastTableList, HttpStatus.OK);
     }
+
+    @RequestMapping(value="/lasttableinsert")
+    public void post() {
+        logger.debug("lasttableinsert post 함수  ");
+        LastTable lastTable = new LastTable();
+        lastTable.setUserId("youngho");
+        lastTableMapper.insertLastTable(lastTable);
+    }
 }
