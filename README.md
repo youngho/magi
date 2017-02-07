@@ -1,9 +1,16 @@
-# git
+## 사전작업
+### Using Ubuntu
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+### Using Debian, as root
+curl -sL https://deb.nodesource.com/setup_6.x | bash -
+apt-get install -y nodejs
 
 ## Build & development
+node
+
+npm install -g angular-cli
 
 Run `grunt` for building and `grunt serve` for preview.
 
