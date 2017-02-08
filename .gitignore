@@ -3,6 +3,9 @@
 # npm Local modules
 node_modules/
 
+# npm buid directory
+dist/
+
 ### Eclipse ###
 
 .metadata
