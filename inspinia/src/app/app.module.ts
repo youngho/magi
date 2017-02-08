@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 
 // App views
 import {MainViewModule} from "./views/main-view/main-view.module";
+import {lastTableViewModule} from "./views/lastTable-view/lastTable-view.module"
 import {MinorViewModule} from "./views/minor-view/minor-view.module";
 import {LoginModule} from "./views/login/login.module";
 import {RegisterModule} from "./views/register/register.module";
@@ -28,6 +29,7 @@ import {LayoutsModule} from "./components/common/layouts/layouts.module";
 
     // Views
     MainViewModule,
+      lastTableViewModule,
     MinorViewModule,
     LoginModule,
     RegisterModule,

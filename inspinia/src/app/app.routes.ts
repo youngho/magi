@@ -1,6 +1,7 @@
 import {Routes} from "@angular/router";
 import {mainViewComponent} from "./views/main-view/main-view.component";
 import {minorViewComponent} from "./views/minor-view/minor-view.component";
+import {lastTableViewComponent} from "./views/lastTable-view/lastTable-view.component";
 import {loginComponent} from "./views/login/login.component";
 import {registerComponent} from "./views/register/register.component";
 import {blankComponent} from "./components/common/layouts/blank.component";
@@ -16,6 +17,7 @@ export const ROUTES:Routes = [
     path: '', component: basicComponent,
     children: [
       {path: 'mainView', component: mainViewComponent},
+      {path: 'lastTableView', component: lastTableViewComponent},
       {path: 'minorView', component: minorViewComponent}
     ]
   },

@@ -1,10 +1,10 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
-import {mainViewComponent} from "./main-view.component";
+import {lastTableViewComponent} from "./lastTable-view.component";
 
 @NgModule({
-    declarations: [mainViewComponent],
+    declarations: [lastTableViewComponent],
     imports     : [BrowserModule],
 })
 
-export class MainViewModule {}
+export class lastTableViewModule {}
