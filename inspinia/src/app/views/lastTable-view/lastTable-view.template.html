@@ -5,7 +5,12 @@
                 <h1>
                     lastTableView
                 </h1>
-                <small>
+                <form role="search" class="navbar-form-custom" method="post" action="#">
+                    <div class="form-group">
+                        <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                    </div>
+                </form>
+                    <small>
                     It is an application skeleton for a typical web app. You can use it to quickly bootstrap your webapp projects and dev environment.
                 </small>
                 <div *ngFor="let speaker of speakers">
