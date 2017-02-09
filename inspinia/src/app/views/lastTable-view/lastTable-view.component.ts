@@ -11,6 +11,9 @@ export class lastTableViewComponent {
 
     public speakers : any[];
 
+    onSubmit(form){
+        console.log(form.value);
+    }
     constructor(private _http:Http){
         _http.get(this.API_URI,).subscribe(result => {
             this.speakers = result.json()})
