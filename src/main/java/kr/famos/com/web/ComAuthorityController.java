@@ -20,7 +20,7 @@ import java.util.List;
  */
 @RestController
 public class ComAuthorityController {
-    private static final Logger logger = LoggerFactory.getLogger(TestYieldHistErrController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ComAuthorityController.class);
     @Autowired
     ComAuthorityMapper comAuthorityMapper;
 

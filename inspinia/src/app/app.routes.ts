@@ -6,6 +6,7 @@ import {loginComponent} from "./views/login/login.component";
 import {registerComponent} from "./views/register/register.component";
 import {blankComponent} from "./components/common/layouts/blank.component";
 import {basicComponent} from "./components/common/layouts/basic.component";
+import {authorityViewComponent} from "./views/com/authority-view.component";
 
 
 export const ROUTES:Routes = [
@@ -18,6 +19,7 @@ export const ROUTES:Routes = [
     children: [
       {path: 'mainView', component: mainViewComponent},
       {path: 'lastTableView', component: lastTableViewComponent},
+      {path: 'authorityView', component: authorityViewComponent},
       {path: 'minorView', component: minorViewComponent}
     ]
   },

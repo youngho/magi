@@ -14,9 +14,11 @@ import {lastTableViewModule} from "./views/lastTable-view/lastTable-view.module"
 import {MinorViewModule} from "./views/minor-view/minor-view.module";
 import {LoginModule} from "./views/login/login.module";
 import {RegisterModule} from "./views/register/register.module";
+import {AuthorityViewModule} from "./views/com/authority-view.module";
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
+
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {LayoutsModule} from "./components/common/layouts/layouts.module";
 
     // Views
     MainViewModule,
-      lastTableViewModule,
+    lastTableViewModule,
+    AuthorityViewModule,
     MinorViewModule,
     LoginModule,
     RegisterModule,
