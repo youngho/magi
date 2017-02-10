@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,10 +32,13 @@ public class ComAuthorityController {
     }
 
     @RequestMapping(value = "/authority",method = RequestMethod.POST)
-    public void post() {
-        logger.debug("컨트롤러 Authority post 함수  ");
+    public void post(@RequestBody ComAuthority rJson) {
+        logger.debug(rJson.getUser_nm());
         ComAuthority comAuthority = new ComAuthority();
-        comAuthority.setUser_nm("famos");
+        comAuthority.setUser_nm(rJson.getUser_nm());
+        comAuthority.setAuthority_nm(rJson.getAuthority_nm());
+        logger.debug("컨트롤러 Authority post 함수  ");
+
         comAuthorityMapper.insertComAuthority(comAuthority);
     }
 }

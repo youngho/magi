@@ -15,6 +15,6 @@ public interface ComAuthorityMapper {
     @Select("SELECT * FROM COM_AUTHORITY")
     public List<ComAuthority> readAllComAuthority();
 
-    @Insert("INSERT INTO COM_AUTHORITY(USER_NM) VALUES(#{user_nm})")
+    @Insert("INSERT INTO COM_AUTHORITY(USER_NM, AUTHORITY_NM) VALUES(#{user_nm}, #{authority_nm})")
     public void insertComAuthority(ComAuthority comAuthority);
 }
