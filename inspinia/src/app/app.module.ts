@@ -20,6 +20,19 @@ import {AuthorityViewModule} from "./views/com/authority-view.module";
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
 
 
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
+
+
+import { AppRoutingModule } from './app-routing.module';
+
+
+import { APP_CONFIG, DEFAULT_APP_CONFIG } from './app.config';
+
+import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
+import { HomeModule } from './home/home.module';
+import { AboutModule } from './about/about.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -40,9 +53,24 @@ import {LayoutsModule} from "./components/common/layouts/layouts.module";
     // Modules
     LayoutsModule,
 
+
+    FormsModule,
+
+    //3rd party modules
+    Ng2BootstrapModule,
+
+    //app modules
+    CoreModule,
+    SharedModule,
+    AppRoutingModule,
+
+    HomeModule,
+    AboutModule,
+
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  //providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: APP_CONFIG, useClass: HashLocationStrategy, useValue: DEFAULT_APP_CONFIG }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
