@@ -62,6 +62,20 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider, IdlePro
                 }
             }
         })
+        .state('lasttablereg', {
+            url: "/lasttablereg",
+            templateUrl: "views/lastTableReg.html",
+            data: {pageTitle: 'LAST TABLE Registration'},
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['js/jqGrid/jquery.jqGrid.min.js', 'js/jqGrid/i18n/grid.locale-en.js',  'js/jquery-ui/themes/base/jquery-ui.css', 'js/jqGrid/css/ui.jqgrid.css']
+                        }
+                    ]);
+                }
+            }
+        })
         .state('mbtBaseInfo', {
             url: "/mbtBaseInfo",
             templateUrl: "views/mbtBaseInfo.html",
