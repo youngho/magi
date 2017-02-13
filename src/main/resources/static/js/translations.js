@@ -7,6 +7,7 @@ function config($translateProvider) {
     $translateProvider
         .translations('en', {
             YIELDANALYSIS: 'YIELD Analysis',
+            BRAZILEMCPTESTSYSTEM: 'Brazil EMCP Test System',
             MAPANALYSIS: 'MAP Analysis',
             TESTBASEINFO: 'TEST Base info',
             MBTBASEINFO: 'MBT Base info',
@@ -42,15 +43,16 @@ function config($translateProvider) {
             LAYOUTS: 'Layouts',
 
             // Define some custom text
-            WELCOME: 'Welcome Amelia',
+            WELCOME: 'Welcome',
             MESSAGEINFO: 'You have 42 messages and 6 notifications.',
             SEARCH: 'Search for something...',
             DEMO: 'Internationalization (sometimes shortened to \"I18N , meaning \"I - eighteen letters -N\") is the process of planning and implementing products and services so that they can easily be adapted to specific local languages and cultures, a process called localization . The internationalization process is sometimes called translation or localization enablement .'
 
         })
         .translations('ko', {
-            YIELDANALYSIS: 'YIELD Analysis',
-            MAPANALYSIS: 'MAP Analysis',
+            BRAZILEMCPTESTSYSTEM: '브라질 EMCP 테스트 시스템',
+            YIELDANALYSIS: 'YIELD 분석',
+            MAPANALYSIS: 'MAP 분석',
             TESTBASEINFO: 'TEST 기준정보',
             MBTBASEINFO: 'MBT 기준정보',
             BADBLOCKBASEINFO: 'BAD BLOCK 기준정보',
@@ -85,7 +87,7 @@ function config($translateProvider) {
             LAYOUTS: 'Layouts',
 
             // Define some custom text
-            WELCOME: 'Welcome Amelia',
+            WELCOME: '환영합니다',
             MESSAGEINFO: 'You have 42 messages and 6 notifications.',
             SEARCH: 'Search for something...',
             DEMO: 'Internationalization (sometimes shortened to \"I18N , meaning \"I - eighteen letters -N\") is the process of planning and implementing products and services so that they can easily be adapted to specific local languages and cultures, a process called localization . The internationalization process is sometimes called translation or localization enablement .'
@@ -114,7 +116,7 @@ function config($translateProvider) {
             LAYOUTS: 'Esquemas',
 
             // Define some custom text
-            WELCOME: 'Bienvenido Amelia',
+            WELCOME: 'Bienvenido',
             MESSAGEINFO: 'Usted tiene 42 mensajes y 6 notificaciones.',
             SEARCH: 'Busca algo ...',
             DEMO: 'Internacionalización (a veces abreviado como \"I18N, que significa\" I - dieciocho letras N \") es el proceso de planificación e implementación de productos y servicios de manera que se pueden adaptar fácilmente a las lenguas y culturas locales específicas, un proceso llamado localización El proceso de internacionalización. a veces se llama la traducción o la habilitación de localización.'
