@@ -25,9 +25,10 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <label class="col-lg-2 control-label">USER_NM</label>
-                            <div class="col-lg-3"><input type="text" placeholder="Enter User Name" class="form-control" name="user_nm" value="{{authority.user_nm}}"></div>
-                            <label class="col-lg-2 control-label">AUTHORITY_NM</label>
-                            <div class="col-lg-3"><input type="text" placeholder="Enter Authority Name" class="form-control" name="authority_nm" value="{{authority.authority_nm}}"></div>
+                            <div class="col-lg-3">
+                                <input type="text" placeholder="Enter User Name" class="form-control" name="user_nm" [(ngModel)]="data.user_nm"></div>
+                            <label class="col-lg-2 control-label">AUTHORITY_NM{{data.authority_nm}}</label>
+                            <div class="col-lg-3"><input type="text" placeholder="Enter Authority Name" class="form-control" name="authority_nm" [(ngModel)]="data.authority_nm"></div>
                             <div class="col-lg-2">
                                 <button (click)="onSave()" class="btn btn-sm btn-primary pull-right m-t-n-xs"><strong>저장</strong></button>
                             </div>

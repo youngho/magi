@@ -6,24 +6,27 @@ import { Injectable } from '@angular/core';
 import {Authority} from './authority';
 import {Headers,Http} from "@angular/http";
 import "rxjs/add/operator/map";
+import { ApiService } from '../../core/api.service';
 
 @Injectable()
 export class AuthorityViewService {
+    private path: string = 'authority';
+    constructor(private api: ApiService) { }
+/*
     constructor(private http:Http){
 
     }
+*/
 
+/*
     getAuthority(){
         return this.http.get('/authority')
             .map(res=>res.json());
     }
+*/
 
-    postAuthority(authority:Authority){
-        console.log("postAuthority() 서비스에 넘어온 값 : "+ authority.user_nm + authority.authority_nm );
-        let headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('/authority',
-            JSON.stringify(authority),
-            {headers: headers})
-            .map(res=>res.json());
+    postAuthority(data: Authority) {
+        console.log('saving post:' + data.authority_nm);
+        return this.api.post(`${this.path}`, data);
     }
 }

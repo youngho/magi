@@ -12,7 +12,7 @@ export class ApiService {
     'Accept': 'application/json'
   });
 
-  private API_URL: string = 'http://localhost:8080/blog-api-cdi/api';
+  private API_URL: string = 'http://localhost:8080/';
 
   constructor(private http: Http/*, @Inject(APP_CONFIG) config: AppConfig*/) {
     //this.API_URL = config.apiEndpoint;
