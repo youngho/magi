@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Mapper
 public interface LastTableMapper {
-    @Select("SELECT * FROM LAST_TABLE")
+@Select("SELECT * FROM LAST_TABLE WHERE ROWNUM < 6")
     public List<LastTable> readAllLastTable();
 
     @Insert("INSERT\n" +
