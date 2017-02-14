@@ -1,4 +1,4 @@
-export interface LastTable {
+export class LastTable {
     operator: string;
     sysDate: string;
     tester: string;
@@ -8,4 +8,8 @@ export interface LastTable {
     pgmcnt: string;
     subPgm: string;
     global: string;
+    constructor(operator, sysDate){
+        this.operator = operator;
+        this.sysDate = sysDate;
+    }
 }

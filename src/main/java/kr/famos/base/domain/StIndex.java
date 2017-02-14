@@ -8,7 +8,7 @@ public class StIndex {
     private String processName = "";    // PROCESS_NAME
     private String endDate = "";    // 종료시간
     private String endTime = "";    // 종료시간
-    private String productName = "";    // PRODUCT_NAME
+    private String partnumberName = "";    // PRODUCT_NAME
     private String testerNumber = "";    // TESTER_NUMBER
     private String testerHead = "";    // TESTER_HEAD
     private String operator = "";    // 사용자
@@ -83,12 +83,12 @@ public class StIndex {
         this.endTime = endTime;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getPartnumberName() {
+        return partnumberName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setPartnumberName(String partnumberName) {
+        this.partnumberName = partnumberName;
     }
 
     public String getTesterNumber() {

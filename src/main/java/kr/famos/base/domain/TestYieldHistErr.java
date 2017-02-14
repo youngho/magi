@@ -4,44 +4,10 @@ package kr.famos.base.domain;
  * Created by yhkim on 2017-01-31.
  */
 public class TestYieldHistErr {
-    private String finalSubCnt2 = "";    // FINAL SUB BIN CNT2
-    private String ngCnt1 = "";    // NG BIN CNT1
-    private String ngCnt2 = "";    // NG BIN CNT2
-    private String finalNgCnt1 = "";    // FINAL NG BIN CNT1
-    private String finalNgCnt2 = "";    // FINAL NG BIN CNT1
-    private String subProgramName = "";    // SUB PROGRAM NAME
-    private String initialBadBlock = "";    // INITIAL BAD BLOCK
-    private String finalBadBlock = "";    // FINAL BAD BLOCK
-    private String gapIbbfbb = "";    // GAP IBBFBB
-    private String mLotList = "";    // M LOT LIST
-    private String recycleFlag = "";    // RECYCLE FLAG
-    private String sblCode = "";    // SBL CODE
-    private String sblJudge = "";    // SBL 판정
-    private String dataFormat = "";    // DATA FORMAT
-    private String sblCmd = "";    // SBL CMD
-    private String runSblCode = "";    // RUN SBL CODE
-    private String runSblCmd = "";    // RUN SBL CMD
-    private String hOsA = "";    //
-    private String hOsB = "";    //
-    private String tOsOpsys = "";    //
-    private String tOsAtl = "";    //
-    private String tOsDiag = "";    //
-    private String tOsSysos = "";    //
-    private String tOsGpib = "";    //
-    private String tIf = "";    //
-    private String fsstFlag = "";    //
-    private String frLot = "";    //
-    private int subbin114 = 0;    //
-    private int finalSubbin114 = 0;    //
-    private int subbin115 = 0;    // SUB BIN 115
-    private int finalSubbin115 = 0;    // FINAL SUB BIN 115
-    private int subbin116 = 0;    // SUB BIN 116
-    private int finalSubbin116 = 0;    // FINAL SUB BIN 116
-    private String purposeType = "";    //
     private String sysDate = "";    // Update 날짜
     private String lotNumber = "";    // LOTID
     private String processName = "";    // PROCESS
-    private String productName = "";    // PRODUCT
+    private String partnumberName = "";    // PRODUCT
     private String programName = "";    // PROGRAM
     private String operatorName = "";    // 사용자
     private String testerName = "";    // TESTER NAME
@@ -118,278 +84,40 @@ public class TestYieldHistErr {
     private String subCnt1 = "";    // SUB BIN CNT1
     private String subCnt2 = "";    // SUB BIN CNT2
     private String finalSubCnt1 = "";    // FINAL SUB BIN CNT1
-
-    public String getFinalSubCnt2() {
-        return finalSubCnt2;
-    }
-
-    public void setFinalSubCnt2(String finalSubCnt2) {
-        this.finalSubCnt2 = finalSubCnt2;
-    }
-
-    public String getNgCnt1() {
-        return ngCnt1;
-    }
-
-    public void setNgCnt1(String ngCnt1) {
-        this.ngCnt1 = ngCnt1;
-    }
-
-    public String getNgCnt2() {
-        return ngCnt2;
-    }
-
-    public void setNgCnt2(String ngCnt2) {
-        this.ngCnt2 = ngCnt2;
-    }
-
-    public String getFinalNgCnt1() {
-        return finalNgCnt1;
-    }
-
-    public void setFinalNgCnt1(String finalNgCnt1) {
-        this.finalNgCnt1 = finalNgCnt1;
-    }
-
-    public String getFinalNgCnt2() {
-        return finalNgCnt2;
-    }
-
-    public void setFinalNgCnt2(String finalNgCnt2) {
-        this.finalNgCnt2 = finalNgCnt2;
-    }
-
-    public String getSubProgramName() {
-        return subProgramName;
-    }
-
-    public void setSubProgramName(String subProgramName) {
-        this.subProgramName = subProgramName;
-    }
-
-    public String getInitialBadBlock() {
-        return initialBadBlock;
-    }
-
-    public void setInitialBadBlock(String initialBadBlock) {
-        this.initialBadBlock = initialBadBlock;
-    }
-
-    public String getFinalBadBlock() {
-        return finalBadBlock;
-    }
-
-    public void setFinalBadBlock(String finalBadBlock) {
-        this.finalBadBlock = finalBadBlock;
-    }
-
-    public String getGapIbbfbb() {
-        return gapIbbfbb;
-    }
-
-    public void setGapIbbfbb(String gapIbbfbb) {
-        this.gapIbbfbb = gapIbbfbb;
-    }
-
-    public String getMLotList() {
-        return mLotList;
-    }
-
-    public void setMLotList(String mLotList) {
-        this.mLotList = mLotList;
-    }
-
-    public String getRecycleFlag() {
-        return recycleFlag;
-    }
-
-    public void setRecycleFlag(String recycleFlag) {
-        this.recycleFlag = recycleFlag;
-    }
-
-    public String getSblCode() {
-        return sblCode;
-    }
-
-    public void setSblCode(String sblCode) {
-        this.sblCode = sblCode;
-    }
-
-    public String getSblJudge() {
-        return sblJudge;
-    }
-
-    public void setSblJudge(String sblJudge) {
-        this.sblJudge = sblJudge;
-    }
-
-    public String getDataFormat() {
-        return dataFormat;
-    }
-
-    public void setDataFormat(String dataFormat) {
-        this.dataFormat = dataFormat;
-    }
-
-    public String getSblCmd() {
-        return sblCmd;
-    }
-
-    public void setSblCmd(String sblCmd) {
-        this.sblCmd = sblCmd;
-    }
-
-    public String getRunSblCode() {
-        return runSblCode;
-    }
-
-    public void setRunSblCode(String runSblCode) {
-        this.runSblCode = runSblCode;
-    }
-
-    public String getRunSblCmd() {
-        return runSblCmd;
-    }
-
-    public void setRunSblCmd(String runSblCmd) {
-        this.runSblCmd = runSblCmd;
-    }
-
-    public String getHOsA() {
-        return hOsA;
-    }
-
-    public void setHOsA(String hOsA) {
-        this.hOsA = hOsA;
-    }
-
-    public String getHOsB() {
-        return hOsB;
-    }
-
-    public void setHOsB(String hOsB) {
-        this.hOsB = hOsB;
-    }
-
-    public String getTOsOpsys() {
-        return tOsOpsys;
-    }
-
-    public void setTOsOpsys(String tOsOpsys) {
-        this.tOsOpsys = tOsOpsys;
-    }
-
-    public String getTOsAtl() {
-        return tOsAtl;
-    }
-
-    public void setTOsAtl(String tOsAtl) {
-        this.tOsAtl = tOsAtl;
-    }
-
-    public String getTOsDiag() {
-        return tOsDiag;
-    }
-
-    public void setTOsDiag(String tOsDiag) {
-        this.tOsDiag = tOsDiag;
-    }
-
-    public String getTOsSysos() {
-        return tOsSysos;
-    }
-
-    public void setTOsSysos(String tOsSysos) {
-        this.tOsSysos = tOsSysos;
-    }
-
-    public String getTOsGpib() {
-        return tOsGpib;
-    }
-
-    public void setTOsGpib(String tOsGpib) {
-        this.tOsGpib = tOsGpib;
-    }
-
-    public String getTIf() {
-        return tIf;
-    }
-
-    public void setTIf(String tIf) {
-        this.tIf = tIf;
-    }
-
-    public String getFsstFlag() {
-        return fsstFlag;
-    }
-
-    public void setFsstFlag(String fsstFlag) {
-        this.fsstFlag = fsstFlag;
-    }
-
-    public String getFrLot() {
-        return frLot;
-    }
-
-    public void setFrLot(String frLot) {
-        this.frLot = frLot;
-    }
-
-    public int getSubbin114() {
-        return subbin114;
-    }
-
-    public void setSubbin114(int subbin114) {
-        this.subbin114 = subbin114;
-    }
-
-    public int getFinalSubbin114() {
-        return finalSubbin114;
-    }
-
-    public void setFinalSubbin114(int finalSubbin114) {
-        this.finalSubbin114 = finalSubbin114;
-    }
-
-    public int getSubbin115() {
-        return subbin115;
-    }
-
-    public void setSubbin115(int subbin115) {
-        this.subbin115 = subbin115;
-    }
-
-    public int getFinalSubbin115() {
-        return finalSubbin115;
-    }
-
-    public void setFinalSubbin115(int finalSubbin115) {
-        this.finalSubbin115 = finalSubbin115;
-    }
-
-    public int getSubbin116() {
-        return subbin116;
-    }
-
-    public void setSubbin116(int subbin116) {
-        this.subbin116 = subbin116;
-    }
-
-    public int getFinalSubbin116() {
-        return finalSubbin116;
-    }
-
-    public void setFinalSubbin116(int finalSubbin116) {
-        this.finalSubbin116 = finalSubbin116;
-    }
-
-    public String getPurposeType() {
-        return purposeType;
-    }
-
-    public void setPurposeType(String purposeType) {
-        this.purposeType = purposeType;
-    }
+    private String finalSubCnt2 = "";    // FINAL SUB BIN CNT2
+    private String ngCnt1 = "";    // NG BIN CNT1
+    private String ngCnt2 = "";    // NG BIN CNT2
+    private String finalNgCnt1 = "";    // FINAL NG BIN CNT1
+    private String finalNgCnt2 = "";    // FINAL NG BIN CNT1
+    private String subProgramName = "";    // SUB PROGRAM NAME
+    private String initialBadBlock = "";    // INITIAL BAD BLOCK
+    private String finalBadBlock = "";    // FINAL BAD BLOCK
+    private String gapIbbfbb = "";    // GAP IBBFBB
+    private String mLotList = "";    // M LOT LIST
+    private String recycleFlag = "";    // RECYCLE FLAG
+    private String sblCode = "";    // SBL CODE
+    private String sblJudge = "";    // SBL 판정
+    private String dataFormat = "";    // DATA FORMAT
+    private String sblCmd = "";    // SBL CMD
+    private String runSblCode = "";    // RUN SBL CODE
+    private String runSblCmd = "";    // RUN SBL CMD
+    private String hOsA = "";    //
+    private String hOsB = "";    //
+    private String tOsOpsys = "";    //
+    private String tOsAtl = "";    //
+    private String tOsDiag = "";    //
+    private String tOsSysos = "";    //
+    private String tOsGpib = "";    //
+    private String tIf = "";    //
+    private String fsstFlag = "";    //
+    private String frLot = "";    //
+    private int subbin114 = 0;    //
+    private int finalSubbin114 = 0;    //
+    private int subbin115 = 0;    // SUB BIN 115
+    private int finalSubbin115 = 0;    // FINAL SUB BIN 115
+    private int subbin116 = 0;    // SUB BIN 116
+    private int finalSubbin116 = 0;    // FINAL SUB BIN 116
+    private String purposeType = "";    //
 
     public String getSysDate() {
         return sysDate;
@@ -415,12 +143,12 @@ public class TestYieldHistErr {
         this.processName = processName;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getPartnumberName() {
+        return partnumberName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setPartnumberName(String partnumberName) {
+        this.partnumberName = partnumberName;
     }
 
     public String getProgramName() {
@@ -1029,6 +757,278 @@ public class TestYieldHistErr {
 
     public void setFinalSubCnt1(String finalSubCnt1) {
         this.finalSubCnt1 = finalSubCnt1;
+    }
+
+    public String getFinalSubCnt2() {
+        return finalSubCnt2;
+    }
+
+    public void setFinalSubCnt2(String finalSubCnt2) {
+        this.finalSubCnt2 = finalSubCnt2;
+    }
+
+    public String getNgCnt1() {
+        return ngCnt1;
+    }
+
+    public void setNgCnt1(String ngCnt1) {
+        this.ngCnt1 = ngCnt1;
+    }
+
+    public String getNgCnt2() {
+        return ngCnt2;
+    }
+
+    public void setNgCnt2(String ngCnt2) {
+        this.ngCnt2 = ngCnt2;
+    }
+
+    public String getFinalNgCnt1() {
+        return finalNgCnt1;
+    }
+
+    public void setFinalNgCnt1(String finalNgCnt1) {
+        this.finalNgCnt1 = finalNgCnt1;
+    }
+
+    public String getFinalNgCnt2() {
+        return finalNgCnt2;
+    }
+
+    public void setFinalNgCnt2(String finalNgCnt2) {
+        this.finalNgCnt2 = finalNgCnt2;
+    }
+
+    public String getSubProgramName() {
+        return subProgramName;
+    }
+
+    public void setSubProgramName(String subProgramName) {
+        this.subProgramName = subProgramName;
+    }
+
+    public String getInitialBadBlock() {
+        return initialBadBlock;
+    }
+
+    public void setInitialBadBlock(String initialBadBlock) {
+        this.initialBadBlock = initialBadBlock;
+    }
+
+    public String getFinalBadBlock() {
+        return finalBadBlock;
+    }
+
+    public void setFinalBadBlock(String finalBadBlock) {
+        this.finalBadBlock = finalBadBlock;
+    }
+
+    public String getGapIbbfbb() {
+        return gapIbbfbb;
+    }
+
+    public void setGapIbbfbb(String gapIbbfbb) {
+        this.gapIbbfbb = gapIbbfbb;
+    }
+
+    public String getMLotList() {
+        return mLotList;
+    }
+
+    public void setMLotList(String mLotList) {
+        this.mLotList = mLotList;
+    }
+
+    public String getRecycleFlag() {
+        return recycleFlag;
+    }
+
+    public void setRecycleFlag(String recycleFlag) {
+        this.recycleFlag = recycleFlag;
+    }
+
+    public String getSblCode() {
+        return sblCode;
+    }
+
+    public void setSblCode(String sblCode) {
+        this.sblCode = sblCode;
+    }
+
+    public String getSblJudge() {
+        return sblJudge;
+    }
+
+    public void setSblJudge(String sblJudge) {
+        this.sblJudge = sblJudge;
+    }
+
+    public String getDataFormat() {
+        return dataFormat;
+    }
+
+    public void setDataFormat(String dataFormat) {
+        this.dataFormat = dataFormat;
+    }
+
+    public String getSblCmd() {
+        return sblCmd;
+    }
+
+    public void setSblCmd(String sblCmd) {
+        this.sblCmd = sblCmd;
+    }
+
+    public String getRunSblCode() {
+        return runSblCode;
+    }
+
+    public void setRunSblCode(String runSblCode) {
+        this.runSblCode = runSblCode;
+    }
+
+    public String getRunSblCmd() {
+        return runSblCmd;
+    }
+
+    public void setRunSblCmd(String runSblCmd) {
+        this.runSblCmd = runSblCmd;
+    }
+
+    public String getHOsA() {
+        return hOsA;
+    }
+
+    public void setHOsA(String hOsA) {
+        this.hOsA = hOsA;
+    }
+
+    public String getHOsB() {
+        return hOsB;
+    }
+
+    public void setHOsB(String hOsB) {
+        this.hOsB = hOsB;
+    }
+
+    public String getTOsOpsys() {
+        return tOsOpsys;
+    }
+
+    public void setTOsOpsys(String tOsOpsys) {
+        this.tOsOpsys = tOsOpsys;
+    }
+
+    public String getTOsAtl() {
+        return tOsAtl;
+    }
+
+    public void setTOsAtl(String tOsAtl) {
+        this.tOsAtl = tOsAtl;
+    }
+
+    public String getTOsDiag() {
+        return tOsDiag;
+    }
+
+    public void setTOsDiag(String tOsDiag) {
+        this.tOsDiag = tOsDiag;
+    }
+
+    public String getTOsSysos() {
+        return tOsSysos;
+    }
+
+    public void setTOsSysos(String tOsSysos) {
+        this.tOsSysos = tOsSysos;
+    }
+
+    public String getTOsGpib() {
+        return tOsGpib;
+    }
+
+    public void setTOsGpib(String tOsGpib) {
+        this.tOsGpib = tOsGpib;
+    }
+
+    public String getTIf() {
+        return tIf;
+    }
+
+    public void setTIf(String tIf) {
+        this.tIf = tIf;
+    }
+
+    public String getFsstFlag() {
+        return fsstFlag;
+    }
+
+    public void setFsstFlag(String fsstFlag) {
+        this.fsstFlag = fsstFlag;
+    }
+
+    public String getFrLot() {
+        return frLot;
+    }
+
+    public void setFrLot(String frLot) {
+        this.frLot = frLot;
+    }
+
+    public int getSubbin114() {
+        return subbin114;
+    }
+
+    public void setSubbin114(int subbin114) {
+        this.subbin114 = subbin114;
+    }
+
+    public int getFinalSubbin114() {
+        return finalSubbin114;
+    }
+
+    public void setFinalSubbin114(int finalSubbin114) {
+        this.finalSubbin114 = finalSubbin114;
+    }
+
+    public int getSubbin115() {
+        return subbin115;
+    }
+
+    public void setSubbin115(int subbin115) {
+        this.subbin115 = subbin115;
+    }
+
+    public int getFinalSubbin115() {
+        return finalSubbin115;
+    }
+
+    public void setFinalSubbin115(int finalSubbin115) {
+        this.finalSubbin115 = finalSubbin115;
+    }
+
+    public int getSubbin116() {
+        return subbin116;
+    }
+
+    public void setSubbin116(int subbin116) {
+        this.subbin116 = subbin116;
+    }
+
+    public int getFinalSubbin116() {
+        return finalSubbin116;
+    }
+
+    public void setFinalSubbin116(int finalSubbin116) {
+        this.finalSubbin116 = finalSubbin116;
+    }
+
+    public String getPurposeType() {
+        return purposeType;
+    }
+
+    public void setPurposeType(String purposeType) {
+        this.purposeType = purposeType;
     }
 
 }

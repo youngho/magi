@@ -4,154 +4,234 @@ package kr.famos.base.domain;
  * Created by x on 2017. 1. 10..
  */
 public class TestYieldHist {
-    private String hd_temp;
-    private String board_id;
-    private String line;
-    private String site;
-    private String lot_type;
-    private String retest_count;
-    private String final_retest_count;
-    private String yield;
-    private String simax_inqty;
-    private String test_count;
-    private String pass_count;
-    private String category_01;
-    private String category_02;
-    private String category_03;
-    private String category_04;
-    private String category_05;
-    private String category_06;
-    private String category_07;
-    private String category_08;
-    private String category_09;
-    private String start_date;
-    private String start_time;
-    private String end_date;
-    private String end_time;
-    private String execute_date;
-    private String op_input;
-    private String op_cat1;
-    private String op_cat2;
-    private String op_cat3;
-    private String op_cat4;
-    private String op_cat5;
-    private String op_cat6;
-    private String op_cat7;
-    private String op_cat8;
-    private String op_cat9;
-    private String sort_input;
-    private String sort_01;
-    private String sort_02;
-    private String sort_03;
-    private String sort_04;
-    private String sort_05;
-    private String sort_06;
-    private String sort_07;
-    private String sort_08;
-    private String hd_input;
-    private String hd_cat1;
-    private String hd_cat2;
-    private String hd_cat3;
-    private String hd_cat4;
-    private String hd_cat5;
-    private String hd_cat6;
-    private String hd_cat7;
-    private String hd_cat8;
-    private String cat6_1;
-    private String cat6_2;
-    private String cat6_3;
-    private String cat6_4;
-    private String cat6_5;
-    private String cat7_1;
-    private String cat7_2;
-    private String cat7_3;
-    private String cat7_4;
-    private String cat7_5;
-    private String revno;
-    private String revno_end;
-    private String lotin;
-    private String lotout;
-    private String sub_cnt1;
-    private String sub_cnt2;
-    private String final_sub_cnt1;
-    private String final_sub_cnt2;
-    private String ng_cnt1;
-    private String ng_cnt2;
-    private String final_ng_cnt1;
-    private String final_ng_cnt2;
-    private String sub_program_name;
-    private String initial_bad_block;
-    private String final_bad_block;
-    private String gap_ibbfbb;
-    private String m_lot_list;
-    private String recycle_step;
-    private String recycle_flag;
-    private String sbl_code;
-    private String sbl_judge;
-    private String mc_ncfcode;
-    private String ncfcode_simax;
-    private String ncacode_simax;
-    private String ncecode_simax;
-    private String ncqcode_simax;
-    private String nctcode_simax;
-    private String nchcode_simax;
-    private String ncmcode_simax;
-    private String ncpcode_simax;
-    private String ncscode_simax;
-    private String ncbcode_simax;
-    private String nckcode_simax;
-    private String ncrcode_simax;
-    private String data_format;
-    private String sbl_cmd;
-    private String run_sbl_code;
-    private String run_sbl_cmd;
-    private String h_os_a;
-    private String h_os_b;
-    private String t_os_opsys;
-    private String t_os_atl;
-    private String t_os_diag;
-    private String t_os_sysos;
-    private String t_os_gpib;
-    private String t_if;
-    private String fsst_flag;
-    private String lot_asysite;
-    private String eds_bad_block;
-    private String gap_ebbfbb;
-    private String fr_lot;
-    private String subbin114;
-    private String final_subbin114;
-    private String subbin115;
-    private String final_subbin115;
-    private String subbin116;
-    private String final_subbin116;
-    private String rework_flag;
-    private String test_line;
-    private String purpose_type;
-    private String sys_date;
-    private String lot_number;
-    private String process_name;
-    private String product_name;
-    private String program_name;
-    private String operator_name;
-    private String tester_name;
-    private String tester_number;
-    private String tester_head;
-    private String hd_model;
+    private String sysDate = "";    //
+    private String lotNumber = "";    //
+    private String processName = "";    //
+    private String partnumberName = "";    //
+    private String programName = "";    //
+    private String operatorName = "";    //
+    private String testerName = "";    //
+    private String testerNumber = "";    //
+    private String testerHead = "";    //
+    private String hdModel = "";    //
+    private String hdTemp = "";    //
+    private String boardId = "";    //
+    private String line = "";    //
+    private String site = "";    //
+    private String lotType = "";    //
+    private String retestCount = "";    //
+    private String finalRetestCount = "";    //
+    private String yield = "";    //
+    private int simaxInqty = 0;    //
+    private int testCount = 0;    //
+    private int passCount = 0;    //
+    private int category01 = 0;    //
+    private int category02 = 0;    //
+    private int category03 = 0;    //
+    private int category04 = 0;    //
+    private int category05 = 0;    //
+    private int category06 = 0;    //
+    private int category07 = 0;    //
+    private int category08 = 0;    //
+    private int category09 = 0;    //
+    private String startDate = "";    //
+    private String startTime = "";    //
+    private String endDate = "";    //
+    private String endTime = "";    //
+    private String executeDate = "";    //
+    private int opInput = 0;    //
+    private int opCat1 = 0;    //
+    private int opCat2 = 0;    //
+    private int opCat3 = 0;    //
+    private int opCat4 = 0;    //
+    private int opCat5 = 0;    //
+    private int opCat6 = 0;    //
+    private int opCat7 = 0;    //
+    private int opCat8 = 0;    //
+    private int opCat9 = 0;    //
+    private int sortInput = 0;    //
+    private int sort01 = 0;    //
+    private int sort02 = 0;    //
+    private int sort03 = 0;    //
+    private int sort04 = 0;    //
+    private int sort05 = 0;    //
+    private int sort06 = 0;    //
+    private int sort07 = 0;    //
+    private int sort08 = 0;    //
+    private int hdInput = 0;    //
+    private int hdCat1 = 0;    //
+    private int hdCat2 = 0;    //
+    private int hdCat3 = 0;    //
+    private int hdCat4 = 0;    //
+    private int hdCat5 = 0;    //
+    private int hdCat6 = 0;    //
+    private int hdCat7 = 0;    //
+    private int hdCat8 = 0;    //
+    private String cat61 = "";    //
+    private String cat62 = "";    //
+    private String cat63 = "";    //
+    private String cat64 = "";    //
+    private String cat65 = "";    //
+    private String cat71 = "";    //
+    private String cat72 = "";    //
+    private String cat73 = "";    //
+    private String cat74 = "";    //
+    private String cat75 = "";    //
+    private String revno = "";    //
+    private String revnoEnd = "";    //
+    private String lotin = "";    //
+    private String lotout = "";    //
+    private String subCnt1 = "";    //
+    private String subCnt2 = "";    //
+    private String finalSubCnt1 = "";    //
+    private String finalSubCnt2 = "";    //
+    private String ngCnt1 = "";    //
+    private String ngCnt2 = "";    //
+    private String finalNgCnt1 = "";    //
+    private String finalNgCnt2 = "";    //
+    private String subProgramName = "";    //
+    private String initialBadBlock = "";    //
+    private String finalBadBlock = "";    //
+    private String gapIbbfbb = "";    //
+    private String mLotList = "";    //
+    private String recycleStep = "";    //
+    private String recycleFlag = "";    //
+    private String sblCode = "";    //
+    private String sblJudge = "";    //
+    private String mcNcfcode = "";    //
+    private String ncfcodeSimax = "";    //
+    private String ncacodeSimax = "";    //
+    private String ncecodeSimax = "";    //
+    private String ncqcodeSimax = "";    //
+    private String nctcodeSimax = "";    //
+    private String nchcodeSimax = "";    //
+    private String ncmcodeSimax = "";    //
+    private String ncpcodeSimax = "";    //
+    private String ncscodeSimax = "";    //
+    private String ncbcodeSimax = "";    //
+    private String nckcodeSimax = "";    //
+    private String ncrcodeSimax = "";    //
+    private String dataFormat = "";    //
+    private String sblCmd = "";    //
+    private String runSblCode = "";    //
+    private String runSblCmd = "";    //
+    private String hOsA = "";    //
+    private String hOsB = "";    //
+    private String tOsOpsys = "";    //
+    private String tOsAtl = "";    //
+    private String tOsDiag = "";    //
+    private String tOsSysos = "";    //
+    private String tOsGpib = "";    //
+    private String tIf = "";    //
+    private String fsstFlag = "";    //
+    private String lotAsysite = "";    //
+    private String edsBadBlock = "";    //
+    private String gapEbbfbb = "";    //
+    private String frLot = "";    //
+    private int subbin114 = 0;    //
+    private int finalSubbin114 = 0;    //
+    private int subbin115 = 0;    //
+    private int finalSubbin115 = 0;    //
+    private int subbin116 = 0;    //
+    private int finalSubbin116 = 0;    //
+    private String reworkFlag = "";    //
+    private String testLine = "";    //
+    private String purposeType = "";    //
 
-    public String getHd_temp() {
-        return hd_temp;
+    public String getSysDate() {
+        return sysDate;
     }
 
-    public void setHd_temp(String hd_temp) {
-        this.hd_temp = hd_temp;
+    public void setSysDate(String sysDate) {
+        this.sysDate = sysDate;
     }
 
-    public String getBoard_id() {
-        return board_id;
+    public String getLotNumber() {
+        return lotNumber;
     }
 
-    public void setBoard_id(String board_id) {
-        this.board_id = board_id;
+    public void setLotNumber(String lotNumber) {
+        this.lotNumber = lotNumber;
+    }
+
+    public String getProcessName() {
+        return processName;
+    }
+
+    public void setProcessName(String processName) {
+        this.processName = processName;
+    }
+
+    public String getPartnumberName() {
+        return partnumberName;
+    }
+
+    public void setPartnumberName(String partnumberName) {
+        this.partnumberName = partnumberName;
+    }
+
+    public String getProgramName() {
+        return programName;
+    }
+
+    public void setProgramName(String programName) {
+        this.programName = programName;
+    }
+
+    public String getOperatorName() {
+        return operatorName;
+    }
+
+    public void setOperatorName(String operatorName) {
+        this.operatorName = operatorName;
+    }
+
+    public String getTesterName() {
+        return testerName;
+    }
+
+    public void setTesterName(String testerName) {
+        this.testerName = testerName;
+    }
+
+    public String getTesterNumber() {
+        return testerNumber;
+    }
+
+    public void setTesterNumber(String testerNumber) {
+        this.testerNumber = testerNumber;
+    }
+
+    public String getTesterHead() {
+        return testerHead;
+    }
+
+    public void setTesterHead(String testerHead) {
+        this.testerHead = testerHead;
+    }
+
+    public String getHdModel() {
+        return hdModel;
+    }
+
+    public void setHdModel(String hdModel) {
+        this.hdModel = hdModel;
+    }
+
+    public String getHdTemp() {
+        return hdTemp;
+    }
+
+    public void setHdTemp(String hdTemp) {
+        this.hdTemp = hdTemp;
+    }
+
+    public String getBoardId() {
+        return boardId;
+    }
+
+    public void setBoardId(String boardId) {
+        this.boardId = boardId;
     }
 
     public String getLine() {
@@ -170,28 +250,28 @@ public class TestYieldHist {
         this.site = site;
     }
 
-    public String getLot_type() {
-        return lot_type;
+    public String getLotType() {
+        return lotType;
     }
 
-    public void setLot_type(String lot_type) {
-        this.lot_type = lot_type;
+    public void setLotType(String lotType) {
+        this.lotType = lotType;
     }
 
-    public String getRetest_count() {
-        return retest_count;
+    public String getRetestCount() {
+        return retestCount;
     }
 
-    public void setRetest_count(String retest_count) {
-        this.retest_count = retest_count;
+    public void setRetestCount(String retestCount) {
+        this.retestCount = retestCount;
     }
 
-    public String getFinal_retest_count() {
-        return final_retest_count;
+    public String getFinalRetestCount() {
+        return finalRetestCount;
     }
 
-    public void setFinal_retest_count(String final_retest_count) {
-        this.final_retest_count = final_retest_count;
+    public void setFinalRetestCount(String finalRetestCount) {
+        this.finalRetestCount = finalRetestCount;
     }
 
     public String getYield() {
@@ -202,444 +282,444 @@ public class TestYieldHist {
         this.yield = yield;
     }
 
-    public String getSimax_inqty() {
-        return simax_inqty;
+    public int getSimaxInqty() {
+        return simaxInqty;
     }
 
-    public void setSimax_inqty(String simax_inqty) {
-        this.simax_inqty = simax_inqty;
+    public void setSimaxInqty(int simaxInqty) {
+        this.simaxInqty = simaxInqty;
     }
 
-    public String getTest_count() {
-        return test_count;
+    public int getTestCount() {
+        return testCount;
     }
 
-    public void setTest_count(String test_count) {
-        this.test_count = test_count;
+    public void setTestCount(int testCount) {
+        this.testCount = testCount;
     }
 
-    public String getPass_count() {
-        return pass_count;
+    public int getPassCount() {
+        return passCount;
     }
 
-    public void setPass_count(String pass_count) {
-        this.pass_count = pass_count;
+    public void setPassCount(int passCount) {
+        this.passCount = passCount;
     }
 
-    public String getCategory_01() {
-        return category_01;
+    public int getCategory01() {
+        return category01;
     }
 
-    public void setCategory_01(String category_01) {
-        this.category_01 = category_01;
+    public void setCategory01(int category01) {
+        this.category01 = category01;
     }
 
-    public String getCategory_02() {
-        return category_02;
+    public int getCategory02() {
+        return category02;
     }
 
-    public void setCategory_02(String category_02) {
-        this.category_02 = category_02;
+    public void setCategory02(int category02) {
+        this.category02 = category02;
     }
 
-    public String getCategory_03() {
-        return category_03;
+    public int getCategory03() {
+        return category03;
     }
 
-    public void setCategory_03(String category_03) {
-        this.category_03 = category_03;
+    public void setCategory03(int category03) {
+        this.category03 = category03;
     }
 
-    public String getCategory_04() {
-        return category_04;
+    public int getCategory04() {
+        return category04;
     }
 
-    public void setCategory_04(String category_04) {
-        this.category_04 = category_04;
+    public void setCategory04(int category04) {
+        this.category04 = category04;
     }
 
-    public String getCategory_05() {
-        return category_05;
+    public int getCategory05() {
+        return category05;
     }
 
-    public void setCategory_05(String category_05) {
-        this.category_05 = category_05;
+    public void setCategory05(int category05) {
+        this.category05 = category05;
     }
 
-    public String getCategory_06() {
-        return category_06;
+    public int getCategory06() {
+        return category06;
     }
 
-    public void setCategory_06(String category_06) {
-        this.category_06 = category_06;
+    public void setCategory06(int category06) {
+        this.category06 = category06;
     }
 
-    public String getCategory_07() {
-        return category_07;
+    public int getCategory07() {
+        return category07;
     }
 
-    public void setCategory_07(String category_07) {
-        this.category_07 = category_07;
+    public void setCategory07(int category07) {
+        this.category07 = category07;
     }
 
-    public String getCategory_08() {
-        return category_08;
+    public int getCategory08() {
+        return category08;
     }
 
-    public void setCategory_08(String category_08) {
-        this.category_08 = category_08;
+    public void setCategory08(int category08) {
+        this.category08 = category08;
     }
 
-    public String getCategory_09() {
-        return category_09;
+    public int getCategory09() {
+        return category09;
     }
 
-    public void setCategory_09(String category_09) {
-        this.category_09 = category_09;
+    public void setCategory09(int category09) {
+        this.category09 = category09;
     }
 
-    public String getStart_date() {
-        return start_date;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public String getStart_time() {
-        return start_time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setStart_time(String start_time) {
-        this.start_time = start_time;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getEnd_date() {
-        return end_date;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public void setEnd_date(String end_date) {
-        this.end_date = end_date;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
-    public String getEnd_time() {
-        return end_time;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setEnd_time(String end_time) {
-        this.end_time = end_time;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public String getExecute_date() {
-        return execute_date;
+    public String getExecuteDate() {
+        return executeDate;
     }
 
-    public void setExecute_date(String execute_date) {
-        this.execute_date = execute_date;
+    public void setExecuteDate(String executeDate) {
+        this.executeDate = executeDate;
     }
 
-    public String getOp_input() {
-        return op_input;
+    public int getOpInput() {
+        return opInput;
     }
 
-    public void setOp_input(String op_input) {
-        this.op_input = op_input;
+    public void setOpInput(int opInput) {
+        this.opInput = opInput;
     }
 
-    public String getOp_cat1() {
-        return op_cat1;
+    public int getOpCat1() {
+        return opCat1;
     }
 
-    public void setOp_cat1(String op_cat1) {
-        this.op_cat1 = op_cat1;
+    public void setOpCat1(int opCat1) {
+        this.opCat1 = opCat1;
     }
 
-    public String getOp_cat2() {
-        return op_cat2;
+    public int getOpCat2() {
+        return opCat2;
     }
 
-    public void setOp_cat2(String op_cat2) {
-        this.op_cat2 = op_cat2;
+    public void setOpCat2(int opCat2) {
+        this.opCat2 = opCat2;
     }
 
-    public String getOp_cat3() {
-        return op_cat3;
+    public int getOpCat3() {
+        return opCat3;
     }
 
-    public void setOp_cat3(String op_cat3) {
-        this.op_cat3 = op_cat3;
+    public void setOpCat3(int opCat3) {
+        this.opCat3 = opCat3;
     }
 
-    public String getOp_cat4() {
-        return op_cat4;
+    public int getOpCat4() {
+        return opCat4;
     }
 
-    public void setOp_cat4(String op_cat4) {
-        this.op_cat4 = op_cat4;
+    public void setOpCat4(int opCat4) {
+        this.opCat4 = opCat4;
     }
 
-    public String getOp_cat5() {
-        return op_cat5;
+    public int getOpCat5() {
+        return opCat5;
     }
 
-    public void setOp_cat5(String op_cat5) {
-        this.op_cat5 = op_cat5;
+    public void setOpCat5(int opCat5) {
+        this.opCat5 = opCat5;
     }
 
-    public String getOp_cat6() {
-        return op_cat6;
+    public int getOpCat6() {
+        return opCat6;
     }
 
-    public void setOp_cat6(String op_cat6) {
-        this.op_cat6 = op_cat6;
+    public void setOpCat6(int opCat6) {
+        this.opCat6 = opCat6;
     }
 
-    public String getOp_cat7() {
-        return op_cat7;
+    public int getOpCat7() {
+        return opCat7;
     }
 
-    public void setOp_cat7(String op_cat7) {
-        this.op_cat7 = op_cat7;
+    public void setOpCat7(int opCat7) {
+        this.opCat7 = opCat7;
     }
 
-    public String getOp_cat8() {
-        return op_cat8;
+    public int getOpCat8() {
+        return opCat8;
     }
 
-    public void setOp_cat8(String op_cat8) {
-        this.op_cat8 = op_cat8;
+    public void setOpCat8(int opCat8) {
+        this.opCat8 = opCat8;
     }
 
-    public String getOp_cat9() {
-        return op_cat9;
+    public int getOpCat9() {
+        return opCat9;
     }
 
-    public void setOp_cat9(String op_cat9) {
-        this.op_cat9 = op_cat9;
+    public void setOpCat9(int opCat9) {
+        this.opCat9 = opCat9;
     }
 
-    public String getSort_input() {
-        return sort_input;
+    public int getSortInput() {
+        return sortInput;
     }
 
-    public void setSort_input(String sort_input) {
-        this.sort_input = sort_input;
+    public void setSortInput(int sortInput) {
+        this.sortInput = sortInput;
     }
 
-    public String getSort_01() {
-        return sort_01;
+    public int getSort01() {
+        return sort01;
     }
 
-    public void setSort_01(String sort_01) {
-        this.sort_01 = sort_01;
+    public void setSort01(int sort01) {
+        this.sort01 = sort01;
     }
 
-    public String getSort_02() {
-        return sort_02;
+    public int getSort02() {
+        return sort02;
     }
 
-    public void setSort_02(String sort_02) {
-        this.sort_02 = sort_02;
+    public void setSort02(int sort02) {
+        this.sort02 = sort02;
     }
 
-    public String getSort_03() {
-        return sort_03;
+    public int getSort03() {
+        return sort03;
     }
 
-    public void setSort_03(String sort_03) {
-        this.sort_03 = sort_03;
+    public void setSort03(int sort03) {
+        this.sort03 = sort03;
     }
 
-    public String getSort_04() {
-        return sort_04;
+    public int getSort04() {
+        return sort04;
     }
 
-    public void setSort_04(String sort_04) {
-        this.sort_04 = sort_04;
+    public void setSort04(int sort04) {
+        this.sort04 = sort04;
     }
 
-    public String getSort_05() {
-        return sort_05;
+    public int getSort05() {
+        return sort05;
     }
 
-    public void setSort_05(String sort_05) {
-        this.sort_05 = sort_05;
+    public void setSort05(int sort05) {
+        this.sort05 = sort05;
     }
 
-    public String getSort_06() {
-        return sort_06;
+    public int getSort06() {
+        return sort06;
     }
 
-    public void setSort_06(String sort_06) {
-        this.sort_06 = sort_06;
+    public void setSort06(int sort06) {
+        this.sort06 = sort06;
     }
 
-    public String getSort_07() {
-        return sort_07;
+    public int getSort07() {
+        return sort07;
     }
 
-    public void setSort_07(String sort_07) {
-        this.sort_07 = sort_07;
+    public void setSort07(int sort07) {
+        this.sort07 = sort07;
     }
 
-    public String getSort_08() {
-        return sort_08;
+    public int getSort08() {
+        return sort08;
     }
 
-    public void setSort_08(String sort_08) {
-        this.sort_08 = sort_08;
+    public void setSort08(int sort08) {
+        this.sort08 = sort08;
     }
 
-    public String getHd_input() {
-        return hd_input;
+    public int getHdInput() {
+        return hdInput;
     }
 
-    public void setHd_input(String hd_input) {
-        this.hd_input = hd_input;
+    public void setHdInput(int hdInput) {
+        this.hdInput = hdInput;
     }
 
-    public String getHd_cat1() {
-        return hd_cat1;
+    public int getHdCat1() {
+        return hdCat1;
     }
 
-    public void setHd_cat1(String hd_cat1) {
-        this.hd_cat1 = hd_cat1;
+    public void setHdCat1(int hdCat1) {
+        this.hdCat1 = hdCat1;
     }
 
-    public String getHd_cat2() {
-        return hd_cat2;
+    public int getHdCat2() {
+        return hdCat2;
     }
 
-    public void setHd_cat2(String hd_cat2) {
-        this.hd_cat2 = hd_cat2;
+    public void setHdCat2(int hdCat2) {
+        this.hdCat2 = hdCat2;
     }
 
-    public String getHd_cat3() {
-        return hd_cat3;
+    public int getHdCat3() {
+        return hdCat3;
     }
 
-    public void setHd_cat3(String hd_cat3) {
-        this.hd_cat3 = hd_cat3;
+    public void setHdCat3(int hdCat3) {
+        this.hdCat3 = hdCat3;
     }
 
-    public String getHd_cat4() {
-        return hd_cat4;
+    public int getHdCat4() {
+        return hdCat4;
     }
 
-    public void setHd_cat4(String hd_cat4) {
-        this.hd_cat4 = hd_cat4;
+    public void setHdCat4(int hdCat4) {
+        this.hdCat4 = hdCat4;
     }
 
-    public String getHd_cat5() {
-        return hd_cat5;
+    public int getHdCat5() {
+        return hdCat5;
     }
 
-    public void setHd_cat5(String hd_cat5) {
-        this.hd_cat5 = hd_cat5;
+    public void setHdCat5(int hdCat5) {
+        this.hdCat5 = hdCat5;
     }
 
-    public String getHd_cat6() {
-        return hd_cat6;
+    public int getHdCat6() {
+        return hdCat6;
     }
 
-    public void setHd_cat6(String hd_cat6) {
-        this.hd_cat6 = hd_cat6;
+    public void setHdCat6(int hdCat6) {
+        this.hdCat6 = hdCat6;
     }
 
-    public String getHd_cat7() {
-        return hd_cat7;
+    public int getHdCat7() {
+        return hdCat7;
     }
 
-    public void setHd_cat7(String hd_cat7) {
-        this.hd_cat7 = hd_cat7;
+    public void setHdCat7(int hdCat7) {
+        this.hdCat7 = hdCat7;
     }
 
-    public String getHd_cat8() {
-        return hd_cat8;
+    public int getHdCat8() {
+        return hdCat8;
     }
 
-    public void setHd_cat8(String hd_cat8) {
-        this.hd_cat8 = hd_cat8;
+    public void setHdCat8(int hdCat8) {
+        this.hdCat8 = hdCat8;
     }
 
-    public String getCat6_1() {
-        return cat6_1;
+    public String getCat61() {
+        return cat61;
     }
 
-    public void setCat6_1(String cat6_1) {
-        this.cat6_1 = cat6_1;
+    public void setCat61(String cat61) {
+        this.cat61 = cat61;
     }
 
-    public String getCat6_2() {
-        return cat6_2;
+    public String getCat62() {
+        return cat62;
     }
 
-    public void setCat6_2(String cat6_2) {
-        this.cat6_2 = cat6_2;
+    public void setCat62(String cat62) {
+        this.cat62 = cat62;
     }
 
-    public String getCat6_3() {
-        return cat6_3;
+    public String getCat63() {
+        return cat63;
     }
 
-    public void setCat6_3(String cat6_3) {
-        this.cat6_3 = cat6_3;
+    public void setCat63(String cat63) {
+        this.cat63 = cat63;
     }
 
-    public String getCat6_4() {
-        return cat6_4;
+    public String getCat64() {
+        return cat64;
     }
 
-    public void setCat6_4(String cat6_4) {
-        this.cat6_4 = cat6_4;
+    public void setCat64(String cat64) {
+        this.cat64 = cat64;
     }
 
-    public String getCat6_5() {
-        return cat6_5;
+    public String getCat65() {
+        return cat65;
     }
 
-    public void setCat6_5(String cat6_5) {
-        this.cat6_5 = cat6_5;
+    public void setCat65(String cat65) {
+        this.cat65 = cat65;
     }
 
-    public String getCat7_1() {
-        return cat7_1;
+    public String getCat71() {
+        return cat71;
     }
 
-    public void setCat7_1(String cat7_1) {
-        this.cat7_1 = cat7_1;
+    public void setCat71(String cat71) {
+        this.cat71 = cat71;
     }
 
-    public String getCat7_2() {
-        return cat7_2;
+    public String getCat72() {
+        return cat72;
     }
 
-    public void setCat7_2(String cat7_2) {
-        this.cat7_2 = cat7_2;
+    public void setCat72(String cat72) {
+        this.cat72 = cat72;
     }
 
-    public String getCat7_3() {
-        return cat7_3;
+    public String getCat73() {
+        return cat73;
     }
 
-    public void setCat7_3(String cat7_3) {
-        this.cat7_3 = cat7_3;
+    public void setCat73(String cat73) {
+        this.cat73 = cat73;
     }
 
-    public String getCat7_4() {
-        return cat7_4;
+    public String getCat74() {
+        return cat74;
     }
 
-    public void setCat7_4(String cat7_4) {
-        this.cat7_4 = cat7_4;
+    public void setCat74(String cat74) {
+        this.cat74 = cat74;
     }
 
-    public String getCat7_5() {
-        return cat7_5;
+    public String getCat75() {
+        return cat75;
     }
 
-    public void setCat7_5(String cat7_5) {
-        this.cat7_5 = cat7_5;
+    public void setCat75(String cat75) {
+        this.cat75 = cat75;
     }
 
     public String getRevno() {
@@ -650,12 +730,12 @@ public class TestYieldHist {
         this.revno = revno;
     }
 
-    public String getRevno_end() {
-        return revno_end;
+    public String getRevnoEnd() {
+        return revnoEnd;
     }
 
-    public void setRevno_end(String revno_end) {
-        this.revno_end = revno_end;
+    public void setRevnoEnd(String revnoEnd) {
+        this.revnoEnd = revnoEnd;
     }
 
     public String getLotin() {
@@ -674,531 +754,452 @@ public class TestYieldHist {
         this.lotout = lotout;
     }
 
-    public String getSub_cnt1() {
-        return sub_cnt1;
+    public String getSubCnt1() {
+        return subCnt1;
     }
 
-    public void setSub_cnt1(String sub_cnt1) {
-        this.sub_cnt1 = sub_cnt1;
+    public void setSubCnt1(String subCnt1) {
+        this.subCnt1 = subCnt1;
     }
 
-    public String getSub_cnt2() {
-        return sub_cnt2;
+    public String getSubCnt2() {
+        return subCnt2;
     }
 
-    public void setSub_cnt2(String sub_cnt2) {
-        this.sub_cnt2 = sub_cnt2;
+    public void setSubCnt2(String subCnt2) {
+        this.subCnt2 = subCnt2;
     }
 
-    public String getFinal_sub_cnt1() {
-        return final_sub_cnt1;
+    public String getFinalSubCnt1() {
+        return finalSubCnt1;
     }
 
-    public void setFinal_sub_cnt1(String final_sub_cnt1) {
-        this.final_sub_cnt1 = final_sub_cnt1;
+    public void setFinalSubCnt1(String finalSubCnt1) {
+        this.finalSubCnt1 = finalSubCnt1;
     }
 
-    public String getFinal_sub_cnt2() {
-        return final_sub_cnt2;
+    public String getFinalSubCnt2() {
+        return finalSubCnt2;
     }
 
-    public void setFinal_sub_cnt2(String final_sub_cnt2) {
-        this.final_sub_cnt2 = final_sub_cnt2;
+    public void setFinalSubCnt2(String finalSubCnt2) {
+        this.finalSubCnt2 = finalSubCnt2;
     }
 
-    public String getNg_cnt1() {
-        return ng_cnt1;
+    public String getNgCnt1() {
+        return ngCnt1;
     }
 
-    public void setNg_cnt1(String ng_cnt1) {
-        this.ng_cnt1 = ng_cnt1;
+    public void setNgCnt1(String ngCnt1) {
+        this.ngCnt1 = ngCnt1;
     }
 
-    public String getNg_cnt2() {
-        return ng_cnt2;
+    public String getNgCnt2() {
+        return ngCnt2;
     }
 
-    public void setNg_cnt2(String ng_cnt2) {
-        this.ng_cnt2 = ng_cnt2;
+    public void setNgCnt2(String ngCnt2) {
+        this.ngCnt2 = ngCnt2;
     }
 
-    public String getFinal_ng_cnt1() {
-        return final_ng_cnt1;
+    public String getFinalNgCnt1() {
+        return finalNgCnt1;
     }
 
-    public void setFinal_ng_cnt1(String final_ng_cnt1) {
-        this.final_ng_cnt1 = final_ng_cnt1;
+    public void setFinalNgCnt1(String finalNgCnt1) {
+        this.finalNgCnt1 = finalNgCnt1;
     }
 
-    public String getFinal_ng_cnt2() {
-        return final_ng_cnt2;
+    public String getFinalNgCnt2() {
+        return finalNgCnt2;
     }
 
-    public void setFinal_ng_cnt2(String final_ng_cnt2) {
-        this.final_ng_cnt2 = final_ng_cnt2;
+    public void setFinalNgCnt2(String finalNgCnt2) {
+        this.finalNgCnt2 = finalNgCnt2;
     }
 
-    public String getSub_program_name() {
-        return sub_program_name;
+    public String getSubProgramName() {
+        return subProgramName;
     }
 
-    public void setSub_program_name(String sub_program_name) {
-        this.sub_program_name = sub_program_name;
+    public void setSubProgramName(String subProgramName) {
+        this.subProgramName = subProgramName;
     }
 
-    public String getInitial_bad_block() {
-        return initial_bad_block;
+    public String getInitialBadBlock() {
+        return initialBadBlock;
     }
 
-    public void setInitial_bad_block(String initial_bad_block) {
-        this.initial_bad_block = initial_bad_block;
+    public void setInitialBadBlock(String initialBadBlock) {
+        this.initialBadBlock = initialBadBlock;
     }
 
-    public String getFinal_bad_block() {
-        return final_bad_block;
+    public String getFinalBadBlock() {
+        return finalBadBlock;
     }
 
-    public void setFinal_bad_block(String final_bad_block) {
-        this.final_bad_block = final_bad_block;
+    public void setFinalBadBlock(String finalBadBlock) {
+        this.finalBadBlock = finalBadBlock;
     }
 
-    public String getGap_ibbfbb() {
-        return gap_ibbfbb;
+    public String getGapIbbfbb() {
+        return gapIbbfbb;
     }
 
-    public void setGap_ibbfbb(String gap_ibbfbb) {
-        this.gap_ibbfbb = gap_ibbfbb;
+    public void setGapIbbfbb(String gapIbbfbb) {
+        this.gapIbbfbb = gapIbbfbb;
     }
 
-    public String getM_lot_list() {
-        return m_lot_list;
+    public String getMLotList() {
+        return mLotList;
     }
 
-    public void setM_lot_list(String m_lot_list) {
-        this.m_lot_list = m_lot_list;
+    public void setMLotList(String mLotList) {
+        this.mLotList = mLotList;
     }
 
-    public String getRecycle_step() {
-        return recycle_step;
+    public String getRecycleStep() {
+        return recycleStep;
     }
 
-    public void setRecycle_step(String recycle_step) {
-        this.recycle_step = recycle_step;
+    public void setRecycleStep(String recycleStep) {
+        this.recycleStep = recycleStep;
     }
 
-    public String getRecycle_flag() {
-        return recycle_flag;
+    public String getRecycleFlag() {
+        return recycleFlag;
     }
 
-    public void setRecycle_flag(String recycle_flag) {
-        this.recycle_flag = recycle_flag;
+    public void setRecycleFlag(String recycleFlag) {
+        this.recycleFlag = recycleFlag;
     }
 
-    public String getSbl_code() {
-        return sbl_code;
+    public String getSblCode() {
+        return sblCode;
     }
 
-    public void setSbl_code(String sbl_code) {
-        this.sbl_code = sbl_code;
+    public void setSblCode(String sblCode) {
+        this.sblCode = sblCode;
     }
 
-    public String getSbl_judge() {
-        return sbl_judge;
+    public String getSblJudge() {
+        return sblJudge;
     }
 
-    public void setSbl_judge(String sbl_judge) {
-        this.sbl_judge = sbl_judge;
+    public void setSblJudge(String sblJudge) {
+        this.sblJudge = sblJudge;
     }
 
-    public String getMc_ncfcode() {
-        return mc_ncfcode;
+    public String getMcNcfcode() {
+        return mcNcfcode;
     }
 
-    public void setMc_ncfcode(String mc_ncfcode) {
-        this.mc_ncfcode = mc_ncfcode;
+    public void setMcNcfcode(String mcNcfcode) {
+        this.mcNcfcode = mcNcfcode;
     }
 
-    public String getNcfcode_simax() {
-        return ncfcode_simax;
+    public String getNcfcodeSimax() {
+        return ncfcodeSimax;
     }
 
-    public void setNcfcode_simax(String ncfcode_simax) {
-        this.ncfcode_simax = ncfcode_simax;
+    public void setNcfcodeSimax(String ncfcodeSimax) {
+        this.ncfcodeSimax = ncfcodeSimax;
     }
 
-    public String getNcacode_simax() {
-        return ncacode_simax;
+    public String getNcacodeSimax() {
+        return ncacodeSimax;
     }
 
-    public void setNcacode_simax(String ncacode_simax) {
-        this.ncacode_simax = ncacode_simax;
+    public void setNcacodeSimax(String ncacodeSimax) {
+        this.ncacodeSimax = ncacodeSimax;
     }
 
-    public String getNcecode_simax() {
-        return ncecode_simax;
+    public String getNcecodeSimax() {
+        return ncecodeSimax;
     }
 
-    public void setNcecode_simax(String ncecode_simax) {
-        this.ncecode_simax = ncecode_simax;
+    public void setNcecodeSimax(String ncecodeSimax) {
+        this.ncecodeSimax = ncecodeSimax;
     }
 
-    public String getNcqcode_simax() {
-        return ncqcode_simax;
+    public String getNcqcodeSimax() {
+        return ncqcodeSimax;
     }
 
-    public void setNcqcode_simax(String ncqcode_simax) {
-        this.ncqcode_simax = ncqcode_simax;
+    public void setNcqcodeSimax(String ncqcodeSimax) {
+        this.ncqcodeSimax = ncqcodeSimax;
     }
 
-    public String getNctcode_simax() {
-        return nctcode_simax;
+    public String getNctcodeSimax() {
+        return nctcodeSimax;
     }
 
-    public void setNctcode_simax(String nctcode_simax) {
-        this.nctcode_simax = nctcode_simax;
+    public void setNctcodeSimax(String nctcodeSimax) {
+        this.nctcodeSimax = nctcodeSimax;
     }
 
-    public String getNchcode_simax() {
-        return nchcode_simax;
+    public String getNchcodeSimax() {
+        return nchcodeSimax;
     }
 
-    public void setNchcode_simax(String nchcode_simax) {
-        this.nchcode_simax = nchcode_simax;
+    public void setNchcodeSimax(String nchcodeSimax) {
+        this.nchcodeSimax = nchcodeSimax;
     }
 
-    public String getNcmcode_simax() {
-        return ncmcode_simax;
+    public String getNcmcodeSimax() {
+        return ncmcodeSimax;
     }
 
-    public void setNcmcode_simax(String ncmcode_simax) {
-        this.ncmcode_simax = ncmcode_simax;
+    public void setNcmcodeSimax(String ncmcodeSimax) {
+        this.ncmcodeSimax = ncmcodeSimax;
     }
 
-    public String getNcpcode_simax() {
-        return ncpcode_simax;
+    public String getNcpcodeSimax() {
+        return ncpcodeSimax;
     }
 
-    public void setNcpcode_simax(String ncpcode_simax) {
-        this.ncpcode_simax = ncpcode_simax;
+    public void setNcpcodeSimax(String ncpcodeSimax) {
+        this.ncpcodeSimax = ncpcodeSimax;
     }
 
-    public String getNcscode_simax() {
-        return ncscode_simax;
+    public String getNcscodeSimax() {
+        return ncscodeSimax;
     }
 
-    public void setNcscode_simax(String ncscode_simax) {
-        this.ncscode_simax = ncscode_simax;
+    public void setNcscodeSimax(String ncscodeSimax) {
+        this.ncscodeSimax = ncscodeSimax;
     }
 
-    public String getNcbcode_simax() {
-        return ncbcode_simax;
+    public String getNcbcodeSimax() {
+        return ncbcodeSimax;
     }
 
-    public void setNcbcode_simax(String ncbcode_simax) {
-        this.ncbcode_simax = ncbcode_simax;
+    public void setNcbcodeSimax(String ncbcodeSimax) {
+        this.ncbcodeSimax = ncbcodeSimax;
     }
 
-    public String getNckcode_simax() {
-        return nckcode_simax;
+    public String getNckcodeSimax() {
+        return nckcodeSimax;
     }
 
-    public void setNckcode_simax(String nckcode_simax) {
-        this.nckcode_simax = nckcode_simax;
+    public void setNckcodeSimax(String nckcodeSimax) {
+        this.nckcodeSimax = nckcodeSimax;
     }
 
-    public String getNcrcode_simax() {
-        return ncrcode_simax;
+    public String getNcrcodeSimax() {
+        return ncrcodeSimax;
     }
 
-    public void setNcrcode_simax(String ncrcode_simax) {
-        this.ncrcode_simax = ncrcode_simax;
+    public void setNcrcodeSimax(String ncrcodeSimax) {
+        this.ncrcodeSimax = ncrcodeSimax;
     }
 
-    public String getData_format() {
-        return data_format;
+    public String getDataFormat() {
+        return dataFormat;
     }
 
-    public void setData_format(String data_format) {
-        this.data_format = data_format;
+    public void setDataFormat(String dataFormat) {
+        this.dataFormat = dataFormat;
     }
 
-    public String getSbl_cmd() {
-        return sbl_cmd;
+    public String getSblCmd() {
+        return sblCmd;
     }
 
-    public void setSbl_cmd(String sbl_cmd) {
-        this.sbl_cmd = sbl_cmd;
+    public void setSblCmd(String sblCmd) {
+        this.sblCmd = sblCmd;
     }
 
-    public String getRun_sbl_code() {
-        return run_sbl_code;
+    public String getRunSblCode() {
+        return runSblCode;
     }
 
-    public void setRun_sbl_code(String run_sbl_code) {
-        this.run_sbl_code = run_sbl_code;
+    public void setRunSblCode(String runSblCode) {
+        this.runSblCode = runSblCode;
     }
 
-    public String getRun_sbl_cmd() {
-        return run_sbl_cmd;
+    public String getRunSblCmd() {
+        return runSblCmd;
     }
 
-    public void setRun_sbl_cmd(String run_sbl_cmd) {
-        this.run_sbl_cmd = run_sbl_cmd;
+    public void setRunSblCmd(String runSblCmd) {
+        this.runSblCmd = runSblCmd;
     }
 
-    public String getH_os_a() {
-        return h_os_a;
+    public String getHOsA() {
+        return hOsA;
     }
 
-    public void setH_os_a(String h_os_a) {
-        this.h_os_a = h_os_a;
+    public void setHOsA(String hOsA) {
+        this.hOsA = hOsA;
     }
 
-    public String getH_os_b() {
-        return h_os_b;
+    public String getHOsB() {
+        return hOsB;
     }
 
-    public void setH_os_b(String h_os_b) {
-        this.h_os_b = h_os_b;
+    public void setHOsB(String hOsB) {
+        this.hOsB = hOsB;
     }
 
-    public String getT_os_opsys() {
-        return t_os_opsys;
+    public String getTOsOpsys() {
+        return tOsOpsys;
     }
 
-    public void setT_os_opsys(String t_os_opsys) {
-        this.t_os_opsys = t_os_opsys;
+    public void setTOsOpsys(String tOsOpsys) {
+        this.tOsOpsys = tOsOpsys;
     }
 
-    public String getT_os_atl() {
-        return t_os_atl;
+    public String getTOsAtl() {
+        return tOsAtl;
     }
 
-    public void setT_os_atl(String t_os_atl) {
-        this.t_os_atl = t_os_atl;
+    public void setTOsAtl(String tOsAtl) {
+        this.tOsAtl = tOsAtl;
     }
 
-    public String getT_os_diag() {
-        return t_os_diag;
+    public String getTOsDiag() {
+        return tOsDiag;
     }
 
-    public void setT_os_diag(String t_os_diag) {
-        this.t_os_diag = t_os_diag;
+    public void setTOsDiag(String tOsDiag) {
+        this.tOsDiag = tOsDiag;
     }
 
-    public String getT_os_sysos() {
-        return t_os_sysos;
+    public String getTOsSysos() {
+        return tOsSysos;
     }
 
-    public void setT_os_sysos(String t_os_sysos) {
-        this.t_os_sysos = t_os_sysos;
+    public void setTOsSysos(String tOsSysos) {
+        this.tOsSysos = tOsSysos;
     }
 
-    public String getT_os_gpib() {
-        return t_os_gpib;
+    public String getTOsGpib() {
+        return tOsGpib;
     }
 
-    public void setT_os_gpib(String t_os_gpib) {
-        this.t_os_gpib = t_os_gpib;
+    public void setTOsGpib(String tOsGpib) {
+        this.tOsGpib = tOsGpib;
     }
 
-    public String getT_if() {
-        return t_if;
+    public String getTIf() {
+        return tIf;
     }
 
-    public void setT_if(String t_if) {
-        this.t_if = t_if;
+    public void setTIf(String tIf) {
+        this.tIf = tIf;
     }
 
-    public String getFsst_flag() {
-        return fsst_flag;
+    public String getFsstFlag() {
+        return fsstFlag;
     }
 
-    public void setFsst_flag(String fsst_flag) {
-        this.fsst_flag = fsst_flag;
+    public void setFsstFlag(String fsstFlag) {
+        this.fsstFlag = fsstFlag;
     }
 
-    public String getLot_asysite() {
-        return lot_asysite;
+    public String getLotAsysite() {
+        return lotAsysite;
     }
 
-    public void setLot_asysite(String lot_asysite) {
-        this.lot_asysite = lot_asysite;
+    public void setLotAsysite(String lotAsysite) {
+        this.lotAsysite = lotAsysite;
     }
 
-    public String getEds_bad_block() {
-        return eds_bad_block;
+    public String getEdsBadBlock() {
+        return edsBadBlock;
     }
 
-    public void setEds_bad_block(String eds_bad_block) {
-        this.eds_bad_block = eds_bad_block;
+    public void setEdsBadBlock(String edsBadBlock) {
+        this.edsBadBlock = edsBadBlock;
     }
 
-    public String getGap_ebbfbb() {
-        return gap_ebbfbb;
+    public String getGapEbbfbb() {
+        return gapEbbfbb;
     }
 
-    public void setGap_ebbfbb(String gap_ebbfbb) {
-        this.gap_ebbfbb = gap_ebbfbb;
+    public void setGapEbbfbb(String gapEbbfbb) {
+        this.gapEbbfbb = gapEbbfbb;
     }
 
-    public String getFr_lot() {
-        return fr_lot;
+    public String getFrLot() {
+        return frLot;
     }
 
-    public void setFr_lot(String fr_lot) {
-        this.fr_lot = fr_lot;
+    public void setFrLot(String frLot) {
+        this.frLot = frLot;
     }
 
-    public String getSubbin114() {
+    public int getSubbin114() {
         return subbin114;
     }
 
-    public void setSubbin114(String subbin114) {
+    public void setSubbin114(int subbin114) {
         this.subbin114 = subbin114;
     }
 
-    public String getFinal_subbin114() {
-        return final_subbin114;
+    public int getFinalSubbin114() {
+        return finalSubbin114;
     }
 
-    public void setFinal_subbin114(String final_subbin114) {
-        this.final_subbin114 = final_subbin114;
+    public void setFinalSubbin114(int finalSubbin114) {
+        this.finalSubbin114 = finalSubbin114;
     }
 
-    public String getSubbin115() {
+    public int getSubbin115() {
         return subbin115;
     }
 
-    public void setSubbin115(String subbin115) {
+    public void setSubbin115(int subbin115) {
         this.subbin115 = subbin115;
     }
 
-    public String getFinal_subbin115() {
-        return final_subbin115;
+    public int getFinalSubbin115() {
+        return finalSubbin115;
     }
 
-    public void setFinal_subbin115(String final_subbin115) {
-        this.final_subbin115 = final_subbin115;
+    public void setFinalSubbin115(int finalSubbin115) {
+        this.finalSubbin115 = finalSubbin115;
     }
 
-    public String getSubbin116() {
+    public int getSubbin116() {
         return subbin116;
     }
 
-    public void setSubbin116(String subbin116) {
+    public void setSubbin116(int subbin116) {
         this.subbin116 = subbin116;
     }
 
-    public String getFinal_subbin116() {
-        return final_subbin116;
+    public int getFinalSubbin116() {
+        return finalSubbin116;
     }
 
-    public void setFinal_subbin116(String final_subbin116) {
-        this.final_subbin116 = final_subbin116;
+    public void setFinalSubbin116(int finalSubbin116) {
+        this.finalSubbin116 = finalSubbin116;
     }
 
-    public String getRework_flag() {
-        return rework_flag;
+    public String getReworkFlag() {
+        return reworkFlag;
     }
 
-    public void setRework_flag(String rework_flag) {
-        this.rework_flag = rework_flag;
+    public void setReworkFlag(String reworkFlag) {
+        this.reworkFlag = reworkFlag;
     }
 
-    public String getTest_line() {
-        return test_line;
+    public String getTestLine() {
+        return testLine;
     }
 
-    public void setTest_line(String test_line) {
-        this.test_line = test_line;
+    public void setTestLine(String testLine) {
+        this.testLine = testLine;
     }
 
-    public String getPurpose_type() {
-        return purpose_type;
+    public String getPurposeType() {
+        return purposeType;
     }
 
-    public void setPurpose_type(String purpose_type) {
-        this.purpose_type = purpose_type;
+    public void setPurposeType(String purposeType) {
+        this.purposeType = purposeType;
     }
 
-    public String getSys_date() {
-        return sys_date;
-    }
-
-    public void setSys_date(String sys_date) {
-        this.sys_date = sys_date;
-    }
-
-    public String getLot_number() {
-        return lot_number;
-    }
-
-    public void setLot_number(String lot_number) {
-        this.lot_number = lot_number;
-    }
-
-    public String getProcess_name() {
-        return process_name;
-    }
-
-    public void setProcess_name(String process_name) {
-        this.process_name = process_name;
-    }
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
-    }
-
-    public String getProgram_name() {
-        return program_name;
-    }
-
-    public void setProgram_name(String program_name) {
-        this.program_name = program_name;
-    }
-
-    public String getOperator_name() {
-        return operator_name;
-    }
-
-    public void setOperator_name(String operator_name) {
-        this.operator_name = operator_name;
-    }
-
-    public String getTester_name() {
-        return tester_name;
-    }
-
-    public void setTester_name(String tester_name) {
-        this.tester_name = tester_name;
-    }
-
-    public String getTester_number() {
-        return tester_number;
-    }
-
-    public void setTester_number(String tester_number) {
-        this.tester_number = tester_number;
-    }
-
-    public String getTester_head() {
-        return tester_head;
-    }
-
-    public void setTester_head(String tester_head) {
-        this.tester_head = tester_head;
-    }
-
-    public String getHd_model() {
-        return hd_model;
-    }
-
-    public void setHd_model(String hd_model) {
-        this.hd_model = hd_model;
-    }
 }

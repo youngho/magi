@@ -6,7 +6,7 @@ package kr.famos.base.domain;
 public class LotinInfoHist {
     private String sysDate = "";    //
     private String rcvLot = "";    //
-    private String rcvProduct = "";    //
+    private String rcvPartnumber = "";    //
     private String rcvProcess = "";    //
     private String rcvPara = "";    //
     private String rcvTmodel = "";    //
@@ -21,7 +21,7 @@ public class LotinInfoHist {
     private String uniTableExist = "";    //
     private String uniTarpgm = "";    //
     private String uniRevno = "";    //
-    private String uniProduct = "";    //
+    private String uniPartnumber = "";    //
     private String uniProcess = "";    //
     private String uniMainpgm = "";    //
     private String uniSubpgm = "";    //
@@ -53,12 +53,12 @@ public class LotinInfoHist {
         this.rcvLot = rcvLot;
     }
 
-    public String getRcvProduct() {
-        return rcvProduct;
+    public String getRcvPartnumber() {
+        return rcvPartnumber;
     }
 
-    public void setRcvProduct(String rcvProduct) {
-        this.rcvProduct = rcvProduct;
+    public void setRcvPartnumber(String rcvPartnumber) {
+        this.rcvPartnumber = rcvPartnumber;
     }
 
     public String getRcvProcess() {
@@ -173,12 +173,12 @@ public class LotinInfoHist {
         this.uniRevno = uniRevno;
     }
 
-    public String getUniProduct() {
-        return uniProduct;
+    public String getUniPartnumber() {
+        return uniPartnumber;
     }
 
-    public void setUniProduct(String uniProduct) {
-        this.uniProduct = uniProduct;
+    public void setUniPartnumber(String uniPartnumber) {
+        this.uniPartnumber = uniPartnumber;
     }
 
     public String getUniProcess() {

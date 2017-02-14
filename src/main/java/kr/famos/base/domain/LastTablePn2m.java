@@ -4,23 +4,22 @@ package kr.famos.base.domain;
  * Created by yhkim on 2017-01-31.
  */
 public class LastTablePn2m {
-    private String product = "";    //
-    private String sproduct = "";    //
+    private String partnumber = "";    //
+    private String hpartnumber = "";    //
 
-    public String getProduct() {
-        return product;
+    public String getPartnumber() {
+        return partnumber;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setPartnumber(String partnumber) {
+        this.partnumber = partnumber;
     }
 
-    public String getSproduct() {
-        return sproduct;
+    public String getHpartnumber() {
+        return hpartnumber;
     }
 
-    public void setSproduct(String sproduct) {
-        this.sproduct = sproduct;
+    public void setHpartnumber(String hpartnumber) {
+        this.hpartnumber = hpartnumber;
     }
-
 }

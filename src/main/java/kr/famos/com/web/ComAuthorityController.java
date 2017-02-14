@@ -33,10 +33,10 @@ public class ComAuthorityController {
 
     @RequestMapping(value = "/authority",method = RequestMethod.POST)
     public void post(@RequestBody ComAuthority rJson) {
-        logger.debug(rJson.getUser_nm());
+        logger.debug(rJson.getUserNm());
         ComAuthority comAuthority = new ComAuthority();
-        comAuthority.setUser_nm(rJson.getUser_nm());
-        comAuthority.setAuthority_nm(rJson.getAuthority_nm());
+        comAuthority.setUserNm(rJson.getUserNm());
+        comAuthority.setAuthorityNm(rJson.getAuthorityNm());
         logger.debug("컨트롤러 Authority post 함수  ");
 
         comAuthorityMapper.insertComAuthority(comAuthority);

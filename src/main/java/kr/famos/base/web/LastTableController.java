@@ -33,7 +33,7 @@ public class LastTableController {
     public void post() {
         logger.debug("lasttableinsert post 함수  ");
         LastTable lastTable = new LastTable();
-        lastTable.setUserId("youngho");
+        lastTable.setOperator("youngho");
         lastTableMapper.insertLastTable(lastTable);
     }
 }

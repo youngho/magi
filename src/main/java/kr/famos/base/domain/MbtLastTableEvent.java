@@ -4,6 +4,80 @@ package kr.famos.base.domain;
  * Created by yhkim on 2017-01-31.
  */
 public class MbtLastTableEvent {
+    private String partId = "";    // 제품
+    private String directory = "";    // 소스위치
+    private String bfpFile = "";    // MAIN 소스이름
+    private String tcsFile = "";    // TCS_FILE
+    private String deviceName = "";    // DEVICE_NAME
+    private String boardType = "";    // BOARD_TYPE
+    private String chamberModel = "";    // CHAMBER_MODEL
+    private String mcNcf = "";    // MC_NCF
+    private String mcNct = "";    // MC_NCT
+    private String lotType = "";    // LOT_TYPE
+    private String scr1 = "";    // SCR1
+    private String scr2 = "";    // SCR2
+    private String scr3 = "";    // SCR3
+    private String scr4 = "";    // SCR4
+    private String pat1 = "";    // PAT1
+    private String pat2 = "";    // PAT2
+    private String pat3 = "";    // PAT3
+    private String pat4 = "";    // PAT4
+    private String pat5 = "";    // PAT5
+    private String pat6 = "";    // PAT6
+    private String pat7 = "";    // PAT7
+    private String pat8 = "";    // PAT8
+    private String pat9 = "";    // PAT9
+    private String pat10 = "";    // PAT10
+    private String pat11 = "";    // PAT11
+    private String pat12 = "";    // PAT12
+    private String pat13 = "";    // PAT13
+    private String pat14 = "";    // PAT14
+    private String yieldSigma1 = "";    // YIELD_SIGMA1
+    private String yieldSigma2 = "";    // YIELD_SIGMA2
+    private String contactYield = "";    // CONTACT_YIELD
+    private String sort0Sigma1 = "";    // SORT0_SIGMA1
+    private String sort2Sigma1 = "";    // SORT2_SIGMA1
+    private String sort4Sigma1 = "";    // SORT4_SIGMA1
+    private String sort5Sigma1 = "";    // SORT5_SIGMA1
+    private String sort6Sigma1 = "";    // SORT6_SIGMA1
+    private String sort7Sigma1 = "";    // SORT7_SIGMA1
+    private String sort8Sigma1 = "";    // SORT8_SIGMA1
+    private int maskLimit = 0;    // MASK_LIMIT
+    private int maskRange = 0;    // MASK_RANGE
+    private String abnormalFlag = "";    // ABNORMAL_FLAG
+    private String userId = "";    // USER_ID
+    private String userName = "";    // USER_NAME
+    private String sysDate = "";    // SYS_DATE
+    private String pat15 = "";    // PAT15
+    private String pat16 = "";    // PAT16
+    private String pat17 = "";    // PAT17
+    private String pat18 = "";    // PAT18
+    private String pat19 = "";    // PAT19
+    private String pat20 = "";    // PAT20
+    private String pat21 = "";    // PAT21
+    private String pat22 = "";    // PAT22
+    private String pat23 = "";    // PAT23
+    private String pat24 = "";    // PAT24
+    private String pat25 = "";    // PAT25
+    private String pat26 = "";    // PAT26
+    private String pat27 = "";    // PAT27
+    private String pat28 = "";    // PAT28
+    private String pat29 = "";    // PAT29
+    private String pat30 = "";    // PAT30
+    private String pat31 = "";    // PAT31
+    private String pat32 = "";    // PAT32
+    private String pat33 = "";    // PAT33
+    private String pat34 = "";    // PAT34
+    private String pat35 = "";    // PAT35
+    private String pat36 = "";    // PAT36
+    private String pat37 = "";    // PAT37
+    private String pat38 = "";    // PAT38
+    private String pat39 = "";    // PAT39
+    private String pat40 = "";    // PAT40
+    private String pat41 = "";    // PAT41
+    private String pat42 = "";    // PAT42
+    private String pat43 = "";    // PAT43
+    private String pat44 = "";    // PAT44
     private String pat45 = "";    // PAT45
     private String pat46 = "";    // PAT46
     private String pat47 = "";    // PAT47
@@ -90,80 +164,598 @@ public class MbtLastTableEvent {
     private String waferCi = "";    // WAFER_CI
     private String waferCiBin = "";    // WAFER_CI_BIN
     private String event = "";    //
-    private String partId = "";    // 제품
-    private String directory = "";    // 소스위치
-    private String bfpFile = "";    // MAIN 소스이름
-    private String tcsFile = "";    // TCS_FILE
-    private String deviceName = "";    // DEVICE_NAME
-    private String boardType = "";    // BOARD_TYPE
-    private String chamberModel = "";    // CHAMBER_MODEL
-    private String mcNcf = "";    // MC_NCF
-    private String mcNct = "";    // MC_NCT
-    private String lotType = "";    // LOT_TYPE
-    private String scr1 = "";    // SCR1
-    private String scr2 = "";    // SCR2
-    private String scr3 = "";    // SCR3
-    private String scr4 = "";    // SCR4
-    private String pat1 = "";    // PAT1
-    private String pat2 = "";    // PAT2
-    private String pat3 = "";    // PAT3
-    private String pat4 = "";    // PAT4
-    private String pat5 = "";    // PAT5
-    private String pat6 = "";    // PAT6
-    private String pat7 = "";    // PAT7
-    private String pat8 = "";    // PAT8
-    private String pat9 = "";    // PAT9
-    private String pat10 = "";    // PAT10
-    private String pat11 = "";    // PAT11
-    private String pat12 = "";    // PAT12
-    private String pat13 = "";    // PAT13
-    private String pat14 = "";    // PAT14
-    private String yieldSigma1 = "";    // YIELD_SIGMA1
-    private String yieldSigma2 = "";    // YIELD_SIGMA2
-    private String contactYield = "";    // CONTACT_YIELD
-    private String sort0Sigma1 = "";    // SORT0_SIGMA1
-    private String sort2Sigma1 = "";    // SORT2_SIGMA1
-    private String sort4Sigma1 = "";    // SORT4_SIGMA1
-    private String sort5Sigma1 = "";    // SORT5_SIGMA1
-    private String sort6Sigma1 = "";    // SORT6_SIGMA1
-    private String sort7Sigma1 = "";    // SORT7_SIGMA1
-    private String sort8Sigma1 = "";    // SORT8_SIGMA1
-    private int maskLimit = 0;    // MASK_LIMIT
-    private int maskRange = 0;    // MASK_RANGE
-    private String abnormalFlag = "";    // ABNORMAL_FLAG
-    private String userId = "";    // USER_ID
-    private String userName = "";    // USER_NAME
-    private String sysDate = "";    // SYS_DATE
-    private String pat15 = "";    // PAT15
-    private String pat16 = "";    // PAT16
-    private String pat17 = "";    // PAT17
-    private String pat18 = "";    // PAT18
-    private String pat19 = "";    // PAT19
-    private String pat20 = "";    // PAT20
-    private String pat21 = "";    // PAT21
-    private String pat22 = "";    // PAT22
-    private String pat23 = "";    // PAT23
-    private String pat24 = "";    // PAT24
-    private String pat25 = "";    // PAT25
-    private String pat26 = "";    // PAT26
-    private String pat27 = "";    // PAT27
-    private String pat28 = "";    // PAT28
-    private String pat29 = "";    // PAT29
-    private String pat30 = "";    // PAT30
-    private String pat31 = "";    // PAT31
-    private String pat32 = "";    // PAT32
-    private String pat33 = "";    // PAT33
-    private String pat34 = "";    // PAT34
-    private String pat35 = "";    // PAT35
-    private String pat36 = "";    // PAT36
-    private String pat37 = "";    // PAT37
-    private String pat38 = "";    // PAT38
-    private String pat39 = "";    // PAT39
-    private String pat40 = "";    // PAT40
-    private String pat41 = "";    // PAT41
-    private String pat42 = "";    // PAT42
-    private String pat43 = "";    // PAT43
-    private String pat44 = "";    // PAT44
+
+    public String getPartId() {
+        return partId;
+    }
+
+    public void setPartId(String partId) {
+        this.partId = partId;
+    }
+
+    public String getDirectory() {
+        return directory;
+    }
+
+    public void setDirectory(String directory) {
+        this.directory = directory;
+    }
+
+    public String getBfpFile() {
+        return bfpFile;
+    }
+
+    public void setBfpFile(String bfpFile) {
+        this.bfpFile = bfpFile;
+    }
+
+    public String getTcsFile() {
+        return tcsFile;
+    }
+
+    public void setTcsFile(String tcsFile) {
+        this.tcsFile = tcsFile;
+    }
+
+    public String getDeviceName() {
+        return deviceName;
+    }
+
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
+    }
+
+    public String getBoardType() {
+        return boardType;
+    }
+
+    public void setBoardType(String boardType) {
+        this.boardType = boardType;
+    }
+
+    public String getChamberModel() {
+        return chamberModel;
+    }
+
+    public void setChamberModel(String chamberModel) {
+        this.chamberModel = chamberModel;
+    }
+
+    public String getMcNcf() {
+        return mcNcf;
+    }
+
+    public void setMcNcf(String mcNcf) {
+        this.mcNcf = mcNcf;
+    }
+
+    public String getMcNct() {
+        return mcNct;
+    }
+
+    public void setMcNct(String mcNct) {
+        this.mcNct = mcNct;
+    }
+
+    public String getLotType() {
+        return lotType;
+    }
+
+    public void setLotType(String lotType) {
+        this.lotType = lotType;
+    }
+
+    public String getScr1() {
+        return scr1;
+    }
+
+    public void setScr1(String scr1) {
+        this.scr1 = scr1;
+    }
+
+    public String getScr2() {
+        return scr2;
+    }
+
+    public void setScr2(String scr2) {
+        this.scr2 = scr2;
+    }
+
+    public String getScr3() {
+        return scr3;
+    }
+
+    public void setScr3(String scr3) {
+        this.scr3 = scr3;
+    }
+
+    public String getScr4() {
+        return scr4;
+    }
+
+    public void setScr4(String scr4) {
+        this.scr4 = scr4;
+    }
+
+    public String getPat1() {
+        return pat1;
+    }
+
+    public void setPat1(String pat1) {
+        this.pat1 = pat1;
+    }
+
+    public String getPat2() {
+        return pat2;
+    }
+
+    public void setPat2(String pat2) {
+        this.pat2 = pat2;
+    }
+
+    public String getPat3() {
+        return pat3;
+    }
+
+    public void setPat3(String pat3) {
+        this.pat3 = pat3;
+    }
+
+    public String getPat4() {
+        return pat4;
+    }
+
+    public void setPat4(String pat4) {
+        this.pat4 = pat4;
+    }
+
+    public String getPat5() {
+        return pat5;
+    }
+
+    public void setPat5(String pat5) {
+        this.pat5 = pat5;
+    }
+
+    public String getPat6() {
+        return pat6;
+    }
+
+    public void setPat6(String pat6) {
+        this.pat6 = pat6;
+    }
+
+    public String getPat7() {
+        return pat7;
+    }
+
+    public void setPat7(String pat7) {
+        this.pat7 = pat7;
+    }
+
+    public String getPat8() {
+        return pat8;
+    }
+
+    public void setPat8(String pat8) {
+        this.pat8 = pat8;
+    }
+
+    public String getPat9() {
+        return pat9;
+    }
+
+    public void setPat9(String pat9) {
+        this.pat9 = pat9;
+    }
+
+    public String getPat10() {
+        return pat10;
+    }
+
+    public void setPat10(String pat10) {
+        this.pat10 = pat10;
+    }
+
+    public String getPat11() {
+        return pat11;
+    }
+
+    public void setPat11(String pat11) {
+        this.pat11 = pat11;
+    }
+
+    public String getPat12() {
+        return pat12;
+    }
+
+    public void setPat12(String pat12) {
+        this.pat12 = pat12;
+    }
+
+    public String getPat13() {
+        return pat13;
+    }
+
+    public void setPat13(String pat13) {
+        this.pat13 = pat13;
+    }
+
+    public String getPat14() {
+        return pat14;
+    }
+
+    public void setPat14(String pat14) {
+        this.pat14 = pat14;
+    }
+
+    public String getYieldSigma1() {
+        return yieldSigma1;
+    }
+
+    public void setYieldSigma1(String yieldSigma1) {
+        this.yieldSigma1 = yieldSigma1;
+    }
+
+    public String getYieldSigma2() {
+        return yieldSigma2;
+    }
+
+    public void setYieldSigma2(String yieldSigma2) {
+        this.yieldSigma2 = yieldSigma2;
+    }
+
+    public String getContactYield() {
+        return contactYield;
+    }
+
+    public void setContactYield(String contactYield) {
+        this.contactYield = contactYield;
+    }
+
+    public String getSort0Sigma1() {
+        return sort0Sigma1;
+    }
+
+    public void setSort0Sigma1(String sort0Sigma1) {
+        this.sort0Sigma1 = sort0Sigma1;
+    }
+
+    public String getSort2Sigma1() {
+        return sort2Sigma1;
+    }
+
+    public void setSort2Sigma1(String sort2Sigma1) {
+        this.sort2Sigma1 = sort2Sigma1;
+    }
+
+    public String getSort4Sigma1() {
+        return sort4Sigma1;
+    }
+
+    public void setSort4Sigma1(String sort4Sigma1) {
+        this.sort4Sigma1 = sort4Sigma1;
+    }
+
+    public String getSort5Sigma1() {
+        return sort5Sigma1;
+    }
+
+    public void setSort5Sigma1(String sort5Sigma1) {
+        this.sort5Sigma1 = sort5Sigma1;
+    }
+
+    public String getSort6Sigma1() {
+        return sort6Sigma1;
+    }
+
+    public void setSort6Sigma1(String sort6Sigma1) {
+        this.sort6Sigma1 = sort6Sigma1;
+    }
+
+    public String getSort7Sigma1() {
+        return sort7Sigma1;
+    }
+
+    public void setSort7Sigma1(String sort7Sigma1) {
+        this.sort7Sigma1 = sort7Sigma1;
+    }
+
+    public String getSort8Sigma1() {
+        return sort8Sigma1;
+    }
+
+    public void setSort8Sigma1(String sort8Sigma1) {
+        this.sort8Sigma1 = sort8Sigma1;
+    }
+
+    public int getMaskLimit() {
+        return maskLimit;
+    }
+
+    public void setMaskLimit(int maskLimit) {
+        this.maskLimit = maskLimit;
+    }
+
+    public int getMaskRange() {
+        return maskRange;
+    }
+
+    public void setMaskRange(int maskRange) {
+        this.maskRange = maskRange;
+    }
+
+    public String getAbnormalFlag() {
+        return abnormalFlag;
+    }
+
+    public void setAbnormalFlag(String abnormalFlag) {
+        this.abnormalFlag = abnormalFlag;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getSysDate() {
+        return sysDate;
+    }
+
+    public void setSysDate(String sysDate) {
+        this.sysDate = sysDate;
+    }
+
+    public String getPat15() {
+        return pat15;
+    }
+
+    public void setPat15(String pat15) {
+        this.pat15 = pat15;
+    }
+
+    public String getPat16() {
+        return pat16;
+    }
+
+    public void setPat16(String pat16) {
+        this.pat16 = pat16;
+    }
+
+    public String getPat17() {
+        return pat17;
+    }
+
+    public void setPat17(String pat17) {
+        this.pat17 = pat17;
+    }
+
+    public String getPat18() {
+        return pat18;
+    }
+
+    public void setPat18(String pat18) {
+        this.pat18 = pat18;
+    }
+
+    public String getPat19() {
+        return pat19;
+    }
+
+    public void setPat19(String pat19) {
+        this.pat19 = pat19;
+    }
+
+    public String getPat20() {
+        return pat20;
+    }
+
+    public void setPat20(String pat20) {
+        this.pat20 = pat20;
+    }
+
+    public String getPat21() {
+        return pat21;
+    }
+
+    public void setPat21(String pat21) {
+        this.pat21 = pat21;
+    }
+
+    public String getPat22() {
+        return pat22;
+    }
+
+    public void setPat22(String pat22) {
+        this.pat22 = pat22;
+    }
+
+    public String getPat23() {
+        return pat23;
+    }
+
+    public void setPat23(String pat23) {
+        this.pat23 = pat23;
+    }
+
+    public String getPat24() {
+        return pat24;
+    }
+
+    public void setPat24(String pat24) {
+        this.pat24 = pat24;
+    }
+
+    public String getPat25() {
+        return pat25;
+    }
+
+    public void setPat25(String pat25) {
+        this.pat25 = pat25;
+    }
+
+    public String getPat26() {
+        return pat26;
+    }
+
+    public void setPat26(String pat26) {
+        this.pat26 = pat26;
+    }
+
+    public String getPat27() {
+        return pat27;
+    }
+
+    public void setPat27(String pat27) {
+        this.pat27 = pat27;
+    }
+
+    public String getPat28() {
+        return pat28;
+    }
+
+    public void setPat28(String pat28) {
+        this.pat28 = pat28;
+    }
+
+    public String getPat29() {
+        return pat29;
+    }
+
+    public void setPat29(String pat29) {
+        this.pat29 = pat29;
+    }
+
+    public String getPat30() {
+        return pat30;
+    }
+
+    public void setPat30(String pat30) {
+        this.pat30 = pat30;
+    }
+
+    public String getPat31() {
+        return pat31;
+    }
+
+    public void setPat31(String pat31) {
+        this.pat31 = pat31;
+    }
+
+    public String getPat32() {
+        return pat32;
+    }
+
+    public void setPat32(String pat32) {
+        this.pat32 = pat32;
+    }
+
+    public String getPat33() {
+        return pat33;
+    }
+
+    public void setPat33(String pat33) {
+        this.pat33 = pat33;
+    }
+
+    public String getPat34() {
+        return pat34;
+    }
+
+    public void setPat34(String pat34) {
+        this.pat34 = pat34;
+    }
+
+    public String getPat35() {
+        return pat35;
+    }
+
+    public void setPat35(String pat35) {
+        this.pat35 = pat35;
+    }
+
+    public String getPat36() {
+        return pat36;
+    }
+
+    public void setPat36(String pat36) {
+        this.pat36 = pat36;
+    }
+
+    public String getPat37() {
+        return pat37;
+    }
+
+    public void setPat37(String pat37) {
+        this.pat37 = pat37;
+    }
+
+    public String getPat38() {
+        return pat38;
+    }
+
+    public void setPat38(String pat38) {
+        this.pat38 = pat38;
+    }
+
+    public String getPat39() {
+        return pat39;
+    }
+
+    public void setPat39(String pat39) {
+        this.pat39 = pat39;
+    }
+
+    public String getPat40() {
+        return pat40;
+    }
+
+    public void setPat40(String pat40) {
+        this.pat40 = pat40;
+    }
+
+    public String getPat41() {
+        return pat41;
+    }
+
+    public void setPat41(String pat41) {
+        this.pat41 = pat41;
+    }
+
+    public String getPat42() {
+        return pat42;
+    }
+
+    public void setPat42(String pat42) {
+        this.pat42 = pat42;
+    }
+
+    public String getPat43() {
+        return pat43;
+    }
+
+    public void setPat43(String pat43) {
+        this.pat43 = pat43;
+    }
+
+    public String getPat44() {
+        return pat44;
+    }
+
+    public void setPat44(String pat44) {
+        this.pat44 = pat44;
+    }
 
     public String getPat45() {
         return pat45;
@@ -851,598 +1443,6 @@ public class MbtLastTableEvent {
 
     public void setEvent(String event) {
         this.event = event;
-    }
-
-    public String getPartId() {
-        return partId;
-    }
-
-    public void setPartId(String partId) {
-        this.partId = partId;
-    }
-
-    public String getDirectory() {
-        return directory;
-    }
-
-    public void setDirectory(String directory) {
-        this.directory = directory;
-    }
-
-    public String getBfpFile() {
-        return bfpFile;
-    }
-
-    public void setBfpFile(String bfpFile) {
-        this.bfpFile = bfpFile;
-    }
-
-    public String getTcsFile() {
-        return tcsFile;
-    }
-
-    public void setTcsFile(String tcsFile) {
-        this.tcsFile = tcsFile;
-    }
-
-    public String getDeviceName() {
-        return deviceName;
-    }
-
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-
-    public String getBoardType() {
-        return boardType;
-    }
-
-    public void setBoardType(String boardType) {
-        this.boardType = boardType;
-    }
-
-    public String getChamberModel() {
-        return chamberModel;
-    }
-
-    public void setChamberModel(String chamberModel) {
-        this.chamberModel = chamberModel;
-    }
-
-    public String getMcNcf() {
-        return mcNcf;
-    }
-
-    public void setMcNcf(String mcNcf) {
-        this.mcNcf = mcNcf;
-    }
-
-    public String getMcNct() {
-        return mcNct;
-    }
-
-    public void setMcNct(String mcNct) {
-        this.mcNct = mcNct;
-    }
-
-    public String getLotType() {
-        return lotType;
-    }
-
-    public void setLotType(String lotType) {
-        this.lotType = lotType;
-    }
-
-    public String getScr1() {
-        return scr1;
-    }
-
-    public void setScr1(String scr1) {
-        this.scr1 = scr1;
-    }
-
-    public String getScr2() {
-        return scr2;
-    }
-
-    public void setScr2(String scr2) {
-        this.scr2 = scr2;
-    }
-
-    public String getScr3() {
-        return scr3;
-    }
-
-    public void setScr3(String scr3) {
-        this.scr3 = scr3;
-    }
-
-    public String getScr4() {
-        return scr4;
-    }
-
-    public void setScr4(String scr4) {
-        this.scr4 = scr4;
-    }
-
-    public String getPat1() {
-        return pat1;
-    }
-
-    public void setPat1(String pat1) {
-        this.pat1 = pat1;
-    }
-
-    public String getPat2() {
-        return pat2;
-    }
-
-    public void setPat2(String pat2) {
-        this.pat2 = pat2;
-    }
-
-    public String getPat3() {
-        return pat3;
-    }
-
-    public void setPat3(String pat3) {
-        this.pat3 = pat3;
-    }
-
-    public String getPat4() {
-        return pat4;
-    }
-
-    public void setPat4(String pat4) {
-        this.pat4 = pat4;
-    }
-
-    public String getPat5() {
-        return pat5;
-    }
-
-    public void setPat5(String pat5) {
-        this.pat5 = pat5;
-    }
-
-    public String getPat6() {
-        return pat6;
-    }
-
-    public void setPat6(String pat6) {
-        this.pat6 = pat6;
-    }
-
-    public String getPat7() {
-        return pat7;
-    }
-
-    public void setPat7(String pat7) {
-        this.pat7 = pat7;
-    }
-
-    public String getPat8() {
-        return pat8;
-    }
-
-    public void setPat8(String pat8) {
-        this.pat8 = pat8;
-    }
-
-    public String getPat9() {
-        return pat9;
-    }
-
-    public void setPat9(String pat9) {
-        this.pat9 = pat9;
-    }
-
-    public String getPat10() {
-        return pat10;
-    }
-
-    public void setPat10(String pat10) {
-        this.pat10 = pat10;
-    }
-
-    public String getPat11() {
-        return pat11;
-    }
-
-    public void setPat11(String pat11) {
-        this.pat11 = pat11;
-    }
-
-    public String getPat12() {
-        return pat12;
-    }
-
-    public void setPat12(String pat12) {
-        this.pat12 = pat12;
-    }
-
-    public String getPat13() {
-        return pat13;
-    }
-
-    public void setPat13(String pat13) {
-        this.pat13 = pat13;
-    }
-
-    public String getPat14() {
-        return pat14;
-    }
-
-    public void setPat14(String pat14) {
-        this.pat14 = pat14;
-    }
-
-    public String getYieldSigma1() {
-        return yieldSigma1;
-    }
-
-    public void setYieldSigma1(String yieldSigma1) {
-        this.yieldSigma1 = yieldSigma1;
-    }
-
-    public String getYieldSigma2() {
-        return yieldSigma2;
-    }
-
-    public void setYieldSigma2(String yieldSigma2) {
-        this.yieldSigma2 = yieldSigma2;
-    }
-
-    public String getContactYield() {
-        return contactYield;
-    }
-
-    public void setContactYield(String contactYield) {
-        this.contactYield = contactYield;
-    }
-
-    public String getSort0Sigma1() {
-        return sort0Sigma1;
-    }
-
-    public void setSort0Sigma1(String sort0Sigma1) {
-        this.sort0Sigma1 = sort0Sigma1;
-    }
-
-    public String getSort2Sigma1() {
-        return sort2Sigma1;
-    }
-
-    public void setSort2Sigma1(String sort2Sigma1) {
-        this.sort2Sigma1 = sort2Sigma1;
-    }
-
-    public String getSort4Sigma1() {
-        return sort4Sigma1;
-    }
-
-    public void setSort4Sigma1(String sort4Sigma1) {
-        this.sort4Sigma1 = sort4Sigma1;
-    }
-
-    public String getSort5Sigma1() {
-        return sort5Sigma1;
-    }
-
-    public void setSort5Sigma1(String sort5Sigma1) {
-        this.sort5Sigma1 = sort5Sigma1;
-    }
-
-    public String getSort6Sigma1() {
-        return sort6Sigma1;
-    }
-
-    public void setSort6Sigma1(String sort6Sigma1) {
-        this.sort6Sigma1 = sort6Sigma1;
-    }
-
-    public String getSort7Sigma1() {
-        return sort7Sigma1;
-    }
-
-    public void setSort7Sigma1(String sort7Sigma1) {
-        this.sort7Sigma1 = sort7Sigma1;
-    }
-
-    public String getSort8Sigma1() {
-        return sort8Sigma1;
-    }
-
-    public void setSort8Sigma1(String sort8Sigma1) {
-        this.sort8Sigma1 = sort8Sigma1;
-    }
-
-    public int getMaskLimit() {
-        return maskLimit;
-    }
-
-    public void setMaskLimit(int maskLimit) {
-        this.maskLimit = maskLimit;
-    }
-
-    public int getMaskRange() {
-        return maskRange;
-    }
-
-    public void setMaskRange(int maskRange) {
-        this.maskRange = maskRange;
-    }
-
-    public String getAbnormalFlag() {
-        return abnormalFlag;
-    }
-
-    public void setAbnormalFlag(String abnormalFlag) {
-        this.abnormalFlag = abnormalFlag;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getSysDate() {
-        return sysDate;
-    }
-
-    public void setSysDate(String sysDate) {
-        this.sysDate = sysDate;
-    }
-
-    public String getPat15() {
-        return pat15;
-    }
-
-    public void setPat15(String pat15) {
-        this.pat15 = pat15;
-    }
-
-    public String getPat16() {
-        return pat16;
-    }
-
-    public void setPat16(String pat16) {
-        this.pat16 = pat16;
-    }
-
-    public String getPat17() {
-        return pat17;
-    }
-
-    public void setPat17(String pat17) {
-        this.pat17 = pat17;
-    }
-
-    public String getPat18() {
-        return pat18;
-    }
-
-    public void setPat18(String pat18) {
-        this.pat18 = pat18;
-    }
-
-    public String getPat19() {
-        return pat19;
-    }
-
-    public void setPat19(String pat19) {
-        this.pat19 = pat19;
-    }
-
-    public String getPat20() {
-        return pat20;
-    }
-
-    public void setPat20(String pat20) {
-        this.pat20 = pat20;
-    }
-
-    public String getPat21() {
-        return pat21;
-    }
-
-    public void setPat21(String pat21) {
-        this.pat21 = pat21;
-    }
-
-    public String getPat22() {
-        return pat22;
-    }
-
-    public void setPat22(String pat22) {
-        this.pat22 = pat22;
-    }
-
-    public String getPat23() {
-        return pat23;
-    }
-
-    public void setPat23(String pat23) {
-        this.pat23 = pat23;
-    }
-
-    public String getPat24() {
-        return pat24;
-    }
-
-    public void setPat24(String pat24) {
-        this.pat24 = pat24;
-    }
-
-    public String getPat25() {
-        return pat25;
-    }
-
-    public void setPat25(String pat25) {
-        this.pat25 = pat25;
-    }
-
-    public String getPat26() {
-        return pat26;
-    }
-
-    public void setPat26(String pat26) {
-        this.pat26 = pat26;
-    }
-
-    public String getPat27() {
-        return pat27;
-    }
-
-    public void setPat27(String pat27) {
-        this.pat27 = pat27;
-    }
-
-    public String getPat28() {
-        return pat28;
-    }
-
-    public void setPat28(String pat28) {
-        this.pat28 = pat28;
-    }
-
-    public String getPat29() {
-        return pat29;
-    }
-
-    public void setPat29(String pat29) {
-        this.pat29 = pat29;
-    }
-
-    public String getPat30() {
-        return pat30;
-    }
-
-    public void setPat30(String pat30) {
-        this.pat30 = pat30;
-    }
-
-    public String getPat31() {
-        return pat31;
-    }
-
-    public void setPat31(String pat31) {
-        this.pat31 = pat31;
-    }
-
-    public String getPat32() {
-        return pat32;
-    }
-
-    public void setPat32(String pat32) {
-        this.pat32 = pat32;
-    }
-
-    public String getPat33() {
-        return pat33;
-    }
-
-    public void setPat33(String pat33) {
-        this.pat33 = pat33;
-    }
-
-    public String getPat34() {
-        return pat34;
-    }
-
-    public void setPat34(String pat34) {
-        this.pat34 = pat34;
-    }
-
-    public String getPat35() {
-        return pat35;
-    }
-
-    public void setPat35(String pat35) {
-        this.pat35 = pat35;
-    }
-
-    public String getPat36() {
-        return pat36;
-    }
-
-    public void setPat36(String pat36) {
-        this.pat36 = pat36;
-    }
-
-    public String getPat37() {
-        return pat37;
-    }
-
-    public void setPat37(String pat37) {
-        this.pat37 = pat37;
-    }
-
-    public String getPat38() {
-        return pat38;
-    }
-
-    public void setPat38(String pat38) {
-        this.pat38 = pat38;
-    }
-
-    public String getPat39() {
-        return pat39;
-    }
-
-    public void setPat39(String pat39) {
-        this.pat39 = pat39;
-    }
-
-    public String getPat40() {
-        return pat40;
-    }
-
-    public void setPat40(String pat40) {
-        this.pat40 = pat40;
-    }
-
-    public String getPat41() {
-        return pat41;
-    }
-
-    public void setPat41(String pat41) {
-        this.pat41 = pat41;
-    }
-
-    public String getPat42() {
-        return pat42;
-    }
-
-    public void setPat42(String pat42) {
-        this.pat42 = pat42;
-    }
-
-    public String getPat43() {
-        return pat43;
-    }
-
-    public void setPat43(String pat43) {
-        this.pat43 = pat43;
-    }
-
-    public String getPat44() {
-        return pat44;
-    }
-
-    public void setPat44(String pat44) {
-        this.pat44 = pat44;
     }
 
 }
