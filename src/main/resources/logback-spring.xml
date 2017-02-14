@@ -32,7 +32,7 @@
     <logger name="org.springframework.web">
         <level value="info"/>
     </logger>
-    <logger name="com.example.web">
+    <logger name="kr.famos.base">
         <level value="debug"/>
     </logger>
     <logger name="java.sql">
@@ -41,7 +41,7 @@
     <logger name="org.mybatis.spring">
         <level value="debug"/>
     </logger>
-    <logger name="com.example.web.sqlmappers">
+    <logger name="kr.famos.base.mapper">
         <level value="trace"/>
     </logger>
 

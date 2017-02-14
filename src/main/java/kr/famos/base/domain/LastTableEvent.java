@@ -4,30 +4,10 @@ package kr.famos.base.domain;
  * Created by yhkim on 2017-01-31.
  */
 public class LastTableEvent {
-    private String testTime = "";    // TEST_TIME
-    private String itemCount = "";    //
-    private String maxTime = "";    //
-    private String waferCiBin = "";    //
-    private String purposeTypeCheck = "";    //
-    private String purposeType1st = "";    //
-    private String purposeProcess1st = "";    //
-    private String purposeType2nd = "";    //
-    private String purposeProcess2nd = "";    //
-    private String waferSblFlag = "";    //
-    private String multiuiFlag = "";    //
-    private String event = "";    // INSERT/UPDATE/DELETE
-    private String fwNameCheck = "";    //
-    private String fw1Pgm = "";    //
-    private String fwPatch = "";    //
-    private String fwRc = "";    //
-    private String fwReleaseDate = "";    //
-    private String fw2Pgm = "";    //
-    private String fw3Pgm = "";    //
-    private String releaseDateCheck = "";    //
-    private String userId = "";    // USER ID
+    private String operator = "";    // USER ID
     private String sysDate = "";    // 시간
     private String tester = "";    // TESTER
-    private String product = "";    // PRODUCT
+    private String partnumber = "";    // PRODUCT
     private String process = "";    // PROCESS
     private String mainPgm = "";    // MAIN PGM
     private String pgmcnt = "";    // PGM CNT
@@ -100,173 +80,35 @@ public class LastTableEvent {
     private String shLotid2nd = "";    //
     private String shProcess1st = "";    //
     private String shProcess2nd = "";    //
+    private String testTime = "";    // TEST_TIME
+    private String itemCount = "";    //
+    private String maxTime = "";    //
+    private String waferCiBin = "";    //
+    private String purposeTypeCheck = "";    //
+    private String purposeType1st = "";    //
+    private String purposeProcess1st = "";    //
+    private String purposeType2nd = "";    //
+    private String purposeProcess2nd = "";    //
+    private String waferSblFlag = "";    //
+    private String multiuiFlag = "";    //
+    private String event = "";    // INSERT/UPDATE/DELETE
+    private String fwNameCheck = "";    //
+    private String fw1Pgm = "";    //
+    private String fwPatch = "";    //
+    private String fwRc = "";    //
+    private String fwReleaseDate = "";    //
+    private String fw2Pgm = "";    //
+    private String fw3Pgm = "";    //
+    private String releaseDateCheck = "";    //
+    private String fab = "";    //
+    private String grade = "";    //
 
-    public String getTestTime() {
-        return testTime;
+    public String getOperator() {
+        return operator;
     }
 
-    public void setTestTime(String testTime) {
-        this.testTime = testTime;
-    }
-
-    public String getItemCount() {
-        return itemCount;
-    }
-
-    public void setItemCount(String itemCount) {
-        this.itemCount = itemCount;
-    }
-
-    public String getMaxTime() {
-        return maxTime;
-    }
-
-    public void setMaxTime(String maxTime) {
-        this.maxTime = maxTime;
-    }
-
-    public String getWaferCiBin() {
-        return waferCiBin;
-    }
-
-    public void setWaferCiBin(String waferCiBin) {
-        this.waferCiBin = waferCiBin;
-    }
-
-    public String getPurposeTypeCheck() {
-        return purposeTypeCheck;
-    }
-
-    public void setPurposeTypeCheck(String purposeTypeCheck) {
-        this.purposeTypeCheck = purposeTypeCheck;
-    }
-
-    public String getPurposeType1st() {
-        return purposeType1st;
-    }
-
-    public void setPurposeType1st(String purposeType1st) {
-        this.purposeType1st = purposeType1st;
-    }
-
-    public String getPurposeProcess1st() {
-        return purposeProcess1st;
-    }
-
-    public void setPurposeProcess1st(String purposeProcess1st) {
-        this.purposeProcess1st = purposeProcess1st;
-    }
-
-    public String getPurposeType2nd() {
-        return purposeType2nd;
-    }
-
-    public void setPurposeType2nd(String purposeType2nd) {
-        this.purposeType2nd = purposeType2nd;
-    }
-
-    public String getPurposeProcess2nd() {
-        return purposeProcess2nd;
-    }
-
-    public void setPurposeProcess2nd(String purposeProcess2nd) {
-        this.purposeProcess2nd = purposeProcess2nd;
-    }
-
-    public String getWaferSblFlag() {
-        return waferSblFlag;
-    }
-
-    public void setWaferSblFlag(String waferSblFlag) {
-        this.waferSblFlag = waferSblFlag;
-    }
-
-    public String getMultiuiFlag() {
-        return multiuiFlag;
-    }
-
-    public void setMultiuiFlag(String multiuiFlag) {
-        this.multiuiFlag = multiuiFlag;
-    }
-
-    public String getEvent() {
-        return event;
-    }
-
-    public void setEvent(String event) {
-        this.event = event;
-    }
-
-    public String getFwNameCheck() {
-        return fwNameCheck;
-    }
-
-    public void setFwNameCheck(String fwNameCheck) {
-        this.fwNameCheck = fwNameCheck;
-    }
-
-    public String getFw1Pgm() {
-        return fw1Pgm;
-    }
-
-    public void setFw1Pgm(String fw1Pgm) {
-        this.fw1Pgm = fw1Pgm;
-    }
-
-    public String getFwPatch() {
-        return fwPatch;
-    }
-
-    public void setFwPatch(String fwPatch) {
-        this.fwPatch = fwPatch;
-    }
-
-    public String getFwRc() {
-        return fwRc;
-    }
-
-    public void setFwRc(String fwRc) {
-        this.fwRc = fwRc;
-    }
-
-    public String getFwReleaseDate() {
-        return fwReleaseDate;
-    }
-
-    public void setFwReleaseDate(String fwReleaseDate) {
-        this.fwReleaseDate = fwReleaseDate;
-    }
-
-    public String getFw2Pgm() {
-        return fw2Pgm;
-    }
-
-    public void setFw2Pgm(String fw2Pgm) {
-        this.fw2Pgm = fw2Pgm;
-    }
-
-    public String getFw3Pgm() {
-        return fw3Pgm;
-    }
-
-    public void setFw3Pgm(String fw3Pgm) {
-        this.fw3Pgm = fw3Pgm;
-    }
-
-    public String getReleaseDateCheck() {
-        return releaseDateCheck;
-    }
-
-    public void setReleaseDateCheck(String releaseDateCheck) {
-        this.releaseDateCheck = releaseDateCheck;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 
     public String getSysDate() {
@@ -285,12 +127,12 @@ public class LastTableEvent {
         this.tester = tester;
     }
 
-    public String getProduct() {
-        return product;
+    public String getPartnumber() {
+        return partnumber;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setPartnumber(String partnumber) {
+        this.partnumber = partnumber;
     }
 
     public String getProcess() {
@@ -867,6 +709,182 @@ public class LastTableEvent {
 
     public void setShProcess2nd(String shProcess2nd) {
         this.shProcess2nd = shProcess2nd;
+    }
+
+    public String getTestTime() {
+        return testTime;
+    }
+
+    public void setTestTime(String testTime) {
+        this.testTime = testTime;
+    }
+
+    public String getItemCount() {
+        return itemCount;
+    }
+
+    public void setItemCount(String itemCount) {
+        this.itemCount = itemCount;
+    }
+
+    public String getMaxTime() {
+        return maxTime;
+    }
+
+    public void setMaxTime(String maxTime) {
+        this.maxTime = maxTime;
+    }
+
+    public String getWaferCiBin() {
+        return waferCiBin;
+    }
+
+    public void setWaferCiBin(String waferCiBin) {
+        this.waferCiBin = waferCiBin;
+    }
+
+    public String getPurposeTypeCheck() {
+        return purposeTypeCheck;
+    }
+
+    public void setPurposeTypeCheck(String purposeTypeCheck) {
+        this.purposeTypeCheck = purposeTypeCheck;
+    }
+
+    public String getPurposeType1st() {
+        return purposeType1st;
+    }
+
+    public void setPurposeType1st(String purposeType1st) {
+        this.purposeType1st = purposeType1st;
+    }
+
+    public String getPurposeProcess1st() {
+        return purposeProcess1st;
+    }
+
+    public void setPurposeProcess1st(String purposeProcess1st) {
+        this.purposeProcess1st = purposeProcess1st;
+    }
+
+    public String getPurposeType2nd() {
+        return purposeType2nd;
+    }
+
+    public void setPurposeType2nd(String purposeType2nd) {
+        this.purposeType2nd = purposeType2nd;
+    }
+
+    public String getPurposeProcess2nd() {
+        return purposeProcess2nd;
+    }
+
+    public void setPurposeProcess2nd(String purposeProcess2nd) {
+        this.purposeProcess2nd = purposeProcess2nd;
+    }
+
+    public String getWaferSblFlag() {
+        return waferSblFlag;
+    }
+
+    public void setWaferSblFlag(String waferSblFlag) {
+        this.waferSblFlag = waferSblFlag;
+    }
+
+    public String getMultiuiFlag() {
+        return multiuiFlag;
+    }
+
+    public void setMultiuiFlag(String multiuiFlag) {
+        this.multiuiFlag = multiuiFlag;
+    }
+
+    public String getEvent() {
+        return event;
+    }
+
+    public void setEvent(String event) {
+        this.event = event;
+    }
+
+    public String getFwNameCheck() {
+        return fwNameCheck;
+    }
+
+    public void setFwNameCheck(String fwNameCheck) {
+        this.fwNameCheck = fwNameCheck;
+    }
+
+    public String getFw1Pgm() {
+        return fw1Pgm;
+    }
+
+    public void setFw1Pgm(String fw1Pgm) {
+        this.fw1Pgm = fw1Pgm;
+    }
+
+    public String getFwPatch() {
+        return fwPatch;
+    }
+
+    public void setFwPatch(String fwPatch) {
+        this.fwPatch = fwPatch;
+    }
+
+    public String getFwRc() {
+        return fwRc;
+    }
+
+    public void setFwRc(String fwRc) {
+        this.fwRc = fwRc;
+    }
+
+    public String getFwReleaseDate() {
+        return fwReleaseDate;
+    }
+
+    public void setFwReleaseDate(String fwReleaseDate) {
+        this.fwReleaseDate = fwReleaseDate;
+    }
+
+    public String getFw2Pgm() {
+        return fw2Pgm;
+    }
+
+    public void setFw2Pgm(String fw2Pgm) {
+        this.fw2Pgm = fw2Pgm;
+    }
+
+    public String getFw3Pgm() {
+        return fw3Pgm;
+    }
+
+    public void setFw3Pgm(String fw3Pgm) {
+        this.fw3Pgm = fw3Pgm;
+    }
+
+    public String getReleaseDateCheck() {
+        return releaseDateCheck;
+    }
+
+    public void setReleaseDateCheck(String releaseDateCheck) {
+        this.releaseDateCheck = releaseDateCheck;
+    }
+
+    public String getFab() {
+        return fab;
+    }
+
+    public void setFab(String fab) {
+        this.fab = fab;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
 }
