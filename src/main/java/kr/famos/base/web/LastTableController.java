@@ -34,6 +34,7 @@ public class LastTableController {
         logger.debug("lasttableinsert post 함수  ");
         LastTable lastTable = new LastTable();
         lastTable.setOperator("youngho");
+        lastTable.setSysDate("sysdate");
         lastTableMapper.insertLastTable(lastTable);
     }
 }
