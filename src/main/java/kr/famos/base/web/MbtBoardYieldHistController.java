@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.MbtBoardYieldHistDao;
 import kr.famos.base.domain.MbtBoardYieldHist;
-import kr.famos.base.mapper.MbtBoardYieldHistMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,11 @@ import java.util.List;
 public class MbtBoardYieldHistController {
     private static final Logger logger = LoggerFactory.getLogger(MbtBoardYieldHistController.class);
     @Autowired
-    MbtBoardYieldHistMapper mbtBoardYieldHistMapper;
+    private MbtBoardYieldHistDao mbtBoardYieldHistDao;
 
-    @RequestMapping(value="/mbtboardyieldhist")
+    @RequestMapping(value = "/mbtboardyieldhist")
     public ResponseEntity<List<MbtBoardYieldHist>> get() {
-        logger.debug(" 이것은 MbtBoardYieldHistController 컨트롤러 호출입니다");
-        List<MbtBoardYieldHist> mbtBoardYieldHistList = mbtBoardYieldHistMapper.readAllMbtBoardYieldHist();
-        return new ResponseEntity<List<MbtBoardYieldHist>>(mbtBoardYieldHistList, HttpStatus.OK);
+        logger.debug("MbtBoardYieldHistController 컨트롤러 호출입니다");
+        return new ResponseEntity<List<MbtBoardYieldHist>>(mbtBoardYieldHistDao.retrieveMbtBoardYieldHist(), HttpStatus.OK);
     }
 }

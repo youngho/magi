@@ -1,8 +1,7 @@
 package kr.famos.base.web;
 
-import kr.famos.base.domain.Bibendwork;
+import kr.famos.base.dao.LastTableDao;
 import kr.famos.base.domain.LastTable;
-import kr.famos.base.mapper.LastTableMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,25 +18,24 @@ import java.util.List;
  */
 @RestController
 public class LastTableController {
-    private static final Logger logger = LoggerFactory.getLogger(BibendworkController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LastTableController.class);
     @Autowired
-    LastTableMapper lastTableMapper;
+    private LastTableDao lastTableDao;
 
-    @RequestMapping(value="/lastTable")
+    @RequestMapping(value = "/lastTable")
     public ResponseEntity<List<LastTable>> get() {
         logger.debug(" 이것은 LastTableController 컨트롤러 호출입니다");
         LastTable lastTable = new LastTable();
         lastTable.setOperator("youngho");
-        List<LastTable> lastTableList = lastTableMapper.readAllLastTable(lastTable);
-        return  new ResponseEntity<List<LastTable>>(lastTableList, HttpStatus.OK);
+        return new ResponseEntity<List<LastTable>>(lastTableDao.retrieveLastTable(), HttpStatus.OK);
     }
 
-    @RequestMapping(value="/lastTable", method = RequestMethod.POST)
+    @RequestMapping(value = "/lastTable", method = RequestMethod.POST)
     public void post() {
-        logger.debug("lasttableinsert post 함수  ");
+        logger.debug("LastTableController post 함수  ");
         LastTable lastTable = new LastTable();
         lastTable.setOperator("youngho");
         lastTable.setSysDate("sysdate");
-        lastTableMapper.insertLastTable(lastTable);
+        lastTableDao.insertLastTable(lastTable);
     }
 }

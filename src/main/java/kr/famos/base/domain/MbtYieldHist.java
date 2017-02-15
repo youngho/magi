@@ -3,7 +3,7 @@ package kr.famos.base.domain;
 /**
  * Created by yhkim on 2017-01-31.
  */
-public class MbtYieldHsit {
+public class MbtYieldHist {
     private String deviceName = "";    // DEVICE_NAME
     private String machineName = "";    // MACHINE_NAME
     private String machineNo = "";    // MACHINE_NO

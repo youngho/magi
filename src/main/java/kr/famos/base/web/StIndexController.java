@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.StIndexDao;
 import kr.famos.base.domain.StIndex;
-import kr.famos.base.mapper.StIndexMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,11 @@ import java.util.List;
 public class StIndexController {
     private static final Logger logger = LoggerFactory.getLogger(StIndexController.class);
     @Autowired
-    StIndexMapper stIndexMapper;
+    private StIndexDao stIndexDao;
 
-    @RequestMapping(value="/stindex")
+    @RequestMapping(value = "/stIndex")
     public ResponseEntity<List<StIndex>> get() {
-        logger.debug(" 이것은 StIndexController 컨트롤러 호출입니다");
-        List<StIndex> list = stIndexMapper.readAllStIndex();
-        return new ResponseEntity<List<StIndex>>(list, HttpStatus.OK);
+        logger.debug("StIndexController 컨트롤러 호출입니다");
+        return new ResponseEntity<List<StIndex>>(stIndexDao.retrieveStIndex(), HttpStatus.OK);
     }
 }
