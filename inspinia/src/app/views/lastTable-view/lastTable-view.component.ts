@@ -16,16 +16,18 @@ export class lastTableViewComponent implements OnInit, OnDestroy {
 
     tableForm: FormGroup;
     operator: FormControl;
+    sysDate: FormControl;
 
     @Output() saved = new EventEmitter();
 
     constructor(private lastTableViewService: LastTableViewService, private router: Router,private fb: FormBuilder) {
         this.operator = new FormControl('', [Validators.required, Validators.minLength(10)]);
+        this.sysDate = new FormControl('', [Validators.required, Validators.minLength(10)]);
         this.tableForm = fb.group({
-            content: this.operator
+            operator: this.operator,
+            sysDate: this.sysDate
         });
     }
-
 /*
     onSubmit(form){
         console.log("onSave()에 넘어온 값 = " + this.lastTable);
@@ -46,16 +48,22 @@ export class lastTableViewComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(){
     }
-    saveLastTableForm() {
-        console.log('submitting comment form @'+ this.tableForm.value);
-        this.saved
+    saveLastTableForm(f) {
+        console.log(f);
+        console.log('submitting LastTable form @'+ this.tableForm);
+        // this.saved
         // .subscribe((res) => {
         //   this.commentForm.setValue({ content: '' });
         //   this.commentForm.markAsPristine();
         // })
-            .emit(this.tableForm.value);
+        //     .emit(this.tableForm.value);
 
-        this.tableForm.controls['content'].setValue('');
+        this.lastTableViewService.postLastTable(f).subscribe(
+            data => this.tableForm = data,
+            error => alert(error),
+            () => console.log("Finish onSave()"));
+
+        this.tableForm.controls['operator'].setValue('');
         this.tableForm.markAsPristine();
     }
 }
