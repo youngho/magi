@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,11 +26,13 @@ public class LastTableController {
     @RequestMapping(value="/lastTable")
     public ResponseEntity<List<LastTable>> get() {
         logger.debug(" 이것은 LastTableController 컨트롤러 호출입니다");
-        List<LastTable> lastTableList = lastTableMapper.readAllLastTable();
+        LastTable lastTable = new LastTable();
+        lastTable.setOperator("youngho");
+        List<LastTable> lastTableList = lastTableMapper.readAllLastTable(lastTable);
         return  new ResponseEntity<List<LastTable>>(lastTableList, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/lasttableinsert")
+    @RequestMapping(value="/lastTable", method = RequestMethod.POST)
     public void post() {
         logger.debug("lasttableinsert post 함수  ");
         LastTable lastTable = new LastTable();
