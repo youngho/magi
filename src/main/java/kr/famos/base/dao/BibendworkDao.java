@@ -23,8 +23,8 @@ public class BibendworkDao {
         this.sqlSession = sqlSession;
     }
 
-    public List<Bibendwork> retrieveBibendwork() {
+    public List<Bibendwork> retrieveBibendwork(Bibendwork bibendwork) {
         logger.info("retrieveBibendwork 메소드 호출");
-        return this.sqlSession.selectList("retrieveBibendwork");
+        return this.sqlSession.selectList("retrieveBibendwork", bibendwork);
     }
 }

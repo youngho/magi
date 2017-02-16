@@ -37,6 +37,6 @@ public class LastTableController {
 //        LastTable lastTable = new LastTable();
 //        lastTable.setOperator("youngho");
 //        lastTable.setSysDate("sysdate");
-        lastTableMapper.insertLastTable(lastTable);
+        lastTableDao.insertLastTable(lastTable);
     }
 }

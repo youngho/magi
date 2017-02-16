@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,9 +24,9 @@ public class BibendworkController {
     private BibendworkDao bibendworkDao;
 
     @RequestMapping(value="/bibendwork")
-    public ResponseEntity<List<Bibendwork>> get() {
+    public ResponseEntity<List<Bibendwork>> get(@RequestBody Bibendwork bibendwork) {
         logger.debug(" 이것은 BibendworkController 컨트롤러 호출입니다");
 
-        return  new ResponseEntity<List<Bibendwork>>(bibendworkDao.retrieveBibendwork(), HttpStatus.OK);
+        return  new ResponseEntity<List<Bibendwork>>(bibendworkDao.retrieveBibendwork(bibendwork), HttpStatus.OK);
     }
 }
