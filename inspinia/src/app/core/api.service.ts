@@ -32,6 +32,7 @@ export class ApiService {
   }
 
   public post(path: string, data: any): Observable<any> {
+    console.log('잇힝'+ path);
     let body = JSON.stringify(data);
     return this.http.post(`${this.API_URL}${path}`, body, { headers: this.headers })
       //.map(this.extractData)
