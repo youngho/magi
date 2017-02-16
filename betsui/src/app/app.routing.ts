@@ -18,6 +18,11 @@ export const routes: Routes = [
         path: '', redirectTo: 'dashboard/analytics', pathMatch: 'full'
       },
       {
+        path: 'opirus',
+        loadChildren: 'app/+opirus/opirus.module#OpirusModule',
+        data: {pageTitle: 'Opirus'}
+      },
+      {
         path: 'dashboard',
         loadChildren: 'app/+dashboard/dashboard.module#DashboardModule',
         data: {pageTitle: 'Dashboard'}
