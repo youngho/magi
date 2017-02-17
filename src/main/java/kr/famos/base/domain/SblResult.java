@@ -7,7 +7,7 @@ public class SblResult {
     private String eventTime = "";    //
     private String endMode = "";    //
     private String lotid = "";    //
-    private String product = "";    //
+    private String partnumber = "";    //
     private String process = "";    //
     private String lottype = "";    //
     private String operator = "";    //
@@ -68,12 +68,12 @@ public class SblResult {
         this.lotid = lotid;
     }
 
-    public String getProduct() {
-        return product;
+    public String getPartnumber() {
+        return partnumber;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setPartnumber(String partnumber) {
+        this.partnumber = partnumber;
     }
 
     public String getProcess() {

@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.PkgmapMultichipYieldDao;
 import kr.famos.base.domain.PkgmapMultichipYield;
-import kr.famos.base.mapper.PkgmapMultichipYieldMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,11 @@ import java.util.List;
 public class PkgmapMultichipYieldController {
     private static final Logger logger = LoggerFactory.getLogger(PkgmapMultichipYieldController.class);
     @Autowired
-    PkgmapMultichipYieldMapper pkgmapMultichipYieldMapper;
+    private PkgmapMultichipYieldDao pkgmapMultichipYieldDao;
 
-    @RequestMapping(value="/pkgmapmultichipyield")
+    @RequestMapping(value = "/pkgmapmultichipyield")
     public ResponseEntity<List<PkgmapMultichipYield>> get() {
-        logger.debug(" 이것은 PkgmapMultichipYieldController 컨트롤러 호출입니다");
-        List<PkgmapMultichipYield> list = pkgmapMultichipYieldMapper.readAllPkgmapMultichipYield();
-        return new ResponseEntity<List<PkgmapMultichipYield>>(list, HttpStatus.OK);
+        logger.debug("PkgmapMultichipYieldController 컨트롤러 호출입니다");
+        return new ResponseEntity<List<PkgmapMultichipYield>>(pkgmapMultichipYieldDao.retrievePkgmapMultichipYield(), HttpStatus.OK);
     }
 }

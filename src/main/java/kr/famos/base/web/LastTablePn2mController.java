@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.LastTablePn2mDao;
 import kr.famos.base.domain.LastTablePn2m;
-import kr.famos.base.mapper.LastTablePn2mMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,11 @@ import java.util.List;
 public class LastTablePn2mController {
     private static final Logger logger = LoggerFactory.getLogger(LastTablePn2mController.class);
     @Autowired
-    LastTablePn2mMapper lastTablePn2mMapper;
+    private LastTablePn2mDao lastTablePn2mDao;
 
-    @RequestMapping(value="/lasttablepn2m")
+    @RequestMapping(value = "/lasttablepn2m")
     public ResponseEntity<List<LastTablePn2m>> get() {
         logger.info(" 이것은 LastTablePn2mController 컨트롤러 호출입니다");
-        List<LastTablePn2m> lastTablePn2mList = lastTablePn2mMapper.readAllLastTablePn2m();
-        return new ResponseEntity<List<LastTablePn2m>>(lastTablePn2mList, HttpStatus.OK);
+        return new ResponseEntity<List<LastTablePn2m>>(lastTablePn2mDao.retrieveLastTablePn2m(), HttpStatus.OK);
     }
 }

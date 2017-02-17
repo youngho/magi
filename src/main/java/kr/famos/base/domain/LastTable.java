@@ -4,6 +4,55 @@ package kr.famos.base.domain;
  * Created by yhkim on 2017-01-31.
  */
 public class LastTable {
+    private String operator = "";    // 작업자 사번
+    private String sysDate = "";    // PGM 로딩 요청 시점
+    private String tester = "";    // TESTER
+    private String partnumber = "";    // 설비명
+    private String process = "";    // 공정코드
+    private String mainPgm = "";    // Main program 이름
+    private String pgmcnt = "";    // Program 개수
+    private String subPgm = "";    // Sub program들
+    private String global = "";    // Test program에서 사용하는 system parameter
+    private String sblYield = "";    // 이상 수율 판정 기준
+    private String subBin = "";    // 이상 Sub bin
+    private String subbin = "";    // 이상 Sub bin 판정 기준
+    private String ngbin = "";    // 이상 NG Bin
+    private String pkgSigmod = "";    // Package map mode (ISVM,…)
+    private String pkgPara = "";    // Parallel
+    private String pkgDigit = "";    // Package map 데이터 자리 수
+    private String pkgSigno = "";    // Package map signature
+    private String pkgMeasno = "";    // 특성 parameter
+    private String flow = "";    // 설비 제어 - 정상
+    private String halt = "";    // 설비 제어 - Stop
+    private String comments = "";    // COMMENTS
+    private String runSbl = "";    // Sbl에 대한 engineer 의견
+    private String runCount = "";    // Wf. Run 개수
+    private String temp = "";    // Test 온도 기준값
+    private String tempLimit = "";    // Test 온도 SBL 기준
+    private String pkgType = "";    // Package 타입 - 자동화, B'rd 정보화 연계
+    private String pkgSize = "";    // Package 크기 - 자동화, B'rd 정보화 연계
+    private String pkgHeight = "";    // Package 높이 - 자동화, B'rd 정보화 연계
+    private String pkgParanum = "";    // PKG_PARANUM
+    private String specialPara = "";    // SPECIAL_PARA
+    private String runSblYield = "";    // RUN_SBL_YIELD
+    private String leadfree = "";    //
+    private String lotMerge = "";    //
+    private String newProduct = "";    // 신제품
+    private String cate61 = "";    // CATE6_1
+    private String cate62 = "";    // CATE6_2
+    private String cate63 = "";    // CATE6_3
+    private String cate64 = "";    // CATE6_4
+    private String cate65 = "";    // CATE6_5
+    private String cate71 = "";    // CATE7_1
+    private String cate72 = "";    // CATE7_2
+    private String cate73 = "";    // CATE7_3
+    private String cate74 = "";    // CATE7_4
+    private String cate75 = "";    // CATE7_5
+    private String primePortion = "";    //
+    private String yieldSbl = "";    // SBL YIELD
+    private String newSubBin = "";    //
+    private String tLotSbl = "";    //
+    private String rtsSub = "";    //
     private String rtsNg = "";    //
     private String rtsYield = "";    //
     private String rtsFlow = "";    //
@@ -50,55 +99,400 @@ public class LastTable {
     private String fw2Pgm = "";    //
     private String fw3Pgm = "";    //
     private String releaseDateCheck = "";    //
-    private String userId = "";    // USER ID
-    private String sysDate = "";    // 시간
-    private String tester = "";    // TESTER
-    private String product = "";    // PRODUCT
-    private String process = "";    // PROCESS
-    private String mainPgm = "";    // MAIN PGM
-    private String pgmcnt = "";    // PGM CNT
-    private String subPgm = "";    // SUB PGM
-    private String global = "";    // GLOBAL
-    private String sblYield = "";    // SBL YIELD
-    private String subBin = "";    // SUB BIN
-    private String subbin = "";    // SUB BIN
-    private String ngbin = "";    // NG BIN
-    private String pkgSigmod = "";    //
-    private String pkgPara = "";    // PKG PARA
-    private String pkgDigit = "";    //
-    private String pkgSigno = "";    //
-    private String pkgMeasno = "";    //
-    private String flow = "";    // FLOW
-    private String halt = "";    // HALT
-    private String comments = "";    // COMMENTS
-    private String runSbl = "";    // RUN_SBL
-    private String runCount = "";    // RUN_COUNT
-    private String temp = "";    // 온도
-    private String tempLimit = "";    // 온도 상한값
-    private String pkgType = "";    //
-    private String pkgSize = "";    //
-    private String pkgHeight = "";    //
-    private String pkgParanum = "";    // PKG_PARANUM
-    private String specialPara = "";    // SPECIAL_PARA
-    private String runSblYield = "";    // RUN_SBL_YIELD
-    private String leadfree = "";    //
-    private String lotMerge = "";    //
-    private String newProduct = "";    // 신제품
-    private String cate61 = "";    // CATE6_1
-    private String cate62 = "";    // CATE6_2
-    private String cate63 = "";    // CATE6_3
-    private String cate64 = "";    // CATE6_4
-    private String cate65 = "";    // CATE6_5
-    private String cate71 = "";    // CATE7_1
-    private String cate72 = "";    // CATE7_2
-    private String cate73 = "";    // CATE7_3
-    private String cate74 = "";    // CATE7_4
-    private String cate75 = "";    // CATE7_5
-    private String primePortion = "";    //
-    private String yieldSbl = "";    // SBL YIELD
-    private String newSubBin = "";    //
-    private String tLotSbl = "";    //
-    private String rtsSub = "";    //
+    private String fab = "";    //
+    private String grade = "";    //
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
+    public String getSysDate() {
+        return sysDate;
+    }
+
+    public void setSysDate(String sysDate) {
+        this.sysDate = sysDate;
+    }
+
+    public String getTester() {
+        return tester;
+    }
+
+    public void setTester(String tester) {
+        this.tester = tester;
+    }
+
+    public String getPartnumber() {
+        return partnumber;
+    }
+
+    public void setPartnumber(String partnumber) {
+        this.partnumber = partnumber;
+    }
+
+    public String getProcess() {
+        return process;
+    }
+
+    public void setProcess(String process) {
+        this.process = process;
+    }
+
+    public String getMainPgm() {
+        return mainPgm;
+    }
+
+    public void setMainPgm(String mainPgm) {
+        this.mainPgm = mainPgm;
+    }
+
+    public String getPgmcnt() {
+        return pgmcnt;
+    }
+
+    public void setPgmcnt(String pgmcnt) {
+        this.pgmcnt = pgmcnt;
+    }
+
+    public String getSubPgm() {
+        return subPgm;
+    }
+
+    public void setSubPgm(String subPgm) {
+        this.subPgm = subPgm;
+    }
+
+    public String getGlobal() {
+        return global;
+    }
+
+    public void setGlobal(String global) {
+        this.global = global;
+    }
+
+    public String getSblYield() {
+        return sblYield;
+    }
+
+    public void setSblYield(String sblYield) {
+        this.sblYield = sblYield;
+    }
+
+    public String getSubBin() {
+        return subBin;
+    }
+
+    public void setSubBin(String subBin) {
+        this.subBin = subBin;
+    }
+
+    public String getSubbin() {
+        return subbin;
+    }
+
+    public void setSubbin(String subbin) {
+        this.subbin = subbin;
+    }
+
+    public String getNgbin() {
+        return ngbin;
+    }
+
+    public void setNgbin(String ngbin) {
+        this.ngbin = ngbin;
+    }
+
+    public String getPkgSigmod() {
+        return pkgSigmod;
+    }
+
+    public void setPkgSigmod(String pkgSigmod) {
+        this.pkgSigmod = pkgSigmod;
+    }
+
+    public String getPkgPara() {
+        return pkgPara;
+    }
+
+    public void setPkgPara(String pkgPara) {
+        this.pkgPara = pkgPara;
+    }
+
+    public String getPkgDigit() {
+        return pkgDigit;
+    }
+
+    public void setPkgDigit(String pkgDigit) {
+        this.pkgDigit = pkgDigit;
+    }
+
+    public String getPkgSigno() {
+        return pkgSigno;
+    }
+
+    public void setPkgSigno(String pkgSigno) {
+        this.pkgSigno = pkgSigno;
+    }
+
+    public String getPkgMeasno() {
+        return pkgMeasno;
+    }
+
+    public void setPkgMeasno(String pkgMeasno) {
+        this.pkgMeasno = pkgMeasno;
+    }
+
+    public String getFlow() {
+        return flow;
+    }
+
+    public void setFlow(String flow) {
+        this.flow = flow;
+    }
+
+    public String getHalt() {
+        return halt;
+    }
+
+    public void setHalt(String halt) {
+        this.halt = halt;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public String getRunSbl() {
+        return runSbl;
+    }
+
+    public void setRunSbl(String runSbl) {
+        this.runSbl = runSbl;
+    }
+
+    public String getRunCount() {
+        return runCount;
+    }
+
+    public void setRunCount(String runCount) {
+        this.runCount = runCount;
+    }
+
+    public String getTemp() {
+        return temp;
+    }
+
+    public void setTemp(String temp) {
+        this.temp = temp;
+    }
+
+    public String getTempLimit() {
+        return tempLimit;
+    }
+
+    public void setTempLimit(String tempLimit) {
+        this.tempLimit = tempLimit;
+    }
+
+    public String getPkgType() {
+        return pkgType;
+    }
+
+    public void setPkgType(String pkgType) {
+        this.pkgType = pkgType;
+    }
+
+    public String getPkgSize() {
+        return pkgSize;
+    }
+
+    public void setPkgSize(String pkgSize) {
+        this.pkgSize = pkgSize;
+    }
+
+    public String getPkgHeight() {
+        return pkgHeight;
+    }
+
+    public void setPkgHeight(String pkgHeight) {
+        this.pkgHeight = pkgHeight;
+    }
+
+    public String getPkgParanum() {
+        return pkgParanum;
+    }
+
+    public void setPkgParanum(String pkgParanum) {
+        this.pkgParanum = pkgParanum;
+    }
+
+    public String getSpecialPara() {
+        return specialPara;
+    }
+
+    public void setSpecialPara(String specialPara) {
+        this.specialPara = specialPara;
+    }
+
+    public String getRunSblYield() {
+        return runSblYield;
+    }
+
+    public void setRunSblYield(String runSblYield) {
+        this.runSblYield = runSblYield;
+    }
+
+    public String getLeadfree() {
+        return leadfree;
+    }
+
+    public void setLeadfree(String leadfree) {
+        this.leadfree = leadfree;
+    }
+
+    public String getLotMerge() {
+        return lotMerge;
+    }
+
+    public void setLotMerge(String lotMerge) {
+        this.lotMerge = lotMerge;
+    }
+
+    public String getNewProduct() {
+        return newProduct;
+    }
+
+    public void setNewProduct(String newProduct) {
+        this.newProduct = newProduct;
+    }
+
+    public String getCate61() {
+        return cate61;
+    }
+
+    public void setCate61(String cate61) {
+        this.cate61 = cate61;
+    }
+
+    public String getCate62() {
+        return cate62;
+    }
+
+    public void setCate62(String cate62) {
+        this.cate62 = cate62;
+    }
+
+    public String getCate63() {
+        return cate63;
+    }
+
+    public void setCate63(String cate63) {
+        this.cate63 = cate63;
+    }
+
+    public String getCate64() {
+        return cate64;
+    }
+
+    public void setCate64(String cate64) {
+        this.cate64 = cate64;
+    }
+
+    public String getCate65() {
+        return cate65;
+    }
+
+    public void setCate65(String cate65) {
+        this.cate65 = cate65;
+    }
+
+    public String getCate71() {
+        return cate71;
+    }
+
+    public void setCate71(String cate71) {
+        this.cate71 = cate71;
+    }
+
+    public String getCate72() {
+        return cate72;
+    }
+
+    public void setCate72(String cate72) {
+        this.cate72 = cate72;
+    }
+
+    public String getCate73() {
+        return cate73;
+    }
+
+    public void setCate73(String cate73) {
+        this.cate73 = cate73;
+    }
+
+    public String getCate74() {
+        return cate74;
+    }
+
+    public void setCate74(String cate74) {
+        this.cate74 = cate74;
+    }
+
+    public String getCate75() {
+        return cate75;
+    }
+
+    public void setCate75(String cate75) {
+        this.cate75 = cate75;
+    }
+
+    public String getPrimePortion() {
+        return primePortion;
+    }
+
+    public void setPrimePortion(String primePortion) {
+        this.primePortion = primePortion;
+    }
+
+    public String getYieldSbl() {
+        return yieldSbl;
+    }
+
+    public void setYieldSbl(String yieldSbl) {
+        this.yieldSbl = yieldSbl;
+    }
+
+    public String getNewSubBin() {
+        return newSubBin;
+    }
+
+    public void setNewSubBin(String newSubBin) {
+        this.newSubBin = newSubBin;
+    }
+
+    public String getTLotSbl() {
+        return tLotSbl;
+    }
+
+    public void setTLotSbl(String tLotSbl) {
+        this.tLotSbl = tLotSbl;
+    }
+
+    public String getRtsSub() {
+        return rtsSub;
+    }
+
+    public void setRtsSub(String rtsSub) {
+        this.rtsSub = rtsSub;
+    }
 
     public String getRtsNg() {
         return rtsNg;
@@ -468,396 +862,20 @@ public class LastTable {
         this.releaseDateCheck = releaseDateCheck;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getFab() {
+        return fab;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setFab(String fab) {
+        this.fab = fab;
     }
 
-    public String getSysDate() {
-        return sysDate;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setSysDate(String sysDate) {
-        this.sysDate = sysDate;
-    }
-
-    public String getTester() {
-        return tester;
-    }
-
-    public void setTester(String tester) {
-        this.tester = tester;
-    }
-
-    public String getProduct() {
-        return product;
-    }
-
-    public void setProduct(String product) {
-        this.product = product;
-    }
-
-    public String getProcess() {
-        return process;
-    }
-
-    public void setProcess(String process) {
-        this.process = process;
-    }
-
-    public String getMainPgm() {
-        return mainPgm;
-    }
-
-    public void setMainPgm(String mainPgm) {
-        this.mainPgm = mainPgm;
-    }
-
-    public String getPgmcnt() {
-        return pgmcnt;
-    }
-
-    public void setPgmcnt(String pgmcnt) {
-        this.pgmcnt = pgmcnt;
-    }
-
-    public String getSubPgm() {
-        return subPgm;
-    }
-
-    public void setSubPgm(String subPgm) {
-        this.subPgm = subPgm;
-    }
-
-    public String getGlobal() {
-        return global;
-    }
-
-    public void setGlobal(String global) {
-        this.global = global;
-    }
-
-    public String getSblYield() {
-        return sblYield;
-    }
-
-    public void setSblYield(String sblYield) {
-        this.sblYield = sblYield;
-    }
-
-    public String getSubBin() {
-        return subBin;
-    }
-
-    public void setSubBin(String subBin) {
-        this.subBin = subBin;
-    }
-
-    public String getSubbin() {
-        return subbin;
-    }
-
-    public void setSubbin(String subbin) {
-        this.subbin = subbin;
-    }
-
-    public String getNgbin() {
-        return ngbin;
-    }
-
-    public void setNgbin(String ngbin) {
-        this.ngbin = ngbin;
-    }
-
-    public String getPkgSigmod() {
-        return pkgSigmod;
-    }
-
-    public void setPkgSigmod(String pkgSigmod) {
-        this.pkgSigmod = pkgSigmod;
-    }
-
-    public String getPkgPara() {
-        return pkgPara;
-    }
-
-    public void setPkgPara(String pkgPara) {
-        this.pkgPara = pkgPara;
-    }
-
-    public String getPkgDigit() {
-        return pkgDigit;
-    }
-
-    public void setPkgDigit(String pkgDigit) {
-        this.pkgDigit = pkgDigit;
-    }
-
-    public String getPkgSigno() {
-        return pkgSigno;
-    }
-
-    public void setPkgSigno(String pkgSigno) {
-        this.pkgSigno = pkgSigno;
-    }
-
-    public String getPkgMeasno() {
-        return pkgMeasno;
-    }
-
-    public void setPkgMeasno(String pkgMeasno) {
-        this.pkgMeasno = pkgMeasno;
-    }
-
-    public String getFlow() {
-        return flow;
-    }
-
-    public void setFlow(String flow) {
-        this.flow = flow;
-    }
-
-    public String getHalt() {
-        return halt;
-    }
-
-    public void setHalt(String halt) {
-        this.halt = halt;
-    }
-
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
-    public String getRunSbl() {
-        return runSbl;
-    }
-
-    public void setRunSbl(String runSbl) {
-        this.runSbl = runSbl;
-    }
-
-    public String getRunCount() {
-        return runCount;
-    }
-
-    public void setRunCount(String runCount) {
-        this.runCount = runCount;
-    }
-
-    public String getTemp() {
-        return temp;
-    }
-
-    public void setTemp(String temp) {
-        this.temp = temp;
-    }
-
-    public String getTempLimit() {
-        return tempLimit;
-    }
-
-    public void setTempLimit(String tempLimit) {
-        this.tempLimit = tempLimit;
-    }
-
-    public String getPkgType() {
-        return pkgType;
-    }
-
-    public void setPkgType(String pkgType) {
-        this.pkgType = pkgType;
-    }
-
-    public String getPkgSize() {
-        return pkgSize;
-    }
-
-    public void setPkgSize(String pkgSize) {
-        this.pkgSize = pkgSize;
-    }
-
-    public String getPkgHeight() {
-        return pkgHeight;
-    }
-
-    public void setPkgHeight(String pkgHeight) {
-        this.pkgHeight = pkgHeight;
-    }
-
-    public String getPkgParanum() {
-        return pkgParanum;
-    }
-
-    public void setPkgParanum(String pkgParanum) {
-        this.pkgParanum = pkgParanum;
-    }
-
-    public String getSpecialPara() {
-        return specialPara;
-    }
-
-    public void setSpecialPara(String specialPara) {
-        this.specialPara = specialPara;
-    }
-
-    public String getRunSblYield() {
-        return runSblYield;
-    }
-
-    public void setRunSblYield(String runSblYield) {
-        this.runSblYield = runSblYield;
-    }
-
-    public String getLeadfree() {
-        return leadfree;
-    }
-
-    public void setLeadfree(String leadfree) {
-        this.leadfree = leadfree;
-    }
-
-    public String getLotMerge() {
-        return lotMerge;
-    }
-
-    public void setLotMerge(String lotMerge) {
-        this.lotMerge = lotMerge;
-    }
-
-    public String getNewProduct() {
-        return newProduct;
-    }
-
-    public void setNewProduct(String newProduct) {
-        this.newProduct = newProduct;
-    }
-
-    public String getCate61() {
-        return cate61;
-    }
-
-    public void setCate61(String cate61) {
-        this.cate61 = cate61;
-    }
-
-    public String getCate62() {
-        return cate62;
-    }
-
-    public void setCate62(String cate62) {
-        this.cate62 = cate62;
-    }
-
-    public String getCate63() {
-        return cate63;
-    }
-
-    public void setCate63(String cate63) {
-        this.cate63 = cate63;
-    }
-
-    public String getCate64() {
-        return cate64;
-    }
-
-    public void setCate64(String cate64) {
-        this.cate64 = cate64;
-    }
-
-    public String getCate65() {
-        return cate65;
-    }
-
-    public void setCate65(String cate65) {
-        this.cate65 = cate65;
-    }
-
-    public String getCate71() {
-        return cate71;
-    }
-
-    public void setCate71(String cate71) {
-        this.cate71 = cate71;
-    }
-
-    public String getCate72() {
-        return cate72;
-    }
-
-    public void setCate72(String cate72) {
-        this.cate72 = cate72;
-    }
-
-    public String getCate73() {
-        return cate73;
-    }
-
-    public void setCate73(String cate73) {
-        this.cate73 = cate73;
-    }
-
-    public String getCate74() {
-        return cate74;
-    }
-
-    public void setCate74(String cate74) {
-        this.cate74 = cate74;
-    }
-
-    public String getCate75() {
-        return cate75;
-    }
-
-    public void setCate75(String cate75) {
-        this.cate75 = cate75;
-    }
-
-    public String getPrimePortion() {
-        return primePortion;
-    }
-
-    public void setPrimePortion(String primePortion) {
-        this.primePortion = primePortion;
-    }
-
-    public String getYieldSbl() {
-        return yieldSbl;
-    }
-
-    public void setYieldSbl(String yieldSbl) {
-        this.yieldSbl = yieldSbl;
-    }
-
-    public String getNewSubBin() {
-        return newSubBin;
-    }
-
-    public void setNewSubBin(String newSubBin) {
-        this.newSubBin = newSubBin;
-    }
-
-    public String getTLotSbl() {
-        return tLotSbl;
-    }
-
-    public void setTLotSbl(String tLotSbl) {
-        this.tLotSbl = tLotSbl;
-    }
-
-    public String getRtsSub() {
-        return rtsSub;
-    }
-
-    public void setRtsSub(String rtsSub) {
-        this.rtsSub = rtsSub;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
 }

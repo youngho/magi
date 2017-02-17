@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.MbtEquipmentInfoDao;
 import kr.famos.base.domain.MbtEquipmentInfo;
-import kr.famos.base.mapper.MbtEquipmentInfoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,11 @@ import java.util.List;
 public class MbtEquipmentInfoController {
     private static final Logger logger = LoggerFactory.getLogger(MbtEquipmentInfoController.class);
     @Autowired
-    MbtEquipmentInfoMapper mbtEquipmentInfoMapper;
+    private MbtEquipmentInfoDao mbtEquipmentInfoDao;
 
-    @RequestMapping(value="/MbtEquipmentInfo")
+    @RequestMapping(value = "/MbtEquipmentInfo")
     public ResponseEntity<List<MbtEquipmentInfo>> get() {
         logger.debug(" 이것은 MbtEquipmentInfoController 컨트롤러 호출입니다");
-        List<MbtEquipmentInfo> mbtEquipmentInfoList = mbtEquipmentInfoMapper.readAllMbtEquipmentInfo();
-        return new ResponseEntity<List<MbtEquipmentInfo>>(mbtEquipmentInfoList, HttpStatus.OK);
+        return new ResponseEntity<List<MbtEquipmentInfo>>(mbtEquipmentInfoDao.retrieveMbtEquipmentInfo(), HttpStatus.OK);
     }
 }

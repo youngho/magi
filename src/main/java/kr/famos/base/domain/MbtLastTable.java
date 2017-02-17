@@ -4,55 +4,6 @@ package kr.famos.base.domain;
  * Created by yhkim on 2017-01-31.
  */
 public class MbtLastTable {
-    private String ncfCode = "";    // NCF_CODE
-    private String sort3Sigma1 = "";    // SORT3_SIGMA1
-    private String sort3Sigma2 = "";    // SORT3_SIGMA2
-    private String yieldNctCode1 = "";    // YIELD_NCT_CODE1
-    private String yieldNctCode2 = "";    // YIELD_NCT_CODE2
-    private String yieldSigma3 = "";    // YIELD_SIGMA3
-    private String yieldSigma4 = "";    // YIELD_SIGMA4
-    private String yieldNctCode3 = "";    // YIELD_NCT_CODE3
-    private String yieldNctCode4 = "";    // YIELD_NCT_CODE4
-    private String hardbinSbl0 = "";    // HARDBIN_SBL0
-    private String hardbinSbl2 = "";    // HARDBIN_SBL2
-    private String hardbinSbl3 = "";    // HARDBIN_SBL3
-    private String hardbinSbl4 = "";    // HARDBIN_SBL4
-    private String hardbinSbl5 = "";    // HARDBIN_SBL5
-    private String hardbinSbl6 = "";    // HARDBIN_SBL6
-    private String hardbinSbl7 = "";    // HARDBIN_SBL7
-    private String hardbinSbl8 = "";    // HARDBIN_SBL8
-    private String subbinSbl1 = "";    // SUBBIN_SBL1
-    private String subbinSbl2 = "";    // SUBBIN_SBL2
-    private String subbinSbl3 = "";    // SUBBIN_SBL3
-    private String subbinSbl4 = "";    // SUBBIN_SBL4
-    private String subbinSbl5 = "";    // SUBBIN_SBL5
-    private String subbinSbl6 = "";    // SUBBIN_SBL6
-    private String subbinSbl7 = "";    // SUBBIN_SBL7
-    private String subbinSbl8 = "";    // SUBBIN_SBL8
-    private String subbinSbl9 = "";    // SUBBIN_SBL9
-    private String subbinSbl10 = "";    // SUBBIN_SBL10
-    private String subbinSbl11 = "";    // SUBBIN_SBL11
-    private String subbinSbl12 = "";    // SUBBIN_SBL12
-    private String subbinSbl13 = "";    // SUBBIN_SBL13
-    private String subbinSbl14 = "";    // SUBBIN_SBL14
-    private String subbinSbl15 = "";    // SUBBIN_SBL15
-    private String subbinSbl16 = "";    // SUBBIN_SBL16
-    private String holdFlag = "";    // HOLD_FLAG
-    private String runsblFlag = "";    // RUNSBL_FLAG
-    private int runsblMinCnt = 0;    // RUNSBL_MIN_CNT
-    private String shPgm = "";    // SH_PGM
-    private String multichipFlag = "";    // MULTICHIP_FLAG
-    private String rebiSblSpec1 = "";    // REBI_SBL_SPEC1
-    private String rebiSblSpec2 = "";    // REBI_SBL_SPEC2
-    private String step = "";    // STEP
-    private String waferSbl = "";    // WAFER_SBL
-    private String waferLimitCnt = "";    // WAFER_LIMIT_CNT
-    private String waferLotFilter = "";    // WAFER_LOT_FILTER
-    private String waferSblBin = "";    // WAFER_SBL_BIN
-    private String subNo = "";    // SUB_NO
-    private String scsSblSpec = "";    // SCS_SBL_SPEC
-    private String waferCi = "";    // WAFER_CI
-    private String waferCiBin = "";    // WAFER_CI_BIN
     private String partId = "";    //
     private String directory = "";    //
     private String bfpFile = "";    //
@@ -163,398 +114,55 @@ public class MbtLastTable {
     private String subbinSigma1 = "";    // SUBBIN_SIGMA1
     private String subbinSigma2 = "";    // SUBBIN_SIGMA2
     private String subbinSigma3 = "";    // SUBBIN_SIGMA3
-
-    public String getNcfCode() {
-        return ncfCode;
-    }
-
-    public void setNcfCode(String ncfCode) {
-        this.ncfCode = ncfCode;
-    }
-
-    public String getSort3Sigma1() {
-        return sort3Sigma1;
-    }
-
-    public void setSort3Sigma1(String sort3Sigma1) {
-        this.sort3Sigma1 = sort3Sigma1;
-    }
-
-    public String getSort3Sigma2() {
-        return sort3Sigma2;
-    }
-
-    public void setSort3Sigma2(String sort3Sigma2) {
-        this.sort3Sigma2 = sort3Sigma2;
-    }
-
-    public String getYieldNctCode1() {
-        return yieldNctCode1;
-    }
-
-    public void setYieldNctCode1(String yieldNctCode1) {
-        this.yieldNctCode1 = yieldNctCode1;
-    }
-
-    public String getYieldNctCode2() {
-        return yieldNctCode2;
-    }
-
-    public void setYieldNctCode2(String yieldNctCode2) {
-        this.yieldNctCode2 = yieldNctCode2;
-    }
-
-    public String getYieldSigma3() {
-        return yieldSigma3;
-    }
-
-    public void setYieldSigma3(String yieldSigma3) {
-        this.yieldSigma3 = yieldSigma3;
-    }
-
-    public String getYieldSigma4() {
-        return yieldSigma4;
-    }
-
-    public void setYieldSigma4(String yieldSigma4) {
-        this.yieldSigma4 = yieldSigma4;
-    }
-
-    public String getYieldNctCode3() {
-        return yieldNctCode3;
-    }
-
-    public void setYieldNctCode3(String yieldNctCode3) {
-        this.yieldNctCode3 = yieldNctCode3;
-    }
-
-    public String getYieldNctCode4() {
-        return yieldNctCode4;
-    }
-
-    public void setYieldNctCode4(String yieldNctCode4) {
-        this.yieldNctCode4 = yieldNctCode4;
-    }
-
-    public String getHardbinSbl0() {
-        return hardbinSbl0;
-    }
-
-    public void setHardbinSbl0(String hardbinSbl0) {
-        this.hardbinSbl0 = hardbinSbl0;
-    }
-
-    public String getHardbinSbl2() {
-        return hardbinSbl2;
-    }
-
-    public void setHardbinSbl2(String hardbinSbl2) {
-        this.hardbinSbl2 = hardbinSbl2;
-    }
-
-    public String getHardbinSbl3() {
-        return hardbinSbl3;
-    }
-
-    public void setHardbinSbl3(String hardbinSbl3) {
-        this.hardbinSbl3 = hardbinSbl3;
-    }
-
-    public String getHardbinSbl4() {
-        return hardbinSbl4;
-    }
-
-    public void setHardbinSbl4(String hardbinSbl4) {
-        this.hardbinSbl4 = hardbinSbl4;
-    }
-
-    public String getHardbinSbl5() {
-        return hardbinSbl5;
-    }
-
-    public void setHardbinSbl5(String hardbinSbl5) {
-        this.hardbinSbl5 = hardbinSbl5;
-    }
-
-    public String getHardbinSbl6() {
-        return hardbinSbl6;
-    }
-
-    public void setHardbinSbl6(String hardbinSbl6) {
-        this.hardbinSbl6 = hardbinSbl6;
-    }
-
-    public String getHardbinSbl7() {
-        return hardbinSbl7;
-    }
-
-    public void setHardbinSbl7(String hardbinSbl7) {
-        this.hardbinSbl7 = hardbinSbl7;
-    }
-
-    public String getHardbinSbl8() {
-        return hardbinSbl8;
-    }
-
-    public void setHardbinSbl8(String hardbinSbl8) {
-        this.hardbinSbl8 = hardbinSbl8;
-    }
-
-    public String getSubbinSbl1() {
-        return subbinSbl1;
-    }
-
-    public void setSubbinSbl1(String subbinSbl1) {
-        this.subbinSbl1 = subbinSbl1;
-    }
-
-    public String getSubbinSbl2() {
-        return subbinSbl2;
-    }
-
-    public void setSubbinSbl2(String subbinSbl2) {
-        this.subbinSbl2 = subbinSbl2;
-    }
-
-    public String getSubbinSbl3() {
-        return subbinSbl3;
-    }
-
-    public void setSubbinSbl3(String subbinSbl3) {
-        this.subbinSbl3 = subbinSbl3;
-    }
-
-    public String getSubbinSbl4() {
-        return subbinSbl4;
-    }
-
-    public void setSubbinSbl4(String subbinSbl4) {
-        this.subbinSbl4 = subbinSbl4;
-    }
-
-    public String getSubbinSbl5() {
-        return subbinSbl5;
-    }
-
-    public void setSubbinSbl5(String subbinSbl5) {
-        this.subbinSbl5 = subbinSbl5;
-    }
-
-    public String getSubbinSbl6() {
-        return subbinSbl6;
-    }
-
-    public void setSubbinSbl6(String subbinSbl6) {
-        this.subbinSbl6 = subbinSbl6;
-    }
-
-    public String getSubbinSbl7() {
-        return subbinSbl7;
-    }
-
-    public void setSubbinSbl7(String subbinSbl7) {
-        this.subbinSbl7 = subbinSbl7;
-    }
-
-    public String getSubbinSbl8() {
-        return subbinSbl8;
-    }
-
-    public void setSubbinSbl8(String subbinSbl8) {
-        this.subbinSbl8 = subbinSbl8;
-    }
-
-    public String getSubbinSbl9() {
-        return subbinSbl9;
-    }
-
-    public void setSubbinSbl9(String subbinSbl9) {
-        this.subbinSbl9 = subbinSbl9;
-    }
-
-    public String getSubbinSbl10() {
-        return subbinSbl10;
-    }
-
-    public void setSubbinSbl10(String subbinSbl10) {
-        this.subbinSbl10 = subbinSbl10;
-    }
-
-    public String getSubbinSbl11() {
-        return subbinSbl11;
-    }
-
-    public void setSubbinSbl11(String subbinSbl11) {
-        this.subbinSbl11 = subbinSbl11;
-    }
-
-    public String getSubbinSbl12() {
-        return subbinSbl12;
-    }
-
-    public void setSubbinSbl12(String subbinSbl12) {
-        this.subbinSbl12 = subbinSbl12;
-    }
-
-    public String getSubbinSbl13() {
-        return subbinSbl13;
-    }
-
-    public void setSubbinSbl13(String subbinSbl13) {
-        this.subbinSbl13 = subbinSbl13;
-    }
-
-    public String getSubbinSbl14() {
-        return subbinSbl14;
-    }
-
-    public void setSubbinSbl14(String subbinSbl14) {
-        this.subbinSbl14 = subbinSbl14;
-    }
-
-    public String getSubbinSbl15() {
-        return subbinSbl15;
-    }
-
-    public void setSubbinSbl15(String subbinSbl15) {
-        this.subbinSbl15 = subbinSbl15;
-    }
-
-    public String getSubbinSbl16() {
-        return subbinSbl16;
-    }
-
-    public void setSubbinSbl16(String subbinSbl16) {
-        this.subbinSbl16 = subbinSbl16;
-    }
-
-    public String getHoldFlag() {
-        return holdFlag;
-    }
-
-    public void setHoldFlag(String holdFlag) {
-        this.holdFlag = holdFlag;
-    }
-
-    public String getRunsblFlag() {
-        return runsblFlag;
-    }
-
-    public void setRunsblFlag(String runsblFlag) {
-        this.runsblFlag = runsblFlag;
-    }
-
-    public int getRunsblMinCnt() {
-        return runsblMinCnt;
-    }
-
-    public void setRunsblMinCnt(int runsblMinCnt) {
-        this.runsblMinCnt = runsblMinCnt;
-    }
-
-    public String getShPgm() {
-        return shPgm;
-    }
-
-    public void setShPgm(String shPgm) {
-        this.shPgm = shPgm;
-    }
-
-    public String getMultichipFlag() {
-        return multichipFlag;
-    }
-
-    public void setMultichipFlag(String multichipFlag) {
-        this.multichipFlag = multichipFlag;
-    }
-
-    public String getRebiSblSpec1() {
-        return rebiSblSpec1;
-    }
-
-    public void setRebiSblSpec1(String rebiSblSpec1) {
-        this.rebiSblSpec1 = rebiSblSpec1;
-    }
-
-    public String getRebiSblSpec2() {
-        return rebiSblSpec2;
-    }
-
-    public void setRebiSblSpec2(String rebiSblSpec2) {
-        this.rebiSblSpec2 = rebiSblSpec2;
-    }
-
-    public String getStep() {
-        return step;
-    }
-
-    public void setStep(String step) {
-        this.step = step;
-    }
-
-    public String getWaferSbl() {
-        return waferSbl;
-    }
-
-    public void setWaferSbl(String waferSbl) {
-        this.waferSbl = waferSbl;
-    }
-
-    public String getWaferLimitCnt() {
-        return waferLimitCnt;
-    }
-
-    public void setWaferLimitCnt(String waferLimitCnt) {
-        this.waferLimitCnt = waferLimitCnt;
-    }
-
-    public String getWaferLotFilter() {
-        return waferLotFilter;
-    }
-
-    public void setWaferLotFilter(String waferLotFilter) {
-        this.waferLotFilter = waferLotFilter;
-    }
-
-    public String getWaferSblBin() {
-        return waferSblBin;
-    }
-
-    public void setWaferSblBin(String waferSblBin) {
-        this.waferSblBin = waferSblBin;
-    }
-
-    public String getSubNo() {
-        return subNo;
-    }
-
-    public void setSubNo(String subNo) {
-        this.subNo = subNo;
-    }
-
-    public String getScsSblSpec() {
-        return scsSblSpec;
-    }
-
-    public void setScsSblSpec(String scsSblSpec) {
-        this.scsSblSpec = scsSblSpec;
-    }
-
-    public String getWaferCi() {
-        return waferCi;
-    }
-
-    public void setWaferCi(String waferCi) {
-        this.waferCi = waferCi;
-    }
-
-    public String getWaferCiBin() {
-        return waferCiBin;
-    }
-
-    public void setWaferCiBin(String waferCiBin) {
-        this.waferCiBin = waferCiBin;
-    }
+    private String ncfCode = "";    // NCF_CODE
+    private String sort3Sigma1 = "";    // SORT3_SIGMA1
+    private String sort3Sigma2 = "";    // SORT3_SIGMA2
+    private String yieldNctCode1 = "";    // YIELD_NCT_CODE1
+    private String yieldNctCode2 = "";    // YIELD_NCT_CODE2
+    private String yieldSigma3 = "";    // YIELD_SIGMA3
+    private String yieldSigma4 = "";    // YIELD_SIGMA4
+    private String yieldNctCode3 = "";    // YIELD_NCT_CODE3
+    private String yieldNctCode4 = "";    // YIELD_NCT_CODE4
+    private String hardbinSbl0 = "";    // HARDBIN_SBL0
+    private String hardbinSbl2 = "";    // HARDBIN_SBL2
+    private String hardbinSbl3 = "";    // HARDBIN_SBL3
+    private String hardbinSbl4 = "";    // HARDBIN_SBL4
+    private String hardbinSbl5 = "";    // HARDBIN_SBL5
+    private String hardbinSbl6 = "";    // HARDBIN_SBL6
+    private String hardbinSbl7 = "";    // HARDBIN_SBL7
+    private String hardbinSbl8 = "";    // HARDBIN_SBL8
+    private String subbinSbl1 = "";    // SUBBIN_SBL1
+    private String subbinSbl2 = "";    // SUBBIN_SBL2
+    private String subbinSbl3 = "";    // SUBBIN_SBL3
+    private String subbinSbl4 = "";    // SUBBIN_SBL4
+    private String subbinSbl5 = "";    // SUBBIN_SBL5
+    private String subbinSbl6 = "";    // SUBBIN_SBL6
+    private String subbinSbl7 = "";    // SUBBIN_SBL7
+    private String subbinSbl8 = "";    // SUBBIN_SBL8
+    private String subbinSbl9 = "";    // SUBBIN_SBL9
+    private String subbinSbl10 = "";    // SUBBIN_SBL10
+    private String subbinSbl11 = "";    // SUBBIN_SBL11
+    private String subbinSbl12 = "";    // SUBBIN_SBL12
+    private String subbinSbl13 = "";    // SUBBIN_SBL13
+    private String subbinSbl14 = "";    // SUBBIN_SBL14
+    private String subbinSbl15 = "";    // SUBBIN_SBL15
+    private String subbinSbl16 = "";    // SUBBIN_SBL16
+    private String holdFlag = "";    // HOLD_FLAG
+    private String runsblFlag = "";    // RUNSBL_FLAG
+    private int runsblMinCnt = 0;    // RUNSBL_MIN_CNT
+    private String shPgm = "";    // SH_PGM
+    private String multichipFlag = "";    // MULTICHIP_FLAG
+    private String rebiSblSpec1 = "";    // REBI_SBL_SPEC1
+    private String rebiSblSpec2 = "";    // REBI_SBL_SPEC2
+    private String step = "";    // STEP
+    private String waferSbl = "";    // WAFER_SBL
+    private String waferLimitCnt = "";    // WAFER_LIMIT_CNT
+    private String waferLotFilter = "";    // WAFER_LOT_FILTER
+    private String waferSblBin = "";    // WAFER_SBL_BIN
+    private String subNo = "";    // SUB_NO
+    private String scsSblSpec = "";    // SCS_SBL_SPEC
+    private String waferCi = "";    // WAFER_CI
+    private String waferCiBin = "";    // WAFER_CI_BIN
 
     public String getPartId() {
         return partId;
@@ -1434,6 +1042,398 @@ public class MbtLastTable {
 
     public void setSubbinSigma3(String subbinSigma3) {
         this.subbinSigma3 = subbinSigma3;
+    }
+
+    public String getNcfCode() {
+        return ncfCode;
+    }
+
+    public void setNcfCode(String ncfCode) {
+        this.ncfCode = ncfCode;
+    }
+
+    public String getSort3Sigma1() {
+        return sort3Sigma1;
+    }
+
+    public void setSort3Sigma1(String sort3Sigma1) {
+        this.sort3Sigma1 = sort3Sigma1;
+    }
+
+    public String getSort3Sigma2() {
+        return sort3Sigma2;
+    }
+
+    public void setSort3Sigma2(String sort3Sigma2) {
+        this.sort3Sigma2 = sort3Sigma2;
+    }
+
+    public String getYieldNctCode1() {
+        return yieldNctCode1;
+    }
+
+    public void setYieldNctCode1(String yieldNctCode1) {
+        this.yieldNctCode1 = yieldNctCode1;
+    }
+
+    public String getYieldNctCode2() {
+        return yieldNctCode2;
+    }
+
+    public void setYieldNctCode2(String yieldNctCode2) {
+        this.yieldNctCode2 = yieldNctCode2;
+    }
+
+    public String getYieldSigma3() {
+        return yieldSigma3;
+    }
+
+    public void setYieldSigma3(String yieldSigma3) {
+        this.yieldSigma3 = yieldSigma3;
+    }
+
+    public String getYieldSigma4() {
+        return yieldSigma4;
+    }
+
+    public void setYieldSigma4(String yieldSigma4) {
+        this.yieldSigma4 = yieldSigma4;
+    }
+
+    public String getYieldNctCode3() {
+        return yieldNctCode3;
+    }
+
+    public void setYieldNctCode3(String yieldNctCode3) {
+        this.yieldNctCode3 = yieldNctCode3;
+    }
+
+    public String getYieldNctCode4() {
+        return yieldNctCode4;
+    }
+
+    public void setYieldNctCode4(String yieldNctCode4) {
+        this.yieldNctCode4 = yieldNctCode4;
+    }
+
+    public String getHardbinSbl0() {
+        return hardbinSbl0;
+    }
+
+    public void setHardbinSbl0(String hardbinSbl0) {
+        this.hardbinSbl0 = hardbinSbl0;
+    }
+
+    public String getHardbinSbl2() {
+        return hardbinSbl2;
+    }
+
+    public void setHardbinSbl2(String hardbinSbl2) {
+        this.hardbinSbl2 = hardbinSbl2;
+    }
+
+    public String getHardbinSbl3() {
+        return hardbinSbl3;
+    }
+
+    public void setHardbinSbl3(String hardbinSbl3) {
+        this.hardbinSbl3 = hardbinSbl3;
+    }
+
+    public String getHardbinSbl4() {
+        return hardbinSbl4;
+    }
+
+    public void setHardbinSbl4(String hardbinSbl4) {
+        this.hardbinSbl4 = hardbinSbl4;
+    }
+
+    public String getHardbinSbl5() {
+        return hardbinSbl5;
+    }
+
+    public void setHardbinSbl5(String hardbinSbl5) {
+        this.hardbinSbl5 = hardbinSbl5;
+    }
+
+    public String getHardbinSbl6() {
+        return hardbinSbl6;
+    }
+
+    public void setHardbinSbl6(String hardbinSbl6) {
+        this.hardbinSbl6 = hardbinSbl6;
+    }
+
+    public String getHardbinSbl7() {
+        return hardbinSbl7;
+    }
+
+    public void setHardbinSbl7(String hardbinSbl7) {
+        this.hardbinSbl7 = hardbinSbl7;
+    }
+
+    public String getHardbinSbl8() {
+        return hardbinSbl8;
+    }
+
+    public void setHardbinSbl8(String hardbinSbl8) {
+        this.hardbinSbl8 = hardbinSbl8;
+    }
+
+    public String getSubbinSbl1() {
+        return subbinSbl1;
+    }
+
+    public void setSubbinSbl1(String subbinSbl1) {
+        this.subbinSbl1 = subbinSbl1;
+    }
+
+    public String getSubbinSbl2() {
+        return subbinSbl2;
+    }
+
+    public void setSubbinSbl2(String subbinSbl2) {
+        this.subbinSbl2 = subbinSbl2;
+    }
+
+    public String getSubbinSbl3() {
+        return subbinSbl3;
+    }
+
+    public void setSubbinSbl3(String subbinSbl3) {
+        this.subbinSbl3 = subbinSbl3;
+    }
+
+    public String getSubbinSbl4() {
+        return subbinSbl4;
+    }
+
+    public void setSubbinSbl4(String subbinSbl4) {
+        this.subbinSbl4 = subbinSbl4;
+    }
+
+    public String getSubbinSbl5() {
+        return subbinSbl5;
+    }
+
+    public void setSubbinSbl5(String subbinSbl5) {
+        this.subbinSbl5 = subbinSbl5;
+    }
+
+    public String getSubbinSbl6() {
+        return subbinSbl6;
+    }
+
+    public void setSubbinSbl6(String subbinSbl6) {
+        this.subbinSbl6 = subbinSbl6;
+    }
+
+    public String getSubbinSbl7() {
+        return subbinSbl7;
+    }
+
+    public void setSubbinSbl7(String subbinSbl7) {
+        this.subbinSbl7 = subbinSbl7;
+    }
+
+    public String getSubbinSbl8() {
+        return subbinSbl8;
+    }
+
+    public void setSubbinSbl8(String subbinSbl8) {
+        this.subbinSbl8 = subbinSbl8;
+    }
+
+    public String getSubbinSbl9() {
+        return subbinSbl9;
+    }
+
+    public void setSubbinSbl9(String subbinSbl9) {
+        this.subbinSbl9 = subbinSbl9;
+    }
+
+    public String getSubbinSbl10() {
+        return subbinSbl10;
+    }
+
+    public void setSubbinSbl10(String subbinSbl10) {
+        this.subbinSbl10 = subbinSbl10;
+    }
+
+    public String getSubbinSbl11() {
+        return subbinSbl11;
+    }
+
+    public void setSubbinSbl11(String subbinSbl11) {
+        this.subbinSbl11 = subbinSbl11;
+    }
+
+    public String getSubbinSbl12() {
+        return subbinSbl12;
+    }
+
+    public void setSubbinSbl12(String subbinSbl12) {
+        this.subbinSbl12 = subbinSbl12;
+    }
+
+    public String getSubbinSbl13() {
+        return subbinSbl13;
+    }
+
+    public void setSubbinSbl13(String subbinSbl13) {
+        this.subbinSbl13 = subbinSbl13;
+    }
+
+    public String getSubbinSbl14() {
+        return subbinSbl14;
+    }
+
+    public void setSubbinSbl14(String subbinSbl14) {
+        this.subbinSbl14 = subbinSbl14;
+    }
+
+    public String getSubbinSbl15() {
+        return subbinSbl15;
+    }
+
+    public void setSubbinSbl15(String subbinSbl15) {
+        this.subbinSbl15 = subbinSbl15;
+    }
+
+    public String getSubbinSbl16() {
+        return subbinSbl16;
+    }
+
+    public void setSubbinSbl16(String subbinSbl16) {
+        this.subbinSbl16 = subbinSbl16;
+    }
+
+    public String getHoldFlag() {
+        return holdFlag;
+    }
+
+    public void setHoldFlag(String holdFlag) {
+        this.holdFlag = holdFlag;
+    }
+
+    public String getRunsblFlag() {
+        return runsblFlag;
+    }
+
+    public void setRunsblFlag(String runsblFlag) {
+        this.runsblFlag = runsblFlag;
+    }
+
+    public int getRunsblMinCnt() {
+        return runsblMinCnt;
+    }
+
+    public void setRunsblMinCnt(int runsblMinCnt) {
+        this.runsblMinCnt = runsblMinCnt;
+    }
+
+    public String getShPgm() {
+        return shPgm;
+    }
+
+    public void setShPgm(String shPgm) {
+        this.shPgm = shPgm;
+    }
+
+    public String getMultichipFlag() {
+        return multichipFlag;
+    }
+
+    public void setMultichipFlag(String multichipFlag) {
+        this.multichipFlag = multichipFlag;
+    }
+
+    public String getRebiSblSpec1() {
+        return rebiSblSpec1;
+    }
+
+    public void setRebiSblSpec1(String rebiSblSpec1) {
+        this.rebiSblSpec1 = rebiSblSpec1;
+    }
+
+    public String getRebiSblSpec2() {
+        return rebiSblSpec2;
+    }
+
+    public void setRebiSblSpec2(String rebiSblSpec2) {
+        this.rebiSblSpec2 = rebiSblSpec2;
+    }
+
+    public String getStep() {
+        return step;
+    }
+
+    public void setStep(String step) {
+        this.step = step;
+    }
+
+    public String getWaferSbl() {
+        return waferSbl;
+    }
+
+    public void setWaferSbl(String waferSbl) {
+        this.waferSbl = waferSbl;
+    }
+
+    public String getWaferLimitCnt() {
+        return waferLimitCnt;
+    }
+
+    public void setWaferLimitCnt(String waferLimitCnt) {
+        this.waferLimitCnt = waferLimitCnt;
+    }
+
+    public String getWaferLotFilter() {
+        return waferLotFilter;
+    }
+
+    public void setWaferLotFilter(String waferLotFilter) {
+        this.waferLotFilter = waferLotFilter;
+    }
+
+    public String getWaferSblBin() {
+        return waferSblBin;
+    }
+
+    public void setWaferSblBin(String waferSblBin) {
+        this.waferSblBin = waferSblBin;
+    }
+
+    public String getSubNo() {
+        return subNo;
+    }
+
+    public void setSubNo(String subNo) {
+        this.subNo = subNo;
+    }
+
+    public String getScsSblSpec() {
+        return scsSblSpec;
+    }
+
+    public void setScsSblSpec(String scsSblSpec) {
+        this.scsSblSpec = scsSblSpec;
+    }
+
+    public String getWaferCi() {
+        return waferCi;
+    }
+
+    public void setWaferCi(String waferCi) {
+        this.waferCi = waferCi;
+    }
+
+    public String getWaferCiBin() {
+        return waferCiBin;
+    }
+
+    public void setWaferCiBin(String waferCiBin) {
+        this.waferCiBin = waferCiBin;
     }
 
 }

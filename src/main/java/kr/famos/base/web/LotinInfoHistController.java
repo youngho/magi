@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.LotinInfoHistDao;
 import kr.famos.base.domain.LotinInfoHist;
-import kr.famos.base.mapper.LotinInfoHistMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,11 @@ import java.util.List;
 public class LotinInfoHistController {
     private static final Logger logger = LoggerFactory.getLogger(LotinInfoHistController.class);
     @Autowired
-    LotinInfoHistMapper lotinInfoHistMapper;
+    private LotinInfoHistDao lotinInfoHistDao;
 
-    @RequestMapping(value="/lotininfohist")
+    @RequestMapping(value = "/lotininfohist")
     public ResponseEntity<List<LotinInfoHist>> get() {
-        logger.debug(" 이것은 LotinInfoHistController 컨트롤러 호출입니다");
-        List<LotinInfoHist> list = lotinInfoHistMapper.readAllLotinInfoHist();
-        return new ResponseEntity<List<LotinInfoHist>>(list, HttpStatus.OK);
+        logger.info("LotinInfoHistController 호출!");
+        return new ResponseEntity<List<LotinInfoHist>>(lotinInfoHistDao.retrieveLotinInfoHist(), HttpStatus.OK);
     }
 }

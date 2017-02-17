@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.MbtLastTableEventDao;
 import kr.famos.base.domain.MbtLastTableEvent;
-import kr.famos.base.mapper.MbtLastTableEventMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,11 @@ import java.util.List;
 public class MbtLastTableEventController {
     private static final Logger logger = LoggerFactory.getLogger(MbtLastTableEventController.class);
     @Autowired
-    MbtLastTableEventMapper mbtLastTableEventMapper;
+    private MbtLastTableEventDao mbtLastTableEventDao;
 
-    @RequestMapping(value="/mbtlasttableevent")
+    @RequestMapping(value = "/mbtlasttableevent")
     public ResponseEntity<List<MbtLastTableEvent>> get() {
-        logger.debug(" 이것은 MbtLastTableEventController 컨트롤러 호출입니다");
-        List<MbtLastTableEvent> list = mbtLastTableEventMapper.readAllMbtLastTableEvent();
-        return new ResponseEntity<List<MbtLastTableEvent>>(list, HttpStatus.OK);
+        logger.debug("MbtLastTableEventController 컨트롤러 호출입니다");
+        return new ResponseEntity<List<MbtLastTableEvent>>(mbtLastTableEventDao.retrieveMbtLastTableEvent(), HttpStatus.OK);
     }
 }

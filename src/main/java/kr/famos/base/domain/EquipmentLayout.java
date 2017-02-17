@@ -5,7 +5,7 @@ package kr.famos.base.domain;
  */
 public class EquipmentLayout {
     private String tester = "";    // 설비 ID
-    private String ip = "";    // IP주소
+    private String ip = "";        // IP주소
 
     public String getTester() {
         return tester;
@@ -22,5 +22,6 @@ public class EquipmentLayout {
     public void setIp(String ip) {
         this.ip = ip;
     }
+
 
 }

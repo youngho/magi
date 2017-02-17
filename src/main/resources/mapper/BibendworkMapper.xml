@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.base.dao.BibendworkDao">
+    <select id="retrieveBibendwork" parameterType="kr.famos.base.domain.Bibendwork" resultType="kr.famos.base.domain.Bibendwork">
+        SELECT
+            BOARD_TYPE,
+            SERIAL_NO,
+            EQPID,
+            LOTID_INSERT,
+            BIB_INSERT,
+            MASK,
+            BOARD_COUNT,
+            SYS_DATE,
+            PART_ID
+        FROM BIBENDWORK
+        <where>
+            <if test="boardType != null and boardType != ''">
+                BOARD_TYPE=#{boardType}
+            </if>
+            <if test="serialNo != null and serialNo != ''">
+                AND SERIAL_NO=#{serialNo}
+            </if>
+            <if test="eqpid != null and eqpid != ''">
+                AND EQPID=#{eqpid}
+            </if>
+            <if test="lotidInsert != null and lotidInsert != ''">
+                AND LOTID_INSERT=#{lotidInsert}
+            </if>
+            <if test="bibInsert != null and bibInsert != ''">
+                AND BIB_INSERT=#{bibInsert}
+            </if>
+            <if test="mask != null and mask != ''">
+                AND MASK=#{mask}
+            </if>
+            <if test="boardCount != null and boardCount != ''">
+                AND BOARD_COUNT=#{boardCount}
+            </if>
+            <if test="sysDate != null and sysDate != ''">
+                AND SYS_DATE=#{sysDate}
+            </if>
+            <if test="partId != null and partId != ''">
+                AND PART_ID=#{partId}
+            </if>
+        </where>
+    </select>
+</mapper>

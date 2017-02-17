@@ -1,7 +1,7 @@
 package kr.famos.base.web;
 
+import kr.famos.base.dao.EquipmentLayoutDao;
 import kr.famos.base.domain.EquipmentLayout;
-import kr.famos.base.mapper.EquipmentLayoutMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +17,13 @@ import java.util.List;
  */
 @RestController
 public class EquipmentLayoutController {
-    private static final Logger logger = LoggerFactory.getLogger(BibendworkController.class);
+    private static final Logger logger = LoggerFactory.getLogger(EquipmentLayoutController.class);
     @Autowired
-    EquipmentLayoutMapper equipmentLayoutMapper;
+    private EquipmentLayoutDao equipmentLayoutDao;
 
-    @RequestMapping(value="/equipmentLayout")
+    @RequestMapping(value = "/equipmentLayout")
     public ResponseEntity<List<EquipmentLayout>> get() {
         logger.debug(" 이것은 EquipmentLayoutController 호출입니다");
-        List<EquipmentLayout> equipmentLayoutList = equipmentLayoutMapper.readAllEquipmentLayout();
-        return new ResponseEntity<List<EquipmentLayout>>(equipmentLayoutList, HttpStatus.OK);
+        return new ResponseEntity<List<EquipmentLayout>>(equipmentLayoutDao.retrieveEquipmentLayout(), HttpStatus.OK);
     }
 }
