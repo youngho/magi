@@ -3,12 +3,39 @@
 <mapper namespace="kr.famos.base.dao.LastTableDao">
     <select id="retrieveLastTable" parameterType="kr.famos.base.domain.LastTable" resultType="kr.famos.base.domain.LastTable">
         SELECT
-              *
+            ROWNUM,
+            TESTER,
+            PARTNUMBER,
+            PROCESS,
+            GLOBAL,
+            MAIN_PGM,
+            'SBL',
+            SYS_DATE,
+            SPECIAL_PARA,
+            TEMP,
+            S_BIN,
+            TEST_CHIP,
+            OPERATOR
         FROM
-              LAST_TABLE
+            LAST_TABLE
         <where>
-            <if test="operator == null">
-            ROWNUM = 1
+            <if test="tester != null and tester != ''">
+                TESTER = #{tester}
+            </if>
+            <if test="mainPgm != null and mainPgm != ''">
+                AND MAIN_PGM = #{mainPgm}
+            </if>
+            <if test="partnumber != null and partnumber != ''">
+                AND PARTNUMBER = #{partnumber}
+            </if>
+            <if test="process != null and process != ''">
+                AND PROCESS = #{process}
+            </if>
+            <if test="sysDateStart != null and sysDateStart != ''">
+                AND SYS_DATE <![CDATA[>=]]> #{sysDateStart}
+            </if>
+            <if test="sysDateEnd != null and sysDateEnd != ''">
+                AND SYS_DATE <![CDATA[<=]]> #{sysDateEnd}
             </if>
         </where>
     </select>

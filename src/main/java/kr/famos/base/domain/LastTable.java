@@ -6,6 +6,8 @@ package kr.famos.base.domain;
 public class LastTable {
     private String operator = "";    // 작업자 사번
     private String sysDate = "";    // PGM 로딩 요청 시점
+    private String sysDateStart = "";    // PGM 로딩 요청 시점
+    private String sysDateEnd = "";    // PGM 로딩 요청 시점
     private String tester = "";    // TESTER
     private String partnumber = "";    // 설비명
     private String process = "";    // 공정코드
@@ -101,6 +103,38 @@ public class LastTable {
     private String releaseDateCheck = "";    //
     private String fab = "";    //
     private String grade = "";    //
+
+    public String getSysDateStart() {
+        return sysDateStart;
+    }
+
+    public void setSysDateStart(String sysDateStart) {
+        this.sysDateStart = sysDateStart;
+    }
+
+    public String getSysDateEnd() {
+        return sysDateEnd;
+    }
+
+    public void setSysDateEnd(String sysDateEnd) {
+        this.sysDateEnd = sysDateEnd;
+    }
+
+    public String gettLotSbl() {
+        return tLotSbl;
+    }
+
+    public void settLotSbl(String tLotSbl) {
+        this.tLotSbl = tLotSbl;
+    }
+
+    public String getsBin() {
+        return sBin;
+    }
+
+    public void setsBin(String sBin) {
+        this.sBin = sBin;
+    }
 
     public String getOperator() {
         return operator;

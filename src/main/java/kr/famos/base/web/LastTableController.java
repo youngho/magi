@@ -25,10 +25,19 @@ public class LastTableController {
 
     @RequestMapping(value = "/lastTable")
     public ResponseEntity<List<LastTable>> get() {
-        logger.debug(" 이것은 LastTableController 컨트롤러 호출입니다");
+        logger.debug("LastTableController get 함수");
         LastTable lastTable = new LastTable();
-        lastTable.setOperator("youngho");
-        return new ResponseEntity<List<LastTable>>(lastTableDao.retrieveLastTable(), HttpStatus.OK);
+//        lastTable.setTester("T5585");
+//        lastTable.setMainPgm("xp6a86cx");
+        return new ResponseEntity<List<LastTable>>(lastTableDao.retrieveLastTable(lastTable), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/retrieveLastTable", method = RequestMethod.POST)
+    public ResponseEntity<List<LastTable>> retrieveLastTable(@RequestBody LastTable lastTable) {
+        logger.debug("LastTableController retrieveLastTable 함수");
+        lastTable.setTester("T5585");
+        lastTable.setMainPgm("xp6a86cx");
+        return new ResponseEntity<List<LastTable>>(lastTableDao.retrieveLastTable(lastTable), HttpStatus.OK);
     }
 
     @RequestMapping(value="/lastTable", method = RequestMethod.POST)

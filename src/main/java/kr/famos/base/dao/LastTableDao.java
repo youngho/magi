@@ -23,12 +23,12 @@ public class LastTableDao {
         this.sqlSession = sqlSession;
     }
 
-    public List<LastTable> retrieveLastTable(){
+    public List<LastTable> retrieveLastTable(LastTable lastTable) {
         logger.info("retrieveLastTable 메소드 호출");
-        return this.sqlSession.selectList("retrieveLastTable");
+        return this.sqlSession.selectList("retrieveLastTable", lastTable);
     }
 
-    public void insertLastTable(LastTable lastTable){
+    public void insertLastTable(LastTable lastTable) {
         this.sqlSession.insert("insertLastTable", lastTable);
     }
 }
