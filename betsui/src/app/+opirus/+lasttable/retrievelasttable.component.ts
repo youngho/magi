@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {retrieveLastTableCond} from './retrievelasttableCond.model';
 
+
 declare var $: any;
 
 @FadeInTop()
@@ -23,7 +24,7 @@ export class retrieveLastTableComponent implements OnInit {
 
 
     data = {
-        userId: "",
+    userId: "",
     id : "",
     title: "",
     body: "",
@@ -31,31 +32,9 @@ export class retrieveLastTableComponent implements OnInit {
 
     public datas: retrieveLastTableCond[];
 
-    /*    tableForm: FormGroup;
-     tester: FormControl;
-     mainPgm: FormControl;
-     partnumber: FormControl;
-     process: FormControl;
-     sysDateStart: FormControl;
-     sysDateEnd: FormControl;*/
-
+    public lasttable;
 
     constructor(private fb: FormBuilder, private retrieveLastTableService: RetrieveLastTableService, private http: Http) {
-        /*        this.tester = new FormControl('', [Validators.required, Validators.minLength(10)]);
-         this.mainPgm = new FormControl('', [Validators.required, Validators.minLength(10)]);
-         this.partnumber = new FormControl('', [Validators.required, Validators.minLength(10)]);
-         this.process = new FormControl('', [Validators.required, Validators.minLength(10)]);
-         this.sysDateStart = new FormControl('', [Validators.required, Validators.minLength(10)]);
-         this.sysDateEnd = new FormControl('', [Validators.required, Validators.minLength(10)]);
-
-         this.tableForm = fb.group({
-         tester: this.tester,
-         mainPgm: this.mainPgm,
-         partnumber: this.partnumber,
-         process: this.process,
-         sysDateStart: this.sysDateStart,
-         sysDateEnd: this.sysDateEnd,
-         });*/
     }
 
     options = {
@@ -70,19 +49,43 @@ export class retrieveLastTableComponent implements OnInit {
     };
 
     ngOnInit() {
+    var lasttable = $("#tablehtml");
+
     }
 
     saveLastTableForm() {
+
         console.log(this.data.title);
         console.log('submitting LastTable form @' + this.data);
+        this.datas = [
+            {
+                userId: "1",
+                id: "1",
+                title: "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+                body: "quia et suscipit suscipit recusandae consequuntur expedita et cum reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem eveniet architecto"
+            },
+            {
+                userId: "1",
+                id: "2",
+                title: "qui est esse",
+                body: "est rerum tempore vitae sequi sint nihil reprehenderit dolor beatae ea dolores neque fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis qui aperiam non debitis possimus qui neque nisi nulla"
+            }
+        ];
+
+        // var table = $('#lastable').DataTable({
+        //    ajax:this.datas
+        // });
+
+console.log(this.datas);
         // this.saved
         // .subscribe((res) => {
         //   this.commentForm.setValue({ content: '' });
         //   this.commentForm.markAsPristine();
         // })
         //     .emit(this.tableForm.value);
+        $("#tablehtml").ajax.post(
 
-
+        )
 /*
         this.retrieveLastTableService.postLastTable(this.data)
             .subscribe(
