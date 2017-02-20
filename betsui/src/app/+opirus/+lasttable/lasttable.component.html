@@ -5,9 +5,6 @@
         <sa-stats></sa-stats>
     </div>
 
-
-
-
     <!-- widget grid -->
     <sa-widgets-grid>
 
@@ -15,7 +12,7 @@
         <div class="row">
 
             <!-- NEW WIDGET START -->
-            <article class="col-sm-12 col-md-12 col-lg-6">
+            <article class="col-sm-12 col-md-12 col-lg-12">
 
                 <!-- Widget ID (each widget will need unique ID)-->
                 <sa-widget [colorbutton]="false" [editbutton]="false">
@@ -49,51 +46,48 @@
                                 <fieldset>
                                     <legend>Last TABLED efault Form Elements</legend>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'OPERATOR'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'OPERATOR'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="Default Text Field" type="text" formControlName="operator">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'DATE'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'DATE'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'BOARD'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'BOARD'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'BOARD'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'COMMNET'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'TESTER'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
+                                        </div>
+                                       <label class="col-md-1 control-label">{{'PRODUCT'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'PRODUCT'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'COMMNET'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PROCESS'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'TESTER'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PRODUCT'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PROCESS'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sysDate">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PARA'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PARA'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="Type somethine..." type="text" list="list">
                                             <datalist id="list">
                                                 <option value="Alexandra">Alexandra</option>
@@ -101,248 +95,125 @@
                                             </datalist>
                                             <p class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</p>
                                         </div>
-
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'SAMSUNG PRODUCT'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'SAMSUNG PRODUCT'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="YYYY-MM-DD" type="text" formControlName="sysDate">
                                         </div>
+                                        
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM1'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PGM1'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm1">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM2'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM2'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm2">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM3'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM3'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm3">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM4'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PGM4'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm4">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM5'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM5'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm5">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM6'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM6'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm6">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM7'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PGM7'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm7">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM8'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM8'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm8">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM9'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM9'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm9">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM10'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PGM10'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm10">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM11'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM11'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm11">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM12'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM12'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm12">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM13'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PGM13'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm13">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM14'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM14'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm14">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM15'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM15'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm15">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM16'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PGM16'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm16">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM17'|i18n}}</label>
-                                        <div class="col-md-10">
+                                    <
+                                        <label class="col-md-1 control-label">{{'PGM17'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm17">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM18'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'PGM18'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm18">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PGM19'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'PGM19'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="pgm19">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'F/W Name 비교'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Releas Data 비교'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'F/W1'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'PATCH'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'RC'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'RELEASE'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'F/W2'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'F/W3'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL1'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        <label class="col-md-1 control-label">{{'F/W Name 비교'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL2'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL3'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL4'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL5'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL6'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL7'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'GLOBAL8'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'TEMP'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'TEMPLIMIT'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'RUNSBL'|i18n}}</label>
-                                        <div class="col-md-10">
+
+                                        <label class="col-md-1 control-label">{{'Releas Data 비교'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox">
@@ -351,8 +222,112 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'NEWPRODUCT'|i18n}}</label>
-                                        <div class="col-md-10">
+                                        <label class="col-md-1 control-label">{{'F/W1'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'PATCH'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'RC'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'RELEASE'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'F/W2'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'F/W3'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'GLOBAL1'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'GLOBAL2'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'GLOBAL3'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'GLOBAL4'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'GLOBAL5'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'GLOBAL6'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'GLOBAL7'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'GLOBAL8'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'TEMP'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'TEMPLIMIT'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'RUNSBL'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'NEWPRODUCT'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox">
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'TLOTABNORMAL'|i18n}}</label>
+                                        <div class="col-md-2">
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox">
@@ -361,250 +336,16 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'TLOTABNORMAL'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'MASKSBL'|i18n}}</label>
                                         <div class="col-md-10">
                                             <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox">
                                                 </label>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'MASKSBL'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox">
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'MASKCODE'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'제외LOT'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'INPUTCOUNT'|i18n}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" placeholder="" type="text" formControlName="pgm19">
                                         </div>
                                     </div>
                                 </fieldset>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'AQL BIN사유'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="NO" type="text" list="list">
-                                        <datalist id="list2">
-                                            <option value="Alexandra">NO</option>
-                                            <option value="Alice">Alice</option>
-                                        </datalist>
-                                        <p class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'TESTCHIP'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'S Bin'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="NO" type="text" list="list">
-                                        <datalist id="list3">
-                                            <option value="Alexandra">NO</option>
-                                            <option value="Alice">Alice</option>
-                                        </datalist>
-                                        <p class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</p>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'NCF 제약'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'PKGTYPE'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'PKGSIZE'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'PKGINFO'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BOARDPARA'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'MAXTIME'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-
-                                <!--Retest Skip 기준 start-->
-                                <p>
-                                    Retest Skip 기준
-                                </p>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'MINYIELD'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'MAXYIELD'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BIN8MINCOUNT'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'RETESTSKIP'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox">
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-1-1'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-1-2'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-1-3'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-2-1'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-2-2'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-2-3'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-3-1'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-3-2'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.SUBBIN-3-3'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-1-1'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-1-2'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-1-3'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-2-1'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-2-2'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-2-3'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-3-1'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-3-2'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label">{{'BETS01.NGBIN-3-3'|i18n}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" placeholder="" type="text" formControlName="pgm19">
-                                    </div>
-                                </div>
                                 <!--Retest Skip 기준 end-->
                                 <div class="form-actions">
                                     <div class="row">
