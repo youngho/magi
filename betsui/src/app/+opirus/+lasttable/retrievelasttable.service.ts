@@ -8,15 +8,22 @@ import {ApiService} from "../../core/api.service";
 
 @Injectable()
 export class RetrieveLastTableService {
-    private path: string = '/posts';
+    private path: string = '/retrieveLastTable';
 
     constructor(private api: ApiService) {
     }
 
 
+
     postLastTable(data: retrieveLastTableCond) {
-        console.log('saving post:' + data.title);
+        console.log('saving post:' + data.partnumber);
         console.log('PATH : ' + this.path);
         return this.api.post(`${this.path}`, data);
     }
+
+    // postLastTable() {
+    //     console.log('saving post:' );
+    //     console.log('PATH : ' + this.path);
+    //     return this.api.get(`${this.path}`);
+    // }
 }

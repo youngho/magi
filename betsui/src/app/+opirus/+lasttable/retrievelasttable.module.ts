@@ -7,6 +7,8 @@ import {retrievelastTableRouting} from "./retrievelasttable.routing";
 import {retrieveLastTableComponent} from "./retrievelasttable.component";
 import {SmartadminDatatableModule} from "../../shared/ui/datatable/smartadmin-datatable.module";
 import {DatatablesRestDemoComponent} from "./datatables-rest-demo.component";
+import {DynamicComponent} from "./dynamic.component";
+import {AdministrationAppsDatatableComponent} from "./administration.apps.datatable.component";
 
 @NgModule({
     imports: [
@@ -19,7 +21,7 @@ import {DatatablesRestDemoComponent} from "./datatables-rest-demo.component";
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [retrieveLastTableComponent,DatatablesRestDemoComponent]
+    declarations: [retrieveLastTableComponent,DatatablesRestDemoComponent,DynamicComponent,AdministrationAppsDatatableComponent]
 })
 export class retrieveLastTableModule {
 }

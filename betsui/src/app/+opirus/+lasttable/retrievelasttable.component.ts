@@ -9,6 +9,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {retrieveLastTableCond} from './retrievelasttableCond.model';
 
+import {AdministrationAppsDatatableComponent} from './administration.apps.datatable.component';
+import DynamicComponent from './dynamic-component';
+
 declare var $: any;
 
 @FadeInTop()
@@ -21,12 +24,14 @@ export class retrieveLastTableComponent implements OnInit {
 
     public REST_ROOT = 'https://jsonplaceholder.typicode.com';
 
+    componentData = null;
+    errorMessage = null;
 
     data = {
-        userId: "",
-    id : "",
-    title: "",
-    body: "",
+        operator: "",
+        partnumber: "",
+        // title: "",
+        // body: "",
     };
 
     public datas: retrieveLastTableCond[];
@@ -62,18 +67,20 @@ export class retrieveLastTableComponent implements OnInit {
         dom: "Bfrtip",
         ajax: this.datas,
         columns: [
-            { data: "userId" },
-            { data: "id" },
-            { data: "title" },
-            { data: "body" },
+            {data: "userId"},
+            {data: "id"},
+            {data: "title"},
+            {data: "body"},
         ]
     };
 
     ngOnInit() {
+
     }
 
     saveLastTableForm() {
-        console.log(this.data.title);
+        console.log("operator : " +this.data.operator);
+        console.log("partnumber : " +this.data.partnumber);
         console.log('submitting LastTable form @' + this.data);
         // this.saved
         // .subscribe((res) => {
@@ -81,18 +88,31 @@ export class retrieveLastTableComponent implements OnInit {
         //   this.commentForm.markAsPristine();
         // })
         //     .emit(this.tableForm.value);
-
-
-/*
         this.retrieveLastTableService.postLastTable(this.data)
-            .subscribe(
-                res => console.log(res.json()),
-                //res => this.datas = res.json(),
+            .subscribe((apps) => {
+                    this.componentData = {
+                        component: AdministrationAppsDatatableComponent,
+                        inputs: {
+                            options: {
+                                colReorder: false,
+                                data: apps,
+                                columns: [{ data: 'operator' }, { data: 'partnumber' }]
+                            }
+                        }
+                    };
+                },
+                error => this.errorMessage = error);
 
-                error => alert(error),
-                () => console.log("Finished")
-            );
-*/
+        /*
+         this.retrieveLastTableService.postLastTable(this.data)
+         .subscribe(
+         res => console.log(res.json()),
+         //res => this.datas = res.json(),
+
+         error => alert(error),
+         () => console.log("Finished")
+         );
+         */
 
 
         //this.tableForm.controls['operator'].setValue('');
