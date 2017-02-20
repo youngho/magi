@@ -1,0 +1,31 @@
+<sa-widget [editbutton]="false" color="blueDark">
+	<header>
+		<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+		<h2>Datatables Rest Demo</h2>
+	</header>
+	<div>
+		<div class="widget-body no-padding">
+
+			<sa-datatable [options]="options" tableClass="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th [style.width]="'8%'" data-hide="mobile-p">Operater</th>
+						<th [style.width]="'8%'" data-hide="mobile-p">sysDate</th>
+						<th>Tester</th>
+						<th data-class="expand">Part Number</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<th>Operater</th>
+						<th>sysDate</th>
+						<th>Tester</th>
+						<th>Part Number</th>
+					</tr>
+				</tfoot>
+			</sa-datatable>
+
+		</div>
+	</div>
+</sa-widget>

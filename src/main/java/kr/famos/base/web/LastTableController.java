@@ -27,8 +27,8 @@ public class LastTableController {
     public ResponseEntity<List<LastTable>> get() {
         logger.debug("LastTableController get 함수");
         LastTable lastTable = new LastTable();
-//        lastTable.setTester("T5585");
-//        lastTable.setMainPgm("xp6a86cx");
+        lastTable.setTester("T5585");
+        lastTable.setMainPgm("xp6a86cx");
         return new ResponseEntity<List<LastTable>>(lastTableDao.retrieveLastTable(lastTable), HttpStatus.OK);
     }
 
