@@ -9,15 +9,11 @@ export const routes:Routes = [
     path: 'normal',
     component: NormalTablesComponent,
     data: {pageTitle: 'Normal'}
-
-
-
   },
   {
     path: 'datatables',
     component: DatatablesShowcaseComponent,
     data: {pageTitle: 'Datatables'}
-
   }
 ];
 

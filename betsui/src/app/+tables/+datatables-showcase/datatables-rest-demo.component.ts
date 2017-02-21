@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {Http, Response, Headers} from '@angular/http';
 
 import { Observable } from "rxjs/Rx";
 import 'rxjs/add/operator/map';
@@ -16,6 +16,10 @@ declare var $: any;
 export class DatatablesRestDemoComponent implements OnInit {
 
   public REST_ROOT = 'https://jsonplaceholder.typicode.com';
+  private headers: Headers = new Headers({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  });
 
   options = {
     dom: "Bfrtip",
@@ -33,8 +37,8 @@ export class DatatablesRestDemoComponent implements OnInit {
     columns: [
       { data: "userId" },
       { data: "id" },
-      { data: "title" },
-      { data: "body" },
+      { data: "name" },
+      { data: "date" },
     ]
   };
 

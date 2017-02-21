@@ -24,8 +24,5 @@ export class HeaderComponent implements OnInit {
     $('body').toggleClass('search-mobile', this.searchMobileActive);
   }
 
-  onSubmit() {
-    this.router.navigate(['/miscellaneous/search']);
 
-  }
 }

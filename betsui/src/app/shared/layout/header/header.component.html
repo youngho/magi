@@ -2,16 +2,10 @@
   <div id="logo-group">
 
     <!-- PLACE YOUR LOGO HERE -->
-    <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"> </span>
+   <a href="http://localhost:4200"> <span id="logo"> <img src="assets/img/logo.png" alt="SmartAdmin"> </span></a>
     <!-- END LOGO PLACEHOLDER -->
 
-    <!-- Note: The activity badge color changes when clicked and resets the number to 0
-    Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
-    <sa-activities></sa-activities>
   </div>
-
-
-  <sa-recent-projects></sa-recent-projects>
 
 
   <!-- pulled right: nav area -->
@@ -30,12 +24,6 @@
           <li>
             <a (click)="(null)" class="padding-10 padding-top-0 padding-bottom-0"><i
               class="fa fa-cog"></i> Setting</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a routerLink="/app-views/profile" class="padding-10 padding-top-0 padding-bottom-0"> <i
-              class="fa fa-user"></i>
-              <u>P</u>rofile</a>
           </li>
           <li class="divider"></li>
           <li>
@@ -66,24 +54,6 @@
     </div>
     <!-- end search mobile button -->
 
-    <!-- input: search field -->
-    <form #searchForm="ngForm" (ngSubmit)="onSubmit()" class="header-search pull-right">
-      <input id="search-fld" type="text" name="param" required
-             placeholder="Find reports and more">
-      <button type="submit">
-        <i class="fa fa-search"></i>
-      </button>
-      <a id="cancel-search-js" (click)="toggleSearchMobile()" title="Cancel Search"><i class="fa fa-times"></i></a>
-    </form>
-    <!-- end input: search field -->
-
-    <!-- fullscreen button -->
-    <sa-full-screen></sa-full-screen>
-    <!-- end fullscreen button -->
-
-    <!-- #Voice Command: Start Speech -->
-    <sa-speech-button></sa-speech-button>
-    <!-- end voice command -->
 
 
     <!-- multiple lang dropdown : find all flags in the flags page -->

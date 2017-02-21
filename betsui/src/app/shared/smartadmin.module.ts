@@ -24,7 +24,6 @@ import {VoiceControlModule} from "./voice-control/voice-control.module";
 import {SmartadminWidgetsModule} from "./widgets/smartadmin-widgets.module";
 
 import {UtilsModule} from "./utils/utils.module";
-import {ChatModule} from "./chat/chat.module";
 import {StatsModule} from "./stats/stats.module";
 import {InlineGraphsModule} from "./graphs/inline/inline-graphs.module";
 import {SmartadminFormsLiteModule} from "./forms/smartadmin-forms-lite.module";
@@ -70,8 +69,6 @@ import {SmartProgressbarModule} from "./ui/smart-progressbar/smart-progressbar.m
     InlineGraphsModule,
 
     SmartadminWidgetsModule,
-
-    ChatModule,
 
     StatsModule,
 

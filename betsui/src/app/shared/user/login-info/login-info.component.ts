@@ -6,6 +6,10 @@ import {LayoutService} from "../../layout/layout.service";
 
   selector: 'sa-login-info',
   templateUrl: './login-info.component.html',
+  styles:[`
+            .login-info { color: black; font-size:20px; }
+          `],
+
 })
 export class LoginInfoComponent implements OnInit {
 

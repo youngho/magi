@@ -73,25 +73,6 @@ export const routes: Routes = [
         data: {pageTitle: 'Dashboard'}
       },
       {
-        path: 'smartadmin',
-        loadChildren: 'app/+smartadmin-intel/smartadmin-intel.module#SmartadminIntelModule',
-        data: {pageTitle: 'Smartadmin'}
-      },
-      {
-        path: 'app-views',
-        loadChildren: 'app/+app-views/app-views.module#AppViewsModule',
-        data: {pageTitle: 'App Views'}
-      },
-      {
-        path: 'calendar',
-        loadChildren: 'app/+calendar/calendar.module#CalendarModule'
-      },
-      {
-        path: 'e-commerce',
-        loadChildren: 'app/+e-commerce/e-commerce.module#ECommerceModule',
-        data: {pageTitle: 'E-commerce'}
-      },
-      {
         path: 'forms',
         loadChildren: 'app/+forms/forms-showcase.module#FormsShowcaseModule',
         data: {pageTitle: 'Forms'}
@@ -100,21 +81,6 @@ export const routes: Routes = [
         path: 'graphs',
         loadChildren: 'app/+graphs/graphs-showcase.module#GraphsShowcaseModule',
         data: {pageTitle: 'Graphs'}
-      },
-      {
-        path: 'maps',
-        loadChildren: 'app/+maps/maps.module#MapsModule',
-        data: {pageTitle: 'Maps'}
-      },
-      {
-        path: 'miscellaneous',
-        loadChildren: 'app/+miscellaneous/miscellaneous.module#MiscellaneousModule',
-        data: {pageTitle: 'Miscellaneous'}
-      },
-      {
-        path: 'outlook',
-        loadChildren: 'app/+outlook/outlook.module#OutlookModule',
-        data: {pageTitle: 'Outlook'}
       },
       {
         path: 'tables',
@@ -126,17 +92,11 @@ export const routes: Routes = [
         loadChildren: 'app/+ui-elements/ui-elements.module#UiElementsModule',
         data: {pageTitle: 'Ui'}
       },
-      {
-        path: 'widgets',
-        loadChildren: 'app/+widgets/widgets-showcase.module#WidgetsShowcaseModule',
-        data: {pageTitle: 'Widgets'}
-      },
     ]
   },
 
   {path: 'auth', component: AuthLayoutComponent, loadChildren: 'app/+auth/auth.module#AuthModule'},
 
-  {path: '**', redirectTo: 'miscellaneous/error404'}
 
 ];
 
