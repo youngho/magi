@@ -21,5 +21,6 @@
         <mapper resource="mapper/StIndexMapper.xml"/>
         <mapper resource="mapper/TestYieldHistErrMapper.xml"/>
         <mapper resource="mapper/TestYieldHistMapper.xml"/>
+        <mapper resource="mapper/ProgramRegister.xml"/>
     </mappers>
 </configuration>

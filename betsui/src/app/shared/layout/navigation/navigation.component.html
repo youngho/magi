@@ -13,66 +13,127 @@
         <ul saSmartMenu>
             <!--BETS MENU START-->
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'YIELD' | i18n}}</span></a>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'BASIS INFORMATION' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
-                        <a routerLink="/dashboard/analytics">{{'YIELDANALYSIS' | i18n}}</a>
+                        <a routerLink="/basis/ProgramRegister">{{'Program register' | i18n}}</a>
                     </li>
                     <li routerLinkActive="active">
-                        <a routerLink="/dashboard/social">{{'MAPANALYSIS' | i18n}}</a>
+                        <a routerLink="/basis/BinDescription">{{'Bin description' | i18n}}</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'OPIRUS' | i18n}}</span></a>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'YIELD ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
-                        <a routerLink="/opirus/lasttable">{{'TESTBASEINFO' | i18n}}</a>
+                        <a routerLink="/yield/lotyield">{{'Lot yield' | i18n}}</a>
                     </li>
                     <li routerLinkActive="active">
-                        <a routerLink="/opirus/retrieveLastTable">{{'TESTBASEINFO' | i18n}}조회</a>
+                        <a routerLink="/yield/subbin">{{'Sub bin' | i18n}}</a>
                     </li>
                     <li routerLinkActive="active">
-                        <a routerLink="/opirus/tableretrieve">{{'TESTBASEINFO' | i18n}}lasttable</a>
+                        <a routerLink="/yield/ngbin">{{'NG bin' | i18n}}</a>
+                    </li>
+                </ul>
+            <li>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'DUTMAP ANALYSIS' | i18n}}</span></a>
+                <ul>
+                    <li routerLinkActive="active">
+                        <a routerLink="/dutmap/singledut">{{'Single DUT map' | i18n}}</a>
                     </li>
                     <li routerLinkActive="active">
-                        <a routerLink="/dashboard/social">{{'MBTBASEINFO' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/dashboard/social">{{'BADBLOCKBASEINFO' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/dashboard/social">{{'LOTINJUDGMENTONINQUIRY' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/dashboard/social">{{'EQUIPMENTIP' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/dashboard/social">{{'MBTBIBINFO' | i18n}}</a>
+                        <a routerLink="/dutmap/compodut">{{'Composite DUT map' | i18n}}</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'ABNORMALITYPROCESS' | i18n}}</span></a>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'SBL ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
-                        <a routerLink="/dashboard/analytics">{{'ABNORMALITYPROCESSANALYSIS' | i18n}}</a>
+                        <a routerLink="/sblanal/yield">{{'Yield abnormal' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/sblanal/subbin">{{'Sub bin abnormal' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/sblanal/testlot">{{'Test lot cancel' | i18n}}</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'EFFICIENCY' | i18n}}</span></a>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'B/I ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
-                        <a routerLink="/dashboard/analytics">{{'EFFICIENCYANALYSIS' | i18n}}</a>
+                        <a routerLink="/bianal/datasum">{{'Data summary' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/bianal/serialmap">{{'Board serial map' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/bianal/compomap">{{'Board composite map' | i18n}}</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'SMART' | i18n}}</span></a>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'EFFICIENCY ANAYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
-                        <a routerLink="/dashboard/analytics">{{'USAGERESULTS' | i18n}}</a>
+                        <a routerLink="/efficiencyAnaysis/effic">{{'Test efficiency' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/efficiencyAnaysis/testTime">{{'Test time' | i18n}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'RAW DATA' | i18n}}</span></a>
+                <ul>
+                    <li routerLinkActive="active">
+                        <a routerLink="/rawData/lot">{{'Lot' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/rawData/chip">{{'Chip' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/rawData/log">{{'Log' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/rawData/casi">{{'Casi' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/rawData/BISummary">{{'B/I summary' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/rawData/BIBoard">{{'B/I board' | i18n}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'HISTORY' | i18n}}</span></a>
+                <ul>
+                    <li routerLinkActive="active">
+                        <a routerLink="/history/osversion">{{'Tester OS version' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/history/progrev">{{'Test program revision' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/history/frimrev">{{'Firmware revision' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/history/mesinout">{{'MES track in/out' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/history/user">{{'User usage' | i18n}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">{{'ADMINISTRATION' | i18n}}</span></a>
+                <ul>
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/register">{{'BETS User Register' | i18n}}</a>
                     </li>
                 </ul>
             </li>

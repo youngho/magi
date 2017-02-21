@@ -32,7 +32,7 @@
     <logger name="org.springframework.web">
         <level value="error"/>
     </logger>
-    <logger name="kr.famos.base">
+    <logger name="kr.famos">
         <level value="debug"/>
     </logger>
     <logger name="java.sql">

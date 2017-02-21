@@ -18,6 +18,51 @@ export const routes: Routes = [
         path: '', redirectTo: 'dashboard/analytics', pathMatch: 'full'
       },
       {
+        path: 'basis',
+        loadChildren: 'app/10basis/basis.module#BasisModule',
+        data: {pageTitle: 'Basis'}
+      }/*,
+      {
+        path: 'yield',
+        loadChildren: 'app/20yield/Yield.module#YieldModule',
+        data: {pageTitle: 'Yield'}
+      },
+      {
+        path: 'dutmap',
+        loadChildren: 'app/30dutmap/dutmap.module#DutmapModule',
+        data: {pageTitle: 'DUT Map'}
+      },
+      {
+        path: 'sblanal',
+        loadChildren: 'app/40sblanal/sblanal.module#SblanalModule',
+        data: {pageTitle: 'Basis'}
+      },
+      {
+        path: 'bianal',
+        loadChildren: 'app/50bianal/bianal.module#BianalModule',
+        data: {pageTitle: 'BI Anal'}
+      },
+      {
+        path: 'efficiencyAnaysis',
+        loadChildren: 'app/60efficiencyAnaysis/efficiency.module#EfficiencyModule',
+        data: {pageTitle: 'Efficiency'}
+      },
+      {
+        path: 'rawData',
+        loadChildren: 'app/70rawData/RawData.module#RawDataModule',
+        data: {pageTitle: 'RAW Data'}
+      },
+      {
+        path: 'history',
+        loadChildren: 'app/80history/History.module#HistoryModule',
+        data: {pageTitle: 'History'}
+      },
+      {
+        path: 'Admin',
+        loadChildren: 'app/90admin/Admin.module#AdminModule',
+        data: {pageTitle: 'Admin'}
+      }*/,
+      {
         path: 'opirus',
         loadChildren: 'app/+opirus/opirus.module#OpirusModule',
         data: {pageTitle: 'Opirus'}
