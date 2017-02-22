@@ -13,7 +13,7 @@
         <ul saSmartMenu>
             <!--BETS MENU START-->
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-gears"></i> <span class="menu-item-parent">{{'BASIS INFORMATION' | i18n}}</span></a>
+                <a title="BASIS INFORMATION"><i class="fa fa-lg fa-fw fa-gears"></i> <span class="menu-item-parent">{{'BASIS INFORMATION' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/basis/ProgramRegister">{{'Program register' | i18n}}</a>
@@ -24,7 +24,7 @@
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-line-chart"></i> <span class="menu-item-parent">{{'YIELD ANALYSIS' | i18n}}</span></a>
+                <a title="YIELD ANALYSIS"><i class="fa fa-lg fa-fw fa-line-chart"></i> <span class="menu-item-parent">{{'YIELD ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/yield/lotyield">{{'Lot yield' | i18n}}</a>
@@ -37,7 +37,7 @@
                     </li>
                 </ul>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-th-large"></i> <span class="menu-item-parent">{{'DUTMAP ANALYSIS' | i18n}}</span></a>
+                <a title="DUTMAP ANALYSIS"><i class="fa fa-lg fa-fw fa-th-large"></i> <span class="menu-item-parent">{{'DUTMAP ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/dutmap/singledut">{{'Single DUT map' | i18n}}</a>
@@ -48,7 +48,7 @@
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-bar-chart"></i> <span class="menu-item-parent">{{'SBL ANALYSIS' | i18n}}</span></a>
+                <a title="SBL ANALYSIS"><i class="fa fa-lg fa-fw fa-bar-chart"></i> <span class="menu-item-parent">{{'SBL ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/sblanal/yield">{{'Yield abnormal' | i18n}}</a>
@@ -62,7 +62,7 @@
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-bars"></i> <span class="menu-item-parent">{{'B/I ANALYSIS' | i18n}}</span></a>
+                <a title="B/I ANALYSIS"><i class="fa fa-lg fa-fw fa-bars"></i> <span class="menu-item-parent">{{'B/I ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/bianal/datasum">{{'Data summary' | i18n}}</a>
@@ -76,7 +76,7 @@
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-thumbs-up"></i> <span class="menu-item-parent">{{'EFFICIENCY ANAYSIS' | i18n}}</span></a>
+                <a title="EFFICIENCY ANAYSIS"><i class="fa fa-lg fa-fw fa-thumbs-up"></i> <span class="menu-item-parent">{{'EFFICIENCY ANAYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/efficiencyAnaysis/effic">{{'Test efficiency' | i18n}}</a>
@@ -87,7 +87,7 @@
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">{{'RAW DATA' | i18n}}</span></a>
+                <a title="RAW DATA"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">{{'RAW DATA' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/rawData/lot">{{'Lot' | i18n}}</a>
@@ -110,7 +110,7 @@
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-history"></i> <span class="menu-item-parent">{{'HISTORY' | i18n}}</span></a>
+                <a title="HISTORY"><i class="fa fa-lg fa-fw fa-history"></i> <span class="menu-item-parent">{{'HISTORY' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/history/osversion">{{'Tester OS version' | i18n}}</a>
@@ -130,13 +130,20 @@
                 </ul>
             </li>
             <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-lock"></i> <span class="menu-item-parent">{{'ADMINISTRATION' | i18n}}</span></a>
+                <a title="ADMINISTRATION"><i class="fa fa-lg fa-fw fa-lock"></i> <span class="menu-item-parent">{{'ADMINISTRATION' | i18n}}</span></a>
                 <ul>
-                     <li routerLinkActive="active">
+                    <li routerLinkActive="active">
                         <a routerLink="/auth/login">{{'Login' | i18n}}</a>
                     </li>
                     <li routerLinkActive="active">
                         <a routerLink="/auth/register">{{'Register' | i18n}}</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a title="---------"><span class="menu-item-parent">{{'----------------------------' | i18n}}</span></a>
+                <ul>
+                    <li routerLinkActive="active">
                     </li>
                 </ul>
             </li>
@@ -146,7 +153,7 @@
                         class="menu-item-parent">{{'Dashboard' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
-                        <a routerLink="/dashboard/analytics">{{'Analytics Dashboard' | i18n}}</a>
+                        <a routerLink="/dashboard/analytics">{{'Dashboard' | i18n}}</a>
                     </li>
                 </ul>
             </li>

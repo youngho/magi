@@ -245,7 +245,10 @@ export class lotyieldComponent implements OnInit {
                                     {data: 'testerName'},
                                     {data: 'testerHead'},
                                     {data: 'category01'},
-                                    ]
+                                    ],
+                                buttons: [
+                                    'copy', 'excel', 'pdf', 'print'
+                                ]
                             }
                         }
                     };

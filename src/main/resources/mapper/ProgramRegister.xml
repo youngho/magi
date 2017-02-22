@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.basis.progreg.dao.ProgramRegisterDao">
-    <select id="retrieveProgramRegister" parameterType="kr.famos.basis.progreg.domain.ProgramRegister" resultType="kr.famos.basis.progreg.domain.ProgramRegister">
+<mapper namespace="kr.famos.bets.dao.ProgramRegisterDao">
+    <select id="retrieveProgramRegister" parameterType="kr.famos.bets.domain.ProgramRegister" resultType="kr.famos.bets.domain.ProgramRegister">
         SELECT
         PRODUCT,
         PART_NUMBER,
@@ -156,7 +156,7 @@
         </where>
     </select>
 
-    <insert id="insertProgramRegister" parameterType="kr.famos.basis.progreg.domain.ProgramRegister">
+    <insert id="insertProgramRegister" parameterType="kr.famos.bets.domain.ProgramRegister">
         MERGE INTO PROGRAM_REGISTER USING DUAL ON (PART_NUMBER=#{partNumber} AND PROCESS_CODE=#{processCode} AND TESTER_MODEL=#{testerModel})
         WHEN MATCHED THEN
         UPDATE

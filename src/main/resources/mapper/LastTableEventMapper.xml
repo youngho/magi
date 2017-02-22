@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.base.dao.LastTableEventDao">
-    <select id="retrieveLastTableEvent" parameterType="String" resultType="kr.famos.base.domain.LastTableEvent">
+<mapper namespace="kr.famos.bets.dao.LastTableEventDao">
+    <select id="retrieveLastTableEvent" parameterType="String" resultType="kr.famos.bets.domain.LastTableEvent">
       SELECT * FROM LAST_TABLE_EVENT WHERE ROWNUM = 1
     </select>
 
-    <insert id="insertLastTableEvent" parameterType="kr.famos.base.domain.LastTableEvent">
+    <insert id="insertLastTableEvent" parameterType="kr.famos.bets.domain.LastTableEvent">
     MERGE INTO LAST_TABLE_EVENT USING DUAL ON (OPERATOR = 'youngho')
     WHEN MATCHED THEN
           UPDATE

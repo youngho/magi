@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.base.dao.BibendworkDao">
-    <select id="retrieveBibendwork" parameterType="kr.famos.base.domain.Bibendwork" resultType="kr.famos.base.domain.Bibendwork">
+<mapper namespace="kr.famos.bets.dao.BibendworkDao">
+    <select id="retrieveBibendwork" parameterType="kr.famos.bets.domain.Bibendwork" resultType="kr.famos.bets.domain.Bibendwork">
         SELECT
             BOARD_TYPE,
             SERIAL_NO,

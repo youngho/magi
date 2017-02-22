@@ -13,8 +13,47 @@ import {Component, Injector} from '@angular/core';
 	<div>
 		<div class="widget-body no-padding">
 
-			<sa-datatable [options]="tblOptions" tableClass="table table-striped table-bordered table-hover">
+			<sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
 				<thead>
+				<tr>
+                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
+                                                                        class="form-control"
+                                                                        placeholder="Filter Date"/>
+                  </th>
+                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
+                                                                        class="form-control"
+                                                                        placeholder="Filter Part Number"/>
+                  </th>
+
+                  <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text"
+                                                                        class="form-control"
+                                                                        placeholder="Filter Lot Number"/>
+                  </th>
+                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
+                                                                        class="form-control"
+                                                                        placeholder="Process Code"/>
+                  </th>
+                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
+                                                                        class="form-control"
+                                                                        placeholder="Test Counter"/>
+                  </th>
+
+                  <th class="hasinput" [ngStyle]="{width:'16%'}">
+                    <input type="text" class="form-control"
+                           placeholder="Filter Tester"/>
+                  </th>                  
+                  <th class="hasinput" [ngStyle]="{width:'16%'}">
+                    <input type="text" class="form-control"
+                           placeholder="Filter Head"/>
+                  </th>                  
+                  <th class="hasinput" [ngStyle]="{width:'16%'}">
+                    <input type="text" class="form-control"
+                           placeholder="Filter Catergory01"/>
+                  </th>
+                </tr>
+                
+                
+                
 					<tr>
 						<!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
 						<th>Date</th>

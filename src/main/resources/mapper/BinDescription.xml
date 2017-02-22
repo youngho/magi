@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.basis.bindesc.dao.BinDescriptionDao">
-    <select id="retrieveBinDescription" parameterType="kr.famos.basis.bindesc.domain.BinDescription" resultType="kr.famos.basis.bindesc.domain.BinDescription">
+<mapper namespace="kr.famos.bets.dao.BinDescriptionDao">
+    <select id="retrieveBinDescription" parameterType="kr.famos.bets.domain.BinDescription" resultType="kr.famos.bets.domain.BinDescription">
         SELECT
             PART_NUMBER,
             MAIN_PROGRAM_NAME,
@@ -13,7 +13,7 @@
             NG_BIN
         FROM BIN_DESCRIPTION
         <where>
-            1 = 1
+
             <if test=" partNumber != null and partNumber != '' ">
                 AND PART_NUMBER=#{partNumber}
             </if>
@@ -41,7 +41,7 @@
         </where>
     </select>
 
-    <insert id="insertBinDescription" parameterType="kr.famos.basis.bindesc.domain.BinDescription">
+    <insert id="insertBinDescription" parameterType="kr.famos.bets.domain.BinDescription">
         MERGE INTO BIN_DESCRIPTION USING DUAL ON (PART_NUMBER=#{partNumber} AND MAIN_PROGRAM_NAME=#{mainProgramName} AND PROCESS_CODE=#{processCode} AND TESTER_MODEL=#{testerModel})
         WHEN MATCHED THEN
         UPDATE

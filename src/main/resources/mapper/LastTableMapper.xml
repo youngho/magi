@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.base.dao.LastTableDao">
-    <select id="retrieveLastTable" parameterType="kr.famos.base.domain.LastTable" resultType="kr.famos.base.domain.LastTable">
+<mapper namespace="kr.famos.bets.dao.LastTableDao">
+    <select id="retrieveLastTable" parameterType="kr.famos.bets.domain.LastTable" resultType="kr.famos.bets.domain.LastTable">
         SELECT
             ROWNUM,
             TESTER,
@@ -37,10 +37,11 @@
             <if test="sysDateEnd != null and sysDateEnd != ''">
                 AND SYS_DATE <![CDATA[<=]]> #{sysDateEnd}
             </if>
+            AND rownum <![CDATA[<=]]> 100
         </where>
     </select>
 
-    <insert id="insertLastTable" parameterType="kr.famos.base.domain.LastTable">
+    <insert id="insertLastTable" parameterType="kr.famos.bets.domain.LastTable">
         MERGE INTO LAST_TABLE USING DUAL ON (OPERATOR = #{operator})
         WHEN MATCHED THEN
         UPDATE SET

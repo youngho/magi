@@ -1,6 +1,5 @@
 package kr.famos.com.web;
 
-import kr.famos.base.web.TestYieldHistErrController;
 import kr.famos.com.domain.ComAuthority;
 import kr.famos.com.mapper.ComAuthorityMapper;
 import org.slf4j.Logger;
