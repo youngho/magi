@@ -24,7 +24,7 @@ public class ProgramRegisterDao {
     }
 
     public List<ProgramRegister> retrieveProgramRegister(ProgramRegister programRegister) {
-        logger.info("retrieveBibendwork 메소드 호출");
+        logger.info("ProgramRegisterDao - retrieveProgramRegister 메소드 호출");
         return this.sqlSession.selectList("retrieveProgramRegister", programRegister);
     }
 

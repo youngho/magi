@@ -1,8 +1,8 @@
 /**
  * Created by yhkim on 2017-02-17.
  */
-export class lotyield {
-    product: string;
+export class ProgramRegisterRetrieve {
+    productName: string;
     partNumber: string;
     customer: string;
     packageType: string;

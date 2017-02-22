@@ -28,7 +28,7 @@ public class LotYieldController {
     @RequestMapping(value = "/retireveLotYield", method = RequestMethod.POST)
     public ResponseEntity<List<LotYield>> retireveLotYield(@RequestBody LotYield lotYield) {
         logger.debug("LotYieldController - retireveLotYield 메소드");
-//        logger.debug(lotYield.getBoardId());
+
         return new ResponseEntity<List<LotYield>>(lotYieldDao.retrieveLotYield(lotYield), HttpStatus.OK);
     }
 }

@@ -30,7 +30,11 @@ public class ProgramRegisterController {
 
 
     @RequestMapping(value = "/retrieveProgramRegister", method = RequestMethod.POST)
-    public ResponseEntity<List<ProgramRegister>> retrieveProgramRegister(ProgramRegister programRegister) {
+    public ResponseEntity<List<ProgramRegister>> retrieveProgramRegister(@RequestBody ProgramRegister programRegister) {
+
+        logger.debug("ProgramRegisterController -  retrieveProgramRegister 메소드");
+        logger.debug("Tester Model" + programRegister.getTesterModel());
+
         return new ResponseEntity<List<ProgramRegister>>(programRegisterDao.retrieveProgramRegister(programRegister), HttpStatus.OK);
     }
 

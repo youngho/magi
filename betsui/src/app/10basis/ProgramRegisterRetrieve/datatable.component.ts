@@ -16,66 +16,32 @@ import {Component, Injector} from '@angular/core';
                             <sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Filter Date"/>
+                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Filter TESTER"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Filter Part Number"/>
+                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Filter PART NAME"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter Lot Number"/>
+                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter PROCESS CODE"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Process Code"/>
+                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="PARA"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Test Counter"/>
+                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Test MAIN PROGRAM NAME"/>
                                     </th>
 
                                     <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter Tester"/>
+                                        <input type="text" class="form-control" placeholder="Filter SBL YIELD"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter Head"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter Board ID"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN1"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN2"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN3"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN4"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN5"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN6"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN7"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN8"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
-                                        <input type="text" class="form-control" placeholder="Filter BIN9"/>
-                                    </th>
+                                    
                                 </tr>
 
 
                                 <tr>
                                     <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
-                                    <th>Date</th>
-                                    <th>Part Number</th>
-                                    <th>Lot Number</th>
-                                    <th data-class="expand">Process Code</th>
-                                    <th>Test Counter</th>
-                                    <th>Tester</th>
-                                    <th>Tester Head</th>
-                                    <th>Category 01</th>
+                                    <th>TESTER</th>
+                                    <th data-class="expand">PART NAME</th>
+                                    <th>PROCESS CODE</th>
+                                    <th>PARA</th>
+                                    <th>MAIN PROGRAM NAME</th>
+                                    <th>SBL YIELD</th>
                                 </tr>
                                 </thead>
 

@@ -3,7 +3,7 @@
 <mapper namespace="kr.famos.bets.dao.ProgramRegisterDao">
     <select id="retrieveProgramRegister" parameterType="kr.famos.bets.domain.ProgramRegister" resultType="kr.famos.bets.domain.ProgramRegister">
         SELECT
-        PRODUCT,
+        PRODUCT_NAME,
         PART_NUMBER,
         CUSTOMER,
         PACKAGE_TYPE,
@@ -47,8 +47,8 @@
         PROGRAM_REGISTER
         <where>
             1 = 1
-            <if test=" product != null and product != '' ">
-                AND PRODUCT = #{product}
+            <if test=" productName != null and productName != '' ">
+                AND PRODUCT_NAME = #{productName}
             </if>
             <if test=" partNumber != null and partNumber != '' ">
                 AND PART_NUMBER = #{partNumber}
@@ -179,7 +179,7 @@
         UPDATE
         <trim prefix="SET" suffixOverrides=",">
 
-            PRODUCT = #{product},
+                PRODUCT_NAME = #{productName},
             <if test="customer!=null and customer!=''">
                 CUSTOMER = #{customer},
             </if>
@@ -295,7 +295,7 @@
         WHEN NOT MATCHED THEN
         INSERT
         (
-        PRODUCT,
+        PRODUCT_NAME,
         PART_NUMBER,
         CUSTOMER,
         PACKAGE_TYPE,
@@ -338,7 +338,7 @@
         )
         VALUES
         (
-        #{product},
+        #{productName},
         #{partNumber},
         #{customer},
         #{packageType},

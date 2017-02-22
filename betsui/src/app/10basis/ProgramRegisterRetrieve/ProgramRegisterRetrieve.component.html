@@ -80,51 +80,45 @@
 
 
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="data.partnumberName">
+                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'Lot Number'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot Number" type="text" [(ngModel)]="data.lotNumber">
+                                            <input class="form-control" placeholder="partNumber" type="text" [(ngModel)]="data.partNumber">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="data.processName">
+                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="data.processCode">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'Test Counter'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Parallel'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text" [(ngModel)]="data.testCount">
+                                            <input class="form-control" placeholder="Parallel" type="text" [(ngModel)]="data.parallel">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester" type="text" [(ngModel)]="data.testerName">
+                                            <input class="form-control" placeholder="Main Program Name" type="text" [(ngModel)]="data.mainProgramName">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'Tester Head'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'SBL Yield Limit'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="data.testerHead">
+                                            <input class="form-control" placeholder="SBL Yield Limit" type="text" [(ngModel)]="data.sblYieldLimit">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'BIN Select'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text">
-                                        </div>
+
                                     </div>
                                 </fieldset>
                                 <!--Retest Skip 기준 end-->
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button class="btn btn-default">
-                                                Cancel
-                                            </button>
                                             <button (click)="saveLastTableForm()" class="btn btn-primary">
                                                 <i class="fa fa-save"></i>
                                                 검색

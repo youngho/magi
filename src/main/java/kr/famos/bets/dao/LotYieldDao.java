@@ -20,7 +20,7 @@ public class LotYieldDao {
     private SqlSession sqlSession;
 
     public List<LotYield> retrieveLotYield(LotYield lotYield) {
-        logger.info("LotYieldDao 메소드 호출");
+        logger.info("LotYieldDao - retrieveLotYield 메소드 호출");
         return this.sqlSession.selectList("retrieveYieldHist", lotYield);
     }
 }
