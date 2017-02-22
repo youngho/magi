@@ -24,7 +24,7 @@ export const routes: Routes = [
       },
       {
         path: 'yield',
-        loadChildren: 'app/20yield/Yield.module#YieldModule',
+        loadChildren: 'app/20yield/yield.module#YieldModule',
         data: {pageTitle: 'Yield'}
       }/*,
       {
