@@ -1,6 +1,7 @@
 package kr.famos.basis.progreg.web;
 
 
+import kr.famos.basis.bindesc.domain.BinDescription;
 import kr.famos.basis.progreg.dao.ProgramRegisterDao;
 import kr.famos.basis.progreg.domain.ProgramRegister;
 import kr.famos.com.domain.BizResult;
@@ -8,6 +9,7 @@ import kr.famos.com.web.ComAuthorityController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +24,19 @@ import java.util.List;
 @RestController
 public class ProgramRegisterController {
     private static final Logger logger = LoggerFactory.getLogger(ComAuthorityController.class);
+
     @Autowired
     private ProgramRegisterDao programRegisterDao;
     private BizResult bizResult;
 
-    @RequestMapping(value = "/insertProgramRegister",method = RequestMethod.POST)
+
+    @RequestMapping(value = "/retrieveProgramRegister", method = RequestMethod.POST)
+    public ResponseEntity<List<ProgramRegister>>retrieveProgramRegister(ProgramRegister programRegister){
+        return new ResponseEntity<List<ProgramRegister>>(programRegisterDao.retrieveProgramRegister(programRegister), HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/insertProgramRegister", method = RequestMethod.POST)
     public void post(@RequestBody ProgramRegister programRegister) {
         logger.debug("ProgramRegisterController save 함수");
 

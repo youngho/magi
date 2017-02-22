@@ -1,144 +1,153 @@
-package kr.famos.base.domain;
+package kr.famos.yield.lot.domain;
 
 /**
- * Created by x on 2017. 1. 10..
+ * Created by yhkim on 2017-02-22.
  */
-public class TestYieldHist {
-    private String sysDate = "";    //
-    private String sysDateStart = "";    //
-    private String sysDateEnd = "";    //
-    private String lotNumber = "";    //
-    private String processName = "";    //
-    private String partnumberName = "";    //
-    private String programName = "";    //
-    private String operatorName = "";    //
-    private String testerName = "";    //
-    private String testerNumber = "";    //
-    private String testerHead = "";    //
-    private String hdModel = "";    //
-    private String hdTemp = "";    //
-    private String boardId = "";    //
-    private String line = "";    //
-    private String site = "";    //
-    private String lotType = "";    //
-    private String retestCount = "";    //
-    private String finalRetestCount = "";    //
-    private String yield = "";    //
-    private int simaxInqty = 0;    //
-    private int testCount = 0;    //
-    private int passCount = 0;    //
-    private int category01 = 0;    //
-    private int category02 = 0;    //
-    private int category03 = 0;    //
-    private int category04 = 0;    //
-    private int category05 = 0;    //
-    private int category06 = 0;    //
-    private int category07 = 0;    //
-    private int category08 = 0;    //
-    private int category09 = 0;    //
-    private String startDate = "";    //
-    private String startTime = "";    //
-    private String endDate = "";    //
-    private String endTime = "";    //
-    private String executeDate = "";    //
-    private int opInput = 0;    //
-    private int opCat1 = 0;    //
-    private int opCat2 = 0;    //
-    private int opCat3 = 0;    //
-    private int opCat4 = 0;    //
-    private int opCat5 = 0;    //
-    private int opCat6 = 0;    //
-    private int opCat7 = 0;    //
-    private int opCat8 = 0;    //
-    private int opCat9 = 0;    //
-    private int sortInput = 0;    //
-    private int sort01 = 0;    //
-    private int sort02 = 0;    //
-    private int sort03 = 0;    //
-    private int sort04 = 0;    //
-    private int sort05 = 0;    //
-    private int sort06 = 0;    //
-    private int sort07 = 0;    //
-    private int sort08 = 0;    //
-    private int hdInput = 0;    //
-    private int hdCat1 = 0;    //
-    private int hdCat2 = 0;    //
-    private int hdCat3 = 0;    //
-    private int hdCat4 = 0;    //
-    private int hdCat5 = 0;    //
-    private int hdCat6 = 0;    //
-    private int hdCat7 = 0;    //
-    private int hdCat8 = 0;    //
-    private String cat61 = "";    //
-    private String cat62 = "";    //
-    private String cat63 = "";    //
-    private String cat64 = "";    //
-    private String cat65 = "";    //
-    private String cat71 = "";    //
-    private String cat72 = "";    //
-    private String cat73 = "";    //
-    private String cat74 = "";    //
-    private String cat75 = "";    //
-    private String revno = "";    //
-    private String revnoEnd = "";    //
-    private String lotin = "";    //
-    private String lotout = "";    //
-    private String subCnt1 = "";    //
-    private String subCnt2 = "";    //
-    private String finalSubCnt1 = "";    //
-    private String finalSubCnt2 = "";    //
-    private String ngCnt1 = "";    //
-    private String ngCnt2 = "";    //
-    private String finalNgCnt1 = "";    //
-    private String finalNgCnt2 = "";    //
-    private String subProgramName = "";    //
-    private String initialBadBlock = "";    //
-    private String finalBadBlock = "";    //
-    private String gapIbbfbb = "";    //
-    private String mLotList = "";    //
-    private String recycleStep = "";    //
-    private String recycleFlag = "";    //
-    private String sblCode = "";    //
-    private String sblJudge = "";    //
-    private String mcNcfcode = "";    //
-    private String ncfcodeSimax = "";    //
-    private String ncacodeSimax = "";    //
-    private String ncecodeSimax = "";    //
-    private String ncqcodeSimax = "";    //
-    private String nctcodeSimax = "";    //
-    private String nchcodeSimax = "";    //
-    private String ncmcodeSimax = "";    //
-    private String ncpcodeSimax = "";    //
-    private String ncscodeSimax = "";    //
-    private String ncbcodeSimax = "";    //
-    private String nckcodeSimax = "";    //
-    private String ncrcodeSimax = "";    //
-    private String dataFormat = "";    //
-    private String sblCmd = "";    //
-    private String runSblCode = "";    //
-    private String runSblCmd = "";    //
-    private String hOsA = "";    //
-    private String hOsB = "";    //
-    private String tOsOpsys = "";    //
-    private String tOsAtl = "";    //
-    private String tOsDiag = "";    //
-    private String tOsSysos = "";    //
-    private String tOsGpib = "";    //
-    private String tIf = "";    //
-    private String fsstFlag = "";    //
-    private String lotAsysite = "";    //
-    private String edsBadBlock = "";    //
-    private String gapEbbfbb = "";    //
-    private String frLot = "";    //
-    private int subbin114 = 0;    //
-    private int finalSubbin114 = 0;    //
-    private int subbin115 = 0;    //
-    private int finalSubbin115 = 0;    //
-    private int subbin116 = 0;    //
-    private int finalSubbin116 = 0;    //
-    private String reworkFlag = "";    //
-    private String testLine = "";    //
-    private String purposeType = "";    //
+public class LotYield {
+    private String sysDate	= "";	//
+    private String sysDateStart	= "";	//
+    private String sysDateEnd	= "";	//
+
+    private String lotNumber	= "";	//
+    private String processName	= "";	//
+    private String partnumberName	= "";	//
+    private String programName	= "";	//
+    private String operatorName	= "";	//
+    private String testerName	= "";	//
+    private String testerNumber	= "";	//
+    private String testerHead	= "";	//
+    private String hdModel	= "";	//
+    private String hdTemp	= "";	//
+    private String boardId	= "";	//
+    private String line	= "";	//
+    private String site	= "";	//
+    private String lotType	= "";	//
+    private String retestCount	= "";	//
+    private String finalRetestCount	= "";	//
+    private String yield	= "";	//
+    private int simaxInqty	= 0;	//
+    private int testCount	= 0;	//
+    private int passCount	= 0;	//
+    private int category01	= 0;	// Main_Bin
+    private int category02	= 0;	//
+    private int category03	= 0;	//
+    private int category04	= 0;	//
+    private int category05	= 0;	//
+    private int category06	= 0;	//
+    private int category07	= 0;	//
+    private int category08	= 0;	//
+    private int category09	= 0;	//
+    private String startDate	= "";	//
+    private String startTime	= "";	//
+    private String endDate	= "";	//
+    private String endTime	= "";	//
+    private String executeDate	= "";	//
+    private int opInput	= 0;	//
+    private int opCat1	= 0;	//
+    private int opCat2	= 0;	//
+    private int opCat3	= 0;	//
+    private int opCat4	= 0;	//
+    private int opCat5	= 0;	//
+    private int opCat6	= 0;	//
+    private int opCat7	= 0;	//
+    private int opCat8	= 0;	//
+    private int opCat9	= 0;	//
+    private int sortInput	= 0;	//
+    private int sort01	= 0;	//
+    private int sort02	= 0;	//
+    private int sort03	= 0;	//
+    private int sort04	= 0;	//
+    private int sort05	= 0;	//
+    private int sort06	= 0;	//
+    private int sort07	= 0;	//
+    private int sort08	= 0;	//
+    private int hdInput	= 0;	//
+    private int hdCat1	= 0;	//
+    private int hdCat2	= 0;	//
+    private int hdCat3	= 0;	//
+    private int hdCat4	= 0;	//
+    private int hdCat5	= 0;	//
+    private int hdCat6	= 0;	//
+    private int hdCat7	= 0;	//
+    private int hdCat8	= 0;	//
+    private String cat61	= "";	//
+    private String cat62	= "";	//
+    private String cat63	= "";	//
+    private String cat64	= "";	//
+    private String cat65	= "";	//
+    private String cat71	= "";	//
+    private String cat72	= "";	//
+    private String cat73	= "";	//
+    private String cat74	= "";	//
+    private String cat75	= "";	//
+    private String revno	= "";	//
+    private String revnoEnd	= "";	//
+    private String lotin	= "";	//
+    private String lotout	= "";	//
+    private String subCnt1	= "";	//
+    private String subCnt2	= "";	//
+    private String finalSubCnt1	= "";	//
+    private String finalSubCnt2	= "";	//
+    private String ngCnt1	= "";	//
+    private String ngCnt2	= "";	//
+    private String finalNgCnt1	= "";	//
+    private String finalNgCnt2	= "";	//
+    private String subProgramName	= "";	//
+    private String initialBadBlock	= "";	//
+    private String finalBadBlock	= "";	//
+    private String gapIbbfbb	= "";	//
+    private String mLotList	= "";	//
+    private String recycleStep	= "";	//
+    private String recycleFlag	= "";	//
+    private String sblCode	= "";	//
+    private String sblJudge	= "";	//
+    private String mcNcfcode	= "";	//
+    private String ncfcodeSimax	= "";	//
+    private String ncacodeSimax	= "";	//
+    private String ncecodeSimax	= "";	//
+    private String ncqcodeSimax	= "";	//
+    private String nctcodeSimax	= "";	//
+    private String nchcodeSimax	= "";	//
+    private String ncmcodeSimax	= "";	//
+    private String ncpcodeSimax	= "";	//
+    private String ncscodeSimax	= "";	//
+    private String ncbcodeSimax	= "";	//
+    private String nckcodeSimax	= "";	//
+    private String ncrcodeSimax	= "";	//
+    private String dataFormat	= "";	//
+    private String sblCmd	= "";	//
+    private String runSblCode	= "";	//
+    private String runSblCmd	= "";	//
+    private String hOsA	= "";	//
+    private String hOsB	= "";	//
+    private String tOsOpsys	= "";	//
+    private String tOsAtl	= "";	//
+    private String tOsDiag	= "";	//
+    private String tOsSysos	= "";	//
+    private String tOsGpib	= "";	//
+    private String tIf	= "";	//
+    private String fsstFlag	= "";	//
+    private String lotAsysite	= "";	//
+    private String edsBadBlock	= "";	//
+    private String gapEbbfbb	= "";	//
+    private String frLot	= "";	//
+    private int subbin114	= 0;	//
+    private int finalSubbin114	= 0;	//
+    private int subbin115	= 0;	//
+    private int finalSubbin115	= 0;	//
+    private int subbin116	= 0;	//
+    private int finalSubbin116	= 0;	//
+    private String reworkFlag	= "";	//
+    private String testLine	= "";	//
+    private String purposeType	= "";	//
+
+    public String getSysDate() {
+        return sysDate;
+    }
+
+    public void setSysDate(String sysDate) {
+        this.sysDate = sysDate;
+    }
 
     public String getSysDateStart() {
         return sysDateStart;
@@ -154,14 +163,6 @@ public class TestYieldHist {
 
     public void setSysDateEnd(String sysDateEnd) {
         this.sysDateEnd = sysDateEnd;
-    }
-
-    public String getSysDate() {
-        return sysDate;
-    }
-
-    public void setSysDate(String sysDate) {
-        this.sysDate = sysDate;
     }
 
     public String getLotNumber() {
@@ -868,11 +869,11 @@ public class TestYieldHist {
         this.gapIbbfbb = gapIbbfbb;
     }
 
-    public String getMLotList() {
+    public String getmLotList() {
         return mLotList;
     }
 
-    public void setMLotList(String mLotList) {
+    public void setmLotList(String mLotList) {
         this.mLotList = mLotList;
     }
 
@@ -1044,67 +1045,67 @@ public class TestYieldHist {
         this.runSblCmd = runSblCmd;
     }
 
-    public String getHOsA() {
+    public String gethOsA() {
         return hOsA;
     }
 
-    public void setHOsA(String hOsA) {
+    public void sethOsA(String hOsA) {
         this.hOsA = hOsA;
     }
 
-    public String getHOsB() {
+    public String gethOsB() {
         return hOsB;
     }
 
-    public void setHOsB(String hOsB) {
+    public void sethOsB(String hOsB) {
         this.hOsB = hOsB;
     }
 
-    public String getTOsOpsys() {
+    public String gettOsOpsys() {
         return tOsOpsys;
     }
 
-    public void setTOsOpsys(String tOsOpsys) {
+    public void settOsOpsys(String tOsOpsys) {
         this.tOsOpsys = tOsOpsys;
     }
 
-    public String getTOsAtl() {
+    public String gettOsAtl() {
         return tOsAtl;
     }
 
-    public void setTOsAtl(String tOsAtl) {
+    public void settOsAtl(String tOsAtl) {
         this.tOsAtl = tOsAtl;
     }
 
-    public String getTOsDiag() {
+    public String gettOsDiag() {
         return tOsDiag;
     }
 
-    public void setTOsDiag(String tOsDiag) {
+    public void settOsDiag(String tOsDiag) {
         this.tOsDiag = tOsDiag;
     }
 
-    public String getTOsSysos() {
+    public String gettOsSysos() {
         return tOsSysos;
     }
 
-    public void setTOsSysos(String tOsSysos) {
+    public void settOsSysos(String tOsSysos) {
         this.tOsSysos = tOsSysos;
     }
 
-    public String getTOsGpib() {
+    public String gettOsGpib() {
         return tOsGpib;
     }
 
-    public void setTOsGpib(String tOsGpib) {
+    public void settOsGpib(String tOsGpib) {
         this.tOsGpib = tOsGpib;
     }
 
-    public String getTIf() {
+    public String gettIf() {
         return tIf;
     }
 
-    public void setTIf(String tIf) {
+    public void settIf(String tIf) {
         this.tIf = tIf;
     }
 
@@ -1219,5 +1220,4 @@ public class TestYieldHist {
     public void setPurposeType(String purposeType) {
         this.purposeType = purposeType;
     }
-
 }

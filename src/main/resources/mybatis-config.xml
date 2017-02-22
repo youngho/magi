@@ -2,10 +2,11 @@
 <!DOCTYPE configuration        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"        "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="kr.famos.base"/>
+        <package name="kr.famos.basis"/>
     </typeAliases>
     <mappers>
         <mapper resource="mapper/BibendworkMapper.xml"/>
+        <mapper resource="mapper/BinDescription.xml"/>
         <mapper resource="mapper/EquipmentLayoutMapper.xml"/>
         <mapper resource="mapper/LastTableEventMapper.xml"/>
         <mapper resource="mapper/LastTableMapper.xml"/>

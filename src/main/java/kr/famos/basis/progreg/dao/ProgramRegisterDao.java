@@ -1,6 +1,5 @@
 package kr.famos.basis.progreg.dao;
 
-import kr.famos.base.domain.Bibendwork;
 import kr.famos.basis.progreg.domain.ProgramRegister;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -24,7 +23,7 @@ public class ProgramRegisterDao {
         this.sqlSession = sqlSession;
     }
 
-    public List<ProgramRegister> retrieveBibendwork(ProgramRegister programRegister) {
+    public List<ProgramRegister> retrieveProgramRegister(ProgramRegister programRegister) {
         logger.info("retrieveBibendwork 메소드 호출");
         return this.sqlSession.selectList("retrieveProgramRegister", programRegister);
     }
