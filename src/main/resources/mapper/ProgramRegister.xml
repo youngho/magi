@@ -39,119 +39,136 @@
         PROGRAM_VERSION,
         FIRMWARE_VERSION,
         TESTER_OS_VERSION,
-        PARALLEL
-
+        PARALLEL,
+        FIRMWARE_NAME,
+        OPERATOR,
+        SYS_DATE
+        FROM
+        PROGRAM_REGISTER
         <where>
+            1 = 1
             <if test=" product != null and product != '' ">
-                PRODUCT = #{product},
+                AND PRODUCT = #{product}
             </if>
             <if test=" partNumber != null and partNumber != '' ">
-                PART_NUMBER = #{partNumber},
+                AND PART_NUMBER = #{partNumber}
             </if>
             <if test=" customer != null and customer != '' ">
-                CUSTOMER = #{customer},
+                AND CUSTOMER = #{customer}
             </if>
             <if test=" packageType != null and packageType != '' ">
-                PACKAGE_TYPE = #{packageType},
+                AND PACKAGE_TYPE = #{packageType}
             </if>
             <if test=" processCode != null and processCode != '' ">
-                PROCESS_CODE = #{processCode},
+                AND PROCESS_CODE = #{processCode}
             </if>
             <if test=" testerModel != null and testerModel != '' ">
-                TESTER_MODEL = #{testerModel},
+                AND TESTER_MODEL = #{testerModel}
             </if>
             <if test=" mainProgramName != null and mainProgramName != '' ">
-                MAIN_PROGRAM_NAME = #{mainProgramName},
+                AND MAIN_PROGRAM_NAME = #{mainProgramName}
             </if>
             <if test=" temperature != null and temperature != '' ">
-                TEMPERATURE = #{temperature},
+                AND TEMPERATURE = #{temperature}
             </if>
             <if test=" sblYieldLimit != null and sblYieldLimit != '' ">
-                SBL_YIELD_LIMIT = #{sblYieldLimit},
+                AND SBL_YIELD_LIMIT = #{sblYieldLimit}
             </if>
             <if test=" sblSubbinANumber != null and sblSubbinANumber != '' ">
-                SBL_SUBBIN_A_NUMBER = #{sblSubbinANumber},
+                AND SBL_SUBBIN_A_NUMBER = #{sblSubbinANumber}
             </if>
             <if test=" sblSubbinALimitPercent != null and sblSubbinALimitPercent != '' ">
-                SBL_SUBBIN_A_LIMIT_PERCENT = #{sblSubbinALimitPercent},
+                AND SBL_SUBBIN_A_LIMIT_PERCENT = #{sblSubbinALimitPercent}
             </if>
             <if test=" sblSubbinALimitCount != null and sblSubbinALimitCount != '' ">
-                SBL_SUBBIN_A_LIMIT_COUNT = #{sblSubbinALimitCount},
+                AND SBL_SUBBIN_A_LIMIT_COUNT = #{sblSubbinALimitCount}
             </if>
             <if test=" sblSubbinBNumber != null and sblSubbinBNumber != '' ">
-                SBL_SUBBIN_B_NUMBER = #{sblSubbinBNumber},
+                AND SBL_SUBBIN_B_NUMBER = #{sblSubbinBNumber}
             </if>
             <if test=" sblSubbinBLimitPercent != null and sblSubbinBLimitPercent != '' ">
-                SBL_SUBBIN_B_LIMIT_PERCENT = #{sblSubbinBLimitPercent},
+                AND SBL_SUBBIN_B_LIMIT_PERCENT = #{sblSubbinBLimitPercent}
             </if>
             <if test=" sblSubbinBLimitCount != null and sblSubbinBLimitCount != '' ">
-                SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount},
+                AND SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount}
             </if>
             <if test=" functionKey1 != null and functionKey1 != '' ">
-                FUNCTION_KEY1 = #{functionKey1},
+                AND FUNCTION_KEY1 = #{functionKey1}
             </if>
             <if test=" functionKey2 != null and functionKey2 != '' ">
-                FUNCTION_KEY2 = #{functionKey2},
+                AND FUNCTION_KEY2 = #{functionKey2}
             </if>
             <if test=" functionKey3 != null and functionKey3 != '' ">
-                FUNCTION_KEY3 = #{functionKey3},
+                AND FUNCTION_KEY3 = #{functionKey3}
             </if>
             <if test=" functionKey4 != null and functionKey4 != '' ">
-                FUNCTION_KEY4 = #{functionKey4},
+                AND FUNCTION_KEY4 = #{functionKey4}
             </if>
             <if test=" functionKey5 != null and functionKey5 != '' ">
-                FUNCTION_KEY5 = #{functionKey5},
+                AND FUNCTION_KEY5 = #{functionKey5}
             </if>
             <if test=" functionKey6 != null and functionKey6 != '' ">
-                FUNCTION_KEY6 = #{functionKey6},
+                AND FUNCTION_KEY6 = #{functionKey6}
             </if>
             <if test=" functionKey7 != null and functionKey7 != '' ">
-                FUNCTION_KEY7 = #{functionKey7},
+                AND FUNCTION_KEY7 = #{functionKey7}
             </if>
             <if test=" functionKey8 != null and functionKey8 != '' ">
-                FUNCTION_KEY8 = #{functionKey8},
+                AND FUNCTION_KEY8 = #{functionKey8}
             </if>
             <if test=" functionKey9 != null and functionKey9 != '' ">
-                FUNCTION_KEY9 = #{functionKey9},
+                AND FUNCTION_KEY9 = #{functionKey9}
             </if>
             <if test=" functionKey10 != null and functionKey10 != '' ">
-                FUNCTION_KEY10 = #{functionKey10},
+                AND FUNCTION_KEY10 = #{functionKey10}
             </if>
             <if test=" functionKey11 != null and functionKey11 != '' ">
-                FUNCTION_KEY11 = #{functionKey11},
+                AND FUNCTION_KEY11 = #{functionKey11}
             </if>
-            <if test=" FUNCTION_KEY12 != null and FUNCTION_KEY12 != '' ">
-                FUNCTION_KEY12 = #{functionKey12},
+            <if test=" functionKey12 != null and functionKey12 != '' ">
+                AND FUNCTION_KEY12 = #{functionKey12}
             </if>
             <if test=" functionKey13 != null and functionKey13 != '' ">
-                FUNCTION_KEY13 = #{functionKey13},
+                AND FUNCTION_KEY13 = #{functionKey13}
             </if>
-            <if test=" FUNCTION_KEY14 != null and FUNCTION_KEY14 != '' ">
-                FUNCTION_KEY14 = #{functionKey14},
+            <if test=" functionKey14 != null and functionKey14 != '' ">
+                AND FUNCTION_KEY14 = #{functionKey14}
             </if>
             <if test=" functionKey15 != null and functionKey15 != '' ">
-                FUNCTION_KEY15 = #{functionKey15},
+                AND FUNCTION_KEY15 = #{functionKey15}
             </if>
             <if test=" functionKey16 != null and functionKey16 != '' ">
-                FUNCTION_KEY16 = #{functionKey16},
+                AND FUNCTION_KEY16 = #{functionKey16}
             </if>
             <if test=" fab != null and fab != '' ">
-                FAB = #{fab},
+                AND FAB = #{fab}
             </if>
             <if test=" grade != null and grade != '' ">
-                GRADE = #{grade},
+                AND GRADE = #{grade}
             </if>
             <if test=" programVersion != null and programVersion != '' ">
-                PROGRAM_VERSION = #{programVersion},
+                AND PROGRAM_VERSION = #{programVersion}
             </if>
             <if test=" firmwareVersion != null and firmwareVersion != '' ">
-                FIRMWARE_VERSION = #{firmwareVersion},
+                AND FIRMWARE_VERSION = #{firmwareVersion}
             </if>
             <if test=" testerOsVersion != null and testerOsVersion != '' ">
-                TESTER_OS_VERSION = #{testerOsVersion},
+                AND TESTER_OS_VERSION = #{testerOsVersion}
             </if>
             <if test=" parallel != null and parallel != '' ">
-                PARALLEL = #{parallel}
+                AND PARALLEL = #{parallel}
+            </if>
+            <if test=" firmwareName != null and firmwareName != '' ">
+                AND FIRMWARE_NAME=#{firmwareName}
+            </if>
+            <if test=" operator != null and operator != '' ">
+                AND OPERATOR=#{operator}
+            </if>
+            <if test=" sysDateStart != null and sysDateStart != '' ">
+                AND SYS_DATE=#{sysDateStart}
+            </if>
+            <if test=" sysDateEnd != null and sysDateEnd != '' ">
+                AND SYS_DATE=#{sysDateEnd}
             </if>
         </where>
     </select>
@@ -162,106 +179,118 @@
         UPDATE
         <trim prefix="SET" suffixOverrides=",">
 
-        PRODUCT = #{product},
-        <if test ="customer!=null and customer!=''">
-        CUSTOMER = #{customer},
-        </if>
-        <if test="packageType!=null and packageType!=''">
-        PACKAGE_TYPE = #{packageType},
-        </if>
-        <if test="mainProgramName!=null and mainProgramName!=''">
-        MAIN_PROGRAM_NAME = #{mainProgramName},
-        </if>
-        <if test="temperature!=null and temperature!=''">
-        TEMPERATURE = #{temperature},
-        </if>
-        <if test="sblYieldLimit!=null and sblYieldLimit!=''">
-        SBL_YIELD_LIMIT = #{sblYieldLimit},
-        </if>
-        <if test="sblSubbinANumber!= null and sblSubbinANumber!=''">
-        SBL_SUBBIN_A_NUMBER = #{sblSubbinANumber},
-        </if>
-        <if test="sblSubbinALimitPercent!=null and sblSubbinALimitPercent!=''">
-        SBL_SUBBIN_A_LIMIT_PERCENT = #{sblSubbinALimitPercent},
-        </if>
-        <if test="sblSubbinALimitCount!= null and sblSubbinALimitCount!=''">
-        SBL_SUBBIN_A_LIMIT_COUNT = #{sblSubbinALimitCount},
-        </if>
-        <if test="sblSubbinBNumber!=null and sblSubbinBNumber!=''">
-        SBL_SUBBIN_B_NUMBER = #{sblSubbinBNumber},
-        </if>
-        <if test="sblSubbinBLimitPercent!=null and sblSubbinBLimitPercent!=''">
-        SBL_SUBBIN_B_LIMIT_PERCENT = #{sblSubbinBLimitPercent},
-        </if>
-        <if test="sblSubbinBLimitCount!=null and sblSubbinBLimitCount!=''">
-        SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount},
-        </if>
-        <if test="functionKey1!=null and functionKey1!=''">
-        FUNCTION_KEY1 = #{functionKey1},
-        </if>
-        <if test="functionKey2!=null and functionKey2!=''">
-        FUNCTION_KEY2 = #{functionKey2},
-        </if>
-        <if test="functionKey3!=null and functionKey3!=''">
-        FUNCTION_KEY3 = #{functionKey3},
-        </if>
-        <if test="functionKey4!=null and functionKey4!=''">
-        FUNCTION_KEY4 = #{functionKey4},
-        </if>
-        <if test="functionKey5!=null and functionKey5!=''">
-        FUNCTION_KEY5 = #{functionKey5},
-        </if>
-        <if test="functionKey6!=null and functionKey6!=''">
+            PRODUCT = #{product},
+            <if test="customer!=null and customer!=''">
+                CUSTOMER = #{customer},
+            </if>
+            <if test="packageType!=null and packageType!=''">
+                PACKAGE_TYPE = #{packageType},
+            </if>
+            <if test="mainProgramName!=null and mainProgramName!=''">
+                MAIN_PROGRAM_NAME = #{mainProgramName},
+            </if>
+            <if test="temperature!=null and temperature!=''">
+                TEMPERATURE = #{temperature},
+            </if>
+            <if test="sblYieldLimit!=null and sblYieldLimit!=''">
+                SBL_YIELD_LIMIT = #{sblYieldLimit},
+            </if>
+            <if test="sblSubbinANumber!= null and sblSubbinANumber!=''">
+                SBL_SUBBIN_A_NUMBER = #{sblSubbinANumber},
+            </if>
+            <if test="sblSubbinALimitPercent!=null and sblSubbinALimitPercent!=''">
+                SBL_SUBBIN_A_LIMIT_PERCENT = #{sblSubbinALimitPercent},
+            </if>
+            <if test="sblSubbinALimitCount!= null and sblSubbinALimitCount!=''">
+                SBL_SUBBIN_A_LIMIT_COUNT = #{sblSubbinALimitCount},
+            </if>
+            <if test="sblSubbinBNumber!=null and sblSubbinBNumber!=''">
+                SBL_SUBBIN_B_NUMBER = #{sblSubbinBNumber},
+            </if>
+            <if test="sblSubbinBLimitPercent!=null and sblSubbinBLimitPercent!=''">
+                SBL_SUBBIN_B_LIMIT_PERCENT = #{sblSubbinBLimitPercent},
+            </if>
+            <if test="sblSubbinBLimitCount!=null and sblSubbinBLimitCount!=''">
+                SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount},
+            </if>
+            <if test="functionKey1!=null and functionKey1!=''">
+                FUNCTION_KEY1 = #{functionKey1},
+            </if>
+            <if test="functionKey2!=null and functionKey2!=''">
+                FUNCTION_KEY2 = #{functionKey2},
+            </if>
+            <if test="functionKey3!=null and functionKey3!=''">
+                FUNCTION_KEY3 = #{functionKey3},
+            </if>
+            <if test="functionKey4!=null and functionKey4!=''">
+                FUNCTION_KEY4 = #{functionKey4},
+            </if>
+            <if test="functionKey5!=null and functionKey5!=''">
+                FUNCTION_KEY5 = #{functionKey5},
+            </if>
+            <if test="functionKey6!=null and functionKey6!=''">
                 FUNCTION_KEY6 = #{functionKey6},
-                </if>
-        <if test="functionKey7!=null and functionKey7!=''">
+            </if>
+            <if test="functionKey7!=null and functionKey7!=''">
                 FUNCTION_KEY7 = #{functionKey7},
-                </if>
-        <if test="functionKey8!=null and functionKey8!=''">
+            </if>
+            <if test="functionKey8!=null and functionKey8!=''">
                 FUNCTION_KEY8 = #{functionKey8},
-                </if>
-        <if test="functionKey9!=null and functionKey9!=''">
+            </if>
+            <if test="functionKey9!=null and functionKey9!=''">
                 FUNCTION_KEY9 = #{functionKey9},
-                </if>
-        <if test="functionKey10!=null and functionKey10!=''">
+            </if>
+            <if test="functionKey10!=null and functionKey10!=''">
                 FUNCTION_KEY10 = #{functionKey10},
-                </if>
-        <if test="functionKey11!=null and functionKey11!=''">
+            </if>
+            <if test="functionKey11!=null and functionKey11!=''">
                 FUNCTION_KEY11 = #{functionKey11},
-                </if>
-        <if test="functionKey12!=null and functionKey12!=''">
+            </if>
+            <if test="functionKey12!=null and functionKey12!=''">
                 FUNCTION_KEY12 = #{functionKey12},
-                </if>
-        <if test="functionKey13!=null and functionKey13!=''">
+            </if>
+            <if test="functionKey13!=null and functionKey13!=''">
                 FUNCTION_KEY13 = #{functionKey13},
-                </if>
-        <if test="functionKey14!=null and functionKey14!=''">
+            </if>
+            <if test="functionKey14!=null and functionKey14!=''">
                 FUNCTION_KEY14 = #{functionKey14},
-                </if>
-        <if test="functionKey15!=null and functionKey15!=''">
+            </if>
+            <if test="functionKey15!=null and functionKey15!=''">
                 FUNCTION_KEY15 = #{functionKey15},
-                </if>
-        <if test="functionKey16!=null and functionKey16!=''">
-        FUNCTION_KEY16 = #{functionKey16},
-        </if>
-        <if test="fab!=null and fab!=''">
-        FAB = #{fab},
-        </if>
-        <if test="grade!=null and grade!=''">
-        GRADE = #{grade},
-        </if>
-        <if test="programVersion!=null and programVersion!=''">
-            PROGRAM_VERSION = #{programVersion},
-        </if>
-        <if test="firmwareVersion!=null and firmwareVersion!=''">
-            FIRMWARE_VERSION = #{firmwareVersion},
-        </if>
-        <if test="testerOsVersion!=null and testerOsVersion!=''">
-        TESTER_OS_VERSION = #{testerOsVersion},
-        </if>
-        <if test="parallel!=null and parallel!=''">
-        PARALLEL = #{parallel}
-        </if>
+            </if>
+            <if test="functionKey16!=null and functionKey16!=''">
+                FUNCTION_KEY16 = #{functionKey16},
+            </if>
+            <if test="fab!=null and fab!=''">
+                FAB = #{fab},
+            </if>
+            <if test="grade!=null and grade!=''">
+                GRADE = #{grade},
+            </if>
+            <if test="programVersion!=null and programVersion!=''">
+                PROGRAM_VERSION = #{programVersion},
+            </if>
+            <if test="firmwareVersion!=null and firmwareVersion!=''">
+                FIRMWARE_VERSION = #{firmwareVersion},
+            </if>
+            <if test="testerOsVersion!=null and testerOsVersion!=''">
+                TESTER_OS_VERSION = #{testerOsVersion},
+            </if>
+            <if test="parallel!=null and parallel!=''">
+                PARALLEL = #{parallel},
+            </if>
+            <if test=" firmwareName != null and firmwareName != '' ">
+                FIRMWARE_NAME=#{firmwareName},
+            </if>
+            <if test=" operator != null and operator != '' ">
+                OPERATOR=#{operator},
+            </if>
+            <if test=" sysDateStart != null and sysDateStart != '' ">
+                SYS_DATE=#{sysDateStart},
+            </if>
+            <if test=" sysDateEnd != null and sysDateEnd != '' ">
+                SYS_DATE=#{sysDateEnd}
+            </if>
         </trim>
         WHEN NOT MATCHED THEN
         INSERT
@@ -302,7 +331,10 @@
         PROGRAM_VERSION,
         FIRMWARE_VERSION,
         TESTER_OS_VERSION,
-        PARALLEL
+        PARALLEL,
+        FIRMWARE_NAME,
+        OPERATOR,
+        SYS_DATE
         )
         VALUES
         (
@@ -343,6 +375,9 @@
         #{firmwareVersion},
         #{testerOsVersion},
         #{parallel}
+        #{firmwareName}
+        #{operator}
+        #{sysDate}
         )
-        </insert>
-        </mapper>
+    </insert>
+</mapper>

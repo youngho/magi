@@ -1,7 +1,7 @@
 /**
  * Created by yhkim on 2017-02-17.
  */
-export class ProgramRegister {
+export class lotyield {
     product: string;
     partNumber: string;
     customer: string;
@@ -42,4 +42,6 @@ export class ProgramRegister {
     firmwareName: string;
     operator: string;
     sysDate: string;
+    sysDateStart: string;
+    sysDateEnd: string;
 }

@@ -3,22 +3,33 @@
 <mapper namespace="kr.famos.bets.dao.LotYieldDao">
     <select id="retrieveYieldHist" resultType="kr.famos.bets.domain.LotYield">
         SELECT
-                SYS_DATE,
-                LINE,
-                PARTNUMBER_NAME,
-                LOT_NUMBER,
-                PROCESS_NAME,
-                TESTER_NAME,
-                HD_MODEL,
-                LOT_ASYSITE,
-                BOARD_ID,
-                TEST_COUNT,
-                TESTER_HEAD,
-                CATEGORY_01
+        SYS_DATE,
+        LINE,
+        PARTNUMBER_NAME,
+        LOT_NUMBER,
+        PROCESS_NAME,
+        TESTER_NAME,
+        HD_MODEL,
+        LOT_ASYSITE,
+        BOARD_ID,
+        TEST_COUNT,
+        TESTER_HEAD,
+
+        BOARD_ID,
+        CATEGORY_01,
+        CATEGORY_02,
+        CATEGORY_03,
+        CATEGORY_04,
+        CATEGORY_05,
+        CATEGORY_06,
+        CATEGORY_07,
+        CATEGORY_08,
+        CATEGORY_09
+
         FROM
-              TEST_YIELD_HIST
+        TEST_YIELD_HIST
         <where>
-              1                  =    1
+            1 = 1
             <if test=" lotNumber != null and lotNumber != '' ">
                 AND LOT_NUMBER = #{lotNumber}
             </if>
@@ -42,6 +53,9 @@
             </if>
             <if test=" testerHead != null and testerHead != '' ">
                 AND TESTER_HEAD = #{testerHead}
+            </if>
+            <if test=" boardId != null and boardId != '' ">
+                AND HANDLER = #{boardId}
             </if>
         </where>
     </select>

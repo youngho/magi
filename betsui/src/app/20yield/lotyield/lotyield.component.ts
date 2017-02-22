@@ -244,7 +244,16 @@ export class lotyieldComponent implements OnInit {
                                     {data: 'testCount'},
                                     {data: 'testerName'},
                                     {data: 'testerHead'},
+                                    {data: 'boardId'},
                                     {data: 'category01'},
+                                    {data: 'category02'},
+                                    {data: 'category03'},
+                                    {data: 'category04'},
+                                    {data: 'category05'},
+                                    {data: 'category06'},
+                                    {data: 'category07'},
+                                    {data: 'category08'},
+                                    {data: 'category09'},
                                     ],
                                 buttons: [
                                     'copy', 'excel', 'pdf', 'print'

@@ -47,22 +47,22 @@
                                     <!--<legend>Last TABLED efault Form Elements</legend>-->
 
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'Search Start Date'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'from'|i18n}}</label>
                                         <div class="col-md-2">
                                             <div class="input-group">
-                                            <input class="form-control" id="From" [saUiDatepicker]="{
+                                                <input class="form-control" id="From" [saUiDatepicker]="{
                                     dateFormat: 'yy-mm-dd',
                                     defaultDate: '+1w',
                                     changesMonth: true,
                                     numberOfMonth: 3,
                                     minRestrict: '#From'
                                  }"
-                                                   type="text" placeholder="From" [(ngModel)]="data.sysDateStart">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                       type="text" placeholder="From" [(ngModel)]="data.sysDateStart">
+                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                             </div>
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'Search End Date'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'To'|i18n}}</label>
                                         <div class="col-md-2">
                                             <div class="input-group">
                                                 <input class="form-control" id="to" [saUiDatepicker]="{
@@ -82,40 +82,34 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partnumberName">
+                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="data.partnumberName">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Lot Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot Number" type="text"
-                                                   [(ngModel)]="data.lotNumber">
+                                            <input class="form-control" placeholder="Lot Number" type="text" [(ngModel)]="data.lotNumber">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processName">
+                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="data.processName">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Test Counter'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text"
-                                                   [(ngModel)]="data.testCount">
+                                            <input class="form-control" placeholder="Test Counter" type="text" [(ngModel)]="data.testCount">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester" type="text"
-                                                   [(ngModel)]="data.testerName">
+                                            <input class="form-control" placeholder="Tester" type="text" [(ngModel)]="data.testerName">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Tester Head'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Head" type="text"
-                                                   [(ngModel)]="data.testerHead">
+                                            <input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="data.testerHead">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'BIN Select'|i18n}}</label>
@@ -150,6 +144,11 @@
                 </sa-widget>
                 <!-- end widget -->
                 <dynamic-component [componentData]="componentData"></dynamic-component>
+
+
+
+
+
             </article>
             <!-- WIDGET END -->
 

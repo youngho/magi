@@ -16,39 +16,52 @@ import {Component, Injector} from '@angular/core';
 			<sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
 				<thead>
 				<tr>
-                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
-                                                                        class="form-control"
-                                                                        placeholder="Filter Date"/>
+                  <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Date"/>
                   </th>
-                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
-                                                                        class="form-control"
-                                                                        placeholder="Filter Part Number"/>
+                  <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Part Number"/>
                   </th>
-
-                  <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text"
-                                                                        class="form-control"
-                                                                        placeholder="Filter Lot Number"/>
+                  <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Lot Number"/>
                   </th>
-                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
-                                                                        class="form-control"
-                                                                        placeholder="Process Code"/>
+                  <th class="hasinput"><input type="text" class="form-control" placeholder="Process Code"/>
                   </th>
-                  <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text"
-                                                                        class="form-control"
-                                                                        placeholder="Test Counter"/>
+                  <th class="hasinput"><input type="text" class="form-control" placeholder="Test Counter"/>
                   </th>
 
-                  <th class="hasinput" [ngStyle]="{width:'16%'}">
-                    <input type="text" class="form-control"
-                           placeholder="Filter Tester"/>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="Tester"/>
                   </th>                  
-                  <th class="hasinput" [ngStyle]="{width:'16%'}">
-                    <input type="text" class="form-control"
-                           placeholder="Filter Head"/>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="Head"/>
                   </th>                  
-                  <th class="hasinput" [ngStyle]="{width:'16%'}">
-                    <input type="text" class="form-control"
-                           placeholder="Filter Catergory01"/>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="Board ID"/>
+                  </th>                  
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN1"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN2"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN3"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN4"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN5"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN6"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN7"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN8"/>
+                  </th>
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="BIN9"/>
                   </th>
                 </tr>
                 
@@ -63,7 +76,16 @@ import {Component, Injector} from '@angular/core';
 						<th>Test Counter</th>
 						<th>Tester</th>
 						<th>Tester Head</th>
-						<th>Category 01</th>
+						<th>Boart ID</th>
+						<th>BIN1</th>
+						<th>BIN2</th>
+						<th>BIN3</th>
+						<th>BIN4</th>
+						<th>BIN5</th>
+						<th>BIN6</th>
+						<th>BIN7</th>
+						<th>BIN8</th>
+						<th>BIN9</th>
 					</tr>
 				</thead>
 
