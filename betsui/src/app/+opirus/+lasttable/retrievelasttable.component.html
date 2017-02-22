@@ -2,6 +2,7 @@
 <div id="content">
     <div class="row">
         <sa-big-breadcrumbs [items]="['Forms', 'Form Elements']" icon="pencil-square-o" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
+        <sa-stats></sa-stats>
     </div>
 
 
@@ -111,7 +112,7 @@
 
                 </sa-widget>
                 <!-- end widget -->
-
+                <dynamic-component [componentData]="componentData"></dynamic-component>
             </article>
             <!-- WIDGET END -->
 

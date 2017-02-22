@@ -21,12 +21,12 @@ export const routes: Routes = [
         path: 'basis',
         loadChildren: 'app/10basis/basis.module#BasisModule',
         data: {pageTitle: 'Basis'}
-      }/*,
+      },
       {
         path: 'yield',
         loadChildren: 'app/20yield/Yield.module#YieldModule',
         data: {pageTitle: 'Yield'}
-      },
+      }/*,
       {
         path: 'dutmap',
         loadChildren: 'app/30dutmap/dutmap.module#DutmapModule',

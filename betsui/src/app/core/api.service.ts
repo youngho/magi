@@ -30,6 +30,13 @@ export class ApiService {
       .map(this.extractData)
       .catch(this.handleError);
   }
+  public retrievePost(path: string, data: any): Observable<any> {
+    console.log('retrievePost'+ path);
+    let body = JSON.stringify(data);
+    return this.http.post(`${this.API_URL}${path}`, body, { headers: this.headers })
+        .map(this.extractData)
+        .catch(this.handleError);
+  }
 
   public post(path: string, data: any): Observable<any> {
     console.log('API포스트'+ path);

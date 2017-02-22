@@ -3,19 +3,25 @@
 <mapper namespace="kr.famos.yield.lot.dao.LotYieldDao">
     <select id="retrieveYieldHist" parameterType="kr.famos.yield.lot.domain.LotYield" resultType="kr.famos.yield.lot.domain.LotYield">
         SELECT
-              SYS_DATE,
-              LINE,
-              PARTNUMBER_NAME,
-              LOT_NUMBER,
-              PROCESS_NAME,
-              TESTER_NAME,
-              HD_MODEL,
-              LOT_ASYSITE,
-              BOARD_ID
+                SYS_DATE,
+                LINE,
+                PARTNUMBER_NAME,
+                LOT_NUMBER,
+                PROCESS_NAME,
+                TESTER_NAME,
+                HD_MODEL,
+                LOT_ASYSITE,
+                BOARD_ID,
+                TEST_COUNT,
+                TESTER_HEAD,
+                CATEGORY_01
         FROM
               TEST_YIELD_HIST
         <where>
               1                  =    1
+            <if test=" lotNumber != null and lotNumber != '' ">
+                AND LOT_NUMBER = #{lotNumber}
+            </if>
             <if test=" sysDateStart != null and sysDateStart != '' ">
                 AND SYS_DATE >= #{sysDateStart}
             </if>
@@ -28,8 +34,14 @@
             <if test=" processName != null and processName != '' ">
                 AND PROCESS_NAME = #{processName}
             </if>
+            <if test=" testCount != null and testCount != '' ">
+                AND TEST_COUNT = #{testCount}
+            </if>
             <if test=" testerName != null and testerName != '' ">
                 AND TESTER_NAME = #{testerName}
+            </if>
+            <if test=" testerHead != null and testerHead != '' ">
+                AND TESTER_HEAD = #{testerHead}
             </if>
         </where>
     </select>
