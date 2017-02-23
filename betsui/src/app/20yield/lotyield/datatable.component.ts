@@ -8,7 +8,7 @@ import {Component, Injector} from '@angular/core';
     template: `<sa-widget [editbutton]="false" color="blueDark">
 	<header>
 		<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-		<h2>Lot yield</h2>
+		<h2>Lot yield Retrieve Result</h2>
 	</header>
 	<div>
 		<div class="widget-body no-padding">
@@ -61,7 +61,7 @@ import {Component, Injector} from '@angular/core';
                     <input type="text" class="form-control" placeholder="BIN8"/>
                   </th>
                   <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN9"/>
+                    <input type="text" width="4" class="form-control" placeholder="BIN9"/>
                   </th>
                 </tr>
                 
@@ -69,23 +69,23 @@ import {Component, Injector} from '@angular/core';
                 
 					<tr>
 						<!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
-						<th>Date</th>
-						<th>Part Number</th>
+						<th [style.width]="'8%'">Date</th>
+						<th [style.width]="'16%'" data-class="expand" >Part Number</th>
 						<th>Lot Number</th>
-						<th data-class="expand">Process Code</th>
+						<th >Process Code</th>
 						<th>Test Counter</th>
 						<th>Tester</th>
 						<th>Tester Head</th>
-						<th>Boart ID</th>
-						<th>BIN1</th>
-						<th>BIN2</th>
-						<th>BIN3</th>
-						<th>BIN4</th>
-						<th>BIN5</th>
-						<th>BIN6</th>
-						<th>BIN7</th>
-						<th>BIN8</th>
-						<th>BIN9</th>
+						<th >Boart ID</th>
+						<th [style.width]="'1%'">BIN1</th>
+						<th [style.width]="'1%'">BIN2</th>
+						<th [style.width]="'1%'">BIN3</th>
+						<th [style.width]="'1%'">BIN4</th>
+						<th [style.width]="'1%'">BIN5</th>
+						<th [style.width]="'1%'">BIN6</th>
+						<th [style.width]="'1%'">BIN7</th>
+						<th [style.width]="'1%'">BIN8</th>
+						<th [style.width]="'1%'">BIN9</th>
 					</tr>
 				</thead>
 
