@@ -31,7 +31,7 @@
                     -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                        <h2>LOT YIELD Retrieve</h2>
+                        <h2>Yield Abnormal Retrieve</h2>
 
                     </header>
 
@@ -48,9 +48,19 @@
 
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Search Start Date'|i18n}}</label>
-
-                                        <ui-date-picker (selectedText)="onSelectSysStartDate($event)"></ui-date-picker>
-
+                                        <div class="col-md-2">
+                                            <div class="input-group">
+                                            <input class="form-control" id="From" [saUiDatepicker]="{
+                                    dateFormat: 'yy-mm-dd',
+                                    defaultDate: '+1w',
+                                    changesMonth: true,
+                                    numberOfMonth: 3,
+                                    minRestrict: '#From'
+                                 }"
+                                                   type="text" placeholder="From" [(ngModel)]="data.sysDateStart">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
 
                                         <label class="col-md-1 control-label">{{'Search End Date'|i18n}}</label>
                                         <div class="col-md-2">
@@ -66,51 +76,65 @@
                                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                             </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Map Mode'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
                                                    [(ngModel)]="data.partnumberName">
                                         </div>
-
-                                        <label class="col-md-1 control-label">{{'Lot Number'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot Number" type="text"
+                                            <input class="form-control" placeholder="Part Number" type="text"
                                                    [(ngModel)]="data.lotNumber">
                                         </div>
 
+                                    </div>
+
+
+                                    <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
                                                    [(ngModel)]="data.processName">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'Test Counter'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Test Model'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text"
+                                            <input class="form-control" placeholder="Test Model" type="text"
+                                                   [(ngModel)]="data.testCount">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'Tester No'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Tester No" type="text"
+                                                   [(ngModel)]="data.processName">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'Test Station'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Test Station" type="text"
                                                    [(ngModel)]="data.testCount">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Retest Count'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester" type="text"
+                                            <input class="form-control" placeholder="Retest Count" type="text"
                                                    [(ngModel)]="data.testerName">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'Tester Head'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Head" type="text"
+                                            <input class="form-control" placeholder="Lot ID" type="text"
                                                    [(ngModel)]="data.testerHead">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'BIN Select'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Test Program'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text">
+                                            <input class="form-control" placeholder="Test Program" type="text">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'Board ID'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Board ID" type="text">
                                         </div>
                                     </div>
                                 </fieldset>

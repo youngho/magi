@@ -26,7 +26,7 @@ export const routes: Routes = [
         path: 'yield',
         loadChildren: 'app/20yield/yield.module#YieldModule',
         data: {pageTitle: 'Yield'}
-      }/*,
+      },
       {
         path: 'dutmap',
         loadChildren: 'app/30dutmap/dutmap.module#DutmapModule',
@@ -34,15 +34,15 @@ export const routes: Routes = [
       },
       {
         path: 'sblanal',
-        loadChildren: 'app/40sblanal/sblanal.module#SblanalModule',
+        loadChildren: 'app/40sblAnalysis/sblAnalysis.module#SblAnalysisModule',
         data: {pageTitle: 'Basis'}
       },
       {
         path: 'bianal',
-        loadChildren: 'app/50bianal/bianal.module#BianalModule',
-        data: {pageTitle: 'BI Anal'}
-      },
-      {
+        loadChildren: 'app/50biAnalysis/biAnalysis.module#BiAnalysisModule',
+        data: {pageTitle: 'BI Analisys'}
+      } ,
+     {
         path: 'efficiencyAnaysis',
         loadChildren: 'app/60efficiencyAnaysis/efficiency.module#EfficiencyModule',
         data: {pageTitle: 'Efficiency'}
@@ -54,14 +54,14 @@ export const routes: Routes = [
       },
       {
         path: 'history',
-        loadChildren: 'app/80history/History.module#HistoryModule',
+        loadChildren: 'app/80history/history.module#HistoryModule',
         data: {pageTitle: 'History'}
       },
       {
         path: 'Admin',
         loadChildren: 'app/90admin/Admin.module#AdminModule',
         data: {pageTitle: 'Admin'}
-      }*/,
+      },
       {
         path: 'opirus',
         loadChildren: 'app/+opirus/opirus.module#OpirusModule',

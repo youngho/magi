@@ -1,27 +1,21 @@
 import {Component, OnInit} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
-import {lotyieldService} from "./lotyield.service";
-import {Http, Response} from '@angular/http';
+import {YieldAbnormalService} from "./yieldAbnormal.service";
 
-import {Observable} from "rxjs/Rx";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import {lotyield} from './lotyield.model';
+import {YieldAbnormal} from './yieldAbnormal.model';
 
 import {DatatableComponent} from './datatable.component';
 import DynamicComponent from './dynamic-component';
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component'
 
 declare var $: any;
 
 @FadeInTop()
 @Component({
-    selector: 'lotyield',
-    templateUrl: './lotyield.component.html',
-    providers: [lotyieldService]
+    selector: 'SingledDutBin',
+    templateUrl: 'yieldAbnormal.component.html',
+    providers: [YieldAbnormalService]
 })
-export class lotyieldComponent implements OnInit {
+export class YieldAbnormalComponent implements OnInit {
 
     componentData = null;
     errorMessage = null;
@@ -166,22 +160,13 @@ export class lotyieldComponent implements OnInit {
 
     };
 
-    onSelectSysStartDate(strDate:string){
-        this.data.sysDateStart = strDate;
-    }
-
-    constructor( private retrieveLastTableService: lotyieldService) {
+    constructor(private service: YieldAbnormalService) {
         this.data.partnumberName = 'K9CFGY8U5A-CCK0000-HXBPHV';
         this.data.lotNumber = 'HJKD369Q';
-        //this.data.processName = 'T070000';
-        //this.data.testCount = '2146';
-        //this.data.testerName = 'T5375';
-        //this.data.testerHead = 'A';
-    }
-
-
-
-    ngOnInit() {
+        this.data.processName = 'T070000';
+        this.data.testCount = '2146';
+        this.data.testerName = 'T5375';
+        this.data.testerHead = 'A';
     }
 
     saveLastTableForm() {
@@ -193,19 +178,13 @@ export class lotyieldComponent implements OnInit {
         console.log("testCount : " + this.data.testCount);
         console.log("testerName : " + this.data.testerName);
         console.log("testerHead : " + this.data.testerHead);
-        // this.saved
-        // .subscribe((res) => {
-        //   this.commentForm.setValue({ content: '' });
-        //   this.commentForm.markAsPristine();
-        // })
-        //     .emit(this.tableForm.value);
-        this.retrieveLastTableService.postLastTable(this.data)
+
+        this.service.postLastTable(this.data)
             .subscribe((apps) => {
                     this.componentData = {
                         component: DatatableComponent,
                         inputs: {
                             options: {
-                                "scrollX": true,
                                 colReorder: false,
                                 data: apps,
                                 columns: [
@@ -235,39 +214,10 @@ export class lotyieldComponent implements OnInit {
                     };
                 },
                 error => this.errorMessage = error);
-
-        /*
-         this.retrieveLastTableService.postLastTable(this.data)
-         .subscribe(
-         res => console.log(res.json()),
-         //res => this.datas = res.json(),
-
-         error => alert(error),
-         () => console.log("Finished")
-         );
-         */
-
-
-        //this.tableForm.controls['operator'].setValue('');
-        //this.tableForm.markAsPristine();
     }
 
-    private extractData(res: Response) {
-        let body = res.json();
-        if (body) {
-            return body.data || body
-        } else {
-            return {}
-        }
+    ngOnInit() {
     }
 
-    private handleError(error: any) {
-        // In a real world app, we might use a remote logging infrastructure
-        // We'd also dig deeper into the error to get a better message
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-        console.error(errMsg); // log to console instead
-        return Observable.throw(errMsg);
-    }
 
 }
