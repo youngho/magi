@@ -12,7 +12,7 @@
             <article class="col-sm-12 col-md-12 col-lg-12">
 
                 <!-- Widget ID (each widget will need unique ID)-->
-           <sa-widget [colorbutton]="false" [editbutton]="false">
+                <sa-widget [colorbutton]="false" [editbutton]="false">
                     <!-- widget options:
                     usage: <sa-widget [editbutton]="false">
 
@@ -43,47 +43,46 @@
                                 <fieldset>
                                     <!--<legend>Last TABLED efault Form Elements</legend>-->
                                     <div class="form-group">
-                                        <div  class="col-md-1">
-                                        <label>{{'product'|i18n}}</label>
-                                        </div>
+                                        <label class="col-md-1 control-label">{{'product'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="product">
+                                            <input class="form-control" placeholder="" type="text" formControlName="product">
                                         </div>
+
                                         <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="partNumber">
+                                            <input class="form-control" placeholder="" type="text" formControlName="partNumber">
                                         </div>
                                         <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="customer">
+                                            <input class="form-control" placeholder="" type="text" formControlName="customer">
                                         </div>
                                         <label class="col-md-1 control-label">{{'packageType'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="packageType">
+                                            <input class="form-control" placeholder="" type="text" formControlName="packageType">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="processCode">
+                                            <input class="form-control" placeholder="" type="text" formControlName="processCode">
                                         </div>
                                         <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="testerModel">
+                                            <input class="form-control" placeholder="" type="text" formControlName="testerModel">
                                         </div>
                                         <label class="col-md-1 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="mainProgramName">
+                                            <input class="form-control" placeholder="" type="text" formControlName="mainProgramName">
                                         </div>
                                         <label class="col-md-1 control-label">{{'temperature'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="temperature">
+                                            <input class="form-control" placeholder="" type="text" formControlName="temperature">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'sblYieldLimit'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Default Text Field" type="text" formControlName="sblYieldLimit">
+                                            <input class="form-control" placeholder="" type="text" formControlName="sblYieldLimit">
                                         </div>
                                         <!--
                                                                                 <label class="col-md-1 control-label">{{'PARA'|i18n}}</label>
@@ -248,6 +247,10 @@
 
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'Firmware Name'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="firmwareName">
+                                        </div>
                                         <label class="col-md-1 control-label">{{'testerOsVersion'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="testerOsVersion">
@@ -302,9 +305,11 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
+<!--
                                             <button class="btn btn-default" type="submit">
                                                 Cancel
                                             </button>
+-->
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-save"></i>
                                                 Save
