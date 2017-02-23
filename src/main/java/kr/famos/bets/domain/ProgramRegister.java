@@ -2,6 +2,10 @@ package kr.famos.bets.domain;
 
 /**
  * Created by yhkim on 2017-02-21.
+ *
+ * 반도체 테스트 기준정보 테이블 PROGRAM_REGISTER
+ 테스트 장비와 테스트 프로그램에 대한 정보
+
  */
 public class ProgramRegister {
     private String productName	= "";	// eMCP 16G16G
