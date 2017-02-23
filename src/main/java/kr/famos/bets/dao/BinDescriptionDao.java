@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,19 +26,7 @@ public class BinDescriptionDao {
 
     public List<BinDescription> retrieveBinDescription(BinDescription binDescription) {
         logger.info("BinDescriptionDao - retrieveBinDescription 메소드 호출");
-
-        List<BinDescription> myList = new ArrayList<BinDescription>();
-
-        //return this.sqlSession.selectList("retrieveBinDescription", binDescription);
-
-        try {
-            myList = this.sqlSession.selectList("retrieveBinDescription", binDescription);
-            logger.debug("Dao 조회 결과" + myList.get(0).getMainProgramName());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return myList;
+        return this.sqlSession.selectList("retrieveBinDescription", binDescription);
     }
 
 
