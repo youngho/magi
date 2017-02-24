@@ -9,7 +9,7 @@ export const routes:Routes = [
     data: {pageTitle: 'Yield abnormal'}
   },
   { path: 'subbin',
-    loadChildren: 'app/40sblAnalysis/SubBinAbnormal/subBinAbnormal.module#SubBinAbnormalModule',
+    loadChildren: 'app/40sblAnalysis/subBinAbnormal/subBinAbnormal.module#SubBinAbnormalModule',
     data: {pageTitle: 'Sub bin abnormal'}
   },
   { path: 'testlot',
