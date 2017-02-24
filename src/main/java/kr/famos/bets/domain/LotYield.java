@@ -5,6 +5,9 @@ package kr.famos.bets.domain;
  */
 public class LotYield {
 
+    private String testQty = "";
+    private String passQty = "";
+    private String lotYield = "";
 
     private String sysDate	= "";	//
     private String sysDateStart	= "";	//
@@ -142,6 +145,30 @@ public class LotYield {
     private String reworkFlag	= "";	//
     private String testLine	= "";	//
     private String purposeType	= "";	//
+
+    public String getTestQty() {
+        return testQty;
+    }
+
+    public void setTestQty(String testQty) {
+        this.testQty = testQty;
+    }
+
+    public String getPassQty() {
+        return passQty;
+    }
+
+    public void setPassQty(String passQty) {
+        this.passQty = passQty;
+    }
+
+    public String getLotYield() {
+        return lotYield;
+    }
+
+    public void setLotYield(String lotYield) {
+        this.lotYield = lotYield;
+    }
 
     public String getSysDate() {
         return sysDate;
