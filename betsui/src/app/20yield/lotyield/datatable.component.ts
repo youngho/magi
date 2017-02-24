@@ -37,6 +37,15 @@ import {Component, Injector} from '@angular/core';
                     <input type="text" class="form-control" placeholder="Board ID"/>
                   </th>                  
                   <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="Test Qty"/>
+                  </th>                  
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="Pass Qty"/>
+                  </th>                  
+                  <th class="hasinput">
+                    <input type="text" class="form-control" placeholder="Lot Yield"/>
+                  </th>                  
+                  <th class="hasinput">
                     <input type="text" class="form-control" placeholder="BIN1"/>
                   </th>
                   <th class="hasinput">
@@ -77,6 +86,9 @@ import {Component, Injector} from '@angular/core';
 						<th>Tester</th>
 						<th>Tester Head</th>
 						<th >Boart ID</th>
+						<th >Test Qty</th>
+						<th >PassQty,</th>
+						<th >Lot Yield</th>
 						<th [style.width]="'1%'">BIN1</th>
 						<th [style.width]="'1%'">BIN2</th>
 						<th [style.width]="'1%'">BIN3</th>

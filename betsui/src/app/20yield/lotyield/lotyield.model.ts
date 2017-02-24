@@ -16,6 +16,10 @@ export class lotyield {
     hdModel:string;
     hdTemp:string;
     boardId:string;
+    testQty:string;
+    passQty:string;
+    lotYield:string;
+
     line:string;
     site:string;
     lotType:string;

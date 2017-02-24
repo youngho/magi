@@ -162,6 +162,9 @@ export class lotyieldComponent implements OnInit {
         reworkFlag: "",
         testLine: "",
         purposeType: "",
+        testQty: "",
+        passQty: "",
+        lotYield: "",
 
 
     };
@@ -205,8 +208,9 @@ export class lotyieldComponent implements OnInit {
                         component: DatatableComponent,
                         inputs: {
                             options: {
-                                "scrollX": true,
-                                colReorder: false,
+                                //"scrollX": true,
+                                //colReorder: false,
+                                colReorder: true,
                                 data: apps,
                                 columns: [
                                     {data: 'sysDate'},
@@ -217,6 +221,9 @@ export class lotyieldComponent implements OnInit {
                                     {data: 'testerName'},
                                     {data: 'testerHead'},
                                     {data: 'boardId'},
+                                    {data: 'testQty'},
+                                    {data: 'passQty'},
+                                    {data: 'lotYield'},
                                     {data: 'category01'},
                                     {data: 'category02'},
                                     {data: 'category03'},
