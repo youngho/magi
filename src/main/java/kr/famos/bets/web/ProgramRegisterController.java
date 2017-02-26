@@ -4,7 +4,6 @@ package kr.famos.bets.web;
 import kr.famos.bets.dao.ProgramRegisterDao;
 import kr.famos.bets.domain.ProgramRegister;
 import kr.famos.com.domain.BizResult;
-import kr.famos.com.web.ComAuthorityController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ import java.util.List;
  */
 @RestController
 public class ProgramRegisterController {
-    private static final Logger logger = LoggerFactory.getLogger(ComAuthorityController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ProgramRegisterController.class);
 
     @Autowired
     private ProgramRegisterDao programRegisterDao;

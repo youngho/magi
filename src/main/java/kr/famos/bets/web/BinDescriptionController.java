@@ -2,7 +2,6 @@ package kr.famos.bets.web;
 
 import kr.famos.bets.dao.BinDescriptionDao;
 import kr.famos.bets.domain.BinDescription;
-import kr.famos.com.web.ComAuthorityController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 @RestController
 public class BinDescriptionController {
-    private static final Logger logger = LoggerFactory.getLogger(ComAuthorityController.class);
+    private static final Logger logger = LoggerFactory.getLogger(BinDescriptionController.class);
     @Autowired
     private BinDescriptionDao binDescriptionDao;
 

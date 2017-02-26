@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '1.4.3.RELEASE'
+        springBootVersion = '1.5.1.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -36,6 +36,8 @@ def version = [slf4j: '1.7.12']
 dependencies {
     //액주에이터 엔드포인트 활성화
     compile('org.springframework.boot:spring-boot-starter-actuator')
+
+    compile("org.springframework.boot:spring-boot-starter-security")
 
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.1.1')

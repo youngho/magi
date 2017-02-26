@@ -4,22 +4,22 @@ package kr.famos.com.domain;
  * Created by yhkim on 2017-02-09.
  */
 public class ComAuthority {
-    private String user_nm = "";    // 사용자명
-    private String authority_nm = "";    // 권한명
+    private String userNm = "";    // 사용자명
+    private String authorityNm = "";    // 권한명
 
-    public String getUser_nm() {
-        return user_nm;
+    public String getUserNm() {
+        return userNm;
     }
 
-    public void setUser_nm(String user_nm) {
-        this.user_nm = user_nm;
+    public void setUserNm(String userNm) {
+        this.userNm = userNm;
     }
 
-    public String getAuthority_nm() {
-        return authority_nm;
+    public String getAuthorityNm() {
+        return authorityNm;
     }
 
-    public void setAuthority_nm(String authority_nm) {
-        this.authority_nm = authority_nm;
+    public void setAuthorityNm(String authorityNm) {
+        this.authorityNm = authorityNm;
     }
 }
