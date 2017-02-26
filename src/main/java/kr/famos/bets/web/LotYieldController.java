@@ -1,6 +1,5 @@
 package kr.famos.bets.web;
 
-import kr.famos.com.web.ComAuthorityController;
 import kr.famos.bets.dao.LotYieldDao;
 import kr.famos.bets.domain.LotYield;
 import org.slf4j.Logger;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 @RestController
 public class LotYieldController {
-    private static final Logger logger = LoggerFactory.getLogger(ComAuthorityController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LotYieldController.class);
 
     @Autowired
     private LotYieldDao lotYieldDao;

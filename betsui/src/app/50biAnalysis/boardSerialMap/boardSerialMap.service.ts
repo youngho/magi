@@ -13,8 +13,6 @@ export class BoardSerialMapService {
     constructor(private api: ApiService) {
     }
 
-
-
     postLastTable(data: BoardSerialMap) {
         console.log('saving post:' + data.lotNumber);
         console.log('PATH : ' + this.path);
