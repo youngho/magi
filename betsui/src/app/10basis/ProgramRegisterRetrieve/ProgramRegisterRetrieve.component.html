@@ -44,39 +44,99 @@
                             <div class="form-horizontal">
 
                                 <fieldset>
-                                    <!--<legend>Last TABLED efault Form Elements</legend>-->
+                                    <!--POP UP Modal dialog Stat-->
+                                    <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title">Lot  Yield</h4>
+                                                </div>
+                                                <div class="modal-body">
 
-                                    <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'from'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <input class="form-control" id="From" [saUiDatepicker]="{
-                                    dateFormat: 'yy-mm-dd',
-                                    defaultDate: '+1w',
-                                    changesMonth: true,
-                                    numberOfMonth: 3,
-                                    minRestrict: '#From'
-                                 }"
-                                                       type="text" placeholder="From" [(ngModel)]="data.sysDateStart">
-                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                            </div>
-                                        </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" placeholder="Title" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" placeholder="Content" rows="5" required></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="category"> Category</label>
+                                                                <select class="form-control" id="category">
+                                                                    <option>Articles</option>
+                                                                    <option>Tutorials</option>
+                                                                    <option>Freebies</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="tags"> Tags</label>
+                                                                <input type="text" class="form-control" id="tags" placeholder="Tags">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="well well-sm well-primary">
+                                                                <form class="form form-inline " role="form">
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control" value="" placeholder="Date" required>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <select class="form-control">
+                                                                            <option>Draft</option>
+                                                                            <option>Published</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <button type="submit" class="btn btn-success btn-sm">
+                                                                            <span class="glyphicon glyphicon-floppy-disk"></span> Save
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-default btn-sm">
+                                                                            <span class="glyphicon glyphicon-eye-open"></span> Preview
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                        <label class="col-md-1 control-label">{{'To'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <input class="form-control" id="to" [saUiDatepicker]="{
-                                    dateFormat: 'dd/mm/yy',
-                                    defaultDate: '+1w',
-                                    changesMonth: true,
-                                    numberOfMonth: 3,
-                                    minRestrict: '#to'
-                                 }"
-                                                       type="text" placeholder="To" [(ngModel)]="data.sysDateEnd">
-                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" (click)="lgModal.hide()">
+                                                        Cancel
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary">
+                                                        Post Article
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+                                    <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
+                                    <!--<legend>Last TABLED efault Form Elements</legend>-->
+
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'Date From'|i18n}}</label>
+                                        <div class="col-md-2"><ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker></div>
+                                        <label class="col-md-1 control-label">{{'Date to'|i18n}}</label>
+                                        <div class="col-md-2"><ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker></div>
+                                    </div>
+
 
 
                                     <div class="form-group">
@@ -157,3 +217,4 @@
 
 
 </div>
+

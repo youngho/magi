@@ -41,12 +41,13 @@
                         <!-- widget content -->
                         <div class="widget-body">
 
+                            <!--<legend>Retrieve Elements</legend>-->
                             <div class="form-horizontal">
 
                                 <fieldset>
-                                    <!--<legend>Last TABLED efault Form Elements</legend>-->
 
 
+                                    <!--POP UP Modal dialog Stat-->
                                     <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
@@ -55,7 +56,7 @@
                                                     <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
-                                                    <h4 class="modal-title">Large modal</h4>
+                                                    <h4 class="modal-title">Lot  Yield</h4>
                                                 </div>
                                                 <div class="modal-body">
 
@@ -130,35 +131,17 @@
 
 
 
-
-<!--
-                                    <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'Search Start Date'|i18n}}</label>
-
                                         <button class="btn btn-primary btn-lg" (click)="lgModal.show()">
                                             Launch demo modal
                                         </button>
 
 
-                                        <ui-date-picker (selectedText)="onSelectSysStartDate($event)"></ui-date-picker>
-
-
-                                        <label class="col-md-1 control-label">{{'Search End Date'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <div class="input-group">
-                                                <input class="form-control" id="to" [saUiDatepicker]="{
-                                    dateFormat: 'dd/mm/yy',
-                                    defaultDate: '+1w',
-                                    changesMonth: true,
-                                    numberOfMonth: 3,
-                                    minRestrict: '#to'
-                                 }"
-                                                       type="text" placeholder="To" [(ngModel)]="data.sysDateEnd">
-                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'Date From'|i18n}}</label>
+                                        <div class="col-md-2"><ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker></div>
+                                        <label class="col-md-1 control-label">{{'Date to'|i18n}}</label>
+                                        <div class="col-md-2"><ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker></div>
                                     </div>
--->
 
 
                                     <div class="form-group">
@@ -179,19 +162,29 @@
                                             <input class="form-control" placeholder="Process Code" type="text"
                                                    [(ngModel)]="data.processName">
                                         </div>
-
-                                        <label class="col-md-1 control-label">{{'Test Counter'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'BIN Select'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text"
-                                                   [(ngModel)]="data.testCount">
+                                            <input class="form-control" placeholder="BIN Select" type="text">
                                         </div>
+
                                     </div>
 
                                     <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'Tester Model'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Tester Model" type="text"
+                                                   [(ngModel)]="data.testerModel">
+                                        </div>
                                         <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester" type="text"
                                                    [(ngModel)]="data.testerName">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'Tester Counter'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Test Counter" type="text"
+                                                   [(ngModel)]="data.testCount">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Tester Head'|i18n}}</label>
@@ -200,9 +193,17 @@
                                                    [(ngModel)]="data.testerHead">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'BIN Select'|i18n}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'Tester Program'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text">
+                                            <input class="form-control" placeholder="Tester Program" type="text"
+                                                   [(ngModel)]="data.testerProgram">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Board ID" type="text"
+                                                   [(ngModel)]="data.boardId">
                                         </div>
                                     </div>
                                 </fieldset>

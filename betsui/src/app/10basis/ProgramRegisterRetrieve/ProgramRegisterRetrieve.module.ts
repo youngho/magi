@@ -10,6 +10,7 @@ import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.m
 
 import {ProgramRegisterRetrieveComponent} from "./ProgramRegisterRetrieve.component";
 import {ProgramRegisterRetrieveRouting} from "./ProgramRegisterRetrieve.routing";
+import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import {ProgramRegisterRetrieveRouting} from "./ProgramRegisterRetrieve.routing"
         SmartadminInputModule,
         SmartadminDatatableModule,
         // BETS ADDED
+        SmartadminFormsModule,
         FormsModule,
         ReactiveFormsModule
     ],

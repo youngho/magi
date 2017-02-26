@@ -3,7 +3,7 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import DynamicComponent from './dynamic-component';
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component'
+import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
 
 import {DatatableComponent} from './datatable.component';
 import {Lotyield} from './lotyield.model';
@@ -24,8 +24,11 @@ export class lotyieldComponent implements OnInit {
     // private data : Lotyield = new Lotyield();
     private data : Lotyield = new Lotyield();
 
-    onSelectSysStartDate(strDate: string) {
+    onSelectDateFrom(strDate: string) {
         this.data.sysDateStart = strDate;
+    }
+    onSelectDateTo(strDate: string) {
+        this.data.sysDateEnd = strDate;
     }
 
     constructor(private retrieveLastTableService: lotyieldService) {

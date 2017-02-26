@@ -4,7 +4,7 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
-import {lotyield} from "./lotyield.model";
+import {Lotyield} from "./lotyield.model";
 
 @Injectable()
 export class lotyieldService {
@@ -15,7 +15,7 @@ export class lotyieldService {
 
 
 
-    postLastTable(data: lotyield) {
+    postLastTable(data: Lotyield) {
         console.log('saving post:' + data.lotNumber);
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);

@@ -28,10 +28,8 @@ export class UiDatePickerComponent implements OnInit {
     ngOnInit() {
     }
 
-
-
     onDateChanged(event: IMyDateModel) {
-        console.log('onDateChanged()2: ', event.date, ' - jsdate: ', new Date(event.jsdate).toLocaleDateString(), ' - formatted: ', event.formatted, ' - epoc timestamp: ', event.epoc);
+        //console.log('onDateChanged()2: ', event.date, ' - jsdate: ', new Date(event.jsdate).toLocaleDateString(), ' - formatted: ', event.formatted, ' - epoc timestamp: ', event.epoc);
 
         if (event.formatted !== '') {
             this.selectedTextNormal = 'Formatted: ' + event.formatted + ' - epoc timestamp: ' + event.epoc;
@@ -40,13 +38,14 @@ export class UiDatePickerComponent implements OnInit {
             this.selectedDateNormal = event.formatted;
             let re = /-/gi;
             this.dateString = event.formatted.replace(re,"") + "000000";
-            console.log("sysDateStart4 : " + this.dateString);
+            //console.log("sysDateStart4 : " + this.dateString);
 
             this.selectedText.emit(this.dateString);
         }
         else {
             this.selectedTextNormal = '';
             this.border = 'none';
+            this.selectedText.emit(null);
             // console.log("sysDateStart2 : " + this.data.sysDateStart);
             // this.data.sysDateStart = new Date(event.jsdate).toLocaleDateString()
         }
