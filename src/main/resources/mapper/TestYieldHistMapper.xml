@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.bets.dao.LotYieldDao">
-    <select id="retrieveYieldHist" resultType="kr.famos.bets.domain.LotYield">
+<mapper namespace="kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldDao">
+    <select id="retrieveYieldHist" resultType="kr.famos.bets.yieldAnalysis.lotYield.dto.LotYield">
         SELECT
         SYS_DATE,
         LINE,

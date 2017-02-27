@@ -1,4 +1,4 @@
-package kr.famos.bets.domain;
+package kr.famos.bets.yieldAnalysis.lotYield.dto;
 
 /**
  * Created by yhkim on 2017-02-22.

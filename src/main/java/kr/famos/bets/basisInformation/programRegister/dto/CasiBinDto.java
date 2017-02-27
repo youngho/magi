@@ -1,11 +1,11 @@
 package kr.famos.bets.basisInformation.programRegister.dto;
 
-import kr.famos.com.dto.ProgramHeader;
+import kr.famos.com.dto.ProgramHeaderDto;
 
 /**
  * Created by yhkim on 2017-02-27.
  */
-public class CasiBinDto extends ProgramHeader {
+public class CasiBinDto extends ProgramHeaderDto {
     private String shotStartTime = ""; // Shot Start Time
     private String shotEndTime   = ""; // Shot End Time
     private String dutMainBin    = ""; // DUT별 MAIN_BIN 결과

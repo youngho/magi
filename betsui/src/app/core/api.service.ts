@@ -13,6 +13,7 @@ export class ApiService {
   });
 
   private API_URL: string = 'http://121.185.32.49:8080/';
+  // private API_URL: string = 'http://localhost:8080/';
 
   constructor(private http: Http/*, @Inject(APP_CONFIG) config: AppConfig*/) {
     //this.API_URL = config.apiEndpoint;
@@ -31,7 +32,7 @@ export class ApiService {
       .catch(this.handleError);
   }
   public retrievePost(path: string, data: any): Observable<any> {
-    console.log('retrievePost'+ path);
+    console.log('retrievePost : '+ path);
     let body = JSON.stringify(data);
     return this.http.post(`${this.API_URL}${path}`, body, { headers: this.headers })
         .map(this.extractData)

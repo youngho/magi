@@ -1,7 +1,7 @@
-package kr.famos.bets.web;
+package kr.famos.bets.yieldAnalysis.lotYield.rest;
 
-import kr.famos.bets.dao.LotYieldDao;
-import kr.famos.bets.domain.LotYield;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldDao;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYield;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

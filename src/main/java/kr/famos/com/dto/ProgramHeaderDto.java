@@ -3,41 +3,41 @@ package kr.famos.com.dto;
 /**
  * Created by yhkim on 2017-02-27.
  */
-public class ProgramHeader {
-    private String tester        = ""; // TESTER 번호(Host id)
-    private String system        = ""; // TESTER MODEL NAME
-    private String handler       = ""; // HANDLER MODEL NAME
-    private String head          = ""; // HEAD NUMBER A or B
-    private String lotId         = ""; // LOT ID
-    private String processCode   = ""; // PROCESS CODE
-    private String partNumber    = ""; // PART NUMBER
-    private String programName   = ""; // MAIN PROGRAM NAME
-    private String grade         = ""; // HQ:HIGH QUALITY
-    private String fab           = ""; // FAB SITE
-    private String fwName        = ""; // FIREWARE NAME
-    private String fwVersion     = ""; // FIRMWARE VERSION
-    private String temp          = ""; // TEMP
-    private String operatorId    = ""; // OPERATOR ID
-    private int quantity         = 0;  // QUANTITY
-    private String functionKey   = ""; // FUNCTION KEY
-    private int testCounter      = 0;  // TEST 횟수 (0 or 1 or 2.....)
-    private String testInput     = ""; // TEST INPUT 방식 (AUTO or MANUAL)
-    private String testFlow      = ""; // TEST FLOW (RETEST or FINAL OR CANCEL)
-    private String testMode      = ""; // TEST_IN_MANUAL에서 선택한 MODE
-    private String boardId       = ""; // TEST BOARD ID (FIX)
-    private String prelotEndTime = ""; // 이전 LOT 끝난 시간.
-    private String lotInTime     = ""; // OPERATOR ID 입력 시점
-    private String betsInTime    = ""; // LC가 BETS한테 LOT 정보 주는 시점.
-    private String betsEndTime   = ""; // LC가 BETS로 부터 LOT 정보를 받는 시점.(PROGREAM,LOT 정보)
-    private String lotInEndTime  = ""; // TEST PROGRAM UPLOAD 시점.
-    private String lotStartTime  = ""; // SRQKIND#02 START 시점.
-    private String endTime       = ""; // SRQKIND#08.
-    private String binInTime     = ""; // 작업자가 BIN 입력 시작 시점.(BIN POPUP창 활성화 시점)   --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
-    private String binEndTime    = ""; // 작업자가 BIN 입력 완료 시점.(TEST OUT Buttom Push 시점) --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
-    private String sblInTime     = ""; // BETS 서버로 DATA 전송한 시점.
-    private String sblEndTime    = ""; // BETS 서버로 부터 이상 유무의 명령을 받은 시점.
-    private String finalEndTime  = ""; // 현재 LOT에 대한 LC의 완료시점에서 LC의 모든 DATA가 RESET된 시점을 뺀값.
-    private String sblResult     = ""; // OPBIN_ERROR or OK or ........
+public class ProgramHeaderDto {
+    public String tester        = ""; // TESTER 번호(Host id)
+    public String system        = ""; // TESTER MODEL NAME
+    public String handler       = ""; // HANDLER MODEL NAME
+    public String head          = ""; // HEAD NUMBER A or B
+    public String lotId         = ""; // LOT ID
+    public String processCode   = ""; // PROCESS CODE
+    public String partNumber    = ""; // PART NUMBER
+    public String programName   = ""; // MAIN PROGRAM NAME
+    public String grade         = ""; // HQ:HIGH QUALITY
+    public String fab           = ""; // FAB SITE
+    public String fwName        = ""; // FIREWARE NAME
+    public String fwVersion     = ""; // FIRMWARE VERSION
+    public String temp          = ""; // TEMP
+    public String operatorId    = ""; // OPERATOR ID
+    public int quantity         = 0;  // QUANTITY
+    public String functionKey   = ""; // FUNCTION KEY
+    public int testCounter      = 0;  // TEST 횟수 (0 or 1 or 2.....)
+    public String testInput     = ""; // TEST INPUT 방식 (AUTO or MANUAL)
+    public String testFlow      = ""; // TEST FLOW (RETEST or FINAL OR CANCEL)
+    public String testMode      = ""; // TEST_IN_MANUAL에서 선택한 MODE
+    public String boardId       = ""; // TEST BOARD ID (FIX)
+    public String prelotEndTime = ""; // 이전 LOT 끝난 시간.
+    public String lotInTime     = ""; // OPERATOR ID 입력 시점
+    public String betsInTime    = ""; // LC가 BETS한테 LOT 정보 주는 시점.
+    public String betsEndTime   = ""; // LC가 BETS로 부터 LOT 정보를 받는 시점.(PROGREAM,LOT 정보)
+    public String lotInEndTime  = ""; // TEST PROGRAM UPLOAD 시점.
+    public String lotStartTime  = ""; // SRQKIND#02 START 시점.
+    public String endTime       = ""; // SRQKIND#08.
+    public String binInTime     = ""; // 작업자가 BIN 입력 시작 시점.(BIN POPUP창 활성화 시점)   --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
+    public String binEndTime    = ""; // 작업자가 BIN 입력 완료 시점.(TEST OUT Buttom Push 시점) --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
+    public String sblInTime     = ""; // BETS 서버로 DATA 전송한 시점.
+    public String sblEndTime    = ""; // BETS 서버로 부터 이상 유무의 명령을 받은 시점.
+    public String finalEndTime  = ""; // 현재 LOT에 대한 LC의 완료시점에서 LC의 모든 DATA가 RESET된 시점을 뺀값.
+    public String sblResult     = ""; // OPBIN_ERROR or OK or ........
 
 
     public String getTester() {

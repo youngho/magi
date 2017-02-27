@@ -10,7 +10,7 @@ import {tick} from "@angular/core/testing";
 @Injectable()
 export class TdbiBoardTypeRegisterService {
 
-    private path: string = 'retrieveTdbiBoardTypeRegister';
+    private path: string = 'retrieveTdbiBoardType';
 
     constructor(private api: ApiService) {
     }
@@ -22,7 +22,7 @@ export class TdbiBoardTypeRegisterService {
     }
 
     save(data: TdbiBoardType) {
-        this.path = 'insertTdbiBoardTypeRegister';
+        this.path = 'insertTdbiBoardType';
         console.log('saving post:' + data.boardTypeNo );
         console.log('PATH : ' + this.path);
         return this.api.post(`${this.path}`, data);

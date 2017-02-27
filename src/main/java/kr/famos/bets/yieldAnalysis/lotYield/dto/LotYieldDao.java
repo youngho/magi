@@ -1,6 +1,5 @@
-package kr.famos.bets.dao;
+package kr.famos.bets.yieldAnalysis.lotYield.dto;
 
-import kr.famos.bets.domain.LotYield;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

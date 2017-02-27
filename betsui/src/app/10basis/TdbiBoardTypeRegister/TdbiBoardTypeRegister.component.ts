@@ -1,17 +1,14 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
+import {CommonModule} from "@angular/common";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {TdbiBoardTypeRegisterService} from "./TdbiBoardTypeRegister.service";
-import {Http, Response} from '@angular/http';
 
-// import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {TdbiBoardType} from './TdbiBoardType.model';
 
 import {DatatableComponent} from './datatable.component';
-// import DynamicComponent from './dynamic-component';
-// import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
 import {NotificationService} from "../../shared/utils/notification.service";
 
 declare var $: any;
@@ -39,7 +36,7 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
     ySocketQty: FormControl;
 
 
-    constructor(private fb: FormBuilder, private service: TdbiBoardTypeRegisterService, private http: Http, private notificationService: NotificationService) {
+    constructor(private fb: FormBuilder, private service: TdbiBoardTypeRegisterService, private notificationService: NotificationService) {
         //this.data.boardTypeNo = '0608';
 
         this.boardTypeNo = new FormControl('', [Validators.required, Validators.minLength(1)]);
@@ -64,12 +61,9 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.data.boardTypeNo = info.boardTypeNo;
 
-        (<FormControl>this.tableForm.controls['boardTypeNo'])
-            .setValue(info.boardTypeNo, {onlySelf: true});
+        (<FormControl>this.tableForm.controls['boardTypeNo']).setValue(info.boardTypeNo, {onlySelf: true});
 
-        this.bgModel.show(function (info: any) {
-            console.log(info.boardTypeNo);
-        });
+        this.bgModel.show();
 
     }
 
@@ -119,7 +113,7 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
 
         this.smartModEg1(f);
 
-        this.tableForm.markAsPristine();
+        //this.tableForm.markAsPristine();
     }
 
     smartModEg1(f) {
@@ -153,16 +147,17 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
 
         });
     }
-/*
 
-    onSelectDateFrom(strDate: string) {
-        this.data.sysDateStart = strDate;
-    }
+    /*
 
-    onSelectDateTo(strDate: string) {
-        this.data.sysDateEnd = strDate;
-    }
-*/
+     onSelectDateFrom(strDate: string) {
+     this.data.sysDateStart = strDate;
+     }
+
+     onSelectDateTo(strDate: string) {
+     this.data.sysDateEnd = strDate;
+     }
+     */
 
     ngOnInit() {
     }
