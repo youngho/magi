@@ -1,4 +1,7 @@
-package kr.famos.com.web;
+/**
+ * 서버 파일을 읽기 위한 용도의 클래스
+ */
+package kr.famos.com.rest;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;

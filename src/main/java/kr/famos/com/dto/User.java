@@ -1,4 +1,4 @@
-package kr.famos.com.domain;
+package kr.famos.com.dto;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

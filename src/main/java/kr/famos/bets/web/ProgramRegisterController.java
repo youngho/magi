@@ -3,7 +3,6 @@ package kr.famos.bets.web;
 
 import kr.famos.bets.dao.ProgramRegisterDao;
 import kr.famos.bets.domain.ProgramRegister;
-import kr.famos.com.domain.BizResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,6 @@ public class ProgramRegisterController {
 
     @Autowired
     private ProgramRegisterDao programRegisterDao;
-    private BizResult bizResult;
 
 
     @RequestMapping(value = "/retrieveProgramRegister", method = RequestMethod.POST)

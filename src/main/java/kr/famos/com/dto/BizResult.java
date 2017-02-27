@@ -1,4 +1,4 @@
-package kr.famos.com.domain;
+package kr.famos.com.dto;
 
 /**
  * Created by yhkim on 2017-02-21.
