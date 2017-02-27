@@ -1,9 +1,9 @@
-package kr.famos.bets.domain;
+package kr.famos.bets.basisInformation.binDescription.dto;
 
 /**
  * Created by yhkim on 2017-02-21.
  */
-public class BinDescription {
+public class BinDescriptionDto {
 
     private String partNumber = "";    //
     private String mainProgramName = "";    //

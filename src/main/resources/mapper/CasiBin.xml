@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.bets.basisInformation.binDescription.mapper.BinDescriptionMapper">
-    <select id="retrieveBinDescription" parameterType="kr.famos.bets.basisInformation.binDescription.dto.BinDescriptionDto" resultType="kr.famos.bets.basisInformation.binDescription.dto.BinDescriptionDto">
+<mapper namespace="kr.famos.bets.basisInformation.programRegister.dto.CasiBinDto">
+    <select id="retrieveCasiBin" parameterType="kr.famos.bets.basisInformation.programRegister.dto.CasiBinDto" resultType="kr.famos.bets.basisInformation.programRegister.dto.CasiBinDto">
         SELECT
             PART_NUMBER,
             MAIN_PROGRAM_NAME,
@@ -41,7 +41,7 @@
         </where>
     </select>
 
-    <insert id="insertBinDescription" parameterType="kr.famos.bets.basisInformation.binDescription.dto.BinDescriptionDto">
+    <insert id="insertBinCasiBin" parameterType="kr.famos.bets.basisInformation.programRegister.dto.CasiBinDto">
         MERGE INTO BIN_DESCRIPTION USING DUAL ON (PART_NUMBER=#{partNumber} AND MAIN_PROGRAM_NAME=#{mainProgramName} AND PROCESS_CODE=#{processCode} AND TESTER_MODEL=#{testerModel})
         WHEN MATCHED THEN
         UPDATE

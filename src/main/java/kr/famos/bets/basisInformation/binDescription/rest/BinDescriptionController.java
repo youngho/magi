@@ -1,7 +1,7 @@
-package kr.famos.bets.web;
+package kr.famos.bets.basisInformation.binDescription.rest;
 
-import kr.famos.bets.dao.BinDescriptionDao;
-import kr.famos.bets.domain.BinDescription;
+import kr.famos.bets.basisInformation.binDescription.dto.BinDescriptionDto;
+import kr.famos.bets.basisInformation.binDescription.service.BinDescriptionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +20,28 @@ import java.util.List;
 @RestController
 public class BinDescriptionController {
     private static final Logger logger = LoggerFactory.getLogger(BinDescriptionController.class);
+
     @Autowired
-    private BinDescriptionDao binDescriptionDao;
+    private BinDescriptionService binDescriptionService;
 
     @RequestMapping(value = "/retrieveBinDescription", method = RequestMethod.POST)
-    public ResponseEntity<List<BinDescription>> retrieveBinDescription(@RequestBody BinDescription binDescription) {
+    public ResponseEntity<List<BinDescriptionDto>> retrieveBinDescription(@RequestBody BinDescriptionDto binDescriptionDto) {
+
         logger.debug("BinDescriptionController - retireve 메소드");
-        return new ResponseEntity<List<BinDescription>>(binDescriptionDao.retrieveBinDescription(binDescription), HttpStatus.OK);
+
+        return new ResponseEntity<List<BinDescriptionDto>>(binDescriptionService.retrieveBinDescription(binDescriptionDto), HttpStatus.OK);
     }
 
 
     @RequestMapping(value = "/insertBinDescription", method = RequestMethod.POST)
-    public void post(@RequestBody BinDescription binDescription) {
+    public void post(@RequestBody BinDescriptionDto binDescriptionDto) {
         logger.debug("BinDescriptionController - post 함수");
 
-        logger.debug(binDescription.getPartNumber());
-        logger.debug(binDescription.getMainProgramName());
-        logger.debug(binDescription.getProcessCode());
-        logger.debug(binDescription.getTesterModel());
+        logger.debug(binDescriptionDto.getPartNumber());
+        logger.debug(binDescriptionDto.getMainProgramName());
+        logger.debug(binDescriptionDto.getProcessCode());
+        logger.debug(binDescriptionDto.getTesterModel());
 
-        binDescriptionDao.insertBinDescription(binDescription);
+        binDescriptionService.insertBinDescription(binDescriptionDto);
     }
 }

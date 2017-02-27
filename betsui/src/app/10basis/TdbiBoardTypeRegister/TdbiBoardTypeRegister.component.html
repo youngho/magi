@@ -1,0 +1,167 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!--    <div class="row">
+            <sa-big-breadcrumbs [items]="['Forms', 'Form Elements']" icon="pencil-square-o" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
+        </div>-->
+
+
+    <!-- widget grid -->
+    <sa-widgets-grid>
+
+        <!-- row start -->
+        <div class="row">
+
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+
+                <!-- Widget ID (each widget will need unique ID)-->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <!-- widget options:
+                    usage: <sa-widget [editbutton]="false">
+
+                    [colorbutton]="false"
+                    [editbutton]="false"
+                    [togglebutton]="false"
+                    [deletebutton]="false"
+                    [fullscreenbutton]="false"
+                    [custombutton]="false"
+                    [collapsed]="true"
+                    [sortable]="false"
+
+                    -->
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                        <h2>TDBI Board Type Retrieve</h2>
+
+                    </header>
+
+                    <!-- widget div-->
+                    <div>
+
+                        <!-- widget content -->
+                        <div class="widget-body">
+
+                            <div class="form-horizontal">
+
+                                <fieldset>
+                                    <!--POP UP Modal dialog Stat-->
+                                    <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                                         aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4 class="modal-title">TDBI Board Type Register</h4>
+                                                </div>
+                                                <form class="form-horizontal" [formGroup]="tableForm" (ngSubmit)="saveForm(tableForm.value)" novalidate>
+                                                    <div class="modal-body">
+                                                        <fieldset>
+                                                            <!--<legend>Last TABLED efault Form Elements</legend>-->
+                                                            <div class="form-group">
+                                                                <label class="col-md-1 control-label">{{'Board Type No'|i18n}}</label>
+                                                                <div class="col-md-2">
+                                                                    <input class="form-control" placeholder="" type="text" formControlName="boardTypeNo">
+                                                                </div>
+
+                                                                <label class="col-md-1 control-label">{{'X Socket Quantity'|i18n}}</label>
+                                                                <div class="col-md-2">
+                                                                    <input class="form-control" placeholder="" type="text" formControlName="xSocketQty">
+                                                                </div>
+                                                                <label class="col-md-1 control-label">{{'Y Socket Quantity'|i18n}}</label>
+                                                                <div class="col-md-2">
+                                                                    <input class="form-control" placeholder="" type="text" formControlName="ySocketQty">
+                                                                </div>
+                                                            </div>
+                                                        </fieldset>
+                                                        <!--Retest Skip 기준 end-->
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" (click)="lgModal.hide()">
+                                                            Cancel
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary" type="submit">
+                                                            Post Article
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
+                                    <!--<legend>Last TABLED efault Form Elements</legend>-->
+
+<!--                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'Date From'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'Date to'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
+                                        </div>
+                                    </div>-->
+
+
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'Board Type No'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Board Type No" type="text" [(ngModel)]="data.boardTypeNo">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'X Socket Quantity'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="X Socket Quantity" type="text" [(ngModel)]="data.xSocketQty">
+                                        </div>
+
+                                        <label class="col-md-1 control-label">{{'Y Socket Quantity'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Y Socket Quantity" type="text" [(ngModel)]="data.ySocketQty">
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+                                <!--Retest Skip 기준 end-->
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                                <i class="fa fa-save"></i>
+                                                {{'Retrieve'|i18n}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <!-- end widget content -->
+
+                    </div>
+                    <!-- end widget div -->
+
+                </sa-widget>
+                <!-- end widget -->
+                <dynamic-component [componentData]="componentData"></dynamic-component>
+
+
+            </article>
+            <!-- WIDGET END -->
+
+
+        </div>
+
+        <!-- row end-->
+
+
+    </sa-widgets-grid>
+    <!-- end widget grid -->
+
+
+</div>
+
