@@ -5,6 +5,8 @@ import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
 import {ProgramRegisterRetrieve} from "./ProgramRegisterRetrieve.model";
+import {ProgramRegister} from "../ProgramRegister/ProgramRegister.model";
+import {tick} from "@angular/core/testing";
 
 @Injectable()
 export class ProgramRegisterRetrieveService {
@@ -14,17 +16,17 @@ export class ProgramRegisterRetrieveService {
     constructor(private api: ApiService) {
     }
 
-
-
     postRetrieve(data: ProgramRegisterRetrieve) {
         console.log('service Component post :');
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
+    save(data: ProgramRegister) {
+        this.path = 'insertProgramRegister';
+        console.log('saving post:' + data.customer);
+        console.log('PATH : ' + this.path);
+        return this.api.post(`${this.path}`, data);
+    }
+
 }
