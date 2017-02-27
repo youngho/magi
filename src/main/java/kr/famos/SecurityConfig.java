@@ -43,10 +43,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/admin").hasAuthority("ADMIN")
 //                .anyRequest().authenticated()                 //어떠한 요청에라도 인증을 요구한다.
                 .antMatchers("/user/login").permitAll()
+                .antMatchers("/auth/login").permitAll()
+
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/user").hasAuthority("USER")
                 .antMatchers("/admin").hasAuthority("ADMIN")
-                .anyRequest().authenticated()
+                //.anyRequest().authenticated()
                 .and()
 //               .formLogin()
 //                    .and()
