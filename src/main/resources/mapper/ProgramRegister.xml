@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.basisInformation.programRegister.mapper.ProgramRegisterMapper">
-    <select id="retrieveProgramRegister" parameterType="kr.famos.bets.domain.ProgramRegister" resultType="kr.famos.bets.domain.ProgramRegister">
+    <select id="retrieveProgramRegister" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto" resultType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
         SELECT
         PRODUCT_NAME,
         PART_NUMBER,
@@ -18,22 +18,7 @@
         SBL_SUBBIN_B_NUMBER,
         SBL_SUBBIN_B_LIMIT_PERCENT,
         SBL_SUBBIN_B_LIMIT_COUNT,
-        FUNCTION_KEY1,
-        FUNCTION_KEY2,
-        FUNCTION_KEY3,
-        FUNCTION_KEY4,
-        FUNCTION_KEY5,
-        FUNCTION_KEY6,
-        FUNCTION_KEY7,
-        FUNCTION_KEY8,
-        FUNCTION_KEY9,
-        FUNCTION_KEY10,
-        FUNCTION_KEY11,
-        FUNCTION_KEY12,
-        FUNCTION_KEY13,
-        FUNCTION_KEY14,
-        FUNCTION_KEY15,
-        FUNCTION_KEY16,
+        FUNCTION_KEY,
         FAB,
         GRADE,
         PROGRAM_VERSION,
@@ -92,53 +77,8 @@
             <if test=" sblSubbinBLimitCount != null and sblSubbinBLimitCount != '' ">
                 AND SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount}
             </if>
-            <if test=" functionKey1 != null and functionKey1 != '' ">
-                AND FUNCTION_KEY1 = #{functionKey1}
-            </if>
-            <if test=" functionKey2 != null and functionKey2 != '' ">
-                AND FUNCTION_KEY2 = #{functionKey2}
-            </if>
-            <if test=" functionKey3 != null and functionKey3 != '' ">
-                AND FUNCTION_KEY3 = #{functionKey3}
-            </if>
-            <if test=" functionKey4 != null and functionKey4 != '' ">
-                AND FUNCTION_KEY4 = #{functionKey4}
-            </if>
-            <if test=" functionKey5 != null and functionKey5 != '' ">
-                AND FUNCTION_KEY5 = #{functionKey5}
-            </if>
-            <if test=" functionKey6 != null and functionKey6 != '' ">
-                AND FUNCTION_KEY6 = #{functionKey6}
-            </if>
-            <if test=" functionKey7 != null and functionKey7 != '' ">
-                AND FUNCTION_KEY7 = #{functionKey7}
-            </if>
-            <if test=" functionKey8 != null and functionKey8 != '' ">
-                AND FUNCTION_KEY8 = #{functionKey8}
-            </if>
-            <if test=" functionKey9 != null and functionKey9 != '' ">
-                AND FUNCTION_KEY9 = #{functionKey9}
-            </if>
-            <if test=" functionKey10 != null and functionKey10 != '' ">
-                AND FUNCTION_KEY10 = #{functionKey10}
-            </if>
-            <if test=" functionKey11 != null and functionKey11 != '' ">
-                AND FUNCTION_KEY11 = #{functionKey11}
-            </if>
-            <if test=" functionKey12 != null and functionKey12 != '' ">
-                AND FUNCTION_KEY12 = #{functionKey12}
-            </if>
-            <if test=" functionKey13 != null and functionKey13 != '' ">
-                AND FUNCTION_KEY13 = #{functionKey13}
-            </if>
-            <if test=" functionKey14 != null and functionKey14 != '' ">
-                AND FUNCTION_KEY14 = #{functionKey14}
-            </if>
-            <if test=" functionKey15 != null and functionKey15 != '' ">
-                AND FUNCTION_KEY15 = #{functionKey15}
-            </if>
-            <if test=" functionKey16 != null and functionKey16 != '' ">
-                AND FUNCTION_KEY16 = #{functionKey16}
+            <if test=" functionKey != null and functionKey != '' ">
+                AND FUNCTION_KEY = #{functionKey}
             </if>
             <if test=" fab != null and fab != '' ">
                 AND FAB = #{fab}
@@ -173,7 +113,7 @@
         </where>
     </select>
 
-    <insert id="insertProgramRegister" parameterType="kr.famos.bets.domain.ProgramRegister">
+    <insert id="insertProgramRegister" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
         MERGE INTO PROGRAM_REGISTER USING DUAL ON (PART_NUMBER=#{partNumber} AND PROCESS_CODE=#{processCode} AND TESTER_MODEL=#{testerModel})
         WHEN MATCHED THEN
         UPDATE
@@ -213,53 +153,8 @@
             <if test="sblSubbinBLimitCount!=null and sblSubbinBLimitCount!=''">
                 SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount},
             </if>
-            <if test="functionKey1!=null and functionKey1!=''">
-                FUNCTION_KEY1 = #{functionKey1},
-            </if>
-            <if test="functionKey2!=null and functionKey2!=''">
-                FUNCTION_KEY2 = #{functionKey2},
-            </if>
-            <if test="functionKey3!=null and functionKey3!=''">
-                FUNCTION_KEY3 = #{functionKey3},
-            </if>
-            <if test="functionKey4!=null and functionKey4!=''">
-                FUNCTION_KEY4 = #{functionKey4},
-            </if>
-            <if test="functionKey5!=null and functionKey5!=''">
-                FUNCTION_KEY5 = #{functionKey5},
-            </if>
-            <if test="functionKey6!=null and functionKey6!=''">
-                FUNCTION_KEY6 = #{functionKey6},
-            </if>
-            <if test="functionKey7!=null and functionKey7!=''">
-                FUNCTION_KEY7 = #{functionKey7},
-            </if>
-            <if test="functionKey8!=null and functionKey8!=''">
-                FUNCTION_KEY8 = #{functionKey8},
-            </if>
-            <if test="functionKey9!=null and functionKey9!=''">
-                FUNCTION_KEY9 = #{functionKey9},
-            </if>
-            <if test="functionKey10!=null and functionKey10!=''">
-                FUNCTION_KEY10 = #{functionKey10},
-            </if>
-            <if test="functionKey11!=null and functionKey11!=''">
-                FUNCTION_KEY11 = #{functionKey11},
-            </if>
-            <if test="functionKey12!=null and functionKey12!=''">
-                FUNCTION_KEY12 = #{functionKey12},
-            </if>
-            <if test="functionKey13!=null and functionKey13!=''">
-                FUNCTION_KEY13 = #{functionKey13},
-            </if>
-            <if test="functionKey14!=null and functionKey14!=''">
-                FUNCTION_KEY14 = #{functionKey14},
-            </if>
-            <if test="functionKey15!=null and functionKey15!=''">
-                FUNCTION_KEY15 = #{functionKey15},
-            </if>
-            <if test="functionKey16!=null and functionKey16!=''">
-                FUNCTION_KEY16 = #{functionKey16},
+            <if test="functionKey!=null and functionKey!=''">
+                FUNCTION_KEY = #{functionKey},
             </if>
             <if test="fab!=null and fab!=''">
                 FAB = #{fab},
@@ -310,22 +205,7 @@
         SBL_SUBBIN_B_NUMBER,
         SBL_SUBBIN_B_LIMIT_PERCENT,
         SBL_SUBBIN_B_LIMIT_COUNT,
-        FUNCTION_KEY1,
-        FUNCTION_KEY2,
-        FUNCTION_KEY3,
-        FUNCTION_KEY4,
-        FUNCTION_KEY5,
-        FUNCTION_KEY6,
-        FUNCTION_KEY7,
-        FUNCTION_KEY8,
-        FUNCTION_KEY9,
-        FUNCTION_KEY10,
-        FUNCTION_KEY11,
-        FUNCTION_KEY12,
-        FUNCTION_KEY13,
-        FUNCTION_KEY14,
-        FUNCTION_KEY15,
-        FUNCTION_KEY16,
+        FUNCTION_KEY,
         FAB,
         GRADE,
         PROGRAM_VERSION,
@@ -353,22 +233,7 @@
         #{sblSubbinBNumber},
         #{sblSubbinBLimitPercent},
         #{sblSubbinBLimitCount},
-        #{functionKey1},
-        #{functionKey2},
-        #{functionKey3},
-        #{functionKey4},
-        #{functionKey5},
-        #{functionKey6},
-        #{functionKey7},
-        #{functionKey8},
-        #{functionKey9},
-        #{functionKey10},
-        #{functionKey11},
-        #{functionKey12},
-        #{functionKey13},
-        #{functionKey14},
-        #{functionKey15},
-        #{functionKey16},
+        #{functionKey},
         #{fab},
         #{grade},
         #{programVersion},

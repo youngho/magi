@@ -17,13 +17,18 @@ public class BinDescriptionService {
 
     private static final Logger logger = LoggerFactory.getLogger(BinDescriptionService.class);
 
+    private final BinDescriptionMapper binDescriptionMapper;
+
     @Autowired
-    BinDescriptionMapper binDescriptionMapper;
+    public BinDescriptionService(BinDescriptionMapper binDescriptionMapper) {
+        this.binDescriptionMapper = binDescriptionMapper;
+    }
 
 
     public List<BinDescriptionDto> retrieveBinDescription(BinDescriptionDto binDescriptionDto){
-
+        logger.debug("BinDescriptionService - retrieveBinDescription");
         List<BinDescriptionDto> binDescriptionDtoList = binDescriptionMapper.retrieveBinDescription(binDescriptionDto);
+        // TODO
         return binDescriptionDtoList;
 
     }

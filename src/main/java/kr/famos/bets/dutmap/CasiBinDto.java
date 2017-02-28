@@ -1,4 +1,4 @@
-package kr.famos.bets.basisInformation.programRegister.dto;
+package kr.famos.bets.dutmap;
 
 import kr.famos.com.dto.ProgramHeaderDto;
 
