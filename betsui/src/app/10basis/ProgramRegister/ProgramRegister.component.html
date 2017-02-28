@@ -1,16 +1,11 @@
 <!-- MAIN CONTENT -->
 <div id="content">
-
-
     <!-- widget grid -->
     <sa-widgets-grid>
-
         <!-- row start -->
         <div class="row">
-
             <!-- NEW WIDGET START -->
             <article class="col-sm-12 col-md-12 col-lg-12">
-
                 <!-- Widget ID (each widget will need unique ID)-->
                 <sa-widget [colorbutton]="false" [editbutton]="false">
                     <!-- widget options:
@@ -29,32 +24,27 @@
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
                         <h2>Program register</h2>
-
                     </header>
 
                     <!-- widget div-->
                     <div>
-
                         <!-- widget content -->
                         <div class="widget-body">
-
                             <form class="form-horizontal" [formGroup]="tableForm" (ngSubmit)="saveForm(tableForm.value)" novalidate>
-
                                 <fieldset>
                                     <!--<legend>Last TABLED efault Form Elements</legend>-->
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'product'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="product">
-                                        </div>
-
                                         <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="partNumber">
                                         </div>
-                                        <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="customer">
+                                            <input class="form-control" placeholder="" type="text" formControlName="processCode">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'product'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" formControlName="product">
                                         </div>
                                         <label class="col-md-1 control-label">{{'packageType'|i18n}}</label>
                                         <div class="col-md-2">
@@ -62,9 +52,9 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="processCode">
+                                            <input class="form-control" placeholder="" type="text" formControlName="customer">
                                         </div>
                                         <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
                                         <div class="col-md-2">
@@ -84,17 +74,6 @@
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="sblYieldLimit">
                                         </div>
-                                        <!--
-                                                                                <label class="col-md-1 control-label">{{'PARA'|i18n}}</label>
-                                                                                <div class="col-md-2">
-                                                                                    <input class="form-control" placeholder="Type somethine..." type="text" list="list">
-                                                                                    <datalist id="list">
-                                                                                        <option value="Alexandra">Alexandra</option>
-                                                                                        <option value="Alice">Alice</option>
-                                                                                    </datalist>
-                                                                                    <p class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</p>
-                                                                                </div>
-                                        -->
                                         <label class="col-md-1 control-label">{{'sblSubbinANumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="YYYY-MM-DD" type="text" formControlName="sblSubbinANumber">
@@ -111,7 +90,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-
                                         <label class="col-md-1 control-label">{{'sblSubbinBNumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="sblSubbinBNumber">
@@ -125,108 +103,8 @@
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="sblSubbinBLimitCount">
                                         </div>
-
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'functionKey1'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey1">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'functionKey2'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey2">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'functionKey3'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey3">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'functionKey4'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey4">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'functionKey5'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey5">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'functionKey6'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey6">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'functionKey7'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey7">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'functionKey8'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey8">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'functionKey9'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey9">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'functionKey10'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey10">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'functionKey11'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey11">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'functionKey12'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey12">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'functionKey13'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey13">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'functionKey14'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey14">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'functionKey15'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey15">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'functionKey16'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="functionKey16">
-                                        </div>
-                                    </div>
-                                    <!--                                    <div class="form-group">
-                                                                            <label class="col-md-1 control-label">{{'F/W Name 비교'|i18n}}</label>
-                                                                            <div class="col-md-2">
-                                                                                <div class="checkbox">
-                                                                                    <label>
-                                                                                        <input type="checkbox">
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-
-                                                                            <label class="col-md-1 control-label">{{'Releas Data 비교'|i18n}}</label>
-                                                                            <div class="col-md-2">
-                                                                                <div class="checkbox">
-                                                                                    <label>
-                                                                                        <input type="checkbox">
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>-->
-                                    <div class="form-group">
-
                                         <label class="col-md-1 control-label">{{'fab'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="fab">
@@ -244,7 +122,6 @@
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text" formControlName="firmwareVersion">
                                         </div>
-
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Firmware Name'|i18n}}</label>
@@ -260,56 +137,87 @@
                                             <input class="form-control" placeholder="" type="text" formControlName="parallel">
                                         </div>
                                     </div>
-                                    <!--
-                                                                        <div class="form-group">
-                                                                            <label class="col-md-1 control-label">{{'RUNSBL'|i18n}}</label>
-                                                                            <div class="col-md-2">
-                                                                                <div class="checkbox">
-                                                                                    <label>
-                                                                                        <input type="checkbox">
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
+                                    <!--FunctionKey Group-->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey1">
+                                                <span>{{'functionKey1'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey2">
+                                                <span>{{'functionKey2'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey3">
+                                                <span>{{'functionKey3'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey4">
+                                                <span>{{'functionKey4'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey5">
+                                                <span>{{'functionKey5'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey6">
+                                                <span>{{'functionKey6'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey7">
+                                                <span>{{'functionKey7'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey8">
+                                                <span>{{'functionKey8'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey9">
+                                                <span>{{'functionKey9'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey10">
+                                                <span>{{'functionKey10'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey11">
+                                                <span>{{'functionKey11'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey12">
+                                                <span>{{'functionKey12'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey13">
+                                                <span>{{'functionKey13'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey14">
+                                                <span>{{'functionKey14'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey15">
+                                                <span>{{'functionKey15'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" formControlName="functionKey16">
+                                                <span>{{'functionKey16'|i18n}}</span>
+                                            </label>
+                                        </div>
+                                    </div>
 
-                                                                            <label class="col-md-1 control-label">{{'NEWPRODUCT'|i18n}}</label>
-                                                                            <div class="col-md-2">
-                                                                                <div class="checkbox">
-                                                                                    <label>
-                                                                                        <input type="checkbox">
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
 
-                                                                            <label class="col-md-1 control-label">{{'TLOTABNORMAL'|i18n}}</label>
-                                                                            <div class="col-md-2">
-                                                                                <div class="checkbox">
-                                                                                    <label>
-                                                                                        <input type="checkbox">
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <label class="col-md-1 control-label">{{'MASKSBL'|i18n}}</label>
-                                                                            <div class="col-md-10">
-                                                                                <div class="checkbox">
-                                                                                    <label>
-                                                                                        <input type="checkbox">
-                                                                                    </label>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                    -->
                                 </fieldset>
                                 <!--Retest Skip 기준 end-->
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-<!--
+                                            <!--
                                             <button class="btn btn-default" type="submit">
-                                                Cancel
+                                                Reset
                                             </button>
--->
+                                            -->
                                             <button class="btn btn-primary" type="submit">
                                                 <i class="fa fa-save"></i>
                                                 Save
@@ -317,30 +225,17 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </form>
-
                         </div>
                         <!-- end widget content -->
-
                     </div>
                     <!-- end widget div -->
-
                 </sa-widget>
                 <!-- end widget -->
-
-
             </article>
             <!-- WIDGET END -->
-
-
         </div>
-
         <!-- row end-->
-
-
     </sa-widgets-grid>
     <!-- end widget grid -->
-
-
 </div>

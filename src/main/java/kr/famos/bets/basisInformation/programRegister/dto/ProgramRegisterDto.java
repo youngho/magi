@@ -4,8 +4,7 @@ package kr.famos.bets.basisInformation.programRegister.dto;
  * Created by yhkim on 2017-02-21.
  *
  * 반도체 테스트 기준정보 테이블 PROGRAM_REGISTER
- 테스트 장비와 테스트 프로그램에 대한 정보
-
+ * 테스트 장비와 테스트 프로그램에 대한 정보
  */
 public class ProgramRegisterDto {
     private String productName            = ""; // eMCP 16G16G
@@ -23,7 +22,7 @@ public class ProgramRegisterDto {
     private String sblSubbinBNumber       = ""; // 128
     private String sblSubbinBLimitPercent = ""; // 5
     private String sblSubbinBLimitCount   = ""; // 3
-    private String functionKey            = ""; // 스위치 16개의 값 Y/N
+    private String functionKey            = ""; // 스위치 16개의 값 YYYYYYYY/NNNNNNNN
     private String fab                    = ""; // M1
     private String grade                  = ""; // HQ
     private String programVersion         = ""; // 1

@@ -239,9 +239,9 @@
         #{programVersion},
         #{firmwareVersion},
         #{testerOsVersion},
-        #{parallel}
-        #{firmwareName}
-        #{operator}
+        #{parallel},
+        #{firmwareName},
+        #{operator},
         #{sysDate}
         )
     </insert>
