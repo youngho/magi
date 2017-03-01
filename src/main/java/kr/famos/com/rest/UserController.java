@@ -59,6 +59,6 @@ public class UserController {
                 SecurityContextHolder.getContext());
 
         User user = userService.readUser(username);
-        return new AuthenticationToken(user.getName(), user.getAuthorities(), session.getId());
+        return new AuthenticationToken(user.getUsername(), user.getAuthorities(), session.getId());
     }
 }
