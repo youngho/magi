@@ -53,14 +53,16 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.service.postRetrieve(f)
             .subscribe(
-                (response: Response) => {
+                (response: User) => {
                     // login successful if there's a jwt token in the response
                     console.log(response);
-                    let user;// = response.json();
+                    let user = response;
                     if (user && user.token) {
                         // store user details and jwt token in local storage to keep user logged in between page refreshes
-                        console.log("유저 : " + "토큰 : ");
+                        console.log("유저 : " +user.username + " 토큰 : " + user.token);
                         localStorage.setItem('currentUser', JSON.stringify(user));
+                        localStorage.setItem('token', user.token);
+                        localStorage.setItem('loginId', user.username);
                     }
                     this.router.navigate([this.returnUrl]);
                 },
