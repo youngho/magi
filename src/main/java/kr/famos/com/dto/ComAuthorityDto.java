@@ -3,7 +3,7 @@ package kr.famos.com.dto;
 /**
  * Created by yhkim on 2017-02-09.
  */
-public class ComAuthority {
+public class ComAuthorityDto {
     private String userNm = "";    // 사용자명
     private String authorityNm = "";    // 권한명
 
