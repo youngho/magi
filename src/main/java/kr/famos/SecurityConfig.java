@@ -11,9 +11,12 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-
+import org.springframework.session.web.http.HeaderHttpSessionStrategy;
+import org.springframework.session.web.http.HttpSessionStrategy;
 
 
 /**
@@ -22,41 +25,40 @@ import org.springframework.security.config.http.SessionCreationPolicy;
  */
 
 @Configuration
-//@EnableWebSecurity
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     UserService userService;
 
     @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring()
+                .antMatchers("/scripts/**/*.{js}")
+                .antMatchers("/bower_components/**")
+                .antMatchers("/assets/**")
+                .antMatchers("*.{ico}")
+                .antMatchers("/**/*.{html}");
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()          //이건 csrf(Cross Site Request Forgery)를 기본적으로 요청하는데, 이것을 하기 위해서는 따로 처리하는게 필요하므로 일단은 disable 처리합니다.
-                    .sessionManagement()
-                    .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
                 .and()
-
-
-                .authorizeRequests()                      //요청에 대해서 권한 처리를 하는데
-//                .antMatchers("/user/login").permitAll()       //
-//                .antMatchers("/user").hasAuthority("USER")
-//                .antMatchers("/admin").hasAuthority("ADMIN")
-//                .anyRequest().authenticated()                 //어떠한 요청에라도 인증을 요구한다.
+                .authorizeRequests()
                 .antMatchers("/user/login").permitAll()
-                .antMatchers("/auth/login").permitAll()
-
+                .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/user").hasAuthority("USER")
-                .antMatchers("/admin").hasAuthority("ADMIN")
-                //.anyRequest().authenticated()
+                .antMatchers("/retireveLotYield").hasAuthority("ADMIN")
+                .anyRequest().authenticated()
                 .and()
 //               .formLogin()
 //                    .and()
                 .logout()
         ;
-
-
-//        ;
     }
 
 
@@ -69,6 +71,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * authenticationManagerBean 메소드의 경우에는 SpringSecurity에서 사용되는 인증객체를 Bean으로 등록할 때 사용
+     *
      * @return
      * @throws Exception
      */
@@ -78,10 +81,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-//    @Bean
-//    public HttpSessionStrategy httpSessionStrategy() {
-//        return new HeaderHttpSessionStrategy();
-//    }
+    @Bean
+    public HttpSessionStrategy httpSessionStrategy() {
+        return new HeaderHttpSessionStrategy();
+    }
 
 }
 
