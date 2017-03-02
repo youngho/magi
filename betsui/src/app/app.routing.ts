@@ -61,7 +61,7 @@ export const routes: Routes = [
         data: {pageTitle: 'History'}
       },
       {
-        path: 'Admin',
+        path: 'admin',
         loadChildren: 'app/90admin/Admin.module#AdminModule',
         data: {pageTitle: 'Admin'}
       },

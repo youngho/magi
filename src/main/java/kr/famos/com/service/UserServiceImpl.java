@@ -10,7 +10,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by yhkim on 2017-02-24.
@@ -71,4 +73,9 @@ public class UserServiceImpl implements UserService {
         return this.passwordEncoder;
     }
 
+    @Override
+    public List<User> retrieveRegister(User user){
+        List<User> userList = userMapper.retrieveRegister(user);
+        return userList;
+    }
 }

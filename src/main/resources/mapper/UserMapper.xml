@@ -6,6 +6,18 @@
         SELECT * FROM COM_USER WHERE username = #{username}
     </select>
 
+    <select id="retrieveRegister" parameterType="kr.famos.com.dto.User" resultType="kr.famos.com.dto.User">
+        SELECT * FROM COM_USER
+        WHERE
+        1 = 1
+        <if test=" username != null and username != '' ">
+            username = #{username}
+        </if>
+        <if test=" name != null and name != '' ">
+            name = #{name}
+        </if>
+    </select>
+
 
     <select id="readAuthority" parameterType="String" resultType="org.springframework.security.core.authority.SimpleGrantedAuthority">
     SELECT authority_nm FROM COM_AUTHORITY WHERE user_nm = #{username}

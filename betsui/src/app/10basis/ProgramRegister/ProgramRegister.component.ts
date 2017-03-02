@@ -4,6 +4,7 @@ import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {ProgramRegisterService} from "./ProgramRegister.service";
 import {NotificationService} from "../../shared/utils/notification.service";
 import {ProgramRegister} from "./ProgramRegister.model";
+import {concat} from "rxjs/observable/concat";
 
 @FadeInTop()
 @Component({
@@ -12,8 +13,6 @@ import {ProgramRegister} from "./ProgramRegister.model";
     providers: [ProgramRegisterService,ProgramRegister]
 })
 export class ProgramRegisterComponent implements OnInit {
-
-    // programRegister : ProgramRegister;
 
     constructor(private programRegisterService: ProgramRegisterService, private notificationService: NotificationService, private programRegister:ProgramRegister) {
     }
@@ -26,6 +25,11 @@ export class ProgramRegisterComponent implements OnInit {
     saveForm() {
         console.log(this.programRegister);
         // console.log('submitting LastTable form @' + this.tableForm);
+         if(this.programRegister.functionKey1 === true){
+
+         }
+
+
 
         this.smartModEg1();
         /*

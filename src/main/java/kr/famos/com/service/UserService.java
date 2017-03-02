@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by yhkim on 2017-02-24.
@@ -25,4 +26,5 @@ public interface UserService extends UserDetailsService {
     public void createUser(User user);
     public void deleteUser(String username);
     public PasswordEncoder passwordEncoder();
+    public List<User> retrieveRegister(User user);
 }

@@ -24,4 +24,6 @@ public interface UserMapper {
 
     public void deleteAuthority(String username);
 
+    public List<User> retrieveRegister(User user);
+
 }
