@@ -164,7 +164,6 @@
             PARA=#{para},
             FIRMWARE_NAME=#{firmwareName},
             OPERATOR_ID=#{operatorId},
-            SYS_DATE=#{sysDate},
             DUT_MAP=#{dutMap},
             SYS_USER=#{sysUser},
             MODIFY_USER=#{modifyUser},
