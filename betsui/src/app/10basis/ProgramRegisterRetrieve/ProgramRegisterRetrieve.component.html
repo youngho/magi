@@ -31,7 +31,7 @@
                     -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                        <h2>Program register retrieve</h2>
+                        <h2>Program Register Retrieve</h2>
 
                     </header>
 
@@ -61,18 +61,17 @@
                                                         <fieldset>
                                                             <!--<legend>Last TABLED efault Form Elements</legend>-->
                                                             <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'product'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="product">
-                                                                </div>
-
                                                                 <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
                                                                 <div class="col-md-2">
                                                                     <input class="form-control" placeholder="" type="text" formControlName="partNumber">
                                                                 </div>
-                                                                <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
+                                                                <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="customer">
+                                                                    <input class="form-control" placeholder="" type="text" formControlName="processCode">
+                                                                </div>
+                                                                <label class="col-md-1 control-label">{{'product'|i18n}}</label>
+                                                                <div class="col-md-2">
+                                                                    <input class="form-control" placeholder="" type="text" formControlName="product">
                                                                 </div>
                                                                 <label class="col-md-1 control-label">{{'packageType'|i18n}}</label>
                                                                 <div class="col-md-2">
@@ -80,9 +79,9 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
+                                                                <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="processCode">
+                                                                    <input class="form-control" placeholder="" type="text" formControlName="customer">
                                                                 </div>
                                                                 <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
                                                                 <div class="col-md-2">
@@ -102,17 +101,6 @@
                                                                 <div class="col-md-2">
                                                                     <input class="form-control" placeholder="" type="text" formControlName="sblYieldLimit">
                                                                 </div>
-                                                                <!--
-                                                                                                        <label class="col-md-1 control-label">{{'PARA'|i18n}}</label>
-                                                                                                        <div class="col-md-2">
-                                                                                                            <input class="form-control" placeholder="Type somethine..." type="text" list="list">
-                                                                                                            <datalist id="list">
-                                                                                                                <option value="Alexandra">Alexandra</option>
-                                                                                                                <option value="Alice">Alice</option>
-                                                                                                            </datalist>
-                                                                                                            <p class="note"><strong>Note:</strong> works in Chrome, Firefox, Opera and IE10.</p>
-                                                                                                        </div>
-                                                                -->
                                                                 <label class="col-md-1 control-label">{{'sblSubbinANumber'|i18n}}</label>
                                                                 <div class="col-md-2">
                                                                     <input class="form-control" placeholder="YYYY-MM-DD" type="text" formControlName="sblSubbinANumber">
@@ -129,7 +117,6 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
-
                                                                 <label class="col-md-1 control-label">{{'sblSubbinBNumber'|i18n}}</label>
                                                                 <div class="col-md-2">
                                                                     <input class="form-control" placeholder="" type="text" formControlName="sblSubbinBNumber">
@@ -143,89 +130,8 @@
                                                                 <div class="col-md-2">
                                                                     <input class="form-control" placeholder="" type="text" formControlName="sblSubbinBLimitCount">
                                                                 </div>
-
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'functionKey1'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey1">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'functionKey2'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey2">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'functionKey3'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey3">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'functionKey4'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey4">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'functionKey5'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey5">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'functionKey6'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey6">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'functionKey7'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey7">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'functionKey8'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey8">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'functionKey9'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey9">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'functionKey10'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey10">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'functionKey11'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey11">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'functionKey12'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey12">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'functionKey13'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey13">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'functionKey14'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey14">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'functionKey15'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey15">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'functionKey16'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="functionKey16">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-
                                                                 <label class="col-md-1 control-label">{{'fab'|i18n}}</label>
                                                                 <div class="col-md-2">
                                                                     <input class="form-control" placeholder="" type="text" formControlName="fab">
@@ -243,7 +149,6 @@
                                                                 <div class="col-md-2">
                                                                     <input class="form-control" placeholder="" type="text" formControlName="firmwareVersion">
                                                                 </div>
-
                                                             </div>
                                                             <div class="form-group">
                                                                 <label class="col-md-1 control-label">{{'Firmware Name'|i18n}}</label>
@@ -259,8 +164,78 @@
                                                                     <input class="form-control" placeholder="" type="text" formControlName="parallel">
                                                                 </div>
                                                             </div>
+                                                            <!--FunctionKey Group-->
+                                                            <div class="form-group">
+                                                                <div class="col-md-12">
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey1">
+                                                                        <span>{{'functionKey1'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey2">
+                                                                        <span>{{'functionKey2'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey3">
+                                                                        <span>{{'functionKey3'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey4">
+                                                                        <span>{{'functionKey4'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey5">
+                                                                        <span>{{'functionKey5'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey6">
+                                                                        <span>{{'functionKey6'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey7">
+                                                                        <span>{{'functionKey7'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey8">
+                                                                        <span>{{'functionKey8'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey9">
+                                                                        <span>{{'functionKey9'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey10">
+                                                                        <span>{{'functionKey10'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey11">
+                                                                        <span>{{'functionKey11'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey12">
+                                                                        <span>{{'functionKey12'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey13">
+                                                                        <span>{{'functionKey13'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey14">
+                                                                        <span>{{'functionKey14'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey15">
+                                                                        <span>{{'functionKey15'|i18n}}</span>
+                                                                    </label>
+                                                                    <label class="checkbox-inline">
+                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey16">
+                                                                        <span>{{'functionKey16'|i18n}}</span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+
                                                         </fieldset>
-                                                        <!--Retest Skip 기준 end-->
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-default" (click)="lgModal.hide()">
@@ -277,9 +252,13 @@
                                     </div>
 
 
+<!--
                                     <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
+-->
                                     <!--<legend>Last TABLED efault Form Elements</legend>-->
 
+                                    <!--기간검색시작-->
+<!--
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
@@ -290,6 +269,8 @@
                                             <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
                                         </div>
                                     </div>
+-->
+                                    <!--기간검색시작끝-->
 
 
                                     <div class="form-group">
@@ -298,9 +279,9 @@
                                             <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
                                         </div>
 
-                                        <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Part Name'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="partNumber" type="text" [(ngModel)]="data.partNumber">
+                                            <input class="form-control" placeholder="partName" type="text" [(ngModel)]="data.partName">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Process Code'|i18n}}</label>
@@ -308,12 +289,15 @@
                                             <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="data.processCode">
                                         </div>
 
+<!--
                                         <label class="col-md-1 control-label">{{'Parallel'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Parallel" type="text" [(ngModel)]="data.parallel">
                                         </div>
+-->
                                     </div>
 
+<!--
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
                                         <div class="col-md-2">
@@ -324,9 +308,9 @@
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="SBL Yield Limit" type="text" [(ngModel)]="data.sblYieldLimit">
                                         </div>
-
-
                                     </div>
+-->
+
                                 </fieldset>
                                 <!--Retest Skip 기준 end-->
                                 <div class="form-actions">

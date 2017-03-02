@@ -11,6 +11,7 @@
         TESTER_MODEL,
         MAIN_PROGRAM_NAME,
         TEMPERATURE,
+        TEMPERATURE_GUARD,
         SBL_YIELD_LIMIT,
         SBL_SUBBIN_A_NUMBER,
         SBL_SUBBIN_A_LIMIT_PERCENT,
@@ -24,168 +25,151 @@
         PROGRAM_VERSION,
         FIRMWARE_VERSION,
         TESTER_OS_VERSION,
-        PARALLEL,
+        PARA,
         FIRMWARE_NAME,
-        OPERATOR,
-        SYS_DATE
+        OPERATOR_ID,
+        SYS_DATE,
+        DUT_MAP,
+        SYS_USER,
+        MODIFY_USER,
+        BIN_DESCRIPTION,
+        MODIFY_DATE
         FROM
-        PROGRAM_REGISTER
+        PROGRAM_REGISTER2
         <where>
             1 = 1
             <if test=" productName != null and productName != '' ">
-                AND PRODUCT_NAME = #{productName}
+                AND PRODUCT_NAME=#{productName}
             </if>
             <if test=" partNumber != null and partNumber != '' ">
-                AND PART_NUMBER = #{partNumber}
+                AND PART_NUMBER=#{partNumber}
             </if>
             <if test=" customer != null and customer != '' ">
-                AND CUSTOMER = #{customer}
+                AND CUSTOMER=#{customer}
             </if>
             <if test=" packageType != null and packageType != '' ">
-                AND PACKAGE_TYPE = #{packageType}
+                AND PACKAGE_TYPE=#{packageType}
             </if>
             <if test=" processCode != null and processCode != '' ">
-                AND PROCESS_CODE = #{processCode}
+                AND PROCESS_CODE=#{processCode}
             </if>
             <if test=" testerModel != null and testerModel != '' ">
-                AND TESTER_MODEL = #{testerModel}
+                AND TESTER_MODEL=#{testerModel}
             </if>
             <if test=" mainProgramName != null and mainProgramName != '' ">
-                AND MAIN_PROGRAM_NAME = #{mainProgramName}
+                AND MAIN_PROGRAM_NAME=#{mainProgramName}
             </if>
             <if test=" temperature != null and temperature != '' ">
-                AND TEMPERATURE = #{temperature}
+                AND TEMPERATURE=#{temperature}
+            </if>
+            <if test=" temperatureGuard != null and temperatureGuard != '' ">
+                AND TEMPERATURE_GUARD=#{temperatureGuard}
             </if>
             <if test=" sblYieldLimit != null and sblYieldLimit != '' ">
-                AND SBL_YIELD_LIMIT = #{sblYieldLimit}
+                AND SBL_YIELD_LIMIT=#{sblYieldLimit}
             </if>
             <if test=" sblSubbinANumber != null and sblSubbinANumber != '' ">
-                AND SBL_SUBBIN_A_NUMBER = #{sblSubbinANumber}
+                AND SBL_SUBBIN_A_NUMBER=#{sblSubbinANumber}
             </if>
             <if test=" sblSubbinALimitPercent != null and sblSubbinALimitPercent != '' ">
-                AND SBL_SUBBIN_A_LIMIT_PERCENT = #{sblSubbinALimitPercent}
+                AND SBL_SUBBIN_A_LIMIT_PERCENT=#{sblSubbinALimitPercent}
             </if>
             <if test=" sblSubbinALimitCount != null and sblSubbinALimitCount != '' ">
-                AND SBL_SUBBIN_A_LIMIT_COUNT = #{sblSubbinALimitCount}
+                AND SBL_SUBBIN_A_LIMIT_COUNT=#{sblSubbinALimitCount}
             </if>
             <if test=" sblSubbinBNumber != null and sblSubbinBNumber != '' ">
-                AND SBL_SUBBIN_B_NUMBER = #{sblSubbinBNumber}
+                AND SBL_SUBBIN_B_NUMBER=#{sblSubbinBNumber}
             </if>
             <if test=" sblSubbinBLimitPercent != null and sblSubbinBLimitPercent != '' ">
-                AND SBL_SUBBIN_B_LIMIT_PERCENT = #{sblSubbinBLimitPercent}
+                AND SBL_SUBBIN_B_LIMIT_PERCENT=#{sblSubbinBLimitPercent}
             </if>
             <if test=" sblSubbinBLimitCount != null and sblSubbinBLimitCount != '' ">
-                AND SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount}
+                AND SBL_SUBBIN_B_LIMIT_COUNT=#{sblSubbinBLimitCount}
             </if>
             <if test=" functionKey != null and functionKey != '' ">
-                AND FUNCTION_KEY = #{functionKey}
+                AND FUNCTION_KEY=#{functionKey}
             </if>
             <if test=" fab != null and fab != '' ">
-                AND FAB = #{fab}
+                AND FAB=#{fab}
             </if>
             <if test=" grade != null and grade != '' ">
-                AND GRADE = #{grade}
+                AND GRADE=#{grade}
             </if>
             <if test=" programVersion != null and programVersion != '' ">
-                AND PROGRAM_VERSION = #{programVersion}
+                AND PROGRAM_VERSION=#{programVersion}
             </if>
             <if test=" firmwareVersion != null and firmwareVersion != '' ">
-                AND FIRMWARE_VERSION = #{firmwareVersion}
+                AND FIRMWARE_VERSION=#{firmwareVersion}
             </if>
             <if test=" testerOsVersion != null and testerOsVersion != '' ">
-                AND TESTER_OS_VERSION = #{testerOsVersion}
+                AND TESTER_OS_VERSION=#{testerOsVersion}
             </if>
-            <if test=" parallel != null and parallel != '' ">
-                AND PARALLEL = #{parallel}
+            <if test=" para != null and para != '' ">
+                AND PARA=#{para}
             </if>
             <if test=" firmwareName != null and firmwareName != '' ">
                 AND FIRMWARE_NAME=#{firmwareName}
             </if>
-            <if test=" operator != null and operator != '' ">
-                AND OPERATOR=#{operator}
+            <if test=" operatorId != null and operatorId != '' ">
+                AND OPERATOR_ID=#{operatorId}
             </if>
-            <if test=" sysDateStart != null and sysDateStart != '' ">
-                AND SYS_DATE=#{sysDateStart}
+            <if test=" sysDate != null and sysDate != '' ">
+                AND SYS_DATE=#{sysDate}
             </if>
-            <if test=" sysDateEnd != null and sysDateEnd != '' ">
-                AND SYS_DATE=#{sysDateEnd}
+            <if test=" dutMap != null and dutMap != '' ">
+                AND DUT_MAP=#{dutMap}
+            </if>
+            <if test=" sysUser != null and sysUser != '' ">
+                AND SYS_USER=#{sysUser}
+            </if>
+            <if test=" modifyUser != null and modifyUser != '' ">
+                AND MODIFY_USER=#{modifyUser}
+            </if>
+            <if test=" binDescription != null and binDescription != '' ">
+                AND BIN_DESCRIPTION=#{binDescription}
+            </if>
+            <if test=" modifyDate != null and modifyDate != '' ">
+                AND MODIFY_DATE=#{modifyDate}
             </if>
         </where>
     </select>
 
     <insert id="insertProgramRegister" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
-        MERGE INTO PROGRAM_REGISTER USING DUAL ON (PART_NUMBER=#{partNumber} AND PROCESS_CODE=#{processCode} AND TESTER_MODEL=#{testerModel})
+        MERGE INTO PROGRAM_REGISTER2 USING DUAL ON (SYS_DATE = #{sysDate})
         WHEN MATCHED THEN
         UPDATE
         <trim prefix="SET" suffixOverrides=",">
-
-                PRODUCT_NAME = #{productName},
-            <if test="customer!=null and customer!=''">
-                CUSTOMER = #{customer},
-            </if>
-            <if test="packageType!=null and packageType!=''">
-                PACKAGE_TYPE = #{packageType},
-            </if>
-            <if test="mainProgramName!=null and mainProgramName!=''">
-                MAIN_PROGRAM_NAME = #{mainProgramName},
-            </if>
-            <if test="temperature!=null and temperature!=''">
-                TEMPERATURE = #{temperature},
-            </if>
-            <if test="sblYieldLimit!=null and sblYieldLimit!=''">
-                SBL_YIELD_LIMIT = #{sblYieldLimit},
-            </if>
-            <if test="sblSubbinANumber!= null and sblSubbinANumber!=''">
-                SBL_SUBBIN_A_NUMBER = #{sblSubbinANumber},
-            </if>
-            <if test="sblSubbinALimitPercent!=null and sblSubbinALimitPercent!=''">
-                SBL_SUBBIN_A_LIMIT_PERCENT = #{sblSubbinALimitPercent},
-            </if>
-            <if test="sblSubbinALimitCount!= null and sblSubbinALimitCount!=''">
-                SBL_SUBBIN_A_LIMIT_COUNT = #{sblSubbinALimitCount},
-            </if>
-            <if test="sblSubbinBNumber!=null and sblSubbinBNumber!=''">
-                SBL_SUBBIN_B_NUMBER = #{sblSubbinBNumber},
-            </if>
-            <if test="sblSubbinBLimitPercent!=null and sblSubbinBLimitPercent!=''">
-                SBL_SUBBIN_B_LIMIT_PERCENT = #{sblSubbinBLimitPercent},
-            </if>
-            <if test="sblSubbinBLimitCount!=null and sblSubbinBLimitCount!=''">
-                SBL_SUBBIN_B_LIMIT_COUNT = #{sblSubbinBLimitCount},
-            </if>
-            <if test="functionKey!=null and functionKey!=''">
-                FUNCTION_KEY = #{functionKey},
-            </if>
-            <if test="fab!=null and fab!=''">
-                FAB = #{fab},
-            </if>
-            <if test="grade!=null and grade!=''">
-                GRADE = #{grade},
-            </if>
-            <if test="programVersion!=null and programVersion!=''">
-                PROGRAM_VERSION = #{programVersion},
-            </if>
-            <if test="firmwareVersion!=null and firmwareVersion!=''">
-                FIRMWARE_VERSION = #{firmwareVersion},
-            </if>
-            <if test="testerOsVersion!=null and testerOsVersion!=''">
-                TESTER_OS_VERSION = #{testerOsVersion},
-            </if>
-            <if test="parallel!=null and parallel!=''">
-                PARALLEL = #{parallel},
-            </if>
-            <if test=" firmwareName != null and firmwareName != '' ">
-                FIRMWARE_NAME=#{firmwareName},
-            </if>
-            <if test=" operator != null and operator != '' ">
-                OPERATOR=#{operator},
-            </if>
-            <if test=" sysDateStart != null and sysDateStart != '' ">
-                SYS_DATE=#{sysDateStart},
-            </if>
-            <if test=" sysDateEnd != null and sysDateEnd != '' ">
-                SYS_DATE=#{sysDateEnd}
-            </if>
+            PRODUCT_NAME=#{productName},
+            PART_NUMBER=#{partNumber},
+            CUSTOMER=#{customer},
+            PACKAGE_TYPE=#{packageType},
+            PROCESS_CODE=#{processCode},
+            TESTER_MODEL=#{testerModel},
+            MAIN_PROGRAM_NAME=#{mainProgramName},
+            TEMPERATURE=#{temperature},
+            TEMPERATURE_GUARD=#{temperatureGuard},
+            SBL_YIELD_LIMIT=#{sblYieldLimit},
+            SBL_SUBBIN_A_NUMBER=#{sblSubbinANumber},
+            SBL_SUBBIN_A_LIMIT_PERCENT=#{sblSubbinALimitPercent},
+            SBL_SUBBIN_A_LIMIT_COUNT=#{sblSubbinALimitCount},
+            SBL_SUBBIN_B_NUMBER=#{sblSubbinBNumber},
+            SBL_SUBBIN_B_LIMIT_PERCENT=#{sblSubbinBLimitPercent},
+            SBL_SUBBIN_B_LIMIT_COUNT=#{sblSubbinBLimitCount},
+            FUNCTION_KEY=#{functionKey},
+            FAB=#{fab},
+            GRADE=#{grade},
+            PROGRAM_VERSION=#{programVersion},
+            FIRMWARE_VERSION=#{firmwareVersion},
+            TESTER_OS_VERSION=#{testerOsVersion},
+            PARA=#{para},
+            FIRMWARE_NAME=#{firmwareName},
+            OPERATOR_ID=#{operatorId},
+            SYS_DATE=#{sysDate},
+            DUT_MAP=#{dutMap},
+            SYS_USER=#{sysUser},
+            MODIFY_USER=#{modifyUser},
+            BIN_DESCRIPTION=#{binDescription},
+            MODIFY_DATE=#{modifyDate}
         </trim>
         WHEN NOT MATCHED THEN
         INSERT
@@ -198,6 +182,7 @@
         TESTER_MODEL,
         MAIN_PROGRAM_NAME,
         TEMPERATURE,
+        TEMPERATURE_GUARD,
         SBL_YIELD_LIMIT,
         SBL_SUBBIN_A_NUMBER,
         SBL_SUBBIN_A_LIMIT_PERCENT,
@@ -211,10 +196,15 @@
         PROGRAM_VERSION,
         FIRMWARE_VERSION,
         TESTER_OS_VERSION,
-        PARALLEL,
+        PARA,
         FIRMWARE_NAME,
-        OPERATOR,
-        SYS_DATE
+        OPERATOR_ID,
+        SYS_DATE,
+        DUT_MAP,
+        SYS_USER,
+        MODIFY_USER,
+        BIN_DESCRIPTION,
+        MODIFY_DATE
         )
         VALUES
         (
@@ -226,6 +216,7 @@
         #{testerModel},
         #{mainProgramName},
         #{temperature},
+        #{temperatureGuard},
         #{sblYieldLimit},
         #{sblSubbinANumber},
         #{sblSubbinALimitPercent},
@@ -239,10 +230,15 @@
         #{programVersion},
         #{firmwareVersion},
         #{testerOsVersion},
-        #{parallel},
+        #{para},
         #{firmwareName},
-        #{operator},
-        #{sysDate}
+        #{operatorId},
+        #{sysDate},
+        #{dutMap},
+        #{sysUser},
+        #{modifyUser},
+        #{binDescription},
+        #{modifyDate}
         )
     </insert>
 </mapper>

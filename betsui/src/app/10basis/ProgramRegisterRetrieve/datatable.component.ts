@@ -42,6 +42,7 @@ import {Component, Injector} from '@angular/core';
                                     <th>PARA</th>
                                     <th>MAIN PROGRAM NAME</th>
                                     <th>SBL YIELD</th>
+                                    <th>{{'Temperature'|i18n}}</th>
                                 </tr>
                                 </thead>
 

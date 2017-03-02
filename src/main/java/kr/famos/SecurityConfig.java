@@ -53,6 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/user").hasAuthority("USER")
                 .antMatchers("/retireveLotYield").hasAuthority("ADMIN")
+                .antMatchers("/retrieveProgramRegister").hasAuthority("ADMIN")
+                .antMatchers("/insertProgramRegister").hasAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
 //               .formLogin()

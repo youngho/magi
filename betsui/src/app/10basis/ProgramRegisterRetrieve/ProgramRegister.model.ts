@@ -1,7 +1,7 @@
 /**
  * Created by yhkim on 2017-02-17.
  */
-export class ProgramRegisterRetrieve {
+export class ProgramRegister {
     productName: string;
     partNumber: string;
     customer: string;
@@ -10,6 +10,7 @@ export class ProgramRegisterRetrieve {
     testerModel: string;
     mainProgramName: string;
     temperature: string;
+    temperatureGuard: string;
     sblYieldLimit: string;
     sblSubbinANumber: string;
     sblSubbinALimitPercent: string;
@@ -17,6 +18,24 @@ export class ProgramRegisterRetrieve {
     sblSubbinBNumber: string;
     sblSubbinBLimitPercent: string;
     sblSubbinBLimitCount: string;
+    functionKey: string;
+    fab: string;
+    grade: string;
+    programVersion: string;
+    firmwareVersion: string;
+    testerOsVersion: string;
+    para: string;
+    firmwareName: string;
+    operatorId: string;
+    sysDate: string;
+    sysDateStart: string;
+    sysDateEnd: string;
+    dutMap: string;
+    sysUser: string;
+    modifyUser: string;
+    binDescription: string;
+    modifyDate: string;
+
     functionKey1: string;
     functionKey2: string;
     functionKey3: string;
@@ -33,15 +52,13 @@ export class ProgramRegisterRetrieve {
     functionKey14: string;
     functionKey15: string;
     functionKey16: string;
-    fab: string;
-    grade: string;
-    programVersion: string;
-    firmwareVersion: string;
-    testerOsVersion: string;
-    parallel: string;
-    firmwareName: string;
-    operator: string;
-    sysDate: string;
-    sysDateStart: string;
-    sysDateEnd: string;
+
+    binDescription1: string;
+    binDescription2: string;
+    binDescription3: string;
+    binDescription4: string;
+    binDescription5: string;
+    binDescription6: string;
+    binDescription7: string;
+    binDescription8: string;
 }

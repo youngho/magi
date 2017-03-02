@@ -37,8 +37,10 @@
   "ADMINISTRATION": "ADMINISTRATION",
   "BETS User Register": "BETS User Register",
 
+  "Temperature":"Temperature",
+
   "product":"Product",
-  "partNumber":"Part Number",
+  "partName":"Part Name",
   "customer":"Customer",
   "packageType":"Package Type",
   "processCode":"Process Code",

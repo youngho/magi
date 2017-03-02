@@ -7,7 +7,7 @@ import {Http, Response} from '@angular/http';
 // import {Observable} from "rxjs/Rx";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {ProgramRegisterRetrieve} from './ProgramRegisterRetrieve.model';
+import {ProgramRegister} from './ProgramRegister.model';
 
 import {DatatableComponent} from './datatable.component';
 // import DynamicComponent from './dynamic-component';
@@ -31,7 +31,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     errorMessage = null;
     message: string = '';
 
-    private data : ProgramRegisterRetrieve = new ProgramRegisterRetrieve();
+    private data : ProgramRegister = new ProgramRegister();
 
     tableForm: FormGroup;
     product: FormControl;
@@ -192,7 +192,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         console.log("testerModel : " + this.data.testerModel);
         console.log("partNumber : " + this.data.partNumber);
         console.log("processCode : " + this.data.processCode);
-        console.log("parallel : " + this.data.parallel);
+        console.log("parallel : " + this.data.para);
         console.log("mainProgramName : " + this.data.mainProgramName);
         console.log("sblYieldLimit : " + this.data.sblYieldLimit);
 
@@ -209,9 +209,10 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                                     {data: 'testerModel'},
                                     {data: 'partNumber'},
                                     {data: 'processCode'},
-                                    {data: 'parallel'},
+                                    {data: 'para'},
                                     {data: 'mainProgramName'},
                                     {data: 'sblYieldLimit'},
+                                    {data: 'temperature'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;

@@ -9,12 +9,13 @@ package kr.famos.bets.basisInformation.programRegister.dto;
 public class ProgramRegisterDto {
     private String productName            = ""; // eMCP 16G16G
     private String partNumber             = ""; // H9TQ17ABJTA-CUR
-    private String customer               = ""; // SEDA
+    private String customer               = ""; // 판매처
     private String packageType            = ""; // 221FBGA
     private String processCode            = ""; // T0350
     private String testerModel            = ""; // T5503
     private String mainProgramName        = ""; // ABCD1234
-    private String temperature            = ""; // 85/-30
+    private int temperature            = 0; // 85/-30
+    private int temperatureGuard          = 0;  // TEMPERATURE GUARDBAND
     private String sblYieldLimit          = ""; // 95
     private String sblSubbinANumber       = ""; // 110
     private String sblSubbinALimitPercent = ""; // 3
@@ -22,17 +23,23 @@ public class ProgramRegisterDto {
     private String sblSubbinBNumber       = ""; // 128
     private String sblSubbinBLimitPercent = ""; // 5
     private String sblSubbinBLimitCount   = ""; // 3
-    private String functionKey            = ""; // 스위치 16개의 값 YYYYYYYY/NNNNNNNN
+    private String functionKey            = ""; // 스위치 16개의 값 Y/N
     private String fab                    = ""; // M1
     private String grade                  = ""; // HQ
     private String programVersion         = ""; // 1
     private String firmwareVersion        = ""; // 1.01
     private String testerOsVersion        = ""; // A.10D
-    private String parallel               = ""; // 256
-    private String firmwareName           = "";
-    private String operator               = "";
-    private String sysDateStart           = "";
-    private String sysDateEnd             = "";
+    private String para                   = ""; // 256개, 소켓개수
+    private String firmwareName           = ""; // 펌웨어 이름
+    private String operatorId             = ""; //
+    private String sysDate                = ""; //
+    private String sysDateStart           = ""; //
+    private String sysDateEnd             = ""; //
+    private String dutMap                 = ""; // DDR_256, NAND_512
+    private String sysUser                = ""; //
+    private String modifyUser             = ""; //
+    private String binDescription         = ""; //
+    private String modifyDate             = ""; //
 
     public String getProductName() {
         return productName;
@@ -90,12 +97,20 @@ public class ProgramRegisterDto {
         this.mainProgramName = mainProgramName;
     }
 
-    public String getTemperature() {
+    public int getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(String temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
+    }
+
+    public int getTemperatureGuard() {
+        return temperatureGuard;
+    }
+
+    public void setTemperatureGuard(int temperatureGuard) {
+        this.temperatureGuard = temperatureGuard;
     }
 
     public String getSblYieldLimit() {
@@ -202,12 +217,12 @@ public class ProgramRegisterDto {
         this.testerOsVersion = testerOsVersion;
     }
 
-    public String getParallel() {
-        return parallel;
+    public String getPara() {
+        return para;
     }
 
-    public void setParallel(String parallel) {
-        this.parallel = parallel;
+    public void setPara(String para) {
+        this.para = para;
     }
 
     public String getFirmwareName() {
@@ -218,27 +233,59 @@ public class ProgramRegisterDto {
         this.firmwareName = firmwareName;
     }
 
-    public String getOperator() {
-        return operator;
+    public String getOperatorId() {
+        return operatorId;
     }
 
-    public void setOperator(String operator) {
-        this.operator = operator;
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
     }
 
-    public String getSysDateStart() {
-        return sysDateStart;
+    public String getSysDate() {
+        return sysDate;
     }
 
-    public void setSysDateStart(String sysDateStart) {
-        this.sysDateStart = sysDateStart;
+    public void setSysDate(String sysDate) {
+        this.sysDate = sysDate;
     }
 
-    public String getSysDateEnd() {
-        return sysDateEnd;
+    public String getDutMap() {
+        return dutMap;
     }
 
-    public void setSysDateEnd(String sysDateEnd) {
-        this.sysDateEnd = sysDateEnd;
+    public void setDutMap(String dutMap) {
+        this.dutMap = dutMap;
+    }
+
+    public String getSysUser() {
+        return sysUser;
+    }
+
+    public void setSysUser(String sysUser) {
+        this.sysUser = sysUser;
+    }
+
+    public String getModifyUser() {
+        return modifyUser;
+    }
+
+    public void setModifyUser(String modifyUser) {
+        this.modifyUser = modifyUser;
+    }
+
+    public String getBinDescription() {
+        return binDescription;
+    }
+
+    public void setBinDescription(String binDescription) {
+        this.binDescription = binDescription;
+    }
+
+    public String getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
     }
 }

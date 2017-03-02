@@ -1,7 +1,7 @@
 {
   "BRAZILEMCPTESTSYSTEM": "브라질 EMCP 테스트 시스템",
   "YIELD": "수율",
-  "YIELDANALYSIS": "YIELD 분석",
+  "YIELD ANALYSIS": "수율 분석",
   "MAPANALYSIS": "MAP 분석",
   "OPIRUS": "오피러스",
   "LASTTABLEREG": "LAST TABLE 등록",
@@ -17,6 +17,8 @@
   "EFFICIENCYANALYSIS": "효율분석",
   "SMART": "SMART 기술팀",
   "USAGERESULTS": "사용실적",
+
+  "Temperature":"온도",
 
   "Projects": "프로젝트",
   "Msgs": "캐스트 메시지",
