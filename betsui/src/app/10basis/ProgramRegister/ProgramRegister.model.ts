@@ -2,7 +2,7 @@
  * Created by yhkim on 2017-02-17.
  */
 export class ProgramRegister {
-    product: string;
+    productName: string;
     partNumber: string;
     customer: string;
     packageType: string;
@@ -10,6 +10,7 @@ export class ProgramRegister {
     testerModel: string;
     mainProgramName: string;
     temperature: string;
+    temperatureGuard: string;
     sblYieldLimit: string;
     sblSubbinANumber: string;
     sblSubbinALimitPercent: string;
@@ -17,6 +18,22 @@ export class ProgramRegister {
     sblSubbinBNumber: string;
     sblSubbinBLimitPercent: string;
     sblSubbinBLimitCount: string;
+    functionKey: string;
+    fab: string;
+    grade: string;
+    programVersion: string;
+    firmwareVersion: string;
+    testerOsVersion: string;
+    para: string;
+    firmwareName: string;
+    operatorId: string;
+    sysDate: string;
+    dutMap: string;
+    sysUser: string;
+    modifyUser: string;
+    binDescription: string;
+    modifyDate: string;
+
     functionKey1: string;
     functionKey2: string;
     functionKey3: string;
@@ -33,13 +50,5 @@ export class ProgramRegister {
     functionKey14: string;
     functionKey15: string;
     functionKey16: string;
-    fab: string;
-    grade: string;
-    programVersion: string;
-    firmwareVersion: string;
-    testerOsVersion: string;
-    parallel: string;
-    firmwareName: string;
-    operator: string;
-    sysDate: string;
+
 }

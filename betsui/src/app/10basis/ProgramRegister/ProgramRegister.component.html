@@ -1,3 +1,4 @@
+{{diagnostic}}
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -30,45 +31,54 @@
                     <div>
                         <!-- widget content -->
                         <div class="widget-body">
-                            <form class="form-horizontal" [formGroup]="tableForm" (ngSubmit)="saveForm(tableForm.value)" novalidate>
+                            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" novalidate>
                                 <fieldset>
                                     <!--<legend>Last TABLED efault Form Elements</legend>-->
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="partNumber">
+                                            <input type="text" class="form-control" id="partNumber" name="partNumber" placeholder=""  [(ngModel)]="programRegister.partNumber">
                                         </div>
+
                                         <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="processCode">
+                                            <input type="text" class="form-control" id="processCode" name="processCode" placeholder=""  [(ngModel)]="programRegister.processCode">
                                         </div>
                                         <label class="col-md-1 control-label">{{'product'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="product">
+                                            <input type="text" class="form-control" id="product" name="product" placeholder=""  [(ngModel)]="programRegister.product">
                                         </div>
+
                                         <label class="col-md-1 control-label">{{'packageType'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="packageType">
+                                            <input type="text" class="form-control" id="packageType" name="packageType" placeholder=""  [(ngModel)]="programRegister.packageType">
                                         </div>
                                     </div>
+
+
+
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="customer">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="testerModel">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'mainProgramName'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="mainProgramName">
-                                        </div>
                                         <label class="col-md-1 control-label">{{'temperature'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text" formControlName="temperature">
+                                            <input type="text" class="form-control" id="temperature" name="temperature" placeholder=""  [(ngModel)]="programRegister.temperature">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" id="customer" name="customer" placeholder=""  [(ngModel)]="programRegister.customer">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'temperatureGuard'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" id="temperatureGuard" name="temperatureGuard" placeholder=""  [(ngModel)]="programRegister.temperatureGuard">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'sblYieldLimit'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" id="sblYieldLimit" name="sblYieldLimit" placeholder=""  [(ngModel)]="programRegister.sblYieldLimit">
                                         </div>
                                     </div>
+
+
+
+                                    <!--
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'sblYieldLimit'|i18n}}</label>
                                         <div class="col-md-2">
@@ -137,7 +147,9 @@
                                             <input class="form-control" placeholder="" type="text" formControlName="parallel">
                                         </div>
                                     </div>
+                                    -->
                                     <!--FunctionKey Group-->
+                                    <!--
                                     <div class="form-group">
                                         <div class="col-md-12">
                                             <label class="checkbox-inline">
@@ -206,7 +218,7 @@
                                             </label>
                                         </div>
                                     </div>
-
+-->
 
                                 </fieldset>
                                 <!--Retest Skip 기준 end-->
