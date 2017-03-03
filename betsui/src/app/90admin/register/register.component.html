@@ -46,7 +46,7 @@
                                 <fieldset>
 
                                     <!--POP UP Modal dialog Stat-->
-                                    <!--<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                                    <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
                                          aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -54,187 +54,82 @@
                                                     <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
-                                                    <h4 class="modal-title">Program register</h4>
+                                                    <h4 class="modal-title">User Detail</h4>
                                                 </div>
-                                                <form class="form-horizontal" [formGroup]="tableForm" (ngSubmit)="saveForm(tableForm.value)" novalidate>
+                                                <form class="form-horizontal" (ngSubmit)="saveForm()" #userForm="ngForm" saveFormnovalidate>
                                                     <div class="modal-body">
                                                         <fieldset>
-                                                            &lt;!&ndash;<legend>Last TABLED efault Form Elements</legend>&ndash;&gt;
+                                                            <!--<legend>Last TABLED efault Form Elements</legend>-->
                                                             <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
+                                                                <label class="col-md-1 control-label">{{'username'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="partNumber">
+                                                                    <input type="text" class="form-control" id="username" name="username" placeholder="" [(ngModel)]="user.username">
                                                                 </div>
-                                                                <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
+                                                                <label class="col-md-1 control-label">{{'password'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="processCode">
+                                                                    <input type="text" class="form-control" id="password" name="password" placeholder="" [(ngModel)]="user.password">
                                                                 </div>
-                                                                <label class="col-md-1 control-label">{{'product'|i18n}}</label>
+                                                                <!--
+                                                                                                                               <label class="col-md-1 control-label">{{'retype password'|i18n}}</label>
+                                                                                                                                <div class="col-md-2">
+                                                                                                                                    <input type="text" class="form-control" id="" name="" placeholder="" [(ngModel)]="user.username">
+                                                                                                                                </div>
+                                                                -->
+
+                                                                <label class="col-md-1 control-label">{{'name'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="product">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'packageType'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="packageType">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="customer">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="testerModel">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'mainProgramName'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="mainProgramName">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'temperature'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="temperature">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'sblYieldLimit'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="sblYieldLimit">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'sblSubbinANumber'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="YYYY-MM-DD" type="text" formControlName="sblSubbinANumber">
+                                                                    <input type="text" class="form-control" id="name" name="name" placeholder="" [(ngModel)]="user.name">
                                                                 </div>
 
-                                                                <label class="col-md-1 control-label">{{'sblSubbinALimitPercent'|i18n}}</label>
+<!--
+                                                                <label class="col-md-1 control-label">{{'authority'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="sblSubbinALimitPercent">
+                                                                    <input type="text" class="form-control" id="authority" name="authority" placeholder="" [(ngModel)]="user.authority">
                                                                 </div>
+-->
 
-                                                                <label class="col-md-1 control-label">{{'sblSubbinALimitCount'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="sblSubbinALimitCount">
+                                                                <section>
+                                                                    <label class="col-md-1 control-label">{{'authority'|i18n}}</label>
+                                                                    <label class="select">
+                                                                        <select name="authority" ngModel>
+                                                                            <option value="0">USER</option>
+                                                                            <option value="1">ADMIN</option>
+                                                                        </select> <i></i> </label>
+                                                                </section>
+<!--
+                                                                <div class="form-group">
+                                                                    <label for="options">Options:</label>
+                                                                    <div *ngFor="let option of options">
+                                                                        <label>
+                                                                            <input type="checkbox"
+                                                                                   name="options"
+                                                                                   value="{{option.value}}"
+                                                                                   [(ngModel)]="option.checked"/>
+                                                                            {{option.name}}
+                                                                        </label>
+                                                                    </div>
                                                                 </div>
+-->
+
                                                             </div>
                                                             <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'sblSubbinBNumber'|i18n}}</label>
+                                                                <label class="col-md-1 control-label">{{'credentialsNonExpired'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="sblSubbinBNumber">
+                                                                    <input type="checkbox" class="form-control" id="credentialsNonExpired" name="credentialsNonExpired" placeholder="" [(ngModel)]="user.credentialsNonExpired">
                                                                 </div>
-                                                                <label class="col-md-1 control-label">{{'sblSubbinBLimitPercent'|i18n}}</label>
+                                                                <label class="col-md-1 control-label">{{'accountNonExpired'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="sblSubbinBLimitPercent">
+                                                                    <input type="checkbox" class="form-control" id="accountNonExpired" name="accountNonExpired" placeholder="" [(ngModel)]="user.accountNonExpired">
                                                                 </div>
-
-                                                                <label class="col-md-1 control-label">{{'sblSubbinBLimitCount'|i18n}}</label>
+                                                                <label class="col-md-1 control-label">{{'accountNonLocked'|i18n}}</label>
                                                                 <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="sblSubbinBLimitCount">
+                                                                    <input type="checkbox" class="form-control" id="accountNonLocked" name="accountNonLocked" placeholder="" [(ngModel)]="user.accountNonLocked">
+                                                                </div>
+                                                                <label class="col-md-1 control-label">{{'enabled'|i18n}}</label>
+                                                                <div class="col-md-2">
+                                                                    <input type="checkbox" class="form-control" id="enabled" name="enabled" placeholder="" [(ngModel)]="user.enabled">
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'fab'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="fab">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'grade'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="grade">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'programVersion'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="programVersion">
-                                                                </div>
-
-                                                                <label class="col-md-1 control-label">{{'firmwareVersion'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="firmwareVersion">
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'Firmware Name'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="firmwareName">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'testerOsVersion'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="testerOsVersion">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'parallel'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input class="form-control" placeholder="" type="text" formControlName="parallel">
-                                                                </div>
-                                                            </div>
-                                                            &lt;!&ndash;FunctionKey Group&ndash;&gt;
-                                                            <div class="form-group">
-                                                                <div class="col-md-12">
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey1">
-                                                                        <span>{{'functionKey1'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey2">
-                                                                        <span>{{'functionKey2'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey3">
-                                                                        <span>{{'functionKey3'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey4">
-                                                                        <span>{{'functionKey4'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey5">
-                                                                        <span>{{'functionKey5'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey6">
-                                                                        <span>{{'functionKey6'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey7">
-                                                                        <span>{{'functionKey7'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey8">
-                                                                        <span>{{'functionKey8'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey9">
-                                                                        <span>{{'functionKey9'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey10">
-                                                                        <span>{{'functionKey10'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey11">
-                                                                        <span>{{'functionKey11'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey12">
-                                                                        <span>{{'functionKey12'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey13">
-                                                                        <span>{{'functionKey13'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey14">
-                                                                        <span>{{'functionKey14'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey15">
-                                                                        <span>{{'functionKey15'|i18n}}</span>
-                                                                    </label>
-                                                                    <label class="checkbox-inline">
-                                                                        <input type="checkbox" class="checkbox style-3" formControlName="functionKey16">
-                                                                        <span>{{'functionKey16'|i18n}}</span>
-                                                                    </label>
-                                                                </div>
-                                                            </div>
-
-
                                                         </fieldset>
 
                                                         <div class="modal-footer">
@@ -249,12 +144,12 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>-->
+                                    </div>
 
 
-<!--
-                                    <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
--->
+                                    <!--
+                                                                        <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
+                                    -->
                                     <!--<legend>Last TABLED efault Form Elements</legend>-->
 
 
@@ -274,6 +169,10 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <button (click)="newUser()" class="btn btn-primary">
+                                                <i class="fa fa-save"></i>
+                                                {{'New User'|i18n}}
+                                            </button>
                                             <button (click)="saveLastTableForm()" class="btn btn-primary">
                                                 <i class="fa fa-save"></i>
                                                 {{'Retrieve'|i18n}}

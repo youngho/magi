@@ -25,8 +25,15 @@ export class RegisterComponent implements OnInit {
     message: string = '';
 
     private user: User = new User();
+    submitted = false;
 
     constructor(private service: RegisterService, private notificationService: NotificationService) {
+    }
+
+    newUser():void{
+        this.bgModel.show(function (info: any) {
+            console.log(info);
+        });
     }
 
     /**
@@ -34,26 +41,32 @@ export class RegisterComponent implements OnInit {
      * @param info
      */
 
-    /*
-     someClickHandler(info: any): void {
-     this.message = info.testerModel + ' - ' + info.partNumber;
+    someClickHandler(info: any): void {
+        this.message = info.testerModel + ' - ' + info.partNumber;
 
-     //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
-     this.data.testerModel = info.testerModel;
+        //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
+        this.user.username = info.username;
+        this.user.name = info.name;
 
-     (<FormControl>this.tableForm.controls['product'])
-     .setValue(info.testerModel, { onlySelf: true });
+/*
+        this.user.    authorities = [
+            {name:'OptionA', value:'1', checked:true},
+            {name:'OptionB', value:'2', checked:false},
+            {name:'OptionC', value:'3', checked:true}
+        ]
+*/
+        // (<FormControl>this.tableForm.controls['product']).setValue(info.testerModel, { onlySelf: true });
 
-     this.bgModel.show(function (info:any) {
-     console.log(info.testerModel);
-     });
+        this.bgModel.show(function (info: any) {
+            console.log(info);
+        });
 
-     }
-     */
+    }
 
     saveLastTableForm() {
-        console.log("testerModel : " + this.user.username);
-        console.log("testerModel : " + this.user.name);
+        console.log("username : " + this.user.username);
+        console.log("name : " + this.user.name);
+
 
         this.service.postRetrieve(this.user)
             .subscribe((apps) => {
@@ -73,18 +86,16 @@ export class RegisterComponent implements OnInit {
                                     {data: 'accountNonLocked'},
                                     {data: 'enabled'},
                                 ],
-                                /*
-                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
-                                 let self = this;
-                                 // Unbind first in order to avoid any duplicate handler
-                                 // (see https://github.com/l-lin/angular-datatables/issues/87)
-                                 $('td', nRow).unbind('click');
-                                 $('td', nRow).bind('click', () => {
-                                 self.someClickHandler(aData);
-                                 });
-                                 return nRow;
-                                 },
-                                 */
+                                rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
+                                    let self = this;
+                                    // Unbind first in order to avoid any duplicate handler
+                                    // (see https://github.com/l-lin/angular-datatables/issues/87)
+                                    $('td', nRow).unbind('click');
+                                    $('td', nRow).bind('click', () => {
+                                        self.someClickHandler(aData);
+                                    });
+                                    return nRow;
+                                },
 
                                 buttons: [
                                     'copy', 'excel', 'pdf', 'print'
@@ -96,30 +107,32 @@ export class RegisterComponent implements OnInit {
                 error => this.errorMessage = error);
     }
 
-    saveForm(f) {
+    saveForm() {
         // console.log(this.tableForm.value);
+
         // console.log('submitting LastTable form @' + this.tableForm);
 
-        this.smartModEg1(f);
+        // this.selectedOptions();
 
+        console.log("options : " + this.user.authorities);
+        this.smartModEg1();
 
-
-
+        this.submitted = true;
 
     }
 
-    smartModEg1(f) {
+    smartModEg1() {
         this.notificationService.smartMessageBox({
             title: "Smart Alert!",
             content: "This is a confirmation box. Can be programmed for button callback",
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
-                this.service.save(f).subscribe(
+                this.service.save(this.user).subscribe(
                     data => this.user = data,
                     error => alert(error),
                     () => console.log("Finish onSave()"));
-
+                    this.bgModel.hide();
             }
             if (ButtonPressed === "No") {
                 /*                this.notificationService.smallBox({
@@ -134,6 +147,15 @@ export class RegisterComponent implements OnInit {
         });
     }
 
+
+
+/*
+    selectedOptions() { // right now: ['1','3']
+        return this.user.authorities
+            .filter(opt => opt.checked)
+            .map(opt => opt.value)
+    }
+*/
 
 
     ngOnInit() {

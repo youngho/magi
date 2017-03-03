@@ -22,6 +22,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -73,7 +74,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/insertRegister", method = RequestMethod.POST)
-    void insertRegister(User user){
+    public void insertRegister(@RequestBody User user){
+        //user 객체에 authority에 하나의 권한이 text로 들어오기 때문에 List형태로 바꿔준다.
+        //향후 여러개의 권한을 갖을때 수정해 주어야 하는 부분이다.
+        user.setAuthorities(AuthorityUtils.createAuthorityList(user.getAuthority()));
+
         userService.createUser(user);
+
     }
 }

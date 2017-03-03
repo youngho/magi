@@ -73,6 +73,12 @@ public class UserServiceImpl implements UserService {
         return this.passwordEncoder;
     }
 
+    /**
+     * 사용자가 여려 종류의 권한을 갖을 수 있는 구조이다.
+     * 2017-03-03 현재는 한 종류 만을 text로 받아 저장한다.
+     * @param user
+     * @return
+     */
     @Override
     public List<User> retrieveRegister(User user){
         List<User> userList = userMapper.retrieveRegister(user);

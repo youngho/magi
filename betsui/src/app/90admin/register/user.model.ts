@@ -9,5 +9,6 @@ export class User {
     isAccountNonLocked: boolean;
     isCredentialsNonExpired: boolean;
     isEnabled: boolean;
-    authorities: string;
+    authorities: any[];
+    authority: string;
 }

@@ -17,6 +17,7 @@ public class User implements UserDetails {
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
     private Collection<? extends GrantedAuthority> authorities;
+    private String authority;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -87,5 +88,13 @@ public class User implements UserDetails {
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = authorities;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }

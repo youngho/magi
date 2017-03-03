@@ -16,13 +16,13 @@ export class RegisterService {
     }
 
     postRetrieve(data: User) {
-        console.log('service Component post :');
+        this.path = 'user/retrieveRegister';
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
     save(data: User) {
-        this.path = 'insertProgramRegister';
+        this.path = 'user/insertRegister';
         console.log('PATH : ' + this.path);
         return this.api.post(`${this.path}`, data);
     }
