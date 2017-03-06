@@ -1,11 +1,9 @@
-package kr.famos.bets.dutmap;
-
-import kr.famos.com.dto.ProgramHeaderDto;
+package kr.famos.com.dto;
 
 /**
- * Created by yhkim on 2017-02-27.
+ * Created by yhkim on 2017-03-06.
  */
-public class CasiBinDto extends ProgramHeaderDto {
+public class CasiBinDto extends ProgramHeaderDto{
     private int casiSeq              = 0;  //
     private String shotStartTime     = ""; // DUT_MAIN_BIN 시작시간
     private String shotEndTime       = ""; // DUT_MAIN_BIN 종료시간

@@ -16,18 +16,20 @@ import {Component, Injector} from '@angular/core';
                             <sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Filter TESTER"/>
+                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'date'|i18n}}"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Filter PART NAME"/>
+                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'testerModel'|i18n}}"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter PROCESS CODE"/>
+                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'partNumber'|i18n}}"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="PARA"/>
+                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="{{'processCode'|i18n}}"/>
                                     </th>
-                                    <th class="hasinput" [ngStyle]="{width:'17%'}"><input type="text" class="form-control" placeholder="Test MAIN PROGRAM NAME"/>
+                                    <th class="hasinput" [ngStyle]="{width:'8%'}"><input type="text" class="form-control" placeholder="{{'para'|i18n}}"/>
+                                    </th>
+                                    <th class="hasinput" [ngStyle]="{width:'27%'}"><input type="text" class="form-control" placeholder="{{'mainProgramName'|i18n}}"/>
                                     </th>
 
-                                    <th class="hasinput" [ngStyle]="{width:'16%'}">
+                                    <th class="hasinput" [ngStyle]="{width:'25%'}">
                                         <input type="text" class="form-control" placeholder="Filter SBL YIELD"/>
                                     </th>
                                     
@@ -36,13 +38,13 @@ import {Component, Injector} from '@angular/core';
 
                                 <tr>
                                     <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
-                                    <th>TESTER</th>
-                                    <th data-class="expand">PART NAME</th>
-                                    <th>PROCESS CODE</th>
-                                    <th>PARA</th>
-                                    <th>MAIN PROGRAM NAME</th>
-                                    <th>SBL YIELD</th>
-                                    <th>{{'Temperature'|i18n}}</th>
+                                    <th>{{'date'|i18n}}</th>
+                                    <th>{{'testerModel'|i18n}}</th>
+                                    <th data-class="expand">{{'partNumber'|i18n}}</th>
+                                    <th>{{'processCode'|i18n}}</th>
+                                    <th>{{'para'|i18n}}</th>
+                                    <th>{{'mainProgramName'|i18n}}</th>
+                                    <th>{{'sblYieldLimit'|i18n}}</th>
                                 </tr>
                                 </thead>
 

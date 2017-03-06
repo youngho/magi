@@ -7,70 +7,46 @@ package kr.famos.bets.basisInformation.programRegister.dto;
  * 테스트 장비와 테스트 프로그램에 대한 정보
  */
 public class ProgramRegisterDto {
-    private String productName            = ""; // eMCP 16G16G
-    private String partNumber             = ""; // H9TQ17ABJTA-CUR
-    private String customer               = ""; // 판매처
-    private String packageType            = ""; // 221FBGA
-    private String processCode            = ""; // T0350
-    private String testerModel            = ""; // T5503
-    private String mainProgramName        = ""; // ABCD1234
-    private int temperature            = 0; // 85/-30
-    private int temperatureGuard          = 0;  // TEMPERATURE GUARDBAND
-    private String sblYieldLimit          = ""; // 95
-    private String sblSubbinANumber       = ""; // 110
-    private String sblSubbinALimitPercent = ""; // 3
-    private String sblSubbinALimitCount   = ""; // 1
-    private String sblSubbinBNumber       = ""; // 128
-    private String sblSubbinBLimitPercent = ""; // 5
-    private String sblSubbinBLimitCount   = ""; // 3
-    private String functionKey            = ""; // 스위치 16개의 값 Y/N
-    private String fab                    = ""; // M1
-    private String grade                  = ""; // HQ
-    private String programVersion         = ""; // 1
-    private String firmwareVersion        = ""; // 1.01
-    private String testerOsVersion        = ""; // A.10D
-    private String para                   = ""; // 256개, 소켓개수
-    private String firmwareName           = ""; // 펌웨어 이름
-    private String operatorId             = ""; //
-    private String sysDate                = ""; //
-    private String sysDateStart           = ""; //
-    private String sysDateEnd             = ""; //
-    private String dutMap                 = ""; // DDR_256, NAND_512
-    private String sysUser                = ""; //
-    private String modifyUser             = ""; //
-    private String binDescription         = ""; //
-    private String modifyDate             = ""; //
 
-    public String getProductName() {
-        return productName;
+    private String testerModel          = ""; // TESTER 번호
+    private String processCode          = ""; // T0350
+    private String partNumber           = ""; // H9TQ17ABJTA-CUR
+    private String mainProgramName      = ""; // TEST PROGRAM NAME
+    private String grade                = ""; // 제품 품질 설정
+    private String fab                  = ""; // WAFER 제조 공장 번호
+    private String firmwareName         = ""; // 펌웨어 이름(MAGNUM5만 적용)
+    private String firmwareVersion      = ""; // 펌웨어 버전(MAGNUM5만 적용)
+    private String functionKey          = ""; // 스위치 16개의 값 Y/N
+    private int temperature             = 0;  // TEST 온도
+    private int temperatureGuard        = 0;  // TEMPERATURE GUARDBAND
+    private String sblYieldLimit        = ""; // 95
+    private String sblSubBinaNumber     = ""; // 110
+    private String sblSubBinaLimitLimit = ""; // 3
+    private String sblSubBinaLimitCount = ""; // 1
+    private String sblSubBinbNumber     = ""; // 128
+    private String sblSubBinbLimitLimit = ""; // 5
+    private String sblSubBinbLimitCount = ""; // 3
+    private String sblBin9Counter       = ""; // OPBIN BIN9 개수
+    private String productName          = ""; // eMCP 16G16G
+    private String customer             = ""; // 판매처
+    private String packageType          = ""; // 221FBGA
+    private String programVersion       = ""; // TEST PROGRAM VERSION
+    private String testerOsVersion      = ""; // TESTER_MODEL OS VERSION
+    private String para                 = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
+    private String dutMap               = ""; // HANDLER의 DUT 배열에 FILE NAME
+    private String binDescription       = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+    private String programDirectory     = ""; // Test Program 저장 경로
+    private String createUser           = ""; // 최초생성 ID
+    private String createDate           = ""; // 생성일시
+    private String modifyUser           = ""; // 수정 ID
+    private String modifyDate           = ""; // 수정일시
+
+    public String getTesterModel() {
+        return testerModel;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public String getPartNumber() {
-        return partNumber;
-    }
-
-    public void setPartNumber(String partNumber) {
-        this.partNumber = partNumber;
-    }
-
-    public String getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(String customer) {
-        this.customer = customer;
-    }
-
-    public String getPackageType() {
-        return packageType;
-    }
-
-    public void setPackageType(String packageType) {
-        this.packageType = packageType;
+    public void setTesterModel(String testerModel) {
+        this.testerModel = testerModel;
     }
 
     public String getProcessCode() {
@@ -81,12 +57,12 @@ public class ProgramRegisterDto {
         this.processCode = processCode;
     }
 
-    public String getTesterModel() {
-        return testerModel;
+    public String getPartNumber() {
+        return partNumber;
     }
 
-    public void setTesterModel(String testerModel) {
-        this.testerModel = testerModel;
+    public void setPartNumber(String partNumber) {
+        this.partNumber = partNumber;
     }
 
     public String getMainProgramName() {
@@ -95,6 +71,46 @@ public class ProgramRegisterDto {
 
     public void setMainProgramName(String mainProgramName) {
         this.mainProgramName = mainProgramName;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getFab() {
+        return fab;
+    }
+
+    public void setFab(String fab) {
+        this.fab = fab;
+    }
+
+    public String getFirmwareName() {
+        return firmwareName;
+    }
+
+    public void setFirmwareName(String firmwareName) {
+        this.firmwareName = firmwareName;
+    }
+
+    public String getFirmwareVersion() {
+        return firmwareVersion;
+    }
+
+    public void setFirmwareVersion(String firmwareVersion) {
+        this.firmwareVersion = firmwareVersion;
+    }
+
+    public String getFunctionKey() {
+        return functionKey;
+    }
+
+    public void setFunctionKey(String functionKey) {
+        this.functionKey = functionKey;
     }
 
     public int getTemperature() {
@@ -121,76 +137,84 @@ public class ProgramRegisterDto {
         this.sblYieldLimit = sblYieldLimit;
     }
 
-    public String getSblSubbinANumber() {
-        return sblSubbinANumber;
+    public String getSblSubBinaNumber() {
+        return sblSubBinaNumber;
     }
 
-    public void setSblSubbinANumber(String sblSubbinANumber) {
-        this.sblSubbinANumber = sblSubbinANumber;
+    public void setSblSubBinaNumber(String sblSubBinaNumber) {
+        this.sblSubBinaNumber = sblSubBinaNumber;
     }
 
-    public String getSblSubbinALimitPercent() {
-        return sblSubbinALimitPercent;
+    public String getSblSubBinaLimitLimit() {
+        return sblSubBinaLimitLimit;
     }
 
-    public void setSblSubbinALimitPercent(String sblSubbinALimitPercent) {
-        this.sblSubbinALimitPercent = sblSubbinALimitPercent;
+    public void setSblSubBinaLimitLimit(String sblSubBinaLimitLimit) {
+        this.sblSubBinaLimitLimit = sblSubBinaLimitLimit;
     }
 
-    public String getSblSubbinALimitCount() {
-        return sblSubbinALimitCount;
+    public String getSblSubBinaLimitCount() {
+        return sblSubBinaLimitCount;
     }
 
-    public void setSblSubbinALimitCount(String sblSubbinALimitCount) {
-        this.sblSubbinALimitCount = sblSubbinALimitCount;
+    public void setSblSubBinaLimitCount(String sblSubBinaLimitCount) {
+        this.sblSubBinaLimitCount = sblSubBinaLimitCount;
     }
 
-    public String getSblSubbinBNumber() {
-        return sblSubbinBNumber;
+    public String getSblSubBinbNumber() {
+        return sblSubBinbNumber;
     }
 
-    public void setSblSubbinBNumber(String sblSubbinBNumber) {
-        this.sblSubbinBNumber = sblSubbinBNumber;
+    public void setSblSubBinbNumber(String sblSubBinbNumber) {
+        this.sblSubBinbNumber = sblSubBinbNumber;
     }
 
-    public String getSblSubbinBLimitPercent() {
-        return sblSubbinBLimitPercent;
+    public String getSblSubBinbLimitLimit() {
+        return sblSubBinbLimitLimit;
     }
 
-    public void setSblSubbinBLimitPercent(String sblSubbinBLimitPercent) {
-        this.sblSubbinBLimitPercent = sblSubbinBLimitPercent;
+    public void setSblSubBinbLimitLimit(String sblSubBinbLimitLimit) {
+        this.sblSubBinbLimitLimit = sblSubBinbLimitLimit;
     }
 
-    public String getSblSubbinBLimitCount() {
-        return sblSubbinBLimitCount;
+    public String getSblSubBinbLimitCount() {
+        return sblSubBinbLimitCount;
     }
 
-    public void setSblSubbinBLimitCount(String sblSubbinBLimitCount) {
-        this.sblSubbinBLimitCount = sblSubbinBLimitCount;
+    public void setSblSubBinbLimitCount(String sblSubBinbLimitCount) {
+        this.sblSubBinbLimitCount = sblSubBinbLimitCount;
     }
 
-    public String getFunctionKey() {
-        return functionKey;
+    public String getSblBin9Counter() {
+        return sblBin9Counter;
     }
 
-    public void setFunctionKey(String functionKey) {
-        this.functionKey = functionKey;
+    public void setSblBin9Counter(String sblBin9Counter) {
+        this.sblBin9Counter = sblBin9Counter;
     }
 
-    public String getFab() {
-        return fab;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setFab(String fab) {
-        this.fab = fab;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public String getGrade() {
-        return grade;
+    public String getCustomer() {
+        return customer;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+
+    public String getPackageType() {
+        return packageType;
+    }
+
+    public void setPackageType(String packageType) {
+        this.packageType = packageType;
     }
 
     public String getProgramVersion() {
@@ -199,14 +223,6 @@ public class ProgramRegisterDto {
 
     public void setProgramVersion(String programVersion) {
         this.programVersion = programVersion;
-    }
-
-    public String getFirmwareVersion() {
-        return firmwareVersion;
-    }
-
-    public void setFirmwareVersion(String firmwareVersion) {
-        this.firmwareVersion = firmwareVersion;
     }
 
     public String getTesterOsVersion() {
@@ -225,30 +241,6 @@ public class ProgramRegisterDto {
         this.para = para;
     }
 
-    public String getFirmwareName() {
-        return firmwareName;
-    }
-
-    public void setFirmwareName(String firmwareName) {
-        this.firmwareName = firmwareName;
-    }
-
-    public String getOperatorId() {
-        return operatorId;
-    }
-
-    public void setOperatorId(String operatorId) {
-        this.operatorId = operatorId;
-    }
-
-    public String getSysDate() {
-        return sysDate;
-    }
-
-    public void setSysDate(String sysDate) {
-        this.sysDate = sysDate;
-    }
-
     public String getDutMap() {
         return dutMap;
     }
@@ -257,12 +249,36 @@ public class ProgramRegisterDto {
         this.dutMap = dutMap;
     }
 
-    public String getSysUser() {
-        return sysUser;
+    public String getBinDescription() {
+        return binDescription;
     }
 
-    public void setSysUser(String sysUser) {
-        this.sysUser = sysUser;
+    public void setBinDescription(String binDescription) {
+        this.binDescription = binDescription;
+    }
+
+    public String getProgramDirectory() {
+        return programDirectory;
+    }
+
+    public void setProgramDirectory(String programDirectory) {
+        this.programDirectory = programDirectory;
+    }
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public String getModifyUser() {
@@ -271,14 +287,6 @@ public class ProgramRegisterDto {
 
     public void setModifyUser(String modifyUser) {
         this.modifyUser = modifyUser;
-    }
-
-    public String getBinDescription() {
-        return binDescription;
-    }
-
-    public void setBinDescription(String binDescription) {
-        this.binDescription = binDescription;
     }
 
     public String getModifyDate() {

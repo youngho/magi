@@ -40,45 +40,4 @@
             </if>
         </where>
     </select>
-
-    <insert id="insertBinCasiBin" parameterType="kr.famos.bets.dutmap.CasiBinDto">
-        MERGE INTO BIN_DESCRIPTION USING DUAL ON (PART_NUMBER=#{partNumber} AND MAIN_PROGRAM_NAME=#{mainProgramName} AND PROCESS_CODE=#{processCode} AND TESTER_MODEL=#{testerModel})
-        WHEN MATCHED THEN
-        UPDATE
-        <trim prefix="SET" suffixOverrides=",">
-                ITEM_NAME=#{itemName},
-            <if test ="mainBin!=null and mainBin!=''">
-                MAIN_BIN=#{mainBin},
-            </if>
-            <if test ="subBin!=null and subBin!=''">
-                SUB_BIN=#{subBin},
-            </if>
-            <if test ="ngBin!=null and ngBin!=''">
-                NG_BIN=#{ngBin},
-            </if>
-        </trim>
-        WHEN NOT MATCHED THEN
-        INSERT
-        (
-        PART_NUMBER,
-        MAIN_PROGRAM_NAME,
-        PROCESS_CODE,
-        TESTER_MODEL,
-        ITEM_NAME,
-        MAIN_BIN,
-        SUB_BIN,
-        NG_BIN
-        )
-        VALUES
-        (
-        #{partNumber},
-        #{mainProgramName},
-        #{processCode},
-        #{testerModel},
-        #{itemName},
-        #{mainBin},
-        #{subBin},
-        #{ngBin}
-        )
-    </insert>
 </mapper>

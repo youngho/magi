@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.bets.dao.MbtYieldHistDao">
-    <select id="retrieveMbtYieldHist" parameterType="String" resultType="kr.famos.bets.domain.MbtYieldHist">
-      SELECT * FROM MBT_YIELD_HIST WHERE ROWNUM = 1
-    </select>
-</mapper>

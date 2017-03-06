@@ -34,7 +34,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     private data : ProgramRegister = new ProgramRegister();
 
     tableForm: FormGroup;
-    product: FormControl;
+    productName: FormControl;
     partNumber: FormControl;
     customer: FormControl;
     packageType: FormControl;
@@ -43,12 +43,12 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     mainProgramName: FormControl;
     temperature: FormControl;
     sblYieldLimit: FormControl;
-    sblSubbinANumber: FormControl;
-    sblSubbinALimitPercent: FormControl;
-    sblSubbinALimitCount: FormControl;
-    sblSubbinBNumber: FormControl;
-    sblSubbinBLimitPercent: FormControl;
-    sblSubbinBLimitCount: FormControl;
+    sblSubBinaNumber: FormControl;
+    sblSubBinaLimitLimit: FormControl;
+    sblSubBinaLimitCount: FormControl;
+    sblSubBinbNumber: FormControl;
+    sblSubBinbLimitLimit: FormControl;
+    sblSubBinbLimitCount: FormControl;
     functionKey1: FormControl;
     functionKey2: FormControl;
     functionKey3: FormControl;
@@ -83,7 +83,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         // this.data.mainProgramName = 'bi4a96x1';
         // this.data.sblYieldLimit = '95';
 
-        this.product = new FormControl('', [Validators.required, Validators.minLength(10)]);
+        this.productName = new FormControl('', [Validators.required, Validators.minLength(10)]);
         this.partNumber = new FormControl('', [Validators.required, Validators.minLength(11)]);
         this.customer = new FormControl('', [Validators.required, Validators.minLength(12)]);
         this.packageType = new FormControl('', [Validators.required, Validators.minLength(13)]);
@@ -92,12 +92,12 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         this.mainProgramName = new FormControl('', [Validators.required, Validators.minLength(16)]);
         this.temperature = new FormControl('', [Validators.required, Validators.minLength(17)]);
         this.sblYieldLimit = new FormControl('', [Validators.required, Validators.minLength(18)]);
-        this.sblSubbinANumber = new FormControl('', [Validators.required, Validators.minLength(19)]);
-        this.sblSubbinALimitPercent = new FormControl('', [Validators.required, Validators.minLength(20)]);
-        this.sblSubbinALimitCount = new FormControl('', [Validators.required, Validators.minLength(21)]);
-        this.sblSubbinBNumber = new FormControl('', [Validators.required, Validators.minLength(22)]);
-        this.sblSubbinBLimitPercent = new FormControl('', [Validators.required, Validators.minLength(23)]);
-        this.sblSubbinBLimitCount = new FormControl('', [Validators.required, Validators.minLength(24)]);
+        this.sblSubBinaNumber = new FormControl('', [Validators.required, Validators.minLength(19)]);
+        this.sblSubBinaLimitLimit = new FormControl('', [Validators.required, Validators.minLength(20)]);
+        this.sblSubBinaLimitCount = new FormControl('', [Validators.required, Validators.minLength(21)]);
+        this.sblSubBinbNumber = new FormControl('', [Validators.required, Validators.minLength(22)]);
+        this.sblSubBinbLimitLimit = new FormControl('', [Validators.required, Validators.minLength(23)]);
+        this.sblSubBinbLimitCount = new FormControl('', [Validators.required, Validators.minLength(24)]);
         this.functionKey1 = new FormControl('', [Validators.required, Validators.minLength(25)]);
         this.functionKey2 = new FormControl('', [Validators.required, Validators.minLength(26)]);
         this.functionKey3 = new FormControl('', [Validators.required, Validators.minLength(27)]);
@@ -124,7 +124,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         this.sysDate = new FormControl('', [Validators.required, Validators.minLength(46)]);
 
         this.tableForm = fb.group({
-            product: this.product,
+            productName: this.productName,
             partNumber: this.partNumber,
             customer: this.customer,
             packageType: this.packageType,
@@ -133,12 +133,12 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
             mainProgramName: this.mainProgramName,
             temperature: this.temperature,
             sblYieldLimit: this.sblYieldLimit,
-            sblSubbinANumber: this.sblSubbinANumber,
-            sblSubbinALimitPercent: this.sblSubbinALimitPercent,
-            sblSubbinALimitCount: this.sblSubbinALimitCount,
-            sblSubbinBNumber: this.sblSubbinBNumber,
-            sblSubbinBLimitPercent: this.sblSubbinBLimitPercent,
-            sblSubbinBLimitCount: this.sblSubbinBLimitCount,
+            sblSubBinaNumber: this.sblSubBinaNumber,
+            sblSubBinaLimitLimit: this.sblSubBinaLimitLimit,
+            sblSubBinaLimitCount: this.sblSubBinaLimitCount,
+            sblSubBinbNumber: this.sblSubBinbNumber,
+            sblSubBinbLimitLimit: this.sblSubBinbLimitLimit,
+            sblSubBinbLimitCount: this.sblSubBinbLimitCount,
             functionKey1: this.functionKey1,
             functionKey2: this.functionKey2,
             functionKey3: this.functionKey3,
@@ -188,7 +188,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     }
 
     saveLastTableForm() {
-        console.log("testerModel : " + this.data.sysDateStart);
+        console.log("createDateStart : " + this.data.createDateStart);
         console.log("testerModel : " + this.data.testerModel);
         console.log("partNumber : " + this.data.partNumber);
         console.log("processCode : " + this.data.processCode);
@@ -206,13 +206,13 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                                 data: apps,
                                 //select: { style: 'single'},
                                 columns: [
+                                    {data: 'createDate'},
                                     {data: 'testerModel'},
                                     {data: 'partNumber'},
                                     {data: 'processCode'},
                                     {data: 'para'},
                                     {data: 'mainProgramName'},
                                     {data: 'sblYieldLimit'},
-                                    {data: 'temperature'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;
@@ -234,6 +234,24 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                 error => this.errorMessage = error);
     }
     saveForm(f) {
+        f.functionKey =
+        f.functionKey1 +
+        f.functionKey2 +
+        f.functionKey3 +
+        f.functionKey4 +
+        f.functionKey5 +
+        f.functionKey6 +
+        f.functionKey7 +
+        f.functionKey8 +
+        f.functionKey9 +
+        f.functionKey10 +
+        f.functionKey11 +
+        f.functionKey12 +
+        f.functionKey13 +
+        f.functionKey14 +
+        f.functionKey15 +
+        f.functionKey16l;
+
         console.log(this.tableForm.value);
         console.log('submitting LastTable form @' + this.tableForm);
 
@@ -284,11 +302,11 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     }
 
     onSelectDateFrom(strDate: string) {
-        this.data.sysDateStart = strDate;
+        this.data.createDateStart = strDate;
     }
 
     onSelectDateTo(strDate: string) {
-        this.data.sysDateEnd = strDate;
+        this.data.createDateEnd = strDate;
     }
 
     ngOnInit() {

@@ -2,39 +2,41 @@
  * Created by yhkim on 2017-02-17.
  */
 export class ProgramRegister {
-    productName: string;
-    partNumber: string;
-    customer: string;
-    packageType: string;
-    processCode: string;
     testerModel: string;
+    processCode: string;
+    partNumber: string;
     mainProgramName: string;
+    grade: string;
+    fab: string;
+    firmwareName: string;
+    firmwareVersion: string;
+    functionKey: string;
     temperature: string;
     temperatureGuard: string;
     sblYieldLimit: string;
-    sblSubbinANumber: string;
-    sblSubbinALimitPercent: string;
-    sblSubbinALimitCount: string;
-    sblSubbinBNumber: string;
-    sblSubbinBLimitPercent: string;
-    sblSubbinBLimitCount: string;
-    functionKey: string;
-    fab: string;
-    grade: string;
+    sblSubBinaNumber: string;
+    sblSubBinaLimitLimit: string;
+    sblSubBinaLimitCount: string;
+    sblSubBinbNumber: string;
+    sblSubBinbLimitLimit: string;
+    sblSubBinbLimitCount: string;
+    sblBin9Counter: string;
+    productName: string;
+    customer: string;
+    packageType: string;
     programVersion: string;
-    firmwareVersion: string;
     testerOsVersion: string;
     para: string;
-    firmwareName: string;
-    operatorId: string;
-    sysDate: string;
-    sysDateStart: string;
-    sysDateEnd: string;
     dutMap: string;
-    sysUser: string;
-    modifyUser: string;
     binDescription: string;
+    programDirectory: string;
+    createUser: string;
+    createDate: string;
+    modifyUser: string;
     modifyDate: string;
+
+    createDateStart: string;
+    createDateEnd: string;
 
     functionKey1: string;
     functionKey2: string;

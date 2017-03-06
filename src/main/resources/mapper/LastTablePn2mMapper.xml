@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.bets.dao.LastTablePn2mDao">
-    <select id="retrieveLastTablePn2m" parameterType="String" resultType="kr.famos.bets.domain.LastTablePn2m">
-      SELECT * FROM LAST_TABLE_PN2M WHERE ROWNUM <![CDATA[<]]> 6
-    </select>
-</mapper>

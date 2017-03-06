@@ -12,8 +12,8 @@ export class ApiService {
     'Accept': 'application/json'
   });
 
-  private API_URL: string = 'http://121.185.32.49:8080/';
-  // private API_URL: string = 'http://localhost:8080/';
+  // private API_URL: string = 'http://121.185.32.49:8080/';
+  private API_URL: string = 'http://localhost:8080/';
 
   constructor(private http: Http/*, @Inject(APP_CONFIG) config: AppConfig*/) {
     //this.API_URL = config.apiEndpoint;
@@ -44,6 +44,8 @@ export class ApiService {
   public post(path: string, data: any): Observable<any> {
     console.log('API포스트'+ path);
     let body = JSON.stringify(data);
+    console.log('token : ' + localStorage.getItem('token'));
+    this.setHeader("x-auth-token",localStorage.getItem('token'));
     return this.http.post(`${this.API_URL}${path}`, body, { headers: this.headers })
       //.map(this.extractData)
       .catch(this.handleError);
