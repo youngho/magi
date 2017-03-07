@@ -22,15 +22,15 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
+                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="programRegister.testerModel">
                                         </div>
                                         <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="data.partNumber">
+                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="programRegister.partNumber">
                                         </div>
                                         <label class="col-md-1 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="data.processCode">
+                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="programRegister.processCode">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -73,195 +73,245 @@
                 </button>
                 <h4 class="modal-title">Program register</h4>
             </div>
-            <form class="form-horizontal" [formGroup]="tableForm" (ngSubmit)="saveForm(tableForm.value)" novalidate>
-                <div class="modal-body">
-                    <fieldset>
-                        <!--<legend>Last TABLED efault Form Elements</legend>-->
-                        <div class="form-group">
-                            <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="partNumber">
-                            </div>
-                            <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="processCode">
-                            </div>
-                            <label class="col-md-1 control-label">{{'productName'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="productName">
-                            </div>
-                            <label class="col-md-1 control-label">{{'packageType'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="packageType">
-                            </div>
+            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" [saUiValidate]="validationOptions" novalidate="novalidate" >
+                <fieldset>
+                    <!--<legend>Last TABLED efault Form Elements</legend>-->
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">{{'partNumber'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="partNumber" name="partNumber" placeholder="" [(ngModel)]="programRegister.partNumber" required>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="customer">
-                            </div>
-                            <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="testerModel">
-                            </div>
-                            <label class="col-md-1 control-label">{{'mainProgramName'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="mainProgramName">
-                            </div>
-                            <label class="col-md-1 control-label">{{'temperature'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="temperature">
-                            </div>
+                        <!--
+                                                                <div [hidden]="partNumber.valid || partNumber.pristine" class="alert alert-danger">
+                                                                    partNumber is required
+                                                                </div>
+                        -->
+                        <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="processCode" name="processCode" placeholder="" [(ngModel)]="programRegister.processCode">
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-1 control-label">{{'sblYieldLimit'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="sblYieldLimit">
-                            </div>
-                            <label class="col-md-1 control-label">{{'sblSubBinaNumber'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="YYYY-MM-DD" type="text" formControlName="sblSubBinaNumber">
-                            </div>
-
-                            <label class="col-md-1 control-label">{{'sblSubBinaLimitLimit'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="sblSubBinaLimitLimit">
-                            </div>
-
-                            <label class="col-md-1 control-label">{{'sblSubBinaLimitCount'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="sblSubBinaLimitCount">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-1 control-label">{{'sblSubBinbNumber'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="sblSubBinbNumber">
-                            </div>
-                            <label class="col-md-1 control-label">{{'sblSubBinbLimitLimit'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="sblSubBinbLimitLimit">
-                            </div>
-
-                            <label class="col-md-1 control-label">{{'sblSubBinbLimitCount'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="sblSubBinbLimitCount">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-1 control-label">{{'fab'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="fab">
-                            </div>
-                            <label class="col-md-1 control-label">{{'grade'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="grade">
-                            </div>
-                            <label class="col-md-1 control-label">{{'programVersion'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="programVersion">
-                            </div>
-
-                            <label class="col-md-1 control-label">{{'firmwareVersion'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="firmwareVersion">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-1 control-label">{{'Firmware Name'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="firmwareName">
-                            </div>
-                            <label class="col-md-1 control-label">{{'testerOsVersion'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="testerOsVersion">
-                            </div>
-                            <label class="col-md-1 control-label">{{'parallel'|i18n}}</label>
-                            <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="parallel">
-                            </div>
-                        </div>
-                        <!--FunctionKey Group-->
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey1">
-                                    <span>{{'functionKey1'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey2">
-                                    <span>{{'functionKey2'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey3">
-                                    <span>{{'functionKey3'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey4">
-                                    <span>{{'functionKey4'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey5">
-                                    <span>{{'functionKey5'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey6">
-                                    <span>{{'functionKey6'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey7">
-                                    <span>{{'functionKey7'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey8">
-                                    <span>{{'functionKey8'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey9">
-                                    <span>{{'functionKey9'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey10">
-                                    <span>{{'functionKey10'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey11">
-                                    <span>{{'functionKey11'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey12">
-                                    <span>{{'functionKey12'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey13">
-                                    <span>{{'functionKey13'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey14">
-                                    <span>{{'functionKey14'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey15">
-                                    <span>{{'functionKey15'|i18n}}</span>
-                                </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" class="checkbox style-3" formControlName="functionKey16">
-                                    <span>{{'functionKey16'|i18n}}</span>
-                                </label>
-                            </div>
+                        <label class="col-md-1 control-label">{{'product'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="product" name="product" placeholder="" [(ngModel)]="programRegister.product">
                         </div>
 
+                        <label class="col-md-1 control-label">{{'packageType'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="packageType" name="packageType" placeholder="" [(ngModel)]="programRegister.packageType">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">{{'temperature'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="number" class="form-control" id="temperature" name="temperature" placeholder="" [(ngModel)]="programRegister.temperature">
+                        </div>
+                        <label class="col-md-1 control-label">{{'customer'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="customer" name="customer" placeholder="" [(ngModel)]="programRegister.customer">
+                        </div>
+                        <label class="col-md-1 control-label">{{'temperatureGuard'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="temperatureGuard" name="temperatureGuard" placeholder="" [(ngModel)]="programRegister.temperatureGuard">
+                        </div>
+                        <label class="col-md-1 control-label">{{'sblYieldLimit'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="sblYieldLimit" name="sblYieldLimit" placeholder="" [(ngModel)]="programRegister.sblYieldLimit">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">{{'mainProgramName'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" maxlength="30" class="form-control" id="mainProgramName" name="mainProgramName" placeholder="" [(ngModel)]="programRegister.mainProgramName">
+                        </div>
+                        <label class="col-md-1 control-label">{{'sblSubbinALimitCount'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="sblSubBinaLimitCount" name="sblSubBinaLimitCount" placeholder="" [(ngModel)]="programRegister.sblSubBinaLimitCount">
+                        </div>
+                        <label class="col-md-1 control-label">{{'fab'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="fab" name="fab" placeholder="" [(ngModel)]="programRegister.fab">
+                        </div>
+                        <label class="col-md-1 control-label">{{'sblSubBinaLimitLimit'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="sblSubBinaLimitLimit" name="sblSubBinaLimitLimit" placeholder="" [(ngModel)]="programRegister.sblSubBinaLimitLimit">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">{{'grade'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="grade" name="grade" placeholder="" [(ngModel)]="programRegister.grade">
+                        </div>
+                        <label class="col-md-1 control-label">{{'sblSubbinBLimitCount'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="sblSubBinbLimitCount" name="sblSubBinbLimitCount" placeholder="" [(ngModel)]="programRegister.sblSubBinbLimitCount">
+                        </div>
+                        <label class="col-md-1 control-label">{{'firmwareName'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="firmwareName" name="firmwareName" placeholder="" [(ngModel)]="programRegister.firmwareName">
+                        </div>
+                        <label class="col-md-1 control-label">{{'sblSubBinbLimitLimit'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="sblSubBinbLimitLimit" name="sblSubBinbLimitLimit" sblSubBinbLimitLimit="" [(ngModel)]="programRegister.sblSubBinbLimitLimit">
+                        </div>
+                    </div>
 
-                    </fieldset>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">{{'firmwareVersion'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="firmwareVersion" name="firmwareVersion" placeholder="" [(ngModel)]="programRegister.firmwareVersion">
+                        </div>
+                        <label class="col-md-1 control-label">{{'sblBin9Count '|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="sblBin9Count" name="sblBin9Count" placeholder="" [(ngModel)]="programRegister.sblBin9Counter">
+                        </div>
+                        <label class="col-md-1 control-label">{{'testerModel'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="testerModel" name="testerModel" placeholder="" [(ngModel)]="programRegister.testerModel">
+                        </div>
+                        <label class="col-md-1 control-label">{{'sblBin9Limit'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="sblBin9Limit" name="sblBin9Limit" placeholder="" [(ngModel)]="programRegister.sblBin9Limit">
+                        </div>
+                    </div>
 
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" (click)="lgModal.hide()">
-                            Cancel
-                        </button>
-                        <button type="button" class="btn btn-primary" type="submit">
-                            <i class="fa fa-save"></i>
-                            {{'save'|i18n}}
-                        </button>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">{{'testerOsVersion'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="testerOsVersion" name="testerOsVersion" placeholder="" [(ngModel)]="programRegister.testerOsVersion">
+                        </div>
+                        <label class="col-md-1 control-label">{{'dutMap '|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="dutMap" name="dutMap" placeholder="" [(ngModel)]="programRegister.dutMap">
+                        </div>
+                        <label class="col-md-1 control-label">{{'programVersion'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="programVersion" name="programVersion" placeholder="" [(ngModel)]="programRegister.programVersion">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">{{'programDirectory'|i18n}}</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="programDirectory" name="programDirectory" placeholder="" [(ngModel)]="programRegister.programDirectory">
+                        </div>
+                    </div>
+
+                    <!--FunctionKey Group-->
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey1" name="functionKey1" [(ngModel)]="programRegister.functionKey1">
+                                <span>{{'functionKey1'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey2" name="functionKey2" [(ngModel)]="programRegister.functionKey2">
+                                <span>{{'functionKey2'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey3" name="functionKey3" [(ngModel)]="programRegister.functionKey3">
+                                <span>{{'functionKey3'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey4" name="functionKey4" [(ngModel)]="programRegister.functionKey4">
+                                <span>{{'functionKey4'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey5" name="functionKey5" [(ngModel)]="programRegister.functionKey5">
+                                <span>{{'functionKey5'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey6" name="functionKey6" [(ngModel)]="programRegister.functionKey6">
+                                <span>{{'functionKey6'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey7" name="functionKey7" [(ngModel)]="programRegister.functionKey7">
+                                <span>{{'functionKey7'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey8" name="functionKey8" [(ngModel)]="programRegister.functionKey8">
+                                <span>{{'functionKey8'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey9" name="functionKey9" [(ngModel)]="programRegister.functionKey9">
+                                <span>{{'functionKey9'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey10" name="functionKey10" [(ngModel)]="programRegister.functionKey10">
+                                <span>{{'functionKey10'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey11" name="functionKey11" [(ngModel)]="programRegister.functionKey11">
+                                <span>{{'functionKey11'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey12" name="functionKey12" [(ngModel)]="programRegister.functionKey12">
+                                <span>{{'functionKey12'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey13" name="functionKey13" [(ngModel)]="programRegister.functionKey13">
+                                <span>{{'functionKey13'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey14" name="functionKey14" [(ngModel)]="programRegister.functionKey14">
+                                <span>{{'functionKey14'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey15" name="functionKey15" [(ngModel)]="programRegister.functionKey15">
+                                <span>{{'functionKey15'|i18n}}</span>
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" class="checkbox style-3" id="functionKey16" name="functionKey16" [(ngModel)]="programRegister.functionKey16">
+                                <span>{{'functionKey16'|i18n}}</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription1" name="binDescription1" [(ngModel)]="programRegister.binDescription1">
+                            <span>{{'binDescription1'|i18n}}</span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription2" name="binDescription2" [(ngModel)]="programRegister.binDescription2">
+                            <span>{{'binDescription2'|i18n}}</span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription3" name="binDescription3" [(ngModel)]="programRegister.binDescription3">
+                            <span>{{'binDescription3'|i18n}}</span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription4" name="binDescription4" [(ngModel)]="programRegister.binDescription4">
+                            <span>{{'binDescription4'|i18n}}</span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription5" name="binDescription5" [(ngModel)]="programRegister.binDescription5">
+                            <span>{{'binDescription5'|i18n}}</span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription6" name="binDescription6" [(ngModel)]="programRegister.binDescription6">
+                            <span>{{'binDescription6'|i18n}}</span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription7" name="binDescription7" [(ngModel)]="programRegister.binDescription7">
+                            <span>{{'binDescription7'|i18n}}</span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="checkbox style-3" id="binDescription8" name="binDescription8" [(ngModel)]="programRegister.binDescription8">
+                            <span>{{'binDescription8'|i18n}}</span>
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" class="btn btn-default" (click)="lgModal.hide()">
+                                Cancel
+                            </button>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-save"></i>
+                                Save
+                            </button>
+                        </div>
                     </div>
                 </div>
             </form>

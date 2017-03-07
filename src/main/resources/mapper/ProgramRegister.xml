@@ -42,6 +42,9 @@
             <if test=" processCode != null and processCode != '' ">
                 AND PROCESS_CODE=#{processCode}
             </if>
+            <if test=" createDate != null and createDate != '' ">
+                AND CREATE_DATE=#{createDate}
+            </if>
         </where>
     </select>
 
