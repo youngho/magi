@@ -55,12 +55,12 @@ export class ProgramRegister {
     functionKey15: boolean;
     functionKey16: boolean;
 
-    binDescription1: string;
-    binDescription2: string;
-    binDescription3: string;
-    binDescription4: string;
-    binDescription5: string;
-    binDescription6: string;
-    binDescription7: string;
-    binDescription8: string;
+    binDescription1: boolean;
+    binDescription2: boolean;
+    binDescription3: boolean;
+    binDescription4: boolean;
+    binDescription5: boolean;
+    binDescription6: boolean;
+    binDescription7: boolean;
+    binDescription8: boolean;
 }

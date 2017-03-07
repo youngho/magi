@@ -23,6 +23,7 @@ import {Component, Injector} from '@angular/core';
                                         <th class="hasinput" [ngStyle]="{width:'8%'}"><input type="text" class="form-control" placeholder="{{'para'|i18n}}"/></th>
                                         <th class="hasinput" [ngStyle]="{width:'27%'}"><input type="text" class="form-control" placeholder="{{'mainProgramName'|i18n}}"/></th>
                                         <th class="hasinput" [ngStyle]="{width:'25%'}"><input type="text" class="form-control" placeholder="Filter SBL YIELD"/></th>
+                                        <th class="hasinput" [ngStyle]="{width:'25%'}"><input type="text" class="form-control" placeholder="Filter SBL YIELD"/></th>
                                     </tr>
                                     <tr>
                                         <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->

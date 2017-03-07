@@ -16,24 +16,24 @@ import {Component, Injector} from '@angular/core';
 			<sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
 				<thead>
                     <tr>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Date"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Part Number"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Lot Number"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'partnumber'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'operaterId'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'lotId'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'lotInTime'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'endTime'|i18n}}"/></th>
                         <th class="hasinput"><input type="text" class="form-control" placeholder="Process Code"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'testerModel'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'testerNumber'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'head'|i18n}}"/></th>
                         <th class="hasinput"><input type="text" class="form-control" placeholder="Test Counter"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Tester"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Head"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Board ID"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Test Qty"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Pass Qty"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
-                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'handlerModel'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'boardId'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'mainProgramName'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'sblResult'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'quantity'|i18n}}"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Input"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="PASS"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="{{'yield'|i18n}}"/></th>
                         <th class="hasinput"><input type="text" class="form-control" placeholder="BIN1"/></th>
                         <th class="hasinput"><input type="text" class="form-control" placeholder="BIN2"/></th>
                         <th class="hasinput"><input type="text" class="form-control" placeholder="BIN3"/></th>
@@ -42,7 +42,7 @@ import {Component, Injector} from '@angular/core';
                         <th class="hasinput"><input type="text" class="form-control" placeholder="BIN6"/></th>
                         <th class="hasinput"><input type="text" class="form-control" placeholder="BIN7"/></th>
                         <th class="hasinput"><input type="text" class="form-control" placeholder="BIN8"/></th>
-                        <th class="hasinput"><input type="text" width="4" class="form-control" placeholder="BIN9"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN9"/></th>
                     </tr>
                 
 					<tr>
@@ -58,13 +58,13 @@ import {Component, Injector} from '@angular/core';
 						<th>{{'head'|i18n}}</th>
 						<th>Test Counter</th>
 						<th>{{'handlerModel'|i18n}}</th>
-						<th >Boart ID</th>
+						<th>{{'boardId'|i18n}}</th>
 						<th>{{'mainProgramName'|i18n}}</th>
 						<th>{{'sblResult'|i18n}}</th>
 						<th>{{'quantity'|i18n}}</th>
 						<th >Input</th><!--INPUT: BIN1에서 BIN9까지 합산값-->
 						<th>PASS</th><!--PASS:BIN1에서 BIN4까지 합산값(Test Program Register에 따라 변경될수 있음-->
-						<th>YIELD</th>
+						<th>{{'yield'|i18n}}</th> <!--PASS나누기 INPUT 소수점 2자리까지 표현-->
 						<th [style.width]="'1%'">BIN1</th>
 						<th [style.width]="'1%'">BIN2</th>
 						<th [style.width]="'1%'">BIN3</th>
@@ -77,14 +77,6 @@ import {Component, Injector} from '@angular/core';
 					</tr>
 				</thead>
 
-<!--				<tfoot>
-					<tr>
-						<th>User ID</th>
-						<th>Post ID</th>
-						<th>Title</th>
-						<th>Body</th>
-					</tr>
-				</tfoot>-->
 			</sa-datatable>
 
 		</div>

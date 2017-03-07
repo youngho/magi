@@ -38,7 +38,11 @@
   "BETS User Register": "BETS User Register",
   "reset": "Reset",
   "retrieve": "Retrieve",
+  "save": "Save",
 
+  "operaterId": "Operater Id",
+  "lotId": "Lot Id",
+  "yield": "Yield",
   "testerModel":"Tester Model",
   "testerNumber":"Tester Number",
   "boardId":"Board Id",

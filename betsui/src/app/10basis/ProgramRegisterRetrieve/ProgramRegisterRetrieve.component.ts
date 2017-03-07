@@ -187,13 +187,13 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     }
 
     saveLastTableForm() {
-        console.log("createDateStart : " + this.data.createDateStart);
+        // console.log("createDateStart : " + this.data.createDateStart);
         console.log("testerModel : " + this.data.testerModel);
         console.log("partNumber : " + this.data.partNumber);
         console.log("processCode : " + this.data.processCode);
-        console.log("parallel : " + this.data.para);
-        console.log("mainProgramName : " + this.data.mainProgramName);
-        console.log("sblYieldLimit : " + this.data.sblYieldLimit);
+        // console.log("parallel : " + this.data.para);
+        // console.log("mainProgramName : " + this.data.mainProgramName);
+        // console.log("sblYieldLimit : " + this.data.sblYieldLimit);
 
         this.service.postRetrieve(this.data)
             .subscribe((apps) => {
