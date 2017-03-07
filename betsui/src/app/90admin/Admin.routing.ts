@@ -4,7 +4,7 @@ import {RouterModule, Routes} from "@angular/router";
 export const routes: Routes = [
     {
         path: 'register',
-        loadChildren: 'app/90admin/register/Register.module#RegisterModule',
+        loadChildren: 'app/90admin/register/register.module#RegisterModule',
         data: {pageTitle: 'BETS User Register'}
     }
 ];
