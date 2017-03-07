@@ -55,6 +55,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retireveLotYield").permitAll()
                 //.antMatchers("/retireveLotYield").hasAuthority("ADMIN")
                 .antMatchers("/retrieveProgramRegister").hasAuthority("ADMIN")
+                .antMatchers("/retrieveProgramRegisterByKey").hasAuthority("ADMIN")
                 .antMatchers("/insertProgramRegister").hasAuthority("ADMIN")
                 .antMatchers("/retrieveRegister").hasAuthority("ADMIN")
                 .anyRequest().authenticated()

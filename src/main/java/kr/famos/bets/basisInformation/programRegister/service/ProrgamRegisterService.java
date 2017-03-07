@@ -26,6 +26,11 @@ public class ProrgamRegisterService {
         return programRegisterDtoList;
     }
 
+    public ProgramRegisterDto retrieveProgramRegisterByKey(ProgramRegisterDto programRegisterDto){
+        ProgramRegisterDto programRegisterDto2 = programRegisterMapper.retrieveProgramRegisterByKey(programRegisterDto);
+        return programRegisterDto2;
+    }
+
     public void insertProgramRegister(ProgramRegisterDto programRegisterDto){
 
         //시스템 시간을 구해서 createDate에 넣는다.

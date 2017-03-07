@@ -39,6 +39,15 @@ public class ProgramRegisterController {
         return new ResponseEntity<List<ProgramRegisterDto>>(prorgamRegisterService.retrieveProgramRegister(programRegisterDto), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/retrieveProgramRegisterByKey", method = RequestMethod.POST)
+    public ResponseEntity<ProgramRegisterDto> retrieveProgramRegisterByKey(@RequestBody ProgramRegisterDto programRegisterDto) {
+
+        logger.debug("ProgramRegisterController -  retrieveProgramRegisterByKey 메소드");
+        logger.debug("Tester Model" + programRegisterDto.getTesterModel());
+
+        return new ResponseEntity<ProgramRegisterDto>(prorgamRegisterService.retrieveProgramRegisterByKey(programRegisterDto), HttpStatus.OK);
+    }
+
 
     @RequestMapping(value = "/insertProgramRegister", method = RequestMethod.POST)
     public void post(@RequestBody ProgramRegisterDto programRegisterDto) {

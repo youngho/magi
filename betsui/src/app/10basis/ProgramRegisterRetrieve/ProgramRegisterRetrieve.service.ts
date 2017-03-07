@@ -15,6 +15,13 @@ export class ProgramRegisterRetrieveService {
     constructor(private api: ApiService) {
     }
 
+    postRetrieveByKey(data) {
+        this.path = 'retrieveProgramRegisterByKey';
+        console.log('service Component post :');
+        console.log('PATH : ' + this.path);
+        return this.api.retrievePost(`${this.path}`, data);
+    }
+
     postRetrieve(data) {
         this.path = 'retrieveProgramRegister';
         console.log('service Component post :');

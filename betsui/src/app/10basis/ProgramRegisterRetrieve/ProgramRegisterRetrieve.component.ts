@@ -51,19 +51,12 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.retrieveCondDto.createDate = info.createDate;
 
-        this.service.postRetrieve(this.retrieveCondDto)
-            .subscribe((response: ProgramRegister) => {
-             //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
-                console.log(JSON.stringify(response));
+        this.service.postRetrieveByKey(this.retrieveCondDto)
+            .subscribe((response) => {
+                //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
+                this.programRegister = ProgramRegister.fromJSON(response);
                 },
                 error => alert(error));
-
-        console.log(this.programRegister.testerModel);
-        console.log(this.programRegister.productName);
-        console.log(this.programRegister.temperature);
-        console.log(this.programRegister.createDate);
-
-        //(<FormControl>this.tableForm.controls['product']).setValue(info.testerModel, { onlySelf: true });
 
         this.bgModel.show(function (info: any) {
             console.log(info.testerModel);

@@ -48,6 +48,53 @@
         </where>
     </select>
 
+    <select id="retrieveProgramRegisterByKey" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto" resultType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
+        SELECT
+            TESTER_MODEL,
+            PROCESS_CODE,
+            PART_NUMBER,
+            MAIN_PROGRAM_NAME,
+            GRADE,
+            FAB,
+            FIRMWARE_NAME,
+            FIRMWARE_VERSION,
+            FUNCTION_KEY,
+            TEMPERATURE,
+            TEMPERATURE_GUARD,
+            SBL_YIELD_LIMIT,
+            SBL_BIN9_COUNTER,
+            PRODUCT_NAME,
+            CUSTOMER,
+            PACKAGE_TYPE,
+            PROGRAM_VERSION,
+            TESTER_OS_VERSION,
+            PARA,
+            DUT_MAP,
+            BIN_DESCRIPTION,
+            PROGRAM_DIRECTORY,
+            CREATE_USER,
+            CREATE_DATE,
+            MODIFY_USER,
+            MODIFY_DATE
+        FROM
+            PROGRAM_REGISTER
+        <where>
+            1 = 1
+            <if test=" testerModel != null and testerModel != '' ">
+                AND TESTER_MODEL=#{testerModel}
+            </if>
+            <if test=" partNumber != null and partNumber != '' ">
+                AND PART_NUMBER=#{partNumber}
+            </if>
+            <if test=" processCode != null and processCode != '' ">
+                AND PROCESS_CODE=#{processCode}
+            </if>
+            <if test=" createDate != null and createDate != '' ">
+                AND CREATE_DATE=#{createDate}
+            </if>
+        </where>
+    </select>
+
     <insert id="insertProgramRegister" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
         INSERT
         INTO

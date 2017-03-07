@@ -63,4 +63,10 @@ export class ProgramRegister {
     binDescription6: string;
     binDescription7: string;
     binDescription8: string;
+
+    static fromJSON(json: any): ProgramRegister {
+        let object = Object.create(ProgramRegister.prototype);
+        Object.assign(object, json);
+        return object;
+    }
 }

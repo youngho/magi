@@ -13,6 +13,8 @@ public interface ProgramRegisterMapper {
 
     public List<ProgramRegisterDto> retrieveProgramRegister(ProgramRegisterDto programRegisterDto);
 
+    public ProgramRegisterDto retrieveProgramRegisterByKey(ProgramRegisterDto programRegisterDto);
+
     public void insertProgramRegister(ProgramRegisterDto programRegisterDto);
 
 }
