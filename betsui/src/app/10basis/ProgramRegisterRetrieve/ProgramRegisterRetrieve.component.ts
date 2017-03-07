@@ -116,7 +116,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
 
         // console.log(this.tableForm.value);
         // console.log('submitting LastTable form @' + this.tableForm);
-
+        this.programRegister.createUser = localStorage.getItem('loginId');  //브라우저의 localStorage 에서 로그인 아이디를 가져와 저장시 넘긴다.
         this.smartModEg1();
 
 
