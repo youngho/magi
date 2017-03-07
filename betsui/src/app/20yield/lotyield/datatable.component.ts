@@ -15,80 +15,56 @@ import {Component, Injector} from '@angular/core';
 
 			<sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
 				<thead>
-				<tr>
-                  <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Date"/>
-                  </th>
-                  <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Part Number"/>
-                  </th>
-                  <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Lot Number"/>
-                  </th>
-                  <th class="hasinput"><input type="text" class="form-control" placeholder="Process Code"/>
-                  </th>
-                  <th class="hasinput"><input type="text" class="form-control" placeholder="Test Counter"/>
-                  </th>
-
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="Tester"/>
-                  </th>                  
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="Head"/>
-                  </th>                  
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="Board ID"/>
-                  </th>                  
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="Test Qty"/>
-                  </th>                  
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="Pass Qty"/>
-                  </th>                  
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="Lot Yield"/>
-                  </th>                  
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN1"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN2"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN3"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN4"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN5"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN6"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN7"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" class="form-control" placeholder="BIN8"/>
-                  </th>
-                  <th class="hasinput">
-                    <input type="text" width="4" class="form-control" placeholder="BIN9"/>
-                  </th>
-                </tr>
-                
-                
+                    <tr>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Date"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Part Number"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Lot Number"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Process Code"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Test Counter"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Tester"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Head"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Board ID"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Test Qty"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Pass Qty"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="Lot Yield"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN1"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN2"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN3"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN4"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN5"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN6"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN7"/></th>
+                        <th class="hasinput"><input type="text" class="form-control" placeholder="BIN8"/></th>
+                        <th class="hasinput"><input type="text" width="4" class="form-control" placeholder="BIN9"/></th>
+                    </tr>
                 
 					<tr>
 						<!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
-						<th [style.width]="'8%'">Date</th>
-						<th [style.width]="'16%'" data-class="expand" >Part Number</th>
-						<th>Lot Number</th>
+						<th [style.width]="'8%'">{{'partnumber'|i18n}}</th>
+						<th [style.width]="'16%'" data-class="expand" >{{'operaterId'|i18n}}</th>
+						<th>{{'lotId'|i18n}}</th>
+						<th>{{'lotInTime'|i18n}}</th>
+						<th>{{'endTime'|i18n}}</th>
 						<th >Process Code</th>
+						<th>{{'testerModel'|i18n}}</th>
+						<th>{{'testerNumber'|i18n}}</th>
+						<th>{{'head'|i18n}}</th>
 						<th>Test Counter</th>
-						<th>Tester</th>
-						<th>Tester Head</th>
+						<th>{{'handlerModel'|i18n}}</th>
 						<th >Boart ID</th>
-						<th >Test Qty</th>
-						<th >PassQty,</th>
-						<th >Lot Yield</th>
+						<th>{{'mainProgramName'|i18n}}</th>
+						<th>{{'sblResult'|i18n}}</th>
+						<th>{{'quantity'|i18n}}</th>
+						<th >Input</th><!--INPUT: BIN1에서 BIN9까지 합산값-->
+						<th>PASS</th><!--PASS:BIN1에서 BIN4까지 합산값(Test Program Register에 따라 변경될수 있음-->
+						<th>YIELD</th>
 						<th [style.width]="'1%'">BIN1</th>
 						<th [style.width]="'1%'">BIN2</th>
 						<th [style.width]="'1%'">BIN3</th>

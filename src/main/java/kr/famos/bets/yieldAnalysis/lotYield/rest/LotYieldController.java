@@ -1,7 +1,7 @@
 package kr.famos.bets.yieldAnalysis.lotYield.rest;
 
-import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldDao;
-import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYield;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldDto;
+import kr.famos.bets.yieldAnalysis.lotYield.mapper.LotYieldMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +22,12 @@ public class LotYieldController {
     private static final Logger logger = LoggerFactory.getLogger(LotYieldController.class);
 
     @Autowired
-    private LotYieldDao lotYieldDao;
+    private LotYieldMapper lotYieldMapper;
 
     @RequestMapping(value = "/retireveLotYield", method = RequestMethod.POST)
-    public ResponseEntity<List<LotYield>> retireveLotYield(@RequestBody LotYield lotYield) {
+    public ResponseEntity<List<LotYieldDto>> retireveLotYield(@RequestBody LotYieldDto lotYield) {
         logger.debug("LotYieldController - retireveLotYield 메소드");
 
-        return new ResponseEntity<List<LotYield>>(lotYieldDao.retrieveLotYield(lotYield), HttpStatus.OK);
+        return new ResponseEntity<List<LotYieldDto>>(lotYieldMapper.retrieveLotYield(lotYield), HttpStatus.OK);
     }
 }

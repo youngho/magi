@@ -16,7 +16,7 @@ export class lotyieldService {
 
 
     postLastTable(data: Lotyield) {
-        console.log('saving post:' + data.lotNumber);
+        console.log('saving post:' + data.lotId);
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }

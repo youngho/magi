@@ -138,9 +138,17 @@
 
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Date From'|i18n}}</label>
-                                        <div class="col-md-2"><ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker></div>
+                                        <div class="col-md-2">
+                                            <ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>
+                                        </div>
                                         <label class="col-md-1 control-label">{{'Date to'|i18n}}</label>
-                                        <div class="col-md-2"><ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker></div>
+                                        <div class="col-md-2">
+                                            <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'Bin Selection'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="BIN Select" type="text">
+                                        </div>
                                     </div>
 
 
@@ -148,61 +156,58 @@
                                         <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partnumberName">
-                                        </div>
-
-                                        <label class="col-md-1 control-label">{{'Lot Number'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot Number" type="text"
-                                                   [(ngModel)]="data.lotNumber">
+                                                   [(ngModel)]="data.partNumber">
                                         </div>
 
                                         <label class="col-md-1 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processName">
-                                        </div>
-                                        <label class="col-md-1 control-label">{{'BIN Select'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text">
+                                                   [(ngModel)]="data.processCode">
                                         </div>
 
-                                    </div>
-
-                                    <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Model" type="text"
                                                    [(ngModel)]="data.testerModel">
                                         </div>
-                                        <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester" type="text"
-                                                   [(ngModel)]="data.testerName">
-                                        </div>
 
-                                        <label class="col-md-1 control-label">{{'Tester Counter'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text"
-                                                   [(ngModel)]="data.testCount">
-                                        </div>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">{{'testerNumber'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text"
+                                                   [(ngModel)]="data.testerNumber">
+                                        </div>
                                         <label class="col-md-1 control-label">{{'Tester Head'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Head" type="text"
-                                                   [(ngModel)]="data.testerHead">
+                                                   [(ngModel)]="data.head">
                                         </div>
+                                        <label class="col-md-1 control-label">{{'Tester Counter'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Test Counter" type="text"
+                                                   [(ngModel)]="data.testCounter">
+                                        </div>
+
+
+
 
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'Tester Program'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Program" type="text"
-                                                   [(ngModel)]="data.testerProgram">
+                                            <input class="form-control" placeholder="Lot ID" type="text"
+                                                   [(ngModel)]="data.lotId">
                                         </div>
-                                        <label class="col-md-1 control-label">{{'Tester'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Board ID" type="text"
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
+                                                   [(ngModel)]="data.mainProgramName">
+                                        </div>
+                                        <label class="col-md-1 control-label">{{'boardId'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
                                                    [(ngModel)]="data.boardId">
                                         </div>
                                     </div>
@@ -211,9 +216,13 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <button class="btn btn-default" (click)="resetForm()">
+                                                {{'reset'|i18n}}
+                                            </button>
+
                                             <button (click)="saveLastTableForm()" class="btn btn-primary">
                                                 <i class="fa fa-save"></i>
-                                                검색
+                                                {{'retrieve'|i18n}}
                                             </button>
                                         </div>
                                     </div>
@@ -244,3 +253,4 @@
 
 
 </div>
+

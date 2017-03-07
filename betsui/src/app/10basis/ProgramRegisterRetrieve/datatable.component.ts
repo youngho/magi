@@ -15,47 +15,27 @@ import {Component, Injector} from '@angular/core';
 
                             <sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
                                 <thead>
-                                <tr>
-                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'date'|i18n}}"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'testerModel'|i18n}}"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'partNumber'|i18n}}"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="{{'processCode'|i18n}}"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'8%'}"><input type="text" class="form-control" placeholder="{{'para'|i18n}}"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'27%'}"><input type="text" class="form-control" placeholder="{{'mainProgramName'|i18n}}"/>
-                                    </th>
-
-                                    <th class="hasinput" [ngStyle]="{width:'25%'}">
-                                        <input type="text" class="form-control" placeholder="Filter SBL YIELD"/>
-                                    </th>
-                                    
-                                </tr>
-
-
-                                <tr>
-                                    <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
-                                    <th>{{'date'|i18n}}</th>
-                                    <th>{{'testerModel'|i18n}}</th>
-                                    <th data-class="expand">{{'partNumber'|i18n}}</th>
-                                    <th>{{'processCode'|i18n}}</th>
-                                    <th>{{'para'|i18n}}</th>
-                                    <th>{{'mainProgramName'|i18n}}</th>
-                                    <th>{{'sblYieldLimit'|i18n}}</th>
-                                </tr>
+                                    <tr>
+                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'date'|i18n}}"/></th>
+                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'testerModel'|i18n}}"/></th>
+                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'partNumber'|i18n}}"/></th>
+                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="{{'processCode'|i18n}}"/></th>
+                                        <th class="hasinput" [ngStyle]="{width:'8%'}"><input type="text" class="form-control" placeholder="{{'para'|i18n}}"/></th>
+                                        <th class="hasinput" [ngStyle]="{width:'27%'}"><input type="text" class="form-control" placeholder="{{'mainProgramName'|i18n}}"/></th>
+                                        <th class="hasinput" [ngStyle]="{width:'25%'}"><input type="text" class="form-control" placeholder="Filter SBL YIELD"/></th>
+                                    </tr>
+                                    <tr>
+                                        <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
+                                        <th>{{'date'|i18n}}</th>
+                                        <th>{{'testerModel'|i18n}}</th>
+                                        <th data-class="expand">{{'partNumber'|i18n}}</th>
+                                        <th>{{'processCode'|i18n}}</th>
+                                        <th>{{'mainProgramName'|i18n}}</th>
+                                        <th>{{'sblYieldLimit'|i18n}}</th>
+                                        <th>{{'firmwareName'|i18n}}</th>
+                                        <th>{{'firmwareVersion'|i18n}}</th>
+                                    </tr>
                                 </thead>
-
-                                <!--				<tfoot>
-                                                    <tr>
-                                                        <th>User ID</th>
-                                                        <th>Post ID</th>
-                                                        <th>Title</th>
-                                                        <th>Body</th>
-                                                    </tr>
-                                                </tfoot>-->
                             </sa-datatable>
 
                         </div>

@@ -40,4 +40,24 @@
             </if>
         </where>
     </select>
+
+    <select id="">
+        SELECT
+              PART_NUMBER,
+              OPERATOR_ID,
+              LOT_ID,
+              LOT_IN_TIME,
+              END_TIME,
+              PROCESS_CODE,
+              TESTER_NUMBER,
+              TESTER_MODEL,
+              HEAD,
+              TEST_COUNTER,
+              HANDLER_MODEL,
+              BOARD_ID,
+              TEST_TIME,
+              DUT_MAIN_BIN
+        FROM
+              CASI_BIN
+    </select>
 </mapper>

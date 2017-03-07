@@ -83,8 +83,8 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         // this.data.mainProgramName = 'bi4a96x1';
         // this.data.sblYieldLimit = '95';
 
-        this.productName = new FormControl('', [Validators.required, Validators.minLength(10)]);
         this.partNumber = new FormControl('', [Validators.required, Validators.minLength(11)]);
+        this.productName = new FormControl('', [Validators.required, Validators.minLength(10)]);
         this.customer = new FormControl('', [Validators.required, Validators.minLength(12)]);
         this.packageType = new FormControl('', [Validators.required, Validators.minLength(13)]);
         this.processCode = new FormControl('', [Validators.required, Validators.minLength(14)]);
@@ -178,8 +178,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.data.testerModel = info.testerModel;
 
-        (<FormControl>this.tableForm.controls['product'])
-            .setValue(info.testerModel, { onlySelf: true });
+        //(<FormControl>this.tableForm.controls['product']).setValue(info.testerModel, { onlySelf: true });
 
         this.bgModel.show(function (info:any) {
             console.log(info.testerModel);
@@ -210,9 +209,10 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                                     {data: 'testerModel'},
                                     {data: 'partNumber'},
                                     {data: 'processCode'},
-                                    {data: 'para'},
                                     {data: 'mainProgramName'},
                                     {data: 'sblYieldLimit'},
+                                    {data: 'firmwareName'},
+                                    {data: 'firmwareVersion'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;

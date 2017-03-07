@@ -31,19 +31,19 @@
                     <div>
                         <!-- widget content -->
                         <div class="widget-body">
-                            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" novalidate>
+                            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" [saUiValidate]="validationOptions" novalidate="novalidate" >
                                 <fieldset>
                                     <!--<legend>Last TABLED efault Form Elements</legend>-->
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'partNumber'|i18n}}</label>
+                                        <label class="col-md-1 control-label">{{'partNumber'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control" id="partNumber" name="partNumber" placeholder="" [(ngModel)]="programRegister.partNumber" required>
                                         </div>
-<!--
-                                        <div [hidden]="partNumber.valid || partNumber.pristine" class="alert alert-danger">
-                                            partNumber is required
-                                        </div>
--->
+                                        <!--
+                                                                                <div [hidden]="partNumber.valid || partNumber.pristine" class="alert alert-danger">
+                                                                                    partNumber is required
+                                                                                </div>
+                                        -->
                                         <label class="col-md-1 control-label">{{'processCode'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control" id="processCode" name="processCode" placeholder="" [(ngModel)]="programRegister.processCode">
@@ -79,7 +79,7 @@
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" id="mainProgramName" name="mainProgramName" placeholder="" [(ngModel)]="programRegister.mainProgramName">
+                                            <input type="text" maxlength="30" class="form-control" id="mainProgramName" name="mainProgramName" placeholder="" [(ngModel)]="programRegister.mainProgramName">
                                         </div>
                                         <label class="col-md-1 control-label">{{'sblSubbinALimitCount'|i18n}}</label>
                                         <div class="col-md-2">
@@ -154,13 +154,109 @@
                                         </div>
                                     </div>
 
+                                    <!--FunctionKey Group-->
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey1" name="functionKey1" [(ngModel)]="programRegister.functionKey1">
+                                                <span>{{'functionKey1'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey2" name="functionKey2" [(ngModel)]="programRegister.functionKey2">
+                                                <span>{{'functionKey2'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey3" name="functionKey3" [(ngModel)]="programRegister.functionKey3">
+                                                <span>{{'functionKey3'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey4" name="functionKey4" [(ngModel)]="programRegister.functionKey4">
+                                                <span>{{'functionKey4'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey5" name="functionKey5" [(ngModel)]="programRegister.functionKey5">
+                                                <span>{{'functionKey5'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey6" name="functionKey6" [(ngModel)]="programRegister.functionKey6">
+                                                <span>{{'functionKey6'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey7" name="functionKey7" [(ngModel)]="programRegister.functionKey7">
+                                                <span>{{'functionKey7'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey8" name="functionKey8" [(ngModel)]="programRegister.functionKey8">
+                                                <span>{{'functionKey8'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey9" name="functionKey9" [(ngModel)]="programRegister.functionKey9">
+                                                <span>{{'functionKey9'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey10" name="functionKey10" [(ngModel)]="programRegister.functionKey10">
+                                                <span>{{'functionKey10'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey11" name="functionKey11" [(ngModel)]="programRegister.functionKey11">
+                                                <span>{{'functionKey11'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey12" name="functionKey12" [(ngModel)]="programRegister.functionKey12">
+                                                <span>{{'functionKey12'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey13" name="functionKey13" [(ngModel)]="programRegister.functionKey13">
+                                                <span>{{'functionKey13'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey14" name="functionKey14" [(ngModel)]="programRegister.functionKey14">
+                                                <span>{{'functionKey14'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey15" name="functionKey15" [(ngModel)]="programRegister.functionKey15">
+                                                <span>{{'functionKey15'|i18n}}</span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" class="checkbox style-3" id="functionKey16" name="functionKey16" [(ngModel)]="programRegister.functionKey16">
+                                                <span>{{'functionKey16'|i18n}}</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label class="checkbox-inline">
-                                            <input type="checkbox" class="checkbox style-3" id="functionKey1" name="functionKey1" [(ngModel)]="programRegister.functionKey1">
-                                            <span>{{'functionKey1'|i18n}}</span>
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription1" name="binDescription1" [(ngModel)]="programRegister.binDescription1">
+                                            <span>{{'binDescription1'|i18n}}</span>
                                         </label>
-
-
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription2" name="binDescription2" [(ngModel)]="programRegister.binDescription2">
+                                            <span>{{'binDescription2'|i18n}}</span>
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription3" name="binDescription3" [(ngModel)]="programRegister.binDescription3">
+                                            <span>{{'binDescription3'|i18n}}</span>
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription4" name="binDescription4" [(ngModel)]="programRegister.binDescription4">
+                                            <span>{{'binDescription4'|i18n}}</span>
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription5" name="binDescription5" [(ngModel)]="programRegister.binDescription5">
+                                            <span>{{'binDescription5'|i18n}}</span>
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription6" name="binDescription6" [(ngModel)]="programRegister.binDescription6">
+                                            <span>{{'binDescription6'|i18n}}</span>
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription7" name="binDescription7" [(ngModel)]="programRegister.binDescription7">
+                                            <span>{{'binDescription7'|i18n}}</span>
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" class="checkbox style-3" id="binDescription8" name="binDescription8" [(ngModel)]="programRegister.binDescription8">
+                                            <span>{{'binDescription8'|i18n}}</span>
+                                        </label>
                                     </div>
                                 </fieldset>
                                 <!--Retest Skip 기준 end-->

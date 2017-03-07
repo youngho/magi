@@ -25,25 +25,39 @@ export class lotyieldComponent implements OnInit {
     private data : Lotyield = new Lotyield();
 
     onSelectDateFrom(strDate: string) {
-        this.data.sysDateStart = strDate;
+        this.data.endTimeStart = strDate;
     }
     onSelectDateTo(strDate: string) {
-        this.data.sysDateEnd = strDate;
+        this.data.endTimeEnd = strDate;
     }
 
     constructor(private retrieveLastTableService: lotyieldService) {
         //this.data.partnumberName = 'K9CFGY8U5A-CCK0000-HXBPHV';
     }
 
+    resetForm(){
+        this.data.endTimeStart = null;
+        this.data.endTimeEnd = null;
+        this.data.partNumber = null;
+        this.data.processCode = null;
+        this.data.testerModel = null;
+        this.data.testerNumber = null;
+        this.data.head = null;
+        this.data.testCounter = null;
+        this.data.lotId = null;
+        this.data.mainProgramName = null;
+        this.data.boardId = null;
+    }
+
     saveLastTableForm() {
-        console.log("sysDateStart : " + this.data.sysDateStart);
-        console.log("sysDateEnd : " + this.data.sysDateEnd);
-        console.log("partnumberName : " + this.data.partnumberName);
-        console.log("lotNumber : " + this.data.lotNumber);
-        console.log("processName : " + this.data.processName);
-        console.log("testCount : " + this.data.testCount);
-        console.log("testerName : " + this.data.testerName);
-        console.log("testerHead : " + this.data.testerHead);
+        console.log("endTimeStart : " + this.data.endTimeStart);
+        console.log("endTimeEnd : " + this.data.endTimeEnd);
+        console.log("partNumber : " + this.data.partNumber);
+        console.log("lotId : " + this.data.lotId);
+        console.log("processCode : " + this.data.processCode);
+        console.log("testCounter : " + this.data.testCounter);
+        console.log("testerModel : " + this.data.testerModel);
+        console.log("head : " + this.data.head);
         // this.saved
         // .subscribe((res) => {
         //   this.commentForm.setValue({ content: '' });
@@ -63,26 +77,33 @@ export class lotyieldComponent implements OnInit {
                                 colReorder: true,
                                 data: apps,
                                 columns: [
-                                    {data: 'sysDate'},
-                                    {data: 'partnumberName'},
-                                    {data: 'lotNumber'},
-                                    {data: 'processName'},
-                                    {data: 'testCount'},
-                                    {data: 'testerName'},
-                                    {data: 'testerHead'},
+                                    {data: 'partNumber'},
+                                    {data: 'operatorId'},
+                                    {data: 'lotId'},
+                                    {data: 'lotInTime'},
+                                    {data: 'endTime'},
+                                    {data: 'processCode'},
+                                    {data: 'testerModel'},
+                                    {data: 'testerNumber'},
+                                    {data: 'head'},
+                                    {data: 'testCounter'},
+                                    {data: 'handlerModel'},
                                     {data: 'boardId'},
-                                    {data: 'testQty'},
-                                    {data: 'passQty'},
-                                    {data: 'lotYield'},
-                                    {data: 'category01'},
-                                    {data: 'category02'},
-                                    {data: 'category03'},
-                                    {data: 'category04'},
-                                    {data: 'category05'},
-                                    {data: 'category06'},
-                                    {data: 'category07'},
-                                    {data: 'category08'},
-                                    {data: 'category09'},
+                                    {data: 'mainProgramName'},
+                                    {data: 'sblResult'},
+                                    {data: 'quantity'},
+                                    {data: 'input'},
+                                    {data: 'pass'},
+                                    {data: 'yield'},
+                                    {data: 'bin1'},
+                                    {data: 'bin2'},
+                                    {data: 'bin3'},
+                                    {data: 'bin4'},
+                                    {data: 'bin5'},
+                                    {data: 'bin6'},
+                                    {data: 'bin7'},
+                                    {data: 'bin8'},
+                                    {data: 'bin9'},
                                 ],
                                 buttons: [
                                     'copy', 'excel', 'pdf', 'print'
