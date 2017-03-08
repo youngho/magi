@@ -80,9 +80,10 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                         component: DatatableComponent,
                         inputs: {
                             options: {
-                                colReorder: false,
+                                colReorder: true,
+                                scrollX: true,
                                 data: apps,
-                                //select: { style: 'single'},
+                                // select: { style: 'single'},
                                 columns: [
                                     {data: 'createDate'},
                                     {data: 'testerModel'},
