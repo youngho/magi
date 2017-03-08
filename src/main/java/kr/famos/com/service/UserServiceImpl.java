@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,8 +17,6 @@ import java.util.List;
  * Created by yhkim on 2017-02-24.
  * UserService를 implemets 하게 되면 loadUserByUsername 메소드를 반드시 구현해야 함
  * 이 메소드는 UserDetailsService에 정의된 메소드로 실제 Spring security에서 User 정보를 읽을 때 사용
-
-
  */
 @Service
 public class UserServiceImpl implements UserService {
@@ -45,6 +42,7 @@ public class UserServiceImpl implements UserService {
         Collection<GrantedAuthority> authorities = userMapper.readAuthority(username);
         return authorities;
     }
+
     @Override
     public User readUser(String username) {
         User user = userMapper.readUser(username);
@@ -76,11 +74,12 @@ public class UserServiceImpl implements UserService {
     /**
      * 사용자가 여려 종류의 권한을 갖을 수 있는 구조이다.
      * 2017-03-03 현재는 한 종류 만을 text로 받아 저장한다.
+     *
      * @param user
      * @return
      */
     @Override
-    public List<User> retrieveRegister(User user){
+    public List<User> retrieveRegister(User user) {
         List<User> userList = userMapper.retrieveRegister(user);
         return userList;
     }

@@ -1,141 +1,24 @@
 <!-- MAIN CONTENT -->
 <div id="content">
-    <!--    <div class="row">
-            <sa-big-breadcrumbs [items]="['Forms', 'Form Elements']" icon="pencil-square-o" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
-        </div>-->
-
-
     <!-- widget grid -->
     <sa-widgets-grid>
-
         <!-- row start -->
         <div class="row">
-
             <!-- NEW WIDGET START -->
             <article class="col-sm-12 col-md-12 col-lg-12">
-
                 <!-- Widget ID (each widget will need unique ID)-->
                 <sa-widget [colorbutton]="false" [editbutton]="false">
-                    <!-- widget options:
-                    usage: <sa-widget [editbutton]="false">
-
-                    [colorbutton]="false"
-                    [editbutton]="false"
-                    [togglebutton]="false"
-                    [deletebutton]="false"
-                    [fullscreenbutton]="false"
-                    [custombutton]="false"
-                    [collapsed]="true"
-                    [sortable]="false"
-
-                    -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
                         <h2>LOT Yield Retrieve</h2>
                     </header>
-
                     <!-- widget div-->
                     <div>
-
                         <!-- widget content -->
                         <div class="widget-body">
-
                             <!--<legend>Retrieve Elements</legend>-->
                             <div class="form-horizontal">
-
                                 <fieldset>
-
-
-                                    <!--POP UP Modal dialog Stat-->
-                                    <!--
-                                    <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-                                         aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    <h4 class="modal-title">Lot  Yield</h4>
-                                                </div>
-                                                <div class="modal-body">
-
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" placeholder="Title" required>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <textarea class="form-control" placeholder="Content" rows="5" required></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="category"> Category</label>
-                                                                <select class="form-control" id="category">
-                                                                    <option>Articles</option>
-                                                                    <option>Tutorials</option>
-                                                                    <option>Freebies</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="tags"> Tags</label>
-                                                                <input type="text" class="form-control" id="tags" placeholder="Tags">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="well well-sm well-primary">
-                                                                <form class="form form-inline " role="form">
-                                                                    <div class="form-group">
-                                                                        <input type="text" class="form-control" value="" placeholder="Date" required>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <select class="form-control">
-                                                                            <option>Draft</option>
-                                                                            <option>Published</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="form-group">
-                                                                        <button type="submit" class="btn btn-success btn-sm">
-                                                                            <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-default btn-sm">
-                                                                            <span class="glyphicon glyphicon-eye-open"></span> Preview
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" (click)="lgModal.hide()">
-                                                        Cancel
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary">
-                                                        Post Article
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-                                        <button class="btn btn-primary btn-lg" (click)="lgModal.show()">
-                                            Launch demo modal
-                                        </button>
--->
-
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
@@ -150,8 +33,6 @@
                                             <input class="form-control" placeholder="BIN Select" type="text">
                                         </div>
                                     </div>
-
-
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
@@ -170,9 +51,7 @@
                                             <input class="form-control" placeholder="Tester Model" type="text"
                                                    [(ngModel)]="data.testerModel">
                                         </div>
-
                                     </div>
-
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'testerNumber'|i18n}}</label>
                                         <div class="col-md-2">
@@ -189,10 +68,6 @@
                                             <input class="form-control" placeholder="Test Counter" type="text"
                                                    [(ngModel)]="data.testCounter">
                                         </div>
-
-
-
-
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-1 control-label">{{'Lot ID'|i18n}}</label>
@@ -212,7 +87,6 @@
                                         </div>
                                     </div>
                                 </fieldset>
-                                <!--Retest Skip 기준 end-->
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -227,30 +101,19 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         <!-- end widget content -->
-
                     </div>
                     <!-- end widget div -->
-
                 </sa-widget>
                 <!-- end widget -->
                 <dynamic-component [componentData]="componentData"></dynamic-component>
             </article>
             <!-- WIDGET END -->
-
-
         </div>
-
         <!-- row end-->
-
-
     </sa-widgets-grid>
     <!-- end widget grid -->
-
-
 </div>
 

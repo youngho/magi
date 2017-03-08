@@ -61,7 +61,7 @@ public class SubBinService {
             }
         }
         TreeMap<Integer, Integer> tm = new TreeMap<>(map);    //기본 오름차순 정렬
-        System.out.println(tm);
+//        System.out.println(tm);
     }
 
     public Map<String, Object> retrieveSubBinJson2(SubBinDto subBinDto) {
