@@ -71,9 +71,8 @@ export class lotyieldComponent implements OnInit {
                         inputs: {
                             options: {
                                 select :{style:'single'},
-                                //"scrollX": true,
-                                //colReorder: false,
-                                //dom: 'Bfrtip',
+                                scrollX: true,
+                                dom: 'Bfrtip',
                                 colReorder: true,
                                 data: apps,
                                 columns: [
