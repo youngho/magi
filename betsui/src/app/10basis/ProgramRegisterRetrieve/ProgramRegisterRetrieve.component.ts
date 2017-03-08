@@ -17,6 +17,7 @@ import {NotificationService} from "../../shared/utils/notification.service";
 @FadeInTop()
 @Component({
     selector: 'ProgramRegisterRetrieveComponent',
+    styles: ['.modal-lg {width:1600px;} .modal-lg .form-horizontal {margin:13px;}'],
     templateUrl: 'ProgramRegisterRetrieve.component.html',
     providers: [ProgramRegisterRetrieveService, ProgramRegister]
 })
