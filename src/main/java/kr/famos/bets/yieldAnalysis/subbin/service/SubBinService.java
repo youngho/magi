@@ -51,17 +51,17 @@ public class SubBinService {
         int ee;
 
         int b = tokens.countTokens();
-        for (int i = 0; i < b; i++) {
-            if (i % 2 == 0) {
-                d = tokens.nextToken();
-                dd = Integer.parseInt(d);
-            } else {
-                ee = Integer.parseInt(tokens.nextToken());
-                map.put(dd, ee);
-            }
-        }
+//        for (int i = 0; i < b; i++) {
+//            if (i % 2 == 0) {
+//                d = tokens.nextToken();
+//                dd = Integer.parseInt(d);
+//            } else {
+//                ee = Integer.parseInt(tokens.nextToken());
+//                map.put(dd, ee);
+//            }
+//        }
         TreeMap<Integer, Integer> tm = new TreeMap<>(map);    //기본 오름차순 정렬
-//        System.out.println(tm);
+        System.out.println(tm);
     }
 
     public Map<String, Object> retrieveSubBinJson2(SubBinDto subBinDto) {

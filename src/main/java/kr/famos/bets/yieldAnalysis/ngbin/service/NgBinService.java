@@ -27,33 +27,47 @@ public class NgBinService {
     public List<NgBinDto> retrieveNgBinJson(NgBinDto ngBinDto) {
         List<NgBinDto> ngBinDtoList = ngBinMapper.retireveNgBin(ngBinDto);
 
-        logger.debug("SubBinService - retrieveSubBin : " + ngBinDtoList.get(0).getNgBin());
+        logger.debug("SubBinService - retrieveSubBin : " + ngBinDtoList.get(0));
 
         //반환된 리스트의 각 한줄을 파싱하여 새로운 JSON 객체로 변환하여 리턴한다.
         //변환된 JSON에는 엔지빈의 번호에 따라
         String strSubBin = ngBinDtoList.get(0).getNgBin();
+
+//        List mList = new ArrayList();
+//        // List -> String[]
+//        String[] sArrays = mList.toArray(new String[mList.size()]);
+//
+//        for(String s : sArrays){
+//            System.out.println(s);
+//        }
+
+//        String[] strArray = ngBinDtoList.toArray(new String[ngBinDtoList.size()]);
+//        for (int i = 0; i < strArray.length; i++) {
+//            System.out.println("output : " + strArray[i]);
+//        }
+
 
         //HashMap<String, Integer>map = new HashMap<String,Integer>();
 
         StringTokenizer tokens = new StringTokenizer(strSubBin, ",");
 
         HashMap<Integer, Integer> map = new HashMap<>();
-        String d;
-        int dd = 0;
-        int ee;
+        String ngBintoken;
+        int mapKey = 0;
+        int mapValue;
 
-        int b = tokens.countTokens();
-        for (int i = 0; i < b; i++) {
+        int tokenTotal = tokens.countTokens();
+        for (int i = 0; i < tokenTotal; i++) {
             if (i % 2 == 0) {
-//                d = tokens.nextToken();
-//                dd = Integer.parseInt(d);
-                logger.debug(tokens.nextToken());
+                ngBintoken = tokens.nextToken();
+                mapKey = Integer.parseInt(ngBintoken);
             } else {
-                //ee = Integer.parseInt(tokens.nextToken());
-                //map.put(dd, ee);
-                logger.debug(tokens.nextToken());
+                mapValue = Integer.parseInt(tokens.nextToken());
+                map.put(mapKey, mapValue);
             }
+
         }
+
         TreeMap<Integer, Integer> tm = new TreeMap<>(map);    //기본 오름차순 정렬
         System.out.println(tm);
 
