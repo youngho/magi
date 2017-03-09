@@ -8,7 +8,7 @@ import {NgBin} from "./ngbin.model";
 
 @Injectable()
 export class NgBinService {
-    private path: string = 'retireveNgBin';
+    private path: string = 'retrieveNgBinJson';
 
     constructor(private api: ApiService) {
     }

@@ -20,25 +20,9 @@ export class NgBinComponent implements OnInit {
     componentData = null;
     errorMessage = null;
     private data: NgBin = new NgBin();
-
-
     private colInfo = new Array();
-// = [{title: '파트', data: 'partNumber'},
-//     {title: this.imsi5, data: 'operatorId'},
-//     {data: 'lotId'},
-//     {data: 'lotInTime'},
-//     {data: 'endTime'},
-//     {data: 'processCode'},
-//     {data: 'testerModel'},
-//     {data: 'testerNumber'},
-//     {data: 'head'},
-//     {data: 'testCounter'},
-//     {data: 'handlerModel'},
-//     {data: 'boardId'},];
-
 
     constructor(private service: NgBinService) {
-        this.data.partnumberName = 'K9CFGY8U5A-CCK0000-HXBPHV';
     }
 
     onSelectDateFrom(strDate: string) {
@@ -68,17 +52,11 @@ export class NgBinComponent implements OnInit {
                     var apps_obj = apps[0];
                     for (var key in apps_obj) {
                         var value = key;
-                        console.log("===>" + value)
+                        //console.log("===>" + value)
                         tempStr = {"title": key, "data": key};
                         this.colInfo.push(tempStr)
-                    }
+                    };
 
-
-                    // for (let entry of apps) {
-                    //     console.log(entry); // 1, "string", false
-                    // }
-
-                    ;
                     this.componentData = {
                         component: DatatableComponent,
                         inputs: {
