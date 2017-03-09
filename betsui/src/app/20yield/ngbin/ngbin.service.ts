@@ -10,20 +10,10 @@ import {NgBin} from "./ngbin.model";
 export class NgBinService {
     private path: string = 'retrieveNgBinJson';
 
-    constructor(private api: ApiService) {
-    }
-
-
+    constructor(private api: ApiService) {}
 
     postLastTable(data: NgBin) {
-        console.log('saving post:' + data.lotNumber);
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
-
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
 }

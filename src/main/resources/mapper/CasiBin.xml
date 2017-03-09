@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.bets.">
-    <select id="retrieveCasiBin" parameterType="kr.famos.bets.dutmap.CasiBinDto" resultType="kr.famos.bets.dutmap.CasiBinDto">
+<mapper namespace="kr.famos.bets.dutmap.singledut.mapper.SingleDutMapMapper">
+    <select id="retrieveSingleDutMap" parameterType="kr.famos.bets.dutmap.singledut.dto.SingleDutMapDto" resultType="kr.famos.bets.dutmap.singledut.dto.SingleDutMapDto">
         SELECT
             PART_NUMBER,
-            MAIN_PROGRAM_NAME,
+            OPERATOR_ID,
+            LOT_ID,
+            LOT_IN_TIME,
+            END_TIME,
             PROCESS_CODE,
+            TESTER_NUMBER,
             TESTER_MODEL,
-            ITEM_NAME,
-            MAIN_BIN,
-            SUB_BIN,
-            NG_BIN
-        FROM BIN_DESCRIPTION
+            HEAD,
+            TEST_COUNTER,
+            HANDLER_MODEL,
+            BOARD_ID,
+            DUT_MAIN_BIN
+        FROM CASI_BIN
         <where>
             1 = 1
+            <if test=" endTimeStart != null and endTimeStart != '' ">
+                AND END_TIME >= #{endTimeStart}
+            </if>
+            <if test=" endTimeEnd != null and endTimeEnd != '' ">
+                AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
+            </if>
             <if test=" partNumber != null and partNumber != '' ">
                 AND PART_NUMBER=#{partNumber}
-            </if>
-            <if test=" mainProgramName != null and mainProgramName != '' ">
-                AND MAIN_PROGRAM_NAME=#{mainProgramName}
             </if>
             <if test=" processCode != null and processCode != '' ">
                 AND PROCESS_CODE=#{processCode}
@@ -26,38 +34,24 @@
             <if test=" testerModel != null and testerModel != '' ">
                 AND TESTER_MODEL=#{testerModel}
             </if>
-            <if test=" itemName != null and itemName != '' ">
-                AND ITEM_NAME=#{itemName}
+            <if test=" testerNumber != null and testerNumber != '' ">
+                AND TESTER_NUMBER=#{testerNumber}
             </if>
-            <if test=" mainBin != null and mainBin != '' ">
-                AND MAIN_BIN=#{mainBin}
+            <if test=" head != null and head != '' ">
+                AND HEAD=#{head}
             </if>
-            <if test=" subBin != null and subBin != '' ">
-                AND SUB_BIN=#{subBin}
+            <if test=" testCounter != null and testCounter != '' ">
+                AND TEST_COUNTER=#{testCounter}
             </if>
-            <if test=" ngBin != null and ngBin != '' ">
-                AND NG_BIN=#{ngBin}
+            <if test=" lotId != null and lotId != '' ">
+                AND LOT_ID=#{lotId}
+            </if>
+            <if test=" mainProgramName != null and mainProgramName != '' ">
+                AND MAIN_PROGRAM_NAME=#{mainProgramName}
+            </if>
+            <if test=" boardId != null and boardId != '' ">
+                AND BOARD_ID=#{boardId}
             </if>
         </where>
-    </select>
-
-    <select id="">
-        SELECT
-              PART_NUMBER,
-              OPERATOR_ID,
-              LOT_ID,
-              LOT_IN_TIME,
-              END_TIME,
-              PROCESS_CODE,
-              TESTER_NUMBER,
-              TESTER_MODEL,
-              HEAD,
-              TEST_COUNTER,
-              HANDLER_MODEL,
-              BOARD_ID,
-              TEST_TIME,
-              DUT_MAIN_BIN
-        FROM
-              CASI_BIN
     </select>
 </mapper>

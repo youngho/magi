@@ -13,7 +13,7 @@ import {Component, Injector} from '@angular/core';
 	<div>
 		<div class="widget-body no-padding">
 
-			<sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
+			<sa-datatable [options]="tblOptions" filter="true" paginationLength="true" tableClass="table table-striped table-bordered table-hover">
 <!--				<thead>
 				<tr>
                   <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'partnumber'|i18n}}"/></th>

@@ -17,13 +17,13 @@ declare var $: any;
 })
 export class NgBinComponent implements OnInit {
 
+    constructor(private service: NgBinService) {
+    }
+
     componentData = null;
     errorMessage = null;
     private data: NgBin = new NgBin();
     private colInfo = new Array();
-
-    constructor(private service: NgBinService) {
-    }
 
     onSelectDateFrom(strDate: string) {
         this.data.endTimeStart = strDate;
@@ -48,6 +48,7 @@ export class NgBinComponent implements OnInit {
 
                     console.log(apps);
                     //debugger;
+                    this.colInfo = [];
                     var tempStr;
                     var apps_obj = apps[0];
                     for (var key in apps_obj) {
@@ -55,7 +56,8 @@ export class NgBinComponent implements OnInit {
                         //console.log("===>" + value)
                         tempStr = {"title": key, "data": key};
                         this.colInfo.push(tempStr)
-                    };
+                    }
+                    ;
 
                     this.componentData = {
                         component: DatatableComponent,
@@ -68,7 +70,7 @@ export class NgBinComponent implements OnInit {
                                 data: apps,
                                 columns: this.colInfo,
                                 buttons: [
-                                    'copy', 'excel', 'pdf', 'print'
+                                    'colvis', 'copy', 'excel', 'pdf', 'print'
                                 ]
                             }
                         }
