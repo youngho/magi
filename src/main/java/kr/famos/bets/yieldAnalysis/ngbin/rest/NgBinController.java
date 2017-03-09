@@ -37,13 +37,11 @@ public class NgBinController {
 //        return stringList;
 //    }
     @RequestMapping(value = "/retrieveNgBinJson", method = RequestMethod.POST)
-    public ResponseEntity<List<NgBinResultDto>> retrieveSubBinJson(NgBinDto ngBinDto) {
+    public ResponseEntity<List<NgBinResultDto>> retrieveSubBinJson(@RequestBody NgBinDto ngBinDto) {
 
         //List<String> stringList = ngBinService.retrieveNgBinJson(ngBinDto);
 
         return new ResponseEntity<List<NgBinResultDto>>(ngBinService.retrieveNgBinJson(ngBinDto), HttpStatus.OK);
-
-
         //return ngBinService.retrieveNgBinJson(ngBinDto);
     }
 
@@ -51,7 +49,7 @@ public class NgBinController {
     @RequestMapping(value = "/retrieveNgBinJson2", method = RequestMethod.POST)
     public
     @ResponseBody
-    Map<String, Object> retrieveSubBinJson2(NgBinDto ngBinDto) {
+    Map<String, Object> retrieveSubBinJson2(@RequestBody NgBinDto ngBinDto) {
 
         Map<String, Object> map = ngBinService.retrieveNgBinJson2(ngBinDto);
         return map;

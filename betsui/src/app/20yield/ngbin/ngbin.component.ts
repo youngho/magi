@@ -26,22 +26,22 @@ export class NgBinComponent implements OnInit {
     }
 
     onSelectDateFrom(strDate: string) {
-        this.data.sysDateStart = strDate;
+        this.data.endTimeStart = strDate;
     }
 
     onSelectDateTo(strDate: string) {
-        this.data.sysDateStart = strDate;
+        this.data.endTimeEnd = strDate;
     }
 
     saveLastTableForm() {
-        console.log("sysDateStart : " + this.data.sysDateStart);
-        console.log("sysDateEnd : " + this.data.sysDateEnd);
-        console.log("partnumberName : " + this.data.partnumberName);
-        console.log("lotNumber : " + this.data.lotNumber);
-        console.log("processName : " + this.data.processName);
-        console.log("testCount : " + this.data.testCount);
-        console.log("testerName : " + this.data.testerName);
-        console.log("testerHead : " + this.data.testerHead);
+        console.log("endTimeStart : " + this.data.endTimeStart);
+        console.log("endTimeEnd : " + this.data.endTimeEnd);
+        console.log("partNumber : " + this.data.partNumber);
+        console.log("processCode : " + this.data.processCode);
+        console.log("testerModel : " + this.data.testerModel);
+        console.log("testerNumber : " + this.data.testerNumber);
+        console.log("head : " + this.data.head);
+        console.log("testCounter : " + this.data.testCounter);
 
         this.service.postLastTable(this.data)
             .subscribe((apps) => {
@@ -62,6 +62,7 @@ export class NgBinComponent implements OnInit {
                         inputs: {
                             options: {
                                 dom: 'Bfrtip',
+                                fixedColumns: true,
                                 colReorder: true,
                                 scrollX: true,
                                 data: apps,
