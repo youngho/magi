@@ -62,6 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveNgBinJson").permitAll()
                 .antMatchers("/retrieveNgBinJson2").permitAll()
                 .antMatchers("/retrieveSingleDutMap").permitAll()
+                .antMatchers("/retrieveCompoDutMap").permitAll()
                 .anyRequest().authenticated()
                 .and()
 //               .formLogin()

@@ -40,6 +40,18 @@ public class LotYieldDto {
     private String sblEndTime        = ""; // BETS 서버로 부터 이상 유무의 명령을 받은 시점.
     private String finalEndTime      = ""; // 현재 LOT에 대한 LC의 완료시점에서 LC의 모든 DATA가 RESET된 시점을 뺀값.
     private String sblResult         = ""; // OPBIN1_ERROR/OPBIN2_ERROR/OPBIN3_ERROR/OPBIN4_ERROR/OPBIN9_ERROR/LOW_YIELD
+
+    private String sblYieldResult    = "";
+    private String sblBin1Result     = "";
+    private String sblBin2Result     = "";
+    private String sblBin3Result     = "";
+    private String sblBin4Result     = "";
+    private String sblBin5Result     = "";
+    private String sblBin6Result     = "";
+    private String sblBin7Result     = "";
+    private String sblBin8Result     = "";
+    private String sblBin9Result     = "";
+
     private String sblYieldLimit     = ""; // LOT YIELD 기준
     private String sblSubBinaCounter = ""; // 특정 SUB BIN COUNTER LIMIT 설정값
     private String sblSubBinaLimit   = ""; // 특정 SUB BIN % LIMIT 설정값
@@ -545,5 +557,85 @@ public class LotYieldDto {
 
     public void setEndTimeEnd(String endTimeEnd) {
         this.endTimeEnd = endTimeEnd;
+    }
+
+    public String getSblYieldResult() {
+        return sblYieldResult;
+    }
+
+    public void setSblYieldResult(String sblYieldResult) {
+        this.sblYieldResult = sblYieldResult;
+    }
+
+    public String getSblBin1Result() {
+        return sblBin1Result;
+    }
+
+    public void setSblBin1Result(String sblBin1Result) {
+        this.sblBin1Result = sblBin1Result;
+    }
+
+    public String getSblBin2Result() {
+        return sblBin2Result;
+    }
+
+    public void setSblBin2Result(String sblBin2Result) {
+        this.sblBin2Result = sblBin2Result;
+    }
+
+    public String getSblBin3Result() {
+        return sblBin3Result;
+    }
+
+    public void setSblBin3Result(String sblBin3Result) {
+        this.sblBin3Result = sblBin3Result;
+    }
+
+    public String getSblBin4Result() {
+        return sblBin4Result;
+    }
+
+    public void setSblBin4Result(String sblBin4Result) {
+        this.sblBin4Result = sblBin4Result;
+    }
+
+    public String getSblBin5Result() {
+        return sblBin5Result;
+    }
+
+    public void setSblBin5Result(String sblBin5Result) {
+        this.sblBin5Result = sblBin5Result;
+    }
+
+    public String getSblBin6Result() {
+        return sblBin6Result;
+    }
+
+    public void setSblBin6Result(String sblBin6Result) {
+        this.sblBin6Result = sblBin6Result;
+    }
+
+    public String getSblBin7Result() {
+        return sblBin7Result;
+    }
+
+    public void setSblBin7Result(String sblBin7Result) {
+        this.sblBin7Result = sblBin7Result;
+    }
+
+    public String getSblBin8Result() {
+        return sblBin8Result;
+    }
+
+    public void setSblBin8Result(String sblBin8Result) {
+        this.sblBin8Result = sblBin8Result;
+    }
+
+    public String getSblBin9Result() {
+        return sblBin9Result;
+    }
+
+    public void setSblBin9Result(String sblBin9Result) {
+        this.sblBin9Result = sblBin9Result;
     }
 }

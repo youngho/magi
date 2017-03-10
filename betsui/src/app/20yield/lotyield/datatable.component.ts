@@ -61,6 +61,16 @@ import {Component, Injector} from '@angular/core';
 						<th>{{'boardId'|i18n}}</th>
 						<th>{{'mainProgramName'|i18n}}</th>
 						<th>{{'sblResult'|i18n}}</th>
+						<th>{{'sblYieldResult'|i18n}}</th>
+                        <th>{{'sblBin1Result'|i18n}}</th>
+                        <th>{{'sblBin2Result'|i18n}}</th>
+                        <th>{{'sblBin3Result'|i18n}}</th>
+                        <th>{{'sblBin4Result'|i18n}}</th>
+                        <th>{{'sblBin5Result'|i18n}}</th>
+                        <th>{{'sblBin6Result'|i18n}}</th>
+                        <th>{{'sblBin7Result'|i18n}}</th>
+                        <th>{{'sblBin8Result'|i18n}}</th>
+                        <th>{{'sblBin9Result'|i18n}}</th>
 						<th>{{'quantity'|i18n}}</th>
 						<th >Input</th><!--INPUT: BIN1에서 BIN9까지 합산값-->
 						<th>PASS</th><!--PASS:BIN1에서 BIN4까지 합산값(Test Program Register에 따라 변경될수 있음-->
