@@ -1,211 +1,135 @@
 <!-- MAIN CONTENT -->
 <div id="content">
-    <!--    <div class="row">
-            <sa-big-breadcrumbs [items]="['Forms', 'Form Elements']" icon="pencil-square-o" class="col-xs-12 col-sm-7 col-md-7 col-lg-4"></sa-big-breadcrumbs>
-        </div>-->
-
-
     <!-- widget grid -->
     <sa-widgets-grid>
-
         <!-- row start -->
         <div class="row">
-
             <!-- NEW WIDGET START -->
             <article class="col-sm-12 col-md-12 col-lg-12">
-
                 <!-- Widget ID (each widget will need unique ID)-->
                 <sa-widget [colorbutton]="false" [editbutton]="false">
-                    <!-- widget options:
-                    usage: <sa-widget [editbutton]="false">
-
-                    [colorbutton]="false"
-                    [editbutton]="false"
-                    [togglebutton]="false"
-                    [deletebutton]="false"
-                    [fullscreenbutton]="false"
-                    [custombutton]="false"
-                    [collapsed]="true"
-                    [sortable]="false"
-
-                    -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
                         <h2>Program Register Retrieve</h2>
                         {{errorMessage}}
                     </header>
-
                     <!-- widget div-->
                     <div>
-
                         <!-- widget content -->
                         <div class="widget-body">
-
                             <div class="form-horizontal">
-
                                 <fieldset>
-
-                                    <!--POP UP Modal dialog Stat-->
-                                    <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-                                         aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    <h4 class="modal-title">User Detail</h4>
-                                                </div>
-                                                <form class="form-horizontal" (ngSubmit)="saveForm()" #userForm="ngForm" saveFormnovalidate>
-                                                    <div class="modal-body">
-                                                        <fieldset>
-                                                            <!--<legend>Last TABLED efault Form Elements</legend>-->
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'username'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="text" class="form-control" id="username" name="username" placeholder="" [(ngModel)]="user.username">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'password'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="text" class="form-control" id="password" name="password" placeholder="" [(ngModel)]="user.password">
-                                                                </div>
-                                                                <!--
-                                                                                                                               <label class="col-md-1 control-label">{{'retype password'|i18n}}</label>
-                                                                                                                                <div class="col-md-2">
-                                                                                                                                    <input type="text" class="form-control" id="" name="" placeholder="" [(ngModel)]="user.username">
-                                                                                                                                </div>
-                                                                -->
-
-                                                                <label class="col-md-1 control-label">{{'name'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="text" class="form-control" id="name" name="name" placeholder="" [(ngModel)]="user.name">
-                                                                </div>
-
-<!--
-                                                                <label class="col-md-1 control-label">{{'authority'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="text" class="form-control" id="authority" name="authority" placeholder="" [(ngModel)]="user.authority">
-                                                                </div>
--->
-
-                                                                <section>
-                                                                    <label class="col-md-1 control-label">{{'authority'|i18n}}</label>
-                                                                    <label class="select">
-                                                                        <select name="authority" ngModel>
-                                                                            <option value="0">USER</option>
-                                                                            <option value="1">ADMIN</option>
-                                                                        </select> <i></i> </label>
-                                                                </section>
-<!--
-                                                                <div class="form-group">
-                                                                    <label for="options">Options:</label>
-                                                                    <div *ngFor="let option of options">
-                                                                        <label>
-                                                                            <input type="checkbox"
-                                                                                   name="options"
-                                                                                   value="{{option.value}}"
-                                                                                   [(ngModel)]="option.checked"/>
-                                                                            {{option.name}}
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
--->
-
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="col-md-1 control-label">{{'credentialsNonExpired'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="checkbox" class="form-control" id="credentialsNonExpired" name="credentialsNonExpired" placeholder="" [(ngModel)]="user.credentialsNonExpired">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'accountNonExpired'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="checkbox" class="form-control" id="accountNonExpired" name="accountNonExpired" placeholder="" [(ngModel)]="user.accountNonExpired">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'accountNonLocked'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="checkbox" class="form-control" id="accountNonLocked" name="accountNonLocked" placeholder="" [(ngModel)]="user.accountNonLocked">
-                                                                </div>
-                                                                <label class="col-md-1 control-label">{{'enabled'|i18n}}</label>
-                                                                <div class="col-md-2">
-                                                                    <input type="checkbox" class="form-control" id="enabled" name="enabled" placeholder="" [(ngModel)]="user.enabled">
-                                                                </div>
-                                                            </div>
-                                                        </fieldset>
-
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" (click)="lgModal.hide()">
-                                                                Cancel
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary" type="submit">
-                                                                Post Article
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <!--
-                                                                        <p class="text-danger">You clicked on: <strong>{{ message }}</strong></p>
-                                    -->
-                                    <!--<legend>Last TABLED efault Form Elements</legend>-->
-
-
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'username'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'username'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="username" type="text" [(ngModel)]="user.username">
+                                            <input class="form-control" placeholder="{{'username'|i18n}}" type="text" [(ngModel)]="retrieveCondUser.username">
                                         </div>
-
-                                        <label class="col-md-1 control-label">{{'Name'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'Name'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Name" type="text" [(ngModel)]="user.name">
+                                            <input class="form-control" placeholder="{{'Name'|i18n}}" type="text" [(ngModel)]="retrieveCondUser.name">
                                         </div>
                                     </div>
                                 </fieldset>
-                                <!--Retest Skip 기준 end-->
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button (click)="newUser()" class="btn btn-primary">
-                                                <i class="fa fa-save"></i>
+                                            <button (click)="newUser()" class="btn btn-success">
+                                                <i class="fa fa-user"></i>
                                                 {{'New User'|i18n}}
                                             </button>
                                             <button (click)="saveLastTableForm()" class="btn btn-primary">
-                                                <i class="fa fa-save"></i>
+                                                <i class="fa fa-search"></i>
                                                 {{'Retrieve'|i18n}}
                                             </button>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                         <!-- end widget content -->
-
                     </div>
                     <!-- end widget div -->
-
                 </sa-widget>
                 <!-- end widget -->
                 <dynamic-component [componentData]="componentData"></dynamic-component>
-
-
             </article>
             <!-- WIDGET END -->
-
-
         </div>
-
         <!-- row end-->
-
-
     </sa-widgets-grid>
     <!-- end widget grid -->
-
-
 </div>
 
+<!--POP UP Modal dialog Stat-->
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">User Detail</h4>
+            </div>
+            <form class="form-horizontal" (ngSubmit)="saveForm()" #userForm="ngForm" saveFormnovalidate>
+                <div class="modal-body">
+                    <fieldset>
+                        <!--<legend>Last TABLED efault Form Elements</legend>-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'username'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="" [(ngModel)]="user.username">
+                            </div>
+                            <label class="col-md-2 control-label">{{'password'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="password" name="password" placeholder="" [(ngModel)]="user.password">
+                            </div>
+
+                            <label class="col-md-2 control-label">{{'name'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="" [(ngModel)]="user.name">
+                            </div>
+
+                            <section>
+                                <label class="col-md-2 control-label">{{'authority'|i18n}}</label>
+                                <label class="select">
+                                    <select name="authority" ngModel>
+                                        <option value="0">USER</option>
+                                        <option value="1">ADMIN</option>
+                                    </select> <i></i> </label>
+                            </section>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'credentialsNonExpired'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input type="checkbox" class="form-control" id="credentialsNonExpired" name="credentialsNonExpired" placeholder="" [(ngModel)]="user.credentialsNonExpired">
+                            </div>
+                            <label class="col-md-2 control-label">{{'accountNonExpired'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input type="checkbox" class="form-control" id="accountNonExpired" name="accountNonExpired" placeholder="" [(ngModel)]="user.accountNonExpired">
+                            </div>
+                            <label class="col-md-2 control-label">{{'accountNonLocked'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input type="checkbox" class="form-control" id="accountNonLocked" name="accountNonLocked" placeholder="" [(ngModel)]="user.accountNonLocked">
+                            </div>
+                            <label class="col-md-2 control-label">{{'enabled'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input type="checkbox" class="form-control" id="enabled" name="enabled" placeholder="" [(ngModel)]="user.enabled">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" (click)="lgModal.hide()">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" type="submit">
+                            <i class="fa fa-save"></i>
+                            {{'save'|i18n}}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

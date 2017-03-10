@@ -39,7 +39,12 @@
   "reset": "Reset",
   "retrieve": "Retrieve",
   "save": "Save",
+  "isAccountNonExpired":"Account Non Expired",
+  "isAccountNonLocked":"Account Non Locked",
+  "isCredentialsNonExpired":"Credentials Non Expired",
+  "isEnabled":"Enabled",
 
+  "username":"ID",
   "operaterId": "Operater Id",
   "lotId": "Lot Id",
   "yield": "Yield",

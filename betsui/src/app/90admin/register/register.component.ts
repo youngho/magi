@@ -25,12 +25,14 @@ export class RegisterComponent implements OnInit {
     message: string = '';
 
     private user: User = new User();
+    private retrieveCondUser: User = new User();
     submitted = false;
 
     constructor(private service: RegisterService, private notificationService: NotificationService) {
     }
 
     newUser():void{
+        this.user = new User();
         this.bgModel.show(function (info: any) {
             console.log(info);
         });
@@ -48,14 +50,6 @@ export class RegisterComponent implements OnInit {
         this.user.username = info.username;
         this.user.name = info.name;
 
-/*
-        this.user.    authorities = [
-            {name:'OptionA', value:'1', checked:true},
-            {name:'OptionB', value:'2', checked:false},
-            {name:'OptionC', value:'3', checked:true}
-        ]
-*/
-        // (<FormControl>this.tableForm.controls['product']).setValue(info.testerModel, { onlySelf: true });
 
         this.bgModel.show(function (info: any) {
             console.log(info);
@@ -64,11 +58,11 @@ export class RegisterComponent implements OnInit {
     }
 
     saveLastTableForm() {
-        console.log("username : " + this.user.username);
-        console.log("name : " + this.user.name);
+        console.log("username : " + this.retrieveCondUser.username);
+        console.log("name : " + this.retrieveCondUser.name);
 
 
-        this.service.postRetrieve(this.user)
+        this.service.postRetrieve(this.retrieveCondUser)
             .subscribe((apps) => {
                     this.componentData = {
                         component: DatatableComponent,

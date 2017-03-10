@@ -24,6 +24,10 @@ export class SingleDutComponent implements OnInit {
     private data: SingleDut = new SingleDut();
     private colInfo = new Array();
 
+    resetForm(){
+        this.data = new SingleDut();
+    }
+
     onSelectDateFrom(strDate: string) {
         this.data.endTimeStart = strDate;
     }

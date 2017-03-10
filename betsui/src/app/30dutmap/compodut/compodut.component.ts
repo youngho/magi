@@ -20,6 +20,10 @@ export class CompoDutComponent implements OnInit {
     private data: CompoDut = new CompoDut();
     private colInfo = new Array();
 
+    resetForm(){
+        this.data = new CompoDut();
+
+    }
     onSelectDateFrom(strDate: string) {
         this.data.endTimeStart = strDate;
     }
