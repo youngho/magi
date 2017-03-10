@@ -15,11 +15,11 @@ export class ProgramRegister {
     temperatureGuard: string;
     sblYieldLimit: string;
     sblSubBinaNumber: string;
-    sblSubBinaLimitLimit: string;
-    sblSubBinaLimitCount: string;
+    sblSubBinaLimit: string;
+    sblSubBinaCount: string;
     sblSubBinbNumber: string;
-    sblSubBinbLimitLimit: string;
-    sblSubBinbLimitCount: string;
+    sblSubBinbLimit: string;
+    sblSubBinbCount: string;
     sblBin9Counter: string;
     productName: string;
     customer: string;
@@ -34,6 +34,8 @@ export class ProgramRegister {
     createDate: string;
     modifyUser: string;
     modifyDate: string;
+    sblBin9Limit: string;
+    sblBin8Limit: string;
 
     createDateStart: string;
     createDateEnd: string;

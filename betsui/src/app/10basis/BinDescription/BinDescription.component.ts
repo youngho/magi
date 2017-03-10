@@ -68,6 +68,17 @@ export class BinDescriptionComponent implements OnInit {
 
     }
 
+    resetForm(){
+        this.retrieveCondDto.partNumber = null;
+        this.retrieveCondDto.mainProgramName = null;
+        this.retrieveCondDto.processCode = null;
+        this.retrieveCondDto.testerModel = null;
+        this.retrieveCondDto.itemName = null;
+        this.retrieveCondDto.mainBin = null;
+        this.retrieveCondDto.subBin = null;
+        this.retrieveCondDto.ngBin = null;
+    }
+
     saveLastTableForm() {
         console.log("partNumber : " + this.retrieveCondDto.partNumber);
         console.log("mainProgramName : " + this.retrieveCondDto.mainProgramName);

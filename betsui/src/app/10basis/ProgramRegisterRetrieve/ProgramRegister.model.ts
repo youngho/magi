@@ -15,11 +15,11 @@ export class ProgramRegister {
     temperatureGuard: string;
     sblYieldLimit: string;
     sblSubBinaNumber: string;
-    sblSubBinaLimitLimit: string;
-    sblSubBinaLimitCount: string;
+    sblSubBinaLimit: string;
+    sblSubBinaCount: string;
     sblSubBinbNumber: string;
-    sblSubBinbLimitLimit: string;
-    sblSubBinbLimitCount: string;
+    sblSubBinbLimit: string;
+    sblSubBinbCount: string;
     sblBin9Counter: string;
     productName: string;
     customer: string;
@@ -34,35 +34,37 @@ export class ProgramRegister {
     createDate: string;
     modifyUser: string;
     modifyDate: string;
+    sblBin9Limit: string;
+    sblBin8Limit: string;
 
     createDateStart: string;
     createDateEnd: string;
 
-    functionKey1: string;
-    functionKey2: string;
-    functionKey3: string;
-    functionKey4: string;
-    functionKey5: string;
-    functionKey6: string;
-    functionKey7: string;
-    functionKey8: string;
-    functionKey9: string;
-    functionKey10: string;
-    functionKey11: string;
-    functionKey12: string;
-    functionKey13: string;
-    functionKey14: string;
-    functionKey15: string;
-    functionKey16: string;
+    functionKey1: boolean;
+    functionKey2: boolean;
+    functionKey3: boolean;
+    functionKey4: boolean;
+    functionKey5: boolean;
+    functionKey6: boolean;
+    functionKey7: boolean;
+    functionKey8: boolean;
+    functionKey9: boolean;
+    functionKey10: boolean;
+    functionKey11: boolean;
+    functionKey12: boolean;
+    functionKey13: boolean;
+    functionKey14: boolean;
+    functionKey15: boolean;
+    functionKey16: boolean;
 
-    binDescription1: string;
-    binDescription2: string;
-    binDescription3: string;
-    binDescription4: string;
-    binDescription5: string;
-    binDescription6: string;
-    binDescription7: string;
-    binDescription8: string;
+    binDescription1: boolean;
+    binDescription2: boolean;
+    binDescription3: boolean;
+    binDescription4: boolean;
+    binDescription5: boolean;
+    binDescription6: boolean;
+    binDescription7: boolean;
+    binDescription8: boolean;
 
     static fromJSON(json: any): ProgramRegister {
         let object = Object.create(ProgramRegister.prototype);

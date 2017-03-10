@@ -3,34 +3,42 @@
 <mapper namespace="kr.famos.bets.basisInformation.programRegister.mapper.ProgramRegisterMapper">
     <select id="retrieveProgramRegister" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto" resultType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
         SELECT
-            TESTER_MODEL,
-            PROCESS_CODE,
-            PART_NUMBER,
-            MAIN_PROGRAM_NAME,
-            GRADE,
-            FAB,
-            FIRMWARE_NAME,
-            FIRMWARE_VERSION,
-            FUNCTION_KEY,
-            TEMPERATURE,
-            TEMPERATURE_GUARD,
-            SBL_YIELD_LIMIT,
-            SBL_BIN9_COUNTER,
-            PRODUCT_NAME,
-            CUSTOMER,
-            PACKAGE_TYPE,
-            PROGRAM_VERSION,
-            TESTER_OS_VERSION,
-            PARA,
-            DUT_MAP,
-            BIN_DESCRIPTION,
-            PROGRAM_DIRECTORY,
-            CREATE_USER,
-            CREATE_DATE,
-            MODIFY_USER,
-            MODIFY_DATE
+        TESTER_MODEL,
+        PROCESS_CODE,
+        PART_NUMBER,
+        MAIN_PROGRAM_NAME,
+        GRADE,
+        FAB,
+        FIRMWARE_NAME,
+        FIRMWARE_VERSION,
+        FUNCTION_KEY,
+        TEMPERATURE,
+        TEMPERATURE_GUARD,
+        SBL_YIELD_LIMIT,
+        SBL_SUB_BINA_NUMBER,
+        SBL_SUB_BINA_LIMIT,
+        SBL_SUB_BINA_COUNT,
+        SBL_SUB_BINB_NUMBER,
+        SBL_SUB_BINB_LIMIT,
+        SBL_SUB_BINB_COUNT,
+        SBL_BIN9_COUNTER,
+        PRODUCT_NAME,
+        CUSTOMER,
+        PACKAGE_TYPE,
+        PROGRAM_VERSION,
+        TESTER_OS_VERSION,
+        PARA,
+        DUT_MAP,
+        BIN_DESCRIPTION,
+        PROGRAM_DIRECTORY,
+        CREATE_USER,
+        CREATE_DATE,
+        MODIFY_USER,
+        MODIFY_DATE,
+        SBL_BIN9_LIMIT,
+        SBL_BIN8_LIMIT
         FROM
-            PROGRAM_REGISTER
+        PROGRAM_REGISTER
         <where>
             1 = 1
             <if test=" testerModel != null and testerModel != '' ">
@@ -50,34 +58,42 @@
 
     <select id="retrieveProgramRegisterByKey" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto" resultType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
         SELECT
-            TESTER_MODEL,
-            PROCESS_CODE,
-            PART_NUMBER,
-            MAIN_PROGRAM_NAME,
-            GRADE,
-            FAB,
-            FIRMWARE_NAME,
-            FIRMWARE_VERSION,
-            FUNCTION_KEY,
-            TEMPERATURE,
-            TEMPERATURE_GUARD,
-            SBL_YIELD_LIMIT,
-            SBL_BIN9_COUNTER,
-            PRODUCT_NAME,
-            CUSTOMER,
-            PACKAGE_TYPE,
-            PROGRAM_VERSION,
-            TESTER_OS_VERSION,
-            PARA,
-            DUT_MAP,
-            BIN_DESCRIPTION,
-            PROGRAM_DIRECTORY,
-            CREATE_USER,
-            CREATE_DATE,
-            MODIFY_USER,
-            MODIFY_DATE
+        TESTER_MODEL,
+        PROCESS_CODE,
+        PART_NUMBER,
+        MAIN_PROGRAM_NAME,
+        GRADE,
+        FAB,
+        FIRMWARE_NAME,
+        FIRMWARE_VERSION,
+        FUNCTION_KEY,
+        TEMPERATURE,
+        TEMPERATURE_GUARD,
+        SBL_YIELD_LIMIT,
+        SBL_SUB_BINA_NUMBER,
+        SBL_SUB_BINA_LIMIT,
+        SBL_SUB_BINA_COUNT,
+        SBL_SUB_BINB_NUMBER,
+        SBL_SUB_BINB_LIMIT,
+        SBL_SUB_BINB_COUNT,
+        SBL_BIN9_COUNTER,
+        PRODUCT_NAME,
+        CUSTOMER,
+        PACKAGE_TYPE,
+        PROGRAM_VERSION,
+        TESTER_OS_VERSION,
+        PARA,
+        DUT_MAP,
+        BIN_DESCRIPTION,
+        PROGRAM_DIRECTORY,
+        CREATE_USER,
+        CREATE_DATE,
+        MODIFY_USER,
+        MODIFY_DATE,
+        SBL_BIN9_LIMIT,
+        SBL_BIN8_LIMIT
         FROM
-            PROGRAM_REGISTER
+        PROGRAM_REGISTER
         <where>
             1 = 1
             <if test=" testerModel != null and testerModel != '' ">
@@ -113,11 +129,11 @@
             TEMPERATURE_GUARD,
             SBL_YIELD_LIMIT,
             SBL_SUB_BINA_NUMBER,
-            SBL_SUB_BINA_LIMIT_LIMIT,
-            SBL_SUB_BINA_LIMIT_COUNT,
+            SBL_SUB_BINA_LIMIT,
+            SBL_SUB_BINA_COUNT,
             SBL_SUB_BINB_NUMBER,
-            SBL_SUB_BINB_LIMIT_LIMIT,
-            SBL_SUB_BINB_LIMIT_COUNT,
+            SBL_SUB_BINB_LIMIT,
+            SBL_SUB_BINB_COUNT,
             SBL_BIN9_COUNTER,
             PRODUCT_NAME,
             CUSTOMER,
@@ -131,7 +147,9 @@
             CREATE_USER,
             CREATE_DATE,
             MODIFY_USER,
-            MODIFY_DATE
+            MODIFY_DATE,
+            SBL_BIN9_LIMIT,
+            SBL_BIN8_LIMIT
         )
         VALUES
         (
@@ -148,11 +166,11 @@
             #{temperatureGuard},
             #{sblYieldLimit},
             #{sblSubBinaNumber},
-            #{sblSubBinaLimitLimit},
-            #{sblSubBinaLimitCount},
+            #{sblSubBinaLimit},
+            #{sblSubBinaCount},
             #{sblSubBinbNumber},
-            #{sblSubBinbLimitLimit},
-            #{sblSubBinbLimitCount},
+            #{sblSubBinbLimit},
+            #{sblSubBinbCount},
             #{sblBin9Counter},
             #{productName},
             #{customer},
@@ -166,7 +184,9 @@
             #{createUser},
             #{createDate},
             #{modifyUser},
-            #{modifyDate}
+            #{modifyDate},
+            #{sblBin9Limit},
+            #{sblBin8Limit}
         )
     </insert>
 </mapper>

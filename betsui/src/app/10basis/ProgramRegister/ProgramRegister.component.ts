@@ -46,6 +46,10 @@ export class ProgramRegisterComponent implements OnInit {
     ngOnInit() {
     }
 
+    resetForm(){
+        this.programRegister = new ProgramRegister();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+    }
+
     saveForm() {
         console.log(this.programRegister);
         // console.log('submitting LastTable form @' + this.tableForm);
@@ -54,14 +58,13 @@ export class ProgramRegisterComponent implements OnInit {
         this.binDescriptionMerge();    //binDescription 8자리를 만들어 주는 함수
 
         this.programRegister.createUser = localStorage.getItem('loginId');  //브라우저의 localStorage 에서 로그인 아이디를 가져와 저장시 넘긴다.
-
+        
+        //개발시 로그인 아이디가 없을경우 사용하기 위해 넣은 코드
+        if(localStorage.getItem('loginId') === null){
+            this.programRegister.createUser = 'devdev';
+        }
         this.smartModEg1();
-        /*
-         this.programRegisterService.save(f).subscribe(
-         data => this.tableForm = data,
-         error => alert(error),
-         () => console.log("Finish onSave()"));
-         */
+
         this.submitted = true;
     }
 
@@ -76,22 +79,9 @@ export class ProgramRegisterComponent implements OnInit {
                     data => this.programRegister = data,
                     error => alert(error),
                     () => console.log("Finish onSave()"));
-                /*                this.notificationService.smallBox({
-                 title: "Callback function",
-                 content: "<i class='fa fa-clock-o'></i> <i>You pressed Yes...</i>",
-                 color: "#659265",
-                 iconSmall: "fa fa-check fa-2x fadeInRight animated",
-                 timeout: 4000
-                 });*/
             }
             if (ButtonPressed === "No") {
-                /*                this.notificationService.smallBox({
-                 title: "Callback function",
-                 content: "<i class='fa fa-clock-o'></i> <i>You pressed No...</i>",
-                 color: "#C46A69",
-                 iconSmall: "fa fa-times fa-2x fadeInRight animated",
-                 timeout: 4000
-                 });*/
+
             }
 
         });

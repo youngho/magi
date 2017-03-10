@@ -22,15 +22,15 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'testerModel'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="programRegister.testerModel">
+                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="retrieveCondDto.testerModel">
                                         </div>
                                         <label class="col-md-2 control-label">{{'partNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="programRegister.partNumber">
+                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="programRegister.processCode">
+                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -38,6 +38,9 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <button class="btn btn-default" (click)="resetForm()">
+                                                {{'reset'|i18n}}
+                                            </button>
                                             <button (click)="saveLastTableForm()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'Retrieve'|i18n}}

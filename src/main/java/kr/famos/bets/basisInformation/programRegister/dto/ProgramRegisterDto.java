@@ -8,38 +8,40 @@ package kr.famos.bets.basisInformation.programRegister.dto;
  */
 public class ProgramRegisterDto {
 
-    private String testerModel          = ""; // TESTER 번호
-    private String processCode          = ""; // T0350
-    private String partNumber           = ""; // H9TQ17ABJTA-CUR
-    private String mainProgramName      = ""; // TEST PROGRAM NAME
-    private String grade                = ""; // 제품 품질 설정
-    private String fab                  = ""; // WAFER 제조 공장 번호
-    private String firmwareName         = ""; // 펌웨어 이름(MAGNUM5만 적용)
-    private String firmwareVersion      = ""; // 펌웨어 버전(MAGNUM5만 적용)
-    private String functionKey          = ""; // 스위치 16개의 값 Y/N
-    private int temperature             = 0;  // TEST 온도
-    private int temperatureGuard        = 0;  // TEMPERATURE GUARDBAND
-    private String sblYieldLimit        = ""; // 95
-    private String sblSubBinaNumber     = ""; // 110
-    private String sblSubBinaLimitLimit = ""; // 3
-    private String sblSubBinaLimitCount = ""; // 1
-    private String sblSubBinbNumber     = ""; // 128
-    private String sblSubBinbLimitLimit = ""; // 5
-    private String sblSubBinbLimitCount = ""; // 3
-    private String sblBin9Counter       = ""; // OPBIN BIN9 개수
-    private String productName          = ""; // eMCP 16G16G
-    private String customer             = ""; // 판매처
-    private String packageType          = ""; // 221FBGA
-    private String programVersion       = ""; // TEST PROGRAM VERSION
-    private String testerOsVersion      = ""; // TESTER_MODEL OS VERSION
-    private String para                 = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
-    private String dutMap               = ""; // HANDLER의 DUT 배열에 FILE NAME
-    private String binDescription       = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
-    private String programDirectory     = ""; // Test Program 저장 경로
-    private String createUser           = ""; // 최초생성 ID
-    private String createDate           = ""; // 생성일시
-    private String modifyUser           = ""; // 수정 ID
-    private String modifyDate           = ""; // 수정일시
+    private String testerModel      = ""; // TESTER 번호
+    private String processCode      = ""; // T0350
+    private String partNumber       = ""; // H9TQ17ABJTA-CUR
+    private String mainProgramName  = ""; // TEST PROGRAM NAME
+    private String grade            = ""; // 제품 품질 설정
+    private String fab              = ""; // WAFER 제조 공장 번호
+    private String firmwareName     = ""; // 펌웨어 이름(MAGNUM5만 적용)
+    private String firmwareVersion  = ""; // 펌웨어 버전(MAGNUM5만 적용)
+    private String functionKey      = ""; // 스위치 16개의 값 Y/N
+    private int temperature         = 0;  // TEST 온도
+    private int temperatureGuard    = 0;  // TEMPERATURE GUARDBAND
+    private String sblYieldLimit    = ""; // 95
+    private String sblSubBinaNumber = ""; // 110
+    private String sblSubBinaLimit  = ""; // 3
+    private String sblSubBinaCount  = ""; // 1
+    private String sblSubBinbNumber = ""; // 128
+    private String sblSubBinbLimit  = ""; // 5
+    private String sblSubBinbCount  = ""; // 3
+    private String sblBin9Counter   = ""; // OPBIN BIN9 개수
+    private String productName      = ""; // eMCP 16G16G
+    private String customer         = ""; // 판매처
+    private String packageType      = ""; // 221FBGA
+    private String programVersion   = ""; // TEST PROGRAM VERSION
+    private String testerOsVersion  = ""; // TESTER_MODEL OS VERSION
+    private String para             = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
+    private String dutMap           = ""; // HANDLER의 DUT 배열에 FILE NAME
+    private String binDescription   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+    private String programDirectory = ""; // Test Program 저장 경로
+    private String createUser       = ""; // 최초생성 ID
+    private String createDate       = ""; // 생성일시
+    private String modifyUser       = ""; // 수정 ID
+    private String modifyDate       = ""; // 수정일시
+    private String sblBin9Limit     = ""; //
+    private String sblBin8Limit     = ""; //
 
     public String getTesterModel() {
         return testerModel;
@@ -145,20 +147,20 @@ public class ProgramRegisterDto {
         this.sblSubBinaNumber = sblSubBinaNumber;
     }
 
-    public String getSblSubBinaLimitLimit() {
-        return sblSubBinaLimitLimit;
+    public String getSblSubBinaLimit() {
+        return sblSubBinaLimit;
     }
 
-    public void setSblSubBinaLimitLimit(String sblSubBinaLimitLimit) {
-        this.sblSubBinaLimitLimit = sblSubBinaLimitLimit;
+    public void setSblSubBinaLimit(String sblSubBinaLimit) {
+        this.sblSubBinaLimit = sblSubBinaLimit;
     }
 
-    public String getSblSubBinaLimitCount() {
-        return sblSubBinaLimitCount;
+    public String getSblSubBinaCount() {
+        return sblSubBinaCount;
     }
 
-    public void setSblSubBinaLimitCount(String sblSubBinaLimitCount) {
-        this.sblSubBinaLimitCount = sblSubBinaLimitCount;
+    public void setSblSubBinaCount(String sblSubBinaCount) {
+        this.sblSubBinaCount = sblSubBinaCount;
     }
 
     public String getSblSubBinbNumber() {
@@ -169,20 +171,20 @@ public class ProgramRegisterDto {
         this.sblSubBinbNumber = sblSubBinbNumber;
     }
 
-    public String getSblSubBinbLimitLimit() {
-        return sblSubBinbLimitLimit;
+    public String getSblSubBinbLimit() {
+        return sblSubBinbLimit;
     }
 
-    public void setSblSubBinbLimitLimit(String sblSubBinbLimitLimit) {
-        this.sblSubBinbLimitLimit = sblSubBinbLimitLimit;
+    public void setSblSubBinbLimit(String sblSubBinbLimit) {
+        this.sblSubBinbLimit = sblSubBinbLimit;
     }
 
-    public String getSblSubBinbLimitCount() {
-        return sblSubBinbLimitCount;
+    public String getSblSubBinbCount() {
+        return sblSubBinbCount;
     }
 
-    public void setSblSubBinbLimitCount(String sblSubBinbLimitCount) {
-        this.sblSubBinbLimitCount = sblSubBinbLimitCount;
+    public void setSblSubBinbCount(String sblSubBinbCount) {
+        this.sblSubBinbCount = sblSubBinbCount;
     }
 
     public String getSblBin9Counter() {
@@ -295,5 +297,21 @@ public class ProgramRegisterDto {
 
     public void setModifyDate(String modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public String getSblBin9Limit() {
+        return sblBin9Limit;
+    }
+
+    public void setSblBin9Limit(String sblBin9Limit) {
+        this.sblBin9Limit = sblBin9Limit;
+    }
+
+    public String getSblBin8Limit() {
+        return sblBin8Limit;
+    }
+
+    public void setSblBin8Limit(String sblBin8Limit) {
+        this.sblBin8Limit = sblBin8Limit;
     }
 }
