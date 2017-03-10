@@ -20,17 +20,17 @@
                                 <fieldset>
                                     <!--POP UP Modal dialog Stat-->
                                     <div class="form-group">
-                                        <label class="col-md-1 control-label">{{'Board Type No'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'Board Type No'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Board Type No" type="text" [(ngModel)]="data.boardTypeNo">
+                                            <input class="form-control" placeholder="Board Type No" type="text" name="boardTypeNo" [(ngModel)]="retrieveCondDto.boardTypeNo">
                                         </div>
-                                        <label class="col-md-1 control-label">{{'X Socket Quantity'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'X Socket Quantity'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="X Socket Quantity" type="text" [(ngModel)]="data.xSocketQty">
+                                            <input class="form-control" placeholder="X Socket Quantity" type="text" name="xSocketQty" [(ngModel)]="retrieveCondDto.xSocketQty">
                                         </div>
-                                        <label class="col-md-1 control-label">{{'Y Socket Quantity'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'Y Socket Quantity'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Y Socket Quantity" type="text" [(ngModel)]="data.ySocketQty">
+                                            <input class="form-control" placeholder="Y Socket Quantity" type="text" name="ySocketQty" [(ngModel)]="retrieveCondDto.ySocketQty">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -38,7 +38,7 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button type="button" class="btn btn-success">
+                                            <button type="button" class="btn btn-success" (click)="lgModal.show()">
                                                 <i class="fa file-o"></i>
                                                 New
                                             </button>
@@ -75,23 +75,22 @@
                 </button>
                 <h4 class="modal-title">TDBI Board Type Register</h4>
             </div>
-            <form class="form-horizontal" [formGroup]="tableForm" (ngSubmit)="saveForm(tableForm.value)" novalidate>
+            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" novalidate>
                 <div class="modal-body">
                     <fieldset>
                         <!--<legend>Last TABLED efault Form Elements</legend>-->
                         <div class="form-group">
-                            <label class="col-md-1 control-label">{{'Board Type No'|i18n}}</label>
+                            <label class="col-md-2 control-label">{{'Board Type No'|i18n}}</label>
                             <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="boardTypeNo">
+                                <input class="form-control" placeholder="" type="text" id="boardTypeNo" name="boardTypeNo" [(ngModel)]="tdbiBoardType.boardTypeNo">
                             </div>
-
-                            <label class="col-md-1 control-label">{{'X Socket Quantity'|i18n}}</label>
+                            <label class="col-md-2 control-label">{{'X Socket Quantity'|i18n}}</label>
                             <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="xSocketQty">
+                                <input class="form-control" placeholder="" type="text" id="xSocketQty" name="xSocketQty" [(ngModel)]="tdbiBoardType.xSocketQty">
                             </div>
-                            <label class="col-md-1 control-label">{{'Y Socket Quantity'|i18n}}</label>
+                            <label class="col-md-2 control-label">{{'Y Socket Quantity'|i18n}}</label>
                             <div class="col-md-2">
-                                <input class="form-control" placeholder="" type="text" formControlName="ySocketQty">
+                                <input class="form-control" placeholder="" type="text" id="ySocketQty" name="ySocketQty" [(ngModel)]="tdbiBoardType.ySocketQty">
                             </div>
                         </div>
                     </fieldset>

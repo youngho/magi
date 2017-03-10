@@ -23,6 +23,28 @@
         </where>
     </select>
 
+    <select id="retrieveTdbiBoardTypeByKey" parameterType="kr.famos.bets.basisInformation.tdbiBoardTypeRegister.dto.TdbiBoardTypeDto" resultType="kr.famos.bets.basisInformation.tdbiBoardTypeRegister.dto.TdbiBoardTypeDto">
+        SELECT
+              BOARD_TYPE_NO,
+              X_SOCKET_QTY,
+              Y_SOCKET_QTY
+        FROM
+              TDBI_BOARD_TYPE
+        <where>
+            1 = 1
+            <if test=" boardTypeNo != null and boardTypeNo != '' ">
+                AND BOARD_TYPE_NO=#{boardTypeNo}
+            </if>
+            <if test=" xSocketQty != null and xSocketQty != '' ">
+                AND X_SOCKET_QTY=#{xSocketQty}
+            </if>
+            <if test=" ySocketQty != null and ySocketQty != '' ">
+                AND Y_SOCKET_QTY=#{ySocketQty}
+            </if>
+
+        </where>
+    </select>
+
     <insert id="insertTdbiBoardType" parameterType="kr.famos.bets.basisInformation.tdbiBoardTypeRegister.dto.TdbiBoardTypeDto">
         MERGE INTO TDBI_BOARD_TYPE USING DUAL ON (BOARD_TYPE_NO=#{boardTypeNo})
         WHEN MATCHED THEN

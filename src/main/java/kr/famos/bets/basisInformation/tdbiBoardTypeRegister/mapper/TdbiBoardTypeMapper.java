@@ -13,6 +13,8 @@ public interface TdbiBoardTypeMapper {
 
     List<TdbiBoardTypeDto>retrieveTdbiBoardType(TdbiBoardTypeDto tdbiBoardTypeDto);
 
+    TdbiBoardTypeDto retrieveTdbiBoardTypeByKey(TdbiBoardTypeDto tdbiBoardTypeDto);
+
     void insertTdbiBoardType(TdbiBoardTypeDto tdbiBoardTypeDto);
 
 }

@@ -11,46 +11,38 @@ import {TdbiBoardType} from './TdbiBoardType.model';
 import {DatatableComponent} from './datatable.component';
 import {NotificationService} from "../../shared/utils/notification.service";
 
-declare var $: any;
 
 @FadeInTop()
 @Component({
     selector: 'TdbiBoardTypeRegisterRetrieveComponent',
     templateUrl: 'TdbiBoardTypeRegister.component.html',
-    providers: [TdbiBoardTypeRegisterService]
+    providers: [TdbiBoardTypeRegisterService, TdbiBoardType]
 })
 
 export class TdbiBoardTypeRegisterComponent implements OnInit {
+
+    retrieveCondDto = {
+        boardTypeNo: "",
+        xSocketQty: "",
+        ySocketQty: ""
+    };
+
+    constructor(private service: TdbiBoardTypeRegisterService, private notificationService: NotificationService, private tdbiBoardType: TdbiBoardType) {
+    }
 
     @ViewChild('lgModal') bgModel;
 
     componentData = null;
     errorMessage = null;
     message: string = '';
+    submitted = false;
 
-    private data: TdbiBoardType = new TdbiBoardType();
-
-    tableForm: FormGroup;
-    boardTypeNo: FormControl;
-    xSocketQty: FormControl;
-    ySocketQty: FormControl;
-
-
-    constructor(private fb: FormBuilder, private service: TdbiBoardTypeRegisterService, private notificationService: NotificationService) {
-        //this.data.boardTypeNo = '0608';
-
-        this.boardTypeNo = new FormControl('', [Validators.required, Validators.minLength(1)]);
-        this.xSocketQty = new FormControl('', [Validators.required, Validators.minLength(1)]);
-        this.ySocketQty = new FormControl('', [Validators.required, Validators.minLength(1)]);
-
-        this.tableForm = fb.group({
-            boardTypeNo: this.boardTypeNo,
-            xSocketQty: this.xSocketQty,
-            ySocketQty: this.ySocketQty
-        });
+    /**
+     *
+     */
+    newData(){
+        this.bgModel.show();
     }
-
-
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
@@ -59,21 +51,29 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
         this.message = info.boardTypeNo + ' - ' + info.xSocketQty + ' - ' + info.ySocketQty;
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
-        this.data.boardTypeNo = info.boardTypeNo;
+        this.tdbiBoardType.boardTypeNo = info.boardTypeNo;
 
-        (<FormControl>this.tableForm.controls['boardTypeNo']).setValue(info.boardTypeNo, {onlySelf: true});
+        this.service.postRetrieveByKey(this.tdbiBoardType)
+            .subscribe((response) => {
+                    //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
 
-        this.bgModel.show();
+                    this.tdbiBoardType = TdbiBoardType.fromJSON(response);
+                },
+                error => alert(error));
+
+        this.bgModel.show(function (info: any) {
+            console.log(info.boardTypeNo);
+        });
 
     }
 
     saveLastTableForm() {
-        console.log("boardTypeNo : " + this.data.boardTypeNo);
-        console.log("xSocketQty : " + this.data.xSocketQty);
-        console.log("ySocketQty : " + this.data.ySocketQty);
+        console.log("boardTypeNo : " + this.tdbiBoardType.boardTypeNo);
+        console.log("xSocketQty : " + this.tdbiBoardType.xSocketQty);
+        console.log("ySocketQty : " + this.tdbiBoardType.ySocketQty);
 
 
-        this.service.postRetrieve(this.data)
+        this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.componentData = {
                         component: DatatableComponent,
@@ -107,26 +107,22 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
                 error => this.errorMessage = error);
     }
 
-    saveForm(f) {
-        console.log(this.tableForm.value);
-        console.log('submitting LastTable form @' + this.tableForm);
-
-        this.smartModEg1(f);
-
-        //this.tableForm.markAsPristine();
+    saveForm() {
+        this.smartModEg1();
+        this.submitted = true;
     }
 
-    smartModEg1(f) {
+    smartModEg1() {
         this.notificationService.smartMessageBox({
-            title: "Smart Alert!",
-            content: "This is a confirmation box. Can be programmed for button callback",
+            title: "BETS Alert!",
+            content: "Do you want to save it?",
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
-                this.service.save(f).subscribe(
-                    data => this.tableForm = data,
+                this.service.save(this.tdbiBoardType).subscribe(
+                    data => this.tdbiBoardType = data,
                     error => alert(error),
-                    () => console.log("Finish onSave()"));
+                    () => this.bgModel.hide());
                 /*                this.notificationService.smallBox({
                  title: "Callback function",
                  content: "<i class='fa fa-clock-o'></i> <i>You pressed Yes...</i>",

@@ -32,15 +32,6 @@ import {Component, Injector} from '@angular/core';
                                     <th>NG BIN</th>
                                 </tr>
                                 </thead>
-
-                                <!--				<tfoot>
-                                                    <tr>
-                                                        <th>User ID</th>
-                                                        <th>Post ID</th>
-                                                        <th>Title</th>
-                                                        <th>Body</th>
-                                                    </tr>
-                                                </tfoot>-->
                             </sa-datatable>
 
                         </div>

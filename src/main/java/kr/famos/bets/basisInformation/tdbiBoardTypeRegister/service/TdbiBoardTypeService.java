@@ -25,6 +25,11 @@ public class TdbiBoardTypeService {
         return tdbiBoardTypeDtoList;
     }
 
+    public TdbiBoardTypeDto retrieveTdbiBoardTypeByKey(TdbiBoardTypeDto tdbiBoardTypeDto) {
+        TdbiBoardTypeDto result = tdbiBoardTypeMapper.retrieveTdbiBoardTypeByKey(tdbiBoardTypeDto);
+        return result;
+    }
+
     public void insertTdbiBoardType(TdbiBoardTypeDto tdbiBoardTypeDto) {
         tdbiBoardTypeMapper.insertTdbiBoardType(tdbiBoardTypeDto);
     }

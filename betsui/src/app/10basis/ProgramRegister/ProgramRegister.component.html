@@ -9,24 +9,10 @@
             <article class="col-sm-12 col-md-12 col-lg-12">
                 <!-- Widget ID (each widget will need unique ID)-->
                 <sa-widget [colorbutton]="false" [editbutton]="false">
-                    <!-- widget options:
-                    usage: <sa-widget [editbutton]="false">
-
-                    [colorbutton]="false"
-                    [editbutton]="false"
-                    [togglebutton]="false"
-                    [deletebutton]="false"
-                    [fullscreenbutton]="false"
-                    [custombutton]="false"
-                    [collapsed]="true"
-                    [sortable]="false"
-
-                    -->
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                        <h2>Program register</h2>
+                        <h2>Program Register</h2>
                     </header>
-
                     <!-- widget div-->
                     <div>
                         <!-- widget content -->
@@ -34,20 +20,14 @@
                             <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()"
                                   [saUiValidate]="validationOptions" novalidate="novalidate">
                                 <fieldset>
-                                    <!--<legend>Last TABLED efault Form Elements</legend>-->
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'partNumber'|i18n}}<sup><span
-                                                class="txt-color-red">*</span></sup></label>
+                                        <label class="col-md-2 control-label">{{'partNumber'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
+
                                         <div class="col-md-2">
                                             <input type="text" class="form-control" id="partNumber" name="partNumber"
                                                    placeholder="" [(ngModel)]="programRegister.partNumber" required>
                                         </div>
-                                        <!--
-                                                                                <div [hidden]="partNumber.valid || partNumber.pristine" class="alert alert-danger">
-                                                                                    partNumber is required
-                                                                                </div>
-                                        -->
-                                        <label class="col-md-2 control-label">{{'processCode'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'processCode'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control" id="processCode" name="processCode"
                                                    placeholder="" [(ngModel)]="programRegister.processCode">
@@ -57,16 +37,15 @@
                                             <input type="text" class="form-control" id="product" name="product"
                                                    placeholder="" [(ngModel)]="programRegister.product">
                                         </div>
-
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'packageType'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'packageType'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control" id="packageType" name="packageType"
                                                    placeholder="" [(ngModel)]="programRegister.packageType">
                                         </div>
 
-                                        <label class="col-md-2 control-label">{{'temperature'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'temperature'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="number" class="form-control" id="temperature"
                                                    name="temperature" placeholder=""
@@ -191,7 +170,7 @@
                                                    [(ngModel)]="programRegister.programVersion">
                                         </div>
 
-                                        <label class="col-md-2 control-label">{{'programDirectory'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'programDirectory'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control" id="programDirectory"
                                                    name="programDirectory" placeholder=""
@@ -296,7 +275,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">PASS BIN SELECTION</label>
+                                        <label class="col-md-2 control-label">PASS BIN SELECTION<sup><span class="txt-color-red">*</span></sup></label>
                                         <div class="col-md-10">
                                             <label class="col-md-2 checkbox-inline">
                                                 <input type="checkbox" class="checkbox style-3" id="binDescription1"

@@ -29,9 +29,14 @@ public class TdbiBoardTypeController {
         return new ResponseEntity<List<TdbiBoardTypeDto>>(tdbiBoardTypeService.retrieveTdbiBoardType(tdbiBoardTypeDto), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "retrieveTdbiBoardTypeByKey", method = RequestMethod.POST)
+    public ResponseEntity<TdbiBoardTypeDto>retrieveTdbiBoardTypeByKey(@RequestBody TdbiBoardTypeDto tdbiBoardTypeDto){
+        return new ResponseEntity<TdbiBoardTypeDto>(tdbiBoardTypeService.retrieveTdbiBoardTypeByKey(tdbiBoardTypeDto), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "insertTdbiBoardType", method = RequestMethod.POST)
     public void insertTdbiBoardType(@RequestBody TdbiBoardTypeDto tdbiBoardTypeDto){
-        tdbiBoardTypeService.retrieveTdbiBoardType(tdbiBoardTypeDto);
+        tdbiBoardTypeService.insertTdbiBoardType(tdbiBoardTypeDto);
     }
 
 }

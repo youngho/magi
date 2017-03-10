@@ -8,22 +8,21 @@ import {Component, Injector} from '@angular/core';
     template: `<sa-widget [editbutton]="false" color="blueDark">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Program register retrieve Result</h2>
+                        <h2>Program Register Retrieve Result</h2>
                     </header>
                     <div>
                         <div class="widget-body no-padding">
-
                             <sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'date'|i18n}}"/></th>
-                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'testerModel'|i18n}}"/></th>
-                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="Filter {{'partNumber'|i18n}}"/></th>
-                                        <th class="hasinput" [ngStyle]="{width:'10%'}"><input type="text" class="form-control" placeholder="{{'processCode'|i18n}}"/></th>
-                                        <th class="hasinput" [ngStyle]="{width:'8%'}"><input type="text" class="form-control" placeholder="{{'para'|i18n}}"/></th>
-                                        <th class="hasinput" [ngStyle]="{width:'27%'}"><input type="text" class="form-control" placeholder="{{'mainProgramName'|i18n}}"/></th>
-                                        <th class="hasinput" [ngStyle]="{width:'25%'}"><input type="text" class="form-control" placeholder="Filter SBL YIELD"/></th>
-                                        <th class="hasinput" [ngStyle]="{width:'25%'}"><input type="text" class="form-control" placeholder="Filter SBL YIELD"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter {{'date'|i18n}}"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter {{'testerModel'|i18n}}"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter {{'partNumber'|i18n}}"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="{{'processCode'|i18n}}"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="{{'para'|i18n}}"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="{{'mainProgramName'|i18n}}"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter SBL YIELD"/></th>
+                                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter SBL YIELD"/></th>
                                     </tr>
                                     <tr>
                                         <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
@@ -38,7 +37,6 @@ import {Component, Injector} from '@angular/core';
                                     </tr>
                                 </thead>
                             </sa-datatable>
-
                         </div>
                     </div>
                 </sa-widget>

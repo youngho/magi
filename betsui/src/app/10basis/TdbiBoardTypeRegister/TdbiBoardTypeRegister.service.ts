@@ -15,15 +15,21 @@ export class TdbiBoardTypeRegisterService {
     constructor(private api: ApiService) {
     }
 
-    postRetrieve(data: TdbiBoardType) {
+    postRetrieveByKey(data) {
+        this.path = 'retrieveTdbiBoardTypeByKey';
         console.log('service Component post :');
+        console.log('PATH : ' + this.path);
+        return this.api.retrievePost(`${this.path}`, data);
+    }
+
+    postRetrieve(data: TdbiBoardType) {
+        this.path = 'retrieveTdbiBoardType';
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
     save(data: TdbiBoardType) {
         this.path = 'insertTdbiBoardType';
-        console.log('saving post:' + data.boardTypeNo );
         console.log('PATH : ' + this.path);
         return this.api.post(`${this.path}`, data);
     }

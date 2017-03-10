@@ -136,8 +136,8 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
 
     smartModEg1() {
         this.notificationService.smartMessageBox({
-            title: "Smart Alert!",
-            content: "This is a confirmation box. Can be programmed for button callback",
+            title: "BETS Alert!",
+            content: "Do you want to save it?",
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {

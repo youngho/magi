@@ -16,15 +16,10 @@ import {Component, Injector} from '@angular/core';
                             <sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th class="hasinput" [ngStyle]="{width:'50%'}"><input type="text" class="form-control" placeholder="Filter Board Type No"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'25%'}"><input type="text" class="form-control" placeholder="Filter X Socket Quantity"/>
-                                    </th>
-                                    <th class="hasinput" [ngStyle]="{width:'25%'}"><input type="text" class="form-control" placeholder="Filter Y Socket Quantity"/>
-                                    </th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Board Type No"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter X Socket Quantity"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Y Socket Quantity"/></th>
                                 </tr>
-
-
                                 <tr>
                                     <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
                                     <th>Board Type No</th>
@@ -32,17 +27,7 @@ import {Component, Injector} from '@angular/core';
                                     <th>Filter Y Socket Quantity</th>
                                 </tr>
                                 </thead>
-
-                                <!--				<tfoot>
-                                                    <tr>
-                                                        <th>User ID</th>
-                                                        <th>Post ID</th>
-                                                        <th>Title</th>
-                                                        <th>Body</th>
-                                                    </tr>
-                                                </tfoot>-->
                             </sa-datatable>
-
                         </div>
                     </div>
                 </sa-widget>
