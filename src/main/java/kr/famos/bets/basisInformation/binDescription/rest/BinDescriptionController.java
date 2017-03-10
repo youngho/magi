@@ -32,6 +32,14 @@ public class BinDescriptionController {
         return new ResponseEntity<List<BinDescriptionDto>>(binDescriptionService.retrieveBinDescription(binDescriptionDto), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/retrieveBinDescriptionByKey", method = RequestMethod.POST)
+    public ResponseEntity<BinDescriptionDto> retrieveBinDescriptionByKey(@RequestBody BinDescriptionDto binDescriptionDto) {
+
+        logger.debug("BinDescriptionController - retireve 메소드");
+
+        return new ResponseEntity<BinDescriptionDto>(binDescriptionService.retrieveBinDescriptionByKey(binDescriptionDto), HttpStatus.OK);
+    }
+
 
     @RequestMapping(value = "/insertBinDescription", method = RequestMethod.POST)
     public void post(@RequestBody BinDescriptionDto binDescriptionDto) {

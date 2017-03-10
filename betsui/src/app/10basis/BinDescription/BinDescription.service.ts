@@ -15,15 +15,21 @@ export class BinDescriptionService {
     }
 
 
-    postRetrieve(data: BinDescription) {
-        console.log('service Component post :');
+    postRetrieveByKey(data: BinDescription) {
+        this.path = 'retrieveBinDescriptionByKey';
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
+    postRetrieve(data: BinDescription) {
+        this.path = 'retrieveBinDescription';
+        console.log('PATH : ' + this.path);
+        return this.api.retrievePost(`${this.path}`, data);
+    }
+
+    save(data: BinDescription) {
+        this.path = 'insertBinDescription';
+        console.log('PATH : ' + this.path);
+        return this.api.post(`${this.path}`, data);
+    }
 }

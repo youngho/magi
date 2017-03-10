@@ -21,25 +21,31 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="partNumber" type="text" [(ngModel)]="data.partNumber">
+                                            <input class="form-control" placeholder="partNumber" type="text" name="partNumber" [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Tester'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Main Program Name" type="text" [(ngModel)]="data.mainProgramName">
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" name="mainProgramName" [(ngModel)]="retrieveCondDto.mainProgramName">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="data.processCode">
+                                            <input class="form-control" placeholder="Process Code" type="text" name="processCode" [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
+                                            <input class="form-control" placeholder="Tester Model" type="text" name="testerModel" [(ngModel)]="retrieveCondDto.testerModel">
                                         </div>
                                     </div>
                                 </fieldset>
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <button type="button" class="btn btn-success" (click)="lgModal.show()">
+                                                <i class="fa file-o"></i>
+                                                New
+                                            </button>
                                             <button (click)="saveLastTableForm()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'Retrieve'|i18n}}
@@ -61,4 +67,74 @@
         <!-- row end-->
     </sa-widgets-grid>
     <!-- end widget grid -->
+</div>
+
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">TDBI Board Type Register</h4>
+            </div>
+            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" novalidate>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="partNumber" type="text" name="partNumber" [(ngModel)]="binDescription.partNumber">
+                            </div>
+                            <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" name="mainProgramName" [(ngModel)]="binDescription.mainProgramName">
+                            </div>
+                            <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="Process Code" type="text" name="processCode" [(ngModel)]="binDescription.processCode">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="Tester Model" type="text" name="testerModel" [(ngModel)]="binDescription.testerModel">
+                            </div>
+
+                            <label class="col-md-2 control-label">{{'itemName'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="{{'itemName'|i18n}}" type="text" name="itemName" [(ngModel)]="binDescription.itemName">
+                            </div>
+                            <label class="col-md-2 control-label">{{'mainBin'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="{{'mainBin'|i18n}}" type="text" name="mainBin" [(ngModel)]="binDescription.mainBin">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'subBin'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="{{'subBin'|i18n}}" type="text" name="subBin" [(ngModel)]="binDescription.subBin">
+                            </div>
+
+                            <label class="col-md-2 control-label">{{'ngBin'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="{{'ngBin'|i18n}}" type="text" name="ngBin" [(ngModel)]="binDescription.ngBin">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="lgModal.hide()">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" type="submit">
+                        <i class="fa fa-save"></i>
+                        {{'save'|i18n}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

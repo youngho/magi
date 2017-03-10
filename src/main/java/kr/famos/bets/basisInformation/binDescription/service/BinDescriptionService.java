@@ -30,7 +30,13 @@ public class BinDescriptionService {
         List<BinDescriptionDto> binDescriptionDtoList = binDescriptionMapper.retrieveBinDescription(binDescriptionDto);
         // TODO
         return binDescriptionDtoList;
+    }
 
+    public BinDescriptionDto retrieveBinDescriptionByKey(BinDescriptionDto binDescriptionDto){
+        logger.debug("BinDescriptionService - retrieveBinDescription");
+        BinDescriptionDto binDescriptionByKey = binDescriptionMapper.retrieveBinDescriptionByKey(binDescriptionDto);
+        // TODO
+        return binDescriptionByKey;
     }
 
     public void insertBinDescription(BinDescriptionDto binDescriptionDto){

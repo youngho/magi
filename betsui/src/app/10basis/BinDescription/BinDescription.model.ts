@@ -10,4 +10,10 @@ export class BinDescription {
     mainBin: string;
     subBin: string;
     ngBin: string;
+
+    static fromJSON(json: any): BinDescription {
+        let object = Object.create(BinDescription.prototype);
+        Object.assign(object, json);
+        return object;
+    }
 }

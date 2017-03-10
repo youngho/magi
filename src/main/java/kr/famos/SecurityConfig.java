@@ -64,6 +64,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveTdbiBoardTypeByKey").permitAll()
                 .antMatchers("/insertTdbiBoardType").permitAll()
 
+                .antMatchers("/retrieveBinDescription").permitAll()
+                .antMatchers("/retrieveBinDescriptionByKey").permitAll()
+                .antMatchers("/insertBinDescription").permitAll()
+
+
                 .antMatchers("/retireveLotYield").permitAll()
                 .antMatchers("/retrieveRegister").permitAll()
                 .antMatchers("/insertProgramRegister").permitAll()

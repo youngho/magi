@@ -10,6 +10,7 @@ import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.m
 
 import {BinDescriptionComponent} from "./BinDescription.component";
 import {BinDescriptionRouting} from "./BinDescription.routing";
+import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import {BinDescriptionRouting} from "./BinDescription.routing";
         SmartadminInputModule,
         SmartadminDatatableModule,
         // BETS ADDED
+        SmartadminFormsModule,
         FormsModule,
         ReactiveFormsModule
     ],

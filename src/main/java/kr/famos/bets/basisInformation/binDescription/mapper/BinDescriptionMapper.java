@@ -13,6 +13,8 @@ public interface BinDescriptionMapper {
 
     List<BinDescriptionDto> retrieveBinDescription(BinDescriptionDto binDescriptionDto);
 
+    BinDescriptionDto retrieveBinDescriptionByKey(BinDescriptionDto binDescriptionDto);
+
     void insertBinDescription(BinDescriptionDto binDescriptionDto);
 /*    @Autowired
     private SqlSession sqlSession;
