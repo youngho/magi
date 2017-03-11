@@ -1,7 +1,6 @@
 package kr.famos.bets.yieldAnalysis.ngbin.mapper;
 
 import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto;
-import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinResultDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

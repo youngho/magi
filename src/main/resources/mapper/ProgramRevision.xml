@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.history.testProgramRevision.mapper.ProgramRevisionMapper">
+    <select id="retrieveProgramRevision" parameterType="kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionDto" resultType="kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionDto">
+        SELECT
+                TESTER_MODEL,
+                PROCESS_CODE,
+                PART_NUMBER,
+                MAIN_PROGRAM_NAME,
+                GRADE,
+                FAB,
+                FIRMWARE_NAME,
+                FIRMWARE_VERSION,
+                FUNCTION_KEY,
+                TEMPERATURE,
+                TEMPERATURE_GUARD,
+                SBL_YIELD_LIMIT,
+                SBL_SUB_BINA_NUMBER,
+                SBL_SUB_BINA_LIMIT,
+                SBL_SUB_BINA_COUNT,
+                SBL_SUB_BINB_NUMBER,
+                SBL_SUB_BINB_LIMIT,
+                SBL_SUB_BINB_COUNT,
+                SBL_BIN9_COUNTER,
+                PRODUCT_NAME,
+                CUSTOMER,
+                PACKAGE_TYPE,
+                PROGRAM_VERSION,
+                TESTER_OS_VERSION,
+                PARA,
+                DUT_MAP,
+                BIN_DESCRIPTION,
+                PROGRAM_DIRECTORY,
+                CREATE_USER,
+                CREATE_DATE,
+                MODIFY_USER,
+                MODIFY_DATE,
+                SBL_BIN9_LIMIT,
+                SBL_BIN8_LIMIT
+        FROM
+                PROGRAM_REGISTER
+        <where>
+            1 = 1
+            <if test=" createDateStart != null and createDateStart != '' ">
+                AND CREATE_DATE <![CDATA[>=]]> #{createDateStart}
+            </if>
+            <if test=" createDateEnd != null and createDateEnd != '' ">
+                AND CREATE_DATE <![CDATA[<=]]> #{createDateEnd}
+            </if>
+            <if test=" firmwareName != null and firmwareName != '' ">
+                AND FIRMWARE_NAME = #{firmwareName}
+            </if>
+            <if test=" partNumber != null and partNumber != '' ">
+                AND PART_NUMBER=#{partNumber}
+            </if>
+            <if test=" processCode != null and processCode != '' ">
+                AND PROCESS_CODE=#{processCode}
+            </if>
+            <if test=" testerOsVersion != null and testerOsVersion != '' ">
+                AND TESTER_OS_VERSION=#{testerOsVersion}
+            </if>
+            <if test=" testerModel != null and testerModel != '' ">
+                AND TESTER_MODEL=#{testerModel}
+            </if>
+            <if test=" mainProgramName != null and mainProgramName != '' ">
+                AND MAIN_PROGRAM_NAME=#{mainProgramName}
+            </if>
+        </where>
+    </select>
+</mapper>
