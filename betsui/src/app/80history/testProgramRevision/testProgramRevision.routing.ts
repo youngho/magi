@@ -1,11 +1,11 @@
 import {ModuleWithProviders} from "@angular/core"
 import {Routes, RouterModule} from '@angular/router';
-import {NgBinComponent} from "./testProgramRevision.component";
+import {ProgramRevisionComponent} from "./testProgramRevision.component";
 
 export const moduleRoutes: Routes = [{
     path: '',
-    component: NgBinComponent
+    component: ProgramRevisionComponent
 }];
 
-export const NgBinRouting = RouterModule.forChild(moduleRoutes);
+export const ProgramRevisionRouting = RouterModule.forChild(moduleRoutes);
 

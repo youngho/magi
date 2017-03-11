@@ -4,7 +4,7 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
-import {NgBin} from "./testProgramRevision.model";
+import {ProgramRevision} from "./testProgramRevision.model";
 
 @Injectable()
 export class ProgramRevisionService {
@@ -12,7 +12,7 @@ export class ProgramRevisionService {
 
     constructor(private api: ApiService) {}
 
-    postLastTable(data: NgBin) {
+    postLastTable(data: ProgramRevision) {
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }

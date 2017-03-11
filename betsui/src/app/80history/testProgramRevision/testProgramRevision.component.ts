@@ -11,11 +11,11 @@ declare var $: any;
 
 @FadeInTop()
 @Component({
-    selector: 'NgBin',
+    selector: 'testProgramRevision',
     templateUrl: 'testProgramRevision.component.html',
     providers: [ProgramRevisionService, ProgramRevision]
 })
-export class NgBinComponent implements OnInit {
+export class ProgramRevisionComponent implements OnInit {
 
     constructor(private service: ProgramRevisionService) {
     }

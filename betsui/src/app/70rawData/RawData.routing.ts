@@ -15,11 +15,11 @@ export const routes:Routes = [
   { path: 'log',
     loadChildren: 'app/70rawData/log/Log.module#LogModule',
     data: {pageTitle: 'Log'}
-  },
+  },*/
   { path: 'casi',
-    loadChildren: 'app/70rawData/casi/Casi.module#CasiModule',
+    loadChildren: 'app/70rawData/casi/casi.module#CasiModule',
     data: {pageTitle: 'Casi'}
-  },
+  }/*,
   { path: 'BISummary',
     loadChildren: 'app/70rawData/BISummary/BISummary.module#BISummaryModule',
     data: {pageTitle: 'B/I Summary'}

@@ -78,7 +78,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveSingleDutMap").permitAll()
                 .antMatchers("/retrieveCompoDutMap").permitAll()
 
+                .antMatchers("/get-resources").permitAll()
+                .antMatchers("/retrieveRawData").permitAll()
+                .antMatchers("/retrieveRawDataByKey").permitAll()
+                .antMatchers("/download/{type}").permitAll()
+
+
                 .antMatchers("/retrieveProgramRevision").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
 //               .formLogin()

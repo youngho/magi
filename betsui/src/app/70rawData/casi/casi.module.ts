@@ -6,8 +6,8 @@ import {SmartadminDatatableModule} from "../../shared/ui/datatable/smartadmin-da
 
 import {DynamicComponent} from "./dynamic.component";
 
-import {ProgramRevisionComponent} from "./testProgramRevision.component";
-import {ProgramRevisionRouting} from "./testProgramRevision.routing";
+import {CasiComponent} from "./casi.component";
+import {CasiRouting} from "./casi.routing";
 import {DatatableComponent} from "./datatable.component";
 import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.module";
 import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
@@ -15,7 +15,7 @@ import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module"
 @NgModule({
     imports: [
         CommonModule,
-        ProgramRevisionRouting,
+        CasiRouting,
         SmartadminModule,
         SmartadminInputModule,
         SmartadminDatatableModule,
@@ -24,7 +24,7 @@ import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module"
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [ProgramRevisionComponent,DynamicComponent,DatatableComponent]
+    declarations: [CasiComponent,DynamicComponent,DatatableComponent]
 })
-export class TestProgramRevisionModule {
+export class CasiModule {
 }
