@@ -56,6 +56,7 @@ public class ProgramRegisterController {
         logger.debug(programRegisterDto.getPartNumber());
         logger.debug(programRegisterDto.getProcessCode());
         logger.debug(programRegisterDto.getTesterModel());
+        logger.debug(programRegisterDto.getPassBinSelection());
 
         prorgamRegisterService.insertProgramRegister(programRegisterDto);
 

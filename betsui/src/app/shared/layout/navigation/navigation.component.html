@@ -68,7 +68,7 @@
                 </ul>
             </li>
             <li>
-                <a title="B/I ANALYSIS"><i class="fa fa-lg fa-fw fa-bars"></i> <span class="menu-item-parent">{{'B/I ANALYSIS' | i18n}}</span></a>
+                <a title="TDBI ANALYSIS"><i class="fa fa-lg fa-fw fa-bars"></i> <span class="menu-item-parent">{{'B/I ANALYSIS' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
                         <a routerLink="/bianal/datasum">{{'Data summary' | i18n}}</a>
@@ -78,6 +78,12 @@
                     </li>
                     <li routerLinkActive="active">
                         <a routerLink="/bianal/compomap">{{'Board composite map' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/bianal/slotYield">{{'slotYield' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/bianal/boardYield">{{'boardYield' | i18n}}</a>
                     </li>
                 </ul>
             </li>
@@ -95,22 +101,22 @@
             <li>
                 <a title="RAW DATA"><i class="fa fa-lg fa-fw fa-file-text-o"></i> <span class="menu-item-parent">{{'RAW DATA' | i18n}}</span></a>
                 <ul>
-                    <li routerLinkActive="active">
+<!--                    <li routerLinkActive="active">
                         <a routerLink="/rawData/lot">{{'Lot' | i18n}}</a>
                     </li>
                     <li routerLinkActive="active">
                         <a routerLink="/rawData/chip">{{'Chip' | i18n}}</a>
-                    </li>
+                    </li>-->
 <!--
                     <li routerLinkActive="active">
                         <a routerLink="/rawData/log">{{'Log' | i18n}}</a>
                     </li>
 -->
                     <li routerLinkActive="active">
-                        <a routerLink="/rawData/casi">{{'Casi' | i18n}}</a>
+                        <a routerLink="/rawData/casi">{{'Test RAW Data' | i18n}}</a>
                     </li>
                     <li routerLinkActive="active">
-                        <a routerLink="/rawData/BISummary">{{'B/I summary' | i18n}}</a>
+                        <a routerLink="/rawData/BISummary">{{'TDBI RAW Data' | i18n}}</a>
                     </li>
 <!--
                     <li routerLinkActive="active">
@@ -122,15 +128,19 @@
             <li>
                 <a title="HISTORY"><i class="fa fa-lg fa-fw fa-history"></i> <span class="menu-item-parent">{{'HISTORY' | i18n}}</span></a>
                 <ul>
+<!--
                     <li routerLinkActive="active">
                         <a routerLink="/history/osversion">{{'Tester OS version' | i18n}}</a>
                     </li>
+-->
                     <li routerLinkActive="active">
                         <a routerLink="/history/progrev">{{'Test program revision' | i18n}}</a>
                     </li>
+<!--
                     <li routerLinkActive="active">
                         <a routerLink="/history/frimrev">{{'Firmware revision' | i18n}}</a>
                     </li>
+-->
                     <li routerLinkActive="active">
                         <a routerLink="/history/mesinout">{{'MES track in/out' | i18n}}</a>
                     </li>

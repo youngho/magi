@@ -46,6 +46,8 @@ public class ProgramRegisterDto {
     private String createDateStart  = ""; // 생성일시시작
     private String createDateEnd    = ""; // 생성일시끝
 
+    private String passBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+
     public String getTesterModel() {
         return testerModel;
     }
@@ -332,5 +334,13 @@ public class ProgramRegisterDto {
 
     public void setCreateDateEnd(String createDateEnd) {
         this.createDateEnd = createDateEnd;
+    }
+
+    public String getPassBinSelection() {
+        return passBinSelection;
+    }
+
+    public void setPassBinSelection(String passBinSelection) {
+        this.passBinSelection = passBinSelection;
     }
 }

@@ -10,7 +10,8 @@ public class SingleDutMapDto {
     private String partNumber        = ""; // PART NUMBER
     private String operatorId        = ""; // OPERATOR ID
     private String lotId             = ""; // LOT ID
-
+    private String shotStartTime     = ""; // DUT_MAIN_BIN 시작시간
+    private String shotEndTime       = ""; // DUT_MAIN_BIN 종료시간
 
     private String processCode       = ""; // PROCESS CODE
     private String testerModel       = ""; // TESTER MODEL NAME

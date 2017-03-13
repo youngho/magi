@@ -28,7 +28,7 @@ export class ProgramRegister {
     testerOsVersion: string;
     para: string;
     dutMap: string;
-    binDescription: string;
+    passBinSelection: string;
     programDirectory: string;
     createUser: string;
     createDate: string;
@@ -57,14 +57,14 @@ export class ProgramRegister {
     functionKey15: boolean;
     functionKey16: boolean;
 
-    binDescription1: boolean;
-    binDescription2: boolean;
-    binDescription3: boolean;
-    binDescription4: boolean;
-    binDescription5: boolean;
-    binDescription6: boolean;
-    binDescription7: boolean;
-    binDescription8: boolean;
+    passBinSelection1: boolean;
+    passBinSelection2: boolean;
+    passBinSelection3: boolean;
+    passBinSelection4: boolean;
+    passBinSelection5: boolean;
+    passBinSelection6: boolean;
+    passBinSelection7: boolean;
+    passBinSelection8: boolean;
 
     static fromJSON(json: any): ProgramRegister {
         let object = Object.create(ProgramRegister.prototype);

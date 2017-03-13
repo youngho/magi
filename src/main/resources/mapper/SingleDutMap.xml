@@ -6,14 +6,16 @@
             PART_NUMBER,
             OPERATOR_ID,
             LOT_ID,
-            LOT_IN_TIME,
-            END_TIME,
+            SHOT_START_TIME,
+            SHOT_END_TIME,
             PROCESS_CODE,
             TESTER_NUMBER,
             TESTER_MODEL,
             HEAD,
             TEST_COUNTER,
             HANDLER_MODEL,
+            'testTime' AS TEST_TIME,
+            'indexTime' AS INDEX_TIME,
             BOARD_ID,
             DUT_MAIN_BIN
         FROM CASI_BIN

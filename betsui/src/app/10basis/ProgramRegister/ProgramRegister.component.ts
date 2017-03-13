@@ -90,45 +90,45 @@ export class ProgramRegisterComponent implements OnInit {
         /**
          * 저장시 binDescription 8자리를 합쳐주는 함수
          */
-        if (this.programRegister.binDescription1 === true) {
-            this.programRegister.binDescription = 'Y';
+        if (this.programRegister.passBinSelection1 === true) {
+            this.programRegister.passBinSelection = 'Y';
         } else {
-            this.programRegister.binDescription = 'N';
+            this.programRegister.passBinSelection = 'N';
         }
-        if (this.programRegister.binDescription2 === true) {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'Y';
+        if (this.programRegister.passBinSelection2 === true) {
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'Y';
         } else {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'N';
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'N';
         }
-        if (this.programRegister.binDescription3 === true) {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'Y';
+        if (this.programRegister.passBinSelection3 === true) {
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'Y';
         } else {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'N';
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'N';
         }
-        if (this.programRegister.binDescription4 === true) {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'Y';
+        if (this.programRegister.passBinSelection4 === true) {
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'Y';
         } else {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'N';
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'N';
         }
-        if (this.programRegister.binDescription5 === true) {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'Y';
+        if (this.programRegister.passBinSelection5 === true) {
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'Y';
         } else {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'N';
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'N';
         }
-        if (this.programRegister.binDescription6 === true) {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'Y';
+        if (this.programRegister.passBinSelection6 === true) {
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'Y';
         } else {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'N';
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'N';
         }
-        if (this.programRegister.binDescription7 === true) {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'Y';
+        if (this.programRegister.passBinSelection7 === true) {
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'Y';
         } else {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'N';
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'N';
         }
-        if (this.programRegister.binDescription8 === true) {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'Y';
+        if (this.programRegister.passBinSelection8 === true) {
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'Y';
         } else {
-            this.programRegister.binDescription = this.programRegister.binDescription + 'N';
+            this.programRegister.passBinSelection = this.programRegister.passBinSelection + 'N';
         }
     }
 
