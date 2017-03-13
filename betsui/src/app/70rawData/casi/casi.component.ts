@@ -65,13 +65,19 @@ export class CasiComponent implements OnInit {
                     this.colInfo = [];
                     var tempStr;
                     var apps_obj = apps[0];
-                    for (var key in apps_obj) {
-                        var value = key;
-                        //console.log("===>" + value)
-                        tempStr = {"title": key, "data": key};
-                        this.colInfo.push(tempStr)
+                    if (apps_obj != null) {
+                        for (var key in apps_obj) {
+                            // var value = key;
+                            //console.log("===>" + value)
+                            tempStr = {"title": key, "data": key};
+                            this.colInfo.push(tempStr);
+                        }
+                    }else {
+                        // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
+                        // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
+                        console.log("columns return 0");
+                        this.colInfo.push({"title": "No Data", "data": "noData"});
                     }
-                    ;
 
                     this.componentData = {
                         component: DatatableComponent,
