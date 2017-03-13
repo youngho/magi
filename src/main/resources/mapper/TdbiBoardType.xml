@@ -5,7 +5,8 @@
         SELECT
               BOARD_TYPE_NO,
               X_SOCKET_QTY,
-              Y_SOCKET_QTY
+              Y_SOCKET_QTY,
+              TDBI_BOARD_DESCRIPTION
         FROM
               TDBI_BOARD_TYPE
         <where>
@@ -27,7 +28,8 @@
         SELECT
               BOARD_TYPE_NO,
               X_SOCKET_QTY,
-              Y_SOCKET_QTY
+              Y_SOCKET_QTY,
+              TDBI_BOARD_DESCRIPTION,
         FROM
               TDBI_BOARD_TYPE
         <where>
@@ -54,13 +56,17 @@
             <if test="ySocketQty!=null and ySocketQty!=''">
                 Y_SOCKET_QTY = #{ySocketQty},
             </if>
+            <if test="tdbiBoardDescription != null and tdbiBoardDescription !=''">
+                TDBI_BOARD_DESCRIPTION = #{tdbiBoardDescription},
+            </if>
         </trim>
         WHEN NOT MATCHED THEN
         INSERT
         (
         BOARD_TYPE_NO,
         X_SOCKET_QTY,
-        Y_SOCKET_QTY
+        Y_SOCKET_QTY,
+        TDBI_BOARD_DESCRIPTION
         )
         VALUES
         (

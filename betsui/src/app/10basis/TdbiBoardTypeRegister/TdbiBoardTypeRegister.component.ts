@@ -24,7 +24,8 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
     retrieveCondDto = {
         boardTypeNo: "",
         xSocketQty: "",
-        ySocketQty: ""
+        ySocketQty: "",
+        tdbiBoardDescription: ""
     };
 
     constructor(private service: TdbiBoardTypeRegisterService, private notificationService: NotificationService, private tdbiBoardType: TdbiBoardType) {
@@ -40,9 +41,10 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
     /**
      *
      */
-    newData(){
+    newData() {
         this.bgModel.show();
     }
+
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
@@ -86,6 +88,7 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
                                     {data: 'boardTypeNo'},
                                     {data: 'xSocketQty'},
                                     {data: 'ySocketQty'},
+                                    {data: 'tdbiBoardDescription'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;

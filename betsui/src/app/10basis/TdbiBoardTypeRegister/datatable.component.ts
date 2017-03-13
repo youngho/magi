@@ -19,12 +19,14 @@ import {Component, Injector} from '@angular/core';
                                     <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Board Type No"/></th>
                                     <th class="hasinput"><input type="text" class="form-control" placeholder="Filter X Socket Quantity"/></th>
                                     <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Y Socket Quantity"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter TDBI Board Description"/></th>
                                 </tr>
                                 <tr>
                                     <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
                                     <th>Board Type No</th>
                                     <th data-class="expand">X Socket Quantity</th>
-                                    <th>Filter Y Socket Quantity</th>
+                                    <th>Y Socket Quantity</th>
+                                    <th>{{'tdbiBoardDescription'|i18n}}</th>
                                 </tr>
                                 </thead>
                             </sa-datatable>

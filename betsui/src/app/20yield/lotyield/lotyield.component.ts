@@ -47,6 +47,7 @@ export class lotyieldComponent implements OnInit {
         this.data.lotId = null;
         this.data.mainProgramName = null;
         this.data.boardId = null;
+
     }
 
     saveLastTableForm() {

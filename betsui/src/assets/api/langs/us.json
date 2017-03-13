@@ -46,6 +46,7 @@
   "isAccountNonLocked":"Account Non Locked",
   "isCredentialsNonExpired":"Credentials Non Expired",
   "isEnabled":"Enabled",
+  "tdbiBoardDescription":"TDBI Board Description",
 
   "username":"ID",
   "operaterId": "Operater Id",
