@@ -23,7 +23,20 @@ export class YieldAbnormalComponent implements OnInit {
     private colInfo = new Array();
     private data : YieldAbnormal = new YieldAbnormal();
 
-
+    resetForm(){
+        this.data.endTimeStart = null;
+        this.data.endTimeEnd = null;
+        this.data.partNumber = null;
+        this.data.processCode = null;
+        this.data.testerModel = null;
+        this.data.testerNumber = null;
+        this.data.head = null;
+        this.data.testCounter = null;
+        this.data.lotId = null;
+        this.data.mainProgramName = null;
+        this.data.boardId = null;
+        this.data.sblMode = null;
+    }
 
     saveLastTableForm() {
         // console.log("sysDateStart : " + this.data.sysDateStart);

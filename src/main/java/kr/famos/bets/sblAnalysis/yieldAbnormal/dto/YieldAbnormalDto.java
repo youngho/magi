@@ -42,6 +42,8 @@ public class YieldAbnormalDto {
     private String bin8 = "";
     private String bin9 = "";
 
+    private String sblMode = "";
+
     public String getPartNumber() {
         return partNumber;
     }
@@ -328,5 +330,13 @@ public class YieldAbnormalDto {
 
     public void setBoardId(String boardId) {
         this.boardId = boardId;
+    }
+
+    public String getSblMode() {
+        return sblMode;
+    }
+
+    public void setSblMode(String sblMode) {
+        this.sblMode = sblMode;
     }
 }
