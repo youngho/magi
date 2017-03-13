@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/insertBinDescription").permitAll()
 
 
-                .antMatchers("/retireveLotYield").permitAll()
+                .antMatchers("/retrireveLotYield").permitAll()
                 .antMatchers("/retrieveRegister").permitAll()
                 .antMatchers("/insertProgramRegister").permitAll()
                 .antMatchers("/retrieveNgBin").permitAll()
@@ -88,6 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveProgramRevision").permitAll()
 
                 .antMatchers("/retrieveYieldAbnormal").permitAll()
+                .antMatchers("/retrieveTestLotCancel").permitAll()
 
                 .anyRequest().authenticated()
                 .and()

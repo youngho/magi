@@ -8,22 +8,13 @@ import {TestLotCancel} from "./testLotCancel.model";
 
 @Injectable()
 export class TestLotCancelService {
-    private path: string = 'retireveTestLotCancel';
+    private path: string = 'retrieveTestLotCancel';
 
-    constructor(private api: ApiService) {
-    }
-
-
+    constructor(private api: ApiService) {}
 
     postLastTable(data: TestLotCancel) {
-        console.log('saving post:' + data.lotNumber);
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
 }
