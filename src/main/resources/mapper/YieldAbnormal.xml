@@ -13,6 +13,40 @@
                 TESTER_MODEL,
                 HEAD,
                 SBL_RESULT,
+
+                <if test=" sblMode == 'sblYieldResult' ">
+                SBL_YIELD_RESULT,
+                </if>
+
+                <if test=" sblMode == 'sblBin1Result' ">
+                SBL_BIN1_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin2Result' ">
+                SBL_BIN2_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin3Result' ">
+                SBL_BIN3_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin4Result' ">
+                SBL_BIN4_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin5Result' ">
+                SBL_BIN5_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin6Result' ">
+                SBL_BIN6_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin7Result' ">
+                SBL_BIN7_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin8Result' ">
+                SBL_BIN8_RESULT,
+                </if>
+                <if test=" sblMode == 'sblBin9Result' ">
+                SBL_BIN9_RESULT,
+                </if>
+
+                <if test=" sblMode == 'all' or sblMode == '' ">
                 SBL_YIELD_RESULT,
                 SBL_BIN1_RESULT,
                 SBL_BIN2_RESULT,
@@ -23,6 +57,7 @@
                 SBL_BIN7_RESULT,
                 SBL_BIN8_RESULT,
                 SBL_BIN9_RESULT,
+                </if>
                 HANDLER_MODEL,
                 BOARD_ID,
                 MAIN_PROGRAM_NAME,
@@ -72,6 +107,36 @@
             </if>
             <if test=" boardId != null and boardId != '' ">
                 AND BOARD_ID=#{boardId}
+            </if>
+            <if test=" sblMode == 'sblYieldResult' ">
+                AND SBL_YIELD_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin1Result' ">
+                AND SBL_BIN1_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin2Result' ">
+                AND SBL_BIN2_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin3Result' ">
+                AND SBL_BIN3_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin4Result' ">
+                AND SBL_BIN4_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin5Result' ">
+                AND SBL_BIN5_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin6Result' ">
+                AND SBL_BIN6_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin7Result' ">
+                AND SBL_BIN7_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin8Result' ">
+                AND SBL_BIN8_RESULT = 'ERROR'
+            </if>
+            <if test=" sblMode == 'sblBin9Result' ">
+                AND SBL_BIN9_RESULT = 'ERROR'
             </if>
         </where>
     </select>
