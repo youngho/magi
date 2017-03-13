@@ -29,7 +29,7 @@
                 TESTER_OS_VERSION,
                 PARA,
                 DUT_MAP,
-                BIN_DESCRIPTION,
+                PASS_BIN_SELECTION,
                 PROGRAM_DIRECTORY,
                 CREATE_USER,
                 CREATE_DATE,
@@ -48,7 +48,7 @@
                 AND CREATE_DATE <![CDATA[<=]]> #{createDateEnd}
             </if>
             <if test=" firmwareName != null and firmwareName != '' ">
-                AND FIRMWARE_NAME = #{firmwareName}
+                AND FIRMWARE_NAME  LIKE '%'||  #{firmwareName} || '%'
             </if>
             <if test=" partNumber != null and partNumber != '' ">
                 AND PART_NUMBER=#{partNumber}
@@ -57,13 +57,13 @@
                 AND PROCESS_CODE=#{processCode}
             </if>
             <if test=" testerOsVersion != null and testerOsVersion != '' ">
-                AND TESTER_OS_VERSION=#{testerOsVersion}
+                AND TESTER_OS_VERSION  LIKE '%'|| #{testerOsVersion} || '%'
             </if>
             <if test=" testerModel != null and testerModel != '' ">
                 AND TESTER_MODEL=#{testerModel}
             </if>
             <if test=" mainProgramName != null and mainProgramName != '' ">
-                AND MAIN_PROGRAM_NAME=#{mainProgramName}
+                AND MAIN_PROGRAM_NAME  LIKE '%'|| #{mainProgramName} || '%'
             </if>
         </where>
     </select>

@@ -29,7 +29,7 @@
                                             <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
                                         </div>
 
-                                        <label class="col-md-2 control-label">{{'firmwareName'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'firmwareName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="data.firmwareName">
                                         </div>
@@ -46,7 +46,7 @@
                                             <input class="form-control" placeholder="Process Code" type="text"
                                                    [(ngModel)]="data.processCode">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control"
                                                    name="testerOsVersion" placeholder="{{'testerOsVersion'|i18n}}" [(ngModel)]="data.testerOsVersion">
@@ -58,7 +58,7 @@
                                             <input class="form-control" placeholder="Tester Model" type="text"
                                                    [(ngModel)]="data.testerModel">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
                                                    [(ngModel)]="data.mainProgramName">

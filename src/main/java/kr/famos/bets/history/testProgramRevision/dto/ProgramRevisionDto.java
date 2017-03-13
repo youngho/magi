@@ -30,7 +30,7 @@ public class ProgramRevisionDto {
     private String testerOsVersion  = ""; // TESTER_MODEL OS VERSION
     private String para             = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
     private String dutMap           = ""; // HANDLER의 DUT 배열에 FILE NAME
-    private String binDescription   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+    private String passBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
     private String programDirectory = ""; // Test Program 저장 경로
     private String createUser       = ""; // 최초생성 ID
     private String createDate       = ""; // 생성일시
@@ -198,12 +198,7 @@ public class ProgramRevisionDto {
     public void setDutMap(String dutMap) {
         this.dutMap = dutMap;
     }
-    public String getBinDescription() {
-        return binDescription;
-    }
-    public void setBinDescription(String binDescription) {
-        this.binDescription = binDescription;
-    }
+
     public String getProgramDirectory() {
         return programDirectory;
     }
@@ -261,5 +256,13 @@ public class ProgramRevisionDto {
 
     public void setCreateDateEnd(String createDateEnd) {
         this.createDateEnd = createDateEnd;
+    }
+
+    public String getPassBinSelection() {
+        return passBinSelection;
+    }
+
+    public void setPassBinSelection(String passBinSelection) {
+        this.passBinSelection = passBinSelection;
     }
 }
