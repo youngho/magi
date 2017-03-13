@@ -47,7 +47,7 @@ export class NgBinComponent implements OnInit {
             .subscribe((apps) => {
 
                     console.log(apps);
-                    //debugger;
+                    // debugger;
                     this.colInfo = [];
                     var tempStr;
                     var apps_obj = apps[0];
@@ -62,6 +62,7 @@ export class NgBinComponent implements OnInit {
                     this.componentData = {
                         component: DatatableComponent,
                         inputs: {
+
                             options: {
                                 dom: 'Bfrtip',
                                 fixedColumns: true,
