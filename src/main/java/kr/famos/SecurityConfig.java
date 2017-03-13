@@ -87,6 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/retrieveProgramRevision").permitAll()
 
+                .antMatchers("/retrieveYieldAbnormal").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
 //               .formLogin()

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.famos.bets.dutmap.singledut.mapper.SingleDutMapMapper">
-    <select id="retrieveSingleDutMap" parameterType="kr.famos.bets.dutmap.singledut.dto.SingleDutMapDto" resultType="kr.famos.bets.dutmap.singledut.dto.SingleDutMapDto">
+<mapper namespace="kr.famos.bets.sblAnalysis.yieldAbnormal.mapper.YieldAbnormalMapper">
+    <select id="retrieveYieldAbnormal" parameterType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto" resultType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto">
         SELECT
                 PART_NUMBER,
                 OPERATOR_ID,
