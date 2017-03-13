@@ -6,14 +6,14 @@ import {Component, Injector} from '@angular/core';
 @Component({
     selector: "adminAppsHtml",
     template: `<sa-widget [editbutton]="false" color="blueDark">
-	<header>
-		<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-		<h2>SUB BIN yield Retrieve Result</h2>
-	</header>
-	<div>
-		<div class="widget-body no-padding">
-
-			<sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Yield Abnormal Retrieve Result</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body no-padding">
+                            <sa-datatable [options]="tblOptions" filter="true" tableClass="table table-striped table-bordered table-hover">
+<!--
 				<thead>
 				<tr>
                   <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Date"/>
@@ -68,7 +68,7 @@ import {Component, Injector} from '@angular/core';
                 
                 
 					<tr>
-						<!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
+						&lt;!&ndash;<th [style.width]="'8%'" data-hide="mobile-p">Date</th>&ndash;&gt;
 						<th [style.width]="'8%'">Date</th>
 						<th [style.width]="'16%'" data-class="expand" >Part Number</th>
 						<th>Lot Number</th>
@@ -88,6 +88,7 @@ import {Component, Injector} from '@angular/core';
 						<th [style.width]="'1%'">BIN9</th>
 					</tr>
 				</thead>
+-->
 
 <!--				<tfoot>
 					<tr>
@@ -98,7 +99,6 @@ import {Component, Injector} from '@angular/core';
 					</tr>
 				</tfoot>-->
 			</sa-datatable>
-
 		</div>
 	</div>
 </sa-widget>
