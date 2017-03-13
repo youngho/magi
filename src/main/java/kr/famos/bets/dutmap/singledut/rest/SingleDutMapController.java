@@ -26,9 +26,9 @@ public class SingleDutMapController {
     private SingleDutMapService singleDutMapService;
 
     @RequestMapping(value = "/retrieveSingleDutMap", method = RequestMethod.POST)
-    public ResponseEntity<List<SingleDutMapResultDto>> retrieveSingleDutMap(@RequestBody SingleDutMapDto singleDutMapDto) {
+    public ResponseEntity<String> retrieveSingleDutMap(@RequestBody SingleDutMapDto singleDutMapDto) {
         logger.debug("SingleDutMapController - retrieveSingleDutMap 메소드");
 
-        return new ResponseEntity<List<SingleDutMapResultDto>>(singleDutMapService.retrieveSingleDutMap(singleDutMapDto), HttpStatus.OK);
+        return new ResponseEntity<String>(singleDutMapService.retrieveSingleDutMap(singleDutMapDto), HttpStatus.OK);
     }
 }

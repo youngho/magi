@@ -54,4 +54,57 @@
             </if>
         </where>
     </select>
+    <select id="retrieveSingleDutMapMap" parameterType="kr.famos.bets.dutmap.singledut.dto.SingleDutMapDto" resultType="java.util.LinkedHashMap">
+        SELECT
+        PART_NUMBER,
+        OPERATOR_ID,
+        LOT_ID,
+        LOT_IN_TIME,
+        END_TIME,
+        PROCESS_CODE,
+        TESTER_NUMBER,
+        TESTER_MODEL,
+        HEAD,
+        TEST_COUNTER,
+        HANDLER_MODEL,
+        BOARD_ID,
+        DUT_MAIN_BIN
+        FROM CASI_BIN
+        <where>
+            1 = 1
+            <if test=" endTimeStart != null and endTimeStart != '' ">
+                AND END_TIME >= #{endTimeStart}
+            </if>
+            <if test=" endTimeEnd != null and endTimeEnd != '' ">
+                AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
+            </if>
+            <if test=" partNumber != null and partNumber != '' ">
+                AND PART_NUMBER=#{partNumber}
+            </if>
+            <if test=" processCode != null and processCode != '' ">
+                AND PROCESS_CODE=#{processCode}
+            </if>
+            <if test=" testerModel != null and testerModel != '' ">
+                AND TESTER_MODEL=#{testerModel}
+            </if>
+            <if test=" testerNumber != null and testerNumber != '' ">
+                AND TESTER_NUMBER=#{testerNumber}
+            </if>
+            <if test=" head != null and head != '' ">
+                AND HEAD=#{head}
+            </if>
+            <if test=" testCounter != null and testCounter != '' ">
+                AND TEST_COUNTER=#{testCounter}
+            </if>
+            <if test=" lotId != null and lotId != '' ">
+                AND LOT_ID=#{lotId}
+            </if>
+            <if test=" mainProgramName != null and mainProgramName != '' ">
+                AND MAIN_PROGRAM_NAME=#{mainProgramName}
+            </if>
+            <if test=" boardId != null and boardId != '' ">
+                AND BOARD_ID=#{boardId}
+            </if>
+        </where>
+    </select>
 </mapper>
