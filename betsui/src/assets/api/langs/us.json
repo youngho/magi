@@ -126,6 +126,7 @@
   "mode":"Mode",
   "zoneNumber":"Zone Number",
   "slotNumber":"Slot Number",
+  "testNumber":"Tester Number",
 
   "YIELD": "YIELD",
   "YIELDANALYSIS": "YIELD Analysis",

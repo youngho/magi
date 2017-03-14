@@ -16,53 +16,62 @@ declare var $: any;
 })
 export class DataSummaryComponent implements OnInit {
 
+    constructor(private service: DataSummaryService) {}
     componentData = null;
     errorMessage = null;
     private data : DataSummary = new DataSummary();
+    private colInfo = new Array();
 
-    constructor(private service: DataSummaryService) {
-        // this.data.partnumberName = 'K9CFGY8U5A-CCK0000-HXBPHV';
-        // this.data.lotNumber = 'HJKD369Q';
-        // this.data.processName = 'T070000';
-        // this.data.testCount = '2146';
-        // this.data.testerName = 'T5375';
-        // this.data.testerHead = 'A';
+    onSelectDateFrom(strDate: string) {
+        this.data.endTimeStart = strDate;
     }
 
-    saveLastTableForm() {
-        console.log("sysDateStart : " + this.data.sysDateStart);
-        console.log("sysDateEnd : " + this.data.sysDateEnd);
+    onSelectDateTo(strDate: string) {
+        this.data.endTimeEnd = strDate;
+    }
+    resetForm(){
+        this.data = new DataSummary();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+    }
 
+    retrieveExecute() {
+        console.log("endTimeStart : " + this.data.endTimeStart);
+        console.log("endTimeEnd : " + this.data.endTimeEnd);
 
-        this.service.postLastTable(this.data)
+        this.service.retrieveService(this.data)
             .subscribe((apps) => {
+
+                    console.log(apps);
+                    // debugger;
+                    this.colInfo = [];
+                    var tempStr;
+                    var apps_obj = apps[0];
+                    if (apps_obj != null) {
+                        for (var key in apps_obj) {
+                            // var value = key;
+                            //console.log("===>" + value)
+                            tempStr = {"title": key, "data": key};
+                            this.colInfo.push(tempStr);
+                        }
+                    } else {
+                        // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
+                        // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
+                        console.log("columns return 0");
+                        this.colInfo.push({"title": "No Data", "data": "noData"});
+                    }
+
                     this.componentData = {
                         component: DatatableComponent,
                         inputs: {
+
                             options: {
-                                colReorder: false,
+                                dom: 'Bfrtip',
+                                fixedColumns: true,
+                                colReorder: true,
+                                scrollX: true,
                                 data: apps,
-                                columns: [
-                                    {data: 'sysDate'},
-                                    {data: 'partnumberName'},
-                                    {data: 'lotNumber'},
-                                    {data: 'processName'},
-                                    {data: 'testCount'},
-                                    {data: 'testerName'},
-                                    {data: 'testerHead'},
-                                    {data: 'boardId'},
-                                    {data: 'category01'},
-                                    {data: 'category02'},
-                                    {data: 'category03'},
-                                    {data: 'category04'},
-                                    {data: 'category05'},
-                                    {data: 'category06'},
-                                    {data: 'category07'},
-                                    {data: 'category08'},
-                                    {data: 'category09'},
-                                    ],
+                                columns: this.colInfo,
                                 buttons: [
-                                    'copy', 'excel', 'pdf', 'print'
+                                    'colvis', 'copy', 'excel', 'pdf', 'print'
                                 ]
                             }
                         }

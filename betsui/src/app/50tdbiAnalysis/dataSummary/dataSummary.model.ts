@@ -2,27 +2,22 @@
  * Created by yhkim on 2017-02-17.
  */
 export class DataSummary {
-    sysDate:string;
-    sysDateStart :string;
-    sysDateEnd : string;
-    lotNumber:string;
-    processName:string;
-    partnumberName:string;
-    programName:string;
-    operatorName:string;
-    testerName:string;
-    testerNumber:string;
-    testerHead:string;
-    hdModel:string;
-    hdTemp:string;
-    boardId:string;
-    line:string;
-    site:string;
-    lotType:string;
-    retestCount:string;
-    finalRetestCount:string;
-    yield:string;
-    simaxInqty:string;
-    testCount:string;
-
+    seq: string;
+    lotId: string;
+    mainProgramName: string;
+    processCode: string;
+    operatorId: string;
+    startTime: string;
+    endTime: string;
+    endTimeStart: string;
+    endTimeEnd: string;
+    testerModel: string;
+    testNumber: string;
+    boardId: string;
+    zoneNumber: string;
+    slotNumber: string;
+    boardRow: string;
+    boardColumn: string;
+    socketNumber: string;
+    partNumber: string;
 }

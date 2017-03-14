@@ -8,22 +8,15 @@ import {DataSummary} from "./dataSummary.model";
 
 @Injectable()
 export class DataSummaryService {
-    private path: string = 'retirevedataSummary';
 
-    constructor(private api: ApiService) {
-    }
+    constructor(private api: ApiService) {}
 
+    private path: string = 'retrieveDataSummary';
 
-
-    postLastTable(data: DataSummary) {
-        console.log('saving post:' + data.lotNumber);
+    retrieveService(data: DataSummary) {
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
+
 }
