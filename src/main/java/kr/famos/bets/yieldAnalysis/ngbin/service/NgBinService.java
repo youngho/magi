@@ -31,10 +31,10 @@ public class NgBinService {
 
     public String retrieveNgBinMap(NgBinDto ngBinDto) {
 
-        //Ç¥ÇöÇØ¾ß ÇÒ NG_BIN¸®½ºÆ®¸¦ ¸¸µé±â À§ÇØ NG_BIN_DTO¸¦ LIST·Î°¡ Á®¿È, MAPÀ¸·Î °¡Á®¿À¸é Æ¯Á¤ ÇÊµå¸¦ ²¨³»¿À±â Èûµë
+        //í‘œí˜„í•´ì•¼ í•  NG_BINë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¤ê¸° ìœ„í•´ NG_BIN_DTOë¥¼ LISTë¡œê°€ ì ¸ì˜´, MAPìœ¼ë¡œ ê°€ì ¸ì˜¤ë©´ íŠ¹ì • í•„ë“œë¥¼ êº¼ë‚´ì˜¤ê¸° í˜ë“¬
         List<NgBinDto> lstNgBinDto = ngBinMapper.retrieveNgBinList(ngBinDto);
-        //ngBinÀ» ","·Î splitÇØ¼­ Map¿¡ key ¸¦ ´©Àû put ÇØ¼­ Ç¥Çö ÇØ¾ß ÇÒ ngBin¸®½ºÆ®¸¦ ¸¸µë °ªÀº "" ¾øÀ½
-        // ÃßÈÄ NG_BIN_DTO ¸ÉÀ¸·Î °¡Á®¿Í ¿©±â¼­ ¸¸µé¾îÁø ngBin¸®½ºÆ®¸¦ Ãß°¡ ÇÏ°í ¸ÊÀ¸·Î °¡Á®¿Â ngbinÀ» key, value·Î putÇÏ¸é ¾ø´Â °ªÀº "" ÀÖ´Â °ªÀº value·Î Ä¡È¯µÉ °ÍÀÓ
+        //ngBinì„ ","ë¡œ splití•´ì„œ Mapì— key ë¥¼ ëˆ„ì  put í•´ì„œ í‘œí˜„ í•´ì•¼ í•  ngBinë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¬ ê°’ì€ "" ì—†ìŒ
+        // ì¶”í›„ NG_BIN_DTO ë§´ìœ¼ë¡œ ê°€ì ¸ì™€ ì—¬ê¸°ì„œ ë§Œë“¤ì–´ì§„ ngBinë¦¬ìŠ¤íŠ¸ë¥¼ ì¶”ê°€ í•˜ê³  ë§µìœ¼ë¡œ ê°€ì ¸ì˜¨ ngbinì„ key, valueë¡œ putí•˜ë©´ ì—†ëŠ” ê°’ì€ "" ìˆëŠ” ê°’ì€ valueë¡œ ì¹˜í™˜ë  ê²ƒì„
         Map<Integer,String> mapNgBin = new TreeMap<>();
         for(NgBinDto bin : lstNgBinDto){
             String strBin = bin.getNgBin();
@@ -54,12 +54,12 @@ public class NgBinService {
                 String key = entry.getKey();
                 String value = String.valueOf(entry.getValue());
                 if(key.equals("NG_BIN")){
-                    // À§¿¡¼­ ¸¸µç ngBin¸®½ºÆ®¸¦ Ãß°¡ÇÕ
+                    // ìœ„ì—ì„œ ë§Œë“  ngBinë¦¬ìŠ¤íŠ¸ë¥¼ ì¶”ê°€í•©
                     for(Map.Entry<Integer, String>entry2:mapNgBin.entrySet()){
                         String key2 = Integer.toString(entry2.getKey());
                         mapNgBinDtoRow.put("ngBin"+key2,"");
                     }
-                    //Áö±İ ÀĞ¾î¿Â ngBin°ªÀ» put ÇØ¼­ Ä¡È¯ ÇÔ
+                    //ì§€ê¸ˆ ì½ì–´ì˜¨ ngBinê°’ì„ put í•´ì„œ ì¹˜í™˜ í•¨
                     String[] strBin = value.split(",");
                     for(int i=0; i < strBin.length-2 ;i=i+2){
                         mapNgBinDtoRow.put("ngBin"+strBin[i],strBin[i+1]);
