@@ -50,7 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                //.antMatchers("/retireveLotYield").hasAuthority("ADMIN")
+                //.antMatchers("/retrieveLotYield").hasAuthority("ADMIN")
 //                .antMatchers("/retrieveProgramRegister").hasAuthority("ADMIN")
 //                .antMatchers("/retrieveProgramRegisterByKey").hasAuthority("ADMIN")
 //                .antMatchers("/insertProgramRegister").hasAuthority("ADMIN")
@@ -68,7 +68,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveBinDescriptionByKey").permitAll()
                 .antMatchers("/insertBinDescription").permitAll()
 // YIELD ANAYSIS
-                .antMatchers("/retrireveLotYield").permitAll()
+                .antMatchers("/retrieveLotYield").permitAll()
                 .antMatchers("/retrieveNgBin").permitAll()
                 .antMatchers("/retrieveNgBinJson").permitAll()
                 .antMatchers("/retrieveNgBinJson2").permitAll()

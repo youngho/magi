@@ -8,12 +8,11 @@ import {Lotyield} from "./lotyield.model";
 
 @Injectable()
 export class lotyieldService {
-    private path: string = 'retireveLotYield';
 
     constructor(private api: ApiService) {
     }
 
-
+    private path: string = 'retrieveLotYield';
 
     postLastTable(data: Lotyield) {
         console.log('saving post:' + data.lotId);
@@ -21,9 +20,4 @@ export class lotyieldService {
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
 }
