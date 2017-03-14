@@ -1,25 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-
 import {DatatableComponent} from './datatable.component';
-import DynamicComponent from './dynamic-component';
-import {DataSummary} from './dataSummary.model';
 import {DataSummaryService} from "./dataSummary.service";
-
-declare var $: any;
+import {DataSummary} from './dataSummary.model';
 
 @FadeInTop()
 @Component({
-    selector: 'SingledDutBin',
+    selector: 'dataSummary',
     templateUrl: 'dataSummary.component.html',
-    providers: [DataSummaryService,DataSummary]
+    providers: [DataSummaryService, DataSummary]
 })
 export class DataSummaryComponent implements OnInit {
 
-    constructor(private service: DataSummaryService) {}
+    constructor(private service: DataSummaryService) {
+    }
+
     componentData = null;
     errorMessage = null;
-    private data : DataSummary = new DataSummary();
+    private data: DataSummary = new DataSummary();
     private colInfo = new Array();
 
     onSelectDateFrom(strDate: string) {
@@ -29,7 +27,8 @@ export class DataSummaryComponent implements OnInit {
     onSelectDateTo(strDate: string) {
         this.data.endTimeEnd = strDate;
     }
-    resetForm(){
+
+    resetForm() {
         this.data = new DataSummary();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
     }
 

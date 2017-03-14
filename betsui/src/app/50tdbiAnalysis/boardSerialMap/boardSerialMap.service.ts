@@ -8,20 +8,12 @@ import {BoardSerialMap} from "./boardSerialMap.model";
 
 @Injectable()
 export class BoardSerialMapService {
-    private path: string = 'retireveBoardSerialMap';
+    constructor(private api: ApiService) {}
 
-    constructor(private api: ApiService) {
-    }
+    private path: string = 'retrieveBoardSerialMap';
 
-    postLastTable(data: BoardSerialMap) {
-        console.log('saving post:' + data.lotNumber);
+    retrieveService(data: BoardSerialMap) {
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
-
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
 }

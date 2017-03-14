@@ -4,167 +4,167 @@ package kr.famos.bets.tdbiAnalysis.boardSerialMap.dto;
  * Created by yhkim on 2017-03-13.
  */
 public class BoardSerialMapDto {
-    private int biSeq                = 0;  //
-    private String biLotId           = ""; //
-    private String biMainProgramName = ""; //
-    private int biProcessCode        = 0;  //
-    private String biOperatorId      = ""; //
-    private String biStartTime       = ""; //
-    private String biEndTime         = ""; //
-    private String biTesterModel     = ""; //
-    private int biTestNumber         = 0;  //
-    private int biBoardId            = 0;  //
-    private int biZoneNumber         = 0;  //
-    private int biSlotNumber         = 0;  //
-    private String biBoardRow        = ""; // x 축 시작,끝값
-    private String biBoardColumn     = ""; // y축 시작,끝값
-    private String biSocketNumber    = ""; //
-    private String biPartNumber      = ""; //
+    private int seq                = 0;  //
+    private String lotId           = ""; //
+    private String mainProgramName = ""; //
+    private int processCode        = 0;  //
+    private String operatorId      = ""; //
+    private String startTime       = ""; //
+    private String endTime         = ""; //
+    private String testerModel     = ""; //
+    private int testNumber         = 0;  //
+    private int boardId            = 0;  //
+    private int zoneNumber         = 0;  //
+    private int slotNumber         = 0;  //
+    private String boardRow        = ""; // x 축 시작,끝값
+    private String boardColumn     = ""; // y축 시작,끝값
+    private String socketNumber    = ""; //
+    private String partNumber      = ""; //
 
-    private String biEndTimeStart    = ""; // 검색조건 From
-    private String biEndTimeEnd      = ""; // 검색조건 to
+    private String endTimeStart    = ""; // 검색조건 From
+    private String endTimeEnd      = ""; // 검색조건 to
 
-    public int getBiSeq() {
-        return biSeq;
+    public int getSeq() {
+        return seq;
     }
 
-    public void setBiSeq(int biSeq) {
-        this.biSeq = biSeq;
+    public void setSeq(int seq) {
+        this.seq = seq;
     }
 
-    public String getBiLotId() {
-        return biLotId;
+    public String getLotId() {
+        return lotId;
     }
 
-    public void setBiLotId(String biLotId) {
-        this.biLotId = biLotId;
+    public void setLotId(String lotId) {
+        this.lotId = lotId;
     }
 
-    public String getBiMainProgramName() {
-        return biMainProgramName;
+    public String getMainProgramName() {
+        return mainProgramName;
     }
 
-    public void setBiMainProgramName(String biMainProgramName) {
-        this.biMainProgramName = biMainProgramName;
+    public void setMainProgramName(String mainProgramName) {
+        this.mainProgramName = mainProgramName;
     }
 
-    public int getBiProcessCode() {
-        return biProcessCode;
+    public int getProcessCode() {
+        return processCode;
     }
 
-    public void setBiProcessCode(int biProcessCode) {
-        this.biProcessCode = biProcessCode;
+    public void setProcessCode(int processCode) {
+        this.processCode = processCode;
     }
 
-    public String getBiOperatorId() {
-        return biOperatorId;
+    public String getOperatorId() {
+        return operatorId;
     }
 
-    public void setBiOperatorId(String biOperatorId) {
-        this.biOperatorId = biOperatorId;
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
     }
 
-    public String getBiStartTime() {
-        return biStartTime;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setBiStartTime(String biStartTime) {
-        this.biStartTime = biStartTime;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public String getBiEndTime() {
-        return biEndTime;
+    public String getEndTime() {
+        return endTime;
     }
 
-    public void setBiEndTime(String biEndTime) {
-        this.biEndTime = biEndTime;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public String getBiTesterModel() {
-        return biTesterModel;
+    public String getTesterModel() {
+        return testerModel;
     }
 
-    public void setBiTesterModel(String biTesterModel) {
-        this.biTesterModel = biTesterModel;
+    public void setTesterModel(String testerModel) {
+        this.testerModel = testerModel;
     }
 
-    public int getBiTestNumber() {
-        return biTestNumber;
+    public int getTestNumber() {
+        return testNumber;
     }
 
-    public void setBiTestNumber(int biTestNumber) {
-        this.biTestNumber = biTestNumber;
+    public void setTestNumber(int testNumber) {
+        this.testNumber = testNumber;
     }
 
-    public int getBiBoardId() {
-        return biBoardId;
+    public int getBoardId() {
+        return boardId;
     }
 
-    public void setBiBoardId(int biBoardId) {
-        this.biBoardId = biBoardId;
+    public void setBoardId(int boardId) {
+        this.boardId = boardId;
     }
 
-    public int getBiZoneNumber() {
-        return biZoneNumber;
+    public int getZoneNumber() {
+        return zoneNumber;
     }
 
-    public void setBiZoneNumber(int biZoneNumber) {
-        this.biZoneNumber = biZoneNumber;
+    public void setZoneNumber(int zoneNumber) {
+        this.zoneNumber = zoneNumber;
     }
 
-    public int getBiSlotNumber() {
-        return biSlotNumber;
+    public int getSlotNumber() {
+        return slotNumber;
     }
 
-    public void setBiSlotNumber(int biSlotNumber) {
-        this.biSlotNumber = biSlotNumber;
+    public void setSlotNumber(int slotNumber) {
+        this.slotNumber = slotNumber;
     }
 
-    public String getBiBoardRow() {
-        return biBoardRow;
+    public String getBoardRow() {
+        return boardRow;
     }
 
-    public void setBiBoardRow(String biBoardRow) {
-        this.biBoardRow = biBoardRow;
+    public void setBoardRow(String boardRow) {
+        this.boardRow = boardRow;
     }
 
-    public String getBiBoardColumn() {
-        return biBoardColumn;
+    public String getBoardColumn() {
+        return boardColumn;
     }
 
-    public void setBiBoardColumn(String biBoardColumn) {
-        this.biBoardColumn = biBoardColumn;
+    public void setBoardColumn(String boardColumn) {
+        this.boardColumn = boardColumn;
     }
 
-    public String getBiSocketNumber() {
-        return biSocketNumber;
+    public String getSocketNumber() {
+        return socketNumber;
     }
 
-    public void setBiSocketNumber(String biSocketNumber) {
-        this.biSocketNumber = biSocketNumber;
+    public void setSocketNumber(String socketNumber) {
+        this.socketNumber = socketNumber;
     }
 
-    public String getBiPartNumber() {
-        return biPartNumber;
+    public String getPartNumber() {
+        return partNumber;
     }
 
-    public void setBiPartNumber(String biPartNumber) {
-        this.biPartNumber = biPartNumber;
+    public void setPartNumber(String partNumber) {
+        this.partNumber = partNumber;
     }
 
-    public String getBiEndTimeStart() {
-        return biEndTimeStart;
+    public String getEndTimeStart() {
+        return endTimeStart;
     }
 
-    public void setBiEndTimeStart(String biEndTimeStart) {
-        this.biEndTimeStart = biEndTimeStart;
+    public void setEndTimeStart(String endTimeStart) {
+        this.endTimeStart = endTimeStart;
     }
 
-    public String getBiEndTimeEnd() {
-        return biEndTimeEnd;
+    public String getEndTimeEnd() {
+        return endTimeEnd;
     }
 
-    public void setBiEndTimeEnd(String biEndTimeEnd) {
-        this.biEndTimeEnd = biEndTimeEnd;
+    public void setEndTimeEnd(String endTimeEnd) {
+        this.endTimeEnd = endTimeEnd;
     }
 }

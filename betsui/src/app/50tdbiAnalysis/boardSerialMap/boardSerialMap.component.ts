@@ -1,213 +1,76 @@
 import {Component, OnInit} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
+import {DatatableComponent} from './datatable.component';
 import {BoardSerialMapService} from "./boardSerialMap.service";
-
 import {BoardSerialMap} from './boardSerialMap.model';
-
-import {DatatableComponent} from '../dataSummary/datatable.component';
-import DynamicComponent from './dynamic-component';
-
-declare var $: any;
 
 @FadeInTop()
 @Component({
-    selector: 'SingledDutBin',
+    selector: 'boardSerialMap',
     templateUrl: 'boardSerialMap.component.html',
-    providers: [BoardSerialMapService]
+    providers: [BoardSerialMapService, BoardSerialMap]
 })
 export class BoardSerialMapComponent implements OnInit {
 
-    componentData = null;
-    errorMessage = null;
-
-    data = {
-        sysDate: "",
-        sysDateStart: "",
-        sysDateEnd: "",
-        lotNumber: "",
-        processName: "",
-        partnumberName: "",
-        programName: "",
-        operatorName: "",
-        testerName: "",
-        testerNumber: "",
-        testerHead: "",
-        hdModel: "",
-        hdTemp: "",
-        boardId: "",
-        line: "",
-        site: "",
-        lotType: "",
-        retestCount: "",
-        finalRetestCount: "",
-        yield: "",
-        simaxInqty: "",
-        testCount: "",
-        passCount: "",
-        category01: "",
-        category02: "",
-        category03: "",
-        category04: "",
-        category05: "",
-        category06: "",
-        category07: "",
-        category08: "",
-        category09: "",
-        startDate: "",
-        startTime: "",
-        endDate: "",
-        endTime: "",
-        executeDate: "",
-        opInput: "",
-        opCat1: "",
-        opCat2: "",
-        opCat3: "",
-        opCat4: "",
-        opCat5: "",
-        opCat6: "",
-        opCat7: "",
-        opCat8: "",
-        opCat9: "",
-        sortInput: "",
-        sort01: "",
-        sort02: "",
-        sort03: "",
-        sort04: "",
-        sort05: "",
-        sort06: "",
-        sort07: "",
-        sort08: "",
-        hdInput: "",
-        hdCat1: "",
-        hdCat2: "",
-        hdCat3: "",
-        hdCat4: "",
-        hdCat5: "",
-        hdCat6: "",
-        hdCat7: "",
-        hdCat8: "",
-        cat61: "",
-        cat62: "",
-        cat63: "",
-        cat64: "",
-        cat65: "",
-        cat71: "",
-        cat72: "",
-        cat73: "",
-        cat74: "",
-        cat75: "",
-        revno: "",
-        revnoEnd: "",
-        lotin: "",
-        lotout: "",
-        subCnt1: "",
-        subCnt2: "",
-        finalSubCnt1: "",
-        finalSubCnt2: "",
-        ngCnt1: "",
-        ngCnt2: "",
-        finalNgCnt1: "",
-        finalNgCnt2: "",
-        subProgramName: "",
-        initialBadBlock: "",
-        finalBadBlock: "",
-        gapIbbfbb: "",
-        mLotList: "",
-        recycleStep: "",
-        recycleFlag: "",
-        sblCode: "",
-        sblJudge: "",
-        mcNcfcode: "",
-        ncfcodeSimax: "",
-        ncacodeSimax: "",
-        ncecodeSimax: "",
-        ncqcodeSimax: "",
-        nctcodeSimax: "",
-        nchcodeSimax: "",
-        ncmcodeSimax: "",
-        ncpcodeSimax: "",
-        ncscodeSimax: "",
-        ncbcodeSimax: "",
-        nckcodeSimax: "",
-        ncrcodeSimax: "",
-        dataFormat: "",
-        sblCmd: "",
-        runSblCode: "",
-        runSblCmd: "",
-        hOsA: "",
-        hOsB: "",
-        tOsOpsys: "",
-        tOsAtl: "",
-        tOsDiag: "",
-        tOsSysos: "",
-        tOsGpib: "",
-        tIf: "",
-        fsstFlag: "",
-        lotAsysite: "",
-        edsBadBlock: "",
-        gapEbbfbb: "",
-        frLot: "",
-        subbin114: "",
-        finalSubbin114: "",
-        subbin115: "",
-        finalSubbin115: "",
-        subbin116: "",
-        finalSubbin116: "",
-        reworkFlag: "",
-        testLine: "",
-        purposeType: "",
-
-
-    };
-
     constructor(private service: BoardSerialMapService) {
-        this.data.partnumberName = 'K9CFGY8U5A-CCK0000-HXBPHV';
-        this.data.lotNumber = 'HJKD369Q';
-        this.data.processName = 'T070000';
-        this.data.testCount = '2146';
-        this.data.testerName = 'T5375';
-        this.data.testerHead = 'A';
     }
 
-    saveLastTableForm() {
-        console.log("sysDateStart : " + this.data.sysDateStart);
-        console.log("sysDateEnd : " + this.data.sysDateEnd);
-        console.log("partnumberName : " + this.data.partnumberName);
-        console.log("lotNumber : " + this.data.lotNumber);
-        console.log("processName : " + this.data.processName);
-        console.log("testCount : " + this.data.testCount);
-        console.log("testerName : " + this.data.testerName);
-        console.log("testerHead : " + this.data.testerHead);
+    componentData = null;
+    errorMessage = null;
+    private data: BoardSerialMap = new BoardSerialMap();
+    private colInfo = new Array();
 
-        this.service.postLastTable(this.data)
+    onSelectDateFrom(strDate: string) {
+        this.data.endTimeStart = strDate;
+    }
+
+    onSelectDateTo(strDate: string) {
+        this.data.endTimeEnd = strDate;
+    }
+
+    resetForm() {
+        this.data = new BoardSerialMap();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+    }
+
+    retrieveExecute() {
+        console.log("endTimeStart : " + this.data.endTimeStart);
+        console.log("endTimeEnd : " + this.data.endTimeEnd);
+
+        this.service.retrieveService(this.data)
             .subscribe((apps) => {
+
+                    console.log(apps);
+                    // debugger;
+                    this.colInfo = [];
+                    var tempStr;
+                    var apps_obj = apps[0];
+                    if (apps_obj != null) {
+                        for (var key in apps_obj) {
+                            // var value = key;
+                            //console.log("===>" + value)
+                            tempStr = {"title": key, "data": key};
+                            this.colInfo.push(tempStr);
+                        }
+                    } else {
+                        // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
+                        // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
+                        console.log("columns return 0");
+                        this.colInfo.push({"title": "No Data", "data": "noData"});
+                    }
+
                     this.componentData = {
                         component: DatatableComponent,
                         inputs: {
+
                             options: {
-                                colReorder: false,
+                                dom: 'Bfrtip',
+                                fixedColumns: true,
+                                colReorder: true,
+                                scrollX: true,
                                 data: apps,
-                                columns: [
-                                    {data: 'sysDate'},
-                                    {data: 'partnumberName'},
-                                    {data: 'lotNumber'},
-                                    {data: 'processName'},
-                                    {data: 'testCount'},
-                                    {data: 'testerName'},
-                                    {data: 'testerHead'},
-                                    {data: 'boardId'},
-                                    {data: 'category01'},
-                                    {data: 'category02'},
-                                    {data: 'category03'},
-                                    {data: 'category04'},
-                                    {data: 'category05'},
-                                    {data: 'category06'},
-                                    {data: 'category07'},
-                                    {data: 'category08'},
-                                    {data: 'category09'},
-                                    ],
+                                columns: this.colInfo,
                                 buttons: [
-                                    'copy', 'excel', 'pdf', 'print'
+                                    'colvis', 'copy', 'excel', 'pdf', 'print'
                                 ]
                             }
                         }
