@@ -6,9 +6,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var fade_in_top_decorator_1 = require("../../shared/animations/fade-in-top.decorator");
-var boardSerialMap_service_1 = require("./boardSerialMap.service");
-var datatable_component_1 = require('./datatable.component');
+var fade_in_top_decorator_1 = require("../../shared/animations/fade-in-top.decorator.ts");
+var boardSerialMap_service_1 = require("./boardSerialMap.service.ts");
+var datatable_component_1 = require('./datatable.component.ts');
 var BoardSerialMapComponent = (function () {
     function BoardSerialMapComponent(service) {
         this.service = service;

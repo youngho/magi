@@ -7,14 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-var smartadmin_module_1 = require("../../shared/smartadmin.module");
+var smartadmin_module_1 = require("../../shared/smartadmin.module.ts");
 var forms_1 = require("@angular/forms");
-var smartadmin_datatable_module_1 = require("../../shared/ui/datatable/smartadmin-datatable.module");
-var dynamic_component_1 = require("./dynamic.component");
-var boardSerialMap_component_1 = require("./boardSerialMap.component");
-var boardSerialMap_routing_1 = require("./boardSerialMap.routing");
-var datatable_component_1 = require("./datatable.component");
-var smartadmin_input_module_1 = require("../../shared/forms/input/smartadmin-input.module");
+var smartadmin_datatable_module_1 = require("../../shared/ui/datatable/smartadmin-datatable.module.ts");
+var dynamic_component_1 = require("./dynamic.component.ts");
+var boardSerialMap_component_1 = require("./boardSerialMap.component.ts");
+var boardSerialMap_routing_1 = require("./boardSerialMap.routing.ts");
+var datatable_component_1 = require("./datatable.component.ts");
+var smartadmin_input_module_1 = require("../../shared/forms/input/smartadmin-input.module.ts");
 var YieldAbnormalModule = (function () {
     function YieldAbnormalModule() {
     }

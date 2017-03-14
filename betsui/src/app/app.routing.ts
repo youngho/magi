@@ -41,9 +41,9 @@ export const routes: Routes = [
         data: {pageTitle: 'Basis'}
       },
       {
-        path: 'bianal',
-        loadChildren: 'app/50biAnalysis/biAnalysis.module#BiAnalysisModule',
-        data: {pageTitle: 'BI Analisys'}
+        path: 'tdbianal',
+        loadChildren: 'app/50tdbiAnalysis/tdbiAnalysis.module#TdbiAnalysisModule',
+        data: {pageTitle: 'TDBI Analisys'}
       } ,
      {
         path: 'efficiencyAnaysis',

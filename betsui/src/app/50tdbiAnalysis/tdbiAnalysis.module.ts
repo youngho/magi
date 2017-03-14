@@ -1,6 +1,6 @@
 import {NgModule} from "@angular/core";
 
-import {routing} from "./biAnalysis.routing";
+import {routing} from "./tdbiAnalysis.routing";
 
 @NgModule({
   declarations: [
@@ -11,5 +11,5 @@ import {routing} from "./biAnalysis.routing";
   providers: [],
   entryComponents: []
 })
-export class BiAnalysisModule {}
+export class TdbiAnalysisModule{}
 

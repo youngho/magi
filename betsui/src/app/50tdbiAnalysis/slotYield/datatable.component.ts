@@ -9,7 +9,7 @@ import {Component, Injector} from '@angular/core';
 <sa-widget [editbutton]="false" color="blueDark">
 	<header>
 		<span class="widget-icon"> <i class="fa fa-table"></i> </span>
-		<h2>Test Lot Cancel Retrieve Result</h2>
+		<h2>Slot Yield Retrieve Result</h2>
 	</header>
 	<div>
 		<div class="widget-body no-padding">
