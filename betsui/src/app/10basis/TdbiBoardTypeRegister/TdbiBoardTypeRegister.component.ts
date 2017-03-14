@@ -54,6 +54,8 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.tdbiBoardType.boardTypeNo = info.boardTypeNo;
+        this.tdbiBoardType.xSocketQty = info.xSocketQty;
+        this.tdbiBoardType.ySocketQty = info.ySocketQty;
 
         this.service.postRetrieveByKey(this.tdbiBoardType)
             .subscribe((response) => {
