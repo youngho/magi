@@ -2,6 +2,7 @@ package kr.famos.bets.tdbiAnalysis.boardSerialMap.rest;
 
 
 import kr.famos.bets.tdbiAnalysis.boardSerialMap.dto.BoardSerialMapDto;
+import kr.famos.bets.tdbiAnalysis.boardSerialMap.dto.BoardSerialMapResultDto;
 import kr.famos.bets.tdbiAnalysis.boardSerialMap.service.BoardSerialMapService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,8 +28,8 @@ public class BoardSerialMapController {
     BoardSerialMapService boardSerialMapService;
 
     @RequestMapping(value = "/retrieveBoardSerialMap", method = RequestMethod.POST)
-    public ResponseEntity<List<BoardSerialMapDto>> retrieveBoardSerialMap(@RequestBody BoardSerialMapDto boardSerialMapDto) {
-        return new ResponseEntity<List<BoardSerialMapDto>>(boardSerialMapService.retrieveBoardSerialMap(boardSerialMapDto), HttpStatus.OK);
+    public ResponseEntity<List<BoardSerialMapResultDto>> retrieveBoardSerialMap(@RequestBody BoardSerialMapDto boardSerialMapDto) {
+        return new ResponseEntity<List<BoardSerialMapResultDto>>(boardSerialMapService.retrieveBoardSerialMap(boardSerialMapDto), HttpStatus.OK);
     }
 
 }
