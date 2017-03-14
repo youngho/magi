@@ -26,9 +26,9 @@ public class CompoDutMapController {
     private CompoDutMapService compoDutMapService;
 
     @RequestMapping(value = "/retrieveCompoDutMap", method = RequestMethod.POST)
-    public ResponseEntity<List<CompoDutMapResultDto>> retrieveCompoDutMap(@RequestBody CompoDutMapDto compoDutMapDto) {
+    public String retrieveCompoDutMap(@RequestBody CompoDutMapDto compoDutMapDto) {
         logger.debug("CompoDutMapController - retrieveCompoDutMap 메소드");
-
-        return new ResponseEntity<List<CompoDutMapResultDto>>(compoDutMapService.retrieveCompoDutMap(compoDutMapDto), HttpStatus.OK);
+        String list = compoDutMapService.retrieveCompoDutMap(compoDutMapDto);
+        return list;
     }
 }
