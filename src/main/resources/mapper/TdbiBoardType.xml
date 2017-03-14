@@ -29,7 +29,7 @@
               BOARD_TYPE_NO,
               X_SOCKET_QTY,
               Y_SOCKET_QTY,
-              TDBI_BOARD_DESCRIPTION,
+              TDBI_BOARD_DESCRIPTION
         FROM
               TDBI_BOARD_TYPE
         <where>
