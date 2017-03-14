@@ -24,9 +24,9 @@ public class LotYieldController {
     @Autowired
     private LotYieldMapper lotYieldMapper;
 
-    @RequestMapping(value = "/retireveLotYield", method = RequestMethod.POST)
-    public ResponseEntity<List<LotYieldDto>> retireveLotYield(@RequestBody LotYieldDto lotYield) {
-        logger.debug("LotYieldController - retireveLotYield 메소드");
+    @RequestMapping(value = "/retrieveLotYield", method = RequestMethod.POST)
+    public ResponseEntity<List<LotYieldDto>> retrieveLotYield(@RequestBody LotYieldDto lotYield) {
+        logger.debug("LotYieldController - retrieveLotYield 메소드");
 
         return new ResponseEntity<List<LotYieldDto>>(lotYieldMapper.retrieveLotYield(lotYield), HttpStatus.OK);
     }
