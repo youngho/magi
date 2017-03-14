@@ -28,58 +28,39 @@
                                         <div class="col-md-2">
                                             <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
+
+                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text">
+                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partNumber">
+                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="data.partNumber">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processCode">
+                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="data.processCode">
                                         </div>
-
-                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'boardType'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text"
-                                                   [(ngModel)]="data.testerModel">
+                                            <input class="form-control" placeholder="" type="text">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'testerNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text" [(ngModel)]="data.testerNumber">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
-                                        <div class="col-md-2"><input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="data.head"></div>
-                                        <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text"
-                                                   [(ngModel)]="data.testCounter">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot ID" type="text"
-                                                   [(ngModel)]="data.lotId">
+                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text" [(ngModel)]="data.testNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" [(ngModel)]="data.mainProgramName">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
-                                                   [(ngModel)]="data.boardId">
+
+                                        <label class="col-md-2 control-label">{{'sblSlotLimit'|i18n}}</label>
+                                        <div class="col-md-2"><input class="form-control" placeholder="{{'sblSlotLimit'|i18n}}" type="text" [(ngModel)]="data.sblSlotLimit">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -89,7 +70,7 @@
                                             <button class="btn btn-default" (click)="resetForm()">
                                                 {{'reset'|i18n}}
                                             </button>
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                            <button (click)="retrieveExecute()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>

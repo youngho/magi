@@ -2,33 +2,24 @@
  * Created by yhkim on 2017-02-17.
  */
 export class SlotYield {
-    testerNumber: string;
-    testerModel: string;
-    handlerModel: string;
-    head: string;
+    seq: string;
     lotId: string;
-    processCode: string;
-    partNumber: string;
     mainProgramName: string;
-    grade: string;
-    fab: string;
-    firmwareName: string;
-    firmwareVersion: string;
-    temperature: string;
+    processCode: string;
     operatorId: string;
-    quantity: string;
-    testCounter: string;
-    reworkFlag: string;
-    boardId: string;
-    lotInTime: string;
+    startTime: string;
     endTime: string;
-    sblResult: string;
-    sblYieldLimit: string;
-
-    sblBin9Counter: string;
-    sblBin9Limit: string;
-
     endTimeStart: string;
     endTimeEnd: string;
+    testerModel: string;
+    testNumber: string;
+    boardId: string;
+    zoneNumber: string;
+    slotNumber: string;
+    boardRow: string;
+    boardColumn: string;
+    socketNumber: string;
+    partNumber: string;
 
+    sblSlotLimit: string;
 }

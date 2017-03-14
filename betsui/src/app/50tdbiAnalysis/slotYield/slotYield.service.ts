@@ -8,11 +8,13 @@ import {SlotYield} from "./slotYield.model";
 
 @Injectable()
 export class SlotYieldService {
+
+    constructor(private api: ApiService) {
+    }
+
     private path: string = 'retrieveSlotYield';
 
-    constructor(private api: ApiService) {}
-
-    postLastTable(data: SlotYield) {
+    retrieveService(data: SlotYield) {
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }

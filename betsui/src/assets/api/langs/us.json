@@ -127,6 +127,9 @@
   "zoneNumber":"Zone Number",
   "slotNumber":"Slot Number",
   "testNumber":"Tester Number",
+  "boardType":"Board Type",
+  "sblSlotLimit":"SBL Slot Limit",
+  "sblBoardLimit":"SBL Board Limit",
 
   "YIELD": "YIELD",
   "YIELDANALYSIS": "YIELD Analysis",

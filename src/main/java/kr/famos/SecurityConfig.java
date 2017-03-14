@@ -48,19 +48,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.NEVER)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/user/login").permitAll()
-                .antMatchers("/user/insertRegister").permitAll()
                 .antMatchers("/").permitAll()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .antMatchers("/user").hasAuthority("USER")
                 //.antMatchers("/retireveLotYield").hasAuthority("ADMIN")
 //                .antMatchers("/retrieveProgramRegister").hasAuthority("ADMIN")
 //                .antMatchers("/retrieveProgramRegisterByKey").hasAuthority("ADMIN")
 //                .antMatchers("/insertProgramRegister").hasAuthority("ADMIN")
 //                .antMatchers("/retrieveRegister").hasAuthority("ADMIN")
+// BASIS INFORMATION
                 .antMatchers("/retrieveProgramRegister").permitAll()
                 .antMatchers("/retrieveProgramRegisterByKey").permitAll()
-                .antMatchers("/retrieveBinDescription").permitAll()
+                .antMatchers("/insertProgramRegister").permitAll()
+
                 .antMatchers("/retrieveTdbiBoardType").permitAll()
                 .antMatchers("/retrieveTdbiBoardTypeByKey").permitAll()
                 .antMatchers("/insertTdbiBoardType").permitAll()
@@ -68,33 +67,36 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveBinDescription").permitAll()
                 .antMatchers("/retrieveBinDescriptionByKey").permitAll()
                 .antMatchers("/insertBinDescription").permitAll()
-
-
+// YIELD ANAYSIS
                 .antMatchers("/retrireveLotYield").permitAll()
-                .antMatchers("/retrieveRegister").permitAll()
-                .antMatchers("/insertProgramRegister").permitAll()
                 .antMatchers("/retrieveNgBin").permitAll()
                 .antMatchers("/retrieveNgBinJson").permitAll()
                 .antMatchers("/retrieveNgBinJson2").permitAll()
+// DUTMAP
                 .antMatchers("/retrieveSingleDutMap").permitAll()
                 .antMatchers("/retrieveCompoDutMap").permitAll()
-
-                .antMatchers("/get-resources").permitAll()
-                .antMatchers("/retrieveRawData").permitAll()
-                .antMatchers("/retrieveRawDataByKey").permitAll()
-                .antMatchers("/download/{type}").permitAll()
-
-
-                .antMatchers("/retrieveProgramRevision").permitAll()
-
+// SBL ANALYSIS
                 .antMatchers("/retrieveYieldAbnormal").permitAll()
                 .antMatchers("/retrieveTestLotCancel").permitAll()
-
+// TDBI ANALYSIS
                 .antMatchers("/retrieveBoardCompositeMap").permitAll()
                 .antMatchers("/retrieveBoardSerialMap").permitAll()
                 .antMatchers("/retrieveBoardYield").permitAll()
                 .antMatchers("/retrieveDataSummary").permitAll()
                 .antMatchers("/retrieveSlotYield").permitAll()
+// RAW DATA
+                .antMatchers("/get-resources").permitAll()
+                .antMatchers("/retrieveRawData").permitAll()
+                .antMatchers("/retrieveRawDataByKey").permitAll()
+                .antMatchers("/download/{type}").permitAll()
+// HISTORY
+                .antMatchers("/retrieveProgramRevision").permitAll()
+// ADMINISTRATION
+                .antMatchers("/user").hasAuthority("USER")
+                .antMatchers("/retrieveRegister").permitAll()
+                .antMatchers("/user/login").permitAll()
+                .antMatchers("/user/insertRegister").permitAll()
+
                 .anyRequest().authenticated()
                 .and()
 //               .formLogin()

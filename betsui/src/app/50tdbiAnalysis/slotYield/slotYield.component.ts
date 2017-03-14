@@ -1,16 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
+import {DatatableComponent} from './datatable.component';
 import {SlotYieldService} from "./slotYield.service";
 import {SlotYield} from './slotYield.model';
-import {DatatableComponent} from './datatable.component';
-import DynamicComponent from './dynamic-component';
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
-
-declare var $: any;
 
 @FadeInTop()
 @Component({
-    selector: 'TestLotCancel',
+    selector: 'slotYield',
     templateUrl: 'slotYield.component.html',
     providers: [SlotYieldService, SlotYield]
 })
@@ -24,9 +20,6 @@ export class SlotYieldComponent implements OnInit {
     private data: SlotYield = new SlotYield();
     private colInfo = new Array();
 
-    resetForm(){
-        this.data = new SlotYield();
-    }
 
     onSelectDateFrom(strDate: string) {
         this.data.endTimeStart = strDate;
@@ -36,7 +29,11 @@ export class SlotYieldComponent implements OnInit {
         this.data.endTimeEnd = strDate;
     }
 
-    saveLastTableForm() {
+    resetForm() {
+        this.data = new SlotYield();
+    }
+
+    retrieveExecute() {
 
         // if(this.componentData){this.componentData.}
         console.log("endTimeStart : " + this.data.endTimeStart);
@@ -44,11 +41,11 @@ export class SlotYieldComponent implements OnInit {
         console.log("partNumber : " + this.data.partNumber);
         console.log("processCode : " + this.data.processCode);
         console.log("testerModel : " + this.data.testerModel);
-        console.log("testerNumber : " + this.data.testerNumber);
-        console.log("head : " + this.data.head);
-        console.log("testCounter : " + this.data.testCounter);
+        // console.log("testerNumber : " + this.data.testerNumber);
+        // console.log("head : " + this.data.head);
+        // console.log("testCounter : " + this.data.testCounter);
 
-        this.service.postLastTable(this.data)
+        this.service.retrieveService(this.data)
             .subscribe((apps) => {
 
                     console.log(apps);
@@ -63,7 +60,7 @@ export class SlotYieldComponent implements OnInit {
                             tempStr = {"title": key, "data": key};
                             this.colInfo.push(tempStr);
                         }
-                    }else {
+                    } else {
                         // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
                         // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
                         console.log("columns return 0");

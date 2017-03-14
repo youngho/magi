@@ -8,11 +8,12 @@ import {BoardYield} from "./boardYield.model";
 
 @Injectable()
 export class BoardYieldService {
+    constructor(private api: ApiService) {
+    }
+
     private path: string = 'retrieveBoardYield';
 
-    constructor(private api: ApiService) {}
-
-    postLastTable(data: BoardYield) {
+    retrieveService(data: BoardYield) {
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }

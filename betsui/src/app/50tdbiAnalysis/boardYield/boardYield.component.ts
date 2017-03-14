@@ -1,12 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
+import {DatatableComponent} from './datatable.component';
 import {BoardYieldService} from "./boardYield.service";
 import {BoardYield} from './boardYield.model';
-import {DatatableComponent} from './datatable.component';
-import DynamicComponent from './dynamic-component';
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
-
-declare var $: any;
 
 @FadeInTop()
 @Component({
@@ -24,16 +20,16 @@ export class BoardYieldComponent implements OnInit {
     private data: BoardYield = new BoardYield();
     private colInfo = new Array();
 
-    resetForm(){
-        this.data = new BoardYield();
-    }
-
     onSelectDateFrom(strDate: string) {
         this.data.endTimeStart = strDate;
     }
 
     onSelectDateTo(strDate: string) {
         this.data.endTimeEnd = strDate;
+    }
+
+    resetForm(){
+        this.data = new BoardYield();
     }
 
     saveLastTableForm() {
@@ -44,11 +40,11 @@ export class BoardYieldComponent implements OnInit {
         console.log("partNumber : " + this.data.partNumber);
         console.log("processCode : " + this.data.processCode);
         console.log("testerModel : " + this.data.testerModel);
-        console.log("testerNumber : " + this.data.testerNumber);
-        console.log("head : " + this.data.head);
-        console.log("testCounter : " + this.data.testCounter);
+        // console.log("testerNumber : " + this.data.testerNumber);
+        // console.log("head : " + this.data.head);
+        // console.log("testCounter : " + this.data.testCounter);
 
-        this.service.postLastTable(this.data)
+        this.service.retrieveService(this.data)
             .subscribe((apps) => {
 
                     console.log(apps);

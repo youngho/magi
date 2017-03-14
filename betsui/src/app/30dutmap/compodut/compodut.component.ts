@@ -47,7 +47,7 @@ export class CompoDutComponent implements OnInit {
             .subscribe((apps) => {
 
                     console.log(apps);
-                    debugger;
+                    // debugger;
                     this.colInfo = [];
                     var tempStr;
                     var apps_obj = apps[0];
