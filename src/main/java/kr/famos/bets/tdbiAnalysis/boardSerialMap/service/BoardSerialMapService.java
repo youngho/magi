@@ -66,7 +66,7 @@ public class BoardSerialMapService {
                 switch (binNumber) {
                     case '1':
                         returnDto.setBin1(returnDto.getBin1() + 1);
-                        returnTotalDto.setBin0(returnTotalDto.getBin0() + returnDto.getBin0());   // Total Row 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+                        returnTotalDto.setBin1(returnTotalDto.getBin1() + returnDto.getBin1());   // Total Row 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 //                        Character.getNumericValue(strSocketNumber.charAt(i));
 //                        logger.debug("BIN1 : " + binNumber);
                         break;
@@ -169,13 +169,12 @@ public class BoardSerialMapService {
             returnTotalDto.setInput(returnTotalDto.getInput() + returnDto.getInput());  // Total Row INPUT 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             // PASS 계산값 셋팅
-            returnDto.setPass(returnDto.getInput());
-//            TODO
+            returnDto.setPass(returnDto.getBin1());     //BIN1을 PASS_BIN으로 가정하여 셋팅
             returnTotalDto.setPass(returnTotalDto.getPass() + returnDto.getPass()); // Total Row PASS 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             // YIELD 계산값 셋팅
-            returnDto.setYield(returnDto.getInput());
-//            TODO
+            float yieldTotal =  returnDto.getInput() / returnDto.getPass() * 100;
+            returnDto.setYield(yieldTotal);
             returnTotalDto.setYield(returnTotalDto.getYield() + returnDto.getYield());  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
 
