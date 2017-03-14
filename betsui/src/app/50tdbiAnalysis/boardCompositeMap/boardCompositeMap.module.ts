@@ -10,6 +10,7 @@ import {BoardCompositeMapComponent} from "./boardCompositeMap.component";
 import {BoardCompositeMapRouting} from "./boardCompositeMap.routing";
 import {DatatableComponent} from "./datatable.component";
 import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.module";
+import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
 
 @NgModule({
     imports: [
@@ -19,6 +20,7 @@ import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.m
         SmartadminInputModule,
         SmartadminDatatableModule,
         // BETS ADDED
+        SmartadminFormsModule,
         FormsModule,
         ReactiveFormsModule
     ],

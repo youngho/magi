@@ -3,54 +3,55 @@
 <mapper namespace="kr.famos.bets.tdbiAnalysis.boardCompositeMap.mapper.BoardCompositeMapper">
     <select id="retrieveBoardCompositeMap" parameterType="kr.famos.bets.tdbiAnalysis.boardCompositeMap.dto.BoardCompositeDto" resultType="kr.famos.bets.tdbiAnalysis.boardCompositeMap.dto.BoardCompositeDto">
         SELECT
-            PART_NUMBER,
-            OPERATOR_ID,
-            LOT_ID,
-            LOT_IN_TIME,
-            END_TIME,
-            PROCESS_CODE,
-            TESTER_NUMBER,
-            TESTER_MODEL,
-            HEAD,
-            TEST_COUNTER,
-            HANDLER_MODEL,
-            BOARD_ID,
-            DUT_MAIN_BIN
-        FROM CASI_BIN
+            BI_SEQ,
+            BI_LOT_ID,
+            BI_MAIN_PROGRAM_NAME,
+            BI_PROCESS_CODE,
+            BI_OPERATOR_ID,
+            BI_START_TIME,
+            BI_END_TIME,
+            BI_TESTER_MODEL,
+            BI_TEST_NUMBER,
+            BI_BOARD_ID,
+            BI_ZONE_NUMBER,
+            BI_SLOT_NUMBER,
+            BI_BOARD_ROW,
+            BI_BOARD_COLUMN,
+            BI_SOCKET_NUMBER,
+            BI_PART_NUMBER
+
+        FROM BURN_IN_BOARD_MAP
         <where>
             1 = 1
-            <if test=" endTimeStart != null and endTimeStart != '' ">
-                AND END_TIME >= #{endTimeStart}
+            <if test=" biEndTimeStart != null and biEndTimeStart != '' ">
+                AND BI_END_TIME >= #{biEndTimeStart}
             </if>
-            <if test=" endTimeEnd != null and endTimeEnd != '' ">
-                AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
+            <if test=" biEndTimeEnd != null and biEndTimeEnd != '' ">
+                AND BI_END_TIME <![CDATA[<=]]> #{biEndTimeEnd}
             </if>
-            <if test=" partNumber != null and partNumber != '' ">
-                AND PART_NUMBER=#{partNumber}
+            <if test=" biPartNumber != null and biPartNumber != '' ">
+                AND BI_PART_NUMBER=#{biPartNumber}
             </if>
-            <if test=" processCode != null and processCode != '' ">
-                AND PROCESS_CODE=#{processCode}
+            <if test=" biProcessCode != null and biProcessCode != '' ">
+                AND BI_PROCESS_CODE=#{biProcessCode}
             </if>
-            <if test=" testerModel != null and testerModel != '' ">
-                AND TESTER_MODEL=#{testerModel}
+            <if test=" biTesterModel != null and biTesterModel != '' ">
+                AND BI_TESTER_MODEL=#{biTesterModel}
             </if>
-            <if test=" testerNumber != null and testerNumber != '' ">
-                AND TESTER_NUMBER=#{testerNumber}
+            <if test=" biLotId != null and biLotId != '' ">
+                AND BI_LOT_ID=#{biLotId}
             </if>
-            <if test=" head != null and head != '' ">
-                AND HEAD=#{head}
+            <if test=" biMainProgramName != null and biMainProgramName != '' ">
+                AND BI_MAIN_PROGRAM_NAME=#{biMainProgramName}
             </if>
-            <if test=" testCounter != null and testCounter != '' ">
-                AND TEST_COUNTER=#{testCounter}
+            <if test=" biBoardId != null and biBoardId != '' ">
+                AND BI_BOARD_ID=#{biBoardId}
             </if>
-            <if test=" lotId != null and lotId != '' ">
-                AND LOT_ID=#{lotId}
+            <if test=" biZoneNumber != null and biZoneNumber != '' ">
+                AND BI_ZONE_NUMBER=#{biZoneNumber}
             </if>
-            <if test=" mainProgramName != null and mainProgramName != '' ">
-                AND MAIN_PROGRAM_NAME=#{mainProgramName}
-            </if>
-            <if test=" boardId != null and boardId != '' ">
-                AND BOARD_ID=#{boardId}
+            <if test=" biSlotNumber != null and biSlotNumber != '' ">
+                AND BI_SLOT_NUMBER=#{biSlotNumber}
             </if>
         </where>
     </select>

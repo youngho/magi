@@ -8,22 +8,15 @@ import {BoardCompositeMap} from "./boardCompositeMap.model";
 
 @Injectable()
 export class BoardCompositeMapService {
-    private path: string = 'retireveSingleDut';
+    private path: string = 'retrieveBoardCompositeMap';
 
     constructor(private api: ApiService) {
     }
 
-
-
     postLastTable(data: BoardCompositeMap) {
-        console.log('saving post:' + data.lotNumber);
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-    // postLastTable() {
-    //     console.log('saving post:' );
-    //     console.log('PATH : ' + this.path);
-    //     return this.api.get(`${this.path}`);
-    // }
+
 }
