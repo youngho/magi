@@ -90,6 +90,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveYieldAbnormal").permitAll()
                 .antMatchers("/retrieveTestLotCancel").permitAll()
 
+                .antMatchers("/retrieveBoardCompositeMap").permitAll()
+                .antMatchers("/retrieveBoardSerialMap").permitAll()
+                .antMatchers("/retrieveBoardYield").permitAll()
+                .antMatchers("/retrieveDataSummary").permitAll()
+                .antMatchers("/retrieveSlotYield").permitAll()
                 .anyRequest().authenticated()
                 .and()
 //               .formLogin()
