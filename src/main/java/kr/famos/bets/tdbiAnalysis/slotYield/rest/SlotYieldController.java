@@ -26,8 +26,8 @@ public class SlotYieldController {
     SlotYieldService slotYieldService;
 
     @RequestMapping(value = "/retrieveSlotYield", method = RequestMethod.POST)
-    public ResponseEntity<List<SlotYieldDto>> retrieveSlotYield(@RequestBody SlotYieldDto slotYieldDto) {
-        return new ResponseEntity<List<SlotYieldDto>>(slotYieldService.retrieveSlotYield(slotYieldDto), HttpStatus.OK);
+    public ResponseEntity<List<?>> retrieveSlotYield(@RequestBody SlotYieldDto slotYieldDto) {
+        return new ResponseEntity<List<?>>(slotYieldService.retrieveSlotYield(slotYieldDto), HttpStatus.OK);
     }
 
 }
