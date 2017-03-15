@@ -54,5 +54,6 @@
                 AND BI_SLOT_NUMBER=#{slotNumber}
             </if>
         </where>
+        ORDER BY BI_BOARD_ID ASC;
     </select>
 </mapper>
