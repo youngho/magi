@@ -45,6 +45,11 @@ public class BoardYieldService {
                     mapBoardMap = new LinkedHashMap<>();
                 }
                 strBoardIdTemp = String.valueOf(board.getBoardId());
+                mapBoardMap.put("PART_NUMBER", String.valueOf(board.getBoardId()));
+                mapBoardMap.put("PROCESS_CODE", String.valueOf(board.getBoardId()));
+                mapBoardMap.put("BOARD_TYPE", String.valueOf(board.getBoardId()));
+                mapBoardMap.put("TESTER_MODEL", String.valueOf(board.getBoardId()));
+                mapBoardMap.put("TESTER_NUMBER", String.valueOf(board.getBoardId()));
                 mapBoardMap.put("BOARD_ID", String.valueOf(board.getBoardId()));
                 mapBoardMap.put("INPUT", "0");
                 mapBoardMap.put("PASS", "0");

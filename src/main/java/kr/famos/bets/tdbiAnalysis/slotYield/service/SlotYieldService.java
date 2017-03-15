@@ -44,6 +44,11 @@ public class SlotYieldService {
                     mapBoardMap = new LinkedHashMap<>();
                 }
                 strBoardIdTemp = String.valueOf(board.getSlotNumber());
+                mapBoardMap.put("PART_NUMBER", String.valueOf(board.getPartNumber()));
+                mapBoardMap.put("PROCESS_CODE", String.valueOf(board.getProcessCode()));
+                mapBoardMap.put("BOARD_TYPE", String.valueOf(board.getBoardId()).substring(0,3));
+                mapBoardMap.put("TESTER_MODEL", String.valueOf(board.getTesterModel()));
+                mapBoardMap.put("TESTER_NUMBER", String.valueOf(board.getTestNumber()));
                 mapBoardMap.put("SLOT_NUMBER", String.valueOf(board.getSlotNumber()));
                 mapBoardMap.put("INPUT", "0");
                 mapBoardMap.put("PASS", "0");
