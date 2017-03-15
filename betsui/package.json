@@ -45,6 +45,7 @@
     "@types/jquery": "^2.0.40",
     "@types/node": "^6.0.62",
     "X-editable": "github:vitalets/x-editable",
+    "angular-nvd3": "^1.0.9",
     "bootstrap": "^3.3.7",
     "bootstrap-colorpicker": "^2.3.5",
     "bootstrap-duallistbox": "github:istvan-ujjmeszaros/bootstrap-duallistbox",
