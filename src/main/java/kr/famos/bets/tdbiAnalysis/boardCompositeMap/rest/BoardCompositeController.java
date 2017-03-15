@@ -26,8 +26,8 @@ public class BoardCompositeController {
     BoardCompositeService boardCompositeService;
 
     @RequestMapping(value = "/retrieveBoardCompositeMap", method = RequestMethod.POST)
-    public ResponseEntity<List<BoardCompositeDto>> retrieveBoardCompositeMap(@RequestBody BoardCompositeDto boardCompositeDto) {
-        return new ResponseEntity<List<BoardCompositeDto>>(boardCompositeService.retrieveBoardCompositeMap(boardCompositeDto), HttpStatus.OK);
+    public ResponseEntity<List<?>> retrieveBoardCompositeMap(@RequestBody BoardCompositeDto boardCompositeDto) {
+        return new ResponseEntity<List<?>>(boardCompositeService.retrieveBoardCompositeMap(boardCompositeDto), HttpStatus.OK);
     }
 
 }

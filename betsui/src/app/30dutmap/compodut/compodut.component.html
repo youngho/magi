@@ -10,7 +10,7 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                        <h2>Board DUT Map Retrieve(Composite)</h2>
+                        <h2>Composite DUT Map Retrieve</h2>
                     </header>
                     <!-- widget div-->
                     <div>
@@ -66,20 +66,27 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
+                                    <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input class="form-control" placeholder="Lot ID" type="text"
+                                               [(ngModel)]="data.lotId">
+                                    </div>
+                                    <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
+                                               [(ngModel)]="data.mainProgramName">
+                                    </div>
+                                    <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
+                                               [(ngModel)]="data.boardId">
+                                    </div>
+                                </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" style="color:red;">{{'SBL RESULT'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Lot ID" type="text"
-                                                   [(ngModel)]="data.lotId">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
-                                                   [(ngModel)]="data.boardId">
+                                                   [(ngModel)]="sblResult">
                                         </div>
                                     </div>
                                 </fieldset>

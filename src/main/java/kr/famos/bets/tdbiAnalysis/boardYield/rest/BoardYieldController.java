@@ -26,8 +26,8 @@ public class BoardYieldController {
     BoardYieldService boardYieldService;
 
     @RequestMapping(value = "/retrieveBoardYield", method = RequestMethod.POST)
-    public ResponseEntity<List<BoardYieldDto>> retrieveBoardYield(@RequestBody BoardYieldDto boardYieldDto) {
-        return new ResponseEntity<List<BoardYieldDto>>(boardYieldService.retrieveBoardYield(boardYieldDto), HttpStatus.OK);
+    public ResponseEntity<List<?>> retrieveBoardYield(@RequestBody BoardYieldDto boardYieldDto) {
+        return new ResponseEntity<List<?>>(boardYieldService.retrieveBoardYield(boardYieldDto), HttpStatus.OK);
     }
 
 }
