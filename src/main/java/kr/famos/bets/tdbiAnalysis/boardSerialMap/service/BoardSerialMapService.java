@@ -39,7 +39,7 @@ public class BoardSerialMapService {
 
         BoardSerialMapResultDto returnTotalDto = new BoardSerialMapResultDto(); // Total Row - 제일 아랫줄에 전체 합을 보여준다.
         returnTotalDto.setPartNumber("TOTAL");
-        
+
         // 리스트 개수만큼 반복
         for (BoardSerialMapDto list : boardSerialMapDtoList) {
 
@@ -173,7 +173,7 @@ public class BoardSerialMapService {
             returnTotalDto.setPass(returnTotalDto.getPass() + returnDto.getPass()); // Total Row PASS 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             // YIELD 계산값 셋팅
-            float yieldTotal =  returnDto.getInput() / returnDto.getPass() * 100;
+            float yieldTotal = returnDto.getPass() / returnDto.getInput() * 100;
             returnDto.setYield(yieldTotal);
             returnTotalDto.setYield(returnTotalDto.getYield() + returnDto.getYield());  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
