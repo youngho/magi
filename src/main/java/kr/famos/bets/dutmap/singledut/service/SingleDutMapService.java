@@ -47,10 +47,10 @@ public class SingleDutMapService {
 
                     String strBin = value.replaceAll(",","");
                     for(int i=0; i < strBin.length() ;i++){
-                        mapSingleDutMapDtoRow.put("MainBin"+Integer.toString(i+1),Character.toString(strBin.charAt(i)));
+                        mapSingleDutMapDtoRow.put("DUT"+Integer.toString(i+1),Character.toString(strBin.charAt(i)));
                     }
                     for(int i=strBin.length(); maxBin > i; i++ ){
-                        mapSingleDutMapDtoRow.put("MainBin"+Integer.toString(i+1),"0");
+                        mapSingleDutMapDtoRow.put("DUT"+Integer.toString(i+1),"0");
                     }
 
                 }else{
