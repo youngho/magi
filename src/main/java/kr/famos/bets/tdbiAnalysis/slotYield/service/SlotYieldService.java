@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -33,7 +34,7 @@ public class SlotYieldService {
         LinkedHashMap<String, String> mapBoardMap = new LinkedHashMap<>();
         int intBoardMapInputBinTotal = 0;
         int intBoardMapPassBinTotal = 0;
-
+        DecimalFormat format = new DecimalFormat(".##");
         for (SlotYieldDto board : lstSlotYieldDto) {
             String strSocketNum = board.getSocketNumber().replaceAll(",", "");
             if (!strBoardIdTemp.equals(String.valueOf(board.getSlotNumber()))) {
@@ -46,6 +47,7 @@ public class SlotYieldService {
                 mapBoardMap.put("SLOT_NUMBER", String.valueOf(board.getSlotNumber()));
                 mapBoardMap.put("INPUT", "0");
                 mapBoardMap.put("PASS", "0");
+                mapBoardMap.put("YIELD", "0");
                 for (int k = 0; k <= 9; k++) {
                     mapBoardMap.put("BIN" + String.valueOf(k), "0");
                 }
@@ -73,6 +75,7 @@ public class SlotYieldService {
             }
             mapBoardMap.put("INPUT", String.valueOf(intBoardMapInputBinTotal));
             mapBoardMap.put("PASS", String.valueOf(intBoardMapPassBinTotal));
+            mapBoardMap.put("YIELD", String.valueOf(format.format((intBoardMapPassBinTotal/(double)intBoardMapInputBinTotal)*100)));
 
 //            mapBoardMap=null;
         }

@@ -35,7 +35,7 @@ public class BoardYieldService {
         LinkedHashMap<String, String> mapBoardMap = new LinkedHashMap<>();
         int intBoardMapInputBinTotal = 0;
         int intBoardMapPassBinTotal = 0;
-
+        DecimalFormat format = new DecimalFormat(".##");
         for (BoardYieldDto board : lstBoardYieldDto) {
             String strSocketNum = board.getSocketNumber().replaceAll(",", "");
             if (!strBoardIdTemp.equals(String.valueOf(board.getBoardId()))) {
@@ -48,6 +48,7 @@ public class BoardYieldService {
                 mapBoardMap.put("BOARD_ID", String.valueOf(board.getBoardId()));
                 mapBoardMap.put("INPUT", "0");
                 mapBoardMap.put("PASS", "0");
+                mapBoardMap.put("YIELD", "0");
                 for (int k = 0; k <= 9; k++) {
                     mapBoardMap.put("BIN" + String.valueOf(k), "0");
                 }
@@ -75,6 +76,7 @@ public class BoardYieldService {
             }
             mapBoardMap.put("INPUT", String.valueOf(intBoardMapInputBinTotal));
             mapBoardMap.put("PASS", String.valueOf(intBoardMapPassBinTotal));
+            mapBoardMap.put("YIELD", String.valueOf(format.format((intBoardMapPassBinTotal/(double)intBoardMapInputBinTotal)*100)));
 
 //            mapBoardMap=null;
         }
