@@ -26,11 +26,11 @@ export class ProgramRevisionComponent implements OnInit {
     private colInfo = new Array();
 
     onSelectDateFrom(strDate: string) {
-        this.data.createDateStart = strDate;
+        null != strDate ? this.data.createDateStart = strDate + "000000" : this.data.createDateStart = strDate;
     }
 
     onSelectDateTo(strDate: string) {
-        this.data.createDateEnd = strDate;
+        null != strDate ? this.data.createDateEnd = strDate + "999999" : this.data.createDateEnd = strDate;
     }
 
     saveLastTableForm() {

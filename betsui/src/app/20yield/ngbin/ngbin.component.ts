@@ -26,11 +26,11 @@ export class NgBinComponent implements OnInit {
     private colInfo = new Array();
 
     onSelectDateFrom(strDate: string) {
-        this.data.endTimeStart = strDate;
+        null != strDate ? this.data.endTimeStart = strDate + "000000" : this.data.endTimeStart = strDate;
     }
 
     onSelectDateTo(strDate: string) {
-        this.data.endTimeEnd = strDate;
+        null != strDate ? this.data.endTimeEnd = strDate + "999999" : this.data.endTimeEnd = strDate;
     }
 
     saveLastTableForm() {

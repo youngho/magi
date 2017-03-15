@@ -23,6 +23,14 @@ export class YieldAbnormalComponent implements OnInit {
     private colInfo = new Array();
     private data : YieldAbnormal = new YieldAbnormal();
 
+    onSelectDateFrom(strDate: string) {
+        null != strDate ? this.data.endTimeStart = strDate + "000000" : this.data.endTimeStart = strDate;
+    }
+
+    onSelectDateTo(strDate: string) {
+        null != strDate ? this.data.endTimeEnd = strDate + "999999" : this.data.endTimeEnd = strDate;
+    }
+
     resetForm(){
         this.data.endTimeStart = null;
         this.data.endTimeEnd = null;

@@ -29,11 +29,11 @@ export class CasiComponent implements OnInit {
     private Files: string[];
 
     onSelectDateFrom(strDate: string) {
-        this.retrieveCond.createDateStart = strDate;
+        null != strDate ? this.retrieveCond.createDateStart = strDate + "000000" : this.retrieveCond.createDateStart = strDate;
     }
 
     onSelectDateTo(strDate: string) {
-        this.retrieveCond.createDateEnd = strDate;
+        null != strDate ? this.retrieveCond.createDateEnd = strDate + "999999" : this.retrieveCond.createDateEnd = strDate;
     }
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.

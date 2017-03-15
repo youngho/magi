@@ -26,11 +26,11 @@ export class BoardCompositeMapComponent implements OnInit {
     private colInfo = new Array();
 
     onSelectDateFrom(strDate: string) {
-        this.data.biEndTimeStart = strDate;
+        null != strDate ? this.data.biEndTimeStart = strDate + "000000" : this.data.biEndTimeStart = strDate;
     }
 
     onSelectDateTo(strDate: string) {
-        this.data.biEndTimeEnd = strDate;
+        null != strDate ? this.data.biEndTimeEnd = strDate + "999999" : this.data.biEndTimeEnd = strDate;
     }
 
     saveLastTableForm() {
