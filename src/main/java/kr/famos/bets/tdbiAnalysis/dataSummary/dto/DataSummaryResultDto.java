@@ -16,7 +16,7 @@ public class DataSummaryResultDto {
 
     private int input;
     private int pass;
-    private float yield;
+    private String yield;
     private int bin0;
     private int bin1;
     private int bin2;
@@ -114,11 +114,11 @@ public class DataSummaryResultDto {
         this.pass = pass;
     }
 
-    public float getYield() {
+    public String getYield() {
         return yield;
     }
 
-    public void setYield(float yield) {
+    public void setYield(String yield) {
         this.yield = yield;
     }
 

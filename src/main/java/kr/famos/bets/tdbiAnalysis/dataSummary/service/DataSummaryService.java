@@ -170,10 +170,10 @@ public class DataSummaryService {
             returnTotalDto.setPass(returnTotalDto.getPass() + returnDto.getPass()); // Total Row PASS 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             // YIELD 계산값 셋팅
-            float strYield = (float)returnTotalDto.getPass() / (float)returnTotalDto.getInput() * 100;
-            returnTotalDto.setYield((float)returnTotalDto.getPass() / (float)returnTotalDto.getInput() * 100);  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
-
-
+            float floatYield = (float)returnTotalDto.getPass() / (float)returnTotalDto.getInput() * 100;
+            DecimalFormat fmt = new DecimalFormat("0.##");
+            String strYield =  fmt.format(floatYield);
+            returnTotalDto.setYield(strYield);  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             //LOT번호가 같은것끼리 합친다.
             int searchcount = 0;
@@ -200,12 +200,13 @@ public class DataSummaryService {
 
                     returnDtoList.get(lotIndex).setInput(returnDtoList.get(lotIndex).getInput() + returnDto.getInput());
                     returnDtoList.get(lotIndex).setPass(returnDtoList.get(lotIndex).getPass() + returnDto.getPass());
-                    returnDtoList.get(lotIndex).setYield((float)returnDtoList.get(lotIndex).getPass() / (float)returnDtoList.get(lotIndex).getInput() * 100);
+                    returnDtoList.get(lotIndex).setYield(fmt.format((float)returnDtoList.get(lotIndex).getPass() / (float)returnDtoList.get(lotIndex).getInput() * 100));
                 }
             }
 
 
             if (searchcount == 0) {
+                returnDto.setYield(fmt.format((float)returnDto.getPass() / (float)returnDto.getInput() * 100));
                 returnDtoList.add(returnDto);
             }
 

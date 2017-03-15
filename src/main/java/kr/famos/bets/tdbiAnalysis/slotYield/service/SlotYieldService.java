@@ -1,8 +1,6 @@
 package kr.famos.bets.tdbiAnalysis.slotYield.service;
 
 import com.google.gson.Gson;
-import kr.famos.bets.tdbiAnalysis.boardCompositeMap.dto.BoardCompositeDto;
-import kr.famos.bets.tdbiAnalysis.boardYield.dto.BoardYieldDto;
 import kr.famos.bets.tdbiAnalysis.slotYield.dto.SlotYieldDto;
 import kr.famos.bets.tdbiAnalysis.slotYield.mapper.SlotYieldMapper;
 import org.slf4j.Logger;
