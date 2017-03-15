@@ -37,7 +37,7 @@ export class UiDatePickerComponent implements OnInit {
 
             this.selectedDateNormal = event.formatted;
             let re = /-/gi;
-            this.dateString = event.formatted.replace(re,"") + "000000";
+            this.dateString = event.formatted.replace(re,"");
             //console.log("sysDateStart4 : " + this.dateString);
 
             this.selectedText.emit(this.dateString);

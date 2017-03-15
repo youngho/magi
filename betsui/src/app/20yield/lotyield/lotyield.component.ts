@@ -15,27 +15,28 @@ declare var $: any;
 @Component({
     selector: 'lotyield',
     templateUrl: './lotyield.component.html',
-    providers: [lotyieldService,Lotyield]
+    providers: [lotyieldService, Lotyield]
 })
 
 export class lotyieldComponent implements OnInit {
     componentData = null;
     errorMessage = null;
     // private data : Lotyield = new Lotyield();
-    private data : Lotyield = new Lotyield();
+    private data: Lotyield = new Lotyield();
 
     onSelectDateFrom(strDate: string) {
-        this.data.endTimeStart = strDate;
+        null != strDate ? this.data.endTimeStart = strDate + "000000" : this.data.endTimeStart = strDate;
     }
+
     onSelectDateTo(strDate: string) {
-        this.data.endTimeEnd = strDate;
+        null != strDate ? this.data.endTimeEnd = strDate + "999999" : this.data.endTimeEnd = strDate;
     }
 
     constructor(private retrieveLastTableService: lotyieldService) {
         //this.data.partnumberName = 'K9CFGY8U5A-CCK0000-HXBPHV';
     }
 
-    resetForm(){
+    resetForm() {
         this.data.endTimeStart = null;
         this.data.endTimeEnd = null;
         this.data.partNumber = null;
@@ -71,7 +72,7 @@ export class lotyieldComponent implements OnInit {
                         component: DatatableComponent,
                         inputs: {
                             options: {
-                                select :{style:'single'},
+                                select: {style: 'single'},
                                 scrollX: true,
                                 dom: 'Bfrtip',
                                 colReorder: true,
