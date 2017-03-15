@@ -1,6 +1,7 @@
 package kr.famos.bets.sblAnalysis.yieldAbnormal.service;
 
 import kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto;
+import kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalResultDto;
 import kr.famos.bets.sblAnalysis.yieldAbnormal.mapper.YieldAbnormalMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,7 @@ public class YieldAbnormalService {
     @Autowired
     YieldAbnormalMapper yieldAbnormalMapper;
 
-    public List<YieldAbnormalDto> retrieveYieldAbnormal(YieldAbnormalDto yieldAbnormalDto){
+    public List<YieldAbnormalResultDto> retrieveYieldAbnormal(YieldAbnormalDto yieldAbnormalDto) {
         return yieldAbnormalMapper.retrieveYieldAbnormal(yieldAbnormalDto);
     }
 

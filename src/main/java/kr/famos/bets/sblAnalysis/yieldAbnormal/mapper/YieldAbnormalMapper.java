@@ -1,6 +1,7 @@
 package kr.famos.bets.sblAnalysis.yieldAbnormal.mapper;
 
 import kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto;
+import kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalResultDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface YieldAbnormalMapper {
 
-    public List<YieldAbnormalDto> retrieveYieldAbnormal(YieldAbnormalDto yieldAbnormalDto);
+    public List<YieldAbnormalResultDto> retrieveYieldAbnormal(YieldAbnormalDto yieldAbnormalDto);
 
 
 }

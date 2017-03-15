@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.sblAnalysis.yieldAbnormal.mapper.YieldAbnormalMapper">
-    <select id="retrieveYieldAbnormal" parameterType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto" resultType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto">
+    <select id="retrieveYieldAbnormal" parameterType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto" resultType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalResultDto">
         SELECT
                 PART_NUMBER,
                 OPERATOR_ID,
@@ -9,8 +9,8 @@
                 LOT_IN_TIME,
                 END_TIME,
                 PROCESS_CODE,
-                TESTER_NUMBER,
                 TESTER_MODEL,
+                TESTER_NUMBER,
                 HEAD,
                 SBL_RESULT,
 
@@ -73,7 +73,7 @@
                 TO_NUMBER(SUBSTR(OP_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN7,
                 TO_NUMBER(SUBSTR(OP_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN8,
                 TO_NUMBER(SUBSTR(OP_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN9,
-                ' ' AS " ",
+                '@',
                 TO_NUMBER(SUBSTR(HANDLER_BIN,1,4))         + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,21,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,26,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,31,4))+ TO_NUMBER( SUBSTR(HANDLER_BIN,36,4))                                                                                                            AS H_INPUT ,
                 TO_NUMBER(SUBSTR(HANDLER_BIN,1,4))         + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))                                                                                                                                                                                                                                                                 AS H_PASS,
                 TRUNC(((TO_NUMBER(SUBSTR(HANDLER_BIN,1,4)) + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))) / (TO_NUMBER(SUBSTR(HANDLER_BIN,1,4)) + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,21,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,26,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,31,4))+ TO_NUMBER( SUBSTR(HANDLER_BIN,36,4))))*100,2) AS H_YIELD,
@@ -86,7 +86,7 @@
                 TO_NUMBER(SUBSTR(HANDLER_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN7,
                 TO_NUMBER(SUBSTR(HANDLER_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN8,
                 TO_NUMBER(SUBSTR(HANDLER_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN9,
-                ' ' AS " ",
+                '@',
                 TO_NUMBER(SUBSTR(TEST_BIN,1,4))         + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))+ TO_NUMBER(SUBSTR(TEST_BIN,21,4))+ TO_NUMBER(SUBSTR(TEST_BIN,26,4))+ TO_NUMBER(SUBSTR(TEST_BIN,31,4))+ TO_NUMBER( SUBSTR(TEST_BIN,36,4))                                                                                                                                 AS T_INPUT ,
                 TO_NUMBER(SUBSTR(TEST_BIN,1,4))         + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))                                                                                                                                                                                                                                                                          AS T_PASS,
                 TRUNC(((TO_NUMBER(SUBSTR(TEST_BIN,1,4)) + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))) / (TO_NUMBER(SUBSTR(TEST_BIN,1,4)) + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))+ TO_NUMBER(SUBSTR(TEST_BIN,21,4))+ TO_NUMBER(SUBSTR(TEST_BIN,26,4))+ TO_NUMBER(SUBSTR(TEST_BIN,31,4))+ TO_NUMBER( SUBSTR(TEST_BIN,36,4))))*100,2) AS T_YIELD,

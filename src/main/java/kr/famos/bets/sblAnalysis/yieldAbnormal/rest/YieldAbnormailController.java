@@ -1,6 +1,7 @@
 package kr.famos.bets.sblAnalysis.yieldAbnormal.rest;
 
 import kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto;
+import kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalResultDto;
 import kr.famos.bets.sblAnalysis.yieldAbnormal.service.YieldAbnormalService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,8 +27,8 @@ public class YieldAbnormailController {
     YieldAbnormalService yieldAbnormalService;
 
     @RequestMapping(value = "retrieveYieldAbnormal", method = RequestMethod.POST)
-    public ResponseEntity<List<YieldAbnormalDto>>retrieveYieldAbnormal(@RequestBody YieldAbnormalDto yieldAbnormalDto){
-        return new ResponseEntity<List<YieldAbnormalDto>>(yieldAbnormalService.retrieveYieldAbnormal(yieldAbnormalDto), HttpStatus.OK);
+    public ResponseEntity<List<YieldAbnormalResultDto>> retrieveYieldAbnormal(@RequestBody YieldAbnormalDto yieldAbnormalDto) {
+        return new ResponseEntity<List<YieldAbnormalResultDto>>(yieldAbnormalService.retrieveYieldAbnormal(yieldAbnormalDto), HttpStatus.OK);
     }
 
 }
