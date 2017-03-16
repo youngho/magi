@@ -1,4 +1,3 @@
-import {ModuleWithProviders} from "@angular/core"
 import {RouterModule, Routes} from "@angular/router";
 
 
@@ -23,6 +22,13 @@ export const routes: Routes = [
             loadChildren: 'app/10basis/TdbiBoardTypeRegister/TdbiBoardTypeRegister.module#TdbiBoardTypeRegisterModule',
             data: {
                 pageTitle: 'TDBI Board Type Register'
+            }
+        },
+        {
+            path: 'lcVersionRegister',
+            loadChildren: 'app/10basis/lcVersionRegister/lcVersionRegister.module#LcVersionRegisterModule',
+            data: {
+                pageTitle: 'LC Version Register'
             }
         }
     ]

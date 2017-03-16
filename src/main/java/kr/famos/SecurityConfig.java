@@ -67,6 +67,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveBinDescription").permitAll()
                 .antMatchers("/retrieveBinDescriptionByKey").permitAll()
                 .antMatchers("/insertBinDescription").permitAll()
+
+                .antMatchers("/insertLcVersionRegister").permitAll()
 // YIELD ANAYSIS
                 .antMatchers("/retrieveLotYield").permitAll()
                 .antMatchers("/retrieveNgBin").permitAll()
@@ -96,6 +98,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveProgramRevision").permitAll()
                 .antMatchers("/retrieveMesTrackInOut").permitAll()
                 .antMatchers("/retrieveUserUsage").permitAll()
+                .antMatchers("/retrieveLcRevision").permitAll()
 // ADMINISTRATION
                 .antMatchers("/user").hasAuthority("USER")
                 .antMatchers("/retrieveRegister").permitAll()
