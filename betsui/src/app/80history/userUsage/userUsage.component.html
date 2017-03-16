@@ -1,0 +1,94 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <sa-widgets-grid>
+        <!-- row start -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                        <h2>User Usage Revision Retrieve</h2>
+                    </header>
+                    <!-- widget div-->
+                    <div>
+                        <!-- widget content -->
+                        <div class="widget-body">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <!--검색조건 시작-->
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
+                                        </div>
+
+                                        <label class="col-md-2 control-label">{{'firmwareName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="data.firmwareName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Part Number" type="text"
+                                                   [(ngModel)]="data.partNumber">
+                                        </div>
+
+                                        <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Process Code" type="text"
+                                                   [(ngModel)]="data.processCode">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control"
+                                                   name="testerOsVersion" placeholder="{{'testerOsVersion'|i18n}}" [(ngModel)]="data.testerOsVersion">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Tester Model" type="text"
+                                                   [(ngModel)]="data.testerModel">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
+                                                   [(ngModel)]="data.mainProgramName">
+                                        </div>
+                                    </div>
+
+                                </fieldset>
+                                <!--Retest Skip 기준 end-->
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                                <i class="fa fa-search"></i>
+                                                {{'retrieve'|i18n}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </sa-widget>
+                <!-- end widget -->
+                <dynamic-component [componentData]="componentData"></dynamic-component>
+            </article>
+            <!-- WIDGET END -->
+        </div>
+        <!-- row end-->
+    </sa-widgets-grid>
+    <!-- end widget grid -->
+</div>

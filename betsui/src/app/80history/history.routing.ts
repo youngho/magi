@@ -15,15 +15,15 @@ export const routes:Routes = [
   { path: 'frimrev',
     loadChildren: 'app/80history/firmwareRevision/firmwareRevision.module#FirmwareRevisionModule',
     data: {pageTitle: 'Firmware revision'}
-  },
-  { path: 'mesinout',
-    loadChildren: 'app/80history/mesTrackInOut/mesTrackInOut.module#MESTrackInOutModule',
+  }*/,
+  { path: 'mesTrackInOut',
+    loadChildren: 'app/80history/mesTrackInOut/mesTrackInOut.module#MesTrackInOutModule',
     data: {pageTitle: 'MES track in/out'}
   },
-  { path: 'user',
+  { path: 'userUsage',
     loadChildren: 'app/80history/userUsage/userUsage.module#UserUsageModule',
     data: {pageTitle: 'UserUsage'}
-  }*/
+  }
 ];
 
 export const routing = RouterModule.forChild(routes);
