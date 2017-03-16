@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.dashboard.mapper.DashboardMapper">
+    <select id="retrieveDashboard" parameterType="kr.famos.bets.dashboard.dto.DashboardDto" resultType="kr.famos.bets.dashboard.dto.DashboardDto">
+        SELECT
+        SUBSTR(END_TIME,7,2)                                                                                                                                                                                                                                                                                                                                                                                                    AS "DATE" ,
+        TRUNC(((TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))) / (TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))+ TO_NUMBER(SUBSTR(OP_BIN,21,4))+ TO_NUMBER(SUBSTR(OP_BIN,26,4))+ TO_NUMBER(SUBSTR(OP_BIN,31,4))+ TO_NUMBER( SUBSTR(OP_BIN,36,4))))*100,2) AS YIELD
+        FROM
+        MAIN_BIN
+        ORDER BY END_TIME
+    </select>
+</mapper>
