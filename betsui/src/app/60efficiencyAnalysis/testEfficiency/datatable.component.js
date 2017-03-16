@@ -1,0 +1,28 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+/**
+ * Created by yhkim on 2017-02-20.
+ */
+var core_1 = require('@angular/core');
+var DatatableComponent = (function () {
+    function DatatableComponent(injector) {
+        this.injector = injector;
+        this.tblOptions = {};
+        this.tblOptions = this.injector.get('options');
+        //console.log('looking for options in admin apps')
+        console.log(this.tblOptions);
+    }
+    DatatableComponent = __decorate([
+        core_1.Component({
+            selector: "adminAppsHtml",
+            template: "<sa-widget [editbutton]=\"false\" color=\"blueDark\">\n\t<header>\n\t\t<span class=\"widget-icon\"> <i class=\"fa fa-table\"></i> </span>\n\t\t<h2>Test Program Revision Retrieve Result</h2>\n\t</header>\n\t<div>\n\t\t<div class=\"widget-body no-padding\">\n\n\t\t\t<sa-datatable [options]=\"tblOptions\" filter=\"true\" paginationLength=\"true\" tableClass=\"table table-striped table-bordered table-hover\">\n<!--\t\t\t\t<thead>\n\t\t\t\t<tr>\n                  <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"Filter {{'partnumber'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"Filter {{'operaterId'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"Filter {{'lotId'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"{{'lotInTime'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"{{'endTime'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"Process Code\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"{{'testerModel'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"{{'testerNumber'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"{{'head'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"Test Counter\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"{{'handlerModel'|i18n}}\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"{{'boardId'|i18n}}\"/></th>\n \n\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN1\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN2\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN3\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN4\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN5\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN6\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN7\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN8\"/></th>\n                        <th class=\"hasinput\"><input type=\"text\" class=\"form-control\" placeholder=\"BIN9\"/></th>\n                </tr>\n                \n                \n                \n\t\t\t\t\t<tr>\n\t\t\t\t\t\t<th [style.width]=\"'8%'\">{{'partnumber'|i18n}}</th>\n\t\t\t\t\t\t<th [style.width]=\"'16%'\" data-class=\"expand\" >{{'operaterId'|i18n}}</th>\n\t\t\t\t\t\t<th>{{'lotId'|i18n}}</th>\n\t\t\t\t\t\t<th>{{'lotInTime'|i18n}}</th>\n\t\t\t\t\t\t<th>{{'endTime'|i18n}}</th>\n\t\t\t\t\t\t<th >Process Code</th>\n\t\t\t\t\t\t<th>{{'testerModel'|i18n}}</th>\n\t\t\t\t\t\t<th>{{'testerNumber'|i18n}}</th>\n\t\t\t\t\t\t<th>{{'head'|i18n}}</th>\n\t\t\t\t\t\t<th>Test Counter</th>\n\t\t\t\t\t\t<th>{{'handlerModel'|i18n}}</th>\n\t\t\t\t\t\t<th>{{'boardId'|i18n}}</th>\n\t\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN1</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN2</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN3</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN4</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN5</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN6</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN7</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN8</th>\n\t\t\t\t\t\t<th [style.width]=\"'1%'\">BIN9</th>\n\t\t\t\t\t</tr>\n\t\t\t\t</thead>\n-->\n\t\t\t</sa-datatable>\n\n\t\t</div>\n\t</div>\n</sa-widget>\n"
+        })
+    ], DatatableComponent);
+    return DatatableComponent;
+}());
+exports.DatatableComponent = DatatableComponent;

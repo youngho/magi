@@ -46,8 +46,8 @@ export const routes: Routes = [
         data: {pageTitle: 'TDBI Analisys'}
       } ,
      {
-        path: 'efficiencyAnaysis',
-        loadChildren: 'app/60efficiencyAnaysis/efficiency.module#EfficiencyModule',
+        path: 'efficiencyAnalysis',
+        loadChildren: 'app/60efficiencyAnalysis/efficiency.module#EfficiencyModule',
         data: {pageTitle: 'Efficiency'}
       },
       {
