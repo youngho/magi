@@ -20,11 +20,11 @@
                                 <a data-toggle="tab" href="#s1"><i class="fa fa-clock-o"></i> <span class="hidden-mobile hidden-tablet">Yield</span></a>
                             </li>
 
-<!--
-                            <li>
-                                <a data-toggle="tab" href="#s2"><i class="fa fa-table"></i> <span class="hidden-mobile hidden-tablet">Month</span></a>
-                            </li>
--->
+                            <!--
+                                                        <li>
+                                                            <a data-toggle="tab" href="#s2"><i class="fa fa-table"></i> <span class="hidden-mobile hidden-tablet">Month</span></a>
+                                                        </li>
+                            -->
                         </ul>
                     </header>
 
@@ -60,9 +60,8 @@
 
                     <div>
                         <div class="widget-body ">
-                            <!--<nvd3 [options]="options2" [data]="data2"></nvd3>-->
-                            <sa-flot-chart [data]="flotData.barChartData"
-                                           [options]="flotExamples.barChartDemoOptions" ></sa-flot-chart>
+                            <nvd3 [options]="barChartOptions" [data]="barChartData"></nvd3>
+                            <!--<sa-flot-chart [data]="flotData.barChartData" [options]="flotExamples.barChartDemoOptions"></sa-flot-chart>-->
                         </div>
                     </div>
                 </sa-widget>

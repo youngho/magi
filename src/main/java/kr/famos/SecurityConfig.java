@@ -91,6 +91,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/download/{type}").permitAll()
 // HISTORY
                 .antMatchers("/retrieveProgramRevision").permitAll()
+                .antMatchers("/retrieveMesTrackInOut").permitAll()
 // ADMINISTRATION
                 .antMatchers("/user").hasAuthority("USER")
                 .antMatchers("/retrieveRegister").permitAll()

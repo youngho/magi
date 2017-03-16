@@ -18,12 +18,12 @@ export const routes:Routes = [
   },*/
   { path: 'casi',
     loadChildren: 'app/70rawData/casi/casi.module#CasiModule',
-    data: {pageTitle: 'Casi'}
-  }/*,
-  { path: 'BISummary',
-    loadChildren: 'app/70rawData/BISummary/BISummary.module#BISummaryModule',
-    data: {pageTitle: 'B/I Summary'}
+    data: {pageTitle: 'Test RAW Data'}
   },
+  { path: 'tdbi',
+    loadChildren: 'app/70rawData/tdbi/tdbi.module#TdbiModule',
+    data: {pageTitle: 'TDBI RAW Data'}
+  }/*,
   { path: 'BIBoard',
     loadChildren: 'app/70rawData/BIBoard/BIBoard.module#BIBoardModule',
     data: {pageTitle: 'BIBoard'}

@@ -45,8 +45,8 @@ export class DashboardComponent implements OnInit {
     errorMessage = null;
     options;
     data;
-    options2;
-    data2;
+    barChartOptions;
+    barChartData;
     optionPie;
     dataPie;
     //yieldData = [];
@@ -54,6 +54,57 @@ export class DashboardComponent implements OnInit {
     public flotExamples: any;
 
     ngOnInit() {
+
+        this.barChartOptions = {
+            chart: {
+                type: 'discreteBarChart',
+                height: 250,
+                margin: {
+                    top: 20,
+                    right: 20,
+                    bottom: 50,
+                    left: 55
+                },
+                x: function (d) {
+                    return d.label;
+                },
+                y: function (d) {
+                    return d.value;
+                },
+                showValues: true,
+                valueFormat: function (d) {
+                    return d3.format(',.4f')(d);
+                },
+                duration: 500,
+                xAxis: {
+                    axisLabel: 'X Axis'
+                },
+                yAxis: {
+                    axisLabel: 'Y Axis',
+                    axisLabelDistance: -10
+                }
+            }
+        };
+
+        this.barChartData = [
+            {
+                key: "Cumulative Return",
+                values: [
+                    {
+                        "label": "eMCP",
+                        "value": 50
+                    },
+                    {
+                        "label": "B",
+                        "value": 20
+                    },
+                    {
+                        "label": "C",
+                        "value": 90
+                    }
+                ]
+            }
+        ];
 
         this.flotExamples = barChartDemoOptions;
         this.flotData = {
@@ -230,7 +281,7 @@ export class DashboardComponent implements OnInit {
                     }
                 }
             ]
-        }
+        };
         this.optionPie = {
             chart: {
                 type: 'pieChart',
@@ -254,10 +305,10 @@ export class DashboardComponent implements OnInit {
                     }
                 }
             }
-        }
+        };
         this.dataPie = [
             {
-                key: "emcp",
+                key: "eMCP",
                 y: 5
             },
             {
@@ -267,7 +318,7 @@ export class DashboardComponent implements OnInit {
             {
                 key: "Three",
                 y: 9
-            },
+            }
         ];
 
         this.options = {
@@ -275,7 +326,7 @@ export class DashboardComponent implements OnInit {
                 type: 'scatterChart',
                 height: 350,
                 color: d3.scale.category10().range(),
-                "yDomain": [0, 100],
+                "yDomain": [60, 100],
                 scatter: {
                     onlyCircles: false
                 },
@@ -312,7 +363,7 @@ export class DashboardComponent implements OnInit {
         // this.data = this.generateDataScatter(1, 5);
         this.data = [{
             kye: "Group0",
-            values: [{"x": "01", "y": "83.89"}, {"x": "02", "y": "69.87"}, {"x": "03", "y": "67.96"}, {"x": "04", "y": "98.6"}, {"x": "05", "y": "83.13"}, {"x": "06", "y": "71.55"}, {"x": "07", "y": "54.16"}, {"x": "08", "y": "67.52"}, {"x": "09", "y": "51.11"}, {"x": "10", "y": "85.48"}, {"x": "11", "y": "83.89"}, {"x": "12", "y": "99.97"}, {"x": "13", "y": "80.53"}, {"x": "14", "y": "69.45"}, {"x": "15", "y": "79.19"}, {"x": "16", "y": "68.11"}, {"x": "17", "y": "41.64","size": 1}, {
+            values: [{"x": "01", "y": "83.89"}, {"x": "02", "y": "69.87"}, {"x": "03", "y": "67.96"}, {"x": "04", "y": "98.6"}, {"x": "05", "y": "83.13"}, {"x": "06", "y": "71.55"}, {"x": "07", "y": "54.16"}, {"x": "08", "y": "67.52"}, {"x": "09", "y": "51.11"}, {"x": "10", "y": "85.48"}, {"x": "11", "y": "83.89"}, {"x": "12", "y": "99.97"}, {"x": "13", "y": "80.53"}, {"x": "14", "y": "69.45"}, {"x": "15", "y": "79.19"}, {"x": "16", "y": "68.11"}, {"x": "17", "y": "41.64", "size": 1}, {
                 "x": "18",
                 "y": "78.65"
             }, {"x": "19", "y": "100"}, {"x": "20", "y": "70.21"}, {"x": "21", "y": "66.95"}, {"x": "21", "y": "74.6"}]
