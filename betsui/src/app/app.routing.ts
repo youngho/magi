@@ -16,7 +16,7 @@ export const routes: Routes = [
     children: [
       {
         // path: '', redirectTo: 'dashboard/analytics', pathMatch: 'full'
-         path: '', redirectTo: 'dashboard/analytics', pathMatch: 'full'
+         path: '', redirectTo: 'admin/dashboard', pathMatch: 'full'
           // otherwise redirect to home
           // path: '**', redirectTo: ''
       },

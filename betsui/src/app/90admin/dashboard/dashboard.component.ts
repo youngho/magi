@@ -281,7 +281,7 @@ export class DashboardComponent implements OnInit {
                 },
                 showDistX: false,
                 showDistY: true,
-                duration: 500,
+                duration: 1000,
                 // useInteractiveGuideline: true,              //하단 그래프와 동일선상 데이터 표시
                 // showValues: true,
                 /*
