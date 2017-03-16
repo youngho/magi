@@ -216,5 +216,5 @@ gradle-app.setting
 src/main/webapp/
 *.log
 src/main/resources/static/
-/betsui/src/app/core/api.service.ts
-/.gitignore
+
+

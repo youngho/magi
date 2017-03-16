@@ -94,6 +94,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 // ADMINISTRATION
                 .antMatchers("/user").hasAuthority("USER")
                 .antMatchers("/retrieveRegister").permitAll()
+                .antMatchers("/admin/register").permitAll()
                 .antMatchers("/user/login").permitAll()
                 .antMatchers("/user/insertRegister").permitAll()
 // Dashboard

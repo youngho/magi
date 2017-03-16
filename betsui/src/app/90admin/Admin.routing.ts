@@ -3,6 +3,9 @@ import {RouterModule, Routes} from "@angular/router";
 
 export const routes: Routes = [
     {
+        path: '', redirectTo: 'dashboard', pathMatch: 'full'
+    },
+    {
         path: 'register',
         loadChildren: 'app/90admin/register/register.module#RegisterModule',
         data: {pageTitle: 'BETS User Register'}
