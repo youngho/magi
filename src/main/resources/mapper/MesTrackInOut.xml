@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.history.mesTrackInOut.mapper.MesTrackInOutMapper">
+    <select id="retrieveMesTrackInOut" parameterType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto" resultType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto">
+
+    </select>
+
+    <insert id="insertBinDescription" parameterType="kr.famos.bets.basisInformation.binDescription.dto.BinDescriptionDto">
+        MERGE INTO BIN_DESCRIPTION USING DUAL ON (PART_NUMBER=#{partNumber} AND MAIN_PROGRAM_NAME=#{mainProgramName} AND PROCESS_CODE=#{processCode} AND TESTER_MODEL=#{testerModel})
+        WHEN MATCHED THEN
+        UPDATE
+        <trim prefix="SET" suffixOverrides=",">
+            ITEM_NAME=#{itemName},
+            <if test="mainBin!=null and mainBin!=''">
+                MAIN_BIN=#{mainBin},
+            </if>
+            <if test="subBin!=null and subBin!=''">
+                SUB_BIN=#{subBin},
+            </if>
+            <if test="ngBin!=null and ngBin!=''">
+                NG_BIN=#{ngBin},
+            </if>
+        </trim>
+        WHEN NOT MATCHED THEN
+        INSERT
+        (
+        PART_NUMBER,
+        MAIN_PROGRAM_NAME,
+        PROCESS_CODE,
+        TESTER_MODEL,
+        ITEM_NAME,
+        MAIN_BIN,
+        SUB_BIN,
+        NG_BIN
+        )
+        VALUES
+        (
+        #{partNumber},
+        #{mainProgramName},
+        #{processCode},
+        #{testerModel},
+        #{itemName},
+        #{mainBin},
+        #{subBin},
+        #{ngBin}
+        )
+    </insert>
+</mapper>
