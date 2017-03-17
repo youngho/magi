@@ -66,11 +66,6 @@ export const routes: Routes = [
         data: {pageTitle: 'Admin'}
       },
       {
-        path: 'opirus',
-        loadChildren: 'app/+opirus/opirus.module#OpirusModule',
-        data: {pageTitle: 'Opirus'}
-      },
-      {
         path: 'dashboard',
         loadChildren: 'app/+dashboard/dashboard.module#DashboardModule',
         data: {pageTitle: 'Dashboard'}

@@ -32,14 +32,14 @@
         PASS_BIN_SELECTION,
         PROGRAM_DIRECTORY,
         CREATE_USER,
-        CREATE_DATE,
+        SUBSTR(CREATE_DATE,1,4)||'-'||SUBSTR(CREATE_DATE,5,2)||'-'||SUBSTR(CREATE_DATE,7,2)||' '||SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2)||':'||SUBSTR(CREATE_DATE,13,2) AS CREATE_DATE,
         MODIFY_USER,
         MODIFY_DATE,
         SBL_BIN9_LIMIT,
         SBL_BIN8_LIMIT
         FROM
         PROGRAM_REGISTER
-        <where>
+        <where>ㅁ
             1 = 1
             <if test=" testerModel != null and testerModel != '' ">
                 AND TESTER_MODEL=#{testerModel}
