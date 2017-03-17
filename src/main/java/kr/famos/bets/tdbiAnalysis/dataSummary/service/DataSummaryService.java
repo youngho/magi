@@ -47,6 +47,8 @@ public class DataSummaryService {
             returnDto.setLotId(list.getLotId());
             returnDto.setStartTime(list.getStartTime());                // LOT별 시간을 보여준다.
             returnDto.setEndTime(list.getEndTime());                    // LOT별 시간을 보여준다.
+            returnDto.setTesterModel(list.getTesterModel());
+            returnDto.setTestNumber(list.getTestNumber());
             returnDto.setProcessCode(list.getProcessCode());
             returnDto.setMainProgramName(list.getMainProgramName());
 
