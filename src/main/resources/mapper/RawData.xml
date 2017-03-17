@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.rawData.mapper.RawDataMapper">
+    <!-- BETS-UI-0801 사용 -->
+    <!-- BETS-UI-0802 사용 -->
     <select id="retrieveRawData" parameterType="kr.famos.bets.rawData.dto.RawDataDto" resultType="kr.famos.bets.rawData.dto.RawDataDto">
         SELECT
             LOCATION,
             FILE_NAME,
-            CREAT_DATE,
+            CREATE_DATE,
             FILE_TYPE
         FROM
             RAW_DATA
@@ -17,7 +19,6 @@
             <if test=" createDateEnd != null and createDateEnd != '' ">
                 AND CREATE_DATE <![CDATA[<=]]> #{createDateEnd}
             </if>
-
             <if test=" location != null and location != '' ">
                 AND LOCATION LIKE '%'|| #{location} || '%'
             </if>
@@ -28,5 +29,6 @@
                 AND FILE_TYPE=#{fileType}
             </if>
         </where>
+        ORDER BY CREATE_DATE DESC
     </select>
 </mapper>
