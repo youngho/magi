@@ -8,7 +8,7 @@ public class TdbiBoardTypeDto {
     private String boardTypeNo = ""; // 보드 넘버 앞 4자리
     private int xSocketQty     = 0;  // X축 소켓 개수
     private int ySocketQty     = 0;  // Y축 소켓 개수
-    private String tdbiBoardDescription = ""; // 보드 설명
+    private String tdbiBoardTypeDescription = ""; // 보드 설명
 
     public String getBoardTypeNo() {
         return boardTypeNo;
@@ -34,11 +34,11 @@ public class TdbiBoardTypeDto {
         this.ySocketQty = ySocketQty;
     }
 
-    public String getTdbiBoardDescription() {
-        return tdbiBoardDescription;
+    public String getTdbiBoardTypeDescription() {
+        return tdbiBoardTypeDescription;
     }
 
-    public void setTdbiBoardDescription(String tdbiBoardDescription) {
-        this.tdbiBoardDescription = tdbiBoardDescription;
+    public void setTdbiBoardTypeDescription(String tdbiBoardTypeDescription) {
+        this.tdbiBoardTypeDescription = tdbiBoardTypeDescription;
     }
 }

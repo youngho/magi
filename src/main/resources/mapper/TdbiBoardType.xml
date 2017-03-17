@@ -6,7 +6,7 @@
               BOARD_TYPE_NO,
               X_SOCKET_QTY,
               Y_SOCKET_QTY,
-              TDBI_BOARD_DESCRIPTION
+              TDBI_BOARD_TYPE_DESCRIPTION
         FROM
               TDBI_BOARD_TYPE
         <where>
@@ -29,7 +29,7 @@
               BOARD_TYPE_NO,
               X_SOCKET_QTY,
               Y_SOCKET_QTY,
-              TDBI_BOARD_DESCRIPTION
+              TDBI_BOARD_TYPE_DESCRIPTION
         FROM
               TDBI_BOARD_TYPE
         <where>
@@ -56,8 +56,8 @@
             <if test="ySocketQty!=null and ySocketQty!=''">
                 Y_SOCKET_QTY = #{ySocketQty},
             </if>
-            <if test="tdbiBoardDescription != null and tdbiBoardDescription !=''">
-                TDBI_BOARD_DESCRIPTION = #{tdbiBoardDescription},
+            <if test="tdbiBoardTypeDescription != null and tdbiBoardTypeDescription !=''">
+                TDBI_BOARD_TYPE_DESCRIPTION = #{tdbiBoardTypeDescription},
             </if>
         </trim>
         WHEN NOT MATCHED THEN
@@ -66,13 +66,14 @@
         BOARD_TYPE_NO,
         X_SOCKET_QTY,
         Y_SOCKET_QTY,
-        TDBI_BOARD_DESCRIPTION
+        TDBI_BOARD_TYPE_DESCRIPTION
         )
         VALUES
         (
         #{boardTypeNo},
         #{xSocketQty},
-        #{ySocketQty}
+        #{ySocketQty},
+        #{tdbiBoardTypeDescription}
         )
     </insert>
 </mapper>
