@@ -1,8 +1,6 @@
 package kr.famos.bets.tdbiAnalysis.boardCompositeMap.service;
 
-
 import com.google.gson.Gson;
-import kr.famos.bets.dutmap.compodut.dto.CompoDutMapDto;
 import kr.famos.bets.tdbiAnalysis.boardCompositeMap.dto.BoardCompositeDto;
 import kr.famos.bets.tdbiAnalysis.boardCompositeMap.mapper.BoardCompositeMapper;
 import org.slf4j.Logger;
@@ -10,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.CharacterIterator;
-import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * Created by yhkim on 2017-03-13.
@@ -29,8 +27,8 @@ public class BoardCompositeService {
         List<BoardCompositeDto> lstBoardCompositeDto = boardCompositeMapper.retrieveBoardCompositeMap(boardCompositeDto);
 
         int maxDut = 0;
-        //∞°¿ﬁ≈´ Dut∏¶ ±∏«—¥Ÿ.
-        ArrayList<LinkedHashMap<String,String>> arrayMapSocketNum = new ArrayList<LinkedHashMap<String, String>>();
+        //Í∞ÄÏûóÌÅ∞ DutÎ•º Íµ¨ÌïúÎã§.
+        ArrayList<LinkedHashMap<String, String>> arrayMapSocketNum = new ArrayList<LinkedHashMap<String, String>>();
 
         for (BoardCompositeDto board : lstBoardCompositeDto) {
             String strSocketNum = board.getBiSocketNumber().replaceAll(",", "");
@@ -43,20 +41,20 @@ public class BoardCompositeService {
             int col = 0;
             int row = Integer.parseInt(strBoardCol[0]);
 
-            for(int i=0; i < strSocketNum.length(); i=i+maxRow){
-                String strRow = strScoketTemp.substring(0,maxRow);
-                strScoketTemp = strScoketTemp.substring(maxRow,strScoketTemp.length());
-                LinkedHashMap<String,String> mapSocketNum = new LinkedHashMap<>();
-                mapSocketNum.put("Seq",String.valueOf(board.getBiSeq()));
-                mapSocketNum.put("row",String.valueOf(row));
-                for(int j=0; j < maxRow; j++){
-                    strArraySocketNum[col][j]= Character.toString(strRow.charAt(j));
-                    mapSocketNum.put("col"+ String.valueOf(j+1),Character.toString(strRow.charAt(j)));
+            for (int i = 0; i < strSocketNum.length(); i = i + maxRow) {
+                String strRow = strScoketTemp.substring(0, maxRow);
+                strScoketTemp = strScoketTemp.substring(maxRow, strScoketTemp.length());
+                LinkedHashMap<String, String> mapSocketNum = new LinkedHashMap<>();
+                mapSocketNum.put("Seq", String.valueOf(board.getBiSeq()));
+                mapSocketNum.put("row", String.valueOf(row));
+                for (int j = 0; j < maxRow; j++) {
+                    strArraySocketNum[col][j] = Character.toString(strRow.charAt(j));
+                    mapSocketNum.put("col" + String.valueOf(j + 1), Character.toString(strRow.charAt(j)));
                 }
                 col++;
-                if (Integer.parseInt(strBoardCol[0]) > (Integer.parseInt(strBoardCol[1])) ){
+                if (Integer.parseInt(strBoardCol[0]) > (Integer.parseInt(strBoardCol[1]))) {
                     row--;
-                }else{
+                } else {
                     row++;
                 }
                 arrayMapSocketNum.add(mapSocketNum);
