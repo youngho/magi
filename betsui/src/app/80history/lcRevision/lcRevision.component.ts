@@ -33,7 +33,7 @@ export class LcRevisionComponent implements OnInit {
         null != strDate ? this.data.createDateEnd = strDate + "999999" : this.data.createDateEnd = strDate;
     }
 
-    saveLastTableForm() {
+    retrieveExecute() {
         console.log("endTimeStart : " + this.data.createDateStart);
         console.log("createDateEnd : " + this.data.createDateEnd);
         // console.log("partNumber : " + this.data.partNumber);
