@@ -11,7 +11,7 @@ import {CompoDutRouting} from "./compodut.routing";
 import {DatatableComponent} from "./datatable.component";
 import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.module";
 import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
-
+// import {SpinnerComponent} from "../../shared/spinner/spinner";
 @NgModule({
     imports: [
         CommonModule,

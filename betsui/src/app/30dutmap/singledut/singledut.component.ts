@@ -1,12 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import {SingleDutService} from "./singledut.service";
-import {SingleDut} from './singledut.model';
-import {DatatableComponent} from './datatable.component';
-import DynamicComponent from './dynamic-component';
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
-
-declare var $: any;
+import {SingleDut} from "./singledut.model";
+import {DatatableComponent} from "./datatable.component";
 
 @FadeInTop()
 @Component({
@@ -23,8 +19,9 @@ export class SingleDutComponent implements OnInit {
     errorMessage = null;
     private data: SingleDut = new SingleDut();
     private colInfo = new Array();
+    public isRequesting: boolean;
 
-    resetForm(){
+    resetForm() {
         this.data = new SingleDut();
     }
 
@@ -37,7 +34,7 @@ export class SingleDutComponent implements OnInit {
     }
 
     saveLastTableForm() {
-
+        this.isRequesting = true;
         // if(this.componentData){this.componentData.}
         console.log("endTimeStart : " + this.data.endTimeStart);
         console.log("endTimeEnd : " + this.data.endTimeEnd);
@@ -50,7 +47,6 @@ export class SingleDutComponent implements OnInit {
 
         this.service.postLastTable(this.data)
             .subscribe((apps) => {
-
                     console.log(apps);
                     //debugger;
                     this.colInfo = [];
@@ -63,7 +59,7 @@ export class SingleDutComponent implements OnInit {
                             tempStr = {"title": key, "data": key};
                             this.colInfo.push(tempStr);
                         }
-                    }else {
+                    } else {
                         // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
                         // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
                         console.log("columns return 0");
@@ -87,11 +83,16 @@ export class SingleDutComponent implements OnInit {
                         }
                     };
                 },
-                error => this.errorMessage = error);
+                error => this.errorMessage = error,
+                () => this.stopRefreshing(),
+            );
     }
 
     ngOnInit() {
     }
 
-
+    private
+    stopRefreshing() {
+        this.isRequesting = false;
+    }
 }

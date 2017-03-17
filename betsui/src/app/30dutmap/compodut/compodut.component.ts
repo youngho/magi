@@ -1,29 +1,31 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Directive} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import {CompoDutService} from "./compodut.service";
-import {CompoDut} from './compodut.model';
-import {DatatableComponent} from './datatable.component';
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
+import {CompoDut} from "./compodut.model";
+import {DatatableComponent} from "./datatable.component";
 
 @FadeInTop()
 @Component({
     selector: 'CompoDutBin',
     templateUrl: 'compodut.component.html',
-    providers: [CompoDutService, CompoDut]
+    providers: [CompoDutService, CompoDut],
 })
 export class CompoDutComponent implements OnInit {
 
-    constructor(private service: CompoDutService) {}
+    constructor(private service: CompoDutService) {
+    }
 
     componentData = null;
     errorMessage = null;
     private data: CompoDut = new CompoDut();
     private colInfo = new Array();
+    public isRequesting: boolean;
 
-    resetForm(){
+    resetForm() {
         this.data = new CompoDut();
-
+        this.stopRefreshing();
     }
+
     onSelectDateFrom(strDate: string) {
         null != strDate ? this.data.endTimeStart = strDate + "000000" : this.data.endTimeStart = strDate;
     }
@@ -33,6 +35,7 @@ export class CompoDutComponent implements OnInit {
     }
 
     saveLastTableForm() {
+        // this.isRequesting = true;
 
         console.log("endTimeStart : " + this.data.endTimeStart);
         console.log("endTimeEnd : " + this.data.endTimeEnd);
@@ -43,9 +46,10 @@ export class CompoDutComponent implements OnInit {
         console.log("head : " + this.data.head);
         console.log("testCounter : " + this.data.testCounter);
 
+
+        // this.isRequesting = false;
         this.service.postLastTable(this.data)
             .subscribe((apps) => {
-
                     console.log(apps);
                     // debugger;
                     this.colInfo = [];
@@ -58,7 +62,7 @@ export class CompoDutComponent implements OnInit {
                             tempStr = {"title": key, "data": key};
                             this.colInfo.push(tempStr);
                         }
-                    }else {
+                    } else {
                         // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
                         // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
                         console.log("columns return 0");
@@ -82,10 +86,15 @@ export class CompoDutComponent implements OnInit {
                         }
                     };
                 },
-                error => this.errorMessage = error);
+                error => this.errorMessage = error,
+                // () => this.stopRefreshing(),
+            );
     }
 
     ngOnInit() {
     }
 
+    private stopRefreshing() {
+        this.isRequesting = false;
+    }
 }

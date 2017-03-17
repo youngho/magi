@@ -5,7 +5,8 @@ import {Component, Injector} from '@angular/core';
 
 @Component({
     selector: "adminAppsHtml",
-    template: `<sa-widget [editbutton]="false" color="blueDark">
+    template: `
+<sa-widget [editbutton]="false" color="blueDark">
 	<header>
 		<span class="widget-icon"> <i class="fa fa-table"></i> </span>
 		<h2>Composite DUT Map Retrieve Result</h2>
