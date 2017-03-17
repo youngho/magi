@@ -39,7 +39,7 @@
         SBL_BIN8_LIMIT
         FROM
         PROGRAM_REGISTER
-        <where>ㅁ
+        <where>
             1 = 1
             <if test=" testerModel != null and testerModel != '' ">
                 AND TESTER_MODEL=#{testerModel}
