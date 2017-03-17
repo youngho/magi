@@ -7,7 +7,7 @@
         SELECT
             LOCATION,
             FILE_NAME,
-            CREATE_DATE,
+            SUBSTR(CREATE_DATE,1,4)||'-'||SUBSTR(CREATE_DATE,5,2)||'-'||SUBSTR(CREATE_DATE,7,2)||' '||SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2)||':'||SUBSTR(CREATE_DATE,13,2) AS CREATE_DATE,
             FILE_TYPE
         FROM
             RAW_DATA
