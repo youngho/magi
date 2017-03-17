@@ -5,7 +5,7 @@ export class TdbiBoardType {
     boardTypeNo: string;
     xSocketQty: string;
     ySocketQty: string;
-    tdbiBoardDescription: string;
+    tdbiBoardTypeDescription: string;
 
     static fromJSON(json: any): TdbiBoardType {
         let object = Object.create(TdbiBoardType.prototype);

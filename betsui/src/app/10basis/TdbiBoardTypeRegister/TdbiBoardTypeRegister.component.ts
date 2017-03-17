@@ -25,7 +25,7 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
         boardTypeNo: "",
         xSocketQty: "",
         ySocketQty: "",
-        tdbiBoardDescription: ""
+        tdbiBoardTypeDescription: ""
     };
 
     constructor(private service: TdbiBoardTypeRegisterService, private notificationService: NotificationService, private tdbiBoardType: TdbiBoardType) {
@@ -90,7 +90,7 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
                                     {data: 'boardTypeNo'},
                                     {data: 'xSocketQty'},
                                     {data: 'ySocketQty'},
-                                    {data: 'tdbiBoardDescription'},
+                                    {data: 'tdbiBoardTypeDescription'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;
