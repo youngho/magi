@@ -101,10 +101,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveLcRevision").permitAll()
 // ADMINISTRATION
                 .antMatchers("/user").hasAuthority("USER")
-                .antMatchers("/retrieveRegister").permitAll()
+                .antMatchers("/user/retrieveRegister").permitAll()
                 .antMatchers("/admin/register").permitAll()
                 .antMatchers("/user/login").permitAll()
                 .antMatchers("/user/insertRegister").permitAll()
+                .antMatchers("/retrieveSettings").permitAll()
 // Dashboard
                 .antMatchers("/retrieveDashboard").permitAll()
 
