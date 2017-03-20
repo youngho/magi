@@ -34,6 +34,7 @@ export class SettingsComponent implements OnInit {
     retrieveCondDto = {
         betsKey: "",
         betsValue: "",
+        betsKeyDesc: "",
     };
 
 
@@ -90,9 +91,9 @@ export class SettingsComponent implements OnInit {
                                 data: apps,
                                 //select: { style: 'single'},
                                 columns: [
-                                    {data: 'ordering'},
                                     {data: 'betsKey'},
                                     {data: 'betsValue'},
+                                    {data: 'betsKeyDesc'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;

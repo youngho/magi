@@ -79,7 +79,7 @@
                 <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title">TDBI Board Type Register</h4>
+                <h4 class="modal-title">BETS Setting Update</h4>
             </div>
             <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" novalidate>
                 <div class="modal-body">
@@ -87,15 +87,20 @@
                         <!--<legend>Last TABLED efault Form Elements</legend>-->
                         <div class="form-group">
                             <label class="col-md-2 control-label">{{'betsKey'|i18n}}</label>
-                            <div class="col-md-2">
-                                <label class="form-control" id="betsKey" name="betsKey" [(ngModel)]="setting.betsKey"></label>
+                            <div class="col-md-6">
+                                <input class="form-control" placeholder="" type="text" id="betsKey" name="betsKey" disabled="disabled" [(ngModel)]="setting.betsKey">
                             </div>
                             <label class="col-md-2 control-label">{{'betsValue'|i18n}}</label>
                             <div class="col-md-2">
                                 <input class="form-control" placeholder="" type="text" id="betsValue" name="betsValue" [(ngModel)]="setting.betsValue">
                             </div>
+<!--
+                            <label class="col-md-2 control-label">{{'betsValue'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="" type="text" id="betsKeyDesc" name="betsKeyDesc" [(ngModel)]="setting.betsKeyDesc">
+                            </div>
+-->
                         </div>
-
                     </fieldset>
                 </div>
                 <div class="modal-footer">

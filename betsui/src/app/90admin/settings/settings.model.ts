@@ -4,6 +4,7 @@
 export class Setting {
     betsKey: string;
     betsValue: string;
+    betsKeyDesc: string;
 
     static fromJSON(json: any): Setting {
         let object = Object.create(Setting.prototype);

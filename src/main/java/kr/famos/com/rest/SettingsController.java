@@ -31,4 +31,15 @@ public class SettingsController {
 
         return new ResponseEntity<List<SettingsDto>>(settingsService.retrieveSettings(settingsDto), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/retrieveSettingsByKey", method = RequestMethod.POST)
+    public SettingsDto retrieveSettingsByKey(@RequestBody SettingsDto settingsDto) {
+        return settingsService.retrieveSettingsByKey(settingsDto);
+    }
+
+    @RequestMapping(value = "/updateSettings", method = RequestMethod.POST)
+    public void updateSettings(@RequestBody SettingsDto settingsDto) {
+        settingsService.updateSettings(settingsDto);
+    }
+
 }

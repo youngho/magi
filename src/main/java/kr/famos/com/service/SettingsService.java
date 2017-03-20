@@ -26,5 +26,14 @@ public class SettingsService {
         return settingsMapper.retrieveSettings(settingsDto);
     }
 
+    public SettingsDto retrieveSettingsByKey(SettingsDto settingsDto) {
+
+        return settingsMapper.retrieveSettingsByKey(settingsDto);
+    }
+
+    public void updateSettings(SettingsDto settingsDto) {
+        settingsMapper.updateSettings(settingsDto);
+    }
+
 
 }

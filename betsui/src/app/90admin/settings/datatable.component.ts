@@ -18,11 +18,13 @@ import {Component, Injector} from '@angular/core';
                                 <tr>
                                     <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Key"/></th>
                                     <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Value"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter betsKeyDesc"/></th>
                                 </tr>
                                 <tr>
                                     <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
                                     <th>Key</th>
                                     <th data-class="expand">Value</th>
+                                    <th data-class="expand">betsKeyDesc</th>
                                 </tr>
                                 </thead>
                             </sa-datatable>

@@ -13,6 +13,8 @@ public interface SettingsMapper {
 
     public List<SettingsDto> retrieveSettings(SettingsDto settingsDto);
 
+    public SettingsDto retrieveSettingsByKey(SettingsDto settingsDto);
 
+    public void updateSettings(SettingsDto settingsDto);
 
 }

@@ -4,9 +4,29 @@
     <select id="retrieveSettings" parameterType="kr.famos.com.dto.SettingsDto" resultType="kr.famos.com.dto.SettingsDto">
         SELECT
             BETS_KEY,
-            BETS_VALUE
+            BETS_VALUE,
+            BETS_KEY_DESC
         FROM
             COM_SETTINGS
     </select>
+
+    <select id="retrieveSettingsByKey" parameterType="kr.famos.com.dto.SettingsDto" resultType="kr.famos.com.dto.SettingsDto">
+        SELECT
+            BETS_KEY,
+            BETS_VALUE,
+            BETS_KEY_DESC
+        FROM
+            COM_SETTINGS
+        WHERE
+            BETS_KEY = #{betsKey}
+    </select>
+
+    <update id="updateSettings" parameterType="kr.famos.com.dto.SettingsDto">
+        UPDATE  COM_SETTINGS
+        SET
+                BETS_VALUE=#{betsValue}
+        WHERE
+                BETS_KEY = #{betsKey}
+    </update>
 
 </mapper>

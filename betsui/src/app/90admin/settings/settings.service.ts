@@ -14,21 +14,20 @@ export class SettingsService {
     constructor(private api: ApiService) {
     }
 
-    postRetrieveByKey(data) {
-        this.path = 'retrieveTdbiBoardTypeByKey';
-        console.log('service Component post :');
-        console.log('PATH : ' + this.path);
-        return this.api.retrievePost(`${this.path}`, data);
-    }
-
     postRetrieve(data: Setting) {
         this.path = 'retrieveSettings';
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
 
+    postRetrieveByKey(data) {
+        this.path = 'retrieveSettingsByKey';
+        console.log('PATH : ' + this.path);
+        return this.api.retrievePost(`${this.path}`, data);
+    }
+
     save(data: Setting) {
-        this.path = 'insertTdbiBoardType';
+        this.path = 'updateSettings';
         console.log('PATH : ' + this.path);
         return this.api.post(`${this.path}`, data);
     }
