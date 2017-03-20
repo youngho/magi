@@ -14,7 +14,6 @@ export class LcVersionRegisterService {
     }
 
     save(data: LcVersionRegister) {
-        console.log('saving post:' + data.customer);
         console.log('PATH : ' + this.path);
         return this.api.post(`${this.path}`, data);
     }

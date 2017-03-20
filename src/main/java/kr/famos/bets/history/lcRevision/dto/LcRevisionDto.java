@@ -4,14 +4,14 @@ package kr.famos.bets.history.lcRevision.dto;
  * Created by yhkim on 2017-03-11.
  */
 public class LcRevisionDto {
-    private String testerModel	= "";	//
-    private String version	= "";	//
-    private String why	= "";	//
-    private String createDate	= "";	//
-    private String createUser	= "";	//
+    private String testerModel = "";    //
+    private String lcVersion = "";    //
+    private String changeWhy = "";    //
+    private String createDate = "";    //
+    private String createUser = "";    //
 
-    private String createDateStart  = ""; // 생성일시시작
-    private String createDateEnd    = ""; // 생성일시끝
+    private String createDateStart = ""; // 생성일시시작
+    private String createDateEnd = ""; // 생성일시끝
 
     public String getTesterModel() {
         return testerModel;
@@ -21,20 +21,20 @@ public class LcRevisionDto {
         this.testerModel = testerModel;
     }
 
-    public String getVersion() {
-        return version;
+    public String getLcVersion() {
+        return lcVersion;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setLcVersion(String lcVersion) {
+        this.lcVersion = lcVersion;
     }
 
-    public String getWhy() {
-        return why;
+    public String getChangeWhy() {
+        return changeWhy;
     }
 
-    public void setWhy(String why) {
-        this.why = why;
+    public void setChangeWhy(String changeWhy) {
+        this.changeWhy = changeWhy;
     }
 
     public String getCreateDate() {

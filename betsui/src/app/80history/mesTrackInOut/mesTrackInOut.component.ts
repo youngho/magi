@@ -32,7 +32,9 @@ export class MesTrackInOutComponent implements OnInit {
     onSelectDateTo(strDate: string) {
         null != strDate ? this.data.createDateEnd = strDate + "999999" : this.data.createDateEnd = strDate;
     }
-
+    resetForm() {
+        this.data = new MesTrackInOut();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+    }
     saveLastTableForm() {
         console.log("endTimeStart : " + this.data.createDateStart);
         console.log("createDateEnd : " + this.data.createDateEnd);

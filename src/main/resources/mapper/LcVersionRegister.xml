@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.basisInformation.lcVersionRegister.mapper.LcVersionRegisterMapper">
-    <select id="retrieveLcRevision" parameterType="kr.famos.bets.basisInformation.lcVersionRegister.dto.LcVersionRegisterDto" resultType="kr.famos.bets.basisInformation.lcVersionRegister.dto.LcVersionRegisterDto">
-
-    </select>
-
+    <insert id="insertLcVersionRegister" parameterType="kr.famos.bets.basisInformation.lcVersionRegister.dto.LcVersionRegisterDto">
+        MERGE INTO LC_VERSION_REGISTER USING DUAL ON (CREATE_DATE=#{createDate})
+        WHEN MATCHED THEN
+        UPDATE
+        <trim prefix="SET" suffixOverrides=",">
+                TESTER_MODEL=#{testerModel},
+            <if test="lcVersion!=null and lcVersion!=''">
+                LC_VERSION=#{lcVersion},
+            </if>
+            <if test="changeWhy!=null and changeWhy!=''">
+                CHANGE_WHY=#{changeWhy},
+            </if>
+            <if test="createUser!=null and createUser!=''">
+                CREATE_USER=#{createUser},
+            </if>
+        </trim>
+        WHEN NOT MATCHED THEN
+        INSERT
+        (
+        TESTER_MODEL,
+        LC_VERSION,
+        CHANGE_WHY,
+        CREATE_DATE,
+        CREATE_USER
+        )
+        VALUES
+        (
+        #{testerModel},
+        #{lcVersion},
+        #{changeWhy},
+        #{createDate},
+        #{createUser}
+        )
+    </insert>
 </mapper>

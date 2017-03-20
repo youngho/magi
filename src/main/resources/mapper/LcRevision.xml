@@ -4,8 +4,8 @@
     <select id="retrieveLcRevision" parameterType="kr.famos.bets.history.lcRevision.dto.LcRevisionDto" resultType="kr.famos.bets.history.lcRevision.dto.LcRevisionDto">
         SELECT
             TESTER_MODEL,
-            VERSION,
-            WHY,
+            LC_VERSION,
+            CHANGE_WHY,
             SUBSTR(CREATE_DATE,1,4)||'-'||SUBSTR(CREATE_DATE,5,2)||'-'||SUBSTR(CREATE_DATE,7,2)||' '||SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2)||':'||SUBSTR(CREATE_DATE,13,2) AS CREATE_DATE,
             CREATE_USER
         FROM
@@ -21,11 +21,11 @@
             <if test=" testerModel != null and testerModel != '' ">
                 AND TESTER_MODEL LIKE '%'|| #{testerModel} || '%'
             </if>
-            <if test=" version != null and version != '' ">
-                AND VERSION LIKE '%'|| #{version} || '%'
+            <if test=" lcVersion != null and lcVersion != '' ">
+                AND LC_VERSION LIKE '%'|| #{lcVersion} || '%'
             </if>
-            <if test=" why != null and why != '' ">
-                AND WHY LIKE '%'|| #{why} || '%'
+            <if test=" changeWhy != null and changeWhy != '' ">
+                AND CHANGE_WHY LIKE '%'|| #{changeWhy} || '%'
             </if>
         </where>
         ORDER BY CREATE_DATE DESC

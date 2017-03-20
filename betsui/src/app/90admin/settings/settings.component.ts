@@ -2,11 +2,11 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import {CommonModule} from "@angular/common";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
-import {TdbiBoardTypeRegisterService} from "./TdbiBoardTypeRegister.service";
+import {SettingsService} from "./settings.service";
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {TdbiBoardType} from './TdbiBoardType.model';
+import {Setting} from './settings.model';
 
 import {DatatableComponent} from './datatable.component';
 import {NotificationService} from "../../shared/utils/notification.service";
@@ -14,29 +14,30 @@ import {NotificationService} from "../../shared/utils/notification.service";
 
 @FadeInTop()
 @Component({
-    selector: 'TdbiBoardTypeRegisterRetrieveComponent',
-    templateUrl: 'TdbiBoardTypeRegister.component.html',
-    providers: [TdbiBoardTypeRegisterService, TdbiBoardType]
+    selector: 'SettingsRetrieveComponent',
+    templateUrl: 'settings.component.html',
+    providers: [SettingsService, Setting]
 })
 
-export class TdbiBoardTypeRegisterComponent implements OnInit {
-
-    retrieveCondDto = {
-        boardTypeNo: "",
-        xSocketQty: "",
-        ySocketQty: "",
-        tdbiBoardTypeDescription: ""
-    };
-
-    constructor(private service: TdbiBoardTypeRegisterService, private notificationService: NotificationService, private tdbiBoardType: TdbiBoardType) {
-    }
+export class SettingsComponent implements OnInit {
 
     @ViewChild('lgModal') bgModel;
+
+    constructor(private service: SettingsService, private notificationService: NotificationService, private setting: Setting) {
+    }
 
     componentData = null;
     errorMessage = null;
     message: string = '';
     submitted = false;
+
+    retrieveCondDto = {
+        betsKey: "",
+        betsValue: "",
+    };
+
+
+
 
     /**
      *
@@ -45,39 +46,38 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
         this.bgModel.show();
     }
 
-    resetForm() {
-        this.retrieveCondDto = new TdbiBoardType();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
-    }
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
      */
     someClickHandler(info: any): void {
-        this.message = info.boardTypeNo + ' - ' + info.xSocketQty + ' - ' + info.ySocketQty;
+        this.message = info.betsKey + ' - ' + info.betsValue;
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
-        this.tdbiBoardType.boardTypeNo = info.boardTypeNo;
-        this.tdbiBoardType.xSocketQty = info.xSocketQty;
-        this.tdbiBoardType.ySocketQty = info.ySocketQty;
+        this.setting.betsKey = info.betsKey;
+        this.setting.betsValue = info.betsValue;
 
-        this.service.postRetrieveByKey(this.tdbiBoardType)
+        this.service.postRetrieveByKey(this.setting)
             .subscribe((response) => {
                     //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
 
-                    this.tdbiBoardType = TdbiBoardType.fromJSON(response);
+                    this.setting = Setting.fromJSON(response);
                 },
                 error => alert(error));
 
         this.bgModel.show(function (info: any) {
-            console.log(info.boardTypeNo);
+            // console.log(info.boardTypeNo);
         });
 
     }
 
+    resetForm() {
+        this.retrieveCondDto = new Setting();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+    }
+
     saveLastTableForm() {
-        console.log("boardTypeNo : " + this.tdbiBoardType.boardTypeNo);
-        console.log("xSocketQty : " + this.tdbiBoardType.xSocketQty);
-        console.log("ySocketQty : " + this.tdbiBoardType.ySocketQty);
+        console.log("betsKey : " + this.setting.betsKey);
+        console.log("betsValue : " + this.setting.betsValue);
 
 
         this.service.postRetrieve(this.retrieveCondDto)
@@ -90,10 +90,9 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
                                 data: apps,
                                 //select: { style: 'single'},
                                 columns: [
-                                    {data: 'boardTypeNo'},
-                                    {data: 'xSocketQty'},
-                                    {data: 'ySocketQty'},
-                                    {data: 'tdbiBoardTypeDescription'},
+                                    {data: 'ordering'},
+                                    {data: 'betsKey'},
+                                    {data: 'betsValue'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;
@@ -127,8 +126,8 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
-                this.service.save(this.tdbiBoardType).subscribe(
-                    data => this.tdbiBoardType = data,
+                this.service.save(this.setting).subscribe(
+                    data => this.setting = data,
                     error => alert(error),
                     () => this.bgModel.hide());
                 /*                this.notificationService.smallBox({
