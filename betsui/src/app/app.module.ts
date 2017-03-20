@@ -40,12 +40,8 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-
     CoreModule,
     SmartadminLayoutModule,
-
-
-
     routing
   ],
   exports: [

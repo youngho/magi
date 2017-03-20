@@ -21,7 +21,7 @@ export class DynamicComponent {
         if (!data) {
             return;
         }
-
+        debugger;
         // Inputs need to be in the following format to be resolved properly
         let inputProviders = Object.keys(data.inputs).map((inputName) => {
             return {provide: inputName, useValue: data.inputs[inputName]};
@@ -49,6 +49,6 @@ export class DynamicComponent {
     }
 
     constructor(private resolver: ComponentFactoryResolver) {
-
+        console.log("ComponentFactoryResolver : " + this.resolver);
     }
 }
