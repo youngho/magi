@@ -11,7 +11,8 @@ import {UserUsage} from './userUsage.model';
     providers: [UserUsageService, UserUsage]
 })
 export class UserUsageComponent implements OnInit {
-    UIID : string = "BETS-UI-0803";
+    UIID: string = "BETS-UI-0803";
+
     constructor(private service: UserUsageService) {
     }
 
@@ -30,6 +31,7 @@ export class UserUsageComponent implements OnInit {
     resetForm() {
         this.data = new UserUsage();
     }
+
     retrieveExecute() {
         // console.log("createDateStart : " + this.data.createDateStart);
         // console.log("createDateEnd : " + this.data.createDateEnd);
@@ -63,10 +65,14 @@ export class UserUsageComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.data.createDate = "20170321134000";
+        // this.data.createDate = "20170321134000";
         this.data.userId = "youngho";
         this.data.uiId = this.UIID;
-        this.service.postUsage(this.data);
+        this.service.postUsage(this.data).subscribe(
+            data => this.data = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
     }
 
 

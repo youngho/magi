@@ -9,6 +9,7 @@ public class ComSettingsDto {
     private String betsKey     = "";   // 설정에 사용하는 키값
     private String betsValue   = "";   // 설정값
     private String betsKeyDesc = "";   // 설정값에 대한 설명
+    private String settingUser = "";
 
     public int getSettingId() {
         return settingId;
@@ -48,5 +49,13 @@ public class ComSettingsDto {
 
     public void setBetsKeyDesc(String betsKeyDesc) {
         this.betsKeyDesc = betsKeyDesc;
+    }
+
+    public String getSettingUser() {
+        return settingUser;
+    }
+
+    public void setSettingUser(String settingUser) {
+        this.settingUser = settingUser;
     }
 }

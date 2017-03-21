@@ -94,6 +94,7 @@ export class SettingsComponent implements OnInit {
                                     {data: 'betsKey'},
                                     {data: 'betsValue'},
                                     {data: 'betsKeyDesc'},
+                                    {data: 'settingUser'},
                                 ],
                                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
                                     let self = this;

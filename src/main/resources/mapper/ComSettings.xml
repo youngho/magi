@@ -5,12 +5,16 @@
         SELECT
             BETS_KEY,
             BETS_VALUE,
-            BETS_KEY_DESC
+            BETS_KEY_DESC,
+            SETTING_USER
         FROM
             COM_SETTINGS
-        WHERE
+        <where>
             1 = 1
+            <if test=" settingUser != null and settingUser != '' ">
             AND SETTING_USER = #{settingUser}
+            </if>
+        </where>
     </select>
 
     <select id="retrieveSettingsByKey" parameterType="kr.famos.com.dto.ComSettingsDto" resultType="kr.famos.com.dto.ComSettingsDto">

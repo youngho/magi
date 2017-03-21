@@ -16,15 +16,17 @@ import {Component, Injector} from '@angular/core';
                             <sa-datatable [options]="tblOptions" filter="true" paginationLength="true" tableClass="table table-striped table-bordered table-hover">
                                 <thead>
                                 <tr>
-                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Key"/></th>
-                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter Value"/></th>
-                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter betsKeyDesc"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'betsKey'|i18n}}"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'betsValue'|i18n}}"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'betsKeyDesc'|i18n}}"/></th>
+                                    <th class="hasinput"><input type="text" class="form-control" placeholder="Filter {{'settingUser'|i18n}}"/></th>
                                 </tr>
                                 <tr>
                                     <!--<th [style.width]="'8%'" data-hide="mobile-p">Date</th>-->
-                                    <th>Key</th>
-                                    <th data-class="expand">Value</th>
-                                    <th data-class="expand">betsKeyDesc</th>
+                                    <th>{{'betsKey'|i18n}}</th>
+                                    <th data-class="expand">{{'betsValue'|i18n}}</th>
+                                    <th data-class="expand">{{'betsKeyDesc'|i18n}}</th>
+                                    <th data-class="expand">{{'settingUser'|i18n}}</th>
                                 </tr>
                                 </thead>
                             </sa-datatable>

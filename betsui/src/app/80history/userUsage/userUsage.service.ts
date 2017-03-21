@@ -8,11 +8,12 @@ import {UserUsage} from "./userUsage.model";
 
 @Injectable()
 export class UserUsageService {
-    private path: string = 'retrieveComUserUsage';
+    private path: string;
 
     constructor(private api: ApiService) {}
 
     postLastTable(data: UserUsage) {
+        this.path = 'retrieveComUserUsage';
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }
