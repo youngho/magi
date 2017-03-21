@@ -109,6 +109,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveSettings").permitAll()
                 .antMatchers("/retrieveSettingsByKey").permitAll()
                 .antMatchers("/updateSettings").permitAll()
+
+                .antMatchers("/retrieveNavigation").permitAll()
 // Dashboard
                 .antMatchers("/retrieveDashboard").permitAll()
 

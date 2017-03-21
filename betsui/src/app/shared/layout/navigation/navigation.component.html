@@ -12,6 +12,22 @@
 
         <ul saSmartMenu>
             <!--BETS MENU START-->
+
+<!--
+            <li *ngFor="let item of menuData, let index = index">
+                <a title="{{ item.section }}"><i class="fa fa-lg fa-fw fa-gears"></i><span class="menu-item-parent">{{ item.section }}</span>
+                </a>
+                <ul>
+                    <li *ngFor="let link of item.links" routerLinkActive="active">
+                        &lt;!&ndash; [href] doesn't work in IE/Edge &ndash;&gt;
+                        &lt;!&ndash;<a [href]="'#' + link.url">{{ link.text }}</a>&ndash;&gt;
+                        <a *ngIf="link.alias" [routerLink]="['/' + link.alias]">{{ link.text }}</a>
+                    </li>
+                </ul>
+            </li>
+-->
+
+
             <li>
                 <a title="BASIS INFORMATION"><i class="fa fa-lg fa-fw fa-gears"></i> <span class="menu-item-parent">{{'BASIS INFORMATION' | i18n}}</span></a>
                 <ul>
@@ -38,11 +54,11 @@
                     <li routerLinkActive="active">
                         <a routerLink="/yield/lotyield">{{'Lot yield' | i18n}}</a>
                     </li>
-<!--
-                    <li routerLinkActive="active">
-                        <a routerLink="/yield/subbin">{{'Sub bin' | i18n}}</a>
-                    </li>
--->
+                    <!--
+                                        <li routerLinkActive="active">
+                                            <a routerLink="/yield/subbin">{{'Sub bin' | i18n}}</a>
+                                        </li>
+                    -->
                     <li routerLinkActive="active">
                         <a routerLink="/yield/ngbin">{{'NG bin' | i18n}}</a>
                     </li>
@@ -64,11 +80,11 @@
                     <li routerLinkActive="active">
                         <a routerLink="/sblanal/yield">{{'Yield abnormal' | i18n}}</a>
                     </li>
-<!--
-                    <li routerLinkActive="active">
-                        <a routerLink="/sblanal/subbin">{{'Sub bin abnormal' | i18n}}</a>
-                    </li>
--->
+                    <!--
+                                        <li routerLinkActive="active">
+                                            <a routerLink="/sblanal/subbin">{{'Sub bin abnormal' | i18n}}</a>
+                                        </li>
+                    -->
                     <li routerLinkActive="active">
                         <a routerLink="/sblanal/testlot">{{'Test lot cancel' | i18n}}</a>
                     </li>
@@ -136,11 +152,11 @@
             <li>
                 <a title="ADMINISTRATION"><i class="fa fa-lg fa-fw fa-lock"></i> <span class="menu-item-parent">{{'ADMINISTRATION' | i18n}}</span></a>
                 <ul>
-<!--
-                    <li routerLinkActive="active">
-                        <a routerLink="/auth/login">{{'Login' | i18n}}</a>
-                    </li>
--->
+                    <!--
+                                        <li routerLinkActive="active">
+                                            <a routerLink="/auth/login">{{'Login' | i18n}}</a>
+                                        </li>
+                    -->
                     <li routerLinkActive="active">
                         <a routerLink="/admin/register">{{'Register' | i18n}}</a>
                     </li>
