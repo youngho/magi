@@ -8,6 +8,9 @@
             BETS_KEY_DESC
         FROM
             COM_SETTINGS
+        WHERE
+            1 = 1
+            AND SETTING_USER = #{settingUser}
     </select>
 
     <select id="retrieveSettingsByKey" parameterType="kr.famos.com.dto.SettingsDto" resultType="kr.famos.com.dto.SettingsDto">
@@ -18,7 +21,9 @@
         FROM
             COM_SETTINGS
         WHERE
-            BETS_KEY = #{betsKey}
+            1 = 1
+            AND BETS_KEY = #{betsKey}
+            AND SETTING_USER = #{settingUser}
     </select>
 
     <update id="updateSettings" parameterType="kr.famos.com.dto.SettingsDto">
@@ -26,7 +31,9 @@
         SET
                 BETS_VALUE=#{betsValue}
         WHERE
-                BETS_KEY = #{betsKey}
+            1 = 1
+            AND BETS_KEY = #{betsKey}
+            AND SETTING_USER = #{settingUser}
     </update>
 
 </mapper>
