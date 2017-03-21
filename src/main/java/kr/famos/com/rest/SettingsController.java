@@ -1,6 +1,6 @@
 package kr.famos.com.rest;
 
-import kr.famos.com.dto.SettingsDto;
+import kr.famos.com.dto.ComSettingsDto;
 import kr.famos.com.service.SettingsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,21 +25,21 @@ public class SettingsController {
     SettingsService settingsService;
 
     @RequestMapping(value = "/retrieveSettings", method = RequestMethod.POST)
-    public ResponseEntity<List<SettingsDto>> retrieveSettings(@RequestBody SettingsDto settingsDto) {
+    public ResponseEntity<List<ComSettingsDto>> retrieveSettings(@RequestBody ComSettingsDto comSettingsDto) {
 
         logger.debug("UserController - retrieveRegister 메소드");
 
-        return new ResponseEntity<List<SettingsDto>>(settingsService.retrieveSettings(settingsDto), HttpStatus.OK);
+        return new ResponseEntity<List<ComSettingsDto>>(settingsService.retrieveSettings(comSettingsDto), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/retrieveSettingsByKey", method = RequestMethod.POST)
-    public SettingsDto retrieveSettingsByKey(@RequestBody SettingsDto settingsDto) {
-        return settingsService.retrieveSettingsByKey(settingsDto);
+    public ComSettingsDto retrieveSettingsByKey(@RequestBody ComSettingsDto comSettingsDto) {
+        return settingsService.retrieveSettingsByKey(comSettingsDto);
     }
 
     @RequestMapping(value = "/updateSettings", method = RequestMethod.POST)
-    public void updateSettings(@RequestBody SettingsDto settingsDto) {
-        settingsService.updateSettings(settingsDto);
+    public void updateSettings(@RequestBody ComSettingsDto comSettingsDto) {
+        settingsService.updateSettings(comSettingsDto);
     }
 
 }

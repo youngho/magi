@@ -3,7 +3,7 @@ package kr.famos.com.dto;
 /**
  * Created by yhkim on 2017-03-20.
  */
-public class SettingsDto {
+public class ComSettingsDto {
     private int settingId      = 0;    //
     private int ordering       = 0;    // 설정값 정렬에 사용
     private String betsKey     = "";   // 설정에 사용하는 키값

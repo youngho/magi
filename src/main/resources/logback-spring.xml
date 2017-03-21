@@ -35,6 +35,9 @@
     <logger name="kr.famos.bets">
         <level value="debug"/>
     </logger>
+    <logger name="kr.famos.com">
+        <level value="debug"/>
+    </logger>
     <logger name="java.sql">
         <level value="debug"/>
     </logger>

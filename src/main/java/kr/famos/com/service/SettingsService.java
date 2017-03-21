@@ -1,7 +1,7 @@
 package kr.famos.com.service;
 
 
-import kr.famos.com.dto.SettingsDto;
+import kr.famos.com.dto.ComSettingsDto;
 import kr.famos.com.mapper.SettingsMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,18 +21,18 @@ public class SettingsService {
     @Autowired
     SettingsMapper settingsMapper;
 
-    public List<SettingsDto> retrieveSettings(SettingsDto settingsDto) {
+    public List<ComSettingsDto> retrieveSettings(ComSettingsDto comSettingsDto) {
 
-        return settingsMapper.retrieveSettings(settingsDto);
+        return settingsMapper.retrieveSettings(comSettingsDto);
     }
 
-    public SettingsDto retrieveSettingsByKey(SettingsDto settingsDto) {
+    public ComSettingsDto retrieveSettingsByKey(ComSettingsDto comSettingsDto) {
 
-        return settingsMapper.retrieveSettingsByKey(settingsDto);
+        return settingsMapper.retrieveSettingsByKey(comSettingsDto);
     }
 
-    public void updateSettings(SettingsDto settingsDto) {
-        settingsMapper.updateSettings(settingsDto);
+    public void updateSettings(ComSettingsDto comSettingsDto) {
+        settingsMapper.updateSettings(comSettingsDto);
     }
 
 

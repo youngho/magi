@@ -29,48 +29,26 @@
                                             <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
                                         </div>
 
-                                        <label class="col-md-2 control-label">{{'firmwareName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <label class="col-md-2 control-label">{{'userId'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="data.firmwareName">
+                                            <input type="text" class="form-control" placeholder="{{'userId'|i18n}}" [(ngModel)]="data.userId">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'uiId'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partNumber">
-                                        </div>
-
-                                        <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processCode">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
-                                        <div class="col-md-2">
-                                            <input type="text" class="form-control"
-                                                   name="testerOsVersion" placeholder="{{'testerOsVersion'|i18n}}" [(ngModel)]="data.testerOsVersion">
+                                            <input class="form-control" placeholder="{{'uiId'|i18n}}" type="text" [(ngModel)]="data.uiId">
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text"
-                                                   [(ngModel)]="data.testerModel">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
-                                        </div>
-                                    </div>
-
                                 </fieldset>
                                 <!--Retest Skip 기준 end-->
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                            <button class="btn btn-default" (click)="resetForm()">
+                                                {{'reset'|i18n}}
+                                            </button>
+                                            <button (click)="retrieveExecute()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>

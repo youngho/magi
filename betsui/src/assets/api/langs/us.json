@@ -123,6 +123,9 @@
   "passBinSelection8": "8",
 
   "date":"Date",
+  "createDate":"Create Date",
+  "userId":"User ID",
+  "uiId":"UI ID",
   "mode":"Mode",
   "zoneNumber":"Zone Number",
   "slotNumber":"Slot Number",

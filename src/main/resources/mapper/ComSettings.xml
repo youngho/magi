@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.com.mapper.SettingsMapper">
-    <select id="retrieveSettings" parameterType="kr.famos.com.dto.SettingsDto" resultType="kr.famos.com.dto.SettingsDto">
+    <select id="retrieveSettings" parameterType="kr.famos.com.dto.ComSettingsDto" resultType="kr.famos.com.dto.ComSettingsDto">
         SELECT
             BETS_KEY,
             BETS_VALUE,
@@ -13,7 +13,7 @@
             AND SETTING_USER = #{settingUser}
     </select>
 
-    <select id="retrieveSettingsByKey" parameterType="kr.famos.com.dto.SettingsDto" resultType="kr.famos.com.dto.SettingsDto">
+    <select id="retrieveSettingsByKey" parameterType="kr.famos.com.dto.ComSettingsDto" resultType="kr.famos.com.dto.ComSettingsDto">
         SELECT
             BETS_KEY,
             BETS_VALUE,
@@ -26,7 +26,7 @@
             AND SETTING_USER = #{settingUser}
     </select>
 
-    <update id="updateSettings" parameterType="kr.famos.com.dto.SettingsDto">
+    <update id="updateSettings" parameterType="kr.famos.com.dto.ComSettingsDto">
         UPDATE  COM_SETTINGS
         SET
                 BETS_VALUE=#{betsValue}

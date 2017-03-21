@@ -1,6 +1,6 @@
 package kr.famos.com.mapper;
 
-import kr.famos.com.dto.SettingsDto;
+import kr.famos.com.dto.ComSettingsDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.List;
 @Mapper
 public interface SettingsMapper {
 
-    public List<SettingsDto> retrieveSettings(SettingsDto settingsDto);
+    public List<ComSettingsDto> retrieveSettings(ComSettingsDto comSettingsDto);
 
-    public SettingsDto retrieveSettingsByKey(SettingsDto settingsDto);
+    public ComSettingsDto retrieveSettingsByKey(ComSettingsDto comSettingsDto);
 
-    public void updateSettings(SettingsDto settingsDto);
+    public void updateSettings(ComSettingsDto comSettingsDto);
 
 }

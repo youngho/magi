@@ -13,9 +13,19 @@ import {Component, Injector} from '@angular/core';
 	<div>
 		<div class="widget-body no-padding">
 			<sa-datatable [options]="tblOptions" filter="true" paginationLength="true" tableClass="table table-striped table-bordered table-hover">
-
+                <thead>
+                    <tr>
+                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter {{'createDate'|i18n}}"/></th>
+                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter {{'userId'|i18n}}"/></th>
+                        <th class="hasinput" ><input type="text" class="form-control" placeholder="Filter {{'uiId'|i18n}}"/></th>
+                    </tr>
+                    <tr>
+                        <th>{{'createDate'|i18n}}</th>
+                        <th>{{'userId'|i18n}}</th>
+                        <th>{{'uiId'|i18n}}</th>
+                    </tr>
+                </thead>
 			</sa-datatable>
-
 		</div>
 	</div>
 </sa-widget>
