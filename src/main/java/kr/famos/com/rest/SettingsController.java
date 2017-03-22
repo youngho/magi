@@ -26,9 +26,9 @@ public class SettingsController {
 
     @RequestMapping(value = "/retrieveSettings", method = RequestMethod.POST)
     public ResponseEntity<List<ComSettingsDto>> retrieveSettings(@RequestBody ComSettingsDto comSettingsDto) {
-
         logger.debug("UserController - retrieveRegister 메소드");
-
+        logger.debug("BETS Key => " + comSettingsDto.getBetsKey());
+        logger.debug("BETS Value => " + comSettingsDto.getBetsValue());
         return new ResponseEntity<List<ComSettingsDto>>(settingsService.retrieveSettings(comSettingsDto), HttpStatus.OK);
     }
 

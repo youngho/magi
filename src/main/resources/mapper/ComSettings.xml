@@ -11,12 +11,17 @@
             COM_SETTINGS
         <where>
             1 = 1
+            <if test=" betsKey != null and betsKey != '' ">
+                AND BETS_KEY = #{betsKey}
+            </if>
+            <if test=" betsValue != null and betsValue != '' ">
+                AND BETS_VALUE=#{betsValue}
+            </if>
             <if test=" settingUser != null and settingUser != '' ">
-            AND SETTING_USER = #{settingUser}
+                AND SETTING_USER = #{settingUser}
             </if>
         </where>
     </select>
-
     <select id="retrieveSettingsByKey" parameterType="kr.famos.com.dto.ComSettingsDto" resultType="kr.famos.com.dto.ComSettingsDto">
         SELECT
             BETS_KEY,
@@ -24,20 +29,31 @@
             BETS_KEY_DESC
         FROM
             COM_SETTINGS
-        WHERE
+        <where>
             1 = 1
-            AND BETS_KEY = #{betsKey}
-            AND SETTING_USER = #{settingUser}
+            <if test=" betsKey != null and betsKey != '' ">
+                AND BETS_KEY = #{betsKey}
+            </if>
+            <if test=" betsValue != null and betsValue != '' ">
+                AND BETS_VALUE=#{betsValue}
+            </if>
+            <if test=" settingUser != null and settingUser != '' ">
+                AND SETTING_USER = #{settingUser}
+            </if>
+        </where>
     </select>
-
     <update id="updateSettings" parameterType="kr.famos.com.dto.ComSettingsDto">
         UPDATE  COM_SETTINGS
         SET
                 BETS_VALUE=#{betsValue}
-        WHERE
+        <where>
             1 = 1
-            AND BETS_KEY = #{betsKey}
-            AND SETTING_USER = #{settingUser}
+            <if test=" betsKey != null and betsKey != '' ">
+                AND BETS_KEY = #{betsKey}
+            </if>
+            <if test=" settingUser != null and settingUser != '' ">
+                AND SETTING_USER = #{settingUser}
+            </if>
+        </where>
     </update>
-
 </mapper>

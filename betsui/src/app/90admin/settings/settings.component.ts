@@ -38,9 +38,6 @@ export class SettingsComponent implements OnInit {
         settingUser: "",
     };
 
-
-
-
     /**
      *
      */
@@ -77,7 +74,7 @@ export class SettingsComponent implements OnInit {
         this.retrieveCondDto = new Setting();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
     }
 
-    saveLastTableForm() {
+    retrieveExecute() {
         console.log("betsKey : " + this.setting.betsKey);
         console.log("betsValue : " + this.setting.betsValue);
 

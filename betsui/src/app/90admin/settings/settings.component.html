@@ -48,7 +48,7 @@
                                                 New
                                             </button>
 -->
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                            <button (click)="retrieveExecute()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'Retrieve'|i18n}}
                                             </button>
@@ -70,7 +70,8 @@
     </sa-widgets-grid>
     <!-- end widget grid -->
 </div>
-
+{{errorMessage}}
+{{message}}
 <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg">

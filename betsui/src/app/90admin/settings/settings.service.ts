@@ -20,7 +20,7 @@ export class SettingsService {
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-    postRetrieveByKey(data) {
+    postRetrieveByKey(data: Setting) {
         this.path = 'retrieveSettingsByKey';
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
