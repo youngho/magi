@@ -11,10 +11,9 @@ import java.util.List;
  */
 public class DashboardDto {
     private List<AxesChartDto> chart = new ArrayList<>();
-    private ChangeControlDto changeControl = new ChangeControlDto();
-    private LowYieldLotDto lowYieldLot = new LowYieldLotDto();
+    private List<ChangeControlDto> changeControl = new ArrayList<>();
+    private List<LowYieldLotDto> lowYieldLot = new ArrayList<>();
     private OcapDto ocap = new OcapDto();
-
 
     public List<AxesChartDto> getChart() {
         return chart;
@@ -24,5 +23,27 @@ public class DashboardDto {
         this.chart = chart;
     }
 
+    public List<ChangeControlDto> getChangeControl() {
+        return changeControl;
+    }
 
+    public void setChangeControl(List<ChangeControlDto> changeControl) {
+        this.changeControl = changeControl;
+    }
+
+    public List<LowYieldLotDto> getLowYieldLot() {
+        return lowYieldLot;
+    }
+
+    public void setLowYieldLot(List<LowYieldLotDto> lowYieldLot) {
+        this.lowYieldLot = lowYieldLot;
+    }
+
+    public OcapDto getOcap() {
+        return ocap;
+    }
+
+    public void setOcap(OcapDto ocap) {
+        this.ocap = ocap;
+    }
 }

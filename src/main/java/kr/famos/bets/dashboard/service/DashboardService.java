@@ -2,6 +2,7 @@ package kr.famos.bets.dashboard.service;
 
 import kr.famos.bets.dashboard.dto.AxesChartCondDto;
 import kr.famos.bets.dashboard.dto.AxesChartDto;
+import kr.famos.bets.dashboard.dto.ChangeControlDto;
 import kr.famos.bets.dashboard.dto.DashboardDto;
 import kr.famos.bets.dashboard.mapper.DashboardMapper;
 import kr.famos.com.dto.ComSettingsDto;
@@ -104,7 +105,13 @@ public class DashboardService {
 
             chartItemDto.setMon("1D");
             returnDto.getChart().add(chartItemDto);
-        }
+        } // userChartList
+
+        returnDto.setChangeControl(dashboardMapper.retrieveChangControl());
+
+        returnDto.setLowYieldLot(dashboardMapper.retrieveLowYieldLot());
+
+
         return returnDto;
     }
 

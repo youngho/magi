@@ -34,10 +34,7 @@
 
                             <div id="myTabContent" class="tab-content">
 
-                                <nvd3 [options]="options" [data]="data" class="tab-pane fade active in padding-10 no-padding-bottom" id="s1"></nvd3>
-                                <!--<nvd3 [options]="options" [data]="data" class="tab-pane fade" id="s2"></nvd3>-->
-
-                                <!--<nvd3 [options]="options2" [data]="data2" class="tab-pane fade" id="s2"></nvd3>-->
+                                <!--차트위치-->
 
 
                             </div>
@@ -60,8 +57,26 @@
 
                     <div>
                         <div class="widget-body ">
-                            <nvd3 [options]="barChartOptions" [data]="barChartData"></nvd3>
-                            <!--<sa-flot-chart [data]="flotData.barChartData" [options]="flotExamples.barChartDemoOptions"></sa-flot-chart>-->
+                            <div class="table-responsive">
+
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Column name</th>
+                                        <th>Column name</th>
+                                        <th>Column name</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let lowYield of lowYieldLot">
+                                        <td>{{lowYield.lotId}}</td>
+                                        <td>{{lowYield.processCode}}</td>
+                                        <td>{{lowYield.yield}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
                         </div>
                     </div>
                 </sa-widget>
@@ -76,7 +91,7 @@
 
                     <div>
                         <div class="widget-body ">
-                            <nvd3 [options]="optionPie" [data]="dataPie"></nvd3>
+
                         </div>
                     </div>
                 </sa-widget>

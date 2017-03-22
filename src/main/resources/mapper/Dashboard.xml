@@ -42,4 +42,28 @@
             AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
             AND PROCESS_CODE = #{processCode}
     </select>
+    <select id="retrieveChangControl" resultType="kr.famos.bets.dashboard.dto.ChangeControlDto">
+        SELECT
+            PROGRAM_VERSION AS ACTION ,
+            TESTER_OS_VERSION AS TARGET,
+            CREATE_DATE AS TIME
+        FROM
+            PROGRAM_REGISTER
+        WHERE
+            ROWNUM <![CDATA[<]]> 6
+    </select>
+
+    <select id="retrieveLowYieldLot" resultType="kr.famos.bets.dashboard.dto.LowYieldLotDto">
+        SELECT
+            LOT_ID,
+            PROCESS_CODE,
+            TRUNC(((TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))) / (TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))+ TO_NUMBER(SUBSTR(OP_BIN,21,4))+ TO_NUMBER(SUBSTR(OP_BIN,26,4))+ TO_NUMBER(SUBSTR(OP_BIN,31,4))+ TO_NUMBER( SUBSTR(OP_BIN,36,4)+ TO_NUMBER( SUBSTR(OP_BIN,41,4)))))*100,2) AS YIELD,
+            END_TIME
+        FROM
+            MAIN_BIN
+        WHERE
+            SBL_RESULT = 'ERROR'
+        AND ROWNUM <![CDATA[<]]> 6
+        ORDER BY END_TIME
+    </select>
 </mapper>
