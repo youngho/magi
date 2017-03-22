@@ -35,6 +35,7 @@ export class SettingsComponent implements OnInit {
         betsKey: "",
         betsValue: "",
         betsKeyDesc: "",
+        settingUser: "",
     };
 
 

@@ -1,5 +1,6 @@
 package kr.famos.bets.dashboard.rest;
 
+import kr.famos.bets.dashboard.dto.AxesChartDto;
 import kr.famos.bets.dashboard.dto.DashboardDto;
 import kr.famos.bets.dashboard.service.DashboardService;
 import org.slf4j.Logger;
@@ -26,8 +27,8 @@ public class DashboardController {
     DashboardService dashboardService;
 
     @RequestMapping(value = "/retrieveDashboard", method = RequestMethod.POST)
-    public ResponseEntity<List<DashboardDto>> retrieveDashboard(@RequestBody DashboardDto dashboardDto) {
-        return new ResponseEntity<List<DashboardDto>>(dashboardService.retrieveDashboard(dashboardDto), HttpStatus.OK);
+    public ResponseEntity<DashboardDto> retrieveDashboard(@RequestBody DashboardDto dashboardDto) {
+        return new ResponseEntity<DashboardDto>(dashboardService.retrieveDashboard(dashboardDto), HttpStatus.OK);
     }
 
 }
