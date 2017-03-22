@@ -11,7 +11,7 @@
     </select>
     <select id="retrieveAxesChartItem" parameterType="kr.famos.bets.dashboard.dto.AxesChartCondDto" resultType="kr.famos.bets.dashboard.dto.AxesChartDto">
         SELECT
-            PROCESS_CODE,
+            NVL(max(PROCESS_CODE),#{processCode}) AS PROCESS_CODE,
             SUM (QUANTITY) AS tav,
             TRUNC
             (
@@ -41,6 +41,5 @@
             AND END_TIME <![CDATA[>=]]> #{endTimeStart}
             AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
             AND PROCESS_CODE = #{processCode}
-        GROUP BY PROCESS_CODE
     </select>
 </mapper>

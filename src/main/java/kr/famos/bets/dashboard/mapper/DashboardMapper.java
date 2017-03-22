@@ -14,6 +14,7 @@ import java.util.List;
 public interface DashboardMapper {
 
     public List<DashboardDto> retrieveDashboard(DashboardDto dashboardDto);
+
     public AxesChartDto retrieveAxesChartItem(AxesChartCondDto axesChartCondDto);
 
 

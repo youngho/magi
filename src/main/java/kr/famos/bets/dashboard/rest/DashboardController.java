@@ -31,4 +31,6 @@ public class DashboardController {
         return new ResponseEntity<DashboardDto>(dashboardService.retrieveDashboard(dashboardDto), HttpStatus.OK);
     }
 
+    // Change Control
+
 }

@@ -147,12 +147,10 @@ export class SettingsComponent implements OnInit {
                  timeout: 4000
                  });*/
             }
-
         });
     }
 
     /*
-
      onSelectDateFrom(strDate: string) {
      this.data.sysDateStart = strDate;
      }
