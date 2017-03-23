@@ -13,7 +13,7 @@ public class DashboardDto {
     private List<AxesChartDto> chart = new ArrayList<>();
     private List<ChangeControlDto> changeControl = new ArrayList<>();
     private List<LowYieldLotDto> lowYieldLot = new ArrayList<>();
-    private OcapDto ocap = new OcapDto();
+    private List<OcapDto> ocap = new ArrayList<>();
 
     public List<AxesChartDto> getChart() {
         return chart;
@@ -39,11 +39,11 @@ public class DashboardDto {
         this.lowYieldLot = lowYieldLot;
     }
 
-    public OcapDto getOcap() {
+    public List<OcapDto> getOcap() {
         return ocap;
     }
 
-    public void setOcap(OcapDto ocap) {
+    public void setOcap(List<OcapDto> ocap) {
         this.ocap = ocap;
     }
 }

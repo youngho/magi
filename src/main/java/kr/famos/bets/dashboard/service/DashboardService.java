@@ -1,9 +1,6 @@
 package kr.famos.bets.dashboard.service;
 
-import kr.famos.bets.dashboard.dto.AxesChartCondDto;
-import kr.famos.bets.dashboard.dto.AxesChartDto;
-import kr.famos.bets.dashboard.dto.ChangeControlDto;
-import kr.famos.bets.dashboard.dto.DashboardDto;
+import kr.famos.bets.dashboard.dto.*;
 import kr.famos.bets.dashboard.mapper.DashboardMapper;
 import kr.famos.com.dto.ComSettingsDto;
 import kr.famos.com.mapper.SettingsMapper;
@@ -12,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -111,6 +109,50 @@ public class DashboardService {
 
         returnDto.setLowYieldLot(dashboardMapper.retrieveLowYieldLot());
 
+        //TODO OCAP 노가다작업
+
+        List<OcapDto> tempDtoList = new ArrayList<>();
+        OcapDto tempDto = new OcapDto();
+        tempDto.setLotId("DC3SKD-912Q");
+        tempDto.setOper("T0220");
+        tempDto.setSblCode("H50");
+        tempDto.setTransTime("06:02");
+        tempDto.setStatus("Hold");
+        tempDtoList.add(tempDto);
+        tempDto = new OcapDto();
+
+        tempDto.setLotId("DC3SKD-912Q");
+        tempDto.setOper("T0220");
+        tempDto.setSblCode("");
+        tempDto.setTransTime("06:02");
+        tempDto.setStatus("Release");
+        tempDtoList.add(tempDto);
+        tempDto = new OcapDto();
+
+        tempDto.setLotId("DC3SKD-912Q");
+        tempDto.setOper("T0220");
+        tempDto.setSblCode("H60");
+        tempDto.setTransTime("06:02");
+        tempDto.setStatus("Hold");
+        tempDtoList.add(tempDto);
+        tempDto = new OcapDto();
+
+        tempDto.setLotId("DC3SKD-912Q");
+        tempDto.setOper("T0220");
+        tempDto.setSblCode("H40");
+        tempDto.setTransTime("06:02");
+        tempDto.setStatus("Hold");
+        tempDtoList.add(tempDto);
+        tempDto = new OcapDto();
+
+        tempDto.setLotId("DC3SKD-912Q");
+        tempDto.setOper("T0220");
+        tempDto.setSblCode("H20");
+        tempDto.setTransTime("06:02");
+        tempDto.setStatus("Hold");
+        tempDtoList.add(tempDto);
+
+        returnDto.setOcap(tempDtoList);
 
         return returnDto;
     }

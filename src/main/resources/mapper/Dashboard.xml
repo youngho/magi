@@ -46,7 +46,7 @@
         SELECT
             PROGRAM_VERSION AS ACTION ,
             TESTER_OS_VERSION AS TARGET,
-            CREATE_DATE AS TIME
+            SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2) AS TIME
         FROM
             PROGRAM_REGISTER
         WHERE
