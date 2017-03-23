@@ -13,7 +13,7 @@
 .wj-content {
     display: inline-block;
     border: 1px solid rgba(0, 0, 0, .2);
-    border-radius: 4px;
+    border-radius: 0px;
     background-color: #fff;
     outline: none;
     box-sizing: border-box
@@ -176,7 +176,8 @@ button, html input[type=button], input[type=reset], input[type=submit] {
 }
 
 .wj-dropdown {
-    vertical-align: middle
+    vertical-align: middle;
+    width: 100%;
 }
 
 .wj-dropdown .wj-template, .wj-dropdown .wj-dropdown-menu {

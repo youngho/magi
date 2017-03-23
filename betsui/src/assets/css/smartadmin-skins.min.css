@@ -603,16 +603,16 @@
     padding-right: 15px;
     padding-left: 15px;
     padding-bottom: 15px;
-    padding-top: 64px
+    padding-top: 36px
 }
 
 .smart-style-2 .login-info {
-    margin-bottom: 7px !important;
+    margin-bottom: 0px !important;
     height: auto
 }
 
 .smart-style-2 .login-info span {
-    padding: 5px 10px 7px;
+    padding: 1px 10px;
     background: #FFF;
     border-radius: 4px
 }
@@ -635,7 +635,7 @@
 
 .smart-style-2 nav ul li a {
     color: #69737A !important;
-    font-size: 12px !important
+    font-size: 10px !important
 }
 
 .smart-style-2 nav ul ul {
@@ -667,16 +667,16 @@
 }
 
 .smart-style-2 nav > ul > li > a {
-    padding-top: 16px;
-    padding-bottom: 16px
+    padding-top: 5px;
+    padding-bottom: 5px
 }
 
 .smart-style-2 nav > ul > li > a > i {
-    font-size: 25px !important
+    font-size: 13px !important
 }
 
 .smart-style-2 nav > ul > li > a b {
-    top: 16px
+    top: 5px
 }
 
 .smart-style-2 .jarviswidget-color-blueDark > header {
@@ -789,7 +789,8 @@ body.smart-style-2 {
 
 .smart-style-2 .login-info, .smart-style-2 .login-info span {
     border: 0 !important;
-    box-shadow: none !important
+    box-shadow: none !important;
+    font-size: 15px;
 }
 
 .smart-style-2 nav ul .active > a, .smart-style-2 nav ul li.open > a, .smart-style-2 nav ul li.open > a b {

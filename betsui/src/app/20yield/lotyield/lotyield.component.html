@@ -22,11 +22,17 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="startDate"
+                                                           [format]="'yyyyMMdd'"   (textChanged)="onSelectDateFrom(startDate)">
+                                            </wj-input-date>
+                                            <!--<ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>-->
                                         </div>
                                         <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="endDate"
+                                                           [format]="'yyyyMMdd'"   (textChanged)="onSelectDateTo(endDate)">
+                                            </wj-input-date>
+                                            <!--<ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>-->
                                         </div>
                                         <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
                                         <div class="col-md-2">

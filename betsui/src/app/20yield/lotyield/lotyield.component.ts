@@ -21,10 +21,13 @@ declare var $: any;
 export class lotyieldComponent implements OnInit {
     componentData = null;
     errorMessage = null;
+    startDate = "";
+    endDate = "";
     // private data : Lotyield = new Lotyield();
     private data: Lotyield = new Lotyield();
 
     onSelectDateFrom(strDate: string) {
+        debugger;
         null != strDate ? this.data.endTimeStart = strDate + "000000" : this.data.endTimeStart = strDate;
     }
 
