@@ -8,6 +8,10 @@ import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicke
 import {DatatableComponent} from './datatable.component';
 import {Lotyield} from './lotyield.model';
 import {lotyieldService} from "./lotyield.service";
+import * as wjcCore from 'wijmo/wijmo';
+import * as wjcGrid from 'wijmo/wijmo.grid';
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import * as wjcGridFilter from 'wijmo/wijmo.grid.filter';
 
 declare var $: any;
 
@@ -23,17 +27,18 @@ export class lotyieldComponent implements OnInit {
     errorMessage = null;
     startDate = "";
     endDate = "";
+    gridData: wjcCore.CollectionView;
     // private data : Lotyield = new Lotyield();
     private data: Lotyield = new Lotyield();
 
-    onSelectDateFrom(strDate: string) {
-        debugger;
-        null != strDate ? this.data.endTimeStart = strDate + "000000" : this.data.endTimeStart = strDate;
-    }
-
-    onSelectDateTo(strDate: string) {
-        null != strDate ? this.data.endTimeEnd = strDate + "999999" : this.data.endTimeEnd = strDate;
-    }
+    // onSelectDateFrom(strDate: string) {
+    //     debugger;
+    //     null != strDate ? this.data.endTimeStart = strDate + "000000" : this.data.endTimeStart = strDate;
+    // }
+    //
+    // onSelectDateTo(strDate: string) {
+    //     null != strDate ? this.data.endTimeEnd = strDate + "999999" : this.data.endTimeEnd = strDate;
+    // }
 
     constructor(private retrieveLastTableService: lotyieldService) {
         //this.data.partnumberName = 'K9CFGY8U5A-CCK0000-HXBPHV';
@@ -55,27 +60,26 @@ export class lotyieldComponent implements OnInit {
     }
 
     saveLastTableForm() {
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
-        console.log("partNumber : " + this.data.partNumber);
-        console.log("lotId : " + this.data.lotId);
-        console.log("processCode : " + this.data.processCode);
-        console.log("testCounter : " + this.data.testCounter);
-        console.log("testerModel : " + this.data.testerModel);
-        console.log("head : " + this.data.head);
-
+        this.data.endTimeStart = this.startDate + "000000";
+        this.data.endTimeEnd = this.endDate + "999999";
         this.retrieveLastTableService.postLastTable(this.data)
             .subscribe((apps) => {
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: apps
-                        }
-                    };
+                    this.gridData = new wjcCore.CollectionView(apps);
                 },
                 error => this.errorMessage = error);
     }
 
     ngOnInit() {
+        // let rightNow = new Date();
+        // let res = rightNow.toISOString().slice(0,10).replace(/-/g,"");
+        // this.data.endTimeStart =res + "000000";
+        // this.data.endTimeEnd = res +  "999999";
+        //
+        // this.retrieveLastTableService.postLastTable(this.data)
+        //     .subscribe((apps) => {
+        //             this.gridData=new wjcCore.CollectionView(apps);
+        //         },
+        //         error => this.errorMessage = error);
+
     }
 }

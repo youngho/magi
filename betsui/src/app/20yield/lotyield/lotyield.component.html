@@ -23,14 +23,14 @@
                                         <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="startDate"
-                                                           [format]="'yyyyMMdd'"   (textChanged)="onSelectDateFrom(startDate)">
+                                                           [format]="'yyyyMMdd'">
                                             </wj-input-date>
                                             <!--<ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>-->
                                         </div>
                                         <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="endDate"
-                                                           [format]="'yyyyMMdd'"   (textChanged)="onSelectDateTo(endDate)">
+                                                           [format]="'yyyyMMdd'" >
                                             </wj-input-date>
                                             <!--<ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>-->
                                         </div>
@@ -114,7 +114,27 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <dynamic-component [componentData]="componentData"></dynamic-component>
+                <!--<dynamic-component [componentData]="componentData"></dynamic-component>-->
+                <sa-widget [editbutton]="false" color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Lot yield Retrieve Result</h2>
+                    </header>
+
+                    <div *ngIf="data.endTimeStart">
+                        <div  class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcelAsync()">Export</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid  #flexGrid  [itemsSource]="gridData">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                </sa-widget>
             </article>
             <!-- WIDGET END -->
         </div>

@@ -39,7 +39,10 @@ export class DashboardComponent implements OnInit,AfterViewInit {
             });
         }
     }
-
+    testFuntion(){
+        debugger;
+        console.log("test")
+    }
     ngAfterViewInit() {
         var chart = this.chart;
         var data = this.itemsSource2;
