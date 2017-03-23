@@ -15,13 +15,17 @@ export class DashboardComponent implements OnInit {
     }
 
     errorMessage = null;
-    lowYieldLot : any[];
+    lowYieldLot : any[] = null;
+    changeControl : any[] = null;
+    ocap : any[] = null;
 
     ngOnInit() {
         this.service.retrievePost()
             .subscribe((apps) => {
                     console.log(apps);
                     this.lowYieldLot = apps.lowYieldLot;
+                    this.changeControl = apps.changeControl;
+                    this.ocap = apps.ocap;
                 },
                 error => this.errorMessage = error);
 

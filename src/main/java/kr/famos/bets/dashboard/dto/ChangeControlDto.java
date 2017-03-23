@@ -7,7 +7,7 @@ import javax.swing.*;
  */
 public class ChangeControlDto {
     private String action = "";
-    private String traget = "";
+    private String target = "";
     private String time = "";
 
     public String getAction() {
@@ -18,12 +18,12 @@ public class ChangeControlDto {
         this.action = action;
     }
 
-    public String getTraget() {
-        return traget;
+    public String getTarget() {
+        return target;
     }
 
-    public void setTraget(String traget) {
-        this.traget = traget;
+    public void setTarget(String target) {
+        this.target = target;
     }
 
     public String getTime() {
