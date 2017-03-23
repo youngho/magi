@@ -4,11 +4,11 @@ import {SmartadminModule} from "../../shared/smartadmin.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SmartadminDatatableModule} from "../../shared/ui/datatable/smartadmin-datatable.module";
 
-import {DynamicComponent} from "./dynamic.component";
+// import {DynamicComponent} from "./dynamic.component";
 
 import {lotyieldComponent} from "./lotyield.component";
 import {lotyieldRouting} from "./lotyield.routing";
-import {DatatableComponent} from "./datatable.component";
+// import {DatatableComponent} from "./datatable.component";
 import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.module";
 import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
 import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
@@ -27,7 +27,7 @@ import { WjInputModule } from 'wijmo/wijmo.angular2.input';
         FormsModule,
         ReactiveFormsModule
     ],
-    declarations: [lotyieldComponent,DynamicComponent,DatatableComponent]
+    declarations: [lotyieldComponent]//,DynamicComponent,DatatableComponent]
 })
 export class lotyieldModule {
 }

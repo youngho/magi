@@ -7,7 +7,7 @@
             <!-- NEW WIDGET START -->
             <article class="col-sm-12 col-md-12 col-lg-12">
                 <!-- Widget ID (each widget will need unique ID)-->
-                <sa-widget [colorbutton]="false" [editbutton]="false">
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
                         <h2>LOT Yield Retrieve</h2>
@@ -115,13 +115,12 @@
                 </sa-widget>
                 <!-- end widget -->
                 <!--<dynamic-component [componentData]="componentData"></dynamic-component>-->
-                <sa-widget [editbutton]="false" color="blueDark">
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
                         <h2>Lot yield Retrieve Result</h2>
                     </header>
-
-                    <div *ngIf="data.endTimeStart">
+                    <div *ngIf="!empty">
                         <div  class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
                                 <div class="form-inline well well-lg">
@@ -129,7 +128,7 @@
                                 </div>
                             </div>
                             <wj-flex-grid  #flexGrid  [itemsSource]="gridData">
-                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <!--<wj-flex-grid-filter #filter></wj-flex-grid-filter>-->
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
