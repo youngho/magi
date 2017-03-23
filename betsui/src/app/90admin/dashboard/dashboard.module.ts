@@ -7,6 +7,8 @@ import {DashboardRouting} from "./dashboard.routing";
 // import "nvd3";
 import {nvD3} from "ng2-nvd3";
 import {FlotChartModule} from "../../shared/graphs/flot-chart/flot-chart.module";
+import {WjChartModule} from "wijmo/wijmo.angular2.chart";
+import {WjInputModule} from "wijmo/wijmo.angular2.input";
 
 @NgModule({
     imports: [
@@ -14,7 +16,7 @@ import {FlotChartModule} from "../../shared/graphs/flot-chart/flot-chart.module"
         DashboardRouting,
         SmartadminModule,
         // BETS ADDED
-        FlotChartModule
+        FlotChartModule, WjChartModule, WjInputModule
     ],
     exports: [nvD3],
     declarations: [DashboardComponent, nvD3]

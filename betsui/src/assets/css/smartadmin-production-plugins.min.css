@@ -4094,7 +4094,7 @@ article.sortable-grid {
 .jarviswidget > header > .widget-icon {
     display: block;
     width: 30px;
-    height: 20px;
+    height: 19px;
     position: relative;
     float: left;
     font-size: 111%;
@@ -4739,7 +4739,7 @@ body.nooverflow {
 }
 
 .widget-toolbar > .color-box {
-    margin-top: 7px;
+    margin-top: 0px;
     width: 18px;
     height: 18px;
     outline: 1px solid rgba(0, 0, 0, .2)
@@ -4786,7 +4786,7 @@ body.nooverflow {
     display: inline-block;
     float: right;
     width: auto;
-    height: 32px;
+    height: 0px;
     line-height: 32px;
     position: relative;
     border-left: 1px solid rgba(0, 0, 0, .09);
@@ -4806,7 +4806,7 @@ body.nooverflow {
 .jarviswidget header .nav-tabs > li > a {
     border-radius: 0;
     border: none;
-    padding: 7px 15px 6px
+    padding: 2px 15px 1px
 }
 
 .jarviswidget header:first-child .nav-tabs {

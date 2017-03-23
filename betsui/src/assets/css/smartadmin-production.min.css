@@ -12652,7 +12652,10 @@ input[type=color].ui-autocomplete-loading, input[type=date].ui-autocomplete-load
     box-shadow: 0 1px 1px #ececec;
     -webkit-box-shadow: 0 1px 1px #ececec;
     -moz-box-shadow: 0 1px 1px #ececec;
-    position: relative
+    position: relative;
+    padding: 4px;
+    float: right;
+    margin-bottom: 6px;
 }
 
 .well.well-clean {

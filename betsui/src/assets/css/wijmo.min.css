@@ -16,7 +16,9 @@
     border-radius: 0px;
     background-color: #fff;
     outline: none;
-    box-sizing: border-box
+    box-sizing: border-box;
+    height:auto;
+    max-height: 600px;
 }
 
 .wj-content.wj-dropdown, .wj-content.wj-inputnumber, .wj-content.wj-inputmask, .wj-content.wj-calendar-outer, .wj-content.wj-pager {

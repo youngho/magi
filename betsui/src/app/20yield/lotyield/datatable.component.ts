@@ -19,11 +19,11 @@ import * as wjcGridFilter from 'wijmo/wijmo.grid.filter';
 	<div class="col-md-6 col-xs-12">
         <div class="form-inline well well-lg">
             <button class="btn btn-default" (click)="exportExcelAsync()">Export</button>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" [(ngModel)]="includeColumnHeader"> Include Column Header
-                </label>
-            </div>
+            <!--<div class="checkbox">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" [(ngModel)]="includeColumnHeader"> Include Column Header-->
+                <!--</label>-->
+            <!--</div>-->
         </div>
     </div>
 	<div>

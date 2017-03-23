@@ -1,51 +1,168 @@
 <div id="content">
     <sa-widgets-grid>
+        <!--<div class="row">-->
+            <!--<article class="col-sm-12">-->
+                <!--<sa-widget-->
+                        <!--[togglebutton]="false"-->
+                        <!--[editbutton]="false"-->
+                        <!--[fullscreenbutton]="false"-->
+                        <!--[colorbutton]="false"-->
+                        <!--[deletebutton]="false" saSparklineContainer saEasyPieChartContainer>-->
+
+                    <!--<header>-->
+                    <!--<span class="widget-icon">-->
+                        <!--<i class="glyphicon glyphicon-stats txt-color-darken"></i> </span>-->
+
+                        <!--<h2>Yield of Days </h2>-->
+
+                        <!--<ul class="nav nav-tabs pull-right in" id="myTab">-->
+                            <!--<li class="active">-->
+                                <!--<a data-toggle="tab" href="#s1"><i class="fa fa-clock-o"></i> <span class="hidden-mobile hidden-tablet">Yield</span></a>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</header>-->
+
+                    <!--<div class="no-padding">-->
+
+                        <!--<div class="widget-body">-->
+
+                            <!--<div id="myTabContent" class="tab-content">-->
+
+                                <!--<wj-flex-chart #chart-->
+                                               <!--class="chart"-->
+                                               <!--style="display:block"-->
+                                               <!--[chartType]="'Column'"-->
+                                               <!--[itemsSource]="itemsSource"-->
+                                               <!--[bindingX]="'mon'">-->
+                                    <!--<wj-flex-chart-axis [wjProperty]="'axisX'" [labelAngle]="0"></wj-flex-chart-axis>-->
+                                    <!--<wj-flex-chart-axis [wjProperty]="'axisY'"-->
+                                                        <!--[title]="'temperature, C'"-->
+                                                        <!--[min]="0"-->
+                                                        <!--[max]="20">-->
+                                    <!--</wj-flex-chart-axis>-->
+                                    <!--<wj-flex-chart-series [name]="'prec'" [binding]="'prec'">-->
+                                        <!--<wj-flex-chart-axis [wjProperty]="'axisY'"-->
+                                                            <!--[position]="'Right'"-->
+                                                            <!--[title]="'precipitation, mm'"-->
+                                                            <!--[min]="0"-->
+                                                            <!--[max]="100">-->
+                                        <!--</wj-flex-chart-axis>-->
+                                    <!--</wj-flex-chart-series>-->
+                                    <!--<wj-flex-chart-series [name]="'t avg'" [chartType]="'LineSymbols'" [binding]="'tav'"></wj-flex-chart-series>-->
+                                <!--</wj-flex-chart>-->
+
+
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                    <!--</div>-->
+
+                <!--</sa-widget>-->
+            <!--</article>-->
+        <!--</div>-->
         <div class="row">
-            <article class="col-sm-12">
-                <sa-widget
-                        [togglebutton]="false"
-                        [editbutton]="false"
-                        [fullscreenbutton]="false"
-                        [colorbutton]="false"
-                        [deletebutton]="false" saSparklineContainer saEasyPieChartContainer>
-
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <sa-widget [editbutton]="false">
                     <header>
-                    <span class="widget-icon">
-                        <i class="glyphicon glyphicon-stats txt-color-darken"></i> </span>
-
-                        <h2>Yield of Days </h2>
-
-                        <ul class="nav nav-tabs pull-right in" id="myTab">
-                            <li class="active">
-                                <a data-toggle="tab" href="#s1"><i class="fa fa-clock-o"></i> <span class="hidden-mobile hidden-tablet">Yield</span></a>
-                            </li>
-
-                            <!--
-                                                        <li>
-                                                            <a data-toggle="tab" href="#s2"><i class="fa fa-table"></i> <span class="hidden-mobile hidden-tablet">Month</span></a>
-                                                        </li>
-                            -->
-                        </ul>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
                     </header>
-
-                    <div class="no-padding">
-
-                        <div class="widget-body">
-
-                            <div id="myTabContent" class="tab-content">
-
-                                <!--차트위치-->
-
-
-                            </div>
-
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart0
+                                           class="chart"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="itemsSource"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="20">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'prec'" [binding]="'prec'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'t avg'" [chartType]="'LineSymbols'" [binding]="'tav'"></wj-flex-chart-series>
+                            </wj-flex-chart>
                         </div>
-
                     </div>
-
                 </sa-widget>
             </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Low Yield Lot</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart2
+                                           class="chart"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="itemsSource"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="20">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'prec'" [binding]="'prec'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'t avg'" [chartType]="'LineSymbols'" [binding]="'tav'"></wj-flex-chart-series>
+                            </wj-flex-chart>
+
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+
         </div>
+
+
+        <div class="row">
+            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+
+                            <wj-flex-chart class="chart" style="display:block;height:200px;"
+                                           #chart
+                                           [chartType]="'Scatter'"
+                                           [itemsSource]="itemsSource2"
+                                           [bindingX]="'number'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [axisLine]="false" [title]="'student number'"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'" [title]="'student accumalated points'"></wj-flex-chart-axis>
+                                <wj-flex-chart-series [binding]="'score'" [name]="'raw score'" [symbolSize]="6"></wj-flex-chart-series>
+                            </wj-flex-chart>
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+
+        </div>
+
+
+
         <div class="row">
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <sa-widget [editbutton]="false">
