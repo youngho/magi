@@ -10,7 +10,7 @@ import {tick} from "@angular/core/testing";
 @Injectable()
 export class ProgramRegisterRetrieveService {
 
-    private path: string = 'retrieveProgramRegister';
+    private path: string = '';
 
     constructor(private api: ApiService) {
     }

@@ -11,9 +11,12 @@ import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.m
 import {ProgramRegisterRetrieveComponent} from "./ProgramRegisterRetrieve.component";
 import {ProgramRegisterRetrieveRouting} from "./ProgramRegisterRetrieve.routing";
 import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
-
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjGridFilterModule } from 'wijmo/wijmo.angular2.grid.filter';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 @NgModule({
     imports: [
+        WjInputModule, WjGridModule, WjGridFilterModule,
         CommonModule,
         ProgramRegisterRetrieveRouting,
         SmartadminModule,

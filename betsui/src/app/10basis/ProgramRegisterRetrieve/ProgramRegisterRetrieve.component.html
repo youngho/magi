@@ -22,15 +22,18 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'testerModel'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="retrieveCondDto.testerModel">
+                                            <input class="form-control" placeholder="Tester Model" type="text"
+                                                   [(ngModel)]="retrieveCondDto.testerModel">
                                         </div>
                                         <label class="col-md-2 control-label">{{'partNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="retrieveCondDto.partNumber">
+                                            <input class="form-control" placeholder="Part Number" type="text"
+                                                   [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="retrieveCondDto.processCode">
+                                            <input class="form-control" placeholder="Process Code" type="text"
+                                                   [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -38,7 +41,7 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button class="btn btn-default" (click)="resetForm()">
+                                            <button class="btn btn-cancel" (click)="resetForm()">
                                                 {{'reset'|i18n}}
                                             </button>
                                             <button (click)="saveLastTableForm()" class="btn btn-primary">
@@ -55,7 +58,34 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <dynamic-component [componentData]="componentData"></dynamic-component>
+                <!--<dynamic-component [componentData]="componentData"></dynamic-component>-->
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Program register Retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="someClickHandler(flexGrid)">Edit</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid #flexGrid [selectionMode]="'Row'"
+                                          [isReadOnly]="true"
+                                          [itemsSource]="gridData">
+                                <!--(selectionChanged)="someClickHandler(flexGrid)">-->
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
+                                                     [binding]=col></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                </sa-widget>
 
             </article>
             <!-- WIDGET END -->
@@ -77,10 +107,12 @@
                 </button>
                 <h4 class="modal-title">Program register</h4>
             </div>
-            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" [saUiValidate]="validationOptions" novalidate="novalidate" >
+            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" [saUiValidate]="validationOptions"
+                  novalidate="novalidate">
                 <fieldset>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">{{'partNumber'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
+                        <label class="col-md-2 control-label">{{'partNumber'|i18n}}<sup><span
+                                class="txt-color-red">*</span></sup></label>
 
                         <div class="col-md-2">
                             <input type="text" class="form-control" id="partNumber" name="partNumber"
@@ -99,7 +131,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">{{'processCode'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
+                        <label class="col-md-2 control-label">{{'processCode'|i18n}}<sup><span
+                                class="txt-color-red">*</span></sup></label>
                         <div class="col-md-2">
                             <input type="text" class="form-control" id="processCode" name="processCode"
                                    placeholder="" [(ngModel)]="programRegister.processCode">
@@ -117,7 +150,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
+                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span
+                                class="txt-color-red">*</span></sup></label>
                         <div class="col-md-2">
                             <input type="text" maxlength="30" class="form-control" id="mainProgramName"
                                    name="mainProgramName" placeholder=""
@@ -155,7 +189,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">{{'temperature'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
+                        <label class="col-md-2 control-label">{{'temperature'|i18n}}<sup><span
+                                class="txt-color-red">*</span></sup></label>
                         <div class="col-md-2">
                             <input type="number" class="form-control" id="temperature"
                                    name="temperature" placeholder=""
@@ -248,7 +283,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-2 control-label">{{'programDirectory'|i18n}}<sup><span class="txt-color-red">*</span></sup></label>
+                        <label class="col-md-2 control-label">{{'programDirectory'|i18n}}<sup><span
+                                class="txt-color-red">*</span></sup></label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" id="programDirectory"
                                    name="programDirectory" placeholder=""
@@ -360,7 +396,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-2 control-label">PASS BIN SELECTION<sup><span class="txt-color-red">*</span></sup></label>
+                        <label class="col-md-2 control-label">PASS BIN SELECTION<sup><span
+                                class="txt-color-red">*</span></sup></label>
                         <div class="col-md-10">
                             <label class="col-md-2 checkbox-inline">
                                 <input type="checkbox" class="checkbox style-3" id="passBinSelection1"

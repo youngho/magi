@@ -5,6 +5,10 @@ import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import {ProgramRegister} from "./ProgramRegister.model";
 import {DatatableComponent} from "./datatable.component";
+import * as wjcCore from 'wijmo/wijmo';
+import * as wjcGrid from 'wijmo/wijmo.grid';
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+
 // import DynamicComponent from './dynamic-component';
 // import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
 import {NotificationService} from "../../shared/utils/notification.service";
@@ -18,12 +22,14 @@ import {NotificationService} from "../../shared/utils/notification.service";
 })
 
 export class ProgramRegisterRetrieveComponent implements OnInit {
-
-    @ViewChild('lgModal') bgModel;
-
+    empty = true;
     componentData = null;
     errorMessage = null;
+    gridData: wjcCore.CollectionView;
+    private colInfo = new Array();// Grid dynamic columns
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
 
+    @ViewChild('lgModal') bgModel;
     retrieveCondDto = {
         partNumber: "",
         processCode: "",
@@ -44,9 +50,15 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
      */
-    someClickHandler(info: any): void {
+    someClickHandler = (flexGrid)=> {
+        debugger;
+        // var flexGrid = this.flexGrid;
+        if (!this.flexGrid) {
+            return;
+        }
+        let info: any
+        info = flexGrid.selectedItems[0];
         console.log(info.createDate);
-
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.retrieveByKeyDto.createDate = info.createDate;
@@ -67,8 +79,38 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         this.bgModel.show(function (info: any) {
             console.log(info.testerModel);
         });
-
     }
+    // someClickHandler(flexGrid): void {
+    //     debugger;
+    //     // var flexGrid = this.flexGrid;
+    //     if (!flexGrid) {
+    //         return;
+    //     }
+    //     let info: any
+    //     info = flexGrid.selectedItems[0];
+    //     console.log(info.createDate);
+    //
+    //     //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
+    //     this.retrieveByKeyDto.createDate = info.createDate;
+    //     this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/:/g, "");
+    //     this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(" ", "");
+    //     this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/-/g, "");
+    //
+    //     this.service.postRetrieveByKey(this.retrieveByKeyDto)
+    //         .subscribe((response) => {
+    //                 //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
+    //                 this.programRegister = ProgramRegister.fromJSON(response);
+    //
+    //                 this.retrieveFunction();            //팝업 조회시 FunctionKey Y/N 맵핑
+    //                 this.retrievePassBinSelection();    //팝업 조회시 PassBINSelection Y/N 맵핑
+    //             },
+    //             error => alert(error));
+    //
+    //     this.bgModel.show(function (info: any) {
+    //         console.log(info.testerModel);
+    //     });
+    //
+    // }
 
     resetForm() {
         this.retrieveCondDto.partNumber = null;
@@ -87,40 +129,48 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
 
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                //colReorder: true,
-                                //scrollX: true,
-                                data: apps,
-                                // select: { style: 'single'},
-                                columns: [
-                                    {data: 'createDate'},
-                                    {data: 'testerModel'},
-                                    {data: 'partNumber'},
-                                    {data: 'processCode'},
-                                    {data: 'mainProgramName'},
-                                    {data: 'sblYieldLimit'},
-                                    {data: 'firmwareName'},
-                                    {data: 'firmwareVersion'},
-                                ],
-                                rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
-                                    let self = this;
-                                    // Unbind first in order to avoid any duplicate handler
-                                    // (see https://github.com/l-lin/angular-datatables/issues/87)
-                                    $('td', nRow).unbind('click');
-                                    $('td', nRow).bind('click', () => {
-                                        self.someClickHandler(aData);
-                                    });
-                                    return nRow;
-                                },
-                                buttons: [
-                                    'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
+                //     this.componentData = {
+                //         component: DatatableComponent,
+                //         inputs: {
+                //             options: {
+                //                 //colReorder: true,
+                //                 //scrollX: true,
+                //                 data: apps,
+                //                 // select: { style: 'single'},
+                //                 columns: [
+                //                     {data: 'createDate'},
+                //                     {data: 'testerModel'},
+                //                     {data: 'partNumber'},
+                //                     {data: 'processCode'},
+                //                     {data: 'mainProgramName'},
+                //                     {data: 'sblYieldLimit'},
+                //                     {data: 'firmwareName'},
+                //                     {data: 'firmwareVersion'},
+                //                 ],
+                //                 rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
+                //                     let self = this;
+                //                     // Unbind first in order to avoid any duplicate handler
+                //                     // (see https://github.com/l-lin/angular-datatables/issues/87)
+                //                     $('td', nRow).unbind('click');
+                //                     $('td', nRow).bind('click', () => {
+                //                         self.someClickHandler(aData);
+                //                     });
+                //                     return nRow;
+                //                 },
+                //                 buttons: [
+                //                     'copy', 'excel', 'pdf', 'print'
+                //                 ]
+                //             }
+                //         }
+                //     };
+                // },
+                    debugger;
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if(this.gridData.isEmpty){
+                        this.empty = true;
+                    }else {
+                        this.empty = false;
+                    }
                 },
                 error => this.errorMessage = error);
     }
