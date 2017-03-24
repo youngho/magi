@@ -55,6 +55,7 @@ export class lotyieldComponent implements OnInit {
                         this.empty = false;
                     }
                 },
+
                 error => this.errorMessage = error);
     }
 
