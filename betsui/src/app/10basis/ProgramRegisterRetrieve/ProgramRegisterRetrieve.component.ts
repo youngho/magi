@@ -1,19 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {ProgramRegisterRetrieveService} from "./ProgramRegisterRetrieve.service";
-import {Http, Response} from '@angular/http';
-
-// import {Observable} from "rxjs/Rx";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import {ProgramRegister} from './ProgramRegister.model';
-
-import {DatatableComponent} from './datatable.component';
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
+import {ProgramRegister} from "./ProgramRegister.model";
+import {DatatableComponent} from "./datatable.component";
 // import DynamicComponent from './dynamic-component';
 // import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
 import {NotificationService} from "../../shared/utils/notification.service";
-import {isUndefined} from "util";
 
 @FadeInTop()
 @Component({
@@ -56,13 +50,14 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.retrieveByKeyDto.createDate = info.createDate;
-
-
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/:/g, "");
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(" ", "");
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/-/g, "");
 
         this.service.postRetrieveByKey(this.retrieveByKeyDto)
             .subscribe((response) => {
-                //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
-                this.programRegister = ProgramRegister.fromJSON(response);
+                    //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
+                    this.programRegister = ProgramRegister.fromJSON(response);
 
                     this.retrieveFunction();            //팝업 조회시 FunctionKey Y/N 맵핑
                     this.retrievePassBinSelection();    //팝업 조회시 PassBINSelection Y/N 맵핑
@@ -75,7 +70,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
 
     }
 
-    resetForm(){
+    resetForm() {
         this.retrieveCondDto.partNumber = null;
         this.retrieveCondDto.processCode = null;
         this.retrieveCondDto.testerModel = null;
@@ -136,7 +131,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         this.passBinSelectionMerge();    //binDescription 8자리를 만들어 주는 함수
         this.programRegister.createUser = localStorage.getItem('loginId');  //브라우저의 localStorage 에서 로그인 아이디를 가져와 저장시 넘긴다.
         //개발시 로그인 아이디가 없을경우 사용하기 위해 넣은 코드
-        if(localStorage.getItem('loginId') === null){
+        if (localStorage.getItem('loginId') === null) {
             this.programRegister.createUser = 'devdev';
         }
         this.smartModEg1();
@@ -174,7 +169,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     ngOnInit() {
     }
 
-    passBinSelectionMerge(){
+    passBinSelectionMerge() {
         /**
          * 저장시 binDescription 8자리를 합쳐주는 함수
          */
@@ -220,7 +215,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         }
     }
 
-    functionKeyMerge(){
+    functionKeyMerge() {
         /**
          * 저장시 FunctionKey
          * FunctionKey YN 변환
@@ -307,80 +302,80 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         }
     }
 
-    retrieveFunction(){
-        if (this.programRegister.functionKey.substr(0,1) === "Y") {
+    retrieveFunction() {
+        if (this.programRegister.functionKey.substr(0, 1) === "Y") {
             this.programRegister.functionKey1 = true;
         }
-        if (this.programRegister.functionKey.substr(1,1) === "Y") {
+        if (this.programRegister.functionKey.substr(1, 1) === "Y") {
             this.programRegister.functionKey2 = true;
         }
-        if (this.programRegister.functionKey.substr(2,1) === "Y") {
+        if (this.programRegister.functionKey.substr(2, 1) === "Y") {
             this.programRegister.functionKey3 = true;
         }
-        if (this.programRegister.functionKey.substr(3,1) === "Y") {
+        if (this.programRegister.functionKey.substr(3, 1) === "Y") {
             this.programRegister.functionKey4 = true;
         }
-        if (this.programRegister.functionKey.substr(4,1) === "Y") {
+        if (this.programRegister.functionKey.substr(4, 1) === "Y") {
             this.programRegister.functionKey5 = true;
         }
-        if (this.programRegister.functionKey.substr(5,1) === "Y") {
+        if (this.programRegister.functionKey.substr(5, 1) === "Y") {
             this.programRegister.functionKey6 = true;
         }
-        if (this.programRegister.functionKey.substr(6,1) === "Y") {
+        if (this.programRegister.functionKey.substr(6, 1) === "Y") {
             this.programRegister.functionKey7 = true;
         }
-        if (this.programRegister.functionKey.substr(7,1) === "Y") {
+        if (this.programRegister.functionKey.substr(7, 1) === "Y") {
             this.programRegister.functionKey8 = true;
         }
-        if (this.programRegister.functionKey.substr(8,1) === "Y") {
+        if (this.programRegister.functionKey.substr(8, 1) === "Y") {
             this.programRegister.functionKey9 = true;
         }
-        if (this.programRegister.functionKey.substr(9,1) === "Y") {
+        if (this.programRegister.functionKey.substr(9, 1) === "Y") {
             this.programRegister.functionKey10 = true;
         }
-        if (this.programRegister.functionKey.substr(10,1) === "Y") {
+        if (this.programRegister.functionKey.substr(10, 1) === "Y") {
             this.programRegister.functionKey11 = true;
         }
-        if (this.programRegister.functionKey.substr(11,1) === "Y") {
+        if (this.programRegister.functionKey.substr(11, 1) === "Y") {
             this.programRegister.functionKey12 = true;
         }
-        if (this.programRegister.functionKey.substr(12,1) === "Y") {
+        if (this.programRegister.functionKey.substr(12, 1) === "Y") {
             this.programRegister.functionKey13 = true;
         }
-        if (this.programRegister.functionKey.substr(13,1) === "Y") {
+        if (this.programRegister.functionKey.substr(13, 1) === "Y") {
             this.programRegister.functionKey14 = true;
         }
-        if (this.programRegister.functionKey.substr(14,1) === "Y") {
+        if (this.programRegister.functionKey.substr(14, 1) === "Y") {
             this.programRegister.functionKey15 = true;
         }
-        if (this.programRegister.functionKey.substr(15,1) === "Y") {
+        if (this.programRegister.functionKey.substr(15, 1) === "Y") {
             this.programRegister.functionKey16 = true;
         }
     }
 
-    retrievePassBinSelection(){
-        if (this.programRegister.passBinSelection.substr(0,1) === "Y") {
+    retrievePassBinSelection() {
+        if (this.programRegister.passBinSelection.substr(0, 1) === "Y") {
             this.programRegister.passBinSelection1 = true;
         }
-        if (this.programRegister.passBinSelection.substr(1,1) === "Y") {
+        if (this.programRegister.passBinSelection.substr(1, 1) === "Y") {
             this.programRegister.passBinSelection2 = true;
         }
-        if (this.programRegister.passBinSelection.substr(2,1) === "Y") {
+        if (this.programRegister.passBinSelection.substr(2, 1) === "Y") {
             this.programRegister.passBinSelection3 = true;
         }
-        if (this.programRegister.passBinSelection.substr(3,1) === "Y") {
+        if (this.programRegister.passBinSelection.substr(3, 1) === "Y") {
             this.programRegister.passBinSelection4 = true;
         }
-        if (this.programRegister.passBinSelection.substr(4,1) === "Y") {
+        if (this.programRegister.passBinSelection.substr(4, 1) === "Y") {
             this.programRegister.passBinSelection5 = true;
         }
-        if (this.programRegister.passBinSelection.substr(5,1) === "Y") {
+        if (this.programRegister.passBinSelection.substr(5, 1) === "Y") {
             this.programRegister.passBinSelection6 = true;
         }
-        if (this.programRegister.passBinSelection.substr(6,1) === "Y") {
+        if (this.programRegister.passBinSelection.substr(6, 1) === "Y") {
             this.programRegister.passBinSelection7 = true;
         }
-        if (this.programRegister.passBinSelection.substr(7,1) === "Y") {
+        if (this.programRegister.passBinSelection.substr(7, 1) === "Y") {
             this.programRegister.passBinSelection8 = true;
         }
     }
