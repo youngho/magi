@@ -90,6 +90,11 @@ export const routes: Routes = [
         loadChildren: 'app/+ui-elements/ui-elements.module#UiElementsModule',
         data: {pageTitle: 'Ui'}
       },
+        {
+            path: 'test',
+            loadChildren: 'app/test/test.module#TestModule',
+            data: {pageTitle: 'Ui'}
+        },
     ]
   },
 

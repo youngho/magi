@@ -15,6 +15,7 @@ import { AppState, InternalStateType } from './app.service';
 // Core providers
 import {CoreModule} from "./core/core.module";
 import {SmartadminLayoutModule} from "./shared/layout/layout.module";
+import {BasisModule} from "./10basis/basis.module";
 
 // Application wide providers
 const APP_PROVIDERS = [

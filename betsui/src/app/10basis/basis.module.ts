@@ -1,7 +1,5 @@
 import {NgModule} from "@angular/core";
-
 import {routing} from "./basis.routing";
-
 @NgModule({
   declarations: [
   ],
