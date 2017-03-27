@@ -165,5 +165,9 @@ public class DashboardService {
         return returnDto;
     }
 
+    public List<ChartDetailDto> retrieveChartDetail(ChartDetailCondDto chartDetailCondDto){
+        return dashboardMapper.retrieveChartDetail(chartDetailCondDto);
+    }
+
 
 }
