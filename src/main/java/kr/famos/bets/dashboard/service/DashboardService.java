@@ -94,9 +94,8 @@ public class DashboardService {
             condDto.setEndTimeStart("20171224000000");  //3일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
-            axesChartDtoList.add(chartItemDto);
             chartItemDto.setMon("3D");
-            returnDto.getProcessChartList().add(processChartDto);
+            axesChartDtoList.add(chartItemDto);
 
             condDto.setEndTimeStart("20171225000000");  //2일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
@@ -111,7 +110,7 @@ public class DashboardService {
             axesChartDtoList.add(chartItemDto);
 
             processChartDto.setChart(axesChartDtoList);
-//            returnDto.getProcessChartList().add(processChartDto);
+            returnDto.getProcessChartList().add(processChartDto);
         } // userChartList
 
         returnDto.setChangeControl(dashboardMapper.retrieveChangControl());
