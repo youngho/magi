@@ -32,9 +32,9 @@ public class DashboardController {
         return new ResponseEntity<DashboardDto>(dashboardService.retrieveDashboard(dashboardDto), HttpStatus.OK);
     }
 
-    // Change Control
+
     @RequestMapping(value = "/retrieveChartDetail", method = RequestMethod.POST)
-    public ResponseEntity<List<ChartDetailDto>> retrieveChartDetail(ChartDetailCondDto chartDetailCondDto) {
+    public ResponseEntity<List<ChartDetailDto>> retrieveChartDetail(@RequestBody ChartDetailCondDto chartDetailCondDto) {
         return new ResponseEntity<List<ChartDetailDto>>(dashboardService.retrieveChartDetail(chartDetailCondDto), HttpStatus.OK);
     }
 }
