@@ -14,6 +14,8 @@ public class DashboardDto {
     private List<ChangeControlDto> changeControl = new ArrayList<>();
     private List<LowYieldLotDto> lowYieldLot = new ArrayList<>();
     private List<OcapDto> ocap = new ArrayList<>();
+    private LowPerformanceEquipmentDto lowPerformanceEquipmentDto = new LowPerformanceEquipmentDto();
+
 
     public List<ProcessChartDto> getProcessChartList() {
         return processChartList;
@@ -45,5 +47,13 @@ public class DashboardDto {
 
     public void setOcap(List<OcapDto> ocap) {
         this.ocap = ocap;
+    }
+
+    public LowPerformanceEquipmentDto getLowPerformanceEquipmentDto() {
+        return lowPerformanceEquipmentDto;
+    }
+
+    public void setLowPerformanceEquipmentDto(LowPerformanceEquipmentDto lowPerformanceEquipmentDto) {
+        this.lowPerformanceEquipmentDto = lowPerformanceEquipmentDto;
     }
 }

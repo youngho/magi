@@ -8,7 +8,7 @@ public class ChartDetailDto {
 
     private String lotId = "";
     private String quantity = "";
-    private String yield = "";
+    private float yield = 0;
     private String processCode = "";
     private String bin8 = "";
 
@@ -36,11 +36,11 @@ public class ChartDetailDto {
         this.quantity = quantity;
     }
 
-    public String getYield() {
+    public float getYield() {
         return yield;
     }
 
-    public void setYield(String yield) {
+    public void setYield(float yield) {
         this.yield = yield;
     }
 
