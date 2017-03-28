@@ -181,8 +181,31 @@ public class DashboardService {
         return returnDto;
     }
 
-    public List<ChartDetailDto> retrieveChartDetail(ChartDetailCondDto chartDetailCondDto){
-        return dashboardMapper.retrieveChartDetail(chartDetailCondDto);
+    /**
+     * 차트의 yieldMax, YieldMin을 구하기 위한 작업
+     * @param chartDetailCondDto
+     * @return
+     */
+    public ChartDetailDto retrieveChartDetail(ChartDetailCondDto chartDetailCondDto){
+
+        ChartDetailDto returnDto = new ChartDetailDto();
+        List<ChartDetailItemDto> chartDetailItemDtoList = dashboardMapper.retrieveChartDetail(chartDetailCondDto);
+
+        float tempYieldMax = 0;
+        float tempYieldMin = 100;
+        for(ChartDetailItemDto list : chartDetailItemDtoList){
+            if (tempYieldMax < list.getYield()){
+                tempYieldMax = list.getYield();
+            }
+            if (tempYieldMin > list.getYield()){
+                tempYieldMin = list.getYield();
+            }
+        }
+
+        returnDto.setYieldMax(tempYieldMax);
+        returnDto.setYieldMin(tempYieldMin);
+        returnDto.setYieldItemList(chartDetailItemDtoList);
+        return returnDto;
     }
 
 

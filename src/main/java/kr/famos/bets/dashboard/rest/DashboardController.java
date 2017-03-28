@@ -34,7 +34,7 @@ public class DashboardController {
 
 
     @RequestMapping(value = "/retrieveChartDetail", method = RequestMethod.POST)
-    public ResponseEntity<List<ChartDetailDto>> retrieveChartDetail(@RequestBody ChartDetailCondDto chartDetailCondDto) {
-        return new ResponseEntity<List<ChartDetailDto>>(dashboardService.retrieveChartDetail(chartDetailCondDto), HttpStatus.OK);
+    public ResponseEntity<ChartDetailDto> retrieveChartDetail(@RequestBody ChartDetailCondDto chartDetailCondDto) {
+        return new ResponseEntity<ChartDetailDto>(dashboardService.retrieveChartDetail(chartDetailCondDto), HttpStatus.OK);
     }
 }
