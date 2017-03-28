@@ -56,6 +56,8 @@ public class DashboardService {
             condDto.setEndTimeEnd("20171199999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("3M");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             logger.debug("총개수 : " + chartItemDto.getTav());
             logger.debug("YIELD : " + chartItemDto.getPrec());
             axesChartDtoList.add(chartItemDto);
@@ -65,18 +67,24 @@ public class DashboardService {
             condDto.setEndTimeEnd("20171199999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("2M");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
             condDto.setEndTimeStart("20171100000000");  //1개월 데이터 셋팅
             condDto.setEndTimeEnd("20171199999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("1M");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
             condDto.setEndTimeStart("20171203000000");  //3주전 데이터 셋팅
             condDto.setEndTimeEnd("20171223999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("3W");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
             condDto.setEndTimeStart("20171210000000");  //2주전 데이터 셋팅
@@ -89,24 +97,32 @@ public class DashboardService {
             condDto.setEndTimeEnd("20171223999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("1W");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
             condDto.setEndTimeStart("20171224000000");  //3일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("3D");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
             condDto.setEndTimeStart("20171225000000");  //2일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("2D");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
             condDto.setEndTimeStart("20171226000000");  //1일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
             chartItemDto.setMon("1D");
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
             processChartDto.setChart(axesChartDtoList);
