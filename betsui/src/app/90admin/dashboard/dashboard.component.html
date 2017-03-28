@@ -1,7 +1,7 @@
 <div id="content">
     <sa-widgets-grid>
         <div class="row">
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <article   *ngIf="processCodes[0]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -9,65 +9,284 @@
                     </header>
                     <div>
                         <div class="widget-body ">
-                            <wj-flex-chart #chart0
+                            <wj-flex-chart #chart1
                                            class="chart"
                                            (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
-                                           [itemsSource]="itemsSource"
+                                           [itemsSource]="chartDatas[0]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[0]" [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
-                                                    [max]="20">
+                                                    [max]="100">
                                 </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'prec'" [binding]="'prec'">
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
                                                         [title]="'precipitation, mm'"
                                                         [min]="0"
-                                                        [max]="100">
+                                                        [max]="100000">
                                     </wj-flex-chart-axis>
                                 </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'t avg'" [chartType]="'LineSymbols'" [binding]="'tav'"></wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
                             </wj-flex-chart>
                         </div>
                     </div>
                 </sa-widget>
 
             </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <article  *ngIf="processCodes[1]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Low Yield Lot</h2>
+                        <h2>Chang Control</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
                             <wj-flex-chart #chart2
                                            class="chart"
+                                           (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
-                                           [itemsSource]="itemsSource"
+                                           [itemsSource]="chartDatas[1]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[1]" [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
-                                                    [max]="20">
+                                                    [max]="100">
                                 </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'prec'" [binding]="'prec'">
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
                                                         [title]="'precipitation, mm'"
                                                         [min]="0"
-                                                        [max]="100">
+                                                        [max]="100000">
                                     </wj-flex-chart-axis>
                                 </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'t avg'" [chartType]="'LineSymbols'" [binding]="'tav'"></wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
                             </wj-flex-chart>
+                        </div>
+                    </div>
+                </sa-widget>
 
+            </article>
+            <article  *ngIf="processCodes[2]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart3
+                                           class="chart"
+                                           (selectionChanged)="testFuntion()"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="chartDatas[2]"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[2]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="100">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100000">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
+                            </wj-flex-chart>
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+            <article  *ngIf="processCodes[3]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart3
+                                           class="chart"
+                                           (selectionChanged)="testFuntion()"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="chartDatas[3]"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[3]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="100">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100000">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
+                            </wj-flex-chart>
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+            <article  *ngIf="processCodes[4]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart3
+                                           class="chart"
+                                           (selectionChanged)="testFuntion()"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="chartDatas[4]"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[4]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="100">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100000">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
+                            </wj-flex-chart>
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+            <article  *ngIf="processCodes[5]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart3
+                                           class="chart"
+                                           (selectionChanged)="testFuntion()"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="chartDatas[5]"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[5]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="100">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100000">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
+                            </wj-flex-chart>
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+            <article  *ngIf="processCodes[6]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart3
+                                           class="chart"
+                                           (selectionChanged)="testFuntion()"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="chartDatas[6]"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[6]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="100">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100000">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
+                            </wj-flex-chart>
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+            <article  *ngIf="processCodes[7]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+                <sa-widget [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Chang Control</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-chart #chart3
+                                           class="chart"
+                                           (selectionChanged)="testFuntion()"
+                                           style="display:block;height:200px;"
+                                           [chartType]="'Column'"
+                                           [itemsSource]="chartDatas[7]"
+                                           [bindingX]="'mon'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[7]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'temperature, C'"
+                                                    [min]="0"
+                                                    [max]="100">
+                                </wj-flex-chart-axis>
+                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                        [position]="'Right'"
+                                                        [title]="'precipitation, mm'"
+                                                        [min]="0"
+                                                        [max]="100000">
+                                    </wj-flex-chart-axis>
+                                </wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
+                                                      [binding]="'prec'"></wj-flex-chart-series>
+                            </wj-flex-chart>
                         </div>
                     </div>
                 </sa-widget>
@@ -83,13 +302,16 @@
                     <div>
                         <div class="widget-body ">
                             <wj-flex-chart class="chart" style="display:block;height:200px;"
-                                           #chart
+                                           #chartDetail
                                            [chartType]="'Scatter'"
                                            [itemsSource]="itemsSource2"
-                                           [bindingX]="'number'" >
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [axisLine]="false" [title]="'student number'"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'" [title]="'student accumalated points'"></wj-flex-chart-axis>
-                                <wj-flex-chart-series [binding]="'score'" [name]="'raw score'" [symbolSize]="6"></wj-flex-chart-series>
+                                           [bindingX]="'number'">
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [axisLine]="true"
+                                                    [title]="'student number'"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [title]="'student accumalated points'"></wj-flex-chart-axis>
+                                <wj-flex-chart-series [binding]="'yield'" [name]="'raw score'"
+                                                      [symbolSize]="6"></wj-flex-chart-series>
                             </wj-flex-chart>
                         </div>
                     </div>
@@ -136,7 +358,7 @@
                     <div>
                         <div class="widget-body ">
                             <div class="table-responsive">
-                                <table class="table table-bordered" >
+                                <table class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th>Lot</th>

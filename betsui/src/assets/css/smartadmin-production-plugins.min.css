@@ -8965,3 +8965,11 @@ a.clearsearchclass, a.g-menu-item, a.soptclass {
 .vc-title > small {
     font-size: 80%
 }
+.modal-lg .form-actions {
+    margin-bottom: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.modal-lg fieldset{
+    padding: 10px;
+}

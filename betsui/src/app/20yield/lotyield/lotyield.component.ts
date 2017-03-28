@@ -50,7 +50,7 @@ export class lotyieldComponent implements OnInit {
         this.data.endTimeEnd = this.endDate + "999999";
         this.retrieveLastTableService.postLastTable(this.data)
             .subscribe((apps) => {
-                    debugger;
+
                     this.gridData = new wjcCore.CollectionView(apps);
                     if(this.gridData.isEmpty){
                         this.empty = true;

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, OnChanges} from '@angular/core';
+import {Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import {FadeInTop} from "../animations/fade-in-top.decorator";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {ProgramRegisterService} from "../../10basis/ProgramRegister/ProgramRegister.service";
@@ -10,53 +10,63 @@ import {concat} from "rxjs/observable/concat";
 @Component({
     selector: 'ProgramRegisterVeiw',
     templateUrl: 'ProgramRegisterView.component.html',
-    providers: [ProgramRegisterService,ProgramRegister]
+    providers: [ProgramRegisterService, ProgramRegister]
 })
 export class ProgramRegisterViewComponent implements OnInit,OnChanges {
-@Input()
-programRegisterFor :ProgramRegister;
+    @Input() programRegisterTo: ProgramRegister;
+    @Input() newFlag=true;
+    @Output()  modalClose = new EventEmitter(); //불른 곧에서 팝업 창을 닫게 하기위함
 
     public validationOptions = {
-        rules : {
-            partNumber : {
-                required : true
+        rules: {
+            partNumber: {
+                required: true
             },
-            processCode : {
-                required : true,
-                digits : true
+            processCode: {
+                required: true,
+                digits: true
             }
         },
 
         // Messages for form validation
-        messages : {
-            partNumber : {
-                required : 'Please enter Part Number'
+        messages: {
+            partNumber: {
+                required: 'Please enter Part Number'
             },
-            processCode : {
-                required : 'Enter year',
-                digits : 'Digits only please'
+            processCode: {
+                required: 'Enter year',
+                digits: 'Digits only please'
             }
         },
 
     };
 
-    constructor(private programRegisterService: ProgramRegisterService, private notificationService: NotificationService, private programRegister:ProgramRegister) {
-
+    constructor(private programRegisterService: ProgramRegisterService, private notificationService: NotificationService, private programRegister: ProgramRegister) {
+        
+        this.modalClose.emit(false);
     }
-    ngOnChanges(changes: any){
-        debugger;
-        console.log(this.programRegisterFor)
-        this.programRegister=this.programRegisterFor
-
-    };
+    ;
 
     submitted = false;
 
-    ngOnInit() {
+    ngOnChanges(changes: any) {
+        
+        console.log(this.programRegisterTo)
+        if (this.programRegisterTo.partNumber != null) {
+            this.programRegister = this.programRegisterTo
+            this.retrieveFunction();            //팝업 조회시 FunctionKey Y/N 맵핑
+            this.retrievePassBinSelection();    //팝업 조회시 PassBINSelection Y/N 맵핑
+        }
+
     }
 
-    resetForm(){
+    ngOnInit() {
+
+    }
+
+    resetForm() {
         this.programRegister = new ProgramRegister();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+        return false;
     }
 
     saveForm() {
@@ -69,7 +79,7 @@ programRegisterFor :ProgramRegister;
         this.programRegister.createUser = localStorage.getItem('loginId');  //브라우저의 localStorage 에서 로그인 아이디를 가져와 저장시 넘긴다.
 
         //개발시 로그인 아이디가 없을경우 사용하기 위해 넣은 코드
-        if(localStorage.getItem('loginId') === null){
+        if (localStorage.getItem('loginId') === null) {
             this.programRegister.createUser = 'devdev';
         }
         this.smartModEg1();
@@ -85,9 +95,11 @@ programRegisterFor :ProgramRegister;
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
                 this.programRegisterService.save(this.programRegister).subscribe(
-                    data => this.programRegister = data,
+                    data => {this.programRegister = data;  this.modalClose.emit(true);},
                     error => alert(error),
                     () => console.log("Finish onSave()"));
+
+
             }
             if (ButtonPressed === "No") {
 
@@ -95,7 +107,14 @@ programRegisterFor :ProgramRegister;
 
         });
     }
-    binDescriptionMerge(){
+
+    modalClosefn(){
+
+        this.modalClose.emit(true); //불른 곧에서 닫게 하기 위해
+        return false;
+    }
+
+    binDescriptionMerge() {
         /**
          * 저장시 binDescription 8자리를 합쳐주는 함수
          */
@@ -141,7 +160,7 @@ programRegisterFor :ProgramRegister;
         }
     }
 
-    functionKeyMerge(){
+    functionKeyMerge() {
         /**
          * 저장시 FunctionKey
          * FunctionKey YN 변환
@@ -225,6 +244,84 @@ programRegisterFor :ProgramRegister;
             this.programRegister.functionKey = this.programRegister.functionKey + 'Y';
         } else {
             this.programRegister.functionKey = this.programRegister.functionKey + 'N';
+        }
+    }
+
+    retrieveFunction() {
+        if (this.programRegister.functionKey.substr(0, 1) === "Y") {
+            this.programRegister.functionKey1 = true;
+        }
+        if (this.programRegister.functionKey.substr(1, 1) === "Y") {
+            this.programRegister.functionKey2 = true;
+        }
+        if (this.programRegister.functionKey.substr(2, 1) === "Y") {
+            this.programRegister.functionKey3 = true;
+        }
+        if (this.programRegister.functionKey.substr(3, 1) === "Y") {
+            this.programRegister.functionKey4 = true;
+        }
+        if (this.programRegister.functionKey.substr(4, 1) === "Y") {
+            this.programRegister.functionKey5 = true;
+        }
+        if (this.programRegister.functionKey.substr(5, 1) === "Y") {
+            this.programRegister.functionKey6 = true;
+        }
+        if (this.programRegister.functionKey.substr(6, 1) === "Y") {
+            this.programRegister.functionKey7 = true;
+        }
+        if (this.programRegister.functionKey.substr(7, 1) === "Y") {
+            this.programRegister.functionKey8 = true;
+        }
+        if (this.programRegister.functionKey.substr(8, 1) === "Y") {
+            this.programRegister.functionKey9 = true;
+        }
+        if (this.programRegister.functionKey.substr(9, 1) === "Y") {
+            this.programRegister.functionKey10 = true;
+        }
+        if (this.programRegister.functionKey.substr(10, 1) === "Y") {
+            this.programRegister.functionKey11 = true;
+        }
+        if (this.programRegister.functionKey.substr(11, 1) === "Y") {
+            this.programRegister.functionKey12 = true;
+        }
+        if (this.programRegister.functionKey.substr(12, 1) === "Y") {
+            this.programRegister.functionKey13 = true;
+        }
+        if (this.programRegister.functionKey.substr(13, 1) === "Y") {
+            this.programRegister.functionKey14 = true;
+        }
+        if (this.programRegister.functionKey.substr(14, 1) === "Y") {
+            this.programRegister.functionKey15 = true;
+        }
+        if (this.programRegister.functionKey.substr(15, 1) === "Y") {
+            this.programRegister.functionKey16 = true;
+        }
+    }
+
+    retrievePassBinSelection() {
+        if (this.programRegister.passBinSelection.substr(0, 1) === "Y") {
+            this.programRegister.passBinSelection1 = true;
+        }
+        if (this.programRegister.passBinSelection.substr(1, 1) === "Y") {
+            this.programRegister.passBinSelection2 = true;
+        }
+        if (this.programRegister.passBinSelection.substr(2, 1) === "Y") {
+            this.programRegister.passBinSelection3 = true;
+        }
+        if (this.programRegister.passBinSelection.substr(3, 1) === "Y") {
+            this.programRegister.passBinSelection4 = true;
+        }
+        if (this.programRegister.passBinSelection.substr(4, 1) === "Y") {
+            this.programRegister.passBinSelection5 = true;
+        }
+        if (this.programRegister.passBinSelection.substr(5, 1) === "Y") {
+            this.programRegister.passBinSelection6 = true;
+        }
+        if (this.programRegister.passBinSelection.substr(6, 1) === "Y") {
+            this.programRegister.passBinSelection7 = true;
+        }
+        if (this.programRegister.passBinSelection.substr(7, 1) === "Y") {
+            this.programRegister.passBinSelection8 = true;
         }
     }
 }

@@ -58,7 +58,6 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <!--<dynamic-component [componentData]="componentData"></dynamic-component>-->
                 <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
@@ -78,7 +77,6 @@
                             <wj-flex-grid #flexGrid [selectionMode]="'Row'"
                                           [isReadOnly]="true"
                                           [itemsSource]="gridData">
-                                <!--(selectionChanged)="someClickHandler(flexGrid)">-->
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
                                                      [binding]=col></wj-flex-grid-column>
@@ -94,14 +92,6 @@
     </sa-widgets-grid>
     <!-- end widget grid -->
 </div>
-<!--<sa-widgets-grid>-->
-    <!--<ProgramRegister-sel>-->
-
-    <!--</ProgramRegister-sel>-->
-<!--</sa-widgets-grid>-->
-<!--<sa-widgets-grid>-->
-
-<!--POP UP Modal dialog Stat-->
 <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -112,7 +102,12 @@
                 </button>
                 <h4 class="modal-title">Program register</h4>
             </div>
-            <ProgramRegisterVeiw [programRegisterFor]="programRegister"> </ProgramRegisterVeiw>
+            <ProgramRegisterVeiw [programRegisterTo]="programRegister" [newFlag]="false" (modalClose)="modalClose($event)"> </ProgramRegisterVeiw>
+
+            <!--<button type="button" class="btn btn-default" (click)="lgModal.hide()">-->
+                <!--Cancel-->
+            <!--</button>-->
+
             <!--<form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" [saUiValidate]="validationOptions"-->
                   <!--novalidate="novalidate">-->
                 <!--<fieldset>-->
