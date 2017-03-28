@@ -113,6 +113,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveNavigation").permitAll()
 // Dashboard
                 .antMatchers("/retrieveDashboard").permitAll()
+                .antMatchers("/retrieveChartDetail").permitAll()
 
                 .anyRequest().authenticated()
                 .and()

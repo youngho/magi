@@ -11,6 +11,9 @@ public class AxesChartDto {
     private int tmin = 0;
     private int tmax = 0;
     private float prec = 0;
+    private String rangeStart = "";
+    private String rangeEnd = "";
+
 
     public String getProcessCode() {
         return processCode;
@@ -60,4 +63,19 @@ public class AxesChartDto {
         this.prec = prec;
     }
 
+    public String getRangeStart() {
+        return rangeStart;
+    }
+
+    public void setRangeStart(String rangeStart) {
+        this.rangeStart = rangeStart;
+    }
+
+    public String getRangeEnd() {
+        return rangeEnd;
+    }
+
+    public void setRangeEnd(String rangeEnd) {
+        this.rangeEnd = rangeEnd;
+    }
 }

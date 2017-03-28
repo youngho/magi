@@ -10,17 +10,17 @@ import java.util.List;
  * 아래 표형식의 데이터는 DTO 형식으로 구성한다.
  */
 public class DashboardDto {
-    private List<AxesChartDto> chart = new ArrayList<>();
+    private List<ProcessChartDto> processChartList = new ArrayList<>();
     private List<ChangeControlDto> changeControl = new ArrayList<>();
     private List<LowYieldLotDto> lowYieldLot = new ArrayList<>();
     private List<OcapDto> ocap = new ArrayList<>();
 
-    public List<AxesChartDto> getChart() {
-        return chart;
+    public List<ProcessChartDto> getProcessChartList() {
+        return processChartList;
     }
 
-    public void setChart(List<AxesChartDto> chart) {
-        this.chart = chart;
+    public void setProcessChartList(List<ProcessChartDto> processChartList) {
+        this.processChartList = processChartList;
     }
 
     public List<ChangeControlDto> getChangeControl() {

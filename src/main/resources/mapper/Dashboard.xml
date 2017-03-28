@@ -42,6 +42,22 @@
             AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
             AND PROCESS_CODE = #{processCode}
     </select>
+    <select id="retrieveChartDetail" parameterType="kr.famos.bets.dashboard.dto.ChartDetailCondDto" resultType="kr.famos.bets.dashboard.dto.ChartDetailDto" >
+        SELECT
+        SUBSTR(END_TIME,1,4)||'-'||SUBSTR(END_TIME,5,2)||'-'||SUBSTR(END_TIME,7,2)||' '||SUBSTR(END_TIME,9,2)||':'||SUBSTR(END_TIME,11,2)||':'||SUBSTR(END_TIME,13,2) AS END_TIME,
+        LOT_ID,
+        QUANTITY,
+        TRUNC(((TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))) / (TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))+ TO_NUMBER(SUBSTR(OP_BIN,21,4))+ TO_NUMBER(SUBSTR(OP_BIN,26,4))+ TO_NUMBER(SUBSTR(OP_BIN,31,4))+ TO_NUMBER( SUBSTR(OP_BIN,36,4))+ TO_NUMBER(SUBSTR(OP_BIN,41,4))))*100,2) AS YIELD,
+        PROCESS_CODE,
+        TRUNC( TO_NUMBER( SUBSTR(OP_BIN,36,4)) / ( TO_NUMBER(SUBSTR(OP_BIN,1,4))+ TO_NUMBER(SUBSTR(OP_BIN,6,4))+ TO_NUMBER(SUBSTR(OP_BIN,11,4))+ TO_NUMBER(SUBSTR(OP_BIN,16,4))+ TO_NUMBER(SUBSTR(OP_BIN,21,4))+ TO_NUMBER(SUBSTR(OP_BIN,26,4))+ TO_NUMBER(SUBSTR(OP_BIN,31,4))+ TO_NUMBER(SUBSTR(OP_BIN,36,4))+ TO_NUMBER(SUBSTR(OP_BIN,41,4)))*100,2 ) AS BIN8
+        FROM
+        MAIN_BIN
+        WHERE
+        1         =1
+        AND END_TIME >= '20170101000000'
+        AND END_TIME <![CDATA[<=]]> '20180201000000'
+    </select>
+
     <select id="retrieveChangControl" resultType="kr.famos.bets.dashboard.dto.ChangeControlDto">
         SELECT
             PROGRAM_VERSION AS ACTION ,

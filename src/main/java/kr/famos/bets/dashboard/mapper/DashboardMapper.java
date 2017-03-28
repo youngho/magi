@@ -16,6 +16,6 @@ public interface DashboardMapper {
     public AxesChartDto retrieveAxesChartItem(AxesChartCondDto axesChartCondDto);
     public List<ChangeControlDto> retrieveChangControl();
     public List<LowYieldLotDto> retrieveLowYieldLot();
-
+    public List<ChartDetailDto> retrieveChartDetail(ChartDetailCondDto chartDetailCondDto);
 
 }

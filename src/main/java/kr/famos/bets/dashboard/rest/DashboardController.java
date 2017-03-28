@@ -1,6 +1,8 @@
 package kr.famos.bets.dashboard.rest;
 
 import kr.famos.bets.dashboard.dto.AxesChartDto;
+import kr.famos.bets.dashboard.dto.ChartDetailCondDto;
+import kr.famos.bets.dashboard.dto.ChartDetailDto;
 import kr.famos.bets.dashboard.dto.DashboardDto;
 import kr.famos.bets.dashboard.service.DashboardService;
 import org.slf4j.Logger;
@@ -32,5 +34,8 @@ public class DashboardController {
     }
 
     // Change Control
-
+    @RequestMapping(value = "/retrieveChartDetail", method = RequestMethod.POST)
+    public ResponseEntity<List<ChartDetailDto>> retrieveChartDetail(ChartDetailCondDto chartDetailCondDto){
+        return new ResponseEntity<List<ChartDetailDto>>(dashboardService.retrieveChartDetail(chartDetailCondDto), HttpStatus.OK);
+    }
 }
