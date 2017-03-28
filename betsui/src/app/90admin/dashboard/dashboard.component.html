@@ -147,7 +147,8 @@
                                     <tr *ngFor="let lowYield of lowYieldLot">
                                         <td>{{lowYield.lotId}}</td>
                                         <td>{{lowYield.processCode}}</td>
-                                        <td>{{lowYield.yield}}</td>
+                                        <td *ngIf="lowYield.yield < 90" class="txt-color-red">{{lowYield.yield}}</td>
+                                        <td *ngIf="lowYield.yield >= 90">{{lowYield.yield}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
