@@ -42,6 +42,7 @@
             AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
             AND PROCESS_CODE = #{processCode}
     </select>
+    <!--Scatter 차트에 사용되는 데이터 추출-->
     <select id="retrieveChartDetail" parameterType="kr.famos.bets.dashboard.dto.ChartDetailCondDto" resultType="kr.famos.bets.dashboard.dto.ChartDetailDto" >
         SELECT
         SUBSTR(END_TIME,1,4)||'-'||SUBSTR(END_TIME,5,2)||'-'||SUBSTR(END_TIME,7,2)||' '||SUBSTR(END_TIME,9,2)||':'||SUBSTR(END_TIME,11,2)||':'||SUBSTR(END_TIME,13,2) AS END_TIME,
@@ -54,8 +55,8 @@
         MAIN_BIN
         WHERE
         1         =1
-        AND END_TIME >= '20170101000000'
-        AND END_TIME <![CDATA[<=]]> '20180201000000'
+        AND END_TIME >= #{rangeStart}
+        AND END_TIME <![CDATA[<=]]> #{rangeEnd}
     </select>
 
     <select id="retrieveChangControl" resultType="kr.famos.bets.dashboard.dto.ChangeControlDto">
