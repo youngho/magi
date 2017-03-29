@@ -57,8 +57,8 @@ public class DashboardService {
             chartItemDto.setMon(chartItemNameChange("3M"));
             chartItemDto.setRangeStart(condDto.getEndTimeStart());
             chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
-            logger.debug("총개수 : " + chartItemDto.getTav());
-            logger.debug("YIELD : " + chartItemDto.getPrec());
+            logger.debug("총개수 : " + chartItemDto.getCapa());
+            logger.debug("YIELD : " + chartItemDto.getYield());
             axesChartDtoList.add(chartItemDto);
 
 
