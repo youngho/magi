@@ -90,6 +90,8 @@ public class DashboardService {
             condDto.setEndTimeStart("20171210000000");  //2주전 데이터 셋팅
             condDto.setEndTimeEnd("20171223999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
+            chartItemDto.setRangeStart(condDto.getEndTimeStart());
+            chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             chartItemDto.setMon("2W");
             axesChartDtoList.add(chartItemDto);
 
