@@ -9,8 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * Created by yhkim on 2017-03-13.
@@ -45,17 +45,16 @@ public class DashboardService {
             AxesChartDto chartItemDto = new AxesChartDto();
 
 
-
             //COM_SETTING 에서 해당 사용자의 설정 값을 가지고 Dashboard를 보여준다.
             AxesChartCondDto condDto = new AxesChartCondDto();
             condDto.setProcessCode(list.getBetsValue());
             processChartDto.setProcessCode(condDto.getProcessCode());
 
 
-            condDto.setEndTimeStart("20170900000000");  //3개월 데이터 셋팅
+            condDto.setEndTimeStart("20170900000000");  //3개월전 데이터 셋팅
             condDto.setEndTimeEnd("20171199999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
-            chartItemDto.setMon("3M");
+            chartItemDto.setMon(chartItemNameChange("3M"));
             chartItemDto.setRangeStart(condDto.getEndTimeStart());
             chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             logger.debug("총개수 : " + chartItemDto.getTav());
@@ -63,18 +62,18 @@ public class DashboardService {
             axesChartDtoList.add(chartItemDto);
 
 
-            condDto.setEndTimeStart("20171000000000");  //2개월 데이터 셋팅
+            condDto.setEndTimeStart("20171000000000");  //2개월전 데이터 셋팅
             condDto.setEndTimeEnd("20171199999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
-            chartItemDto.setMon("2M");
+            chartItemDto.setMon(chartItemNameChange("2M"));
             chartItemDto.setRangeStart(condDto.getEndTimeStart());
             chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
 
-            condDto.setEndTimeStart("20171100000000");  //1개월 데이터 셋팅
+            condDto.setEndTimeStart("20171100000000");  //1개월전 데이터 셋팅
             condDto.setEndTimeEnd("20171199999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
-            chartItemDto.setMon("1M");
+            chartItemDto.setMon(chartItemNameChange("1M"));
             chartItemDto.setRangeStart(condDto.getEndTimeStart());
             chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
@@ -106,7 +105,7 @@ public class DashboardService {
             condDto.setEndTimeStart("20171224000000");  //3일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
-            chartItemDto.setMon("3D");
+            chartItemDto.setMon(chartItemNameChange("3D"));
             chartItemDto.setRangeStart(condDto.getEndTimeStart());
             chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
@@ -114,7 +113,7 @@ public class DashboardService {
             condDto.setEndTimeStart("20171225000000");  //2일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
-            chartItemDto.setMon("2D");
+            chartItemDto.setMon(chartItemNameChange("2D"));
             chartItemDto.setRangeStart(condDto.getEndTimeStart());
             chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
@@ -122,7 +121,7 @@ public class DashboardService {
             condDto.setEndTimeStart("20171226000000");  //1일전 데이터 셋팅
             condDto.setEndTimeEnd("20171226999999");
             chartItemDto = dashboardMapper.retrieveAxesChartItem(condDto);
-            chartItemDto.setMon("1D");
+            chartItemDto.setMon(chartItemNameChange("1D"));
             chartItemDto.setRangeStart(condDto.getEndTimeStart());
             chartItemDto.setRangeEnd(condDto.getEndTimeEnd());
             axesChartDtoList.add(chartItemDto);
@@ -185,21 +184,22 @@ public class DashboardService {
 
     /**
      * 차트의 yieldMax, YieldMin을 구하기 위한 작업
+     *
      * @param chartDetailCondDto
      * @return
      */
-    public ChartDetailDto retrieveChartDetail(ChartDetailCondDto chartDetailCondDto){
+    public ChartDetailDto retrieveChartDetail(ChartDetailCondDto chartDetailCondDto) {
 
         ChartDetailDto returnDto = new ChartDetailDto();
         List<ChartDetailItemDto> chartDetailItemDtoList = dashboardMapper.retrieveChartDetail(chartDetailCondDto);
 
         float tempYieldMax = 0;
         float tempYieldMin = 100;
-        for(ChartDetailItemDto list : chartDetailItemDtoList){
-            if (tempYieldMax < list.getYield()){
+        for (ChartDetailItemDto list : chartDetailItemDtoList) {
+            if (tempYieldMax < list.getYield()) {
                 tempYieldMax = list.getYield();
             }
-            if (tempYieldMin > list.getYield()){
+            if (tempYieldMin > list.getYield()) {
                 tempYieldMin = list.getYield();
             }
         }
@@ -210,5 +210,55 @@ public class DashboardService {
         return returnDto;
     }
 
+    /**
+     *
+     * @param itemName
+     * @return String 형식의 실제 일자, 워크주,
+     */
+    private String chartItemNameChange(String itemName) {
+        String returnStr = "";
 
+        //시스템 시간을 구해서 createDate에 넣는다.
+        long time = System.currentTimeMillis();
+//        SimpleDateFormat dayTime = new SimpleDateFormat("yyyyMMddHHmmss");
+        SimpleDateFormat dayTime = new SimpleDateFormat("dd");
+        SimpleDateFormat monthTime = new SimpleDateFormat("MM");
+        Calendar cal = new GregorianCalendar(Locale.KOREA);
+        cal.setTime(new Date());
+
+
+        switch (itemName) {
+            case "1D":
+                cal.add(Calendar.DAY_OF_YEAR, -1); // 하루를 뺀다
+                returnStr = dayTime.format(cal.getTime());
+                break;
+            case "2D":
+                cal.add(Calendar.DAY_OF_YEAR, -2); // 이틀을 뺀다
+                returnStr = dayTime.format(cal.getTime());
+                break;
+            case "3D":
+                cal.add(Calendar.DAY_OF_YEAR, -3); // 이틀을 뺀다
+                returnStr = dayTime.format(cal.getTime());
+                break;
+            case "1W":
+                break;
+            case "2W":
+                break;
+            case "3W":
+                break;
+            case "1M":
+                cal.add(Calendar.MONTH, -1); // 한달을 뺀다.
+                returnStr = monthTime.format(cal.getTime());
+                break;
+            case "2M":
+                cal.add(Calendar.MONTH, -2); // 두달을 뺀다.
+                returnStr = monthTime.format(cal.getTime());
+                break;
+            case "3M":
+                cal.add(Calendar.MONTH, -3); // 세달을 뺀다.
+                returnStr = monthTime.format(cal.getTime());
+                break;
+        }
+        return returnStr;
+    }
 }

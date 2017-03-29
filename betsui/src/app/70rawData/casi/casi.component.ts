@@ -41,10 +41,11 @@ export class CasiComponent implements OnInit {
      */
     someClickHandler(info: any): void {
         console.log(info.createDate);
+        console.log(info.fileName);
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
-        this.retrieveByKeyDto.createDate = info.createDate;
-
+        this.retrieveCond.createDate = info.createDate;
+        this.retrieveCond.fileName = info.fileName;
         //알림 메시지를 보여준다.
         this.smartModEg1();
         // this.bgModel.show(function (info: any) {
@@ -112,18 +113,38 @@ export class CasiComponent implements OnInit {
     smartModEg1() {
         this.notificationService.smartMessageBox({
             title: "BETS Alert!",
-            content: "Do you want to download file : " + this.retrieveByKeyDto.fileName,
+            content: "Do you want to download file : " + this.retrieveCond.fileName,
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
+                var reader = new FileReader();
                 this.service.postRetrieveByKey(this.retrieveByKeyDto).subscribe(
-                    data => this.Files = data,
+                    // data => console.log(data._body),
+                    data => this.extractData(data._body),
                     error => alert(error),
                     () => console.log(""));
             }
             if (ButtonPressed === "No") {
             }
         });
+    }
+
+    extractData(res: string){
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        // a.style = "display: none";
+        // transforme response to blob
+        // let myBlob: Blob = new Blob([res], {type: 'application/txt'}); // replace the type by whatever type is your response
+        let myBlob: Blob = new Blob([res], {type: 'text/plain'}); // replace the type by whatever type is your response
+        console.log("res : " + res);
+
+        // var fileURL = URL.createObjectURL(myBlob);
+        a.href = window.URL.createObjectURL(myBlob);
+        a.download = this.retrieveCond.fileName;
+        a.click();
+        // window.URL.revokeObjectURL(myBlob);
+        // Cross your fingers at this point and pray whatever you're used to pray
+        // window.open(fileURL);
     }
 
     ngOnInit() {

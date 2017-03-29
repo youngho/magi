@@ -55,7 +55,7 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-task inspiniaBuild(type:Exec){
-    workingDir './inspinia'
-    commandLine './inspinia/ngbuild.bat'
+task uiBuild(type:Exec){
+    workingDir './betsui'
+    commandLine './betsui/npm run build'
 }
