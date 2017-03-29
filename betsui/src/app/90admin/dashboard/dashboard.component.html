@@ -5,7 +5,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[0]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -15,24 +15,26 @@
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[0]"
-                                           [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[0]"
+                                           [bindingX]="'mon'"
+                                          >
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
-                                                        [max]="100000">
+                                                        [max]="100000"
+                               >
                                     </wj-flex-chart-axis>
                                 </wj-flex-chart-series>
                                 <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
+                                                      [binding]="'prec'"  ></wj-flex-chart-series>
                             </wj-flex-chart>
                         </div>
                     </div>
@@ -43,7 +45,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[1]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -54,17 +56,17 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[1]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[1]"
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
@@ -81,7 +83,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[2]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -92,17 +94,17 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[2]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[2]"
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
@@ -118,7 +120,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[3]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -129,17 +131,17 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[3]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[3]"
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
@@ -155,7 +157,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[4]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -166,17 +168,17 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[4]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[4]"
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
@@ -192,7 +194,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[5]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -203,17 +205,17 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[5]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[5]"
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
@@ -229,7 +231,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[6]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -240,17 +242,17 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[6]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[6]"
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
@@ -266,7 +268,7 @@
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
+                        <h2>{{processCodes[7]}}</h2>
                     </header>
                     <div>
                         <div class="widget-body ">
@@ -277,17 +279,17 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[7]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[7]"
+                                <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'temperature, C'"
+                                                    [title]="''"
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
                                 <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
-                                                        [title]="'precipitation, mm'"
+                                                        [title]="''"
                                                         [min]="0"
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
@@ -300,34 +302,6 @@
                 </sa-widget>
             </article>
         </div>
-        <!--<wj-popup class="col-md-6 modal-content" #chartDetailPupup>-->
-            <!--<div class="row">-->
-                <!--<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
-                    <!--<sa-widget [editbutton]="false">-->
-                        <!--<header>-->
-                            <!--<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>-->
-                            <!--<h2>Chang Control</h2>-->
-                        <!--</header>-->
-                        <!--<div>-->
-                            <!--<div class="widget-body ">-->
-                                <!--<wj-flex-chart class="chart" style="display:block;height:200px;"-->
-                                               <!--#chartDetail-->
-                                               <!--[chartType]="'Scatter'"-->
-                                               <!--[itemsSource]="itemsSource2"-->
-                                               <!--[bindingX]="'endTime'">-->
-                                    <!--<wj-flex-chart-axis [wjProperty]="'axisX'" [axisLine]="true"-->
-                                                        <!--[title]="'student number'"></wj-flex-chart-axis>-->
-                                    <!--<wj-flex-chart-axis [wjProperty]="'axisY'"-->
-                                                        <!--[title]="'student accumalated points'"></wj-flex-chart-axis>-->
-                                    <!--<wj-flex-chart-series [binding]="'yield'" [name]="'raw score'"-->
-                                                          <!--[symbolSize]="6"></wj-flex-chart-series>-->
-                                <!--</wj-flex-chart>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</sa-widget>-->
-                <!--</article>-->
-            <!--</div>-->
-        <!--</wj-popup>-->
         <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -336,7 +310,7 @@
                         <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title">TDBI Board Type Register</h4>
+                        <h4 class="modal-title">Yied Detail</h4>
                     </div>
                     <DashboardChartDetail [chartDataDetail]="chartDataDetail"></DashboardChartDetail>
                 </div>
