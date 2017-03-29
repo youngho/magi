@@ -1,7 +1,7 @@
 <div id="content">
     <sa-widgets-grid>
         <div class="row">
-            <article   *ngIf="processCodes[0]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[0]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -16,7 +16,8 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[0]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[0]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[0]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -38,7 +39,7 @@
                 </sa-widget>
 
             </article>
-            <article  *ngIf="processCodes[1]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[1]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -53,7 +54,8 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[1]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[1]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[1]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -75,7 +77,7 @@
                 </sa-widget>
 
             </article>
-            <article  *ngIf="processCodes[2]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[2]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -90,7 +92,8 @@
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[2]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[2]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[2]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -111,7 +114,7 @@
                     </div>
                 </sa-widget>
             </article>
-            <article  *ngIf="processCodes[3]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[3]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -119,14 +122,15 @@
                     </header>
                     <div>
                         <div class="widget-body ">
-                            <wj-flex-chart #chart3
+                            <wj-flex-chart #chart4
                                            class="chart"
                                            (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[3]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[3]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[3]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -147,7 +151,7 @@
                     </div>
                 </sa-widget>
             </article>
-            <article  *ngIf="processCodes[4]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[4]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -155,14 +159,15 @@
                     </header>
                     <div>
                         <div class="widget-body ">
-                            <wj-flex-chart #chart3
+                            <wj-flex-chart #chart5
                                            class="chart"
                                            (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[4]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[4]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[4]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -183,7 +188,7 @@
                     </div>
                 </sa-widget>
             </article>
-            <article  *ngIf="processCodes[5]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[5]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -191,14 +196,15 @@
                     </header>
                     <div>
                         <div class="widget-body ">
-                            <wj-flex-chart #chart3
+                            <wj-flex-chart #chart6
                                            class="chart"
                                            (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[5]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[5]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[5]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -219,7 +225,7 @@
                     </div>
                 </sa-widget>
             </article>
-            <article  *ngIf="processCodes[6]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[6]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -227,14 +233,15 @@
                     </header>
                     <div>
                         <div class="widget-body ">
-                            <wj-flex-chart #chart3
+                            <wj-flex-chart #chart7
                                            class="chart"
                                            (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[6]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[6]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[6]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -255,7 +262,7 @@
                     </div>
                 </sa-widget>
             </article>
-            <article  *ngIf="processCodes[7]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <article *ngIf="processCodes[7]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
@@ -263,14 +270,15 @@
                     </header>
                     <div>
                         <div class="widget-body ">
-                            <wj-flex-chart #chart3
+                            <wj-flex-chart #chart8
                                            class="chart"
                                            (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[7]"
                                            [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[7]" [labelAngle]="0"></wj-flex-chart-axis>
+                                <wj-flex-chart-axis [wjProperty]="'axisX'" [title]="processCodes[7]"
+                                                    [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                     [title]="'temperature, C'"
                                                     [min]="0"
@@ -292,31 +300,47 @@
                 </sa-widget>
             </article>
         </div>
-        <div class="row">
-            <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <sa-widget [editbutton]="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>Chang Control</h2>
-                    </header>
-                    <div>
-                        <div class="widget-body ">
-                            <wj-flex-chart class="chart" style="display:block;height:200px;"
-                                           #chartDetail
-                                           [chartType]="'Scatter'"
-                                           [itemsSource]="itemsSource2"
-                                           [bindingX]="'number'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'" [axisLine]="true"
-                                                    [title]="'student number'"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="'student accumalated points'"></wj-flex-chart-axis>
-                                <wj-flex-chart-series [binding]="'yield'" [name]="'raw score'"
-                                                      [symbolSize]="6"></wj-flex-chart-series>
-                            </wj-flex-chart>
-                        </div>
+        <!--<wj-popup class="col-md-6 modal-content" #chartDetailPupup>-->
+            <!--<div class="row">-->
+                <!--<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+                    <!--<sa-widget [editbutton]="false">-->
+                        <!--<header>-->
+                            <!--<span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>-->
+                            <!--<h2>Chang Control</h2>-->
+                        <!--</header>-->
+                        <!--<div>-->
+                            <!--<div class="widget-body ">-->
+                                <!--<wj-flex-chart class="chart" style="display:block;height:200px;"-->
+                                               <!--#chartDetail-->
+                                               <!--[chartType]="'Scatter'"-->
+                                               <!--[itemsSource]="itemsSource2"-->
+                                               <!--[bindingX]="'endTime'">-->
+                                    <!--<wj-flex-chart-axis [wjProperty]="'axisX'" [axisLine]="true"-->
+                                                        <!--[title]="'student number'"></wj-flex-chart-axis>-->
+                                    <!--<wj-flex-chart-axis [wjProperty]="'axisY'"-->
+                                                        <!--[title]="'student accumalated points'"></wj-flex-chart-axis>-->
+                                    <!--<wj-flex-chart-series [binding]="'yield'" [name]="'raw score'"-->
+                                                          <!--[symbolSize]="6"></wj-flex-chart-series>-->
+                                <!--</wj-flex-chart>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</sa-widget>-->
+                <!--</article>-->
+            <!--</div>-->
+        <!--</wj-popup>-->
+        <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">TDBI Board Type Register</h4>
                     </div>
-                </sa-widget>
-            </article>
+                    <DashboardChartDetail [chartDataDetail]="chartDataDetail"></DashboardChartDetail>
+                </div>
+            </div>
         </div>
         <div class="row">
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -370,7 +394,8 @@
                                     <tr *ngFor="let lowYield of lowYieldLot">
                                         <td>{{lowYield.lotId}}</td>
                                         <td>{{lowYield.processCode}}</td>
-                                        <td *ngIf="lowYield.yield < 90" class="txt-color-red">{{lowYield.yield}}</td>
+                                        <td *ngIf="lowYield.yield < 90" class="txt-color-red">{{lowYield.yield}}
+                                        </td>
                                         <td *ngIf="lowYield.yield >= 90">{{lowYield.yield}}</td>
                                     </tr>
                                     </tbody>

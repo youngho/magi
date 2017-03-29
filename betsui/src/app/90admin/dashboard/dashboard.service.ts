@@ -16,7 +16,7 @@ export class DashboardService {
     }
 
     data = {"date":"0301"}
-    data2 = {}
+    // data2 = {"mon":"0301","rangeStart":"0301","rangeEnd":"0301"}
     /*
      postRetrieveByKey(data) {
      // this.path = 'retrieveRawDataByKey';
@@ -34,6 +34,6 @@ export class DashboardService {
     retrievePostDetail(data2) {
         this.path = "retrieveChartDetail"
         console.log('PATH : ' + this.path);
-        return this.api.retrievePost(`${this.path}`, this.data2);
+        return this.api.retrievePost(`${this.path}`, data2);
     }
 }

@@ -12,17 +12,20 @@ import {WjChartModule} from "wijmo/wijmo.angular2.chart";
 import {WjInputModule} from "wijmo/wijmo.angular2.input";
 import * as wjcChart from 'wijmo/wijmo.chart';
 import * as wjcCore from 'wijmo/wijmo';
+import {DygraphModule} from "../../shared/graphs/dygraph/dygraph.module";
+import {DashboardChartDetail} from "./dashboardChartDetail";
 
 @NgModule({
     imports: [
         CommonModule,
         DashboardRouting,
         SmartadminModule,
+        DygraphModule,
         // BETS ADDED
-        FlotChartModule, WjChartModule, WjInputModule
+        FlotChartModule, WjChartModule, WjInputModule,
     ],
     exports: [nvD3],
-    declarations: [DashboardComponent, nvD3 ]
+    declarations: [DashboardComponent, nvD3,DashboardChartDetail ]
 })
 export class DashboardModule {
 }
