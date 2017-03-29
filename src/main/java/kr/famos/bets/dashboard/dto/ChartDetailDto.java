@@ -1,62 +1,39 @@
 package kr.famos.bets.dashboard.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by yhkim on 2017-03-27.
  */
 public class ChartDetailDto {
-    private String endTime = "";
 
-    private String lotId = "";
-    private String quantity = "";
-    private String yield = "";
-    private String processCode = "";
-    private String bin8 = "";
+    private float yieldMax;
+    private float yieldMin;
 
-    public String getEndTime() {
-        return endTime;
+    private List<ChartDetailItemDto> yieldItemList = new ArrayList<>();
+
+    public float getYieldMax() {
+        return yieldMax;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setYieldMax(float yieldMax) {
+        this.yieldMax = yieldMax;
     }
 
-    public String getLotId() {
-        return lotId;
+    public float getYieldMin() {
+        return yieldMin;
     }
 
-    public void setLotId(String lotId) {
-        this.lotId = lotId;
+    public void setYieldMin(float yieldMin) {
+        this.yieldMin = yieldMin;
     }
 
-    public String getQuantity() {
-        return quantity;
+    public List<ChartDetailItemDto> getYieldItemList() {
+        return yieldItemList;
     }
 
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getYield() {
-        return yield;
-    }
-
-    public void setYield(String yield) {
-        this.yield = yield;
-    }
-
-    public String getProcessCode() {
-        return processCode;
-    }
-
-    public void setProcessCode(String processCode) {
-        this.processCode = processCode;
-    }
-
-    public String getBin8() {
-        return bin8;
-    }
-
-    public void setBin8(String bin8) {
-        this.bin8 = bin8;
+    public void setYieldItemList(List<ChartDetailItemDto> yieldItemList) {
+        this.yieldItemList = yieldItemList;
     }
 }

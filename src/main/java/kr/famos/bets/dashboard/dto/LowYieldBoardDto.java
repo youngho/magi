@@ -5,5 +5,30 @@ package kr.famos.bets.dashboard.dto;
  */
 public class LowYieldBoardDto {
     private String boardId = "";
+    private String yield = "";
+    private String date = "";
 
+    public String getBoardId() {
+        return boardId;
+    }
+
+    public void setBoardId(String boardId) {
+        this.boardId = boardId;
+    }
+
+    public String getYield() {
+        return yield;
+    }
+
+    public void setYield(String yield) {
+        this.yield = yield;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }
