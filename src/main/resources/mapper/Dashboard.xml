@@ -12,7 +12,7 @@
     <select id="retrieveAxesChartItem" parameterType="kr.famos.bets.dashboard.dto.AxesChartCondDto" resultType="kr.famos.bets.dashboard.dto.AxesChartDto">
         SELECT
             NVL(max(PROCESS_CODE),#{processCode}) AS PROCESS_CODE,
-            SUM (QUANTITY) AS tav,
+            SUM (QUANTITY) AS CAPA,
             TRUNC
             (
                 (
@@ -33,7 +33,7 @@
                         + SUM(TO_NUMBER(SUBSTR(OP_BIN,41,4)))
                     )
                 )*100,2
-            ) AS prec
+            ) AS YIELD
         FROM
             MAIN_BIN
         WHERE

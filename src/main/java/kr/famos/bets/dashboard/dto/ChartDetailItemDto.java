@@ -7,10 +7,10 @@ public class ChartDetailItemDto {
     private String endTime = "";
 
     private String lotId = "";
-    private String quantity = "";
+    private int quantity = 0;
     private float yield = 0;
     private String processCode = "";
-    private String bin8 = "";
+    private float bin8 = 0;
 
     public String getEndTime() {
         return endTime;
@@ -28,11 +28,11 @@ public class ChartDetailItemDto {
         this.lotId = lotId;
     }
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
@@ -52,11 +52,11 @@ public class ChartDetailItemDto {
         this.processCode = processCode;
     }
 
-    public String getBin8() {
+    public float getBin8() {
         return bin8;
     }
 
-    public void setBin8(String bin8) {
+    public void setBin8(float bin8) {
         this.bin8 = bin8;
     }
 }

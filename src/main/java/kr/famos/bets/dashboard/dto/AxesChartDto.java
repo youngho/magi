@@ -7,13 +7,12 @@ public class AxesChartDto {
 
     private String processCode = "";    // 공정코드
     private String mon = "";
-    private int tav = 0;
-    private int tmin = 0;
-    private int tmax = 0;
-    private float prec = 0;
+    private int capa = 0;
+    private int yieldMin = 60;          // Yield 표현시 저수율 기준
+    private int yieldMax = 80;          // Yield 표현시 고수율 기준
+    private float yield = 0;
     private String rangeStart = "";
     private String rangeEnd = "";
-
 
     public String getProcessCode() {
         return processCode;
@@ -31,36 +30,36 @@ public class AxesChartDto {
         this.mon = mon;
     }
 
-    public int getTav() {
-        return tav;
+    public int getCapa() {
+        return capa;
     }
 
-    public void setTav(int tav) {
-        this.tav = tav;
+    public void setCapa(int capa) {
+        this.capa = capa;
     }
 
-    public int getTmin() {
-        return tmin;
+    public int getYieldMin() {
+        return yieldMin;
     }
 
-    public void setTmin(int tmin) {
-        this.tmin = tmin;
+    public void setYieldMin(int yieldMin) {
+        this.yieldMin = yieldMin;
     }
 
-    public int getTmax() {
-        return tmax;
+    public int getYieldMax() {
+        return yieldMax;
     }
 
-    public void setTmax(int tmax) {
-        this.tmax = tmax;
+    public void setYieldMax(int yieldMax) {
+        this.yieldMax = yieldMax;
     }
 
-    public float getPrec() {
-        return prec;
+    public float getYield() {
+        return yield;
     }
 
-    public void setPrec(float prec) {
-        this.prec = prec;
+    public void setYield(float yield) {
+        this.yield = yield;
     }
 
     public String getRangeStart() {
