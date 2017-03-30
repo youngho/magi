@@ -11,12 +11,11 @@
                         <div class="widget-body ">
                             <wj-flex-chart #chart1
                                            class="chart"
-                                           (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[0]"
                                            [bindingX]="'mon'"
-                                          >
+                                           [labelContent]="'{y}'">
                                 <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
@@ -24,22 +23,20 @@
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
                                                         [title]="''"
                                                         [min]="0"
-                                                        [max]="100000"
-                               >
+                                                        [max]="100000">
                                     </wj-flex-chart-axis>
                                 </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"  ></wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                      [binding]="'yield'"  ></wj-flex-chart-series>
                             </wj-flex-chart>
                         </div>
                     </div>
                 </sa-widget>
-
             </article>
             <article *ngIf="processCodes[1]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
                 <sa-widget [editbutton]="false">
@@ -51,11 +48,11 @@
                         <div class="widget-body ">
                             <wj-flex-chart #chart2
                                            class="chart"
-                                           (selectionChanged)="testFuntion()"
                                            style="display:block;height:200px;"
                                            [chartType]="'Column'"
                                            [itemsSource]="chartDatas[1]"
-                                           [bindingX]="'mon'">
+                                           [bindingX]="'mon'"
+                                           [labelContent]="'{y}'">
                                 <wj-flex-chart-axis [wjProperty]="'axisX'"
                                                     [labelAngle]="0"></wj-flex-chart-axis>
                                 <wj-flex-chart-axis [wjProperty]="'axisY'"
@@ -63,7 +60,7 @@
                                                     [min]="0"
                                                     [max]="100">
                                 </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
+                                <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
                                     <wj-flex-chart-axis [wjProperty]="'axisY'"
                                                         [position]="'Right'"
                                                         [title]="''"
@@ -71,236 +68,230 @@
                                                         [max]="100000">
                                     </wj-flex-chart-axis>
                                 </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
+                                <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                      [binding]="'yield'"  ></wj-flex-chart-series>
                             </wj-flex-chart>
                         </div>
                     </div>
                 </sa-widget>
+            </article><article *ngIf="processCodes[2]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <sa-widget [editbutton]="false">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                    <h2>{{processCodes[2]}}</h2>
+                </header>
+                <div>
+                    <div class="widget-body ">
+                        <wj-flex-chart #chart3
+                                       class="chart"
+                                       style="display:block;height:200px;"
+                                       [chartType]="'Column'"
+                                       [itemsSource]="chartDatas[2]"
+                                       [bindingX]="'mon'"
+                                       [labelContent]="'{y}'">
+                            <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                                [labelAngle]="0"></wj-flex-chart-axis>
+                            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                [title]="''"
+                                                [min]="0"
+                                                [max]="100">
+                            </wj-flex-chart-axis>
+                            <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [position]="'Right'"
+                                                    [title]="''"
+                                                    [min]="0"
+                                                    [max]="100000">
+                                </wj-flex-chart-axis>
+                            </wj-flex-chart-series>
+                            <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                  [binding]="'yield'"  ></wj-flex-chart-series>
+                        </wj-flex-chart>
+                    </div>
+                </div>
+            </sa-widget>
+        </article><article *ngIf="processCodes[3]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <sa-widget [editbutton]="false">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                    <h2>{{processCodes[3]}}</h2>
+                </header>
+                <div>
+                    <div class="widget-body ">
+                        <wj-flex-chart #chart4
+                                       class="chart"
+                                       style="display:block;height:200px;"
+                                       [chartType]="'Column'"
+                                       [itemsSource]="chartDatas[3]"
+                                       [bindingX]="'mon'"
+                                       [labelContent]="'{y}'">
+                            <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                                [labelAngle]="0"></wj-flex-chart-axis>
+                            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                [title]="''"
+                                                [min]="0"
+                                                [max]="100">
+                            </wj-flex-chart-axis>
+                            <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [position]="'Right'"
+                                                    [title]="''"
+                                                    [min]="0"
+                                                    [max]="100000">
+                                </wj-flex-chart-axis>
+                            </wj-flex-chart-series>
+                            <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                  [binding]="'yield'"  ></wj-flex-chart-series>
+                        </wj-flex-chart>
+                    </div>
+                </div>
+            </sa-widget>
+        </article><article *ngIf="processCodes[4]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <sa-widget [editbutton]="false">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                    <h2>{{processCodes[4]}}</h2>
+                </header>
+                <div>
+                    <div class="widget-body ">
+                        <wj-flex-chart #chart5
+                                       class="chart"
+                                       style="display:block;height:200px;"
+                                       [chartType]="'Column'"
+                                       [itemsSource]="chartDatas[4]"
+                                       [bindingX]="'mon'"
+                                       [labelContent]="'{y}'">
+                            <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                                [labelAngle]="0"></wj-flex-chart-axis>
+                            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                [title]="''"
+                                                [min]="0"
+                                                [max]="100">
+                            </wj-flex-chart-axis>
+                            <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [position]="'Right'"
+                                                    [title]="''"
+                                                    [min]="0"
+                                                    [max]="100000">
+                                </wj-flex-chart-axis>
+                            </wj-flex-chart-series>
+                            <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                  [binding]="'yield'"  ></wj-flex-chart-series>
+                        </wj-flex-chart>
+                    </div>
+                </div>
+            </sa-widget>
+        </article><article *ngIf="processCodes[5]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <sa-widget [editbutton]="false">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                    <h2>{{processCodes[5]}}</h2>
+                </header>
+                <div>
+                    <div class="widget-body ">
+                        <wj-flex-chart #chart6
+                                       class="chart"
+                                       style="display:block;height:200px;"
+                                       [chartType]="'Column'"
+                                       [itemsSource]="chartDatas[5]"
+                                       [bindingX]="'mon'"
+                                       [labelContent]="'{y}'">
+                            <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                                [labelAngle]="0"></wj-flex-chart-axis>
+                            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                [title]="''"
+                                                [min]="0"
+                                                [max]="100">
+                            </wj-flex-chart-axis>
+                            <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [position]="'Right'"
+                                                    [title]="''"
+                                                    [min]="0"
+                                                    [max]="100000">
+                                </wj-flex-chart-axis>
+                            </wj-flex-chart-series>
+                            <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                  [binding]="'yield'"  ></wj-flex-chart-series>
+                        </wj-flex-chart>
+                    </div>
+                </div>
+            </sa-widget>
+        </article><article *ngIf="processCodes[6]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <sa-widget [editbutton]="false">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                    <h2>{{processCodes[6]}}</h2>
+                </header>
+                <div>
+                    <div class="widget-body ">
+                        <wj-flex-chart #chart7
+                                       class="chart"
+                                       style="display:block;height:200px;"
+                                       [chartType]="'Column'"
+                                       [itemsSource]="chartDatas[6]"
+                                       [bindingX]="'mon'"
+                                       [labelContent]="'{y}'">
+                            <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                                [labelAngle]="0"></wj-flex-chart-axis>
+                            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                [title]="''"
+                                                [min]="0"
+                                                [max]="100">
+                            </wj-flex-chart-axis>
+                            <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [position]="'Right'"
+                                                    [title]="''"
+                                                    [min]="0"
+                                                    [max]="100000">
+                                </wj-flex-chart-axis>
+                            </wj-flex-chart-series>
+                            <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                  [binding]="'yield'"  ></wj-flex-chart-series>
+                        </wj-flex-chart>
+                    </div>
+                </div>
+            </sa-widget>
+        </article><article *ngIf="processCodes[7]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
+            <sa-widget [editbutton]="false">
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                    <h2>{{processCodes[7]}}</h2>
+                </header>
+                <div>
+                    <div class="widget-body ">
+                        <wj-flex-chart #chart8
+                                       class="chart"
+                                       style="display:block;height:200px;"
+                                       [chartType]="'Column'"
+                                       [itemsSource]="chartDatas[7]"
+                                       [bindingX]="'mon'"
+                                       [labelContent]="'{y}'">
+                            <wj-flex-chart-axis [wjProperty]="'axisX'"
+                                                [labelAngle]="0"></wj-flex-chart-axis>
+                            <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                [title]="''"
+                                                [min]="0"
+                                                [max]="100">
+                            </wj-flex-chart-axis>
+                            <wj-flex-chart-series [name]="'capa'" [binding]="'capa'">
+                                <wj-flex-chart-axis [wjProperty]="'axisY'"
+                                                    [position]="'Right'"
+                                                    [title]="''"
+                                                    [min]="0"
+                                                    [max]="100000">
+                                </wj-flex-chart-axis>
+                            </wj-flex-chart-series>
+                            <wj-flex-chart-series [name]="'yield'" [chartType]="'LineSymbols'"
+                                                  [binding]="'yield'"  ></wj-flex-chart-series>
+                        </wj-flex-chart>
+                    </div>
+                </div>
+            </sa-widget>
+        </article>
 
-            </article>
-            <article *ngIf="processCodes[2]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
-                <sa-widget [editbutton]="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>{{processCodes[2]}}</h2>
-                    </header>
-                    <div>
-                        <div class="widget-body ">
-                            <wj-flex-chart #chart3
-                                           class="chart"
-                                           (selectionChanged)="testFuntion()"
-                                           style="display:block;height:200px;"
-                                           [chartType]="'Column'"
-                                           [itemsSource]="chartDatas[2]"
-                                           [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'"
-                                                    [labelAngle]="0"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="''"
-                                                    [min]="0"
-                                                    [max]="100">
-                                </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
-                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                        [position]="'Right'"
-                                                        [title]="''"
-                                                        [min]="0"
-                                                        [max]="100000">
-                                    </wj-flex-chart-axis>
-                                </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
-                            </wj-flex-chart>
-                        </div>
-                    </div>
-                </sa-widget>
-            </article>
-            <article *ngIf="processCodes[3]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
-                <sa-widget [editbutton]="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>{{processCodes[3]}}</h2>
-                    </header>
-                    <div>
-                        <div class="widget-body ">
-                            <wj-flex-chart #chart4
-                                           class="chart"
-                                           (selectionChanged)="testFuntion()"
-                                           style="display:block;height:200px;"
-                                           [chartType]="'Column'"
-                                           [itemsSource]="chartDatas[3]"
-                                           [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'"
-                                                    [labelAngle]="0"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="''"
-                                                    [min]="0"
-                                                    [max]="100">
-                                </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
-                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                        [position]="'Right'"
-                                                        [title]="''"
-                                                        [min]="0"
-                                                        [max]="100000">
-                                    </wj-flex-chart-axis>
-                                </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
-                            </wj-flex-chart>
-                        </div>
-                    </div>
-                </sa-widget>
-            </article>
-            <article *ngIf="processCodes[4]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
-                <sa-widget [editbutton]="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>{{processCodes[4]}}</h2>
-                    </header>
-                    <div>
-                        <div class="widget-body ">
-                            <wj-flex-chart #chart5
-                                           class="chart"
-                                           (selectionChanged)="testFuntion()"
-                                           style="display:block;height:200px;"
-                                           [chartType]="'Column'"
-                                           [itemsSource]="chartDatas[4]"
-                                           [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'"
-                                                    [labelAngle]="0"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="''"
-                                                    [min]="0"
-                                                    [max]="100">
-                                </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
-                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                        [position]="'Right'"
-                                                        [title]="''"
-                                                        [min]="0"
-                                                        [max]="100000">
-                                    </wj-flex-chart-axis>
-                                </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
-                            </wj-flex-chart>
-                        </div>
-                    </div>
-                </sa-widget>
-            </article>
-            <article *ngIf="processCodes[5]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
-                <sa-widget [editbutton]="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>{{processCodes[5]}}</h2>
-                    </header>
-                    <div>
-                        <div class="widget-body ">
-                            <wj-flex-chart #chart6
-                                           class="chart"
-                                           (selectionChanged)="testFuntion()"
-                                           style="display:block;height:200px;"
-                                           [chartType]="'Column'"
-                                           [itemsSource]="chartDatas[5]"
-                                           [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'"
-                                                    [labelAngle]="0"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="''"
-                                                    [min]="0"
-                                                    [max]="100">
-                                </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
-                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                        [position]="'Right'"
-                                                        [title]="''"
-                                                        [min]="0"
-                                                        [max]="100000">
-                                    </wj-flex-chart-axis>
-                                </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
-                            </wj-flex-chart>
-                        </div>
-                    </div>
-                </sa-widget>
-            </article>
-            <article *ngIf="processCodes[6]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
-                <sa-widget [editbutton]="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>{{processCodes[6]}}</h2>
-                    </header>
-                    <div>
-                        <div class="widget-body ">
-                            <wj-flex-chart #chart7
-                                           class="chart"
-                                           (selectionChanged)="testFuntion()"
-                                           style="display:block;height:200px;"
-                                           [chartType]="'Column'"
-                                           [itemsSource]="chartDatas[6]"
-                                           [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'"
-                                                    [labelAngle]="0"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="''"
-                                                    [min]="0"
-                                                    [max]="100">
-                                </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
-                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                        [position]="'Right'"
-                                                        [title]="''"
-                                                        [min]="0"
-                                                        [max]="100000">
-                                    </wj-flex-chart-axis>
-                                </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
-                            </wj-flex-chart>
-                        </div>
-                    </div>
-                </sa-widget>
-            </article>
-            <article *ngIf="processCodes[7]" class="col-xs-12 col-sm-3 col-md-3 col-lg-6">
-                <sa-widget [editbutton]="false">
-                    <header>
-                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
-                        <h2>{{processCodes[7]}}</h2>
-                    </header>
-                    <div>
-                        <div class="widget-body ">
-                            <wj-flex-chart #chart8
-                                           class="chart"
-                                           (selectionChanged)="testFuntion()"
-                                           style="display:block;height:200px;"
-                                           [chartType]="'Column'"
-                                           [itemsSource]="chartDatas[7]"
-                                           [bindingX]="'mon'">
-                                <wj-flex-chart-axis [wjProperty]="'axisX'"
-                                                    [labelAngle]="0"></wj-flex-chart-axis>
-                                <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                    [title]="''"
-                                                    [min]="0"
-                                                    [max]="100">
-                                </wj-flex-chart-axis>
-                                <wj-flex-chart-series [name]="'total'" [binding]="'tav'">
-                                    <wj-flex-chart-axis [wjProperty]="'axisY'"
-                                                        [position]="'Right'"
-                                                        [title]="''"
-                                                        [min]="0"
-                                                        [max]="100000">
-                                    </wj-flex-chart-axis>
-                                </wj-flex-chart-series>
-                                <wj-flex-chart-series [name]="'prec'" [chartType]="'LineSymbols'"
-                                                      [binding]="'prec'"></wj-flex-chart-series>
-                            </wj-flex-chart>
-                        </div>
-                    </div>
-                </sa-widget>
-            </article>
         </div>
         <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
              aria-hidden="true">

@@ -2,11 +2,13 @@
                #chartDetail
                [chartType]="'Scatter'"
                [itemsSource]="chartDataDetail"
-               [bindingX]="'endTime'">
+               [bindingX]="'endTime'"
+               [itemFormatter]="itemFormatter"
+               [tooltipContent]="customTooltip">
     <wj-flex-chart-axis [wjProperty]="'axisX'" [axisLine]="true"
                         [title]="'Date'"></wj-flex-chart-axis>
     <wj-flex-chart-axis [wjProperty]="'axisY'"
                         [title]="'Yield'"></wj-flex-chart-axis>
-    <wj-flex-chart-series [binding]="'yield'" [name]="'raw score'"
+    <wj-flex-chart-series [binding]="'yield'" [name]="'yield'"
                           [symbolSize]="6"></wj-flex-chart-series>
 </wj-flex-chart>

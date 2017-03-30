@@ -29,26 +29,15 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
     hitInfo: wjcChart.HitTestInfo;
     point: wjcCore.Point;
     chartElement: string;
-    private _nStudents = 100;
-    private _nMaxPoints = 1600;
+
     chartDataDetail: any[];
     constructor(private service: DashboardService) {
         this.chartDataDetail = [];
-        // // generate data
-        // for (var i = 0; i < this._nStudents; i++) {
-        //     this.itemsSource2.push({
-        //         // number: i,
-        //         // score: this._nMaxPoints * 0.5 * (1 + Math.random())
-        //         endTime: i,
-        //         yield: this._nMaxPoints * 0.5 * (1 + Math.random())
-        //     });
-        // }
     }
 
 
 
     ngAfterViewInit() {
-        // this.chartDetailEdit();
         this.chart1Flag = false;
     }
     ngAfterViewChecked(){
@@ -135,125 +124,6 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
                     // this.chartDetailEdit();
                 },
                 error => this.errorMessage = error);
-
-        // this.chartDetailPupup.modal = true;
-        // this.chartDetailPupup.show();
-
-
-    }
-    chartDetailEdit=()=>{
-
-        var chartDetail = this.chartDetail;
-        var data2 = this.chartDataDetail;
-        if (!chartDetail) {
-            return;
-        }
-        // calculate statistics
-        var mean = this._findMean(data2);
-        var stdDev = this._findStdDev(data2, mean);
-
-        chartDetail.beginUpdate();
-        // statistics series
-        for (var i = -2; i <= 2; i++) {
-            var y = mean + i * stdDev;
-            var sdata = [{x: 0, y: y}, {x: this._nStudents - 1, y: y}];
-            var series = new wjcChart.Series();
-            series.itemsSource = sdata;
-            series.bindingX = 'x';
-            series.binding = 'y';
-            series.chartType = wjcChart.ChartType.Line;
-            series.style = {stroke: '#202020', strokeWidth: 1};
-            if (Math.abs(i) == 1) {
-                series.style.strokeDasharray = '5,1';
-            } else if (Math.abs(i) == 2) {
-                series.style.strokeDasharray = '2,2';
-            }
-
-            if (i > 0) {
-                series.name = 'm+' + i + 's';
-            } else if (i < 0) {
-                series.name = 'm' + i + 's';
-            } else {
-                series.name = 'mean';
-            }
-            chartDetail.series.push(series);
-        }
-
-        // calculate zone ranges
-        var yields = [];
-        for (var i = 0; i < data2.length; i++)
-            yields.push(data2[i].yield);
-        yields.sort(function (a, b) {
-            return b - a
-        });
-
-        var zones = [
-            yields[this._getBoundingIndex(yields, 0.95)],
-            yields[this._getBoundingIndex(yields, 0.75)],
-            yields[this._getBoundingIndex(yields, 0.25)],
-            yields[this._getBoundingIndex(yields, 0.05)]
-        ];
-
-        var colors = [
-            'rgba(255,192,192,0.2)',
-            'rgba(55,328,228,0.5)',
-            'rgba(255,228,128,0.5)',
-            'rgba(128,255,128,0.5)',
-            'rgba(128,128,225,0.5)'
-        ];
-
-        // add zones to legend
-        for (var i = 0; i < 5; i++) {
-            var series = new wjcChart.Series();
-            series.chartType = wjcChart.ChartType.Area
-            series.style = {fill: colors[4 - i], stroke: 'transparent'};
-            series.name = String.fromCharCode('A'.charCodeAt(0) + i);
-            chartDetail.series.push(series);
-        }
-
-        // render zones
-        chartDetail.rendering.addHandler((sender, e: any) => {
-            for (var i = 0; i < 5; i++) {
-                var ymin = i == 0 ? chartDetail.axisY.actualMin : zones[i - 1];
-                var ymax = i == 4 ? chartDetail.axisY.actualMax : zones[i];
-                this._drawAlarmZone(chartDetail, e.engine, chartDetail.axisX.actualMin, ymin, chartDetail.axisX.actualMax, ymax, colors[i]);
-            }
-        });
-
-        chartDetail.endUpdate();
-
-    }
-
-    private _findMean(data: any[]) {
-        var sum = 0;
-        for (var i = 0; i < data.length; i++) {
-            sum += data[i].yield;
-        }
-        return sum / data.length;
-    }
-
-    private _findStdDev(data: any[], mean: number) {
-        var sum = 0;
-        for (var i = 0; i < data.length; i++) {
-            var d = data[i].yield - mean;
-            sum += d * d;
-        }
-        return Math.sqrt(sum / data.length);
-    }
-
-    private _getBoundingIndex(data: any[], frac: number) {
-        var n = data.length;
-        var i = Math.ceil(n * frac);
-        while (i > data[0] && data[i] == data[i + 1])
-            i--;
-        return i;
-    }
-
-    private _drawAlarmZone(chart: wjcChart.FlexChart, engine: wjcChart.IRenderEngine, xmin: number, ymin: number, xmax: number, ymax: number, fill: string) {
-        var pt1 = chart.dataToPoint(new wjcCore.Point(xmin, ymin));
-        var pt2 = chart.dataToPoint(new wjcCore.Point(xmax, ymax));
-        engine.fill = fill;
-        engine.drawRect(Math.min(pt1.x, pt2.x), Math.min(pt1.y, pt2.y), Math.abs(pt2.x - pt1.x), Math.abs(pt2.y - pt1.y));
     }
 
     errorMessage = null;
