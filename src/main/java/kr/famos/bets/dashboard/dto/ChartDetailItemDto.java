@@ -9,6 +9,7 @@ public class ChartDetailItemDto {
     private String lotId = "";
     private int quantity = 0;
     private float yield = 0;
+    private float yieldAverage = 0;
     private String processCode = "";
     private float bin8 = 0;
 
@@ -58,5 +59,13 @@ public class ChartDetailItemDto {
 
     public void setBin8(float bin8) {
         this.bin8 = bin8;
+    }
+
+    public float getYieldAverage() {
+        return yieldAverage;
+    }
+
+    public void setYieldAverage(float yieldAverage) {
+        this.yieldAverage = yieldAverage;
     }
 }
