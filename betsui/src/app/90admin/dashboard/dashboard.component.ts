@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
     @ViewChild('chartDetail') chartDetail: wjcChart.FlexChart;
     @ViewChild('chartDetailPupup') chartDetailPupup: wjcInput.Popup;
     @ViewChild('lgModal') bgModel;
+    @ViewChild('saWidget1') saWidget1;
 
     chart1Flag = true;
     hitInfo: wjcChart.HitTestInfo;

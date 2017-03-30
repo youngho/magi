@@ -106,10 +106,9 @@ export class DashboardChartDetail implements OnChanges,AfterViewInit, AfterViewC
         chart.beginUpdate();
 
 
-        let y = mean + -1 * stdDev;
-        let sdata = [{x: 0, y: y}, {x: this.chartDataDetail.length - 1, y: y}];
-
-        sdata = [{x: 0, y: 99}, {x: this.chartDataDetail.length - 1, y: 99}];
+        let sdata;
+        //Limit
+        sdata = [{x: -1, y: 99}, {x: this.chartDataDetail.length + 1 , y: 99}];
         this.series1.itemsSource = sdata;
         this.series1.bindingX = 'x';
         this.series1.binding = 'y';
@@ -118,6 +117,8 @@ export class DashboardChartDetail implements OnChanges,AfterViewInit, AfterViewC
         this.series1.style.strokeDasharray = '2,2';
         this.series1.name = 'lmit';
 
+        //표준편차
+        let y = mean + -1 * stdDev;
         this.series2.itemsSource = sdata;
         this.series2.bindingX = 'x';
         this.series2.binding = 'y';
