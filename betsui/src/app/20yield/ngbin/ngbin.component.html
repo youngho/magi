@@ -22,11 +22,17 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="startDate"
+                                                           [format]="'yyyyMMdd'">
+                                            </wj-input-date>
+                                            <!--<ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>-->
                                         </div>
                                         <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="endDate"
+                                                           [format]="'yyyyMMdd'">
+                                            </wj-input-date>
+                                            <!--<ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>-->
                                         </div>
                                         <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
                                         <div class="col-md-2">
@@ -55,10 +61,12 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'testerNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text" [(ngModel)]="data.testerNumber">
+                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}"
+                                                   type="text" [(ngModel)]="data.testerNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
-                                        <div class="col-md-2"><input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="data.head"></div>
+                                        <div class="col-md-2"><input class="form-control" placeholder="Tester Head"
+                                                                     type="text" [(ngModel)]="data.head"></div>
                                         <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Test Counter" type="text"
@@ -73,7 +81,8 @@
                                         </div>
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}"
+                                                   type="text"
                                                    [(ngModel)]="data.mainProgramName">
                                         </div>
                                         <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
@@ -101,7 +110,33 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <dynamic-component [componentData]="componentData"></dynamic-component>
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>NG BIN YIELD Retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
+                                                     [binding]=col></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div>No Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </sa-widget>
             </article>
             <!-- WIDGET END -->
         </div>

@@ -8,10 +8,6 @@ export const routes:Routes = [
     loadChildren: 'app/20yield/lotyield/lotyield.module#lotyieldModule',
     data: {pageTitle: 'Lot yield'}
   },
-  { path: 'subbin',
-    loadChildren: 'app/20yield/subbin/subbin.module#SubBinModule',
-    data: {pageTitle: 'Sub bin'}
-  },
   { path: 'ngbin',
     loadChildren: 'app/20yield/ngbin/ngbin.module#NgBinModule',
     data: {pageTitle: 'NG bin'}
