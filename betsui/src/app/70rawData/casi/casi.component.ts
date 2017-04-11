@@ -1,12 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {CasiService} from "./casi.service";
-
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
-import {DynamicComponent} from './dynamic-component';
-import {DatatableComponent} from './datatable.component';
-import {RawData} from '../rawData.model';
+import * as wjcCore from "wijmo/wijmo";
+import * as wjcGrid from "wijmo/wijmo.grid";
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 import {NotificationService} from "../../shared/utils/notification.service";
+import {CasiService} from "./casi.service";
+import {RawData} from '../rawData.model';
 
 declare var $: any;
 
@@ -16,25 +15,25 @@ declare var $: any;
     templateUrl: 'casi.component.html',
     providers: [CasiService, RawData]
 })
-export class CasiComponent implements OnInit {
+export class CasiComponent {
 
     constructor(private service: CasiService,private notificationService: NotificationService,) {
     }
 
+    startDate = "";
+    endDate = "";
+    empty = true;
     componentData = null;
     errorMessage = null;
+    private colInfo = new Array();
+    public isRequesting: boolean;
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCond: RawData = new RawData();
     private retrieveByKeyDto: RawData = new RawData();
-    private colInfo = new Array();
     private Files: string[];
 
-    onSelectDateFrom(strDate: string) {
-        null != strDate ? this.retrieveCond.createDateStart = strDate + "000000" : this.retrieveCond.createDateStart = strDate;
-    }
 
-    onSelectDateTo(strDate: string) {
-        null != strDate ? this.retrieveCond.createDateEnd = strDate + "999999" : this.retrieveCond.createDateEnd = strDate;
-    }
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
@@ -60,52 +59,13 @@ export class CasiComponent implements OnInit {
 
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
-
-                    console.log(apps);
-                    //debugger;
-                    this.colInfo = [];
-                    var tempStr;
-                    var apps_obj = apps[0];
-                    if (apps_obj != null) {
-                        for (var key in apps_obj) {
-                            // var value = key;
-                            //console.log("===>" + value)
-                            tempStr = {"title": key, "data": key};
-                            this.colInfo.push(tempStr);
-                        }
-                    }else {
-                        // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
-                        // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
-                        console.log("columns return 0");
-                        this.colInfo.push({"title": "No Data", "data": "noData"});
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                        // this.stopRefreshing();
                     }
-
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                dom: 'Bfrtip',
-                                fixedColumns: true,
-                                colReorder: true,
-                                // scrollX: true,
-                                data: apps,
-                                columns: this.colInfo,
-                                rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
-                                let self = this;
-                                // Unbind first in order to avoid any duplicate handler
-                                // (see https://github.com/l-lin/angular-datatables/issues/87)
-                                $('td', nRow).unbind('click');
-                                $('td', nRow).bind('click', () => {
-                                    self.someClickHandler(aData);
-                                });
-                                return nRow;
-                            },
-                                buttons: [
-                                    'colvis', 'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
                 },
                 error => this.errorMessage = error);
     }
@@ -146,9 +106,8 @@ export class CasiComponent implements OnInit {
         // Cross your fingers at this point and pray whatever you're used to pray
         // window.open(fileURL);
     }
-
-    ngOnInit() {
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
     }
-
 
 }

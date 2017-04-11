@@ -20,8 +20,8 @@
                                 <fieldset>
                                     <!--검색조건 시작-->
                                     <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                             <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
                                         <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
@@ -106,7 +106,7 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>NG BIN YIELD Retrieve Result</h2>
+                        <h2>Single DUT Map Retrieve Result</h2>
                     </header>
                     <div *ngIf="!empty">
                         <div class="widget-body no-padding">

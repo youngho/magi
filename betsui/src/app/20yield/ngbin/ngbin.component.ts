@@ -51,4 +51,8 @@ export class NgBinComponent {
                 error => this.errorMessage = error);
     }
 
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+    }
+
 }

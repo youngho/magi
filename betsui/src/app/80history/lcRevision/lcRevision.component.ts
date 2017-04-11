@@ -1,13 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
+import * as wjcCore from "wijmo/wijmo";
+import * as wjcGrid from "wijmo/wijmo.grid";
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+
 import {LcRevisionService} from "./lcRevision.service";
-
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
-import {DynamicComponent} from './dynamic-component';
-import {DatatableComponent} from './datatable.component';
 import {LcRevision} from './lcRevision.model';
-
-declare var $: any;
 
 @FadeInTop()
 @Component({
@@ -15,23 +13,21 @@ declare var $: any;
     templateUrl: 'lcRevision.component.html',
     providers: [LcRevisionService, LcRevision]
 })
-export class LcRevisionComponent implements OnInit {
+export class LcRevisionComponent {
 
     constructor(private service: LcRevisionService) {
     }
 
+    startDate = "";
+    endDate = "";
+    empty = true;
     componentData = null;
     errorMessage = null;
-    private data: LcRevision = new LcRevision();
     private colInfo = new Array();
-
-    onSelectDateFrom(strDate: string) {
-        null != strDate ? this.data.createDateStart = strDate + "000000" : this.data.createDateStart = strDate;
-    }
-
-    onSelectDateTo(strDate: string) {
-        null != strDate ? this.data.createDateEnd = strDate + "999999" : this.data.createDateEnd = strDate;
-    }
+    public isRequesting: boolean;
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
+    private data: LcRevision = new LcRevision();
 
     retrieveExecute() {
         console.log("endTimeStart : " + this.data.createDateStart);
@@ -43,48 +39,18 @@ export class LcRevisionComponent implements OnInit {
 
         this.service.postLastTable(this.data)
             .subscribe((apps) => {
-
-                    console.log(apps);
-                    //debugger;
-                    this.colInfo = [];
-                    var tempStr;
-                    var apps_obj = apps[0];
-                    if (apps_obj != null) {
-                        for (var key in apps_obj) {
-                            // var value = key;
-                            //console.log("===>" + value)
-                            tempStr = {"title": key, "data": key};
-                            this.colInfo.push(tempStr);
-                        }
-                    }else {
-                        // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
-                        // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
-                        console.log("columns return 0");
-                        this.colInfo.push({"title": "No Data", "data": "noData"});
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                        // this.stopRefreshing();
                     }
-
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                dom: 'Bfrtip',
-                                fixedColumns: true,
-                                colReorder: true,
-                                scrollX: true,
-                                data: apps,
-                                columns: this.colInfo,
-                                buttons: [
-                                    'colvis', 'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
                 },
                 error => this.errorMessage = error);
     }
-
-    ngOnInit() {
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
     }
-
 
 }

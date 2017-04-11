@@ -16,15 +16,16 @@ export class SingleDutComponent {
 
     constructor(private service: SingleDutService) {
     }
-
+    startDate = "";
+    endDate = "";
     empty = true;
     componentData = null;
     errorMessage = null;
-    private data: SingleDut = new SingleDut();
     private colInfo = new Array();
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
+    private data: SingleDut = new SingleDut();
 
     resetForm() {
         this.data = new SingleDut();
@@ -59,4 +60,9 @@ export class SingleDutComponent {
     stopRefreshing() {
         this.isRequesting = false;
     }
+
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+    }
+
 }

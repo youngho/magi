@@ -1,7 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
+import * as wjcCore from "wijmo/wijmo";
+import * as wjcGrid from "wijmo/wijmo.grid";
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+
 import {UserUsageService} from "./userUsage.service";
-import {DatatableComponent} from './datatable.component';
 import {UserUsage} from './userUsage.model';
 
 @FadeInTop()
@@ -10,23 +13,22 @@ import {UserUsage} from './userUsage.model';
     templateUrl: 'userUsage.component.html',
     providers: [UserUsageService, UserUsage]
 })
-export class UserUsageComponent implements OnInit {
+export class UserUsageComponent {
     UIID: string = "BETS-UI-0803";
 
     constructor(private service: UserUsageService) {
     }
 
+    startDate = "";
+    endDate = "";
+    empty = true;
     componentData = null;
     errorMessage = null;
+    private colInfo = new Array();
+    public isRequesting: boolean;
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: UserUsage = new UserUsage();
-
-    onSelectDateFrom(strDate: string) {
-        null != strDate ? this.data.createDateStart = strDate + "000000" : this.data.createDateStart = strDate;
-    }
-
-    onSelectDateTo(strDate: string) {
-        null != strDate ? this.data.createDateEnd = strDate + "999999" : this.data.createDateEnd = strDate;
-    }
 
     resetForm() {
         this.data = new UserUsage();
@@ -40,28 +42,18 @@ export class UserUsageComponent implements OnInit {
 
         this.service.postLastTable(this.data)
             .subscribe((apps) => {
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                dom: 'Bfrtip',
-                                fixedColumns: true,
-                                colReorder: true,
-                                scrollX: true,
-                                data: apps,
-                                columns: [
-                                    {data: 'createDate'},
-                                    {data: 'userId'},
-                                    {data: 'uiId'},
-                                ],
-                                buttons: [
-                                    'colvis', 'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                        // this.stopRefreshing();
+                    }
                 },
                 error => this.errorMessage = error);
+    }
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
     }
 
     ngOnInit() {

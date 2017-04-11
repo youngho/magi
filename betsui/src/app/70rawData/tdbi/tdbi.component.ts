@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {TdbiService} from "./tdbi.service";
-
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
-import {DynamicComponent} from './dynamic-component';
-import {DatatableComponent} from './datatable.component';
-import {RawData} from '../rawData.model';
+import * as wjcCore from "wijmo/wijmo";
+import * as wjcGrid from "wijmo/wijmo.grid";
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 import {NotificationService} from "../../shared/utils/notification.service";
+
+import {TdbiService} from "./tdbi.service";
+import {RawData} from '../rawData.model';
 
 
 @FadeInTop()
@@ -15,25 +15,25 @@ import {NotificationService} from "../../shared/utils/notification.service";
     templateUrl: 'tdbi.component.html',
     providers: [TdbiService, RawData]
 })
-export class TdbiComponent implements OnInit {
+export class TdbiComponent {
 
     constructor(private service: TdbiService,private notificationService: NotificationService,) {
     }
 
+    startDate = "";
+    endDate = "";
+    empty = true;
     componentData = null;
     errorMessage = null;
+    private colInfo = new Array();
+    public isRequesting: boolean;
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCond: RawData = new RawData();
     private retrieveByKeyDto: RawData = new RawData();
-    private colInfo = new Array();
     private Files: string[];
 
-    onSelectDateFrom(strDate: string) {
-        null != strDate ? this.retrieveCond.createDateStart = strDate + "000000" : this.retrieveCond.createDateStart = strDate;
-    }
 
-    onSelectDateTo(strDate: string) {
-        null != strDate ? this.retrieveCond.createDateEnd = strDate + "999999" : this.retrieveCond.createDateEnd = strDate;
-    }
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
@@ -58,36 +58,13 @@ export class TdbiComponent implements OnInit {
 
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                dom: 'Bfrtip',
-                                fixedColumns: true,
-                                colReorder: true,
-                                // scrollX: true,
-                                data: apps,
-                                columns: [
-                                    {data: 'location'},
-                                    {data: 'fileName'},
-                                    {data: 'createDate'},
-                                ],
-                                rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
-                                let self = this;
-                                // Unbind first in order to avoid any duplicate handler
-                                // (see https://github.com/l-lin/angular-datatables/issues/87)
-                                $('td', nRow).unbind('click');
-                                $('td', nRow).bind('click', () => {
-                                    self.someClickHandler(aData);
-                                });
-                                return nRow;
-                            },
-                                buttons: [
-                                    'colvis', 'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                        // this.stopRefreshing();
+                    }
                 },
                 error => this.errorMessage = error);
     }
@@ -108,9 +85,7 @@ export class TdbiComponent implements OnInit {
             }
         });
     }
-
-    ngOnInit() {
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
     }
-
-
 }

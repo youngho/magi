@@ -22,11 +22,11 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
                                         <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -60,7 +60,35 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <dynamic-component [componentData]="componentData"></dynamic-component>
+                <!-- widget Grid Start -->
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>LC Revision Retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
+                                                     [binding]=col></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div>No Data</div>
+                            </div>
+                        </div>
+                    </div>
+                </sa-widget>
+                <!-- widget Grid End -->
             </article>
             <!-- WIDGET END -->
         </div>
