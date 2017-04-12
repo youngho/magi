@@ -66,35 +66,15 @@ export const routes: Routes = [
         data: {pageTitle: 'Admin'}
       },
       {
-        path: 'dashboard',
-        loadChildren: 'app/+dashboard/dashboard.module#DashboardModule',
-        data: {pageTitle: 'Dashboard'}
-      },
-      {
         path: 'forms',
         loadChildren: 'app/+forms/forms-showcase.module#FormsShowcaseModule',
         data: {pageTitle: 'Forms'}
-      },
-      {
-        path: 'graphs',
-        loadChildren: 'app/+graphs/graphs-showcase.module#GraphsShowcaseModule',
-        data: {pageTitle: 'Graphs'}
-      },
-      {
-        path: 'tables',
-        loadChildren: 'app/+tables/tables.module#TablesModule',
-        data: {pageTitle: 'Tables'}
       },
       {
         path: 'ui',
         loadChildren: 'app/+ui-elements/ui-elements.module#UiElementsModule',
         data: {pageTitle: 'Ui'}
       },
-        {
-            path: 'test',
-            loadChildren: 'app/test/test.module#TestModule',
-            data: {pageTitle: 'Ui'}
-        },
     ]
   },
 

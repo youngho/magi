@@ -1,33 +1,31 @@
 /**
- * Created by yhkim on 2017-02-17.
+ * BETS-UI-0401 : Yield Abnormal
+ * 2017.03.01
+ * Yield Abnormal retrieve condition object
  */
 export class YieldAbnormal {
-    testerNumber: string;
-    testerModel: string;
-    handlerModel: string;
-    head: string;
-    lotId: string;
-    processCode: string;
-    partNumber: string;
-    mainProgramName: string;
-    grade: string;
-    fab: string;
-    firmwareName: string;
-    firmwareVersion: string;
-    temperature: string;
-    operatorId: string;
-    quantity: string;
-    testCounter: string;
-    reworkFlag: string;
-    boardId: string;
-    lotInTime: string;
-    endTime: string;
-    sblResult: string;
-    sblYieldLimit: string;
-
     endTimeStart: string;
     endTimeEnd: string;
-
     sblMode: string;
+    partNumber: string;
+    processCode: string;
+    testerModel: string;
+    testerNumber: string;
+    head: string;
+    testCounter: string;
+    lotId: string;
+    mainProgramName: string;
+    boardId: string;
 
+    // grade: string;
+    // fab: string;
+    // firmwareName: string;
+    // firmwareVersion: string;
+    // temperature: string;
+    // operatorId: string;
+    // quantity: string;
+    // reworkFlag: string;
+    // lotInTime: string;
+    // sblResult: string;
+    // sblYieldLimit: string;
 }

@@ -1,3 +1,4 @@
+<!--BETS-UI-0401 : Yield Abnormal-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -29,10 +30,10 @@
                                         </div>
                                         <label class="col-md-2 control-label">{{'sblMode'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <!--<input class="form-control" type="text" [(ngModel)]="data.sblMode">-->
+                                            <!--<input class="form-control" type="text" [(ngModel)]="retrieveCond.sblMode">-->
 
                                             <label class="select">
-                                                <select class="input-sm" [(ngModel)]="data.sblMode">
+                                                <select class="input-sm" [(ngModel)]="retrieveCond.sblMode">
                                                     <option value="sblYieldResult">SBL_YIELD_RESULT</option>
                                                     <option value="sblBin1Result">SBL_BIN1_RESULT</option>
                                                     <option value="sblBin2Result">SBL_BIN2_RESULT</option>
@@ -53,53 +54,53 @@
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partNumber">
+                                                   [(ngModel)]="retrieveCond.partNumber">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processCode">
+                                                   [(ngModel)]="retrieveCond.processCode">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Model" type="text"
-                                                   [(ngModel)]="data.testerModel">
+                                                   [(ngModel)]="retrieveCond.testerModel">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'testerNumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text"
-                                                   [(ngModel)]="data.testerNumber">
+                                                   [(ngModel)]="retrieveCond.testerNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Head" type="text"
-                                                   [(ngModel)]="data.head">
+                                                   [(ngModel)]="retrieveCond.head">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="OP_BIN" type="text"
-                                                   [(ngModel)]="data.testCounter">
+                                                   [(ngModel)]="retrieveCond.testCounter">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Lot ID" type="text"
-                                                   [(ngModel)]="data.lotId">
+                                                   [(ngModel)]="retrieveCond.lotId">
                                         </div>
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
+                                                   [(ngModel)]="retrieveCond.mainProgramName">
                                         </div>
                                         <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
-                                                   [(ngModel)]="data.boardId">
+                                                   [(ngModel)]="retrieveCond.boardId">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -110,7 +111,7 @@
                                             <button class="btn btn-default" (click)="resetForm()">
                                                 {{'reset'|i18n}}
                                             </button>
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                            <button (click)="retrieveExecute()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>

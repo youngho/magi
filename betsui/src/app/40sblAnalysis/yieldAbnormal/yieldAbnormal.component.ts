@@ -1,3 +1,6 @@
+/**
+ * BETS-UI-0401 : Yield Abnormal
+ */
 import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
@@ -10,6 +13,7 @@ import {YieldAbnormal} from './yieldAbnormal.model';
 @Component({
     selector: 'SingledDutBin',
     templateUrl: 'yieldAbnormal.component.html',
+    styles: ['select.input-sm {height: 20px;line-height: 20px;} label {margin-bottom: 0px;}'],
     providers: [YieldAbnormalService,YieldAbnormal]
 })
 export class YieldAbnormalComponent {
@@ -24,35 +28,39 @@ export class YieldAbnormalComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data : YieldAbnormal = new YieldAbnormal();
+    private retrieveCond : YieldAbnormal = new YieldAbnormal();
 
-
+    /**
+     * Reset the retrieve form fields
+     */
     resetForm(){
-        this.data.endTimeStart = null;
-        this.data.endTimeEnd = null;
-        this.data.partNumber = null;
-        this.data.processCode = null;
-        this.data.testerModel = null;
-        this.data.testerNumber = null;
-        this.data.head = null;
-        this.data.testCounter = null;
-        this.data.lotId = null;
-        this.data.mainProgramName = null;
-        this.data.boardId = null;
-        this.data.sblMode = null;
+        this.retrieveCond.endTimeStart = null;
+        this.retrieveCond.endTimeEnd = null;
+        this.retrieveCond.partNumber = null;
+        this.retrieveCond.processCode = null;
+        this.retrieveCond.testerModel = null;
+        this.retrieveCond.testerNumber = null;
+        this.retrieveCond.head = null;
+        this.retrieveCond.testCounter = null;
+        this.retrieveCond.lotId = null;
+        this.retrieveCond.mainProgramName = null;
+        this.retrieveCond.boardId = null;
+        this.retrieveCond.sblMode = null;
     }
 
-    saveLastTableForm() {
-        // console.log("sysDateStart : " + this.data.sysDateStart);
-        // console.log("sysDateEnd : " + this.data.sysDateEnd);
-        // console.log("partnumberName : " + this.data.partnumberName);
-        // console.log("lotNumber : " + this.data.lotNumber);
-        // console.log("processName : " + this.data.processName);
-        // console.log("testCount : " + this.data.testCount);
-        // console.log("testerName : " + this.data.testerName);
-        // console.log("testerHead : " + this.data.testerHead);
+    retrieveExecute() {
+        this.retrieveCond.endTimeStart = this.startDate + "000000";
+        this.retrieveCond.endTimeEnd = this.endDate + "999999";
+        // console.log("sysDateStart : " + this.retrieveCond.endTimeStart);
+        // console.log("sysDateEnd : " + this.retrieveCond.endTimeEnd);
+        // console.log("partnumberName : " + this.retrieveCond.partNumber);
+        // console.log("lotNumber : " + this.retrieveCond.processCode);
+        // console.log("processName : " + this.retrieveCond.processName);
+        // console.log("testCount : " + this.retrieveCond.testCount);
+        // console.log("testerName : " + this.retrieveCond.testerName);
+        // console.log("testerHead : " + this.retrieveCond.testerHead);
 
-        this.service.postLastTable(this.data)
+        this.service.retrieve(this.retrieveCond)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {

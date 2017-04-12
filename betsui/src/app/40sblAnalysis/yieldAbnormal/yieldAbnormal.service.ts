@@ -13,8 +13,7 @@ export class YieldAbnormalService {
     constructor(private api: ApiService) {
     }
 
-    postLastTable(data: YieldAbnormal) {
-        console.log('PATH : ' + this.path);
+    retrieve(data: YieldAbnormal) {
         return this.api.retrievePost(`${this.path}`, data);
     }
 

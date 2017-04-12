@@ -13,21 +13,19 @@
         <ul saSmartMenu>
             <!--BETS MENU START-->
 
-<!--
-            <li *ngFor="let item of menuData, let index = index">
-                <a title="{{ item.section }}"><i class="fa fa-lg fa-fw fa-gears"></i><span class="menu-item-parent">{{ item.section }}</span>
-                </a>
-                <ul>
-                    <li *ngFor="let link of item.links" routerLinkActive="active">
-                        &lt;!&ndash; [href] doesn't work in IE/Edge &ndash;&gt;
-                        &lt;!&ndash;<a [href]="'#' + link.url">{{ link.text }}</a>&ndash;&gt;
-                        <a *ngIf="link.alias" [routerLink]="['/' + link.alias]">{{ link.text }}</a>
-                    </li>
-                </ul>
-            </li>
--->
-
-
+            <!--
+                        <li *ngFor="let item of menuData, let index = index">
+                            <a title="{{ item.section }}"><i class="fa fa-lg fa-fw fa-gears"></i><span class="menu-item-parent">{{ item.section }}</span>
+                            </a>
+                            <ul>
+                                <li *ngFor="let link of item.links" routerLinkActive="active">
+                                    &lt;!&ndash; [href] doesn't work in IE/Edge &ndash;&gt;
+                                    &lt;!&ndash;<a [href]="'#' + link.url">{{ link.text }}</a>&ndash;&gt;
+                                    <a *ngIf="link.alias" [routerLink]="['/' + link.alias]">{{ link.text }}</a>
+                                </li>
+                            </ul>
+                        </li>
+            -->
             <li>
                 <a title="BASIS INFORMATION"><i class="fa fa-lg fa-fw fa-gears"></i> <span class="menu-item-parent">{{'BASIS INFORMATION' | i18n}}</span></a>
                 <ul>
@@ -163,10 +161,12 @@
                     <li routerLinkActive="active">
                         <a routerLink="/admin/settings">{{'Settings' | i18n}}</a>
                     </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/admin/dashboard">{{'Dashboard' | i18n}}</a>
+                    </li>
                 </ul>
             </li>
             <!--BETS MENU END-->
-
             <li>
                 <a title="---------"><span class="menu-item-parent">{{'----------------------------' | i18n}}</span></a>
                 <ul>
@@ -174,63 +174,6 @@
                     </li>
                 </ul>
             </li>
-            <li>
-                <a title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span
-                        class="menu-item-parent">{{'Dashboard' | i18n}}</span></a>
-                <ul>
-                    <li routerLinkActive="active">
-                        <a routerLink="/dashboard/analytics">{{'Dashboard' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/admin/dashboard">{{'Dashboard2' | i18n}}</a>
-                    </li>
-                </ul>
-            </li>
-
-
-            <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span
-                        class="menu-item-parent">{{'Graphs' | i18n}}</span></a>
-                <ul>
-                    <li routerLinkActive="active">
-                        <a routerLink="/graphs/flot-charts">{{'Flot Chart' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/graphs/morris-charts">{{'Morris Charts' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/graphs/sparklines">{{'Sparkline' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/graphs/easy-pie-charts">{{'Easy Pie Charts' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/graphs/dygraphs">{{'Dygraphs' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/graphs/chart-js">Chart.js</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/graphs/highchart-tables">Highchart Tables <span
-                                class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span
-                        class="menu-item-parent">{{'Tables' | i18n}}</span></a>
-                <ul>
-                    <li routerLinkActive="active">
-                        <a routerLink="/tables/normal">{{'Normal Tables' | i18n}}</a>
-                    </li>
-                    <li routerLinkActive="active">
-                        <a routerLink="/tables/datatables">{{'Data Tables' | i18n}} <span
-                                class="badge inbox-badge bg-color-greenLight">v1.10</span></a>
-                    </li>
-                </ul>
-            </li>
-
             <li>
                 <a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span
                         class="menu-item-parent">{{'Forms' | i18n}}</span></a>
@@ -362,15 +305,6 @@
                     </li>
                 </ul>
 
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span
-                        class="menu-item-parent">{{'Test' | i18n}}</span></a>
-                <ul>
-                    <li routerLinkActive="active">
-                        <a routerLink="/test">{{'Test' | i18n}}</a>
-                    </li>
-                </ul>
             </li>
         </ul>
 
