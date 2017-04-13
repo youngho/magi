@@ -1,6 +1,7 @@
 package kr.famos.bets.yieldAnalysis.lotYield.rest;
 
-import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldDto;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldResultDto;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldRetrieveCondDto;
 import kr.famos.bets.yieldAnalysis.lotYield.mapper.LotYieldMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +26,9 @@ public class LotYieldController {
     private LotYieldMapper lotYieldMapper;
 
     @RequestMapping(value = "/retrieveLotYield", method = RequestMethod.POST)
-    public ResponseEntity<List<LotYieldDto>> retrieveLotYield(@RequestBody LotYieldDto lotYield) {
+    public ResponseEntity<List<LotYieldResultDto>> retrieveLotYield(@RequestBody LotYieldRetrieveCondDto lotYield) {
         logger.debug("LotYieldController - retrieveLotYield 메소드");
 
-        return new ResponseEntity<List<LotYieldDto>>(lotYieldMapper.retrieveLotYield(lotYield), HttpStatus.OK);
+        return new ResponseEntity<List<LotYieldResultDto>>(lotYieldMapper.retrieveLotYield(lotYield), HttpStatus.OK);
     }
 }

@@ -1,6 +1,7 @@
 package kr.famos.bets.yieldAnalysis.lotYield.service;
 
-import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldDto;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldResultDto;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldRetrieveCondDto;
 import kr.famos.bets.yieldAnalysis.lotYield.mapper.LotYieldMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +20,8 @@ public class LotYieldService {
     @Autowired
     LotYieldMapper lotYieldMapper;
 
-    public List<LotYieldDto> retrieveLotYield(LotYieldDto lotYieldDto){
-        List<LotYieldDto> programRegisterDtoList = lotYieldMapper.retrieveLotYield(lotYieldDto);
+    public List<LotYieldResultDto> retrieveLotYield(LotYieldRetrieveCondDto lotYieldDto){
+        List<LotYieldResultDto> programRegisterDtoList = lotYieldMapper.retrieveLotYield(lotYieldDto);
         return programRegisterDtoList;
     }
 }

@@ -3,7 +3,7 @@ import {FadeInTop} from "../animations/fade-in-top.decorator";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {ProgramRegisterService} from "../../10basis/ProgramRegister/ProgramRegister.service";
 import {NotificationService} from "../utils/notification.service";
-import {ProgramRegister} from "../../10basis/ProgramRegister/ProgramRegister.model";
+import {ProgramRegister} from "../../10basis/ProgramRegister.model";
 import {concat} from "rxjs/observable/concat";
 
 @FadeInTop()
@@ -15,7 +15,7 @@ import {concat} from "rxjs/observable/concat";
 export class ProgramRegisterViewComponent implements OnInit,OnChanges {
     @Input() programRegisterTo: ProgramRegister;
     @Input() newFlag=true;
-    @Output()  modalClose = new EventEmitter(); //ºÒ¸¥ °ð¿¡¼­ ÆË¾÷ Ã¢À» ´Ý°Ô ÇÏ±âÀ§ÇÔ
+    @Output()  modalClose = new EventEmitter(); //ï¿½Ò¸ï¿½ ï¿½ð¿¡¼ï¿½ ï¿½Ë¾ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý°ï¿½ ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½
 
     public validationOptions = {
         rules: {
@@ -54,8 +54,8 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
         console.log(this.programRegisterTo)
         if (this.programRegisterTo.partNumber != null) {
             this.programRegister = this.programRegisterTo
-            this.retrieveFunction();            //ÆË¾÷ Á¶È¸½Ã FunctionKey Y/N ¸ÊÇÎ
-            this.retrievePassBinSelection();    //ÆË¾÷ Á¶È¸½Ã PassBINSelection Y/N ¸ÊÇÎ
+            this.retrieveFunction();            //ï¿½Ë¾ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ FunctionKey Y/N ï¿½ï¿½ï¿½ï¿½
+            this.retrievePassBinSelection();    //ï¿½Ë¾ï¿½ ï¿½ï¿½È¸ï¿½ï¿½ PassBINSelection Y/N ï¿½ï¿½ï¿½ï¿½
         }
 
     }
@@ -65,7 +65,7 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
     }
 
     resetForm() {
-        this.programRegister = new ProgramRegister();  //ÀÌ Å¬·¡½º°¡ INPUT¹Ú½º¿Í ¹ÙÀÎµùµÇ¾î ÀÖ¾î ÃÊ±âÈ­ ÇÑ´Ù.
+        this.programRegister = new ProgramRegister();  //ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ INPUTï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½Ç¾ï¿½ ï¿½Ö¾ï¿½ ï¿½Ê±ï¿½È­ ï¿½Ñ´ï¿½.
         return false;
     }
 
@@ -73,12 +73,12 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
         console.log(this.programRegister);
         // console.log('submitting LastTable form @' + this.tableForm);
 
-        this.functionKeyMerge();    //functionKey 16ÀÚ¸®¸¦ ¸¸µé¾î ÁÖ´Â ÇÔ¼ö
-        this.binDescriptionMerge();    //binDescription 8ÀÚ¸®¸¦ ¸¸µé¾î ÁÖ´Â ÇÔ¼ö
+        this.functionKeyMerge();    //functionKey 16ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
+        this.binDescriptionMerge();    //binDescription 8ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
 
-        this.programRegister.createUser = localStorage.getItem('loginId');  //ºê¶ó¿ìÀúÀÇ localStorage ¿¡¼­ ·Î±×ÀÎ ¾ÆÀÌµð¸¦ °¡Á®¿Í ÀúÀå½Ã ³Ñ±ä´Ù.
+        this.programRegister.createUser = localStorage.getItem('loginId');  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ localStorage ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½.
 
-        //°³¹ß½Ã ·Î±×ÀÎ ¾ÆÀÌµð°¡ ¾øÀ»°æ¿ì »ç¿ëÇÏ±â À§ÇØ ³ÖÀº ÄÚµå
+        //ï¿½ï¿½ï¿½ß½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½
         if (localStorage.getItem('loginId') === null) {
             this.programRegister.createUser = 'devdev';
         }
@@ -110,13 +110,13 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
 
     modalClosefn(){
 
-        this.modalClose.emit(true); //ºÒ¸¥ °ð¿¡¼­ ´Ý°Ô ÇÏ±â À§ÇØ
+        this.modalClose.emit(true); //ï¿½Ò¸ï¿½ ï¿½ð¿¡¼ï¿½ ï¿½Ý°ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½
         return false;
     }
 
     binDescriptionMerge() {
         /**
-         * ÀúÀå½Ã binDescription 8ÀÚ¸®¸¦ ÇÕÃÄÁÖ´Â ÇÔ¼ö
+         * ï¿½ï¿½ï¿½ï¿½ï¿½ binDescription 8ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Ô¼ï¿½
          */
         if (this.programRegister.passBinSelection1 === true) {
             this.programRegister.passBinSelection = 'Y';
@@ -162,8 +162,8 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
 
     functionKeyMerge() {
         /**
-         * ÀúÀå½Ã FunctionKey
-         * FunctionKey YN º¯È¯
+         * ï¿½ï¿½ï¿½ï¿½ï¿½ FunctionKey
+         * FunctionKey YN ï¿½ï¿½È¯
          */
         if (this.programRegister.functionKey1 === true) {
             this.programRegister.functionKey = 'Y';

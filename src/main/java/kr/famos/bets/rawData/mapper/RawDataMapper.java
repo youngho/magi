@@ -1,6 +1,7 @@
 package kr.famos.bets.rawData.mapper;
 
-import kr.famos.bets.rawData.dto.RawDataDto;
+import kr.famos.bets.rawData.dto.RawDataResultDto;
+import kr.famos.bets.rawData.dto.RawDataRetrieveCondDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
 @Mapper
 public interface RawDataMapper {
 
-    public List<RawDataDto> retrieveRawData(RawDataDto rawDataDto);
+    public List<RawDataResultDto> retrieveRawData(RawDataRetrieveCondDto rawDataResultDto);
 }

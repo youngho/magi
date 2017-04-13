@@ -3,7 +3,7 @@
 <mapper namespace="kr.famos.bets.rawData.mapper.RawDataMapper">
     <!-- BETS-UI-0801 사용 -->
     <!-- BETS-UI-0802 사용 -->
-    <select id="retrieveRawData" parameterType="kr.famos.bets.rawData.dto.RawDataDto" resultType="kr.famos.bets.rawData.dto.RawDataDto">
+    <select id="retrieveRawData" parameterType="kr.famos.bets.rawData.dto.RawDataRetrieveCondDto" resultType="kr.famos.bets.rawData.dto.RawDataResultDto">
         SELECT
             LOCATION,
             FILE_NAME,

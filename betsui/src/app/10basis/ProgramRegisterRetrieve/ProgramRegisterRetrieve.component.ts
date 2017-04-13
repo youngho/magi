@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import {ProgramRegisterRetrieveService} from "./ProgramRegisterRetrieve.service";
 
-import {ProgramRegister} from "./ProgramRegister.model";
+import {ProgramRegister} from "../ProgramRegister.model";
 import {DatatableComponent} from "./datatable.component";
 import * as wjcCore from 'wijmo/wijmo';
 import * as wjcGrid from 'wijmo/wijmo.grid';
@@ -76,7 +76,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         if(clsoe){
             this.bgModel.hide();
         }
-        this.saveLastTableForm();
+        this.retrieveExecute();
     }
 
     resetForm() {
@@ -85,7 +85,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         this.retrieveCondDto.testerModel = null;
     }
 
-    saveLastTableForm() {
+    retrieveExecute() {
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);

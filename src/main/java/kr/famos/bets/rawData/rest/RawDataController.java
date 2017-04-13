@@ -1,6 +1,7 @@
 package kr.famos.bets.rawData.rest;
 
-import kr.famos.bets.rawData.dto.RawDataDto;
+import kr.famos.bets.rawData.dto.RawDataResultDto;
+import kr.famos.bets.rawData.dto.RawDataRetrieveCondDto;
 import kr.famos.bets.rawData.service.RawDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,8 +29,8 @@ public class RawDataController {
 
 
     @RequestMapping(value = "/retrieveRawData", method = RequestMethod.POST)
-    public ResponseEntity<List<RawDataDto>> retrieveRawData(@RequestBody RawDataDto rawDataDto){
-        return new ResponseEntity<List<RawDataDto>>(rawDataService.retrieveRawData(rawDataDto), HttpStatus.OK);
+    public ResponseEntity<List<RawDataResultDto>> retrieveRawData(@RequestBody RawDataRetrieveCondDto rawDataRetrieveCondDto){
+        return new ResponseEntity<List<RawDataResultDto>>(rawDataService.retrieveRawData(rawDataRetrieveCondDto), HttpStatus.OK);
     }
 
     /*

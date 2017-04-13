@@ -3,14 +3,11 @@ package kr.famos.bets.rawData.dto;
 /**
  * Created by yhkim on 2017-03-11.
  */
-public class RawDataDto {
+public class RawDataResultDto {
     private String location   = ""; // 파일위치
     private String fileName   = ""; // 파일이름
     private String createDate = ""; // 파일생성일시
     private String fileType   = ""; //
-
-    private String createDateStart  = ""; // 생성일시시작
-    private String createDateEnd    = ""; // 생성일시끝
 
     public String getLocation() {
         return location;
@@ -42,21 +39,5 @@ public class RawDataDto {
 
     public void setFileType(String fileType) {
         this.fileType = fileType;
-    }
-
-    public String getCreateDateStart() {
-        return createDateStart;
-    }
-
-    public void setCreateDateStart(String createDateStart) {
-        this.createDateStart = createDateStart;
-    }
-
-    public String getCreateDateEnd() {
-        return createDateEnd;
-    }
-
-    public void setCreateDateEnd(String createDateEnd) {
-        this.createDateEnd = createDateEnd;
     }
 }

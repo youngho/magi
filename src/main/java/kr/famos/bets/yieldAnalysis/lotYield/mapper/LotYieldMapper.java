@@ -1,6 +1,8 @@
 package kr.famos.bets.yieldAnalysis.lotYield.mapper;
 
-import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldDto;
+
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldResultDto;
+import kr.famos.bets.yieldAnalysis.lotYield.dto.LotYieldRetrieveCondDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -10,5 +12,5 @@ import java.util.List;
  */
 @Mapper
 public interface LotYieldMapper {
-    public List<LotYieldDto> retrieveLotYield(LotYieldDto lotYieldDto);
+    public List<LotYieldResultDto> retrieveLotYield(LotYieldRetrieveCondDto lotYieldDto);
 }

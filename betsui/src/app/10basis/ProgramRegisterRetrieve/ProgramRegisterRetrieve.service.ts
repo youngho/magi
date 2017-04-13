@@ -4,7 +4,7 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
-import {ProgramRegister} from "./ProgramRegister.model";
+import {ProgramRegister} from "../ProgramRegister.model";
 import {tick} from "@angular/core/testing";
 
 @Injectable()
