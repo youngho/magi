@@ -1,10 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {Lotyield} from './lotyield.model';
-import {lotyieldService} from "./lotyield.service";
 import * as wjcCore from 'wijmo/wijmo';
 import * as wjcGrid from 'wijmo/wijmo.grid';
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {Lotyield} from './lotyield.model';
+import {lotyieldService} from "./lotyield.service";
+
 
 @FadeInTop()
 @Component({

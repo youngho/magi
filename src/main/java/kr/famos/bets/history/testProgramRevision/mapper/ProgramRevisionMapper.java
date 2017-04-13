@@ -1,6 +1,7 @@
 package kr.famos.bets.history.testProgramRevision.mapper;
 
-import kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionDto;
+import kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionResultDto;
+import kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionRetrieveCondDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
 @Mapper
 public interface ProgramRevisionMapper {
 
-    public List<ProgramRevisionDto> retrieveProgramRevision(ProgramRevisionDto programRevisionDto);
+    public List<ProgramRevisionResultDto> retrieveProgramRevision(ProgramRevisionRetrieveCondDto programRevisionRetrieveCondDto);
 }

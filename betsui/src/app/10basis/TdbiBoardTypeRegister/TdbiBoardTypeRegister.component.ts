@@ -1,16 +1,12 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {CommonModule} from "@angular/common";
-import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
-import {TdbiBoardTypeRegisterService} from "./TdbiBoardTypeRegister.service";
-
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import {TdbiBoardType} from './TdbiBoardType.model';
-
-import {DatatableComponent} from './datatable.component';
+import * as wjcCore from 'wijmo/wijmo';
+import * as wjcGrid from 'wijmo/wijmo.grid';
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 import {NotificationService} from "../../shared/utils/notification.service";
 
+import {TdbiBoardTypeRegisterService} from "./TdbiBoardTypeRegister.service";
+import {TdbiBoardType} from './TdbiBoardType.model';
 
 @FadeInTop()
 @Component({
@@ -19,7 +15,7 @@ import {NotificationService} from "../../shared/utils/notification.service";
     providers: [TdbiBoardTypeRegisterService, TdbiBoardType]
 })
 
-export class TdbiBoardTypeRegisterComponent implements OnInit {
+export class TdbiBoardTypeRegisterComponent {
 
     retrieveCondDto = {
         boardTypeNo: "",
@@ -33,9 +29,15 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
 
     @ViewChild('lgModal') bgModel;
 
+    startDate = "";
+    endDate = "";
+    empty = true;
     componentData = null;
     errorMessage = null;
-    message: string = '';
+    gridData: wjcCore.CollectionView;
+    private colInfo = new Array();// Grid dynamic columns
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
+
     submitted = false;
 
     /**
@@ -48,12 +50,13 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
     resetForm() {
         this.retrieveCondDto = new TdbiBoardType();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
     }
+
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
      */
     someClickHandler(info: any): void {
-        this.message = info.boardTypeNo + ' - ' + info.xSocketQty + ' - ' + info.ySocketQty;
+        //this.message = info.boardTypeNo + ' - ' + info.xSocketQty + ' - ' + info.ySocketQty;
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.tdbiBoardType.boardTypeNo = info.boardTypeNo;
@@ -74,43 +77,19 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
 
     }
 
-    saveLastTableForm() {
+    retrieveExecute() {
         console.log("boardTypeNo : " + this.tdbiBoardType.boardTypeNo);
         console.log("xSocketQty : " + this.tdbiBoardType.xSocketQty);
         console.log("ySocketQty : " + this.tdbiBoardType.ySocketQty);
 
-
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                colReorder: false,
-                                data: apps,
-                                //select: { style: 'single'},
-                                columns: [
-                                    {data: 'boardTypeNo'},
-                                    {data: 'xSocketQty'},
-                                    {data: 'ySocketQty'},
-                                    {data: 'tdbiBoardTypeDescription'},
-                                ],
-                                rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
-                                    let self = this;
-                                    // Unbind first in order to avoid any duplicate handler
-                                    // (see https://github.com/l-lin/angular-datatables/issues/87)
-                                    $('td', nRow).unbind('click');
-                                    $('td', nRow).bind('click', () => {
-                                        self.someClickHandler(aData);
-                                    });
-                                    return nRow;
-                                },
-                                buttons: [
-                                    'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                    }
                 },
                 error => this.errorMessage = error);
     }
@@ -152,17 +131,5 @@ export class TdbiBoardTypeRegisterComponent implements OnInit {
         });
     }
 
-    /*
 
-     onSelectDateFrom(strDate: string) {
-     this.data.sysDateStart = strDate;
-     }
-
-     onSelectDateTo(strDate: string) {
-     this.data.sysDateEnd = strDate;
-     }
-     */
-
-    ngOnInit() {
-    }
 }

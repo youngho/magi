@@ -1,6 +1,7 @@
 package kr.famos.bets.history.testProgramRevision.service;
 
-import kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionDto;
+import kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionResultDto;
+import kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionRetrieveCondDto;
 import kr.famos.bets.history.testProgramRevision.mapper.ProgramRevisionMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,8 +20,8 @@ public class ProgramRevisionService {
     @Autowired
     ProgramRevisionMapper programRevisionMapper;
 
-    public List<ProgramRevisionDto> retrieveProgramRevision(ProgramRevisionDto programRevisionDto){
+    public List<ProgramRevisionResultDto> retrieveProgramRevision(ProgramRevisionRetrieveCondDto programRevisionRetrieveCondDto){
 
-        return programRevisionMapper.retrieveProgramRevision(programRevisionDto);
+        return programRevisionMapper.retrieveProgramRevision(programRevisionRetrieveCondDto);
     };
 }

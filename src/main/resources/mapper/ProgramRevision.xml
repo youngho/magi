@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.history.testProgramRevision.mapper.ProgramRevisionMapper">
-    <select id="retrieveProgramRevision" parameterType="kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionDto" resultType="kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionDto">
+    <select id="retrieveProgramRevision" parameterType="kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionRetrieveCondDto" resultType="kr.famos.bets.history.testProgramRevision.dto.ProgramRevisionResultDto">
         SELECT
                 TESTER_MODEL,
                 PROCESS_CODE,
@@ -30,7 +30,7 @@
                 PARA,
                 DUT_MAP,
                 PASS_BIN_SELECTION,
-                PROGRAM_DIRECTORY,
+                FIRMWARE_DIRECTORY,
                 CREATE_USER,
                 SUBSTR(CREATE_DATE,1,4)||'-'||SUBSTR(CREATE_DATE,5,2)||'-'||SUBSTR(CREATE_DATE,7,2)||' '||SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2)||':'||SUBSTR(CREATE_DATE,13,2) AS CREATE_DATE,
                 MODIFY_USER,

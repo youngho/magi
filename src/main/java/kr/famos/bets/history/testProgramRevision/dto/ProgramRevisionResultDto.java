@@ -3,7 +3,7 @@ package kr.famos.bets.history.testProgramRevision.dto;
 /**
  * Created by yhkim on 2017-03-11.
  */
-public class ProgramRevisionDto {
+public class ProgramRevisionResultDto {
     private String testerModel      = ""; // TESTER 번호
     private String processCode      = ""; // T0350
     private String partNumber       = ""; // H9TQ17ABJTA-CUR
@@ -31,16 +31,13 @@ public class ProgramRevisionDto {
     private String para             = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
     private String dutMap           = ""; // HANDLER의 DUT 배열에 FILE NAME
     private String passBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
-    private String programDirectory = ""; // Test Program 저장 경로
+    private String firmwareDirectory = ""; // Test Program 저장 경로
     private String createUser       = ""; // 최초생성 ID
     private String createDate       = ""; // 생성일시
     private String modifyUser       = ""; // 수정 ID
     private String modifyDate       = ""; // 수정일시
     private String sblBin9Limit     = ""; //
     private String sblBin8Limit     = ""; //
-
-    private String createDateStart  = ""; // 생성일시시작
-    private String createDateEnd    = ""; // 생성일시끝
 
     public String getTesterModel() {
         return testerModel;
@@ -198,12 +195,11 @@ public class ProgramRevisionDto {
     public void setDutMap(String dutMap) {
         this.dutMap = dutMap;
     }
-
-    public String getProgramDirectory() {
-        return programDirectory;
+    public String getFirmwareDirectory() {
+        return firmwareDirectory;
     }
-    public void setProgramDirectory(String programDirectory) {
-        this.programDirectory = programDirectory;
+    public void setFirmwareDirectory(String firmwareDirectory) {
+        this.firmwareDirectory = firmwareDirectory;
     }
     public String getCreateUser() {
         return createUser;
@@ -241,27 +237,9 @@ public class ProgramRevisionDto {
     public void setSblBin8Limit(String sblBin8Limit) {
         this.sblBin8Limit = sblBin8Limit;
     }
-
-    public String getCreateDateStart() {
-        return createDateStart;
-    }
-
-    public void setCreateDateStart(String createDateStart) {
-        this.createDateStart = createDateStart;
-    }
-
-    public String getCreateDateEnd() {
-        return createDateEnd;
-    }
-
-    public void setCreateDateEnd(String createDateEnd) {
-        this.createDateEnd = createDateEnd;
-    }
-
     public String getPassBinSelection() {
         return passBinSelection;
     }
-
     public void setPassBinSelection(String passBinSelection) {
         this.passBinSelection = passBinSelection;
     }
