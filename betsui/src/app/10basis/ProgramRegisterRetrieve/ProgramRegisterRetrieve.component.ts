@@ -1,8 +1,7 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import {ProgramRegisterRetrieveService} from "./ProgramRegisterRetrieve.service";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/catch";
+
 import {ProgramRegister} from "./ProgramRegister.model";
 import {DatatableComponent} from "./datatable.component";
 import * as wjcCore from 'wijmo/wijmo';

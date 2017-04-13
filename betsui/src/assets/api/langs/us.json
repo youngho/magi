@@ -84,7 +84,7 @@
   "para":"Parallel",
   "dutMap":"DUT Map",
   "binDescription":"BIN Description",
-  "programDirectory":"Program Directory",
+  "firmwareDirectory":"Firmware Directory",
   "createUser":"Create User",
   "sblYieldResult":"SBL_YIELD_RESULT",
   "sblBin1Result":"SBL_BIN1_RESULT",

@@ -29,7 +29,7 @@ export class ProgramRegister {
     para: string;
     dutMap: string;
     passBinSelection: string;
-    programDirectory: string;
+    firmwareDirectory: string;
     createUser: string;
     createDate: string;
     modifyUser: string;

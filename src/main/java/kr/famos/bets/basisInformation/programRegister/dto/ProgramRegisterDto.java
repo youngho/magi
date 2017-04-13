@@ -35,7 +35,7 @@ public class ProgramRegisterDto {
     private String para             = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
     private String dutMap           = ""; // HANDLER의 DUT 배열에 FILE NAME
     private String binDescription   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
-    private String programDirectory = ""; // Test Program 저장 경로
+    private String firmwareDirectory = ""; // Test Program 저장 경로
     private String createUser       = ""; // 최초생성 ID
     private String createDate       = ""; // 생성일시
     private String modifyUser       = ""; // 수정 ID
@@ -264,12 +264,12 @@ public class ProgramRegisterDto {
         this.binDescription = binDescription;
     }
 
-    public String getProgramDirectory() {
-        return programDirectory;
+    public String getFirmwareDirectory() {
+        return firmwareDirectory;
     }
 
-    public void setProgramDirectory(String programDirectory) {
-        this.programDirectory = programDirectory;
+    public void setFirmwareDirectory(String firmwareDirectory) {
+        this.firmwareDirectory = firmwareDirectory;
     }
 
     public String getCreateUser() {
