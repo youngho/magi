@@ -34,10 +34,10 @@ export class TdbiBoardTypeRegisterComponent {
     empty = true;
     componentData = null;
     errorMessage = null;
+    private colInfo = new Array();
+    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
-    private colInfo = new Array();// Grid dynamic columns
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-
     submitted = false;
 
     /**
