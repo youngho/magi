@@ -41,7 +41,7 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button class="btn btn-cancel" (click)="resetForm()">
+                                            <button class="btn btn-default" (click)="resetForm()">
                                                 {{'reset'|i18n}}
                                             </button>
                                             <button (click)="retrieveExecute()" class="btn btn-primary">
@@ -66,7 +66,6 @@
                     <div *ngIf="!empty">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-
                                 <div class="form-inline well well-lg">
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
@@ -78,7 +77,6 @@
                                           [isReadOnly]="true"
                                           [itemsSource]="gridData"
                                           [headersVisibility]="'Column'"
-                                          [selectionMode]="'Row'"
                                           (loadedRows)="onGridLoaded($event)"
                                           [autoSizeMode] = "'Both'">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
@@ -86,8 +84,14 @@
                             </wj-flex-grid>
                         </div>
                     </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div>No data available in table</div>
+                            </div>
+                        </div>
+                    </div>
                 </sa-widget>
-
             </article>
             <!-- WIDGET END -->
         </div>

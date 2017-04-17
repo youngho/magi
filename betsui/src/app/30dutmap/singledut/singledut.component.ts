@@ -19,31 +19,38 @@ export class SingleDutComponent {
     startDate = "";
     endDate = "";
     empty = true;
-    componentData = null;
     errorMessage = null;
     private colInfo = new Array();
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: SingleDut = new SingleDut();
+    private retrieveCondDto: SingleDut = new SingleDut();
 
-    resetForm() {
-        this.data = new SingleDut();
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
     }
 
-    saveLastTableForm() {
-        this.isRequesting = true;
-        // if(this.componentData){this.componentData.}
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
-        console.log("partNumber : " + this.data.partNumber);
-        console.log("processCode : " + this.data.processCode);
-        console.log("testerModel : " + this.data.testerModel);
-        console.log("testerNumber : " + this.data.testerNumber);
-        console.log("head : " + this.data.head);
-        console.log("testCounter : " + this.data.testCounter);
+    resetForm() {
+        this.retrieveCondDto = new SingleDut();
+        this.empty = true;
+        this.isRequesting = false;
+    }
 
-        this.service.postLastTable(this.data)
+    retrieveExecute() {
+        this.isRequesting = true;
+        // console.log("endTimeStart : " + this.retrieveCondDto.endTimeStart);
+        // console.log("endTimeEnd : " + this.retrieveCondDto.endTimeEnd);
+        // console.log("partNumber : " + this.retrieveCondDto.partNumber);
+        // console.log("processCode : " + this.retrieveCondDto.processCode);
+        // console.log("testerModel : " + this.retrieveCondDto.testerModel);
+        // console.log("testerNumber : " + this.retrieveCondDto.testerNumber);
+        // console.log("head : " + this.retrieveCondDto.head);
+        // console.log("testCounter : " + this.retrieveCondDto.testCounter);
+
+        this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
@@ -62,7 +69,7 @@ export class SingleDutComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_SingleDUT'+'.xlsx');
     }
 
 }
