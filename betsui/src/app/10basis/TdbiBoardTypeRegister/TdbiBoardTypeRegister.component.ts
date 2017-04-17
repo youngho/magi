@@ -55,7 +55,14 @@ export class TdbiBoardTypeRegisterComponent {
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
      */
-    someClickHandler(info: any): void {
+    editByKye(flexGrid){
+        if (!this.flexGrid) {
+            return;
+        }
+        let info: any
+        info = flexGrid.selectedItems[0];
+        console.log(info.createDate);
+
         //this.message = info.boardTypeNo + ' - ' + info.xSocketQty + ' - ' + info.ySocketQty;
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
@@ -65,9 +72,7 @@ export class TdbiBoardTypeRegisterComponent {
 
         this.service.postRetrieveByKey(this.tdbiBoardType)
             .subscribe((response) => {
-                    //JSON 객체로 가져오는것을 this.programRegister 에 넣어야 한다.
-
-                    this.tdbiBoardType = TdbiBoardType.fromJSON(response);
+                   this.tdbiBoardType = TdbiBoardType.fromJSON(response);
                 },
                 error => alert(error));
 
@@ -98,7 +103,12 @@ export class TdbiBoardTypeRegisterComponent {
         this.smartModEg1();
         this.submitted = true;
     }
-
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
     smartModEg1() {
         this.notificationService.smartMessageBox({
             title: "BETS Alert!",

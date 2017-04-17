@@ -78,7 +78,12 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
         }
         this.retrieveExecute();
     }
-
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
     resetForm() {
         this.retrieveCondDto.partNumber = null;
         this.retrieveCondDto.processCode = null;

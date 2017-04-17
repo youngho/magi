@@ -76,10 +76,13 @@
                             </div>
                             <wj-flex-grid #flexGrid [selectionMode]="'Row'"
                                           [isReadOnly]="true"
-                                          [itemsSource]="gridData">
+                                          [itemsSource]="gridData"
+                                          [headersVisibility]="'Column'"
+                                          [selectionMode]="'Row'"
+                                          (loadedRows)="onGridLoaded($event)"
+                                          [autoSizeMode] = "'Both'">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
                     </div>
