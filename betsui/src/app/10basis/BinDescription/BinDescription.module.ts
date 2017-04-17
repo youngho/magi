@@ -1,30 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SmartadminModule} from "../../shared/smartadmin.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {SmartadminDatatableModule} from "../../shared/ui/datatable/smartadmin-datatable.module";
-
-import {DynamicComponent} from "./dynamic.component";
-import {DatatableComponent} from "./datatable.component";
-import {SmartadminInputModule} from "../../shared/forms/input/smartadmin-input.module";
+import { WjGridModule } from 'wijmo/wijmo.angular2.grid';
+import { WjGridFilterModule } from 'wijmo/wijmo.angular2.grid.filter';
+import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 
 import {BinDescriptionComponent} from "./BinDescription.component";
 import {BinDescriptionRouting} from "./BinDescription.routing";
-import {SmartadminFormsModule} from "../../shared/forms/smartadmin-forms.module";
 
 @NgModule({
     imports: [
+        WjInputModule, WjGridModule, WjGridFilterModule,
         CommonModule,
         BinDescriptionRouting,
-        SmartadminModule,
-        SmartadminInputModule,
-        SmartadminDatatableModule,
-        // BETS ADDED
-        SmartadminFormsModule,
-        FormsModule,
-        ReactiveFormsModule
+        SmartadminModule
     ],
-    declarations: [BinDescriptionComponent,DynamicComponent,DatatableComponent]
+    declarations: [BinDescriptionComponent]
 })
 export class BinDescriptionModule {
 }

@@ -13,10 +13,6 @@ import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
     providers: [NgBinService, NgBin]
 })
 export class NgBinComponent {
-
-    constructor(private service: NgBinService) {
-    }
-
     startDate = "";
     endDate = "";
     empty = true;
@@ -27,8 +23,17 @@ export class NgBinComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: NgBin = new NgBin();
 
+    constructor(private service: NgBinService) {
+    }
 
-    saveLastTableForm() {
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
+
+    retrieveExecute() {
         console.log("endTimeStart : " + this.data.endTimeStart);
         console.log("endTimeEnd : " + this.data.endTimeEnd);
         console.log("partNumber : " + this.data.partNumber);

@@ -27,6 +27,12 @@ export class lotyieldComponent {
 
     constructor(private retrieveLastTableService: lotyieldService) {
     }
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     resetForm() {
         this.data.endTimeStart = null;
@@ -40,10 +46,9 @@ export class lotyieldComponent {
         this.data.lotId = null;
         this.data.mainProgramName = null;
         this.data.boardId = null;
-
     }
 
-    saveLastTableForm() {
+    retrieveExecute() {
         this.data.endTimeStart = this.startDate + "000000";
         this.data.endTimeEnd = this.endDate + "999999";
         this.retrieveLastTableService.postLastTable(this.data)

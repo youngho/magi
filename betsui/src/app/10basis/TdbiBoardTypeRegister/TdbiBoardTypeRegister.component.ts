@@ -141,5 +141,7 @@ export class TdbiBoardTypeRegisterComponent {
         });
     }
 
-
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_tdbi'+'.xlsx');
+    }
 }

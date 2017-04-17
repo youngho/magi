@@ -1,15 +1,12 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {BinDescriptionService} from "./BinDescription.service";
-
-import {Observable} from "rxjs/Rx";
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import {BinDescription} from './BinDescription.model';
-
-import {DatatableComponent} from './datatable.component';
-import DynamicComponent from './dynamic-component';
+import * as wjcCore from 'wijmo/wijmo';
+import * as wjcGrid from 'wijmo/wijmo.grid';
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 import {NotificationService} from "../../shared/utils/notification.service";
+
+import {BinDescriptionService} from "./BinDescription.service";
+import {BinDescription} from './BinDescription.model';
 
 @FadeInTop()
 @Component({
@@ -17,7 +14,7 @@ import {NotificationService} from "../../shared/utils/notification.service";
     templateUrl: 'BinDescription.component.html',
     providers: [BinDescriptionService, BinDescription]
 })
-export class BinDescriptionComponent implements OnInit {
+export class BinDescriptionComponent {
 
     constructor(private service: BinDescriptionService, private notificationService: NotificationService, private binDescription: BinDescription) {
     }
@@ -28,6 +25,13 @@ export class BinDescriptionComponent implements OnInit {
     submitted = false;
     componentData = null;
     errorMessage = null;
+    startDate = "";
+    endDate = "";
+    empty = true;
+    private colInfo = new Array();
+    public isRequesting: boolean;
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
 
     retrieveCondDto = {
         partNumber: "",
@@ -39,14 +43,24 @@ export class BinDescriptionComponent implements OnInit {
         subBin: "",
         ngBin: "",
     };
-
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창(bgModel)을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
      */
-    someClickHandler(info: any): void {
-        this.message = info.partNumber + ' - ' + info.mainProgramName + ' - ' + info.processCode;
+    editByKye(flexGrid){
+        if (!this.flexGrid) {
+            return;
+        }
+        let info: any
+        info = flexGrid.selectedItems[0];
+        console.log(info.createDate);
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.binDescription.partNumber = info.partNumber;
@@ -79,7 +93,7 @@ export class BinDescriptionComponent implements OnInit {
         this.retrieveCondDto.ngBin = null;
     }
 
-    saveLastTableForm() {
+    retrieveExecute() {
         console.log("partNumber : " + this.retrieveCondDto.partNumber);
         console.log("mainProgramName : " + this.retrieveCondDto.mainProgramName);
         console.log("processCode : " + this.retrieveCondDto.processCode);
@@ -88,40 +102,12 @@ export class BinDescriptionComponent implements OnInit {
 
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                colReorder: false,
-                                data: apps,
-                                //select: { style: 'single'},
-                                columns: [
-                                    {data: 'partNumber'},
-                                    {data: 'mainProgramName'},
-                                    {data: 'processCode'},
-                                    {data: 'testerModel'},
-
-                                    {data: 'itemName'},
-                                    {data: 'mainBin'},
-                                    {data: 'subBin'},
-                                    {data: 'ngBin'},
-                                ],
-                                rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
-                                    let self = this;
-                                    // Unbind first in order to avoid any duplicate handler
-                                    // (see https://github.com/l-lin/angular-datatables/issues/87)
-                                    $('td', nRow).unbind('click');
-                                    $('td', nRow).bind('click', () => {
-                                        self.someClickHandler(aData);
-                                    });
-                                    return nRow;
-                                },
-                                buttons: [
-                                    'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                    }
                 },
                 error => this.errorMessage = error);
     }
@@ -149,6 +135,7 @@ export class BinDescriptionComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_BinDescription'+'.xlsx');
     }
 }
