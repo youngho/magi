@@ -5,6 +5,7 @@ import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
 import {BinDescription} from "./BinDescription.model";
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
 @Injectable()
 export class BinDescriptionService {
@@ -29,6 +30,12 @@ export class BinDescriptionService {
 
     save(data: BinDescription) {
         this.path = 'insertBinDescription';
+        console.log('PATH : ' + this.path);
+        return this.api.post(`${this.path}`, data);
+    }
+
+    postUsage(data: UserUsage) {
+        this.path = 'insertComUserUsage';
         console.log('PATH : ' + this.path);
         return this.api.post(`${this.path}`, data);
     }

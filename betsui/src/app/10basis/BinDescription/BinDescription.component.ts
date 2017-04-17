@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from 'wijmo/wijmo';
 import * as wjcGrid from 'wijmo/wijmo.grid';
@@ -7,20 +7,22 @@ import {NotificationService} from "../../shared/utils/notification.service";
 
 import {BinDescriptionService} from "./BinDescription.service";
 import {BinDescription} from './BinDescription.model';
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
 @FadeInTop()
 @Component({
     selector: 'BinDescriptionComponent',
     templateUrl: 'BinDescription.component.html',
-    providers: [BinDescriptionService, BinDescription]
+    providers: [BinDescriptionService, BinDescription, UserUsage]
 })
-export class BinDescriptionComponent {
+export class BinDescriptionComponent implements OnInit{
 
     constructor(private service: BinDescriptionService, private notificationService: NotificationService, private binDescription: BinDescription) {
     }
 
     @ViewChild('lgModal') bgModel;
 
+    UIID: string = "BETS-UI-0101";
     message: string = '';
     submitted = false;
     componentData = null;
@@ -32,6 +34,7 @@ export class BinDescriptionComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
+    private usageInfo = new UserUsage();
 
     retrieveCondDto = {
         partNumber: "",
@@ -137,5 +140,16 @@ export class BinDescriptionComponent {
 
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_BinDescription'+'.xlsx');
+    }
+
+    ngOnInit() {
+        // this.data.createDate = "20170321134000";
+        this.usageInfo.userId = "youngho";
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
     }
 }
