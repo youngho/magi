@@ -1,7 +1,8 @@
 <div class="login-info">
-  <span *ngIf="user?.picture">
-	 {{user.username }}
-   </span>
+
+    <span *ngIf="currentUser">
+	 {{currentUser.name}}{{currentUser.loginID}}
+    </span>
 </div>
 
 <!--

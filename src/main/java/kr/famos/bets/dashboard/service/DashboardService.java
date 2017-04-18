@@ -33,7 +33,7 @@ public class DashboardService {
 
 
         ComSettingsDto userChartCond = new ComSettingsDto();
-        userChartCond.setSettingUser("devdev");
+        userChartCond.setSettingUser("admin");
         userChartCond.setBetsKey("Dashboard.Chart.Kind");
         List<ComSettingsDto> userChartList = settingsMapper.retrieveSettings(userChartCond);
 

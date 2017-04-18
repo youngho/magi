@@ -10,11 +10,13 @@ public class AuthenticationToken {
     private String username;
     private Collection<? extends GrantedAuthority> authorities;
     private String token;
+    private String name;
 
-    public AuthenticationToken(String username, Collection<? extends GrantedAuthority> collection, String token) {
+    public AuthenticationToken(String username, Collection<? extends GrantedAuthority> collection, String token, String name) {
         this.username = username;
         this.authorities = collection;
         this.token = token;
+        this.name = name;
     }
 
     public String getUsername() {
@@ -34,5 +36,13 @@ public class AuthenticationToken {
     }
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

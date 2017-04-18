@@ -16,12 +16,8 @@ export class UserService {
     this.user = new Subject();
   }
 
-  getLoginInfo():Observable<any> {
-    return this.jsonApiService.fetch('/user/login-info.json')
-      .do((user)=>{
-        this.userInfo = user;
-      this.user.next(user)
-    })
+  getLoginInfo(){
+    return localStorage.getItem('currentUser');
   }
 
 }

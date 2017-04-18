@@ -56,9 +56,7 @@
             </if>
         </where>
     </select>
-    <select id="retrieveNgBinMap" parameterType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto"
-            resultType="java.util.LinkedHashMap">
-        <!--<select id="retireveNgBinJson" parameterType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto" resultType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto">-->
+    <select id="retrieveNgBinMap" parameterType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto" resultType="java.util.LinkedHashMap">
         SELECT
         PART_NUMBER,
         OPERATOR_ID,
