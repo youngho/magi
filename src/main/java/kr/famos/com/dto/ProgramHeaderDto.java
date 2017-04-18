@@ -4,7 +4,7 @@ package kr.famos.com.dto;
  * Created by yhkim on 2017-02-27.
  */
 public class ProgramHeaderDto {
-    public String testerNumber      = ""; // TESTER 번호(Host id)
+    public String testerNumber      = ""; // TESTER Number(Host id)
     public String testerModel       = ""; // TESTER MODEL NAME
     public String handlerModel      = ""; // HANDLER MODEL NAME
     public String head              = ""; // HEAD NUMBER A or B
