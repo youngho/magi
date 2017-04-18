@@ -4,6 +4,7 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
+import {UserUsage} from "../../shared/usage/userUsage.model";
 import {TdbiBoardType} from "./TdbiBoardType.model";
 import {tick} from "@angular/core/testing";
 
@@ -34,4 +35,8 @@ export class TdbiBoardTypeRegisterService {
         return this.api.post(`${this.path}`, data);
     }
 
+    postUsage(data: UserUsage) {
+        this.path = 'insertComUserUsage';
+        return this.api.post(`${this.path}`, data);
+    }
 }

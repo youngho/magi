@@ -4,6 +4,7 @@ import * as wjcCore from 'wijmo/wijmo';
 import * as wjcGrid from 'wijmo/wijmo.grid';
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 import {NotificationService} from "../../shared/utils/notification.service";
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {TdbiBoardTypeRegisterService} from "./TdbiBoardTypeRegister.service";
 import {TdbiBoardType} from './TdbiBoardType.model';
@@ -12,34 +13,42 @@ import {TdbiBoardType} from './TdbiBoardType.model';
 @Component({
     selector: 'TdbiBoardTypeRegisterRetrieveComponent',
     templateUrl: 'TdbiBoardTypeRegister.component.html',
-    providers: [TdbiBoardTypeRegisterService, TdbiBoardType]
+    providers: [TdbiBoardTypeRegisterService, TdbiBoardType, UserUsage]
 })
 
 export class TdbiBoardTypeRegisterComponent {
-
+    UIID: string = "BETS-UI-0104";
+    startDate = "";
+    endDate = "";
+    empty = true;
+    errorMessage = null;
+    submitted = false;
+    private colInfo = new Array();
+    public isRequesting: boolean;
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
+    @ViewChild('lgModal') bgModel;
     retrieveCondDto = {
         boardTypeNo: "",
         xSocketQty: "",
         ySocketQty: "",
         tdbiBoardTypeDescription: ""
     };
+    private usageInfo = new UserUsage();
 
     constructor(private service: TdbiBoardTypeRegisterService, private notificationService: NotificationService, private tdbiBoardType: TdbiBoardType) {
     }
 
-    @ViewChild('lgModal') bgModel;
-
-    startDate = "";
-    endDate = "";
-    empty = true;
-    componentData = null;
-    errorMessage = null;
-    private colInfo = new Array();
-    public isRequesting: boolean;
-    gridData: wjcCore.CollectionView;
-    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    submitted = false;
-
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("username");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
     /**
      *
      */

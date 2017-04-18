@@ -4,6 +4,7 @@ import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from "wijmo/wijmo.grid.xlsx";
 import {NotificationService} from "../../shared/utils/notification.service";
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {ProgramRegisterRetrieveService} from "./ProgramRegisterRetrieve.service";
 import {ProgramRegister} from "../ProgramRegister.model";
@@ -16,7 +17,9 @@ import {ProgramRegister} from "../ProgramRegister.model";
     providers: [ProgramRegisterRetrieveService, ProgramRegister]
 })
 
-export class ProgramRegisterRetrieveComponent {
+export class ProgramRegisterRetrieveComponent implements OnInit{
+    UIID: string = "BETS-UI-0101";
+    private usageInfo = new UserUsage();
     empty = true;
     componentData = null;
     errorMessage = null;
@@ -24,7 +27,6 @@ export class ProgramRegisterRetrieveComponent {
     gridData: wjcCore.CollectionView;
     private colInfo = new Array();// Grid dynamic columns title
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-
     @ViewChild('lgModal') bgModel;
 
     retrieveCondDto = {
@@ -33,7 +35,18 @@ export class ProgramRegisterRetrieveComponent {
         testerModel: "",
     };
 
+
     constructor(private service: ProgramRegisterRetrieveService, private notificationService: NotificationService, private programRegister: ProgramRegister) {
+    }
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("username");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
     }
 
     onGridLoaded() {

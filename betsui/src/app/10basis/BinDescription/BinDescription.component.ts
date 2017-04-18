@@ -22,7 +22,7 @@ export class BinDescriptionComponent implements OnInit{
 
     @ViewChild('lgModal') bgModel;
 
-    UIID: string = "BETS-UI-0101";
+    UIID: string = "BETS-UI-0103";
     message: string = '';
     submitted = false;
     componentData = null;
@@ -143,8 +143,8 @@ export class BinDescriptionComponent implements OnInit{
     }
 
     ngOnInit() {
-        // this.data.createDate = "20170321134000";
-        this.usageInfo.userId = "youngho";
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("username");
         this.usageInfo.uiId = this.UIID;
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
