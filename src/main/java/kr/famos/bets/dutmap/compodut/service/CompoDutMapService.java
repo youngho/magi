@@ -112,7 +112,7 @@ public class CompoDutMapService {
         LinkedHashMap<String, String> mapDutMapInputBIN = new LinkedHashMap<>();
         LinkedHashMap<String, String> mapDutMapPassBIN = new LinkedHashMap<>();
         LinkedHashMap<String, String> mapDutMapYildBIN = new LinkedHashMap<>();
-        DecimalFormat format = new DecimalFormat(".##");
+        DecimalFormat format = new DecimalFormat("#.##");
 
         for (int j = 0; j < maxDut; j++) {
             mapDutMapInputBIN.put("PART_NUMBER", "");
