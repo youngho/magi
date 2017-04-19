@@ -23,6 +23,7 @@ public class CompoDutMapDto {
     private String dutMainBin        = ""; //
     private String endTimeStart = "";
     private String endTimeEnd = "";
+    private float sblDutLimit;       // Socket DUT Limit value for different color
 
     public String getPartNumber() {
         return partNumber;
@@ -166,5 +167,13 @@ public class CompoDutMapDto {
 
     public void setEndTimeEnd(String endTimeEnd) {
         this.endTimeEnd = endTimeEnd;
+    }
+
+    public float getSblDutLimit() {
+        return sblDutLimit;
+    }
+
+    public void setSblDutLimit(float sblDutLimit) {
+        this.sblDutLimit = sblDutLimit;
     }
 }

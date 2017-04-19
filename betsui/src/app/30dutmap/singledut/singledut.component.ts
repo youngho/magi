@@ -3,8 +3,11 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
+
 import {SingleDutService} from "./singledut.service";
 import {SingleDut} from "./singledut.model";
+
 
 @FadeInTop()
 @Component({
@@ -13,9 +16,7 @@ import {SingleDut} from "./singledut.model";
     providers: [SingleDutService, SingleDut]
 })
 export class SingleDutComponent {
-
-    constructor(private service: SingleDutService) {
-    }
+    UIID: string = "BETS-UI-0301";
     startDate = "";
     endDate = "";
     empty = true;
@@ -25,6 +26,21 @@ export class SingleDutComponent {
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: SingleDut = new SingleDut();
+    private usageInfo = new UserUsage();
+
+    constructor(private service: SingleDutService) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
 
     onGridLoaded(){
         var self = this;

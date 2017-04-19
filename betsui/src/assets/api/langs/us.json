@@ -123,6 +123,7 @@
   "passBinSelection8": "8",
 
   "date":"Date",
+  "sblDutLimit":"SBL DUT Limit",
   "createDate":"Create Date",
   "userId":"User ID",
   "uiId":"UI ID",
