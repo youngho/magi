@@ -23,11 +23,9 @@ export class LoginInfoComponent implements OnInit {
 
     ngOnInit() {
         //this.currentUser = this.userService.getLoginInfo();
-        console.log("currentUser : " + this.currentUser);
-        // localStorage.getItem('currentUser', JSON.stringify(user));
-        // localStorage.getItem('token', user.token);
-        //this.loginId = localStorage.getItem("loginId");
-        //this.loginName = localStorage.getItem("loginName");
+        // console.log("currentUser : " + this.currentUser);
+        this.loginId = localStorage.getItem("loginId");
+        this.loginName = localStorage.getItem("loginName");
     }
 
     toggleShortcut() {

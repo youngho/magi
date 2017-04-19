@@ -34,7 +34,7 @@ export class lotyieldComponent {
 
     ngOnInit() {
         // this.data.createDate = It makes server side service class
-        this.usageInfo.userId = localStorage.getItem("username");
+        this.usageInfo.userId = localStorage.getItem("loginId");
         this.usageInfo.uiId = this.UIID;
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
@@ -59,7 +59,6 @@ export class lotyieldComponent {
         this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
-
                     this.gridData = new wjcCore.CollectionView(apps);
                     if(this.gridData.isEmpty){
                         this.empty = true;
@@ -67,7 +66,6 @@ export class lotyieldComponent {
                         this.empty = false;
                     }
                 },
-
                 error => this.errorMessage = error);
     }
 

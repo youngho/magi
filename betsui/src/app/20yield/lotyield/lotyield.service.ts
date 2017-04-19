@@ -13,11 +13,10 @@ export class lotyieldService {
     constructor(private api: ApiService) {
     }
 
-    private path: string = 'retrieveLotYield';
+    private path: string;
 
     postLastTable(data: Lotyield) {
-        console.log('saving post:' + data.lotId);
-        console.log('PATH : ' + this.path);
+        this.path = 'retrieveLotYield';
         return this.api.retrievePost(`${this.path}`, data);
     }
 
