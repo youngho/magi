@@ -3,6 +3,7 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {MesTrackInOutService} from "./mesTrackInOut.service";
 import {MesTrackInOut} from './mesTrackInOut.model';
@@ -14,10 +15,7 @@ import {MesTrackInOut} from './mesTrackInOut.model';
     providers: [MesTrackInOutService, MesTrackInOut]
 })
 export class MesTrackInOutComponent {
-
-    constructor(private service: MesTrackInOutService) {
-    }
-
+    UIID: string = "BETS-UI-0802";
     startDate = "";
     endDate = "";
     empty = true;
@@ -28,6 +26,28 @@ export class MesTrackInOutComponent {
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: MesTrackInOut = new MesTrackInOut();
+    private usageInfo = new UserUsage();
+
+    constructor(private service: MesTrackInOutService) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
+
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     resetForm() {
         this.data = new MesTrackInOut();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.

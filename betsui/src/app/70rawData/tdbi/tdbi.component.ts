@@ -3,6 +3,7 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
 import {NotificationService} from "../../shared/utils/notification.service";
 
 import {TdbiService} from "./tdbi.service";
@@ -16,14 +17,10 @@ import {RawData} from '../rawData.model';
     providers: [TdbiService, RawData]
 })
 export class TdbiComponent {
-
-    constructor(private service: TdbiService,private notificationService: NotificationService,) {
-    }
-
+    UIID: string = "BETS-UI-0702";
     startDate = "";
     endDate = "";
     empty = true;
-    componentData = null;
     errorMessage = null;
     private colInfo = new Array();
     public isRequesting: boolean;
@@ -31,8 +28,29 @@ export class TdbiComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCond: RawData = new RawData();
     private retrieveByKeyDto: RawData = new RawData();
+    private usageInfo = new UserUsage();
     private Files: string[];
 
+    constructor(private service: TdbiService,private notificationService: NotificationService,) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
+
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.

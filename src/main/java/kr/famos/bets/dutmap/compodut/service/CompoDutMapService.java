@@ -123,7 +123,7 @@ public class CompoDutMapService {
             mapDutMapInputBIN.put("HEAD", "");
             mapDutMapInputBIN.put("MAIN_PROGRAM_NAME", "");
             mapDutMapInputBIN.put("TEST_COUNTER", "");
-            mapDutMapInputBIN.put("MAIN_BIN", "InputBin");
+            mapDutMapInputBIN.put("MAIN_BIN", "Input");
             mapDutMapInputBIN.put("TOTAL", String.valueOf(inputBinSum));
             mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapInputBinTotal[j]));
 
@@ -135,7 +135,7 @@ public class CompoDutMapService {
             mapDutMapPassBIN.put("HEAD", "");
             mapDutMapPassBIN.put("MAIN_PROGRAM_NAME", "");
             mapDutMapPassBIN.put("TEST_COUNTER", "");
-            mapDutMapPassBIN.put("MAIN_BIN", "PassBin");
+            mapDutMapPassBIN.put("MAIN_BIN", "Pass");
             mapDutMapPassBIN.put("TOTAL", String.valueOf(passBinSum));
             mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapPassBinTotal[j]));
 
@@ -147,7 +147,7 @@ public class CompoDutMapService {
             mapDutMapYildBIN.put("HEAD", "");
             mapDutMapYildBIN.put("MAIN_PROGRAM_NAME", "");
             mapDutMapYildBIN.put("TEST_COUNTER", "");
-            mapDutMapYildBIN.put("MAIN_BIN", "Yiled");
+            mapDutMapYildBIN.put("MAIN_BIN", "Yield");
             mapDutMapYildBIN.put("TOTAL", String.valueOf(format.format(passBinSum / (double)inputBinSum * 100)));
             mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((intDutMapPassBinTotal[j] / (double) intDutMapInputBinTotal[j]) * 100));
         }
