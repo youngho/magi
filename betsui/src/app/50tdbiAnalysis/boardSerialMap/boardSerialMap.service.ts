@@ -4,16 +4,23 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
+import {UserUsage} from "../../shared/usage/userUsage.model";
 import {BoardSerialMap} from "./boardSerialMap.model";
 
 @Injectable()
 export class BoardSerialMapService {
-    constructor(private api: ApiService) {}
+    private path: string;
 
-    private path: string = 'retrieveBoardSerialMap';
+    constructor(private api: ApiService) {
+    }
 
     retrieveService(data: BoardSerialMap) {
-        console.log('PATH : ' + this.path);
+        this.path = 'retrieveBoardSerialMap';
         return this.api.retrievePost(`${this.path}`, data);
+    }
+
+    postUsage(data: UserUsage) {
+        this.path = 'insertComUserUsage';
+        return this.api.post(`${this.path}`, data);
     }
 }

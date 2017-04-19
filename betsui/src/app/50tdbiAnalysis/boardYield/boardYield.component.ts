@@ -3,6 +3,8 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
+
 import {BoardYieldService} from "./boardYield.service";
 import {BoardYield} from './boardYield.model';
 
@@ -13,10 +15,7 @@ import {BoardYield} from './boardYield.model';
     providers: [BoardYieldService, BoardYield]
 })
 export class BoardYieldComponent {
-
-    constructor(private service: BoardYieldService) {
-    }
-
+    UIID: string = "BETS-UI-0505";
     startDate = "";
     endDate = "";
     empty = true;
@@ -27,6 +26,28 @@ export class BoardYieldComponent {
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: BoardYield = new BoardYield();
+    private usageInfo = new UserUsage();
+
+    constructor(private service: BoardYieldService) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
+
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     resetForm() {
         this.data = new BoardYield();

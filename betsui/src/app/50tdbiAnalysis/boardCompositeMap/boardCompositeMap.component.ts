@@ -3,6 +3,8 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
+
 import {BoardCompositeMapService} from "./boardCompositeMap.service";
 import {BoardCompositeMap} from './boardCompositeMap.model';
 
@@ -13,29 +15,47 @@ import {BoardCompositeMap} from './boardCompositeMap.model';
     providers: [BoardCompositeMapService, BoardCompositeMap]
 })
 export class BoardCompositeMapComponent {
-
-    constructor(private service: BoardCompositeMapService) {
-    }
-
+    UIID: string = "BETS-UI-0503";
     startDate = "";
     endDate = "";
     empty = true;
-    componentData = null;
     errorMessage = null;
     private colInfo = new Array();
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: BoardCompositeMap = new BoardCompositeMap();
+    private usageInfo = new UserUsage();
+
+    constructor(private service: BoardCompositeMapService) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
+
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     saveLastTableForm() {
-        console.log("biEndTimeStart : " + this.data.biEndTimeStart);
-        console.log("biEndTimeEnd : " + this.data.biEndTimeEnd);
-        console.log("partnumberName : " + this.data.biPartNumber);
-        console.log("lotNumber : " + this.data.biLotId);
-        console.log("processName : " + this.data.biProcessCode);
-        console.log("testerName : " + this.data.biTesterModel);
-        console.log("testerHead : " + this.data.biTestNumber);
+        // console.log("biEndTimeStart : " + this.data.biEndTimeStart);
+        // console.log("biEndTimeEnd : " + this.data.biEndTimeEnd);
+        // console.log("partnumberName : " + this.data.biPartNumber);
+        // console.log("lotNumber : " + this.data.biLotId);
+        // console.log("processName : " + this.data.biProcessCode);
+        // console.log("testerName : " + this.data.biTesterModel);
+        // console.log("testerHead : " + this.data.biTestNumber);
 
         this.service.postLastTable(this.data)
             .subscribe((apps) => {

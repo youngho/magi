@@ -3,6 +3,8 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
+
 import {DataSummaryService} from "./dataSummary.service";
 import {DataSummary} from './dataSummary.model';
 
@@ -13,10 +15,7 @@ import {DataSummary} from './dataSummary.model';
     providers: [DataSummaryService, DataSummary]
 })
 export class DataSummaryComponent {
-
-    constructor(private service: DataSummaryService) {
-    }
-
+    UIID: string = "BETS-UI-0501";
     startDate = "";
     endDate = "";
     empty = true;
@@ -27,7 +26,28 @@ export class DataSummaryComponent {
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: DataSummary = new DataSummary();
+    private usageInfo = new UserUsage();
 
+    constructor(private service: DataSummaryService) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
+
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     resetForm() {
         this.data = new DataSummary();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
@@ -51,7 +71,7 @@ export class DataSummaryComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_yield' + '.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_dataSummary' + '.xlsx');
     }
 
 }

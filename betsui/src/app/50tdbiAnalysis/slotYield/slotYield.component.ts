@@ -3,6 +3,8 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
+
 import {SlotYieldService} from "./slotYield.service";
 import {SlotYield} from './slotYield.model';
 
@@ -13,10 +15,7 @@ import {SlotYield} from './slotYield.model';
     providers: [SlotYieldService, SlotYield]
 })
 export class SlotYieldComponent {
-
-    constructor(private service: SlotYieldService) {
-    }
-
+    UIID: string = "BETS-UI-0504";
     startDate = "";
     endDate = "";
     empty = true;
@@ -27,6 +26,28 @@ export class SlotYieldComponent {
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: SlotYield = new SlotYield();
+    private usageInfo = new UserUsage();
+
+    constructor(private service: SlotYieldService) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
+
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     resetForm() {
         this.data = new SlotYield();
@@ -57,6 +78,6 @@ export class SlotYieldComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_slotYield'+'.xlsx');
     }
 }

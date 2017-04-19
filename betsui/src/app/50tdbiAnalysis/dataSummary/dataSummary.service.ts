@@ -4,19 +4,22 @@
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
+import {UserUsage} from "../../shared/usage/userUsage.model";
 import {DataSummary} from "./dataSummary.model";
 
 @Injectable()
 export class DataSummaryService {
+    private path: string;
 
     constructor(private api: ApiService) {}
 
-    private path: string = 'retrieveDataSummary';
-
     retrieveService(data: DataSummary) {
-        console.log('PATH : ' + this.path);
+        this.path = 'retrieveDataSummary';
         return this.api.retrievePost(`${this.path}`, data);
     }
 
-
+    postUsage(data: UserUsage) {
+        this.path = 'insertComUserUsage';
+        return this.api.post(`${this.path}`, data);
+    }
 }
