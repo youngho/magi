@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.com.mapper.ComUserUsageMapper">
     <!--BETS-UI-0803,    User Usage,    사용자 사용에 대한 히스토리 저장후 검색 화면-->
-    <select id="retrieveComUserUsage" parameterType="kr.famos.com.dto.ComUserUsageDto" resultType="kr.famos.com.dto.ComUserUsageDto">
+    <select id="retrieveComUserUsage" parameterType="kr.famos.com.dto.ComUserUsageCondDto" resultType="kr.famos.com.dto.ComUserUsageDto">
         SELECT
               SUBSTR(CREATE_DATE,1,4)||'-'||SUBSTR(CREATE_DATE,5,2)||'-'||SUBSTR(CREATE_DATE,7,2)||' '||SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2)||':'||SUBSTR(CREATE_DATE,13,2) AS CREATE_DATE,
               USER_ID,

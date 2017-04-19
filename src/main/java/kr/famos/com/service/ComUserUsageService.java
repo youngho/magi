@@ -1,6 +1,7 @@
 package kr.famos.com.service;
 
 
+import kr.famos.com.dto.ComUserUsageCondDto;
 import kr.famos.com.dto.ComUserUsageDto;
 import kr.famos.com.mapper.ComUserUsageMapper;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class ComUserUsageService {
     @Autowired
     ComUserUsageMapper comUserUsageMapper;
 
-    public List<ComUserUsageDto> retrieveComUserUsage(ComUserUsageDto comUserUsageDto) {
+    public List<ComUserUsageDto> retrieveComUserUsage(ComUserUsageCondDto comUserUsageDto) {
 
         return comUserUsageMapper.retrieveComUserUsage(comUserUsageDto);
     }

@@ -1,5 +1,6 @@
 package kr.famos.com.mapper;
 
+import kr.famos.com.dto.ComUserUsageCondDto;
 import kr.famos.com.dto.ComUserUsageDto;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface ComUserUsageMapper {
 
-    public List<ComUserUsageDto> retrieveComUserUsage(ComUserUsageDto comUserUsageDto);
+    public List<ComUserUsageDto> retrieveComUserUsage(ComUserUsageCondDto comUserUsageDto);
 
     public void insertComUserUsage(ComUserUsageDto comUserUsageDto);
 

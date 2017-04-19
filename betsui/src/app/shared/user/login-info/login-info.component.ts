@@ -13,7 +13,7 @@ import {LayoutService} from "../../layout/layout.service";
 })
 export class LoginInfoComponent implements OnInit {
 
-    currentUser;
+    currentUser:string;
     loginId: string;
     loginName: string;
 
@@ -22,9 +22,9 @@ export class LoginInfoComponent implements OnInit {
     }
 
     ngOnInit() {
-        //this.currentUser = this.userService.getLoginInfo();
-        // console.log("currentUser : " + this.currentUser);
-        this.loginId = localStorage.getItem("loginId");
+        this.currentUser = this.userService.getLoginInfo();
+        console.log("currentUser : " + this.currentUser);
+        // this.loginId = localStorage.getItem("loginId");
         this.loginName = localStorage.getItem("loginName");
     }
 

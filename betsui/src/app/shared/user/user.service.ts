@@ -17,7 +17,7 @@ export class UserService {
   }
 
   getLoginInfo(){
-    return localStorage.getItem('currentUser');
+    return localStorage.getItem('loginId');
   }
 
 }

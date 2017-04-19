@@ -1,9 +1,6 @@
 <div class="login-info">
-{{loginID}}
-<!--    {{loginName}}-->
     <span *ngIf="currentUser">
-	 {{currentUser.username}}{{currentUser.loginID}}
-
+	 {{currentUser}}({{loginName}})
     </span>
 </div>
 

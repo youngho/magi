@@ -1,6 +1,7 @@
 package kr.famos.com.rest;
 
 import kr.famos.com.dto.ComSettingsDto;
+import kr.famos.com.dto.ComUserUsageCondDto;
 import kr.famos.com.dto.ComUserUsageDto;
 import kr.famos.com.service.ComUserUsageService;
 import org.slf4j.Logger;
@@ -26,7 +27,7 @@ public class ComUserUsageController {
     ComUserUsageService comUserUsageService;
 
     @RequestMapping(value = "/retrieveComUserUsage", method = RequestMethod.POST)
-    public ResponseEntity<List<ComUserUsageDto>> retrieveComUserUsage(@RequestBody ComUserUsageDto comUserUsageDto) {
+    public ResponseEntity<List<ComUserUsageDto>> retrieveComUserUsage(@RequestBody ComUserUsageCondDto comUserUsageDto) {
 
         logger.debug("ComUserUsageController - retrieveComUserUsage 메소드");
 

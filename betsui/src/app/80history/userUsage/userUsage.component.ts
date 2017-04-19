@@ -46,6 +46,13 @@ export class UserUsageComponent {
         );
     }
 
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
+
     resetForm() {
         this.usageInfo = new UserUsage();
     }

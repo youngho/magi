@@ -8,9 +8,6 @@ public class ComUserUsageDto {
     private String userId = "";          // 사용자ID
     private String uiId = "";            // 화면ID
 
-    private String createDateStart = ""; // 생성일시시작
-    private String createDateEnd = "";   // 생성일시끝
-
     public String getCreateDate() {
         return createDate;
     }
@@ -35,19 +32,4 @@ public class ComUserUsageDto {
         this.uiId = uiId;
     }
 
-    public String getCreateDateStart() {
-        return createDateStart;
-    }
-
-    public void setCreateDateStart(String createDateStart) {
-        this.createDateStart = createDateStart;
-    }
-
-    public String getCreateDateEnd() {
-        return createDateEnd;
-    }
-
-    public void setCreateDateEnd(String createDateEnd) {
-        this.createDateEnd = createDateEnd;
-    }
 }
