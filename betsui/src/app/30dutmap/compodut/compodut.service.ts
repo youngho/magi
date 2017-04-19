@@ -12,7 +12,7 @@ export class CompoDutService {
 
     constructor(private api: ApiService) {}
 
-    postLastTable(data: CompoDut) {
+    postRetrieve(data: CompoDut) {
         console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, data);
     }

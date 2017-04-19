@@ -27,30 +27,35 @@ export class CompoDutComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: CompoDut = new CompoDut();
+    private retrieveCondDto: CompoDut = new CompoDut();
 
-
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
+    }
 
     resetForm() {
-        this.data = new CompoDut();
+        this.retrieveCondDto = new CompoDut();
         this.stopRefreshing();
     }
 
-    saveLastTableForm() {
+    retrieveExecute() {
         // this.isRequesting = true;
 
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
-        console.log("partNumber : " + this.data.partNumber);
-        console.log("processCode : " + this.data.processCode);
-        console.log("testerModel : " + this.data.testerModel);
-        console.log("testerNumber : " + this.data.testerNumber);
-        console.log("head : " + this.data.head);
-        console.log("testCounter : " + this.data.testCounter);
+        console.log("endTimeStart : " + this.retrieveCondDto.endTimeStart);
+        console.log("endTimeEnd : " + this.retrieveCondDto.endTimeEnd);
+        console.log("partNumber : " + this.retrieveCondDto.partNumber);
+        console.log("processCode : " + this.retrieveCondDto.processCode);
+        console.log("testerModel : " + this.retrieveCondDto.testerModel);
+        console.log("testerNumber : " + this.retrieveCondDto.testerNumber);
+        console.log("head : " + this.retrieveCondDto.head);
+        console.log("testCounter : " + this.retrieveCondDto.testCounter);
 
 
         // this.isRequesting = false;
-        this.service.postLastTable(this.data)
+        this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
