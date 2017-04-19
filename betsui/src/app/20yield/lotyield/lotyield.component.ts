@@ -26,7 +26,7 @@ export class lotyieldComponent {
     gridData: wjcCore.CollectionView;
     private colInfo = new Array();// Grid dynamic columns
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: Lotyield = new Lotyield();
+    private retrieveCondDto: Lotyield = new Lotyield();
     private usageInfo = new UserUsage();
 
     constructor(private service: lotyieldService) {
@@ -51,23 +51,13 @@ export class lotyieldComponent {
     }
 
     resetForm() {
-        this.data.endTimeStart = null;
-        this.data.endTimeEnd = null;
-        this.data.partNumber = null;
-        this.data.processCode = null;
-        this.data.testerModel = null;
-        this.data.testerNumber = null;
-        this.data.head = null;
-        this.data.testCounter = null;
-        this.data.lotId = null;
-        this.data.mainProgramName = null;
-        this.data.boardId = null;
+        this.retrieveCondDto = new Lotyield();
     }
 
     retrieveExecute() {
-        this.data.endTimeStart = this.startDate + "000000";
-        this.data.endTimeEnd = this.endDate + "999999";
-        this.service.postLastTable(this.data)
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
 
                     this.gridData = new wjcCore.CollectionView(apps);
@@ -80,6 +70,7 @@ export class lotyieldComponent {
 
                 error => this.errorMessage = error);
     }
+
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
     }

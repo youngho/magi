@@ -5,20 +5,16 @@ import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 
 import {UserUsageService} from "./userUsage.service";
-import {UserUsage} from './userUsage.model';
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
 @FadeInTop()
 @Component({
     selector: 'userUsage',
     templateUrl: 'userUsage.component.html',
-    providers: [UserUsageService, UserUsage]
+    providers: [UserUsageService]
 })
 export class UserUsageComponent {
     UIID: string = "BETS-UI-0803";
-
-    constructor(private service: UserUsageService) {
-    }
-
     startDate = "";
     endDate = "";
     empty = true;
@@ -28,10 +24,30 @@ export class UserUsageComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: UserUsage = new UserUsage();
+    private usageInfo: UserUsage = new UserUsage();
+
+    retrieveCondDto = {
+        createDateStart: "",
+        createDateEnd: "",
+        userId: "",
+        uiId: "",
+    };
+    constructor(private service: UserUsageService) {
+    }
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
 
     resetForm() {
-        this.data = new UserUsage();
+        this.usageInfo = new UserUsage();
     }
 
     retrieveExecute() {
@@ -40,7 +56,7 @@ export class UserUsageComponent {
         // console.log("userId : " + this.data.userId);
         // console.log("uiId : " + this.data.uiId);
 
-        this.service.postLastTable(this.data)
+        this.service.postRetrieve(this.usageInfo)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
@@ -52,20 +68,12 @@ export class UserUsageComponent {
                 },
                 error => this.errorMessage = error);
     }
+
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_userUsage'+'.xlsx');
     }
 
-    ngOnInit() {
-        // this.data.createDate = "20170321134000";
-        this.data.userId = "youngho";
-        this.data.uiId = this.UIID;
-        this.service.postUsage(this.data).subscribe(
-            data => this.data = data,
-            error => alert(error),
-            () => console.log("Finish onSave()")
-        );
-    }
+
 
 
 }

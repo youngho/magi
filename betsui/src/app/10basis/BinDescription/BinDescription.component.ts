@@ -144,7 +144,7 @@ export class BinDescriptionComponent implements OnInit{
 
     ngOnInit() {
         // this.data.createDate = It makes server side service class
-        this.usageInfo.userId = localStorage.getItem("username");
+        this.usageInfo.userId = localStorage.getItem("loginId");
         this.usageInfo.uiId = this.UIID;
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,

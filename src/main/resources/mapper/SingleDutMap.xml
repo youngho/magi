@@ -4,56 +4,56 @@
     <!--BETS-UI-0301 : Single DUT map-->
     <select id="retrieveSingleDutMap" parameterType="kr.famos.bets.dutmap.singledut.dto.SingleDutMapDto" resultType="kr.famos.bets.dutmap.singledut.dto.SingleDutMapDto">
         SELECT
-            PART_NUMBER,
-            OPERATOR_ID,
-            LOT_ID,
-            SUBSTR(SHOT_START_TIME,1,4)||'-'||SUBSTR(SHOT_START_TIME,5,2)||'-'||SUBSTR(SHOT_START_TIME,7,2)||' '||SUBSTR(SHOT_START_TIME,9,2)||':'||SUBSTR(SHOT_START_TIME,11,2)||':'||SUBSTR(SHOT_START_TIME,13,2) AS SHOT_START_TIME,
-            SUBSTR(SHOT_END_TIME,1,4)||'-'||SUBSTR(SHOT_END_TIME,5,2)||'-'||SUBSTR(SHOT_END_TIME,7,2)||' '||SUBSTR(SHOT_END_TIME,9,2)||':'||SUBSTR(SHOT_END_TIME,11,2)||':'||SUBSTR(SHOT_END_TIME,13,2) AS SHOT_END_TIME,
-            PROCESS_CODE,
-            TESTER_NUMBER,
-            TESTER_MODEL,
-            HEAD,
-            TEST_COUNTER,
-            HANDLER_MODEL,
-            'testTime' AS TEST_TIME,
-            'indexTime' AS INDEX_TIME,
-            BOARD_ID,
-            DUT_MAIN_BIN
-        FROM CASI_BIN
+            A.PART_NUMBER,
+            A.OPERATOR_ID,
+            A.LOT_ID,
+            SUBSTR(A.SHOT_START_TIME,1,4)||'-'||SUBSTR(A.SHOT_START_TIME,5,2)||'-'||SUBSTR(A.SHOT_START_TIME,7,2)||' '||SUBSTR(SHOT_START_TIME,9,2)||':'||SUBSTR(A.SHOT_START_TIME,11,2)||':'||SUBSTR(A.SHOT_START_TIME,13,2) AS SHOT_START_TIME,
+            SUBSTR(A.SHOT_END_TIME,1,4)||'-'||SUBSTR(A.SHOT_END_TIME,5,2)||'-'||SUBSTR(A.SHOT_END_TIME,7,2)||' '||SUBSTR(SHOT_END_TIME,9,2)||':'||SUBSTR(A.SHOT_END_TIME,11,2)||':'||SUBSTR(A.SHOT_END_TIME,13,2) AS SHOT_END_TIME,
+            A.PROCESS_CODE,
+            A.TESTER_NUMBER,
+            A.TESTER_MODEL,
+            A.HEAD,
+            A.TEST_COUNTER,
+            A.HANDLER_MODEL,
+            ROUND((TO_DATE(A.Shot_End_Time,'YYYYMMDDHH24MISS') - TO_DATE(A.shot_start_time,'YYYYMMDDHH24MISS'))*86400) AS TEST_TIME ,
+            ROUND((TO_DATE((SELECT MAX(B.Shot_End_Time) FROM CASI_BIN B WHERE B.Shot_End_Time <![CDATA[<]]> A.Shot_End_Time),'YYYYMMDDHH24MISS') - TO_DATE(A.shot_start_time,'YYYYMMDDHH24MISS'))*86400) AS INDEX_TIME
+            A.BOARD_ID,
+            A.UT_MAIN_BIN
+        FROM CASI_BIN A
         <where>
             1 = 1
             <if test=" endTimeStart != null and endTimeStart != '' ">
-                AND END_TIME >= #{endTimeStart}
+                AND A.END_TIME >= #{endTimeStart}
             </if>
             <if test=" endTimeEnd != null and endTimeEnd != '' ">
-                AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
+                AND A.END_TIME <![CDATA[<=]]> #{endTimeEnd}
             </if>
             <if test=" partNumber != null and partNumber != '' ">
-                AND PART_NUMBER=#{partNumber}
+                AND A.PART_NUMBER=#{partNumber}
             </if>
             <if test=" processCode != null and processCode != '' ">
-                AND PROCESS_CODE=#{processCode}
+                AND A.PROCESS_CODE=#{processCode}
             </if>
             <if test=" testerModel != null and testerModel != '' ">
-                AND TESTER_MODEL=#{testerModel}
+                AND A.TESTER_MODEL=#{testerModel}
             </if>
             <if test=" testerNumber != null and testerNumber != '' ">
-                AND TESTER_NUMBER=#{testerNumber}
+                AND A.TESTER_NUMBER=#{testerNumber}
             </if>
             <if test=" head != null and head != '' ">
-                AND HEAD=#{head}
+                AND A.HEAD=#{head}
             </if>
             <if test=" testCounter != null and testCounter != '' ">
-                AND TEST_COUNTER=#{testCounter}
+                AND A.TEST_COUNTER=#{testCounter}
             </if>
             <if test=" lotId != null and lotId != '' ">
-                AND LOT_ID=#{lotId}
+                AND A.LOT_ID=#{lotId}
             </if>
             <if test=" mainProgramName != null and mainProgramName != '' ">
-                AND MAIN_PROGRAM_NAME=#{mainProgramName}
+                AND A.MAIN_PROGRAM_NAME=#{mainProgramName}
             </if>
             <if test=" boardId != null and boardId != '' ">
-                AND BOARD_ID=#{boardId}
+                AND A.BOARD_ID=#{boardId}
             </if>
         </where>
     </select>
