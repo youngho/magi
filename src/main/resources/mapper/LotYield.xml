@@ -34,6 +34,7 @@
           SBL_BIN7_RESULT,
           SBL_BIN8_RESULT,
           SBL_BIN9_RESULT,
+          SBL_FIRMWARE_RESULT,
           QUANTITY,
           FUNCTION_KEY,
           TEST_INPUT,

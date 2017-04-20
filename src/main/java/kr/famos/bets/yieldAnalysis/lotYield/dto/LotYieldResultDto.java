@@ -4,54 +4,54 @@ package kr.famos.bets.yieldAnalysis.lotYield.dto;
  * Created by yhkim on 2017-02-22.
  */
 public class LotYieldResultDto {
-//    private int casiSeq              = 0;  //
-    private String testerNumber      = ""; // TESTER 번호(Host id)
-    private String testerModel       = ""; // TESTER MODEL NAME
-    private String handlerModel      = ""; // HANDLER MODEL NAME
-    private String head              = ""; // HEAD NUMBER A or B
-    private String lotId             = ""; // LOT ID
-    private String processCode       = ""; // PROCESS CODE
-    private String partNumber        = ""; // PART NUMBER
-    private String mainProgramName   = ""; // MAIN PROGRAM NAME
-    private String grade             = ""; // HQ:HIGH QUALITY
-    private String fab               = ""; // FAB SITE
-    private String firmwareName      = ""; // FIREWARE NAME
-    private String firmwareVersion   = ""; // FIRMWARE VERSION
-    private String temperature       = ""; // TEMPERATURE SPEC
-    private String operatorId        = ""; // OPERATOR ID
-    private String quantity          = ""; // 해당 LOT의 제품 수량
-    private String functionKey       = ""; // FUNCTION KEY(ADVANTEST T5503만 해당됨)
-    private String testCounter       = ""; // TEST 횟수 (0 or 1 or 2.....)
-    private String testInput         = ""; // TEST INPUT LOADING방식 (AUTO or MANUAL)
-    private String testFlow          = ""; // TEST FLOW (RETEST or FINAL OR CANCEL)
-    private String reworkFlag        = ""; // REWORK FLAG
-    private String testMode          = ""; // TEST_IN_MANUAL에서 선택한 MODE
-    private String boardId           = ""; // TEST BOARD ID (FIX)
-//    private String prelotEndTime     = ""; // 이전 LOT 끝난 시간.
+    //    private int casiSeq              = 0;  //
+    private String testerNumber = ""; // TESTER 번호(Host id)
+    private String testerModel = ""; // TESTER MODEL NAME
+    private String handlerModel = ""; // HANDLER MODEL NAME
+    private String head = ""; // HEAD NUMBER A or B
+    private String lotId = ""; // LOT ID
+    private String processCode = ""; // PROCESS CODE
+    private String partNumber = ""; // PART NUMBER
+    private String mainProgramName = ""; // MAIN PROGRAM NAME
+    private String grade = ""; // HQ:HIGH QUALITY
+    private String fab = ""; // FAB SITE
+    private String firmwareName = ""; // FIREWARE NAME
+    private String firmwareVersion = ""; // FIRMWARE VERSION
+    private String temperature = ""; // TEMPERATURE SPEC
+    private String operatorId = ""; // OPERATOR ID
+    private String quantity = ""; // 해당 LOT의 제품 수량
+    private String functionKey = ""; // FUNCTION KEY(ADVANTEST T5503만 해당됨)
+    private String testCounter = ""; // TEST 횟수 (0 or 1 or 2.....)
+    private String testInput = ""; // TEST INPUT LOADING방식 (AUTO or MANUAL)
+    private String testFlow = ""; // TEST FLOW (RETEST or FINAL OR CANCEL)
+    private String reworkFlag = ""; // REWORK FLAG
+    private String testMode = ""; // TEST_IN_MANUAL에서 선택한 MODE
+    private String boardId = ""; // TEST BOARD ID (FIX)
+    //    private String prelotEndTime     = ""; // 이전 LOT 끝난 시간.
 //    private String lotInTime         = ""; // OPERATOR ID 입력 시점
 //    private String betsInTime        = ""; // LC가 BETS한테 LOT 정보 주는 시점.
 //    private String betsEndTime       = ""; // LC가 BETS로 부터 LOT 정보를 받는 시점.(PROGREAM,LOT 정보)
 //    private String lotInEndTime      = ""; // TEST PROGRAM UPLOAD 시점.
 //    private String lotStartTime      = ""; // SRQKIND#02 or SRQKIND#04 START 시점.
-    private String endTime           = ""; // SRQKIND#10 시점.
-//    private String binInTime         = ""; // 작업자가 BIN 입력 시작 시점.(BIN POPUP창 활성화 시점)   --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
+    private String endTime = ""; // SRQKIND#10 시점.
+    //    private String binInTime         = ""; // 작업자가 BIN 입력 시작 시점.(BIN POPUP창 활성화 시점)   --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
 //    private String binEndTime        = ""; // 작업자가 BIN 입력 완료 시점.(TEST OUT Buttom Push 시점) ---
 //    private String sblInTime         = ""; // BETS 서버로 DATA 전송한 시점.
 //    private String sblEndTime        = ""; // BETS 서버로 부터 이상 유무의 명령을 받은 시점.
 //    private String finalEndTime      = ""; // 현재 LOT에 대한 LC의 완료시점에서 LC의 모든 DATA가 RESET된 시점을 뺀값.
-    private String sblResult         = ""; // OPBIN1_ERROR/OPBIN2_ERROR/OPBIN3_ERROR/OPBIN4_ERROR/OPBIN9_ERROR/LOW_YIELD
+    private String sblResult = ""; // OPBIN1_ERROR/OPBIN2_ERROR/OPBIN3_ERROR/OPBIN4_ERROR/OPBIN9_ERROR/LOW_YIELD
 
-    private String sblYieldResult    = "";
-    private String sblBin1Result     = "";
-    private String sblBin2Result     = "";
-    private String sblBin3Result     = "";
-    private String sblBin4Result     = "";
-    private String sblBin5Result     = "";
-    private String sblBin6Result     = "";
-    private String sblBin7Result     = "";
-    private String sblBin8Result     = "";
-    private String sblBin9Result     = "";
-
+    private String sblYieldResult = "";
+    private String sblBin1Result = "";
+    private String sblBin2Result = "";
+    private String sblBin3Result = "";
+    private String sblBin4Result = "";
+    private String sblBin5Result = "";
+    private String sblBin6Result = "";
+    private String sblBin7Result = "";
+    private String sblBin8Result = "";
+    private String sblBin9Result = "";
+    private String sblFirmwareResult = "";
 //    private String sblYieldLimit     = ""; // LOT YIELD 기준
 //    private String sblSubBinaCounter = ""; // 특정 SUB BIN COUNTER LIMIT 설정값
 //    private String sblSubBinaLimit   = ""; // 특정 SUB BIN % LIMIT 설정값
@@ -63,20 +63,20 @@ public class LotYieldResultDto {
 //    private String shotEndTime       = ""; // DUT_MAIN_BIN 종료시간
 //    private String dutMainBin        = ""; //
 
-//    private String endTimeStart = "";
+    //    private String endTimeStart = "";
 //    private String endTimeEnd = "";
-    private String input = "";
-    private String yield = "";
-    private String pass = "";
-    private String bin1 = "";
-    private String bin2 = "";
-    private String bin3 = "";
-    private String bin4 = "";
-    private String bin5 = "";
-    private String bin6 = "";
-    private String bin7 = "";
-    private String bin8 = "";
-    private String bin9 = "";
+    private int input = 0;
+    private float yield = 0;
+    private int pass = 0;
+    private int bin1 = 0;
+    private int bin2 = 0;
+    private int bin3 = 0;
+    private int bin4 = 0;
+    private int bin5 = 0;
+    private int bin6 = 0;
+    private int bin7 = 0;
+    private int bin8 = 0;
+    private int bin9 = 0;
 
     public String getTesterNumber() {
         return testerNumber;
@@ -350,99 +350,107 @@ public class LotYieldResultDto {
         this.sblBin9Result = sblBin9Result;
     }
 
-    public String getInput() {
+    public int getInput() {
         return input;
     }
 
-    public void setInput(String input) {
+    public void setInput(int input) {
         this.input = input;
     }
 
-    public String getYield() {
+    public float getYield() {
         return yield;
     }
 
-    public void setYield(String yield) {
+    public void setYield(float yield) {
         this.yield = yield;
     }
 
-    public String getPass() {
+    public int getPass() {
         return pass;
     }
 
-    public void setPass(String pass) {
+    public void setPass(int pass) {
         this.pass = pass;
     }
 
-    public String getBin1() {
+    public int getBin1() {
         return bin1;
     }
 
-    public void setBin1(String bin1) {
+    public void setBin1(int bin1) {
         this.bin1 = bin1;
     }
 
-    public String getBin2() {
+    public int getBin2() {
         return bin2;
     }
 
-    public void setBin2(String bin2) {
+    public void setBin2(int bin2) {
         this.bin2 = bin2;
     }
 
-    public String getBin3() {
+    public int getBin3() {
         return bin3;
     }
 
-    public void setBin3(String bin3) {
+    public void setBin3(int bin3) {
         this.bin3 = bin3;
     }
 
-    public String getBin4() {
+    public int getBin4() {
         return bin4;
     }
 
-    public void setBin4(String bin4) {
+    public void setBin4(int bin4) {
         this.bin4 = bin4;
     }
 
-    public String getBin5() {
+    public int getBin5() {
         return bin5;
     }
 
-    public void setBin5(String bin5) {
+    public void setBin5(int bin5) {
         this.bin5 = bin5;
     }
 
-    public String getBin6() {
+    public int getBin6() {
         return bin6;
     }
 
-    public void setBin6(String bin6) {
+    public void setBin6(int bin6) {
         this.bin6 = bin6;
     }
 
-    public String getBin7() {
+    public int getBin7() {
         return bin7;
     }
 
-    public void setBin7(String bin7) {
+    public void setBin7(int bin7) {
         this.bin7 = bin7;
     }
 
-    public String getBin8() {
+    public int getBin8() {
         return bin8;
     }
 
-    public void setBin8(String bin8) {
+    public void setBin8(int bin8) {
         this.bin8 = bin8;
     }
 
-    public String getBin9() {
+    public int getBin9() {
         return bin9;
     }
 
-    public void setBin9(String bin9) {
+    public void setBin9(int bin9) {
         this.bin9 = bin9;
+    }
+
+    public String getSblFirmwareResult() {
+        return sblFirmwareResult;
+    }
+
+    public void setSblFirmwareResult(String sblFirmwareResult) {
+        this.sblFirmwareResult = sblFirmwareResult;
     }
 }

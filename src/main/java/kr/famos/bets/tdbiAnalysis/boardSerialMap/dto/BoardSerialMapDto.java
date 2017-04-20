@@ -13,7 +13,7 @@ public class BoardSerialMapDto {
     private String endTime         = ""; //
     private String testerModel     = ""; //
     private int testNumber         = 0;  //
-    private int boardId            = 0;  //
+    private String boardId         = "";  //
     private int zoneNumber         = 0;  //
     private int slotNumber         = 0;  //
     private String boardRow        = ""; // x 축 시작,끝값
@@ -96,11 +96,11 @@ public class BoardSerialMapDto {
         this.testNumber = testNumber;
     }
 
-    public int getBoardId() {
+    public String getBoardId() {
         return boardId;
     }
 
-    public void setBoardId(int boardId) {
+    public void setBoardId(String boardId) {
         this.boardId = boardId;
     }
 

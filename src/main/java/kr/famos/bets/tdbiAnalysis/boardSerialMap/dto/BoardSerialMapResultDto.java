@@ -9,7 +9,7 @@ public class BoardSerialMapResultDto {
     private String lotId           = ""; //
     private int processCode        = 0;  //
     private String mainProgramName = ""; //
-    private int boardId            = 0;  //
+    private String boardId         = "";  //
     private int zoneNumber         = 0;  //
     private int slotNumber         = 0;  //
 
@@ -66,11 +66,11 @@ public class BoardSerialMapResultDto {
         this.mainProgramName = mainProgramName;
     }
 
-    public int getBoardId() {
+    public String getBoardId() {
         return boardId;
     }
 
-    public void setBoardId(int boardId) {
+    public void setBoardId(String boardId) {
         this.boardId = boardId;
     }
 

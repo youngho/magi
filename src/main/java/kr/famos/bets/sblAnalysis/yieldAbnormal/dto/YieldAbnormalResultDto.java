@@ -25,6 +25,7 @@ public class YieldAbnormalResultDto {
     private String sblBin7Result    = ""; // NOT USE
     private String sblBin8Result    = ""; // SBL_BIN8_LIMIT 기준 이상일 경우 "ERROR"
     private String sblBin9Result    = ""; // SBL_BIN9_COUNTER 기준 이상일 경우 "ERROR"
+    private String sblFirmwareResult = "";
     private String mainProgramName  = ""; // MAIN PROGRAM NAME
 
     private String opInput = "";
@@ -528,5 +529,13 @@ public class YieldAbnormalResultDto {
 
     public void settBin9(String tBin9) {
         this.tBin9 = tBin9;
+    }
+
+    public String getSblFirmwareResult() {
+        return sblFirmwareResult;
+    }
+
+    public void setSblFirmwareResult(String sblFirmwareResult) {
+        this.sblFirmwareResult = sblFirmwareResult;
     }
 }
