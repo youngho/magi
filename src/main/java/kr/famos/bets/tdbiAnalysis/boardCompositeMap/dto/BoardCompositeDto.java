@@ -12,7 +12,7 @@ public class BoardCompositeDto {
     private String biEndTime         = ""; //
     private String biTesterModel     = ""; //
     private int biTestNumber         = 0;  //
-    private int biBoardId            = 0;  //
+    private String biBoardId         = "";  //
     private int biZoneNumber         = 0;  //
     private int biSlotNumber         = 0;  //
     private String biBoardRow        = ""; // x 축 시작,끝값
@@ -95,11 +95,11 @@ public class BoardCompositeDto {
         this.biTestNumber = biTestNumber;
     }
 
-    public int getBiBoardId() {
+    public String getBiBoardId() {
         return biBoardId;
     }
 
-    public void setBiBoardId(int biBoardId) {
+    public void setBiBoardId(String biBoardId) {
         this.biBoardId = biBoardId;
     }
 

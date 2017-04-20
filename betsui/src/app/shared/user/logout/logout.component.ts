@@ -28,6 +28,8 @@ export class LogoutComponent implements OnInit {
 
     }, (ButtonPressed) => {
       if (ButtonPressed == "Yes") {
+        localStorage.clear();
+        location.reload()
         this.logout()
       }
     });
