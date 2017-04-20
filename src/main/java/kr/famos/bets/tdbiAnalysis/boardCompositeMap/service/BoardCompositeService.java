@@ -54,7 +54,7 @@ public class BoardCompositeService {
                 mapSocketNum.put("lotId", String.valueOf(board.getBiLotId()));
                 mapSocketNum.put("zoneNumber", String.valueOf(board.getBiZoneNumber()));
                 mapSocketNum.put("boardId", String.valueOf(board.getBiBoardId()));
-                mapSocketNum.put("col", String.valueOf(row));
+                mapSocketNum.put(".", "Col" + String.valueOf(row));
                 for (int j = 0; j < maxRow; j++) {
                     strArraySocketNum[col][j] = Character.toString(strRow.charAt(j));
                     mapSocketNum.put("row" + String.valueOf(j + 1), Character.toString(strRow.charAt(j)));
