@@ -25,6 +25,7 @@ public class BoardCompositeService {
 
     public List<?> retrieveBoardCompositeMap(BoardCompositeDto boardCompositeDto) {
         List<BoardCompositeDto> lstBoardCompositeDto = boardCompositeMapper.retrieveBoardCompositeMap(boardCompositeDto);
+        LinkedHashMap<String, String> rowEmpty = new LinkedHashMap<>();
 
         int maxDut = 0;
         //가잗큰 Dut를 구한다.
@@ -46,10 +47,10 @@ public class BoardCompositeService {
                 strScoketTemp = strScoketTemp.substring(maxRow, strScoketTemp.length());
                 LinkedHashMap<String, String> mapSocketNum = new LinkedHashMap<>();
                 mapSocketNum.put("Seq", String.valueOf(board.getBiSeq()));
-                mapSocketNum.put("row", String.valueOf(row));
+                mapSocketNum.put("col", String.valueOf(row));
                 for (int j = 0; j < maxRow; j++) {
                     strArraySocketNum[col][j] = Character.toString(strRow.charAt(j));
-                    mapSocketNum.put("col" + String.valueOf(j + 1), Character.toString(strRow.charAt(j)));
+                    mapSocketNum.put("row" + String.valueOf(j + 1), Character.toString(strRow.charAt(j)));
                 }
                 col++;
                 if (Integer.parseInt(strBoardCol[0]) > (Integer.parseInt(strBoardCol[1]))) {
@@ -60,12 +61,14 @@ public class BoardCompositeService {
                 arrayMapSocketNum.add(mapSocketNum);
                 mapSocketNum = null;
             }
+            arrayMapSocketNum.add(rowEmpty);        // for Empty Row
+
         }
 
 
-        Gson gson = new Gson();
+//        Gson gson = new Gson();
 
-        String strJson = gson.toJson(lstBoardCompositeDto);
+//        String strJson = gson.toJson(lstBoardCompositeDto);
 //        String test = "[{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa5" + "\"" + "}" + "," + "{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa2" + "\"" + "}]";
 //        if (arrayMapDutMap.size() == 0) {
 //            strJson = "[{" + "\"" + "a" + "\"" + ":" + "\"" + "a" + "\"" + "," +  "\"" + "3" + "\"" + ":" + "\"" + "c" + "\"" + ","  + "\"" + "2" + "\"" + ":" + "\"" + "b" + "\"" + "}]";
