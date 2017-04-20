@@ -15,8 +15,8 @@ export class CasiService {
     }
 
     postRetrieveByKey(data) {
-        // this.path = 'retrieveRawDataByKey';
-        this.path = 'download/external';
+        this.path = 'retrieveRawDataByKey';
+        // this.path = 'download/external';
         return this.api.post(`${this.path}`, data);
     }
 

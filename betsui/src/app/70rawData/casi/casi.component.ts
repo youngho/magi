@@ -33,7 +33,7 @@ export class CasiComponent {
     private usageInfo = new UserUsage();
     private Files: string[];
 
-    constructor(private service: CasiService,private notificationService: NotificationService,) {
+    constructor(private service: CasiService, private notificationService: NotificationService,) {
     }
 
     ngOnInit() {
@@ -47,31 +47,41 @@ export class CasiComponent {
         );
     }
 
-    onGridLoaded(){
+    onGridLoaded() {
         var self = this;
-        setTimeout(function() {
+        setTimeout(function () {
             self.flexGrid.autoSizeColumns();
-        },300);
+        }, 300);
     }
 
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
      */
-    someClickHandler(info: any): void {
+    download(flexGrid) {
+        if (!this.flexGrid) {
+            return;
+        }
+        let info: any
+        info = flexGrid.selectedItems[0];
+
         console.log(info.createDate);
         console.log(info.fileName);
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
-        this.retrieveCond.createDate = info.createDate;
-        this.retrieveCond.fileName = info.fileName;
+        this.retrieveByKeyDto.createDate = info.createDate;
+        this.retrieveByKeyDto.fileName = info.fileName;
+        this.retrieveByKeyDto.location = info.location;
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/:/g, "");
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(" ", "");
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/-/g, "");
         //알림 메시지를 보여준다.
         this.smartModEg1();
         // this.bgModel.show(function (info: any) {
         //     console.log(info.testerModel);
         // });
-
     }
+
     retrieveExecute() {
         console.log("endTimeStart : " + this.retrieveCond.createDateStart);
         console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
@@ -93,7 +103,7 @@ export class CasiComponent {
     smartModEg1() {
         this.notificationService.smartMessageBox({
             title: "BETS Alert!",
-            content: "Do you want to download file : " + this.retrieveCond.fileName,
+            content: "Do you want to download file : " + this.retrieveByKeyDto.fileName,
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
@@ -109,7 +119,7 @@ export class CasiComponent {
         });
     }
 
-    extractData(res: string){
+    extractData(res: string) {
         var a = document.createElement("a");
         document.body.appendChild(a);
         // a.style = "display: none";
@@ -120,14 +130,15 @@ export class CasiComponent {
 
         // var fileURL = URL.createObjectURL(myBlob);
         a.href = window.URL.createObjectURL(myBlob);
-        a.download = this.retrieveCond.fileName;
+        a.download = this.retrieveByKeyDto.fileName;
         a.click();
         // window.URL.revokeObjectURL(myBlob);
         // Cross your fingers at this point and pray whatever you're used to pray
         // window.open(fileURL);
     }
+
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_TestRAWList'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_TestRAWList' + '.xlsx');
     }
 
 }

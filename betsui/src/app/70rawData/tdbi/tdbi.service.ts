@@ -15,9 +15,8 @@ export class TdbiService {
     }
 
     postRetrieveByKey(data) {
-        // this.path = 'retrieveRawDataByKey';
-        this.path = 'download/external';
-        console.log('PATH : ' + this.path);
+        this.path = 'retrieveRawDataByKey';
+        // this.path = 'download/external';
         return this.api.post(`${this.path}`, data);
     }
 

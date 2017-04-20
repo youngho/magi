@@ -56,19 +56,30 @@ export class TdbiComponent {
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
      */
-    someClickHandler(info: any): void {
+    download(flexGrid) {
+        if (!this.flexGrid) {
+            return;
+        }
+        let info: any
+        info = flexGrid.selectedItems[0];
+
         console.log(info.createDate);
+        console.log(info.fileName);
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.retrieveByKeyDto.createDate = info.createDate;
-
+        this.retrieveByKeyDto.fileName = info.fileName;
+        this.retrieveByKeyDto.location = info.location;
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/:/g, "");
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(" ", "");
+        this.retrieveByKeyDto.createDate = this.retrieveByKeyDto.createDate.replace(/-/g, "");
         //알림 메시지를 보여준다.
         this.smartModEg1();
         // this.bgModel.show(function (info: any) {
         //     console.log(info.testerModel);
         // });
-
     }
+
     retrieveExecute() {
         console.log("endTimeStart : " + this.retrieveCond.createDateStart);
         console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
@@ -94,8 +105,10 @@ export class TdbiComponent {
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
+                var reader = new FileReader();
                 this.service.postRetrieveByKey(this.retrieveByKeyDto).subscribe(
-                    data => this.Files = data,
+                    // data => console.log(data._body),
+                    data => this.extractData(data._body),
                     error => alert(error),
                     () => console.log(""));
             }
@@ -103,6 +116,25 @@ export class TdbiComponent {
             }
         });
     }
+
+    extractData(res: string) {
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        // a.style = "display: none";
+        // transforme response to blob
+        // let myBlob: Blob = new Blob([res], {type: 'application/txt'}); // replace the type by whatever type is your response
+        let myBlob: Blob = new Blob([res], {type: 'text/plain'}); // replace the type by whatever type is your response
+        console.log("res : " + res);
+
+        // var fileURL = URL.createObjectURL(myBlob);
+        a.href = window.URL.createObjectURL(myBlob);
+        a.download = this.retrieveByKeyDto.fileName;
+        a.click();
+        // window.URL.revokeObjectURL(myBlob);
+        // Cross your fingers at this point and pray whatever you're used to pray
+        // window.open(fileURL);
+    }
+
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
     }

@@ -3,11 +3,16 @@ package kr.famos.bets.rawData.rest;
 import kr.famos.bets.rawData.dto.RawDataResultDto;
 import kr.famos.bets.rawData.dto.RawDataRetrieveCondDto;
 import kr.famos.bets.rawData.service.RawDataService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.FileCopyUtils;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -21,8 +26,10 @@ import java.util.List;
 @RestController
 public class RawDataController {
 
-    private static final String INTERNAL_FILE="irregular-verbs-list.pdf";
-    private static final String EXTERNAL_FILE_PATH="C:/mytemp/casi.txt";
+//    private static final String INTERNAL_FILE="irregular-verbs-list.pdf";
+//    private static final String EXTERNAL_FILE_PATH="C:/mytemp/casi.txt";
+
+    private static final Logger logger = LoggerFactory.getLogger(RawDataController.class);
 
     @Autowired
     RawDataService rawDataService;
@@ -38,17 +45,21 @@ public class RawDataController {
      *   - inside project, located in resources folder.
      *   - outside project, located in File system somewhere.
      */
-    @RequestMapping(value="/download/{type}", method = RequestMethod.POST)
-    public void downloadFile(HttpServletResponse response, @PathVariable("type") String type) throws IOException {
+//    @RequestMapping(value="/download/{type}", method = RequestMethod.POST)
+    @RequestMapping(value="/retrieveRawDataByKey", method = RequestMethod.POST)
+    public void downloadFile(@RequestBody RawDataRetrieveCondDto rawDataRetrieveCondDto, HttpServletResponse response) throws IOException {
 
         File file = null;
 
-        if(type.equalsIgnoreCase("internal")){
-            ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-            file = new File(classloader.getResource(INTERNAL_FILE).getFile());
-        }else{
-            file = new File(EXTERNAL_FILE_PATH);
-        }
+//        if(type.equalsIgnoreCase("internal")){
+//            ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+//            file = new File(classloader.getResource(INTERNAL_FILE).getFile());
+//        }else{
+//            file = new File(EXTERNAL_FILE_PATH);
+//        }
+        String strFilePath = rawDataRetrieveCondDto.getLocation() + "\\" + rawDataRetrieveCondDto.getFileName();
+        logger.debug("FILE PATH : " + strFilePath);
+        file = new File(strFilePath);
 
         if(!file.exists()){
             String errorMessage = "Sorry. The file you are looking for does not exist";
