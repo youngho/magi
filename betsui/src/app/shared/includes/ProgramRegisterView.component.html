@@ -2,7 +2,7 @@
       [saUiValidate]="validationOptions" novalidate="novalidate">
     <fieldset>
         <div class="form-group">
-            <label class="col-md-2 control-label txt-color-red">{{'partNumber'|i18n}}</label>
+            <label class="col-md-2 control-label" style="color:red;">{{'partNumber'|i18n}}</label>
 
             <div class="col-md-2">
                 <input type="text" class="form-control" id="partNumber" name="partNumber"
@@ -21,9 +21,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label txt-color-red">{{'processCode'|i18n}}</label>
+            <label class="col-md-2 control-label" style="color:red;">{{'processCode'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="processCode" name="processCode"
+                <input type="text" class="form-control" id="processCode" name="processCode" required
                        placeholder="" [(ngModel)]="programRegister.processCode">
             </div>
             <label class="col-md-2 control-label">{{'fab'|i18n}}</label>
@@ -39,9 +39,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label txt-color-red">{{'mainProgramName'|i18n}}</label>
+            <label class="col-md-2 control-label" style="color:red;">{{'mainProgramName'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" maxlength="30" class="form-control" id="mainProgramName"
+                <input type="text" maxlength="30" class="form-control" id="mainProgramName" required
                        name="mainProgramName" placeholder=""
                        [(ngModel)]="programRegister.mainProgramName">
             </div>
@@ -58,9 +58,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label txt-color-red">{{'dutMap'|i18n}}</label>
+            <label class="col-md-2 control-label" style="color:red;">{{'dutMap'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="dutMap" name="dutMap"
+                <input type="text" class="form-control" id="dutMap" name="dutMap" required
                        placeholder="" [(ngModel)]="programRegister.dutMap">
             </div>
             <label class="col-md-2 control-label">{{'firmwareName'|i18n}}</label>
@@ -77,9 +77,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label txt-color-red">{{'temperature'|i18n}}</label>
+            <label class="col-md-2 control-label" style="color:red;">{{'temperature'|i18n}}</label>
             <div class="col-md-2">
-                <input type="number" class="form-control" id="temperature"
+                <input type="number" class="form-control" id="temperature" required
                        name="temperature" placeholder=""
                        [(ngModel)]="programRegister.temperature">
             </div>
@@ -170,9 +170,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label txt-color-red">{{'firmwareDirectory'|i18n}}</label>
+            <label class="col-md-2 control-label" style="color:red;">{{'firmwareDirectory'|i18n}}</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" id="firmwareDirectory"
+                <input type="text" class="form-control" id="firmwareDirectory" required
                        name="firmwareDirectory" placeholder=""
                        [(ngModel)]="programRegister.firmwareDirectory">
             </div>
@@ -282,28 +282,28 @@
         </div>
 
         <div class="form-group">
-            <label class="col-md-2 control-label txt-color-red">Pass BIN Selection</label>
+            <label class="col-md-2 control-label" style="color:red;">Pass BIN Selection</label>
             <div class="col-md-10">
                 <label class="col-md-2 checkbox-inline">
-                    <input type="checkbox" class="checkbox style-3" id="passBinSelection1"
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="passBinSelection1"
                            name="passBinSelection1"
                            [(ngModel)]="programRegister.passBinSelection1">
                     <span>{{'passBinSelection1'|i18n}}</span>
                 </label>
                 <label class="col-md-2 checkbox-inline">
-                    <input type="checkbox" class="checkbox style-3" id="passBinSelection2"
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="passBinSelection2"
                            name="passBinSelection2"
                            [(ngModel)]="programRegister.passBinSelection2">
                     <span>{{'passBinSelection2'|i18n}}</span>
                 </label>
                 <label class="col-md-2 checkbox-inline">
-                    <input type="checkbox" class="checkbox style-3" id="passBinSelection3"
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="passBinSelection3"
                            name="passBinSelection3"
                            [(ngModel)]="programRegister.passBinSelection3">
                     <span>{{'passBinSelection3'|i18n}}</span>
                 </label>
                 <label class="col-md-2 checkbox-inline">
-                    <input type="checkbox" class="checkbox style-3" id="passBinSelection4"
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="passBinSelection4"
                            name="passBinSelection4"
                            [(ngModel)]="programRegister.passBinSelection4">
                     <span>{{'passBinSelection4'|i18n}}</span>
@@ -341,10 +341,6 @@
     <div class="form-actions">
         <div class="row">
             <div class="col-md-12">
-                <button class="btn btn-primary" type="submit">
-                    <i class="fa fa-save"></i>
-                    {{'Save'|i18n}}
-                </button>
                 <button *ngIf="newFlag" class="btn btn-default" (click)="resetForm()">
                     <i class="fa fa-cancel"></i>
                     {{'Reset'|i18n}}
@@ -352,6 +348,10 @@
                 <button *ngIf="!newFlag" class="btn btn-default" (click)="modalClosefn()">
                     <i class="fa fa-cancel"></i>
                     {{'Cancel'|i18n}}
+                </button>
+                <button class="btn btn-primary" type="submit">
+                    <i class="fa fa-save"></i>
+                    {{'Save'|i18n}}
                 </button>
             </div>
         </div>

@@ -48,7 +48,11 @@ export class BoardCompositeMapComponent {
         },300);
     }
 
-    saveLastTableForm() {
+    resetForm() {
+        this.data = new BoardCompositeMap();
+    }
+
+    retrieveExecute() {
         // console.log("biEndTimeStart : " + this.data.biEndTimeStart);
         // console.log("biEndTimeEnd : " + this.data.biEndTimeEnd);
         // console.log("partnumberName : " + this.data.biPartNumber);

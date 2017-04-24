@@ -1,10 +1,11 @@
-import {Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angular/core';
 import {FadeInTop} from "../animations/fade-in-top.decorator";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {ProgramRegisterService} from "../../10basis/ProgramRegister/ProgramRegister.service";
 import {NotificationService} from "../utils/notification.service";
 import {ProgramRegister} from "../../10basis/ProgramRegister.model";
 import {concat} from "rxjs/observable/concat";
+import {UserUsage} from "../usage/userUsage.model";
 
 @FadeInTop()
 @Component({
@@ -12,10 +13,12 @@ import {concat} from "rxjs/observable/concat";
     templateUrl: 'ProgramRegisterView.component.html',
     providers: [ProgramRegisterService, ProgramRegister]
 })
-export class ProgramRegisterViewComponent implements OnInit,OnChanges {
+export class ProgramRegisterViewComponent implements OnInit, OnChanges {
+    UIID: string = "BETS-UI-0102";
     @Input() programRegisterTo: ProgramRegister;
-    @Input() newFlag=true;
-    @Output()  modalClose = new EventEmitter(); //�Ҹ� �𿡼� �˾� â�� �ݰ� �ϱ�����
+    @Input() newFlag = true;
+    @Output() modalClose = new EventEmitter(); //�Ҹ� �𿡼� �˾� â�� �ݰ� �ϱ�����
+    private usageInfo = new UserUsage();
 
     public validationOptions = {
         rules: {
@@ -25,6 +28,9 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
             processCode: {
                 required: true,
                 digits: true
+            },
+            mainProgramName: {
+                required: true,
             }
         },
 
@@ -34,15 +40,18 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
                 required: 'Please enter Part Number'
             },
             processCode: {
-                required: 'Enter year',
+                required: 'Please enter Process Code',
                 digits: 'Digits only please'
-            }
+            },
+            mainProgramName: {
+                required: 'Please enter Program Name'
+            },
         },
 
     };
 
     constructor(private programRegisterService: ProgramRegisterService, private notificationService: NotificationService, private programRegister: ProgramRegister) {
-        
+
         this.modalClose.emit(false);
     }
     ;
@@ -50,18 +59,23 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
     submitted = false;
 
     ngOnChanges(changes: any) {
-        
         console.log(this.programRegisterTo)
         if (this.programRegisterTo.partNumber != null) {
             this.programRegister = this.programRegisterTo
             this.retrieveFunction();            //�˾� ��ȸ�� FunctionKey Y/N ����
             this.retrievePassBinSelection();    //�˾� ��ȸ�� PassBINSelection Y/N ����
         }
-
     }
 
     ngOnInit() {
-
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.programRegisterService.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
     }
 
     resetForm() {
@@ -82,9 +96,18 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
         if (localStorage.getItem('loginId') === null) {
             this.programRegister.createUser = 'devdev';
         }
-        this.smartModEg1();
 
-        this.submitted = true;
+        if (this.programRegister.partNumber != null
+            && this.programRegister.processCode != null
+            && this.programRegister.mainProgramName != null
+            && this.programRegister.dutMap != null
+            && this.programRegister.temperature != null
+            && this.programRegister.firmwareDirectory != null
+        ){
+            this.smartModEg1();
+            this.submitted = true;
+        }
+
     }
 
     smartModEg1() {
@@ -95,7 +118,10 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
                 this.programRegisterService.save(this.programRegister).subscribe(
-                    data => {this.programRegister = data;  this.modalClose.emit(true);},
+                    data => {
+                        this.programRegister = data;
+                        this.modalClose.emit(true);
+                    },
                     error => alert(error),
                     () => console.log("Finish onSave()"));
 
@@ -108,7 +134,7 @@ export class ProgramRegisterViewComponent implements OnInit,OnChanges {
         });
     }
 
-    modalClosefn(){
+    modalClosefn() {
 
         this.modalClose.emit(true); //�Ҹ� �𿡼� �ݰ� �ϱ� ����
         return false;

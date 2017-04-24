@@ -17,7 +17,8 @@
                         <!-- widget content -->
                         <div class="widget-body">
                             <!--<legend>Retrieve Elements</legend>-->
-                            <div class="form-horizontal">
+                            <form #form="ngForm">
+                                <div class="form-horizontal">
                                 <fieldset>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
@@ -36,48 +37,47 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text"
+                                            <input class="form-control" placeholder="Part Number" type="text" name="biPartNumber"
                                                    [(ngModel)]="data.biPartNumber">
                                         </div>
-
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text"
+                                            <input class="form-control" placeholder="Process Code" type="text" name="biProcessCode"
                                                    [(ngModel)]="data.biProcessCode">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text"
+                                            <input class="form-control" placeholder="Tester Model" type="text" name="biTesterModel"
                                                    [(ngModel)]="data.biTesterModel">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label" style="color:red;"><strong>{{'Lot ID'|i18n}}</strong></label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot ID" type="text"
+                                            <input class="form-control" placeholder="Lot ID" type="text" name="biLotId" required minlength="4" maxlength="24"
                                                    [(ngModel)]="data.biLotId">
                                         </div>
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" name="biMainProgramName"
                                                    [(ngModel)]="data.biMainProgramName">
                                         </div>
                                         <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
+                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" name="biBoardId"
                                                    [(ngModel)]="data.biBoardId">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'zoneNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'zoneNumber'|i18n}}" type="text"
+                                            <input class="form-control" placeholder="{{'zoneNumber'|i18n}}" type="text" name="biZoneNumber"
                                                    [(ngModel)]="data.biZoneNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'slotNumber'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'slotNumber'|i18n}}" type="text"
+                                            <input class="form-control" placeholder="{{'slotNumber'|i18n}}" type="text" name="biSlotNumber"
                                                    [(ngModel)]="data.biSlotNumber">
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                                 {{'reset'|i18n}}
                                             </button>
 
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                            <button type="submit" [disabled]="!form.form.valid" (click)="retrieveExecute()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>
@@ -97,6 +97,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
                         <!-- end widget content -->
                     </div>
