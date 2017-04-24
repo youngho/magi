@@ -5,17 +5,17 @@
             <label class="col-md-2 control-label" style="color:red;">{{'partNumber'|i18n}}</label>
 
             <div class="col-md-2">
-                <input type="text" class="form-control" id="partNumber" name="partNumber"
+                <input type="text" class="form-control" id="partNumber" name="partNumber" maxlength="30"
                        placeholder="" [(ngModel)]="programRegister.partNumber" required>
             </div>
             <label class="col-md-2 control-label">{{'productName'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="product" name="product"
+                <input type="text" class="form-control" id="product" name="product" maxlength="50"
                        placeholder="" [(ngModel)]="programRegister.productName">
             </div>
             <label class="col-md-2 control-label">{{'sblYieldLimit'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblYieldLimit"
+                <input type="text" class="form-control" id="sblYieldLimit" maxlength="5"
                        name="sblYieldLimit" placeholder=""
                        [(ngModel)]="programRegister.sblYieldLimit">
             </div>
@@ -23,17 +23,17 @@
         <div class="form-group">
             <label class="col-md-2 control-label" style="color:red;">{{'processCode'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="processCode" name="processCode" required
+                <input type="text" class="form-control" id="processCode" name="processCode" maxlength="10" required
                        placeholder="" [(ngModel)]="programRegister.processCode">
             </div>
             <label class="col-md-2 control-label">{{'fab'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="fab" name="fab"
+                <input type="text" class="form-control" id="fab" name="fab" maxlength="5"
                        placeholder="" [(ngModel)]="programRegister.fab">
             </div>
             <label class="col-md-2 control-label">{{'sblBin8Limit'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblBin8Limit"
+                <input type="text" class="form-control" id="sblBin8Limit" maxlength="3"
                        name="sblBin8Limit" placeholder=""
                        [(ngModel)]="programRegister.sblBin8Limit">
             </div>
@@ -41,18 +41,18 @@
         <div class="form-group">
             <label class="col-md-2 control-label" style="color:red;">{{'mainProgramName'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" maxlength="30" class="form-control" id="mainProgramName" required
+                <input type="text" maxlength="30" class="form-control" id="mainProgramName" maxlength="30" required
                        name="mainProgramName" placeholder=""
                        [(ngModel)]="programRegister.mainProgramName">
             </div>
             <label class="col-md-2 control-label">{{'grade'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="grade" name="grade"
+                <input type="text" class="form-control" id="grade" name="grade" maxlength="5"
                        placeholder="" [(ngModel)]="programRegister.grade">
             </div>
             <label class="col-md-2 control-label">{{'sblBin9Limit'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblBin9Limit"
+                <input type="text" class="form-control" id="sblBin9Limit" maxlength="3"
                        name="sblBin9Limit" placeholder=""
                        [(ngModel)]="programRegister.sblBin9Limit">
             </div>
@@ -60,18 +60,18 @@
         <div class="form-group">
             <label class="col-md-2 control-label" style="color:red;">{{'dutMap'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="dutMap" name="dutMap" required
+                <input type="text" class="form-control" id="dutMap" name="dutMap" maxlength="20" required
                        placeholder="" [(ngModel)]="programRegister.dutMap">
             </div>
             <label class="col-md-2 control-label">{{'firmwareName'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="firmwareName"
+                <input type="text" class="form-control" id="firmwareName" maxlength="50"
                        name="firmwareName" placeholder=""
                        [(ngModel)]="programRegister.firmwareName">
             </div>
             <label class="col-md-2 control-label">{{'sblBin9Counter'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblBin9Counter"
+                <input type="text" class="form-control" id="sblBin9Counter" maxlength="2"
                        name="sblBin9Counter" placeholder=""
                        [(ngModel)]="programRegister.sblBin9Counter">
             </div>
@@ -79,19 +79,19 @@
         <div class="form-group">
             <label class="col-md-2 control-label" style="color:red;">{{'temperature'|i18n}}</label>
             <div class="col-md-2">
-                <input type="number" class="form-control" id="temperature" required
+                <input type="number" class="form-control" id="temperature" maxlength="4" required
                        name="temperature" placeholder=""
                        [(ngModel)]="programRegister.temperature">
             </div>
             <label class="col-md-2 control-label">{{'firmwareVersion'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="firmwareVersion"
+                <input type="text" class="form-control" id="firmwareVersion" maxlength="20"
                        name="firmwareVersion" placeholder=""
                        [(ngModel)]="programRegister.firmwareVersion">
             </div>
             <label class="col-md-2 control-label">{{'sblSubBinaNumber'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblSubBinaNumber"
+                <input type="text" class="form-control" id="sblSubBinaNumber" maxlength="5"
                        name="sblSubBinaNumber" placeholder=""
                        [(ngModel)]="programRegister.sblSubBinaNumber">
             </div>
@@ -99,19 +99,19 @@
         <div class="form-group">
             <label class="col-md-2 control-label">{{'temperatureGuard'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="temperatureGuard"
+                <input type="text" class="form-control" id="temperatureGuard" maxlength="3"
                        name="temperatureGuard" placeholder=""
                        [(ngModel)]="programRegister.temperatureGuard">
             </div>
             <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="testerOsVersion"
+                <input type="text" class="form-control" id="testerOsVersion" maxlength="10"
                        name="testerOsVersion" placeholder=""
                        [(ngModel)]="programRegister.testerOsVersion">
             </div>
             <label class="col-md-2 control-label">{{'sblSubBinaLimit'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblSubBinaLimit"
+                <input type="text" class="form-control" id="sblSubBinaLimit" maxlength="5"
                        name="sblSubBinaLimit" placeholder=""
                        [(ngModel)]="programRegister.sblSubBinaLimit">
             </div>
@@ -119,18 +119,18 @@
         <div class="form-group">
             <label class="col-md-2 control-label">{{'customer'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="customer" name="customer"
+                <input type="text" class="form-control" id="customer" name="customer" maxlength="30"
                        placeholder="" [(ngModel)]="programRegister.customer">
             </div>
             <label class="col-md-2 control-label">{{'programVersion'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="programVersion"
+                <input type="text" class="form-control" id="programVersion" maxlength="10"
                        name="programVersion" placeholder=""
                        [(ngModel)]="programRegister.programVersion">
             </div>
             <label class="col-md-2 control-label">{{'sblSubBinaCount'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblSubBinaCount"
+                <input type="text" class="form-control" id="sblSubBinaCount" maxlength="2"
                        name="sblSubBinaCount" placeholder=""
                        [(ngModel)]="programRegister.sblSubBinaCount">
             </div>
@@ -138,17 +138,17 @@
         <div class="form-group">
             <label class="col-md-2 control-label">{{'testerModel'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="testerModel" name="testerModel"
+                <input type="text" class="form-control" id="testerModel" name="testerModel" maxlength="10"
                        placeholder="" [(ngModel)]="programRegister.testerModel">
             </div>
             <label class="col-md-2 control-label">{{'packageType'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="packageType" name="packageType"
+                <input type="text" class="form-control" id="packageType" name="packageType" maxlength="10"
                        placeholder="" [(ngModel)]="programRegister.packageType">
             </div>
             <label class="col-md-2 control-label">{{'sblSubBinbNumber'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblSubBinbNumber"
+                <input type="text" class="form-control" id="sblSubBinbNumber" maxlength="5"
                        name="sblSubBinbNumber" placeholder=""
                        [(ngModel)]="programRegister.sblSubBinbNumber">
             </div>
@@ -156,7 +156,7 @@
         <div class="form-group">
             <label class="col-md-2 control-label">{{'para'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="para"
+                <input type="text" class="form-control" id="para" maxlength="3"
                        name="para" placeholder=""
                        [(ngModel)]="programRegister.para">
             </div>
@@ -164,7 +164,7 @@
             <div class="col-md-2"></div>
             <label class="col-md-2 control-label">{{'sblSubBinbLimit'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblSubBinbLimit"
+                <input type="text" class="form-control" id="sblSubBinbLimit" maxlength="5"
                        name="sblSubBinbLimit" placeholder=""
                        [(ngModel)]="programRegister.sblSubBinbLimit">
             </div>
@@ -172,13 +172,13 @@
         <div class="form-group">
             <label class="col-md-2 control-label" style="color:red;">{{'firmwareDirectory'|i18n}}</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" id="firmwareDirectory" required
+                <input type="text" class="form-control" id="firmwareDirectory" maxlength="100" required
                        name="firmwareDirectory" placeholder=""
                        [(ngModel)]="programRegister.firmwareDirectory">
             </div>
             <label class="col-md-2 control-label">{{'sblSubBinbCount'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="sblSubBinbCount"
+                <input type="text" class="form-control" id="sblSubBinbCount" maxlength="2"
                        name="sblSubBinbCount" placeholder=""
                        [(ngModel)]="programRegister.sblSubBinbCount">
             </div>

@@ -27,10 +27,13 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
             },
             processCode: {
                 required: true,
-                digits: true
             },
             mainProgramName: {
                 required: true,
+            },
+            temperature: {
+                required: true,
+                digits: true
             }
         },
 
