@@ -8,16 +8,21 @@ package kr.famos.bets.basisInformation.programRegister.dto;
  */
 public class ProgramRegisterDto {
 
-    private String testerModel      = ""; // TESTER 번호
-    private String processCode      = ""; // T0350
-    private String partNumber       = ""; // H9TQ17ABJTA-CUR
-    private String mainProgramName  = ""; // TEST PROGRAM NAME
+    private String partNumber         = ""; // H9TQ17ABJTA-CUR
+    private String processCode        = ""; // T0350
+    private String testerModel        = ""; // TESTER 번호
+    private String mainProgramName    = ""; // TEST PROGRAM NAME
+    private String dutMap             = ""; // HANDLER의 DUT 배열에 FILE NAME
+    private int temperature           = 0;  // TEST 온도
+    private String firmwareDirectory  = ""; // Test Program 저장 경로
+    private String passBinSelection   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+    private String retestBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+
     private String grade            = ""; // 제품 품질 설정
     private String fab              = ""; // WAFER 제조 공장 번호
     private String firmwareName     = ""; // 펌웨어 이름(MAGNUM5만 적용)
     private String firmwareVersion  = ""; // 펌웨어 버전(MAGNUM5만 적용)
     private String functionKey      = ""; // 스위치 16개의 값 Y/N
-    private int temperature         = 0;  // TEST 온도
     private int temperatureGuard    = 0;  // TEMPERATURE GUARDBAND
     private String sblYieldLimit    = ""; // 95
     private String sblSubBinaNumber = ""; // 110
@@ -31,11 +36,9 @@ public class ProgramRegisterDto {
     private String customer         = ""; // 판매처
     private String packageType      = ""; // 221FBGA
     private String programVersion   = ""; // TEST PROGRAM VERSION
+    private String binDescription   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
     private String testerOsVersion  = ""; // TESTER_MODEL OS VERSION
     private String para             = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
-    private String dutMap           = ""; // HANDLER의 DUT 배열에 FILE NAME
-    private String binDescription   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
-    private String firmwareDirectory = ""; // Test Program 저장 경로
     private String createUser       = ""; // 최초생성 ID
     private String createDate       = ""; // 생성일시
     private String modifyUser       = ""; // 수정 ID
@@ -46,8 +49,6 @@ public class ProgramRegisterDto {
     private String createDateStart  = ""; // 생성일시시작
     private String createDateEnd    = ""; // 생성일시끝
 
-    private String passBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
-    private String retestBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
 
     public String getTesterModel() {
         return testerModel;
