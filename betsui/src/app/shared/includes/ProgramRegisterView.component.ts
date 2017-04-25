@@ -15,6 +15,7 @@ import {UserUsage} from "../usage/userUsage.model";
 })
 export class ProgramRegisterViewComponent implements OnInit, OnChanges {
     UIID: string = "BETS-UI-0102";
+    strInputResult: string = "<br><br>";
     @Input() programRegisterTo: ProgramRegister;
     @Input() newFlag = true;
     @Output() modalClose = new EventEmitter(); //�Ҹ� �𿡼� �˾� â�� �ݰ� �ϱ�����
@@ -107,7 +108,8 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
             && this.programRegister.dutMap != null
             && this.programRegister.temperature != null
             && this.programRegister.firmwareDirectory != null
-        ){
+        ) {
+            this.programRegisterData();
             this.smartModEg1();
             this.submitted = true;
         }
@@ -117,7 +119,8 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
     smartModEg1() {
         this.notificationService.smartMessageBox({
             title: "BETS Alert!",
-            content: "Do you want to save it?",
+            // content: "Do you want to save it?",
+            content: "Do you want to save it?" + this.strInputResult,
             buttons: '[No][Yes]'
         }, (ButtonPressed) => {
             if (ButtonPressed === "Yes") {
@@ -136,6 +139,21 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
             }
 
         });
+    }
+
+    programRegisterData() {
+        // this.strInputResult += '<div class="col-md-offset-2 col-md-10">';
+        // if (this.programRegister.partNumber != null) this.strInputResult += "<label class='col-md-6 control-label'>Part Number : " + this.programRegister.partNumber + "</label>";
+        if (this.programRegister.partNumber != null) this.strInputResult += "Part Number : " + this.programRegister.partNumber + "<br>";
+        if (this.programRegister.processCode != null) this.strInputResult += "Process Code : " + this.programRegister.processCode + "<br>";
+        if (this.programRegister.mainProgramName != null) this.strInputResult += "Main Program Name : " + this.programRegister.mainProgramName + "<br>";
+        if (this.programRegister.dutMap != null) this.strInputResult += "DUT Map : " + this.programRegister.dutMap + "<br>";
+        if (this.programRegister.temperature != null) this.strInputResult += "Temperature : " + this.programRegister.temperature + "<br>";
+        if (this.programRegister.firmwareDirectory != null) this.strInputResult += "Firmware Directory : " + this.programRegister.firmwareDirectory + "<br>";
+        if (this.programRegister.customer != null) this.strInputResult += "Customer : " + this.programRegister.customer + "<br>";
+        // this.strInputResult += '<div>';
+
+
     }
 
     modalClosefn() {
@@ -400,7 +418,7 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
             this.programRegister.passBinSelection8 = true;
         }
     }
-    
+
     retrieveRetestBinSelection() {
         if (this.programRegister.retestBinSelection.substr(0, 1) === "Y") {
             this.programRegister.retestBinSelection1 = true;

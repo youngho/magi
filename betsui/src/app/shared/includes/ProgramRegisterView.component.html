@@ -6,7 +6,7 @@
 
             <div class="col-md-2">
                 <input type="text" class="form-control" id="partNumber" name="partNumber" maxlength="30"
-                       placeholder="ex) HTMECMP1" [(ngModel)]="programRegister.partNumber" required>
+                       title="This is Part Number" placeholder="ex) HTMECMP1" [(ngModel)]="programRegister.partNumber" required>
             </div>
             <label class="col-md-2 control-label">{{'productName'|i18n}}</label>
             <div class="col-md-2">
@@ -173,7 +173,7 @@
             <label class="col-md-2 control-label"><sup>*</sup>{{'firmwareDirectory'|i18n}}</label>
             <div class="col-md-6">
                 <input type="text" class="form-control" id="firmwareDirectory" maxlength="100" required
-                       name="firmwareDirectory" placeholder="ex) f:\firmware"
+                       name="firmwareDirectory" placeholder="ex) f:\firmware" title="The 'Firmware Directory' is only used for MAGNUM5"
                        [(ngModel)]="programRegister.firmwareDirectory">
             </div>
             <label class="col-md-2 control-label">{{'sblSubBinbCount'|i18n}}</label>
