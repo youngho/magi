@@ -122,11 +122,10 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [selectionMode]="'Row'"
+                            <wj-flex-grid #flexGrid
                                           [isReadOnly]="true"
                                           [itemsSource]="gridData"
                                           [headersVisibility]="'Column'"
-                                          [selectionMode]="'Row'"
                                           (loadedRows)="onGridLoaded($event)"
                                           [autoSizeMode] = "'Both'">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>

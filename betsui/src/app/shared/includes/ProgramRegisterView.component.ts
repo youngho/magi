@@ -91,7 +91,8 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
         // console.log('submitting LastTable form @' + this.tableForm);
 
         this.functionKeyMerge();    //functionKey 16�ڸ��� ����� �ִ� �Լ�
-        this.binDescriptionMerge();    //binDescription 8�ڸ��� ����� �ִ� �Լ�
+        this.passBinSelectionMerge();    //binDescription 8�ڸ��� ����� �ִ� �Լ�
+        this.retestBinSelectionMerge();    //binDescription 8�ڸ��� ����� �ִ� �Լ�
 
         this.programRegister.createUser = localStorage.getItem('loginId');  //�������� localStorage ���� �α��� ���̵� ������ ����� �ѱ��.
 
@@ -143,9 +144,55 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
         return false;
     }
 
-    binDescriptionMerge() {
+    retestBinSelectionMerge() {
         /**
-         * ����� binDescription 8�ڸ��� �����ִ� �Լ�
+         * retestBinSelectionMerge
+         */
+        if (this.programRegister.retestBinSelection1 === true) {
+            this.programRegister.retestBinSelection = 'Y';
+        } else {
+            this.programRegister.retestBinSelection = 'N';
+        }
+        if (this.programRegister.retestBinSelection2 === true) {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'Y';
+        } else {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'N';
+        }
+        if (this.programRegister.retestBinSelection3 === true) {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'Y';
+        } else {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'N';
+        }
+        if (this.programRegister.retestBinSelection4 === true) {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'Y';
+        } else {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'N';
+        }
+        if (this.programRegister.retestBinSelection5 === true) {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'Y';
+        } else {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'N';
+        }
+        if (this.programRegister.retestBinSelection6 === true) {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'Y';
+        } else {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'N';
+        }
+        if (this.programRegister.retestBinSelection7 === true) {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'Y';
+        } else {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'N';
+        }
+        if (this.programRegister.retestBinSelection8 === true) {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'Y';
+        } else {
+            this.programRegister.retestBinSelection = this.programRegister.retestBinSelection + 'N';
+        }
+    }
+
+    passBinSelectionMerge() {
+        /**
+         * passBinSelectionMerge
          */
         if (this.programRegister.passBinSelection1 === true) {
             this.programRegister.passBinSelection = 'Y';
@@ -351,6 +398,33 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
         }
         if (this.programRegister.passBinSelection.substr(7, 1) === "Y") {
             this.programRegister.passBinSelection8 = true;
+        }
+    }
+    
+    retrieveRetestBinSelection() {
+        if (this.programRegister.retestBinSelection.substr(0, 1) === "Y") {
+            this.programRegister.retestBinSelection1 = true;
+        }
+        if (this.programRegister.retestBinSelection.substr(1, 1) === "Y") {
+            this.programRegister.retestBinSelection2 = true;
+        }
+        if (this.programRegister.retestBinSelection.substr(2, 1) === "Y") {
+            this.programRegister.retestBinSelection3 = true;
+        }
+        if (this.programRegister.retestBinSelection.substr(3, 1) === "Y") {
+            this.programRegister.retestBinSelection4 = true;
+        }
+        if (this.programRegister.retestBinSelection.substr(4, 1) === "Y") {
+            this.programRegister.retestBinSelection5 = true;
+        }
+        if (this.programRegister.retestBinSelection.substr(5, 1) === "Y") {
+            this.programRegister.retestBinSelection6 = true;
+        }
+        if (this.programRegister.retestBinSelection.substr(6, 1) === "Y") {
+            this.programRegister.retestBinSelection7 = true;
+        }
+        if (this.programRegister.retestBinSelection.substr(7, 1) === "Y") {
+            this.programRegister.retestBinSelection8 = true;
         }
     }
 }

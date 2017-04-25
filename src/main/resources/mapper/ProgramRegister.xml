@@ -37,7 +37,8 @@
         MODIFY_USER,
         MODIFY_DATE,
         SBL_BIN9_LIMIT,
-        SBL_BIN8_LIMIT
+        SBL_BIN8_LIMIT,
+        RETEST_BIN_SELECTION
         FROM
         PROGRAM_REGISTER
         <where>
@@ -92,7 +93,8 @@
         MODIFY_USER,
         MODIFY_DATE,
         SBL_BIN9_LIMIT,
-        SBL_BIN8_LIMIT
+        SBL_BIN8_LIMIT,
+        RETEST_BIN_SELECTION
         FROM
         PROGRAM_REGISTER
         <where>
@@ -150,7 +152,8 @@
             MODIFY_USER,
             MODIFY_DATE,
             SBL_BIN9_LIMIT,
-            SBL_BIN8_LIMIT
+            SBL_BIN8_LIMIT,
+            RETEST_BIN_SELECTION
         )
         VALUES
         (
@@ -187,7 +190,8 @@
             #{modifyUser},
             #{modifyDate},
             #{sblBin9Limit},
-            #{sblBin8Limit}
+            #{sblBin8Limit},
+            #{retestBinSelection}
         )
     </insert>
 </mapper>

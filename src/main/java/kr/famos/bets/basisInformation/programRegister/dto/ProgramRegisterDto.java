@@ -47,6 +47,7 @@ public class ProgramRegisterDto {
     private String createDateEnd    = ""; // 생성일시끝
 
     private String passBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+    private String retestBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
 
     public String getTesterModel() {
         return testerModel;
@@ -342,5 +343,13 @@ public class ProgramRegisterDto {
 
     public void setPassBinSelection(String passBinSelection) {
         this.passBinSelection = passBinSelection;
+    }
+
+    public String getRetestBinSelection() {
+        return retestBinSelection;
+    }
+
+    public void setRetestBinSelection(String retestBinSelection) {
+        this.retestBinSelection = retestBinSelection;
     }
 }

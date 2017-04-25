@@ -281,6 +281,7 @@
             </div>
         </div>
 
+        <!--Start Pass BIN Selection Group-->
         <div class="form-group">
             <label class="col-md-2 control-label" style="color:red;">Pass BIN Selection</label>
             <div class="col-md-10">
@@ -336,6 +337,67 @@
                 </label>
             </div>
         </div>
+        <!--End Pass BIN Selection Group-->
+
+
+        <!--Start Retest BIN Selection Group-->
+        <div class="form-group">
+            <label class="col-md-2 control-label" style="color:red;">Retest BIN Selection</label>
+            <div class="col-md-10">
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="retestBinSelection1"
+                           name="retestBinSelection1"
+                           [(ngModel)]="programRegister.retestBinSelection1">
+                    <span>{{'retestBinSelection1'|i18n}}</span>
+                </label>
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="retestBinSelection2"
+                           name="retestBinSelection2"
+                           [(ngModel)]="programRegister.retestBinSelection2">
+                    <span>{{'retestBinSelection2'|i18n}}</span>
+                </label>
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="retestBinSelection3"
+                           name="retestBinSelection3"
+                           [(ngModel)]="programRegister.retestBinSelection3">
+                    <span>{{'retestBinSelection3'|i18n}}</span>
+                </label>
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" checked="checked" id="retestBinSelection4"
+                           name="retestBinSelection4"
+                           [(ngModel)]="programRegister.retestBinSelection4">
+                    <span>{{'retestBinSelection4'|i18n}}</span>
+                </label>
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" id="retestBinSelection5"
+                           name="retestBinSelection5"
+                           [(ngModel)]="programRegister.retestBinSelection5">
+                    <span>{{'retestBinSelection5'|i18n}}</span>
+                </label>
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" id="retestBinSelection6"
+                           name="retestBinSelection6"
+                           [(ngModel)]="programRegister.retestBinSelection6">
+                    <span>{{'retestBinSelection6'|i18n}}</span>
+                </label>
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" id="retestBinSelection7"
+                           name="retestBinSelection7"
+                           [(ngModel)]="programRegister.retestBinSelection7">
+                    <span>{{'retestBinSelection7'|i18n}}</span>
+                </label>
+                <label class="col-md-2 checkbox-inline">
+                    <input type="checkbox" class="checkbox style-3" id="retestBinSelection8"
+                           name="retestBinSelection8"
+                           [(ngModel)]="programRegister.retestBinSelection8">
+                    <span>{{'retestBinSelection8'|i18n}}</span>
+                </label>
+            </div>
+        </div>
+        <!--End Retest BIN Selection Group-->
+
     </fieldset>
     <!--Retest Skip 기준 end-->
     <div class="form-actions">

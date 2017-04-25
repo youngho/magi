@@ -36,6 +36,7 @@ export class ProgramRegister {
     modifyDate: string;
     sblBin9Limit: string;
     sblBin8Limit: string;
+    retestBinSelection: string;
 
     createDateStart: string;
     createDateEnd: string;
@@ -66,6 +67,15 @@ export class ProgramRegister {
     passBinSelection7: boolean;
     passBinSelection8: boolean;
 
+    retestBinSelection1: boolean;
+    retestBinSelection2: boolean;
+    retestBinSelection3: boolean;
+    retestBinSelection4: boolean;
+    retestBinSelection5: boolean;
+    retestBinSelection6: boolean;
+    retestBinSelection7: boolean;
+    retestBinSelection8: boolean;
+    
     static fromJSON(json: any): ProgramRegister {
         let object = Object.create(ProgramRegister.prototype);
         Object.assign(object, json);

@@ -121,6 +121,15 @@
   "passBinSelection6": "6",
   "passBinSelection7": "7",
   "passBinSelection8": "8",
+  
+  "retestBinSelection1": "1",
+  "retestBinSelection2": "2",
+  "retestBinSelection3": "3",
+  "retestBinSelection4": "4",
+  "retestBinSelection5": "5",
+  "retestBinSelection6": "6",
+  "retestBinSelection7": "7",
+  "retestBinSelection8": "8",
 
   "date":"Date",
   "sblDutLimit":"SBL DUT Limit",
