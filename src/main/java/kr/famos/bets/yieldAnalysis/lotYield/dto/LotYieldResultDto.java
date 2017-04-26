@@ -5,13 +5,14 @@ package kr.famos.bets.yieldAnalysis.lotYield.dto;
  */
 public class LotYieldResultDto {
     //    private int casiSeq              = 0;  //
-    private String testerNumber = ""; // TESTER 번호(Host id)
+    private String partNumber = ""; // PART NUMBER
+    private String processCode = ""; // PROCESS CODE
     private String testerModel = ""; // TESTER MODEL NAME
+    private String testerNumber = ""; // TESTER 번호(Host id)
     private String handlerModel = ""; // HANDLER MODEL NAME
+
     private String head = ""; // HEAD NUMBER A or B
     private String lotId = ""; // LOT ID
-    private String processCode = ""; // PROCESS CODE
-    private String partNumber = ""; // PART NUMBER
     private String mainProgramName = ""; // MAIN PROGRAM NAME
     private String grade = ""; // HQ:HIGH QUALITY
     private String fab = ""; // FAB SITE

@@ -65,16 +65,6 @@ export const routes: Routes = [
         loadChildren: 'app/90admin/Admin.module#AdminModule',
         data: {pageTitle: 'Admin'}
       },
-      {
-        path: 'forms',
-        loadChildren: 'app/+forms/forms-showcase.module#FormsShowcaseModule',
-        data: {pageTitle: 'Forms'}
-      },
-      {
-        path: 'ui',
-        loadChildren: 'app/+ui-elements/ui-elements.module#UiElementsModule',
-        data: {pageTitle: 'Ui'}
-      },
     ]
   },
 

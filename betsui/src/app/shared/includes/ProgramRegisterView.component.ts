@@ -141,6 +141,7 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
         });
     }
 
+    //required values show to Modal dialog
     programRegisterData() {
         // this.strInputResult += '<div class="col-md-offset-2 col-md-10">';
         // if (this.programRegister.partNumber != null) this.strInputResult += "<label class='col-md-6 control-label'>Part Number : " + this.programRegister.partNumber + "</label>";
@@ -150,7 +151,7 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
         if (this.programRegister.dutMap != null) this.strInputResult += "DUT Map : " + this.programRegister.dutMap + "<br>";
         if (this.programRegister.temperature != null) this.strInputResult += "Temperature : " + this.programRegister.temperature + "<br>";
         if (this.programRegister.firmwareDirectory != null) this.strInputResult += "Firmware Directory : " + this.programRegister.firmwareDirectory + "<br>";
-        if (this.programRegister.customer != null) this.strInputResult += "Customer : " + this.programRegister.customer + "<br>";
+        // if (this.programRegister.customer != null) this.strInputResult += "Customer : " + this.programRegister.customer + "<br>";
         // this.strInputResult += '<div>';
 
 
