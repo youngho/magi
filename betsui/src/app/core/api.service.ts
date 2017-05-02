@@ -12,8 +12,8 @@ export class ApiService {
         'Accept': 'application/json'
     });
 
-    // private API_URL: string = 'http://172.16.55.41:8080/';
-    private API_URL: string = 'http://localhost:8080/';
+    private API_URL: string = 'http://210.125.212.127:8080/';
+    // private API_URL: string = 'http://localhost:8080/';
 
     constructor(private http: Http/*, @Inject(APP_CONFIG) config: AppConfig*/) {
         //this.API_URL = config.apiEndpoint;
