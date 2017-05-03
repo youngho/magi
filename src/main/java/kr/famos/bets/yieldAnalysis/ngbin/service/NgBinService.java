@@ -2,6 +2,7 @@ package kr.famos.bets.yieldAnalysis.ngbin.service;
 
 import com.google.gson.Gson;
 import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto;
+import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinResultDto;
 import kr.famos.bets.yieldAnalysis.ngbin.mapper.NgBinMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,9 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-/**
- * Created by yhkim on 2017-03-08.
- */
 @Service
 public class NgBinService {
     private static final Logger logger = LoggerFactory.getLogger(NgBinService.class);
@@ -20,20 +18,14 @@ public class NgBinService {
     @Autowired
     NgBinMapper ngBinMapper;
 
-    public List<NgBinDto> retireveNgBin(NgBinDto ngBinDto) {
-
-        List<NgBinDto> ngBinDtoList = ngBinMapper.retrieveNgBin(ngBinDto);
-        return ngBinDtoList;
-    }
-
     public String retrieveNgBinMap(NgBinDto ngBinDto) {
 
         //표현해야 할 NG_BIN리스트를 만들기 위해 NG_BIN_DTO를 LIST로가 져옴, MAP으로 가져오면 특정 필드를 꺼내오기 힘듬
-        List<NgBinDto> lstNgBinDto = ngBinMapper.retrieveNgBinList(ngBinDto);
+        List<NgBinResultDto> lstNgBinDto = ngBinMapper.retrieveNgBinList(ngBinDto);
         //ngBin을 ","로 split해서 Map에 key 를 누적 put 해서 표현 해야 할 ngBin리스트를 만듬 값은 "" 없음
         // 추후 NG_BIN_DTO 맴으로 가져와 여기서 만들어진 ngBin리스트를 추가 하고 맵으로 가져온 ngbin을 key, value로 put하면 없는 값은 "" 있는 값은 value로 치환될 것임
         Map<Integer,String> mapNgBin = new TreeMap<>();
-        for(NgBinDto bin : lstNgBinDto){
+        for(NgBinResultDto bin : lstNgBinDto){
             String strBin = bin.getNgBin();
             String[] arrayBin = strBin.split(",");
             for(int i=0; i < arrayBin.length-2 ;i=i+2){
@@ -74,20 +66,11 @@ public class NgBinService {
         Gson gson = new Gson();
 
         String  strJsonNgBinDto = gson.toJson(ArrayNgBinDto);
-//        String test = "[{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa5" + "\"" + "}" + "," + "{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa2" + "\"" + "}]";
         if (ArrayNgBinDto.size() == 0){
             strJsonNgBinDto =  "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "no data" + "\"" + "}]";
         }
 
         return strJsonNgBinDto;
-    }
-
-    public List<NgBinDto> retrieveNgBinList(NgBinDto ngBinDto) {
-
-        List<NgBinDto> ngBinDtoList = ngBinMapper.retrieveNgBinList(ngBinDto);
-        logger.debug("SubBinService - retrieveSubBin : " + ngBinDto.getTestCounter());
-
-        return ngBinDtoList;
     }
 
 }

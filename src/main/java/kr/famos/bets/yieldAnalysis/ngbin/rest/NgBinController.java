@@ -24,15 +24,6 @@ public class NgBinController {
 
     @Autowired
     private NgBinService ngBinService;
-    @Autowired
-    private  NgBinMapper ngBinMapper;
-
-    @RequestMapping(value = "/retrieveNgBin", method = RequestMethod.POST)
-    public ResponseEntity<List<NgBinDto>> retireveNgBin(@RequestBody NgBinDto ngBinDto) {
-        logger.debug("NgBinController - retireveNgBin 메소드");
-
-        return new ResponseEntity<List<NgBinDto>>(ngBinMapper.retrieveNgBin(ngBinDto), HttpStatus.OK);
-    }
 
     @RequestMapping(value = "/retrieveNgBinJson", method = RequestMethod.POST)
     public ResponseEntity<String> retrieveSubBinJson(@RequestBody NgBinDto ngBinDto) {

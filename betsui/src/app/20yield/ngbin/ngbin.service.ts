@@ -5,15 +5,21 @@ import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
 import {NgBin} from "./ngbin.model";
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
 @Injectable()
 export class NgBinService {
-    private path: string = 'retrieveNgBinJson';
+    private path: string;
 
     constructor(private api: ApiService) {}
 
     postLastTable(data: NgBin) {
-        console.log('PATH : ' + this.path);
+        this.path = 'retrieveNgBinJson';
         return this.api.retrievePost(`${this.path}`, data);
+    }
+
+    postUsage(data: UserUsage) {
+        this.path = 'insertComUserUsage';
+        return this.api.post(`${this.path}`, data);
     }
 }
