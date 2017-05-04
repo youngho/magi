@@ -9,7 +9,7 @@
             TESTER_NUMBER,
             TEST_MODE,
             OPERATER_ID,
-            SYS_DATE,
+            SUBSTR(SYS_DATE,1,4)||'-'||SUBSTR(SYS_DATE,5,2)||'-'||SUBSTR(SYS_DATE,7,2)||' '||SUBSTR(SYS_DATE,9,2)||':'||SUBSTR(SYS_DATE,11,2)||':'||SUBSTR(SYS_DATE,13,2) AS SYS_DATE,
             MESSAGE,
             H_STATUS_VALUE,
             OPER,
@@ -43,8 +43,8 @@
             <if test=" createDateEnd != null and createDateEnd != '' ">
                 AND SYS_DATE <![CDATA[<=]]> #{createDateEnd}
             </if>
-            <if test=" requestLotMessage != null and requestLotMessage != '' ">
-                AND MESSAGE LIKE '%'|| #{requestLotMessage} || '%'
+            <if test=" lotId != null and lotId != '' ">
+                AND LOT_ID LIKE '%'|| #{lotId} || '%'
             </if>
             <if test=" mesMode != null and mesMode != '' ">
                 AND TEST_MODE LIKE '%'|| #{mesMode} || '%'

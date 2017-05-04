@@ -5,7 +5,7 @@ package kr.famos.bets.history.mesTrackInOut.dto;
  */
 public class MesTrackInOutDto {
     private String mesMode           = ""; //
-    private String requestLotMessage = ""; //
+    private String lotId             = ""; //
 
     private String createDateStart   = ""; // 생성일시시작
     private String createDateEnd     = ""; // 생성일시끝
@@ -18,12 +18,12 @@ public class MesTrackInOutDto {
         this.mesMode = mesMode;
     }
 
-    public String getRequestLotMessage() {
-        return requestLotMessage;
+    public String getLotId() {
+        return lotId;
     }
 
-    public void setRequestLotMessage(String requestLotMessage) {
-        this.requestLotMessage = requestLotMessage;
+    public void setLotId(String lotId) {
+        this.lotId = lotId;
     }
 
     public String getCreateDateStart() {

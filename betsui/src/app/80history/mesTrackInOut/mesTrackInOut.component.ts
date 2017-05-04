@@ -42,12 +42,7 @@ export class MesTrackInOutComponent {
         );
     }
 
-    onGridLoaded(){
-        var self = this;
-        setTimeout(function() {
-            self.flexGrid.autoSizeColumns();
-        },300);
-    }
+
 
     resetForm() {
         this.data = new MesTrackInOut();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.

@@ -3,14 +3,15 @@
  */
 export class MesTrackInOut {
     mesMode: string;
-    requestLotMessage: string;
-    btesResult: string;
-    requestLotDate: string;
-    receiveLotMessage: string;
-    receiveLotDate: string;
-    createDate: string;
+    lotId: string;
+    // requestLotMessage: string;
+    // btesResult: string;
+    // requestLotDate: string;
+    // receiveLotMessage: string;
+    // receiveLotDate: string;
+    // createDate: string;
     createDateStart: string;
     createDateEnd: string;
-    createUser: string;
+    // createUser: string;
 
 }

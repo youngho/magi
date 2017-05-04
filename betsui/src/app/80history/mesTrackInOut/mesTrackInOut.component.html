@@ -30,7 +30,7 @@
                                         </div>
                                         <label class="col-md-2 control-label">{{'lotId'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control" placeholder="{{'lotId'|i18n}}" [(ngModel)]="data.requestLotMessage">
+                                            <input type="text" class="form-control" placeholder="{{'lotId'|i18n}}" [(ngModel)]="data.lotId">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -74,11 +74,10 @@
                                 </div>
                             </div>
                             <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
+
                                           [autoSizeMode] = "'Both'">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
                     </div>
