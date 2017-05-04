@@ -47,13 +47,6 @@ export class CasiComponent {
         );
     }
 
-    onGridLoaded() {
-        var self = this;
-        setTimeout(function () {
-            self.flexGrid.autoSizeColumns();
-        }, 300);
-    }
-
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
@@ -90,6 +83,7 @@ export class CasiComponent {
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
+                    console.log(this.gridData);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {

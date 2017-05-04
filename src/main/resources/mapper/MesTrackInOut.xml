@@ -1,35 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.history.mesTrackInOut.mapper.MesTrackInOutMapper">
-    <select id="retrieveMesTrackInOut" parameterType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto" resultType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto">
+    <select id="retrieveMesTrackInOut" parameterType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto" resultType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutResultDto">
         SELECT
-              MES_MODE,
-              REQUEST_LOT_MESSAGE,
-              BTES_RESULT,
-              REQUEST_LOT_DATE,
-              RECEIVE_LOT_MESSAGE,
-              RECEIVE_LOT_DATE,
-              CREATE_DATE,
-              CREATE_USER
+            NO,
+            LOT_ID,
+            TESTER_MODEL,
+            TESTER_NUMBER,
+            TEST_MODE,
+            OPERATER_ID,
+            SYS_DATE,
+            MESSAGE,
+            H_STATUS_VALUE,
+            OPER,
+            MAT_ID,
+            QTY,
+            H_MSG_CODE,
+            H_MSG,
+            H_FIELD_MSG,
+            H_DB_ERR_MSG,
+            BOARD_ID,
+            HEAD,
+            OP_INPUT,
+            CAT1,
+            CAT2,
+            CAT3,
+            CAT4,
+            CAT5,
+            CAT6,
+            CAT7,
+            CAT8,
+            CAT9,
+            HOLD_FLAG,
+            COMMAND
         FROM
               MES_TRACK_IN_OUT
         <where>
             1 = 1
             <if test=" createDateStart != null and createDateStart != '' ">
-                AND CREATE_DATE <![CDATA[>=]]> #{createDateStart}
+                AND SYS_DATE <![CDATA[>=]]> #{createDateStart}
             </if>
             <if test=" createDateEnd != null and createDateEnd != '' ">
-                AND CREATE_DATE <![CDATA[<=]]> #{createDateEnd}
+                AND SYS_DATE <![CDATA[<=]]> #{createDateEnd}
             </if>
             <if test=" requestLotMessage != null and requestLotMessage != '' ">
-                AND REQUEST_LOT_MESSAGE LIKE '%'|| #{requestLotMessage} || '%'
+                AND MESSAGE LIKE '%'|| #{requestLotMessage} || '%'
             </if>
             <if test=" mesMode != null and mesMode != '' ">
-                AND MES_MODE LIKE '%'|| #{mesMode} || '%'
+                AND TEST_MODE LIKE '%'|| #{mesMode} || '%'
             </if>
         </where>
-        ORDER BY
-              CREATE_DATE DESC
+        ORDER BY SYS_DATE DESC
     </select>
 
 

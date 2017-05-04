@@ -91,16 +91,16 @@ public class CompoDutMapService {
         for (Integer i = 0; i < 8; i++) {
             LinkedHashMap<String, String> mapDutMap = new LinkedHashMap<>();
             //메인 빈 번호를 넣는다.
-            mapDutMap.put("PART_NUMBER", lstCompoDutMapDto.get(0).getPartNumber());
-            mapDutMap.put("LOT_ID", lstCompoDutMapDto.get(0).getLotId());
-            mapDutMap.put("PROCESS_CODE", lstCompoDutMapDto.get(0).getProcessCode());
-            mapDutMap.put("BOARD_ID", lstCompoDutMapDto.get(0).getBoardId());
-            mapDutMap.put("TESTER_NUMBER", lstCompoDutMapDto.get(0).getTesterNumber());
-            mapDutMap.put("HEAD", lstCompoDutMapDto.get(0).getHead());
-            mapDutMap.put("MAIN_PROGRAM_NAME", lstCompoDutMapDto.get(0).getMainProgramName());
-            mapDutMap.put("TEST_COUNTER", lstCompoDutMapDto.get(0).getTestCounter());
-            mapDutMap.put("MAIN_BIN", String.valueOf(i + 1));
-            mapDutMap.put("TOTAL", String.valueOf(mapDutMapTotal.get(i + 1)));
+            mapDutMap.put("partNumber", lstCompoDutMapDto.get(0).getPartNumber());
+            mapDutMap.put("processCode", lstCompoDutMapDto.get(0).getProcessCode());
+            mapDutMap.put("testerNumber", lstCompoDutMapDto.get(0).getTesterNumber());
+            mapDutMap.put("lotId", lstCompoDutMapDto.get(0).getLotId());
+            mapDutMap.put("boardId", lstCompoDutMapDto.get(0).getBoardId());
+            mapDutMap.put("head", lstCompoDutMapDto.get(0).getHead());
+            mapDutMap.put("mainProgramName", lstCompoDutMapDto.get(0).getMainProgramName());
+            mapDutMap.put("testCounter", lstCompoDutMapDto.get(0).getTestCounter());
+            mapDutMap.put("mainBIN", String.valueOf(i + 1));
+            mapDutMap.put("total", String.valueOf(mapDutMapTotal.get(i + 1)));
             for (int j = 0; j < maxDut; j++) {
                 mapDutMap.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMap2[i][j]));
             }
@@ -115,41 +115,45 @@ public class CompoDutMapService {
         DecimalFormat format = new DecimalFormat("#.##");
 
         for (int j = 0; j < maxDut; j++) {
-            mapDutMapInputBIN.put("PART_NUMBER", "");
-            mapDutMapInputBIN.put("LOT_ID", "");
-            mapDutMapInputBIN.put("PROCESS_CODE", "");
-            mapDutMapInputBIN.put("BOARD_ID", "");
-            mapDutMapInputBIN.put("TESTER_NUMBER", "");
-            mapDutMapInputBIN.put("HEAD", "");
-            mapDutMapInputBIN.put("MAIN_PROGRAM_NAME", "");
-            mapDutMapInputBIN.put("TEST_COUNTER", "");
-            mapDutMapInputBIN.put("MAIN_BIN", "Input");
-            mapDutMapInputBIN.put("TOTAL", String.valueOf(inputBinSum));
+//            mapDutMapInputBIN.put("PART_NUMBER", "");
+//            mapDutMapInputBIN.put("LOT_ID", "");
+//            mapDutMapInputBIN.put("PROCESS_CODE", "");
+//            mapDutMapInputBIN.put("BOARD_ID", "");
+//            mapDutMapInputBIN.put("TESTER_NUMBER", "");
+//            mapDutMapInputBIN.put("HEAD", "");
+//            mapDutMapInputBIN.put("MAIN_PROGRAM_NAME", "");
+//            mapDutMapInputBIN.put("TEST_COUNTER", "");
+            mapDutMapInputBIN.put("mainBIN", "Input");
+            mapDutMapInputBIN.put("total", String.valueOf(inputBinSum));
             mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapInputBinTotal[j]));
 
-            mapDutMapPassBIN.put("PART_NUMBER", "");
-            mapDutMapPassBIN.put("LOT_ID", "");
-            mapDutMapPassBIN.put("PROCESS_CODE", "");
-            mapDutMapPassBIN.put("BOARD_ID", "");
-            mapDutMapPassBIN.put("TESTER_NUMBER", "");
-            mapDutMapPassBIN.put("HEAD", "");
-            mapDutMapPassBIN.put("MAIN_PROGRAM_NAME", "");
-            mapDutMapPassBIN.put("TEST_COUNTER", "");
-            mapDutMapPassBIN.put("MAIN_BIN", "Pass");
-            mapDutMapPassBIN.put("TOTAL", String.valueOf(passBinSum));
+//            mapDutMapPassBIN.put("PART_NUMBER", "");
+//            mapDutMapPassBIN.put("LOT_ID", "");
+//            mapDutMapPassBIN.put("PROCESS_CODE", "");
+//            mapDutMapPassBIN.put("BOARD_ID", "");
+//            mapDutMapPassBIN.put("TESTER_NUMBER", "");
+//            mapDutMapPassBIN.put("HEAD", "");
+//            mapDutMapPassBIN.put("MAIN_PROGRAM_NAME", "");
+//            mapDutMapPassBIN.put("TEST_COUNTER", "");
+            mapDutMapPassBIN.put("mainBIN", "Pass");
+            mapDutMapPassBIN.put("total", String.valueOf(passBinSum));
             mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapPassBinTotal[j]));
 
-            mapDutMapYildBIN.put("PART_NUMBER", "");
-            mapDutMapYildBIN.put("LOT_ID", "");
-            mapDutMapYildBIN.put("PROCESS_CODE", "");
-            mapDutMapYildBIN.put("BOARD_ID", "");
-            mapDutMapYildBIN.put("TESTER_NUMBER", "");
-            mapDutMapYildBIN.put("HEAD", "");
-            mapDutMapYildBIN.put("MAIN_PROGRAM_NAME", "");
-            mapDutMapYildBIN.put("TEST_COUNTER", "");
-            mapDutMapYildBIN.put("MAIN_BIN", "Yield");
-            mapDutMapYildBIN.put("TOTAL", String.valueOf(format.format(passBinSum / (double)inputBinSum * 100)));
-            mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((intDutMapPassBinTotal[j] / (double) intDutMapInputBinTotal[j]) * 100));
+//            mapDutMapYildBIN.put("PART_NUMBER", "");
+//            mapDutMapYildBIN.put("LOT_ID", "");
+//            mapDutMapYildBIN.put("PROCESS_CODE", "");
+//            mapDutMapYildBIN.put("BOARD_ID", "");
+//            mapDutMapYildBIN.put("TESTER_NUMBER", "");
+//            mapDutMapYildBIN.put("HEAD", "");
+//            mapDutMapYildBIN.put("MAIN_PROGRAM_NAME", "");
+//            mapDutMapYildBIN.put("TEST_COUNTER", "");
+            mapDutMapYildBIN.put("mainBIN", "Yield");
+            mapDutMapYildBIN.put("total", String.valueOf(format.format(passBinSum / (double)inputBinSum * 100)));
+            if (intDutMapInputBinTotal[j] != 0) {   //피제수가 0일경우 처리
+                mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((intDutMapPassBinTotal[j] / (double) intDutMapInputBinTotal[j]) * 100));
+            }else{
+                mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), "0");
+            }
         }
         arrayMapDutMap.add(mapDutMapInputBIN);
         arrayMapDutMap.add(mapDutMapPassBIN);

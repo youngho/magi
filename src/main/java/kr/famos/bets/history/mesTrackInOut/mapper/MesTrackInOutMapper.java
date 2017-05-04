@@ -1,6 +1,7 @@
 package kr.famos.bets.history.mesTrackInOut.mapper;
 
 import kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto;
+import kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutResultDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
 @Mapper
 public interface MesTrackInOutMapper {
 
-    public List<MesTrackInOutDto> retrieveMesTrackInOut(MesTrackInOutDto mesTrackInOutDto);
+    public List<MesTrackInOutResultDto> retrieveMesTrackInOut(MesTrackInOutDto mesTrackInOutDto);
 }

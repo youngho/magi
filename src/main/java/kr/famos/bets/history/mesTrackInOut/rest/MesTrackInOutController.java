@@ -1,6 +1,7 @@
 package kr.famos.bets.history.mesTrackInOut.rest;
 
 import kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto;
+import kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutResultDto;
 import kr.famos.bets.history.mesTrackInOut.service.MesTrackInOutService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,9 +26,9 @@ public class MesTrackInOutController {
     MesTrackInOutService mesTrackInOutService;
 
     @RequestMapping(value = "/retrieveMesTrackInOut", method = RequestMethod.POST)
-    public ResponseEntity<List<MesTrackInOutDto>> retrieveMesTrackInOut(@RequestBody MesTrackInOutDto mesTrackInOutDto) {
+    public ResponseEntity<List<MesTrackInOutResultDto>> retrieveMesTrackInOut(@RequestBody MesTrackInOutDto mesTrackInOutDto) {
 
-        return new ResponseEntity<List<MesTrackInOutDto>>(mesTrackInOutService.retrieveMesTrackInOut(mesTrackInOutDto), HttpStatus.OK);
+        return new ResponseEntity<List<MesTrackInOutResultDto>>(mesTrackInOutService.retrieveMesTrackInOut(mesTrackInOutDto), HttpStatus.OK);
     }
 
 }

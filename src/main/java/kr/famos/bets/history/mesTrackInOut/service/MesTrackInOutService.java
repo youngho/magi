@@ -1,6 +1,7 @@
 package kr.famos.bets.history.mesTrackInOut.service;
 
 import kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto;
+import kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutResultDto;
 import kr.famos.bets.history.mesTrackInOut.mapper.MesTrackInOutMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +20,7 @@ public class MesTrackInOutService {
     @Autowired
     MesTrackInOutMapper mesTrackInOutMapper;
 
-    public List<MesTrackInOutDto> retrieveMesTrackInOut(MesTrackInOutDto mesTrackInOutDto) {
+    public List<MesTrackInOutResultDto> retrieveMesTrackInOut(MesTrackInOutDto mesTrackInOutDto) {
 
         return mesTrackInOutMapper.retrieveMesTrackInOut(mesTrackInOutDto);
     }
