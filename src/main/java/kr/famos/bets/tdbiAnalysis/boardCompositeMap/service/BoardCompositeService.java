@@ -1,6 +1,5 @@
 package kr.famos.bets.tdbiAnalysis.boardCompositeMap.service;
 
-import com.google.gson.Gson;
 import kr.famos.bets.tdbiAnalysis.boardCompositeMap.dto.BoardCompositeDto;
 import kr.famos.bets.tdbiAnalysis.boardCompositeMap.mapper.BoardCompositeMapper;
 import org.slf4j.Logger;
@@ -12,9 +11,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-/**
- * Created by yhkim on 2017-03-13.
- */
 @Service
 public class BoardCompositeService {
 
@@ -86,21 +82,7 @@ public class BoardCompositeService {
                 // End for Board Header Info Each Board Map
             }
             boardlistCount += 1;
-
-
         }
-
-
-//        Gson gson = new Gson();
-
-//        String strJson = gson.toJson(lstBoardCompositeDto);
-//        String test = "[{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa5" + "\"" + "}" + "," + "{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa2" + "\"" + "}]";
-//        if (arrayMapDutMap.size() == 0) {
-//            strJson = "[{" + "\"" + "a" + "\"" + ":" + "\"" + "a" + "\"" + "," +  "\"" + "3" + "\"" + ":" + "\"" + "c" + "\"" + ","  + "\"" + "2" + "\"" + ":" + "\"" + "b" + "\"" + "}]";
-//        }
-
         return arrayMapSocketNum;
     }
-
-
 }

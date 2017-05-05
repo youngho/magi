@@ -113,13 +113,6 @@ export class TdbiBoardTypeRegisterComponent {
         this.submitted = true;
     }
 
-    onGridLoaded(){
-        var self = this;
-        setTimeout(function() {
-            self.flexGrid.autoSizeColumns();
-        },300);
-    }
-
     smartModEg1() {
         this.notificationService.smartMessageBox({
             title: "BETS Alert!",

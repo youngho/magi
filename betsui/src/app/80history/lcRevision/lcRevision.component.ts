@@ -38,15 +38,8 @@ export class LcRevisionComponent {
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
             error => alert(error),
-            () => console.log("Finish onSave()")
+            // () => console.log("Finish onSave()")
         );
-    }
-
-    onGridLoaded(){
-        var self = this;
-        setTimeout(function() {
-            self.flexGrid.autoSizeColumns();
-        },300);
     }
 
     retrieveExecute() {
@@ -70,7 +63,7 @@ export class LcRevisionComponent {
                 error => this.errorMessage = error);
     }
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_lcRevision'+'.xlsx');
     }
 
 }

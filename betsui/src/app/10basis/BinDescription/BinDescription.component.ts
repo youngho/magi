@@ -46,12 +46,6 @@ export class BinDescriptionComponent implements OnInit{
         subBin: "",
         ngBin: "",
     };
-    onGridLoaded(){
-        var self = this;
-        setTimeout(function() {
-            self.flexGrid.autoSizeColumns();
-        },300);
-    }
 
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창(bgModel)을 보여주고 폼 컨트롤에 데이터를 로드한다.

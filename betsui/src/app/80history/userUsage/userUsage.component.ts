@@ -46,15 +46,11 @@ export class UserUsageComponent {
         );
     }
 
-    onGridLoaded(){
-        var self = this;
-        setTimeout(function() {
-            self.flexGrid.autoSizeColumns();
-        },300);
-    }
-
     resetForm() {
-        this.usageInfo = new UserUsage();
+        this.retrieveCondDto.createDateStart = "";
+        this.retrieveCondDto.createDateEnd = "";
+        this.retrieveCondDto.userId = "";
+        this.retrieveCondDto.uiId = "";
     }
 
     retrieveExecute() {
@@ -63,7 +59,7 @@ export class UserUsageComponent {
         // console.log("userId : " + this.data.userId);
         // console.log("uiId : " + this.data.uiId);
 
-        this.service.postRetrieve(this.usageInfo)
+        this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
@@ -79,8 +75,4 @@ export class UserUsageComponent {
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_userUsage'+'.xlsx');
     }
-
-
-
-
 }

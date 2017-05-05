@@ -69,7 +69,7 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>LC Revision Retrieve Result</h2>
+                        <h2>TDBI Board Type Retrieve Result</h2>
                     </header>
                     <div *ngIf="!empty">
                         <div class="widget-body no-padding">
@@ -81,13 +81,13 @@
                                     <button class="btn btn-default" (click)="editByKye(flexGrid)">Edit</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
-                                          [selectionMode]="'Row'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col [width]="'*'"></wj-flex-grid-column>
+                                <!--<wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col [width]="'*'"></wj-flex-grid-column>-->
+                                <wj-flex-grid-column [header]="'Board Type No'" [binding]="'boardTypeNo'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'X Socket Qty'" [binding]="'xSocketQty'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Y Socket Qty'" [binding]="'ySocketQty'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'TDBI Board Type Description'" [binding]="'tdbiBoardTypeDescription'" [width]="'*'"></wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
                     </div>

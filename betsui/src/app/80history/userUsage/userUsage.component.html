@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'uiId'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'uiId'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'uiId'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.uiId">
                                         </div>
@@ -74,12 +74,13 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
+                                <!--<wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>-->
+                                <wj-flex-grid-column [header]="'Create Date'" [binding]="'createDate'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'User ID'" [binding]="'userId'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'UI ID'" [binding]="'uiId'" [width]="'*'"></wj-flex-grid-column>
+
                             </wj-flex-grid>
                         </div>
                     </div>

@@ -79,13 +79,19 @@
                                     <button class="btn btn-default" (click)="editByKye(flexGrid)">Edit</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true"
                                           [selectionMode]="'Row'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
+                                          >
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col [width]="'*'"></wj-flex-grid-column>
+                                <!--<wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col [width]="'*'"></wj-flex-grid-column>-->
+                                <wj-flex-grid-column [header]="'Part Number'" [binding]="'partNumber'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Main Program Name'" [binding]="'mainProgramName'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Process Code'" [binding]="'processCode'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Tester Model'" [binding]="'testerModel'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Item Name'" [binding]="'itemName'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Main Bin'" [binding]="'mainBin'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Sub Bin'" [binding]="'subBin'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Ng Bin'" [binding]="'ngBin'" [width]="'*'"></wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
                     </div>

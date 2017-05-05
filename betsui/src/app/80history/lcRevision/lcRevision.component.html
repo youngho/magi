@@ -73,12 +73,14 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
+                                <!--<wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>-->
+                                <wj-flex-grid-column [header]="'Tester Model'" [binding]="'testerModel'" [width]="200"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'LC Version'" [binding]="'lcVersion'" [width]="200"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Change Why'" [binding]="'changeWhy'" [width]="200"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Create Date'" [binding]="'createDate'" [width]="200"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Create User'" [binding]="'createUser'" [width]="'*'"></wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
                     </div>

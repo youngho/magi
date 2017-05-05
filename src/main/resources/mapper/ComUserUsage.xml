@@ -18,10 +18,10 @@
                   AND CREATE_DATE <![CDATA[<=]]> #{createDateEnd}
               </if>
               <if test=" userId != null and userId != '' ">
-              AND USER_ID = #{userId}
+              AND USER_ID LIKE '%'|| #{userId} || '%'
               </if>
               <if test=" uiId != null and uiId != '' ">
-              AND UI_ID = #{uiId}
+              AND UI_ID LIKE '%'|| #{uiId} || '%'
               </if>
         </where>
         ORDER BY
