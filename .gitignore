@@ -1,7 +1,6 @@
 
 # Created by https://www.gitignore.io/api/eclipse,intellij,intellij+iml,webstorm,maven,gradle
 # npm Local modules
-node_modules/
 
 # npm buid directory
 dist/
@@ -217,5 +216,3 @@ src/main/webapp/
 *.log
 src/main/resources/static/
 
-
-/betsui/node_modules/
