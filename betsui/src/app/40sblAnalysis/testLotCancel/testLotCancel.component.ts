@@ -26,25 +26,27 @@ export class TestLotCancelComponent{
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: TestLotCancel = new TestLotCancel();
+    private retrieveCondDto: TestLotCancel = new TestLotCancel();
 
 
     resetForm(){
-        this.data = new TestLotCancel();
+        this.retrieveCondDto = new TestLotCancel();
     }
 
     saveLastTableForm() {
         // if(this.componentData){this.componentData.}
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
-        console.log("partNumber : " + this.data.partNumber);
-        console.log("processCode : " + this.data.processCode);
-        console.log("testerModel : " + this.data.testerModel);
-        console.log("testerNumber : " + this.data.testerNumber);
-        console.log("head : " + this.data.head);
-        console.log("testCounter : " + this.data.testCounter);
+        console.log("endTimeStart : " + this.retrieveCondDto.endTimeStart);
+        console.log("endTimeEnd : " + this.retrieveCondDto.endTimeEnd);
+        console.log("partNumber : " + this.retrieveCondDto.partNumber);
+        console.log("processCode : " + this.retrieveCondDto.processCode);
+        console.log("testerModel : " + this.retrieveCondDto.testerModel);
+        console.log("testerNumber : " + this.retrieveCondDto.testerNumber);
+        console.log("head : " + this.retrieveCondDto.head);
+        console.log("testCounter : " + this.retrieveCondDto.testCounter);
 
-        this.service.postLastTable(this.data)
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
