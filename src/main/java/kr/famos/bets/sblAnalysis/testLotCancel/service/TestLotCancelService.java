@@ -57,9 +57,8 @@ public class TestLotCancelService {
         }
 
         Gson gson = new Gson();
-
         String strJson = gson.toJson(arraySingleDutMapDto);
-//        String test = "[{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa5" + "\"" + "}" + "," + "{" + "\"" + "Lotid" + "\"" + ":" + "\"" + "fdsafdsafdsa2" + "\"" + "}]";
+
         if (arraySingleDutMapDto.size() == 0) {
             strJson = "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "No data available in table" + "\"" + "}]";
         }
