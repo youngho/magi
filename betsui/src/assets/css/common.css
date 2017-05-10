@@ -1,0 +1,40 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+
+
+#extr-page #header {position:absolute;left:0;right:0;height:auto;overflow:visible;text-align:center;background:none !important;border-bottom:none !important;}
+#extr-page #header > div {float:none;margin-top:180px;height:auto;}
+#extr-page #main {position:absolute;left:0;right:0;top:0;bottom:0;background-image: url('../img/loginback.png');background-size: cover;}
+#extr-page #logo-group > span {float:none;}
+#extr-page .container .loginBox {position:absolute;left:50%;top:30%;margin-left:-150px;width:300px;}
+#extr-page .container .well {float:none;width:300px;background:none;border:none;box-shadow:none;}
+#extr-page .container .client-form header {background:rgba(255,255,255,0.8);border-radius:5px 5px 0 0;}
+#extr-page .container .smart-form fieldset {background:rgba(255,255,255,0.6);}
+#extr-page .container .client-form footer {background:rgba(255,255,255,0.8);border-radius:0 0 5px 5px;}
+
+.smart-style-2 .login-info span {padding:5px 10px !important;text-align:center;background:#ddd;font-weight:bold;font-size:12px;}
+.smart-style-2 .login-info span:before {display: inline-block;font: normal normal normal 14px/1 FontAwesome;text-rendering: auto;content:"\f007";}
+.smart-style-2 #left-panel {padding:10px !important;margin-top:30px;}
+.smart-style-2 .login-info {margin-bottom:10px !important;}
+
+nav ul>li {padding:2px 0 5px 0;}
+.smart-style-2 nav ul li.open {border-left:2px solid #a3bd5f;background:rgba(163,189,95,0.2);}
+.smart-style-2 nav ul li.open > ul > li.active > a   {color:#809646 !important;}
+nav ul li.active > a:before {font-size:14px;color:#a3bd5f;right:-10px;}
