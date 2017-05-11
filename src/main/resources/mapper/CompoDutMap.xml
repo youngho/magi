@@ -55,6 +55,7 @@
             </if>
         </where>
     </select>
+    <!--
     <select id="retrieveCompoDutMapMap" parameterType="kr.famos.bets.dutmap.compodut.dto.CompoDutMapDto" resultType="java.util.LinkedHashMap">
         SELECT
         PART_NUMBER,
@@ -108,4 +109,5 @@
             </if>
         </where>
     </select>
+    -->
 </mapper>

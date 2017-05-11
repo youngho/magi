@@ -58,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 // BASIS INFORMATION
                 .antMatchers("/retrieveProgramRegister").permitAll()
                 .antMatchers("/retrieveProgramRegisterByKey").permitAll()
-                .antMatchers("/insertProgramRegister").permitAll()
+                .antMatchers("/insertProgramRegister").hasAuthority("ADMIN")
 
                 .antMatchers("/retrieveTdbiBoardType").permitAll()
                 .antMatchers("/retrieveTdbiBoardTypeByKey").permitAll()
@@ -77,6 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 // DUTMAP
                 .antMatchers("/retrieveSingleDutMap").permitAll()
                 .antMatchers("/retrieveCompoDutMap").permitAll()
+                .antMatchers("/retrieveDutMapYield").permitAll()
 // SBL ANALYSIS
                 .antMatchers("/retrieveYieldAbnormal").permitAll()
                 .antMatchers("/retrieveTestLotCancel").permitAll()

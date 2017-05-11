@@ -12,5 +12,5 @@ import java.util.Map;
 @Mapper
 public interface CompoDutMapMapper {
     public List<CompoDutMapDto> retrieveCompoDutMap(CompoDutMapDto compoDutMapDto);
-    public List<Map<String, CompoDutMapDto>> retrieveCompoDutMapMap(CompoDutMapDto compoDutMapDto);
+    //public List<Map<String, CompoDutMapDto>> retrieveCompoDutMapMap(CompoDutMapDto compoDutMapDto);
 }

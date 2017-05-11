@@ -1,0 +1,141 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <sa-widgets-grid>
+        <!-- row start -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                        <h2>DUT Map Yield Retrieve</h2>
+                    </header>
+                    <!-- widget div-->
+                    <div>
+                        <!-- widget content -->
+                        <div class="widget-body">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <!--검색조건 시작-->
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="BIN Select" type="text" [(ngModel)]="retrieveCondDto.binSelection">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="retrieveCondDto.partNumber">
+                                        </div>
+
+                                        <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="retrieveCondDto.processCode">
+                                        </div>
+
+                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="retrieveCondDto.testerModel">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" style="color:red;"><strong>{{'testerNumber'|i18n}}</strong></label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.testerNumber">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
+                                        <div class="col-md-2"><input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="retrieveCondDto.head"></div>
+                                        <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Test Counter" type="text"
+                                                   [(ngModel)]="retrieveCondDto.testCounter">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Lot ID" type="text" [(ngModel)]="retrieveCondDto.lotId">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.mainProgramName">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.boardId">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <!--<label class="col-md-2 control-label" style="color:red;">{{'SBL RESULT'|i18n}}</label>-->
+                                        <label class="col-md-2 control-label">{{'sblDutLimit'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="{{'sblDutLimit'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.sblDutLimit">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-default" (click)="resetForm()">
+                                                {{'reset'|i18n}}
+                                            </button>
+                                            <button (click)="retrieveExecute()" class="btn btn-primary"><i class="fa fa-search"></i>
+                                                {{'retrieve'|i18n}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </sa-widget>
+                <!-- end widget -->
+                <!-- widget Grid Start -->
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Composite DUT Map Retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <!--<wj-flex-grid-column [header]="'Part Number'" [binding]="'partNumber'" [allowMerging]="true"></wj-flex-grid-column>-->
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div>No data available in table</div>
+                            </div>
+                        </div>
+                    </div>
+                </sa-widget>
+                <!-- widget Grid End -->
+            </article>
+            <!-- WIDGET END -->
+        </div>
+        <!-- row end-->
+    </sa-widgets-grid>
+    <!-- end widget grid -->
+</div>

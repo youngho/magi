@@ -8,6 +8,10 @@ export const routes:Routes = [
     loadChildren: 'app/30dutmap/singledut/singledut.module#SingleDutModule',
     data: {pageTitle: 'Single DUT map'}
   },
+  { path: 'dutmapyield',
+    loadChildren: 'app/30dutmap/dutmapyield/dutmapyield.module#DutMapYieldModule',
+    data: {pageTitle: 'DUT Map Yield'}
+  },
   { path: 'compodut',
     loadChildren: 'app/30dutmap/compodut/compodut.module#CompoDutModule',
     data: {pageTitle: 'Composite DUT map'}
