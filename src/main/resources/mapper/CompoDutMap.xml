@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.dutmap.compodut.mapper.CompoDutMapMapper">
+    <!--
+    BETS-UI-0302
+    Composite DUT Map
+    CASI_BIN 테이블의 DUT_MAIN_BIN 에 들어 있는 DUT의 정보를 BIN별로 분류하여 PASS BIN의 비율을 보여준다
+    -->
     <select id="retrieveCompoDutMap" parameterType="kr.famos.bets.dutmap.compodut.dto.CompoDutMapDto" resultType="kr.famos.bets.dutmap.compodut.dto.CompoDutMapDto">
         SELECT
             PART_NUMBER,

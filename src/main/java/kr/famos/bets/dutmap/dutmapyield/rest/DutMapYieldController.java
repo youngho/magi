@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by yhkim on 2017-03-10.
+ * BETS-UI-0303
+ * DUT Map Yiled
+ * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+ * BIN Selection 에서 선택한 BIN의 비율을 보여준다
  */
 @RestController
 public class DutMapYieldController {

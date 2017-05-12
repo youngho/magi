@@ -1,3 +1,8 @@
+<!--
+ ** BETS-UI-0302
+ ** Composite DUT Map
+ ** CASI_BIN 테이블의 DUT_MAIN_BIN 에 들어 있는 DUT의 정보를 BIN별로 분류하여 PASS BIN의 비율을 보여준다
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -28,10 +33,12 @@
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
+<!-- 설계 화면에 있었으나, 이 화면에선 BIN을 1~8까지 고정으로 분류 하기 때문에 특정 BIN을 선택할 수 없어서 삭제함
                                         <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="BIN Select" type="text">
                                         </div>
+-->
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
@@ -76,13 +83,14 @@
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.boardId">
                                         </div>
                                     </div>
+<!-- 이 변수에 들어오는 값을 기준으로 색깔을 다르게 보여주려 했으나 flexgrid에서 동적 컬럼에 대한 색깔을 바꿀 수 없어 실패함
                                     <div class="form-group">
-                                        <!--<label class="col-md-2 control-label" style="color:red;">{{'SBL RESULT'|i18n}}</label>-->
                                         <label class="col-md-2 control-label">{{'sblDutLimit'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'sblDutLimit'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.sblDutLimit">
                                         </div>
                                     </div>
+-->
                                 </fieldset>
                                 <div class="form-actions">
                                     <div class="row">

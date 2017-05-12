@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.dutmap.dutmapyield.mapper.DutMapYieldMapper">
+    <!--
+     * BETS-UI-0303
+     * DUT Map Yiled
+     * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+     * BIN Selection 에서 선택한 BIN의 비율을 보여준다
+    -->
     <select id="retrieveDutMapYield" parameterType="kr.famos.bets.dutmap.dutmapyield.dto.DutMapYieldDto" resultType="kr.famos.bets.dutmap.dutmapyield.dto.DutMapYieldDto">
         SELECT
             PART_NUMBER,
@@ -52,5 +58,6 @@
                 AND BOARD_ID=#{boardId}
             </if>
         </where>
+        ORDER BY LOT_ID
     </select>
 </mapper>

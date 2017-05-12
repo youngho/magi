@@ -1,4 +1,10 @@
 package kr.famos.bets.dutmap.dutmapyield.service;
+/**
+ * BETS-UI-0303
+ * DUT Map Yiled
+ * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+ * BIN Selection 에서 선택한 BIN의 비율을 보여준다
+ */
 
 import com.google.gson.Gson;
 import kr.famos.bets.dutmap.dutmapyield.dto.DutMapYieldDto;
@@ -21,8 +27,20 @@ public class DutMapYieldService {
 
     public String retrieveCompoDutMap(DutMapYieldDto dutMapYieldDto) {
 
-        logger.debug("UI BIN Selection is " + dutMapYieldDto.getBinSelection());
-        //NB_BIN과 같음
+        logger.debug("UI BIN Selection ::: " + dutMapYieldDto.getBinSelection());    //화면에서 BIN Selection 으로 조회한 값
+        logger.debug("UI BIN Yield Limit ::: " + dutMapYieldDto.getBinYieldLimit());    //
+        int binXrequestValue = 0;
+        double binYieldLimit = 100;
+        if (dutMapYieldDto.getBinSelection() != "") {
+            binXrequestValue = Integer.valueOf(dutMapYieldDto.getBinSelection());   //화면에서 BIN Selection 으로 조회한 값을 int형 변수 binXrequestValue 로 관리
+            logger.debug("binXrequestValue ::: " + binXrequestValue);
+            if (dutMapYieldDto.getBinYieldLimit() != "") {
+                binYieldLimit = Double.parseDouble(dutMapYieldDto.getBinYieldLimit());
+                logger.debug("binYieldLimit ::: " + binYieldLimit);
+            }
+        }
+
+        // List<DTO> 리턴형식으로로 DB 조회
         List<DutMapYieldDto> lstDutMapYieldDto = dutMapYieldMapper.retrieveDutMapYield(dutMapYieldDto);
 
         if (lstDutMapYieldDto.size() != 0) {
@@ -41,7 +59,7 @@ public class DutMapYieldService {
             }
 
             //DUT_MAIN_BIN을 배열에 넣는다.
-            int[][] intDutMap = new int[maxDut][lstDutMapYieldDto.size()];
+            int[][] intDutMap = new int[maxDut][lstDutMapYieldDto.size()];  //위의 maxDut 을 이용하여 2차원 배열 생성
             int index = 0;
             for (DutMapYieldDto dut : lstDutMapYieldDto) {
                 String strDut = dut.getDutMainBin().replaceAll(",", "");
@@ -57,6 +75,7 @@ public class DutMapYieldService {
             int[][] intDutMap2 = new int[8][maxDut];
             int[] intDutMapInputBinTotal = new int[maxDut];
             int[] intDutMapPassBinTotal = new int[maxDut];
+            int[] binXCount = new int[maxDut];              //
             Map<Integer, Integer> mapDutMapTotal = new TreeMap<>();
 
 
@@ -82,6 +101,9 @@ public class DutMapYieldService {
                     intDutMapInputBinTotal[i] = intDutMapInputBinTotal[i] + mapDutMap.get(k + 1);
                     if (k < 4) {
                         intDutMapPassBinTotal[i] = intDutMapPassBinTotal[i] + mapDutMap.get(k + 1);
+                    }
+                    if (k == binXrequestValue) {
+                        binXCount[i] = mapDutMap.get(k + 1);
                     }
                 }
                 inputBinSum += intDutMapInputBinTotal[i];
@@ -117,14 +139,13 @@ public class DutMapYieldService {
             DecimalFormat format = new DecimalFormat("#.##");
 
             for (int j = 0; j < maxDut; j++) {
+                mapDutMapInputBIN.put("mainProgramName", "Input");
+                mapDutMapInputBIN.put("InputTotal", String.valueOf(inputBinSum));
+                mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapInputBinTotal[j]));
 
-                mapDutMapInputBIN.put("mainBIN", "Input");
-                mapDutMapInputBIN.put("total", String.valueOf(inputBinSum));
-                mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapInputBinTotal[j]));
-                
-                mapDutMapPassBIN.put("mainBIN", "Pass");
-                mapDutMapPassBIN.put("total", String.valueOf(passBinSum));
-                mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapPassBinTotal[j]));
+                mapDutMapPassBIN.put("mainProgramName", "Pass");
+                mapDutMapPassBIN.put("InputTotal", String.valueOf(passBinSum));
+                mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapPassBinTotal[j]));
 
                 mapDutMapYildBIN.put("partNumber", lstDutMapYieldDto.get(0).getPartNumber());
                 mapDutMapYildBIN.put("processCode", lstDutMapYieldDto.get(0).getProcessCode());
@@ -136,20 +157,31 @@ public class DutMapYieldService {
 //                mapDutMapYildBIN.put("testCounter", lstDutMapYieldDto.get(0).getTestCounter());
 //                mapDutMapYildBIN.put("mainBIN", "Yield");
 //                mapDutMapYildBIN.put("total", String.valueOf(format.format(passBinSum / (double) inputBinSum * 100)));
-                if (intDutMapInputBinTotal[j] != 0) {   //피제수(inputBinTotal)가 0일경우 처리(있을수 없으나 테스트 데이터일 경우), 계산을 하지 않고 0을 넣는다.
+                mapDutMapYildBIN.put("InputTotal", String.format("%,d", inputBinSum));
+
+                if (intDutMapInputBinTotal[j] != 0 && binXrequestValue == 0) {   //피제수(inputBinTotal)가 0일경우 처리(있을수 없으나 테스트 데이터일 경우), + UI에서 BIN Selection에 값을 조회하지 않은 경우, 계산을 하지 않고 0을 넣는다.
+                    logger.debug("DUT " + String.valueOf(j + 1) + " PASS BIN YIELD");
                     mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((intDutMapPassBinTotal[j] / (double) intDutMapInputBinTotal[j]) * 100));
-                } else {
-                    mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), "0");
+                } else if (intDutMapInputBinTotal[j] != 0 && binXrequestValue > 0) {
+                    logger.debug("DUT " + String.valueOf(j + 1) + " YIELD = " + binXCount[j] + "/" + intDutMapInputBinTotal[j] + " of BIN " + binXrequestValue);
+                    if (((binXCount[j] / (double) intDutMapInputBinTotal[j]) * 100) < binYieldLimit) {
+                        mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((binXCount[j] / (double) intDutMapInputBinTotal[j]) * 100));
+                    }
                 }
+//                else {
+//                    logger.debug("DUT " + String.valueOf(j + 1) + " is 0 Value !!!");
+//                    mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), "0");
+//                }
+
             }
-//            arrayMapDutMap.add(mapDutMapInputBIN);
 //            arrayMapDutMap.add(mapDutMapPassBIN);
             arrayMapDutMap.add(mapDutMapYildBIN);
+            arrayMapDutMap.add(mapDutMapInputBIN);
 
             Gson gson = new Gson();
             String strJson = gson.toJson(arrayMapDutMap);
             return strJson;
-        }else{
+        } else {
             String strJson = "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "No data available in table" + "\"" + "}]";
             return strJson;
         }

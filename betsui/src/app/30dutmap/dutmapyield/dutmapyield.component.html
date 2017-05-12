@@ -1,3 +1,9 @@
+<!--
+ * BETS-UI-0303
+ * DUT Map Yiled
+ * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+ * BIN Selection 에서 선택한 BIN의 비율을 보여준다
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -29,8 +35,24 @@
                                             <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
                                         <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text" [(ngModel)]="retrieveCondDto.binSelection">
+                                        <div class="col-md-1">
+                                            <!--<input class="form-control" placeholder="BIN Select" type="text" [(ngModel)]="retrieveCondDto.binSelection">-->
+                                            <label class="select">
+                                                <select class="input-sm" [(ngModel)]="retrieveCondDto.binSelection">
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7">7</option>
+                                                    <option value="8">8</option>
+                                                    <option value="0">ALL</option>
+                                                </select> <i></i>
+                                            </label>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <input class="form-control" placeholder="%" type="text" [(ngModel)]="retrieveCondDto.binYieldLimit">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -76,13 +98,14 @@
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.boardId">
                                         </div>
                                     </div>
+                                    <!--
                                     <div class="form-group">
-                                        <!--<label class="col-md-2 control-label" style="color:red;">{{'SBL RESULT'|i18n}}</label>-->
                                         <label class="col-md-2 control-label">{{'sblDutLimit'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'sblDutLimit'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.sblDutLimit">
                                         </div>
                                     </div>
+                                    -->
                                 </fieldset>
                                 <div class="form-actions">
                                     <div class="row">

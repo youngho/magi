@@ -1,4 +1,9 @@
 package kr.famos.bets.dutmap.compodut.service;
+/**
+ ** BETS-UI-0302
+ ** Composite DUT Map
+ ** CASI_BIN 테이블의 DUT_MAIN_BIN 에 들어 있는 DUT의 정보를 BIN별로 분류하여 PASS BIN의 비율을 보여준다
+ */
 
 import com.google.gson.Gson;
 import kr.famos.bets.dutmap.compodut.dto.CompoDutMapDto;
@@ -103,9 +108,9 @@ public class CompoDutMapService {
                 mapDutMap.put("mainProgramName", lstCompoDutMapDto.get(0).getMainProgramName());
                 mapDutMap.put("testCounter", lstCompoDutMapDto.get(0).getTestCounter());
                 mapDutMap.put("mainBIN", String.valueOf(i + 1));
-                mapDutMap.put("total", String.valueOf(mapDutMapTotal.get(i + 1)));
+                mapDutMap.put("total", String.format("%,d", mapDutMapTotal.get(i + 1)));
                 for (int j = 0; j < maxDut; j++) {
-                    mapDutMap.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMap2[i][j]));
+                    mapDutMap.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMap2[i][j]));
                 }
                 arrayMapDutMap.add(mapDutMap);
                 mapDutMap = null;
@@ -127,8 +132,8 @@ public class CompoDutMapService {
 //            mapDutMapInputBIN.put("MAIN_PROGRAM_NAME", "");
 //            mapDutMapInputBIN.put("TEST_COUNTER", "");
                 mapDutMapInputBIN.put("mainBIN", "Input");
-                mapDutMapInputBIN.put("total", String.valueOf(inputBinSum));
-                mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapInputBinTotal[j]));
+                mapDutMapInputBIN.put("total", String.format("%,d", inputBinSum));
+                mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapInputBinTotal[j]));
 
 //            mapDutMapPassBIN.put("PART_NUMBER", "");
 //            mapDutMapPassBIN.put("LOT_ID", "");
@@ -139,8 +144,8 @@ public class CompoDutMapService {
 //            mapDutMapPassBIN.put("MAIN_PROGRAM_NAME", "");
 //            mapDutMapPassBIN.put("TEST_COUNTER", "");
                 mapDutMapPassBIN.put("mainBIN", "Pass");
-                mapDutMapPassBIN.put("total", String.valueOf(passBinSum));
-                mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMapPassBinTotal[j]));
+                mapDutMapPassBIN.put("total", String.format("%,d", passBinSum));
+                mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapPassBinTotal[j]));
 
 //            mapDutMapYildBIN.put("PART_NUMBER", "");
 //            mapDutMapYildBIN.put("LOT_ID", "");
@@ -165,7 +170,7 @@ public class CompoDutMapService {
             Gson gson = new Gson();
             String strJson = gson.toJson(arrayMapDutMap);
             return strJson;
-        }else{
+        } else {
             String strJson = "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "No data available in table" + "\"" + "}]";
             return strJson;
         }

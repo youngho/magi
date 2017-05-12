@@ -5,6 +5,7 @@ export class DutMapYield {
     endTimeStart: string;
     endTimeEnd: string;
     binSelection: string;
+    binYieldLimit: string;
 
     partNumber: string;
     processCode: string;
@@ -15,8 +16,8 @@ export class DutMapYield {
     lotId: string;
     mainProgramName: string;
     boardId: string;
-    sblDutLimit: number;
 
+    // sblDutLimit: number;
     // handlerModel: string;
     // grade: string;
     // fab: string;

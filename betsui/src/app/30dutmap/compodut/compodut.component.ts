@@ -1,3 +1,8 @@
+/**
+ ** BETS-UI-0302
+ ** Composite DUT Map
+ ** CASI_BIN 테이블의 DUT_MAIN_BIN 에 들어 있는 DUT의 정보를 BIN별로 분류하여 PASS BIN의 비율을 보여준다
+ */
 import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";

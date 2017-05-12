@@ -1,7 +1,10 @@
 package kr.famos.bets.dutmap.dutmapyield.dto;
 
 /**
- * Created by yhkim on 2017-03-10.
+ * BETS-UI-0303
+ * DUT Map Yiled
+ * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+ * BIN Selection 에서 선택한 BIN의 비율을 보여준다
  */
 public class DutMapYieldDto {
     private String partNumber        = ""; // PART NUMBER
@@ -17,10 +20,10 @@ public class DutMapYieldDto {
     private String handlerModel      = ""; // HANDLER MODEL NAME
     private String dutMainBin        = ""; // 보드의 DUT별 MAIN BIN 갯수가 '1 ~ 보드의 DUT수' 만큼 콤마로 구분되어 들어 있다
 
-    private String endTimeStart      = "";
-    private String endTimeEnd        = "";
-    private String binSelection      = "";
-    private float sblDutLimit;       // Socket DUT Limit value for different color
+    private String endTimeStart      = ""; // 조회 시작일
+    private String endTimeEnd        = ""; // 조회 종료일
+    private String binSelection      = ""; // 특정 BIN에 대한 비율을 보기위한 조회 조건
+    private String binYieldLimit     = ""; // BIN Selection 의 조회 제한 값
 
     public String getPartNumber() {
         return partNumber;
@@ -142,11 +145,11 @@ public class DutMapYieldDto {
         this.binSelection = binSelection;
     }
 
-    public float getSblDutLimit() {
-        return sblDutLimit;
+    public String getBinYieldLimit() {
+        return binYieldLimit;
     }
 
-    public void setSblDutLimit(float sblDutLimit) {
-        this.sblDutLimit = sblDutLimit;
+    public void setBinYieldLimit(String binYieldLimit) {
+        this.binYieldLimit = binYieldLimit;
     }
 }

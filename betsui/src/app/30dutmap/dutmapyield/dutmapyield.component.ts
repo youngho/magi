@@ -1,3 +1,9 @@
+/**
+ * BETS-UI-0303
+ * DUT Map Yiled
+ * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+ * BIN Selection 에서 선택한 BIN의 비율을 보여준다
+ */
 import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
@@ -13,6 +19,7 @@ import {DutMapYield} from "./dutmapyield.model";
 @Component({
     selector: 'DutMapYield',
     templateUrl: 'dutmapyield.component.html',
+    styles: ['select.input-sm {height: 20px;line-height: 20px;} label {margin-bottom: 0px;}'],
     providers: [DutMapYieldService, DutMapYield],
 })
 export class DutMapYieldComponent {
