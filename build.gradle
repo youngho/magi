@@ -55,7 +55,3 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-task uiBuild(type:Exec){
-    workingDir './betsui'
-    commandLine './betsui/npm run build'
-}
