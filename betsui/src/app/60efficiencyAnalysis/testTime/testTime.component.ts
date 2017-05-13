@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {TestTimeService} from "./testTime.service";
+import * as wjcCore from "wijmo/wijmo";
+import * as wjcGrid from "wijmo/wijmo.grid";
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
 
-import {UiDatePickerComponent} from '../../shared/forms/UiDatePicker/UiDatePicker.component';
-import {DynamicComponent} from './dynamic-component';
-import {DatatableComponent} from './datatable.component';
+import {TestTimeService} from "./testTime.service";
 import {TestTime} from './testTime.model';
 
 declare var $: any;
@@ -16,75 +17,61 @@ declare var $: any;
     providers: [TestTimeService, TestTime]
 })
 export class TestTimeComponent implements OnInit {
+    UIID: string = "BETS-UI-0303";
+    startDate = "";
+    endDate = "";
+    empty = true;
+    errorMessage = null;
+    private colInfo = new Array();
+    public isRequesting: boolean;
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
+    private retrieveCondDto: TestTime = new TestTime();
+    private usageInfo = new UserUsage();
 
     constructor(private service: TestTimeService) {
     }
 
-    componentData = null;
-    errorMessage = null;
-    private data: TestTime = new TestTime();
-    private colInfo = new Array();
-
-    onSelectDateFrom(strDate: string) {
-        // null != strDate ? this.data.createDateStart = strDate + "000000" : this.data.createDateStart = strDate;
-    }
-
-    onSelectDateTo(strDate: string) {
-        // null != strDate ? this.data.createDateEnd = strDate + "999999" : this.data.createDateEnd = strDate;
-    }
-
-    saveLastTableForm() {
-        // console.log("endTimeStart : " + this.data.createDateStart);
-        // console.log("createDateEnd : " + this.data.createDateEnd);
-        // console.log("partNumber : " + this.data.partNumber);
-        // console.log("processCode : " + this.data.processCode);
-        // console.log("testerModel : " + this.data.testerModel);
-
-
-        this.service.postLastTable(this.data)
-            .subscribe((apps) => {
-
-                    console.log(apps);
-                    //debugger;
-                    this.colInfo = [];
-                    var tempStr;
-                    var apps_obj = apps[0];
-                    if (apps_obj != null) {
-                        for (var key in apps_obj) {
-                            // var value = key;
-                            //console.log("===>" + value)
-                            tempStr = {"title": key, "data": key};
-                            this.colInfo.push(tempStr);
-                        }
-                    }else {
-                        // 컬럼을 동적으로 만들경우 DB에서 0건으로 검색되면 컬럼명도 가져오지 못한다.
-                        // 때문에 임의의 컬럼명을 만들어서 테이블을 그린다. 이때 데이터가 없어 'No data available in table' 메시지가 표시된다.
-                        console.log("columns return 0");
-                        this.colInfo.push({"title": "No Data", "data": "noData"});
-                    }
-
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                dom: 'Bfrtip',
-                                fixedColumns: true,
-                                colReorder: true,
-                                scrollX: true,
-                                data: apps,
-                                columns: this.colInfo,
-                                buttons: [
-                                    'colvis', 'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
-                },
-                error => this.errorMessage = error);
-    }
-
     ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            // () => console.log("Finish onSave()")
+        );
     }
 
+    resetForm() {
+        this.retrieveCondDto = new TestTime();
+        this.stopRefreshing();
+        this.gridData = null;
+    }
+
+    retrieveExecute() {
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.service.postRetrieve(this.retrieveCondDto)
+            .subscribe((apps) => {
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                        this.stopRefreshing();
+                    }
+                },
+                error => this.errorMessage = error
+            );
+    }
+
+    private stopRefreshing() {
+        this.isRequesting = false;
+    }
+
+    exportExcel() {
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_TestTime' + '.xlsx');
+    }
 
 }

@@ -10,7 +10,7 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                        <h2>Test Time Revision Retrieve</h2>
+                        <h2>Test Time Retrieve</h2>
                     </header>
                     <!-- widget div-->
                     <div>
@@ -22,56 +22,47 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateFrom($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
                                         <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <ui-date-picker (selectedText)="onSelectDateTo($event)"></ui-date-picker>
+                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
-
-                                        <label class="col-md-2 control-label">{{'firmwareName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="data.firmwareName">
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
+                                                   [(ngModel)]="retrieveCondDto.mainProgramName">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partNumber">
+                                                   [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processCode">
+                                                   [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
-                                        <div class="col-md-2">
-                                            <input type="text" class="form-control"
-                                                   name="testerOsVersion" placeholder="{{'testerOsVersion'|i18n}}" [(ngModel)]="data.testerOsVersion">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
+<!--
                                         <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Model" type="text"
-                                                   [(ngModel)]="data.testerModel">
+                                                   [(ngModel)]="retrieveCondDto.testerModel">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
-                                        </div>
+-->
                                     </div>
-
                                 </fieldset>
                                 <!--Retest Skip 기준 end-->
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
-                                                <i class="fa fa-search"></i>
+                                            <button class="btn btn-default" (click)="resetForm()">
+                                                {{'reset'|i18n}}
+                                            </button>
+                                            <button (click)="retrieveExecute()" class="btn btn-primary"><i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>
                                         </div>
@@ -84,7 +75,35 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <dynamic-component [componentData]="componentData"></dynamic-component>
+                <!-- widget Grid Start -->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Test Time Retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <!--<wj-flex-grid-column [header]="'Part Number'" [binding]="'partNumber'" [allowMerging]="true"></wj-flex-grid-column>-->
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div>No data available in table</div>
+                            </div>
+                        </div>
+                    </div>
+                </sa-widget>
+                <!-- widget Grid End -->
             </article>
             <!-- WIDGET END -->
         </div>

@@ -140,11 +140,11 @@ public class DutMapYieldService {
 
             for (int j = 0; j < maxDut; j++) {
                 mapDutMapInputBIN.put("mainProgramName", "Input");
-                mapDutMapInputBIN.put("InputTotal", String.valueOf(inputBinSum));
+                mapDutMapInputBIN.put("InputTotal", String.format("%,d", inputBinSum));
                 mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapInputBinTotal[j]));
 
                 mapDutMapPassBIN.put("mainProgramName", "Pass");
-                mapDutMapPassBIN.put("InputTotal", String.valueOf(passBinSum));
+                mapDutMapPassBIN.put("InputTotal", String.format("%,d", passBinSum));
                 mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapPassBinTotal[j]));
 
                 mapDutMapYildBIN.put("partNumber", lstDutMapYieldDto.get(0).getPartNumber());
