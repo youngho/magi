@@ -9,7 +9,11 @@ import {NotificationService} from "../../shared/utils/notification.service";
 import {TdbiService} from "./tdbi.service";
 import {RawData} from '../rawData.model';
 
-
+/**
+ * BETS-UI-0702
+ * TDBI RAW Data
+ * TDBI 공정에서 발생한 RAW Data를 조회한다
+ */
 @FadeInTop()
 @Component({
     selector: 'NgBin',
@@ -85,6 +89,7 @@ export class TdbiComponent {
         console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
         console.log("fileName : " + this.retrieveCond.fileName);
 
+        this.retrieveCond.fileType = "TDBI";
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);

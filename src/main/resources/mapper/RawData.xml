@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.rawData.mapper.RawDataMapper">
-    <!-- BETS-UI-0801 사용 -->
-    <!-- BETS-UI-0802 사용 -->
+    <!--
+    * BETS-UI-0701 사용
+    * Test RAW Data
+    * TEST 화면의 경우 UI Component 에서 FILE_TYPE 에 'TEST' 를 입력하여 파라미터로 넘어와 WHERE 문에 적용되어
+    * AND FILE_TYPE <> 'TDBI' 로 실행됨
+    -->
+    <!--
+    * BETS-UI-0702 사용
+    * TDBI RAW Data
+    * TDBI 화면의 경우 UI Component 에서 FILE_TYPE 에 'TDBI' 를 입력하여 파라미터로 넘어와 WHERE 문에 적용되어
+    * AND FILE_TYPE = 'TDBI' 로 실행됨
+    -->
     <select id="retrieveRawData" parameterType="kr.famos.bets.rawData.dto.RawDataRetrieveCondDto" resultType="kr.famos.bets.rawData.dto.RawDataResultDto">
         SELECT
             LOCATION,
@@ -19,13 +29,13 @@
             <if test=" createDateEnd != null and createDateEnd != '' ">
                 AND CREATE_DATE <![CDATA[<=]]> #{createDateEnd}
             </if>
-            <if test=" location != null and location != '' ">
-                AND LOCATION LIKE '%'|| #{location} || '%'
-            </if>
             <if test=" fileName != null and fileName != '' ">
                 AND FILE_NAME LIKE '%'|| #{fileName} || '%'
             </if>
-            <if test=" fileType != null and fileType != '' ">
+            <if test=" fileType != null and fileType == 'TEST' ">
+                AND FILE_TYPE <![CDATA[<>]]> 'TDBI'
+            </if>
+            <if test=" fileType != null and fileType == 'TDBI' ">
                 AND FILE_TYPE=#{fileType}
             </if>
         </where>

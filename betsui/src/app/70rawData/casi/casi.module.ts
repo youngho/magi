@@ -8,7 +8,11 @@ import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import {CasiComponent} from "./casi.component";
 import {CasiRouting} from "./casi.routing";
 
-
+/**
+ * BETS-UI-0701
+ * Test RAW Data
+ * Test 공정에서 발생한 RAW Data를 조회한다
+ */
 @NgModule({
     imports: [
         WjInputModule, WjGridModule, WjGridFilterModule,

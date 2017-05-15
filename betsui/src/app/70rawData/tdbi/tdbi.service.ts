@@ -1,12 +1,13 @@
-/**
- * Created by yhkim on 2017-02-17.
- */
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
 import {UserUsage} from "../../shared/usage/userUsage.model";
 import {RawData} from "../rawData.model";
-
+/**
+ * BETS-UI-0702
+ * TDBI RAW Data
+ * TDBI 공정에서 발생한 RAW Data를 조회한다
+ */
 @Injectable()
 export class TdbiService {
     private path: string;

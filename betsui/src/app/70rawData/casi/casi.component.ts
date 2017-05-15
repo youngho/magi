@@ -10,7 +10,11 @@ import {CasiService} from "./casi.service";
 import {RawData} from '../rawData.model';
 
 declare var $: any;
-
+/**
+ * BETS-UI-0701
+ * Test RAW Data
+ * Test 공정에서 발생한 RAW Data를 조회한다
+ */
 @FadeInTop()
 @Component({
     selector: 'casi',
@@ -80,6 +84,7 @@ export class CasiComponent {
         console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
         console.log("fileName : " + this.retrieveCond.fileName);
 
+        this.retrieveCond.fileType = "TEST";
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);

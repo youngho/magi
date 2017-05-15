@@ -1,3 +1,8 @@
+<!--
+ * BETS-UI-0701
+ * Test RAW Data
+ * Test 공정에서 발생한 RAW Data를 조회한다
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -67,7 +72,7 @@
                                     <button class="btn btn-default" (click)="download(flexGrid)">Download</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'">
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'" [selectionMode]="'Row'">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <wj-flex-grid-column [header]="'Location'" [binding]="'location'" [width]="270"></wj-flex-grid-column>
                                 <wj-flex-grid-column [header]="'File Name'" [binding]="'fileName'" [width]="'*'"></wj-flex-grid-column>
