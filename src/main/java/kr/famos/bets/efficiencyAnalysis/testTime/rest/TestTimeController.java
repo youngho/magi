@@ -1,14 +1,19 @@
 package kr.famos.bets.efficiencyAnalysis.testTime.rest;
 
 import kr.famos.bets.efficiencyAnalysis.testTime.dto.TestTimeCondDto;
+import kr.famos.bets.efficiencyAnalysis.testTime.dto.TestTimeResultDto;
 import kr.famos.bets.efficiencyAnalysis.testTime.service.TestTimeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * BETS-UI-0602
@@ -24,9 +29,8 @@ public class TestTimeController {
     private TestTimeService testTimeService;
 
     @RequestMapping(value = "/retrieveTestTime", method = RequestMethod.POST)
-    public String retrieveTestTime(@RequestBody TestTimeCondDto testTimeCondDto) {
+    public ResponseEntity<List<TestTimeResultDto>> retrieveTestTime(@RequestBody TestTimeCondDto testTimeCondDto) {
         logger.debug("TestTimeController - retrieveTestTime 메소드");
-        String list = testTimeService.retrieveTestTime(testTimeCondDto);
-        return list;
+        return new ResponseEntity<List<TestTimeResultDto>>(testTimeService.retrieveTestTime(testTimeCondDto), HttpStatus.OK);
     }
 }

@@ -14,5 +14,6 @@ import java.util.List;
  */
 @Mapper
 public interface TestTimeMapper {
-    public List<TestTimeResultDto> retrieveTestTime(TestTimeCondDto testTimeCondDto);
+    public TestTimeResultDto retrieveTestTime(TestTimeCondDto testTimeCondDto);
+    public List<TestTimeResultDto> retrieveTestTimeGroup(TestTimeCondDto testTimeCondDto);
 }
