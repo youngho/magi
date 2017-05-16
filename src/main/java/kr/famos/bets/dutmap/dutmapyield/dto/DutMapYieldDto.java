@@ -23,7 +23,8 @@ public class DutMapYieldDto {
     private String endTimeStart      = ""; // 조회 시작일
     private String endTimeEnd        = ""; // 조회 종료일
     private String binSelection      = ""; // 특정 BIN에 대한 비율을 보기위한 조회 조건
-    private String binYieldLimit     = ""; // BIN Selection 의 조회 제한 값
+    private String binYieldUpperLimit     = ""; // BIN Selection 의 조회시 YIELD 보다 큰 값
+    private String binYieldLowerLimit     = ""; // BIN Selection 의 조회시 YIELD 보다 작은 값
 
     public String getPartNumber() {
         return partNumber;
@@ -145,11 +146,19 @@ public class DutMapYieldDto {
         this.binSelection = binSelection;
     }
 
-    public String getBinYieldLimit() {
-        return binYieldLimit;
+    public String getBinYieldUpperLimit() {
+        return binYieldUpperLimit;
     }
 
-    public void setBinYieldLimit(String binYieldLimit) {
-        this.binYieldLimit = binYieldLimit;
+    public void setBinYieldUpperLimit(String binYieldUpperLimit) {
+        this.binYieldUpperLimit = binYieldUpperLimit;
+    }
+
+    public String getBinYieldLowerLimit() {
+        return binYieldLowerLimit;
+    }
+
+    public void setBinYieldLowerLimit(String binYieldLowerLimit) {
+        this.binYieldLowerLimit = binYieldLowerLimit;
     }
 }

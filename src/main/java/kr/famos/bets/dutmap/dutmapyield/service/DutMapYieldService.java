@@ -28,15 +28,21 @@ public class DutMapYieldService {
     public String retrieveCompoDutMap(DutMapYieldDto dutMapYieldDto) {
 
         logger.debug("UI BIN Selection ::: " + dutMapYieldDto.getBinSelection());    //화면에서 BIN Selection 으로 조회한 값
-        logger.debug("UI BIN Yield Limit ::: " + dutMapYieldDto.getBinYieldLimit());    //
+        logger.debug("UI BIN Yield Lower Limit::: " + dutMapYieldDto.getBinYieldLowerLimit());    //
+        logger.debug("UI BIN Yield Lower Upper::: " + dutMapYieldDto.getBinYieldUpperLimit());    //
         int binXrequestValue = 0;
-        double binYieldLimit = 100;
+        double binYieldLowerLimit = 100;
+        double binYieldUpperLimit = 0;
         if (dutMapYieldDto.getBinSelection() != "") {
             binXrequestValue = Integer.valueOf(dutMapYieldDto.getBinSelection());   //화면에서 BIN Selection 으로 조회한 값을 int형 변수 binXrequestValue 로 관리
             logger.debug("binXrequestValue ::: " + binXrequestValue);
-            if (dutMapYieldDto.getBinYieldLimit() != "") {
-                binYieldLimit = Double.parseDouble(dutMapYieldDto.getBinYieldLimit());
-                logger.debug("binYieldLimit ::: " + binYieldLimit);
+            if (dutMapYieldDto.getBinYieldLowerLimit() != "") {
+                binYieldLowerLimit = Double.parseDouble(dutMapYieldDto.getBinYieldLowerLimit());
+                logger.debug("binYieldLowerLimit ::: " + binYieldLowerLimit);
+            }
+            if (dutMapYieldDto.getBinYieldUpperLimit() != "") {
+                binYieldUpperLimit = Double.parseDouble(dutMapYieldDto.getBinYieldUpperLimit());
+                logger.debug("binYieldUpperLimit ::: " + binYieldUpperLimit);
             }
         }
 
@@ -162,9 +168,14 @@ public class DutMapYieldService {
                 if (intDutMapInputBinTotal[j] != 0 && binXrequestValue == 0) {   //피제수(inputBinTotal)가 0일경우 처리(있을수 없으나 테스트 데이터일 경우), + UI에서 BIN Selection에 값을 조회하지 않은 경우, 계산을 하지 않고 0을 넣는다.
                     logger.debug("DUT " + String.valueOf(j + 1) + " PASS BIN YIELD");
                     mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((intDutMapPassBinTotal[j] / (double) intDutMapInputBinTotal[j]) * 100));
-                } else if (intDutMapInputBinTotal[j] != 0 && binXrequestValue > 0) {
+                } else if (intDutMapInputBinTotal[j] != 0 && binXrequestValue < 5) { // binXrequestValue 가 PAS_BIN(1,2,3,4)일 경우 작은것을 조회한다
                     logger.debug("DUT " + String.valueOf(j + 1) + " YIELD = " + binXCount[j] + "/" + intDutMapInputBinTotal[j] + " of BIN " + binXrequestValue);
-                    if (((binXCount[j] / (double) intDutMapInputBinTotal[j]) * 100) < binYieldLimit) {
+                    if (((binXCount[j] / (double) intDutMapInputBinTotal[j]) * 100) < binYieldLowerLimit) {
+                        mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((binXCount[j] / (double) intDutMapInputBinTotal[j]) * 100));
+                    }
+                } else if (intDutMapInputBinTotal[j] != 0 && binXrequestValue > 4) { // binXrequestValue 가 (5,6,7,8) 일 경우 작은것을 조회한다
+                    logger.debug("DUT " + String.valueOf(j + 1) + " YIELD = " + binXCount[j] + "/" + intDutMapInputBinTotal[j] + " of BIN " + binXrequestValue);
+                    if (((binXCount[j] / (double) intDutMapInputBinTotal[j]) * 100) > binYieldUpperLimit) {
                         mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((binXCount[j] / (double) intDutMapInputBinTotal[j]) * 100));
                     }
                 }

@@ -4,7 +4,7 @@
  * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
  * BIN Selection 에서 선택한 BIN의 비율을 보여준다
  */
-import {Component, ViewChild} from "@angular/core";
+import {Component, EventEmitter, Output, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
@@ -34,6 +34,8 @@ export class DutMapYieldComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: DutMapYield = new DutMapYield();
     private usageInfo = new UserUsage();
+    binYieldLowerLimitReadonly: boolean = true; // INPUT 컨트롤 기본 ReadOnly
+    binYieldUpperLimitReadonly: boolean = true; // INPUT 컨트롤 기본 ReadOnly
 
     constructor(private service: DutMapYieldService) {
     }
@@ -83,6 +85,27 @@ export class DutMapYieldComponent {
         this.isRequesting = false;
     }
 
+    /**
+     * BIN Selection 의 Change 이벤트에 따라 LowerLimit input 과 UpperLimit input 를 ReadOnly 처리한다
+     * @param event
+     */
+    onBinSelectionChange(event: Event): void {
+        // console.log("BIN Selection ::: " + this.retrieveCondDto.binSelection);
+        if (Number(this.retrieveCondDto.binSelection) > 4) {
+            this.retrieveCondDto.binYieldLowerLimit = "";
+            this.binYieldLowerLimitReadonly = true;
+            this.binYieldUpperLimitReadonly = false;
+        } else if ( 0 < Number(this.retrieveCondDto.binSelection) && Number(this.retrieveCondDto.binSelection) < 5) {
+            this.retrieveCondDto.binYieldUpperLimit = "";
+            this.binYieldLowerLimitReadonly = false;
+            this.binYieldUpperLimitReadonly = true;
+        } else if (Number(this.retrieveCondDto.binSelection) == 0) {
+            this.retrieveCondDto.binYieldLowerLimit = "";
+            this.retrieveCondDto.binYieldUpperLimit = "";
+            this.binYieldLowerLimitReadonly = true; // ReadOnly
+            this.binYieldUpperLimitReadonly = true; // ReadOnly
+        }
+    }
 
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_CompositeDutMap' + '.xlsx');

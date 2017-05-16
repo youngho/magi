@@ -34,11 +34,17 @@
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
+                                        <label class="col-md-2 control-label"><sup>*</sup>{{'testerNumber'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="MAGNUM5-001" type="text" required [(ngModel)]="retrieveCondDto.testerNumber">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
-                                        <div class="col-md-1">
+                                        <div class="col-md-2">
                                             <!--<input class="form-control" placeholder="BIN Select" type="text" [(ngModel)]="retrieveCondDto.binSelection">-->
                                             <label class="select">
-                                                <select class="input-sm" [(ngModel)]="retrieveCondDto.binSelection">
+                                                <select class="input-sm" [(ngModel)]="retrieveCondDto.binSelection" (change)="onBinSelectionChange($event)">
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -51,8 +57,13 @@
                                                 </select> <i></i>
                                             </label>
                                         </div>
-                                        <div class="col-md-1">
-                                            <input class="form-control" placeholder="%" type="text" [(ngModel)]="retrieveCondDto.binYieldLimit">
+                                        <label class="col-md-2 control-label">{{'binYieldLowerLimit'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="%" type="text" [readonly]="binYieldLowerLimitReadonly" [(ngModel)]="retrieveCondDto.binYieldLowerLimit">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'binYieldUpperLimit'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="%" type="text" [readonly]="binYieldUpperLimitReadonly" [(ngModel)]="retrieveCondDto.binYieldUpperLimit">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -72,23 +83,20 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label" style="color:red;"><strong>{{'testerNumber'|i18n}}</strong></label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.testerNumber">
-                                        </div>
                                         <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
-                                        <div class="col-md-2"><input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="retrieveCondDto.head"></div>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="retrieveCondDto.head">
+                                        </div>
                                         <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text"
-                                                   [(ngModel)]="retrieveCondDto.testCounter">
+                                            <input class="form-control" placeholder="Test Counter" type="text" [(ngModel)]="retrieveCondDto.testCounter">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Lot ID" type="text" [(ngModel)]="retrieveCondDto.lotId">
                                         </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.mainProgramName">

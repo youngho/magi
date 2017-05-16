@@ -5,7 +5,8 @@ export class DutMapYield {
     endTimeStart: string;
     endTimeEnd: string;
     binSelection: string;
-    binYieldLimit: string;
+    binYieldLowerLimit: string;
+    binYieldUpperLimit: string;
 
     partNumber: string;
     processCode: string;
