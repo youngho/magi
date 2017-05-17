@@ -1,8 +1,8 @@
 package kr.famos.bets.dutmap.compodut.service;
 /**
- ** BETS-UI-0302
- ** Composite DUT Map
- ** CASI_BIN 테이블의 DUT_MAIN_BIN 에 들어 있는 DUT의 정보를 BIN별로 분류하여 PASS BIN의 비율을 보여준다
+ * * BETS-UI-0302
+ * * Composite DUT Map
+ * * CASI_BIN 테이블의 DUT_MAIN_BIN 에 들어 있는 DUT의 정보를 BIN별로 분류하여 PASS BIN의 비율을 보여준다
  */
 
 import com.google.gson.Gson;
@@ -95,9 +95,9 @@ public class CompoDutMapService {
                 passBinSum += intDutMapPassBinTotal[i];
             }
             //행령을 치환하여 Map에 넎고 다시 List에 추가 하다.
-            List<LinkedHashMap<String, String>> arrayMapDutMap = new ArrayList<>();
+            List<LinkedHashMap<String, Object>> arrayMapDutMap = new ArrayList<>();
             for (Integer i = 0; i < 8; i++) {
-                LinkedHashMap<String, String> mapDutMap = new LinkedHashMap<>();
+                LinkedHashMap<String, Object> mapDutMap = new LinkedHashMap<>();
                 //메인 빈 번호를 넣는다.
                 mapDutMap.put("partNumber", lstCompoDutMapDto.get(0).getPartNumber());
                 mapDutMap.put("processCode", lstCompoDutMapDto.get(0).getProcessCode());
@@ -108,18 +108,18 @@ public class CompoDutMapService {
                 mapDutMap.put("mainProgramName", lstCompoDutMapDto.get(0).getMainProgramName());
                 mapDutMap.put("testCounter", lstCompoDutMapDto.get(0).getTestCounter());
                 mapDutMap.put("mainBIN", String.valueOf(i + 1));
-                mapDutMap.put("total", String.format("%,d", mapDutMapTotal.get(i + 1)));
+                mapDutMap.put("total", mapDutMapTotal.get(i + 1));
                 for (int j = 0; j < maxDut; j++) {
-                    mapDutMap.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMap2[i][j]));
+                    mapDutMap.put("DUT" + String.valueOf(j + 1), intDutMap2[i][j]);
                 }
                 arrayMapDutMap.add(mapDutMap);
                 mapDutMap = null;
             }
 
             //input 및 Pass bin 수율추가
-            LinkedHashMap<String, String> mapDutMapInputBIN = new LinkedHashMap<>();
-            LinkedHashMap<String, String> mapDutMapPassBIN = new LinkedHashMap<>();
-            LinkedHashMap<String, String> mapDutMapYildBIN = new LinkedHashMap<>();
+            LinkedHashMap<String, Object> mapDutMapInputBIN = new LinkedHashMap<>();
+            LinkedHashMap<String, Object> mapDutMapPassBIN = new LinkedHashMap<>();
+            LinkedHashMap<String, Object> mapDutMapYildBIN = new LinkedHashMap<>();
             DecimalFormat format = new DecimalFormat("#.##");
 
             for (int j = 0; j < maxDut; j++) {
@@ -132,8 +132,8 @@ public class CompoDutMapService {
 //            mapDutMapInputBIN.put("MAIN_PROGRAM_NAME", "");
 //            mapDutMapInputBIN.put("TEST_COUNTER", "");
                 mapDutMapInputBIN.put("mainBIN", "Input");
-                mapDutMapInputBIN.put("total", String.format("%,d", inputBinSum));
-                mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapInputBinTotal[j]));
+                mapDutMapInputBIN.put("total", inputBinSum);
+                mapDutMapInputBIN.put("DUT" + String.valueOf(j + 1), intDutMapInputBinTotal[j]);
 
 //            mapDutMapPassBIN.put("PART_NUMBER", "");
 //            mapDutMapPassBIN.put("LOT_ID", "");
@@ -144,8 +144,8 @@ public class CompoDutMapService {
 //            mapDutMapPassBIN.put("MAIN_PROGRAM_NAME", "");
 //            mapDutMapPassBIN.put("TEST_COUNTER", "");
                 mapDutMapPassBIN.put("mainBIN", "Pass");
-                mapDutMapPassBIN.put("total", String.format("%,d", passBinSum));
-                mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), String.format("%,d", intDutMapPassBinTotal[j]));
+                mapDutMapPassBIN.put("total", passBinSum);
+                mapDutMapPassBIN.put("DUT" + String.valueOf(j + 1), intDutMapPassBinTotal[j]);
 
 //            mapDutMapYildBIN.put("PART_NUMBER", "");
 //            mapDutMapYildBIN.put("LOT_ID", "");
@@ -156,11 +156,11 @@ public class CompoDutMapService {
 //            mapDutMapYildBIN.put("MAIN_PROGRAM_NAME", "");
 //            mapDutMapYildBIN.put("TEST_COUNTER", "");
                 mapDutMapYildBIN.put("mainBIN", "Yield");
-                mapDutMapYildBIN.put("total", String.valueOf(format.format(passBinSum / (double) inputBinSum * 100)));
+                mapDutMapYildBIN.put("total", format.format(passBinSum / (double) inputBinSum * 100));
                 if (intDutMapInputBinTotal[j] != 0) {   //피제수(inputBinTotal)가 0일경우 처리(있을수 없으나 테스트 데이터일 경우), 계산을 하지 않고 0을 넣는다.
                     mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), format.format((intDutMapPassBinTotal[j] / (double) intDutMapInputBinTotal[j]) * 100));
                 } else {
-                    mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), "0");
+                    mapDutMapYildBIN.put("DUT" + String.valueOf(j + 1), 0);
                 }
             }
             arrayMapDutMap.add(mapDutMapInputBIN);
