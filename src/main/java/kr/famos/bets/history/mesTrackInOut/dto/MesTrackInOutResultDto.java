@@ -12,7 +12,6 @@ public class MesTrackInOutResultDto {
     private String sysDate      = "";
     private String MESSAGE      = "";
     private String hStatusValue = "";
-    private String no           = "";
     private String oper         = ""; // process code
     private String matId        = ""; // part number
     private String qty          = "";
@@ -97,14 +96,6 @@ public class MesTrackInOutResultDto {
 
     public void sethStatusValue(String hStatusValue) {
         this.hStatusValue = hStatusValue;
-    }
-
-    public String getNo() {
-        return no;
-    }
-
-    public void setNo(String no) {
-        this.no = no;
     }
 
     public String getOper() {

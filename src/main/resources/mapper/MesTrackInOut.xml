@@ -3,7 +3,6 @@
 <mapper namespace="kr.famos.bets.history.mesTrackInOut.mapper.MesTrackInOutMapper">
     <select id="retrieveMesTrackInOut" parameterType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutDto" resultType="kr.famos.bets.history.mesTrackInOut.dto.MesTrackInOutResultDto">
         SELECT
-            NO,
             LOT_ID,
             TESTER_MODEL,
             TESTER_NUMBER,
