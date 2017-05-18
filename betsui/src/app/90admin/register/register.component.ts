@@ -13,6 +13,7 @@ import {NotificationService} from "../../shared/utils/notification.service";
 @Component({
     selector: 'ProgramRegisterRetrieveComponent',
     templateUrl: 'register.component.html',
+    styles: ['select.input-sm {height: 20px;line-height: 20px;} label {margin-bottom: 0px;}'],
     providers: [RegisterService]
 })
 

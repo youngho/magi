@@ -4,7 +4,7 @@ import {AlertService, AuthenticationService} from "../../core/services/index";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {User} from "./user.model";
 import {LoginService} from "./login.service";
-import { Http, Headers, Response } from '@angular/http';
+import {Http, Headers, Response} from '@angular/http';
 
 @Component({
     selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
     loading = false;
     returnUrl: string;
 
-    private data : User = new User();
+    private data: User = new User();
     tableForm: FormGroup;
     username: FormControl;
     password: FormControl;
@@ -59,13 +59,24 @@ export class LoginComponent implements OnInit {
                     let user = response;
                     if (user && user.token) {
                         // store user details and jwt token in local storage to keep user logged in between page refreshes
-                        console.log("유저 : " +user.username + " 토큰 : " + user.token);
+                        console.log("유저 : " + user.username + " 토큰 : " + user.token);
                         localStorage.setItem('currentUser', JSON.stringify(user));
                         localStorage.setItem('token', user.token);
                         localStorage.setItem('loginId', user.username);
                         localStorage.setItem('loginName', user.name);
+
+                        for(var key in user.authorities){
+                            var value = user.authorities[key];
+                            console.log(value.authority);
+                            if (value.authority == "ADMIN") {
+                                localStorage.setItem('authority', "ADMIN");
+                            } else if(localStorage.getItem('authority') != "ADMIN" ){
+                                localStorage.setItem('authority', "USER");
+                            }
+                        }
                         console.log("localStorage.setItem('token') : " + localStorage.getItem('token'));
                         console.log("localStorage.setItem('loginId') : " + localStorage.getItem('loginId'));
+                        console.log("localStorage.setItem('authority') : " + localStorage.getItem('authority'));
                     }
                     this.router.navigate([this.returnUrl]);
                 },

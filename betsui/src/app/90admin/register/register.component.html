@@ -80,38 +80,47 @@
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="username" name="username" placeholder="" [(ngModel)]="user.username">
                             </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-2 control-label">{{'password'|i18n}}</label>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="password" name="password" placeholder="" [(ngModel)]="user.password">
                             </div>
-
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-2 control-label">{{'name'|i18n}}</label>
                             <div class="col-md-2">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="" [(ngModel)]="user.name">
                             </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'authority'|i18n}}</label>
+                            <label class="input-sm">
+                                <select name="authority" [(ngModel)]="user.authority" >
+                                    <option value="USER">USER</option>
+                                    <option value="ADMIN">ADMIN</option>
+                                </select> <i></i> </label>
 
-                            <section>
-                                <label class="col-md-2 control-label">{{'authority'|i18n}}</label>
-                                <label class="select">
-                                    <select name="authority" ngModel>
-                                        <option value="0">USER</option>
-                                        <option value="1">ADMIN</option>
-                                    </select> <i></i> </label>
-                            </section>
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label">{{'credentialsNonExpired'|i18n}}</label>
                             <div class="col-md-2">
                                 <input type="checkbox" class="form-control" id="credentialsNonExpired" name="credentialsNonExpired" placeholder="" [(ngModel)]="user.credentialsNonExpired">
                             </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-2 control-label">{{'accountNonExpired'|i18n}}</label>
                             <div class="col-md-2">
                                 <input type="checkbox" class="form-control" id="accountNonExpired" name="accountNonExpired" placeholder="" [(ngModel)]="user.accountNonExpired">
                             </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-2 control-label">{{'accountNonLocked'|i18n}}</label>
                             <div class="col-md-2">
                                 <input type="checkbox" class="form-control" id="accountNonLocked" name="accountNonLocked" placeholder="" [(ngModel)]="user.accountNonLocked">
                             </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-2 control-label">{{'enabled'|i18n}}</label>
                             <div class="col-md-2">
                                 <input type="checkbox" class="form-control" id="enabled" name="enabled" placeholder="" [(ngModel)]="user.enabled">

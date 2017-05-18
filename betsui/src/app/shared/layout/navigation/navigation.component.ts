@@ -14,11 +14,12 @@ export class NavigationComponent implements OnInit {
     // data : {
     //     authority:string,
     // }
-    menuData : any[];
+
+    menuAuthority: string
 
     constructor(private service: NavigationService) {
         // this.data.authority = "ADMIN";
-
+        this.menuAuthority = localStorage.getItem('authority');
     }
 
     ngOnInit() {

@@ -5,4 +5,5 @@
     name: string;
     token: string;
     loginID: string;
+    authorities: any[];
 }
