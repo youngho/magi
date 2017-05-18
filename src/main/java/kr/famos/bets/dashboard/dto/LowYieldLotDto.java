@@ -7,7 +7,7 @@ package kr.famos.bets.dashboard.dto;
 public class LowYieldLotDto {
     private String lotId = "";
     private String processCode = "";
-    private String yield = "";
+    private Double yield = 0.0;
     private String endTime = "";
 
     public String getLotId() {
@@ -26,11 +26,11 @@ public class LowYieldLotDto {
         this.processCode = processCode;
     }
 
-    public String getYield() {
+    public Double getYield() {
         return yield;
     }
 
-    public void setYield(String yield) {
+    public void setYield(Double yield) {
         this.yield = yield;
     }
 

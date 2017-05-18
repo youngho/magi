@@ -68,6 +68,7 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
             this.programRegister = this.programRegisterTo
             this.retrieveFunction();            //�˾� ��ȸ�� FunctionKey Y/N ����
             this.retrievePassBinSelection();    //�˾� ��ȸ�� PassBINSelection Y/N ����
+            this.retrieveRetestBinSelection();
         }
     }
 

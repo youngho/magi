@@ -58,7 +58,10 @@
         AND END_TIME >= #{rangeStart}
         AND END_TIME <![CDATA[<=]]> #{rangeEnd}
     </select>
-
+    <!--
+    PROGRAM_REGISTER 테이블 조회
+    최근 변경된 이력 5개를 보여준다.
+    -->
     <select id="retrieveChangControl" resultType="kr.famos.bets.dashboard.dto.ChangeControlDto">
         SELECT
             PROGRAM_VERSION AS ACTION ,
