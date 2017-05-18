@@ -1,7 +1,5 @@
 package kr.famos.bets.dutmap.singledut.dto;
 
-import kr.famos.com.dto.ProgramHeaderDto;
-
 /**
  * Created by yhkim on 2017-03-09.
  */

@@ -1,5 +1,4 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {LoginInfoComponent} from "../../user/login-info/login-info.component";
 import {NavigationService} from './navigation.service';
 
 @Component({
@@ -11,25 +10,13 @@ import {NavigationService} from './navigation.service';
 
 export class NavigationComponent implements OnInit {
 
-    // data : {
-    //     authority:string,
-    // }
-
     menuAuthority: string
 
     constructor(private service: NavigationService) {
-        // this.data.authority = "ADMIN";
         this.menuAuthority = localStorage.getItem('authority');
     }
 
     ngOnInit() {
-/*
-        this.service.retrievePost("ADMIN").subscribe(
-            data => this.menuData = data,
-            error => alert(error),
-            () => console.log("Finish Menu()"));
-*/
-
     }
 
 }
