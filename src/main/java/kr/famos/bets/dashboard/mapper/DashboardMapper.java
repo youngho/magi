@@ -17,5 +17,6 @@ public interface DashboardMapper {
     public List<ChangeControlDto> retrieveChangControl();       // PROGRAM_REGISITER TABLE
     public List<LowYieldLotDto> retrieveLowYieldLot();
     public List<ChartDetailItemDto> retrieveChartDetail(ChartDetailCondDto chartDetailCondDto);
+    public String retrieveWorkWeek(AxesChartCondDto axesChartCondDto);
 
 }

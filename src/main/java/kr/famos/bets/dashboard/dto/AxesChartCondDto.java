@@ -8,6 +8,7 @@ public class AxesChartCondDto {
     private String processCode = "";    // 공정코드
     private String endTimeStart = "";
     private String endTimeEnd = "";
+    private String workWeek = "";       // 데이터 생성 워크위크
 
     public String getProcessCode() {
         return processCode;
@@ -31,5 +32,13 @@ public class AxesChartCondDto {
 
     public void setEndTimeEnd(String endTimeEnd) {
         this.endTimeEnd = endTimeEnd;
+    }
+
+    public String getWorkWeek() {
+        return workWeek;
+    }
+
+    public void setWorkWeek(String workWeek) {
+        this.workWeek = workWeek;
     }
 }

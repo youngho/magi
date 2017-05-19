@@ -9,6 +9,17 @@
         MAIN_BIN
         ORDER BY END_TIME
     </select>
+    <select id="retrieveWorkWeek" parameterType="kr.famos.bets.dashboard.dto.AxesChartCondDto" resultType="String">
+        <if test=" workWeek != null and workWeek == '1W' ">
+            select getworkweek(TO_CHAR(SYSDATE,'YYYY'),TO_CHAR(SYSDATE,'MM'),TO_CHAR(SYSDATE,'DD')) - 1 FROM dual
+        </if>
+        <if test=" workWeek != null and workWeek == '2W' ">
+            select getworkweek(TO_CHAR(SYSDATE,'YYYY'),TO_CHAR(SYSDATE,'MM'),TO_CHAR(SYSDATE,'DD')) - 2 FROM dual
+        </if>
+        <if test=" workWeek != null and workWeek == '3W' ">
+            select getworkweek(TO_CHAR(SYSDATE,'YYYY'),TO_CHAR(SYSDATE,'MM'),TO_CHAR(SYSDATE,'DD')) - 3 FROM dual
+        </if>
+    </select>
     <select id="retrieveAxesChartItem" parameterType="kr.famos.bets.dashboard.dto.AxesChartCondDto" resultType="kr.famos.bets.dashboard.dto.AxesChartDto">
         SELECT
             NVL(max(PROCESS_CODE),#{processCode}) AS PROCESS_CODE,
@@ -38,9 +49,22 @@
             MAIN_BIN
         WHERE
             1 = 1
-            AND END_TIME <![CDATA[>=]]> #{endTimeStart}
-            AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
             AND PROCESS_CODE = #{processCode}
+        <if test=" endTimeStart != null and endTimeStart != '' ">
+            AND END_TIME <![CDATA[>=]]> #{endTimeStart}
+        </if>
+        <if test=" endTimeEnd != null and endTimeEnd != '' ">
+            AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
+        </if>
+        <if test=" workWeek != null and workWeek == '1W' ">
+            AND WORK_WEEK = (select getworkweek(TO_CHAR(SYSDATE,'YYYY'),TO_CHAR(SYSDATE,'MM'),TO_CHAR(SYSDATE,'DD')) - 1 FROM dual)
+        </if>
+        <if test=" workWeek != null and workWeek == '2W' ">
+            AND WORK_WEEK = (select getworkweek(TO_CHAR(SYSDATE,'YYYY'),TO_CHAR(SYSDATE,'MM'),TO_CHAR(SYSDATE,'DD')) - 2 FROM dual)
+        </if>
+        <if test=" workWeek != null and workWeek == '3W' ">
+            AND WORK_WEEK = (select getworkweek(TO_CHAR(SYSDATE,'YYYY'),TO_CHAR(SYSDATE,'MM'),TO_CHAR(SYSDATE,'DD')) - 3 FROM dual)
+        </if>
     </select>
     <!--Scatter 차트에 사용되는 데이터 추출-->
     <select id="retrieveChartDetail" parameterType="kr.famos.bets.dashboard.dto.ChartDetailCondDto" resultType="kr.famos.bets.dashboard.dto.ChartDetailItemDto" >

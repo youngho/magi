@@ -50,11 +50,11 @@ export class lotyieldComponent {
         );
     }
 
-    onGridLoaded(){
+    onGridLoaded() {
         var self = this;
-        setTimeout(function() {
+        setTimeout(function () {
             self.flexGrid.autoSizeColumns();
-        },300);
+        }, 300);
     }
 
     resetForm() {
@@ -67,9 +67,9 @@ export class lotyieldComponent {
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
-                    if(this.gridData.isEmpty){
+                    if (this.gridData.isEmpty) {
                         this.empty = true;
-                    }else {
+                    } else {
                         this.empty = false;
                     }
                 },
@@ -77,7 +77,7 @@ export class lotyieldComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_yield' + '.xlsx');
     }
 
 }
