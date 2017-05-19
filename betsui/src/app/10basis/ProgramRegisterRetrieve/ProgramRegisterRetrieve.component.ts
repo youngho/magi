@@ -12,15 +12,13 @@ import {ProgramRegister} from "../ProgramRegister.model";
 @FadeInTop()
 @Component({
     selector: 'ProgramRegisterRetrieveComponent',
-    // styles: ['@media screen and (min-width:992px){.modal-lg{width: 1080px;}} .modal-lg .form-horizontal {margin:13px;}'],
+    styles: ['@media screen and (min-width:992px){.modal-lg{width: 1080px;}} .modal-lg .form-horizontal {margin:13px;}'],
     templateUrl: 'ProgramRegisterRetrieve.component.html',
     providers: [ProgramRegisterRetrieveService, ProgramRegister]
 })
 
 export class ProgramRegisterRetrieveComponent implements OnInit{
     UIID: string = "BETS-UI-0101";
-    startDate = "";
-    endDate = "";
     private usageInfo = new UserUsage();
     empty = true;
     componentData = null;
@@ -35,8 +33,6 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
         partNumber: "",
         processCode: "",
         testerModel: "",
-        endTimeStart: "",
-        endTimeEnd: ""
     };
 
 
@@ -68,8 +64,6 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
     }
 
     retrieveExecute() {
-        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
-        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
@@ -124,6 +118,12 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_ProgramRegister' + '.xlsx');
+        let rightNow = new Date();
+        let res = rightNow.toISOString().slice(0, 10).replace(/-/g, "");
+
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {
+            includeColumnHeaders: true,
+            includeCellStyles: false
+        }, res + '_programreg' + '.xlsx');
     }
 }
