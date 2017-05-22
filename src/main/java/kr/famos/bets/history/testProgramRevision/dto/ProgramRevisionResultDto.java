@@ -14,7 +14,7 @@ public class ProgramRevisionResultDto {
     private String firmwareVersion  = ""; // 펌웨어 버전(MAGNUM5만 적용)
     private String functionKey      = ""; // 스위치 16개의 값 Y/N
     private int temperature         = 0;  // TEST 온도
-    private int temperatureGuard    = 0;  // TEMPERATURE GUARDBAND
+    private int temperatureLimit    = 0;  // TEMPERATURE LIMIT
     private String sblYieldLimit    = ""; // 95
     private String sblSubBinaNumber = ""; // 110
     private String sblSubBinaLimit  = ""; // 3
@@ -99,12 +99,15 @@ public class ProgramRevisionResultDto {
     public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
-    public int getTemperatureGuard() {
-        return temperatureGuard;
+
+    public int getTemperatureLimit() {
+        return temperatureLimit;
     }
-    public void setTemperatureGuard(int temperatureGuard) {
-        this.temperatureGuard = temperatureGuard;
+
+    public void setTemperatureLimit(int temperatureLimit) {
+        this.temperatureLimit = temperatureLimit;
     }
+
     public String getSblYieldLimit() {
         return sblYieldLimit;
     }

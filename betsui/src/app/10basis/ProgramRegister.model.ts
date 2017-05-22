@@ -12,7 +12,7 @@ export class ProgramRegister {
     firmwareVersion: string;
     functionKey: string;
     temperature: string;
-    temperatureGuard: string;
+    temperatureLimit: string;
     sblYieldLimit: string;
     sblSubBinaNumber: string;
     sblSubBinaLimit: string;

@@ -18,7 +18,7 @@ public class ProgramRevisionRetrieveCondDto {
 //    private String firmwareVersion  = ""; // 펌웨어 버전(MAGNUM5만 적용)
 //    private String functionKey      = ""; // 스위치 16개의 값 Y/N
 //    private int temperature         = 0;  // TEST 온도
-//    private int temperatureGuard    = 0;  // TEMPERATURE GUARDBAND
+//    private int temperatureLimit    = 0;  // TEMPERATURE LIMIT
 //    private String sblYieldLimit    = ""; // 95
 //    private String sblSubBinaNumber = ""; // 110
 //    private String sblSubBinaLimit  = ""; // 3

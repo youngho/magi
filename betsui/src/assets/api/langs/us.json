@@ -64,7 +64,7 @@
   "firmwareVersion":"Firmware Version",
   "functionKey":"Function Key",
   "temperature":"Temperature",
-  "temperatureGuard":"Temperature Guard",
+  "temperatureLimit":"Temperature Limit",
   "sblYieldLimit":"SBL Yield Limit",
   "sblSubBinaNumber":"SBL SUBBIN-A Number",
   "sblSubBinaLimit":"SBL SUBBIN-A Limit(%)",
