@@ -48,7 +48,7 @@ public class DataSummaryService {
             returnDto.setEndTime(list.getEndTime());                    // LOT별 시간을 보여준다.
             returnDto.setTesterModel(list.getTesterModel());
             returnDto.setTestNumber(list.getTestNumber());
-            returnDto.setProcessCode(list.getProcessCode());
+//            returnDto.setProcessCode(list.getProcessCode());            // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
             returnDto.setMainProgramName(list.getMainProgramName());
 
             //소켓BIN정보 셋팅
@@ -172,9 +172,9 @@ public class DataSummaryService {
 
             // YIELD 계산값 셋팅
             float floatYield = (float) returnTotalDto.getPass() / (float) returnTotalDto.getInput() * 100;
-            DecimalFormat fmt = new DecimalFormat("0.##");
-            String strYield = fmt.format(floatYield);
-            returnTotalDto.setYield(strYield);  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+//            DecimalFormat fmt = new DecimalFormat("0.##");
+//            String strYield = fmt.format(floatYield);
+            returnTotalDto.setYield(floatYield);  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             //LOT번호가 같은것끼리 합친다.
             int searchcount = 0;
@@ -201,13 +201,13 @@ public class DataSummaryService {
 
                     returnDtoList.get(lotIndex).setInput(returnDtoList.get(lotIndex).getInput() + returnDto.getInput());
                     returnDtoList.get(lotIndex).setPass(returnDtoList.get(lotIndex).getPass() + returnDto.getPass());
-                    returnDtoList.get(lotIndex).setYield(fmt.format((float) returnDtoList.get(lotIndex).getPass() / (float) returnDtoList.get(lotIndex).getInput() * 100));
+                    returnDtoList.get(lotIndex).setYield((float) returnDtoList.get(lotIndex).getPass() / (float) returnDtoList.get(lotIndex).getInput() * 100);
                 }
             }
 
 
             if (searchcount == 0) {
-                returnDto.setYield(fmt.format((float) returnDto.getPass() / (float) returnDto.getInput() * 100));
+                returnDto.setYield((float) returnDto.getPass() / (float) returnDto.getInput() * 100);
                 returnDtoList.add(returnDto);
             }
 

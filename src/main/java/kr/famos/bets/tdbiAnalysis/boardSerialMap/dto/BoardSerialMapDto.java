@@ -7,15 +7,15 @@ public class BoardSerialMapDto {
     private int seq                = 0;  //
     private String lotId           = ""; //
     private String mainProgramName = ""; //
-    private int processCode        = 0;  //
+    private String processCode     = ""; // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
     private String operatorId      = ""; //
     private String startTime       = ""; //
     private String endTime         = ""; //
     private String testerModel     = ""; //
-    private int testNumber         = 0;  //
+    private String testNumber      = ""; //
     private String boardId         = "";  //
-    private int zoneNumber         = 0;  //
-    private int slotNumber         = 0;  //
+    private String zoneNumber      = ""; //
+    private String slotNumber      = ""; //
     private String boardRow        = ""; // x 축 시작,끝값
     private String boardColumn     = ""; // y축 시작,끝값
     private String socketNumber    = ""; //
@@ -48,11 +48,11 @@ public class BoardSerialMapDto {
         this.mainProgramName = mainProgramName;
     }
 
-    public int getProcessCode() {
+    public String getProcessCode() {
         return processCode;
     }
 
-    public void setProcessCode(int processCode) {
+    public void setProcessCode(String processCode) {
         this.processCode = processCode;
     }
 
@@ -88,11 +88,11 @@ public class BoardSerialMapDto {
         this.testerModel = testerModel;
     }
 
-    public int getTestNumber() {
+    public String getTestNumber() {
         return testNumber;
     }
 
-    public void setTestNumber(int testNumber) {
+    public void setTestNumber(String testNumber) {
         this.testNumber = testNumber;
     }
 
@@ -104,19 +104,19 @@ public class BoardSerialMapDto {
         this.boardId = boardId;
     }
 
-    public int getZoneNumber() {
+    public String getZoneNumber() {
         return zoneNumber;
     }
 
-    public void setZoneNumber(int zoneNumber) {
+    public void setZoneNumber(String zoneNumber) {
         this.zoneNumber = zoneNumber;
     }
 
-    public int getSlotNumber() {
+    public String getSlotNumber() {
         return slotNumber;
     }
 
-    public void setSlotNumber(int slotNumber) {
+    public void setSlotNumber(String slotNumber) {
         this.slotNumber = slotNumber;
     }
 

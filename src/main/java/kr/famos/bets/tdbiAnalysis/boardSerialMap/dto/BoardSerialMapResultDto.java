@@ -5,17 +5,17 @@ package kr.famos.bets.tdbiAnalysis.boardSerialMap.dto;
  */
 public class BoardSerialMapResultDto {
 
-    private String partNumber      = ""; //
-    private String lotId           = ""; //
-    private int processCode        = 0;  //
+    private String partNumber = ""; //
+    private String lotId = ""; //
+//    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
     private String mainProgramName = ""; //
-    private String boardId         = "";  //
-    private int zoneNumber         = 0;  //
-    private int slotNumber         = 0;  //
+    private String boardId = "";  //
+    private String zoneNumber = "";  //
+    private String slotNumber = "";  //
 
     private int input;
     private int pass;
-    private String yield;
+    private float yield;
     private int bin0;
     private int bin1;
     private int bin2;
@@ -33,7 +33,6 @@ public class BoardSerialMapResultDto {
     private int bin14;
     private int bin15;
 
-
     public String getPartNumber() {
         return partNumber;
     }
@@ -50,13 +49,15 @@ public class BoardSerialMapResultDto {
         this.lotId = lotId;
     }
 
-    public int getProcessCode() {
+/*
+    public String getProcessCode() {
         return processCode;
     }
 
-    public void setProcessCode(int processCode) {
+    public void setProcessCode(String processCode) {
         this.processCode = processCode;
     }
+*/
 
     public String getMainProgramName() {
         return mainProgramName;
@@ -74,19 +75,19 @@ public class BoardSerialMapResultDto {
         this.boardId = boardId;
     }
 
-    public int getZoneNumber() {
+    public String getZoneNumber() {
         return zoneNumber;
     }
 
-    public void setZoneNumber(int zoneNumber) {
+    public void setZoneNumber(String zoneNumber) {
         this.zoneNumber = zoneNumber;
     }
 
-    public int getSlotNumber() {
+    public String getSlotNumber() {
         return slotNumber;
     }
 
-    public void setSlotNumber(int slotNumber) {
+    public void setSlotNumber(String slotNumber) {
         this.slotNumber = slotNumber;
     }
 
@@ -106,11 +107,11 @@ public class BoardSerialMapResultDto {
         this.pass = pass;
     }
 
-    public String getYield() {
+    public float getYield() {
         return yield;
     }
 
-    public void setYield(String yield) {
+    public void setYield(float yield) {
         this.yield = yield;
     }
 
@@ -241,6 +242,4 @@ public class BoardSerialMapResultDto {
     public void setBin15(int bin15) {
         this.bin15 = bin15;
     }
-
-
 }

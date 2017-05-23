@@ -10,13 +10,13 @@ public class DataSummaryResultDto {
     private String startTime = ""; //
     private String endTime = ""; //
     private String testerModel = ""; //
-    private int testNumber = 0;  //
-    private int processCode = 0;  //
+    private String testNumber = "";  //
+//    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
     private String mainProgramName = ""; //
 
     private int input;
     private int pass;
-    private String yield;
+    private float yield;
     private int bin0;
     private int bin1;
     private int bin2;
@@ -74,21 +74,23 @@ public class DataSummaryResultDto {
         this.testerModel = testerModel;
     }
 
-    public int getTestNumber() {
+    public String getTestNumber() {
         return testNumber;
     }
 
-    public void setTestNumber(int testNumber) {
+    public void setTestNumber(String testNumber) {
         this.testNumber = testNumber;
     }
 
-    public int getProcessCode() {
+/*
+    public String getProcessCode() {
         return processCode;
     }
 
-    public void setProcessCode(int processCode) {
+    public void setProcessCode(String processCode) {
         this.processCode = processCode;
     }
+*/
 
     public String getMainProgramName() {
         return mainProgramName;
@@ -114,11 +116,11 @@ public class DataSummaryResultDto {
         this.pass = pass;
     }
 
-    public String getYield() {
+    public float getYield() {
         return yield;
     }
 
-    public void setYield(String yield) {
+    public void setYield(float yield) {
         this.yield = yield;
     }
 

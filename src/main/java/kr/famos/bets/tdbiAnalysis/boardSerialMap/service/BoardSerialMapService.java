@@ -49,7 +49,7 @@ public class BoardSerialMapService {
             //헤더 정보 셋팅
             returnDto.setPartNumber(list.getPartNumber());
             returnDto.setLotId(list.getLotId());
-            returnDto.setProcessCode(list.getProcessCode());
+//            returnDto.setProcessCode(list.getProcessCode());  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
             returnDto.setMainProgramName(list.getMainProgramName());
             returnDto.setBoardId(list.getBoardId());
             returnDto.setZoneNumber(list.getZoneNumber());
@@ -177,13 +177,13 @@ public class BoardSerialMapService {
 
             // YIELD 계산값 셋팅
             float floatYield = (float)returnTotalDto.getPass() / (float)returnTotalDto.getInput() * 100;
-            DecimalFormat fmt = new DecimalFormat("0.##");
-            String strYield =  fmt.format(floatYield);
-            returnDto.setYield(strYield);
+//            DecimalFormat fmt = new DecimalFormat("0.##");
+//            String strYield =  fmt.format(floatYield);
+            returnDto.setYield(floatYield);
 
-            float yieldTotal = returnDto.getPass() / returnDto.getInput() * 100;
+//            float yieldTotal = returnDto.getPass() / returnDto.getInput() * 100;
 //            returnDto.setYield(yieldTotal);
-            returnTotalDto.setYield(fmt.format((float)returnTotalDto.getPass() / (float)returnTotalDto.getInput() * 100));  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+            returnTotalDto.setYield((float)returnTotalDto.getPass() / (float)returnTotalDto.getInput() * 100);  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
 
             returnDtoList.add(returnDto);
