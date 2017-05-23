@@ -84,7 +84,14 @@
     <!--Scatter 차트에 사용되는 데이터 추출-->
     <select id="retrieveChartDetail" parameterType="kr.famos.bets.dashboard.dto.ChartDetailCondDto" resultType="kr.famos.bets.dashboard.dto.ChartDetailItemDto" >
         SELECT
-        SUBSTR(END_TIME,1,4)||'-'||SUBSTR(END_TIME,5,2)||'-'||SUBSTR(END_TIME,7,2)||' '||SUBSTR(END_TIME,9,2)||':'||SUBSTR(END_TIME,11,2)||':'||SUBSTR(END_TIME,13,2) AS END_TIME,
+        <choose>
+            <when test=" mon != null and (mon eq 'D'.toString())">
+                SUBSTR(END_TIME,9,2)||':'||SUBSTR(END_TIME,11,2) AS END_TIME,
+            </when>
+            <otherwise>
+                SUBSTR(END_TIME,5,2)||'-'||SUBSTR(END_TIME,7,2) AS END_TIME,
+            </otherwise>
+        </choose>
         LOT_ID,
         QUANTITY,
         TRUNC(((TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))) / (TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))+ TO_NUMBER(SUBSTR(OP_BIN,21,4))+ TO_NUMBER(SUBSTR(OP_BIN,26,4))+ TO_NUMBER(SUBSTR(OP_BIN,31,4))+ TO_NUMBER( SUBSTR(OP_BIN,36,4))))*100,2) AS YIELD,
@@ -97,6 +104,7 @@
         1         =1
         AND END_TIME >= #{rangeStart}
         AND END_TIME <![CDATA[<=]]> #{rangeEnd}
+        ORDER BY END_TIME
     </select>
     <!--
     PROGRAM_REGISTER 테이블 조회
