@@ -108,12 +108,14 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
         }
     }
     retrieveChartDetailDto = {
+        processCode: "",
         mon: "",
         rangeStart: "",
         rangeEnd: ""
     };
     private chartPopup = (hitInfo) => {
         // alert(hitInfo.item.tav);
+        this.retrieveChartDetailDto.processCode = hitInfo.item.processCode;
         this.retrieveChartDetailDto.mon = hitInfo.item.mon;
         this.retrieveChartDetailDto.rangeStart = hitInfo.item.rangeStart;
         this.retrieveChartDetailDto.rangeEnd = hitInfo.item.rangeEnd;
