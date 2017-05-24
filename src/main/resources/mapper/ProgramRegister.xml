@@ -56,6 +56,7 @@
                 AND CREATE_DATE=#{createDate}
             </if>
         </where>
+        ORDER BY CREATE_DATE DESC
     </select>
 
     <select id="retrieveProgramRegisterByKey" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto" resultType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
