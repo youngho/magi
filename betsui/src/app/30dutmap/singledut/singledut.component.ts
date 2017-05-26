@@ -65,7 +65,8 @@ export class SingleDutComponent {
         // console.log("testerNumber : " + this.retrieveCondDto.testerNumber);
         // console.log("head : " + this.retrieveCondDto.head);
         // console.log("testCounter : " + this.retrieveCondDto.testCounter);
-
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
