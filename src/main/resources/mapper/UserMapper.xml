@@ -44,6 +44,27 @@
         DELETE FROM COM_AUTHORITY WHERE user_nm = #{username}
     </delete>
 
+    <update id="updateUser" parameterType="kr.famos.com.dto.User">
+        UPDATE
+              COM_USER
+        SET
+              PASSWORD                = #{password},
+              NAME                    = #{name},
+              ISACCOUNTNONEXPIRED     = #{isAccountNonExpired},
+              ISACCOUNTNONLOCKED      = #{isAccountNonLocked},
+              ISCREDENTIALSNONEXPIRED = #{isCredentialsNonExpired},
+              ISENABLED               = #{isEnabled}
+        WHERE
+              USERNAME = #{username}
+    </update>
+    <update id="updateAuthority" parameterType="org.springframework.security.core.GrantedAuthority">
+        UPDATE
+              COM_AUTHORITY
+        SET
+              AUTHORITY_NM = #{authority}
+        WHERE
+              USER_NM = #{username}
+    </update>
 
 
 </mapper>

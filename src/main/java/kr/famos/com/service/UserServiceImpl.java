@@ -60,6 +60,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void updateUser(User user) {
+        String rawPassword = user.getPassword();
+        String encodedPassword = new BCryptPasswordEncoder().encode(rawPassword);
+        user.setPassword(encodedPassword);
+        userMapper.updateUser(user);
+        userMapper.updateAuthority(user);
+    }
+
+    @Override
     public void deleteUser(String username) {
         userMapper.deleteUser(username);
         userMapper.deleteAuthority(username);

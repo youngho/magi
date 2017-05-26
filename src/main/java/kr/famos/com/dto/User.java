@@ -70,19 +70,19 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public void setAccountNonExpired(boolean isAccountNonExpired) {
+    public void setIsAccountNonExpired(boolean isAccountNonExpired) {
         this.isAccountNonExpired = isAccountNonExpired;
     }
 
-    public void setAccountNonLocked(boolean isAccountNonLocked) {
+    public void setIsAccountNonLocked(boolean isAccountNonLocked) {
         this.isAccountNonLocked = isAccountNonLocked;
     }
 
-    public void setCredentialsNonExpired(boolean isCredentialsNonExpired) {
+    public void setIsCredentialsNonExpired(boolean isCredentialsNonExpired) {
         this.isCredentialsNonExpired = isCredentialsNonExpired;
     }
 
-    public void setEnabled(boolean isEnabled) {
+    public void setIsEnabled(boolean isEnabled) {
         this.isEnabled = isEnabled;
     }
 

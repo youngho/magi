@@ -1,0 +1,100 @@
+{{diagnostic}}
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <sa-widgets-grid>
+        <!-- row start -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                        <h2>Password Change</h2>
+                    </header>
+                    <div class="widget-body">
+                        <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()"
+                              [saUiValidate]="validationOptions" novalidate="novalidate">
+                            <fieldset>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'username'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        {{user.username}}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'password'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" id="password" name="password" placeholder="" [(ngModel)]="user.password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'name'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="" [(ngModel)]="user.name">
+                                    </div>
+                                </div>
+<!--
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'authority'|i18n}}</label>
+                                    <label class="input-sm">
+                                        <select name="authority" [(ngModel)]="user.authority">
+                                            <option value="USER">USER</option>
+                                            <option value="ADMIN">ADMIN</option>
+                                        </select> <i></i> </label>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'credentialsNonExpired'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input type="checkbox" class="form-control" id="credentialsNonExpired" name="credentialsNonExpired" placeholder="" [(ngModel)]="user.credentialsNonExpired">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'accountNonExpired'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input type="checkbox" class="form-control" id="accountNonExpired" name="accountNonExpired" placeholder="" [(ngModel)]="user.accountNonExpired">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'accountNonLocked'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input type="checkbox" class="form-control" id="accountNonLocked" name="accountNonLocked" placeholder="" [(ngModel)]="user.accountNonLocked">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">{{'enabled'|i18n}}</label>
+                                    <div class="col-md-2">
+                                        <input type="checkbox" class="form-control" id="enabled" name="enabled" placeholder="" [(ngModel)]="user.enabled">
+                                    </div>
+                                </div>
+-->
+                            </fieldset>
+                            <!--Retest Skip 기준 end-->
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button *ngIf="newFlag" class="btn btn-default" (click)="resetForm()">
+                                            <i class="fa fa-cancel"></i>
+                                            {{'Reset'|i18n}}
+                                        </button>
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="fa fa-save"></i>
+                                            {{'Save'|i18n}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </sa-widget>
+                <!-- end widget -->
+            </article>
+            <!-- WIDGET END -->
+        </div>
+        <!-- row end-->
+    </sa-widgets-grid>
+    <!-- end widget grid -->
+</div>
+<!-- end widget content -->

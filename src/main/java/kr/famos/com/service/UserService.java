@@ -24,6 +24,7 @@ public interface UserService extends UserDetailsService {
     //향후 유저 등록이라든지, 수정, 삭제 Service들을 추가하면 됨
     public User readUser(String username);
     public void createUser(User user);
+    public void updateUser(User user);
     public void deleteUser(String username);
     public PasswordEncoder passwordEncoder();
     public List<User> retrieveRegister(User user);

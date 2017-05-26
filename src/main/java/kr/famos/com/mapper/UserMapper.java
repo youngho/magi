@@ -20,6 +20,10 @@ public interface UserMapper {
 
     public void createAuthority(User user);
 
+    public void updateUser(User user);
+
+    public void updateAuthority(User user);
+
     public void deleteUser(String username);
 
     public void deleteAuthority(String username);
