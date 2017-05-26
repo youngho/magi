@@ -27,7 +27,7 @@ export class NgBinComponent {
     gridData: wjcCore.CollectionView;
     private colInfo = new Array();// Grid dynamic columns
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: NgBin = new NgBin();
+    private retrieveCondDto: NgBin = new NgBin();
     private usageInfo = new UserUsage();
 
     constructor(private service: NgBinService) {
@@ -60,8 +60,9 @@ export class NgBinComponent {
         // console.log("testerNumber : " + this.data.testerNumber);
         // console.log("head : " + this.data.head);
         // console.log("testCounter : " + this.data.testCounter);
-
-        this.service.postLastTable(this.data)
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                 this.gridData = new wjcCore.CollectionView(apps);
                 if (this.gridData.isEmpty) {
