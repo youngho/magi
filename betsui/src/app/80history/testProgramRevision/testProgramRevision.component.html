@@ -30,37 +30,37 @@
                                         </div>
                                         <label class="col-md-2 control-label">{{'firmwareName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="data.firmwareName">
+                                            <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="retrieveCondDto.firmwareName">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partNumber">
+                                                   [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processCode">
+                                                   [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
                                         <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
                                             <input type="text" class="form-control"
-                                                   name="testerOsVersion" placeholder="{{'testerOsVersion'|i18n}}" [(ngModel)]="data.testerOsVersion">
+                                                   name="testerOsVersion" placeholder="{{'testerOsVersion'|i18n}}" [(ngModel)]="retrieveCondDto.testerOsVersion">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Model" type="text"
-                                                   [(ngModel)]="data.testerModel">
+                                                   [(ngModel)]="retrieveCondDto.testerModel">
                                         </div>
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
+                                                   [(ngModel)]="retrieveCondDto.mainProgramName">
                                         </div>
                                     </div>
 

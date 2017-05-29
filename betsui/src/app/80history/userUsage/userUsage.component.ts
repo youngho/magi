@@ -58,7 +58,8 @@ export class UserUsageComponent {
         // console.log("createDateEnd : " + this.data.createDateEnd);
         // console.log("userId : " + this.data.userId);
         // console.log("uiId : " + this.data.uiId);
-
+        this.retrieveCondDto.createDateStart = this.startDate + "000000";
+        this.retrieveCondDto.createDateEnd = this.endDate + "999999";
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);

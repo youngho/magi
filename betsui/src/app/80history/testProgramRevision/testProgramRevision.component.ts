@@ -25,7 +25,7 @@ export class ProgramRevisionComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: ProgramRevision = new ProgramRevision();
+    private retrieveCondDto: ProgramRevision = new ProgramRevision();
     private usageInfo = new UserUsage();
 
     constructor(private service: ProgramRevisionService) {
@@ -50,14 +50,15 @@ export class ProgramRevisionComponent {
     }
 
     saveLastTableForm() {
-        console.log("endTimeStart : " + this.data.createDateStart);
-        console.log("createDateEnd : " + this.data.createDateEnd);
-        console.log("partNumber : " + this.data.partNumber);
-        console.log("processCode : " + this.data.processCode);
-        console.log("testerModel : " + this.data.testerModel);
+        // console.log("endTimeStart : " + this.retrieveCondDto.createDateStart);
+        // console.log("createDateEnd : " + this.retrieveCondDto.createDateEnd);
+        // console.log("partNumber : " + this.retrieveCondDto.partNumber);
+        // console.log("processCode : " + this.retrieveCondDto.processCode);
+        // console.log("testerModel : " + this.retrieveCondDto.testerModel);
 
-
-        this.service.postLastTable(this.data)
+        this.retrieveCondDto.createDateStart = this.startDate + "000000";
+        this.retrieveCondDto.createDateEnd = this.endDate + "999999";
+        this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
@@ -70,7 +71,7 @@ export class ProgramRevisionComponent {
                 error => this.errorMessage = error);
     }
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_testProgramRevision'+'.xlsx');
     }
 
 }

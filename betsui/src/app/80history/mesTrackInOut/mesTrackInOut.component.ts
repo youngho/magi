@@ -25,7 +25,7 @@ export class MesTrackInOutComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: MesTrackInOut = new MesTrackInOut();
+    private retrieveCondDto: MesTrackInOut = new MesTrackInOut();
     private usageInfo = new UserUsage();
 
     constructor(private service: MesTrackInOutService) {
@@ -45,17 +45,18 @@ export class MesTrackInOutComponent {
 
 
     resetForm() {
-        this.data = new MesTrackInOut();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+        this.retrieveCondDto = new MesTrackInOut();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
     }
     saveLastTableForm() {
-        console.log("endTimeStart : " + this.data.createDateStart);
-        console.log("createDateEnd : " + this.data.createDateEnd);
+        // console.log("endTimeStart : " + this.data.createDateStart);
+        // console.log("createDateEnd : " + this.data.createDateEnd);
         // console.log("partNumber : " + this.data.partNumber);
         // console.log("processCode : " + this.data.processCode);
         // console.log("testerModel : " + this.data.testerModel);
 
-
-        this.service.postLastTable(this.data)
+        this.retrieveCondDto.createDateStart = this.startDate + "000000";
+        this.retrieveCondDto.createDateEnd = this.endDate + "999999";
+        this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
@@ -69,6 +70,6 @@ export class MesTrackInOutComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_mesTrackInOut'+'.xlsx');
     }
 }

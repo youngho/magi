@@ -25,7 +25,7 @@ export class LcRevisionComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: LcRevision = new LcRevision();
+    private retrieveCondDto: LcRevision = new LcRevision();
     private usageInfo = new UserUsage();
 
     constructor(private service: LcRevisionService) {
@@ -43,14 +43,15 @@ export class LcRevisionComponent {
     }
 
     retrieveExecute() {
-        console.log("endTimeStart : " + this.data.createDateStart);
-        console.log("createDateEnd : " + this.data.createDateEnd);
+        // console.log("endTimeStart : " + this.data.createDateStart);
+        // console.log("createDateEnd : " + this.data.createDateEnd);
         // console.log("partNumber : " + this.data.partNumber);
         // console.log("processCode : " + this.data.processCode);
         // console.log("testerModel : " + this.data.testerModel);
 
-
-        this.service.postLastTable(this.data)
+        this.retrieveCondDto.createDateStart = this.startDate + "000000";
+        this.retrieveCondDto.createDateEnd = this.endDate + "999999";
+        this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
