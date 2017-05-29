@@ -2,13 +2,13 @@ package kr.famos.bets.tdbiAnalysis.dataSummary.service;
 
 import kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryDto;
 import kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryResultDto;
+import kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryYieldDto;
 import kr.famos.bets.tdbiAnalysis.dataSummary.mapper.DataSummaryMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +27,7 @@ public class DataSummaryService {
 
 //        return dataSummaryMapper.retrieveDataSummary(dataSummaryDto);
 
-        List<DataSummaryResultDto> dataSummaryDtoList = dataSummaryMapper.retrieveDataSummary(dataSummaryDto);
+        List<DataSummaryYieldDto> dataSummaryDtoList = dataSummaryMapper.retrieveDataSummary(dataSummaryDto);
 
         List<DataSummaryResultDto> returnDtoList = new ArrayList<>();    // 반환형 DTO List
 
@@ -37,7 +37,7 @@ public class DataSummaryService {
         returnTotalDto.setPartNumber("TOTAL");
 
         // 리스트 개수만큼 반복
-        for (DataSummaryResultDto list : dataSummaryDtoList) {
+        for (DataSummaryYieldDto list : dataSummaryDtoList) {
 
             DataSummaryResultDto returnDto = new DataSummaryResultDto();
 

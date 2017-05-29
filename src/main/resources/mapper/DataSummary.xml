@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.tdbiAnalysis.dataSummary.mapper.DataSummaryMapper">
-    <select id="retrieveDataSummary" parameterType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryDto" resultType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryResultDto">
+    <select id="retrieveDataSummary" parameterType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryDto" resultType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryYieldDto">
         SELECT
+                BI_PART_NUMBER AS PART_NUMBER,
                 BI_LOT_ID AS LOT_ID,
-                BI_MAIN_PROGRAM_NAME AS MAIN_PROGRAM_NAME,
-                BI_PROCESS_CODE AS PROCESS_CODE,
                 SUBSTR(BI_START_TIME,1,4)||'-'||SUBSTR(BI_START_TIME,5,2)||'-'||SUBSTR(BI_START_TIME,7,2)||' '||SUBSTR(BI_START_TIME,9,2)||':'||SUBSTR(BI_START_TIME,11,2)||':'||SUBSTR(BI_START_TIME,13,2) AS START_TIME,
                 SUBSTR(BI_END_TIME,1,4)||'-'||SUBSTR(BI_END_TIME,5,2)||'-'||SUBSTR(BI_END_TIME,7,2)||' '||SUBSTR(BI_END_TIME,9,2)||':'||SUBSTR(BI_END_TIME,11,2)||':'||SUBSTR(BI_END_TIME,13,2) AS END_TIME,
                 BI_TESTER_MODEL AS TESTER_MODEL,
                 BI_TEST_NUMBER AS TEST_NUMBER,
-                BI_BOARD_ID AS BOARD_ID,
+                BI_MAIN_PROGRAM_NAME AS MAIN_PROGRAM_NAME,
+                BI_PROCESS_CODE AS PROCESS_CODE,
                 BI_BOARD_ROW AS BOARD_ROW,
                 BI_BOARD_COLUMN AS BOARD_COLUMN,
-                BI_SOCKET_NUMBER AS SOCKET_NUMBER,
-                BI_PART_NUMBER AS PART_NUMBER
+                BI_SOCKET_NUMBER AS SOCKET_NUMBER
         FROM BURN_IN_BOARD_MAP
         <where>
             1 = 1
