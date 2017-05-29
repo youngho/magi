@@ -25,7 +25,7 @@ export class DataSummaryComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: DataSummary = new DataSummary();
+    private retrieveCondDto: DataSummary = new DataSummary();
     private usageInfo = new UserUsage();
 
     constructor(private service: DataSummaryService) {
@@ -50,14 +50,16 @@ export class DataSummaryComponent {
     }
 
     resetForm() {
-        this.data = new DataSummary();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+        this.retrieveCondDto = new DataSummary();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
     }
 
     retrieveExecute() {
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        console.log("endTimeStart : " + this.retrieveCondDto.endTimeStart);
+        console.log("endTimeEnd : " + this.retrieveCondDto.endTimeEnd);
 
-        this.service.retrieveService(this.data)
+        this.service.retrieveService(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {

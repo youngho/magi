@@ -27,7 +27,7 @@ public class DataSummaryService {
 
 //        return dataSummaryMapper.retrieveDataSummary(dataSummaryDto);
 
-        List<DataSummaryDto> dataSummaryDtoList = dataSummaryMapper.retrieveDataSummary(dataSummaryDto);
+        List<DataSummaryResultDto> dataSummaryDtoList = dataSummaryMapper.retrieveDataSummary(dataSummaryDto);
 
         List<DataSummaryResultDto> returnDtoList = new ArrayList<>();    // 반환형 DTO List
 
@@ -37,7 +37,7 @@ public class DataSummaryService {
         returnTotalDto.setPartNumber("TOTAL");
 
         // 리스트 개수만큼 반복
-        for (DataSummaryDto list : dataSummaryDtoList) {
+        for (DataSummaryResultDto list : dataSummaryDtoList) {
 
             DataSummaryResultDto returnDto = new DataSummaryResultDto();
 

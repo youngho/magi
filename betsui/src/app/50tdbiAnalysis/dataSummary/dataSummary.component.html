@@ -30,7 +30,7 @@
                                         </div>
                                         <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
+                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="retrieveCondDto.testerModel">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -39,18 +39,18 @@
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partNumber">
+                                                   [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processCode">
+                                                   [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
                                         <label class="col-md-2 control-label">{{'testNumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.testNumber">
+                                                   [(ngModel)]="retrieveCondDto.testNumber">
                                         </div>
 
 
@@ -59,17 +59,17 @@
                                         <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Lot ID" type="text"
-                                                   [(ngModel)]="data.lotId">
+                                                   [(ngModel)]="retrieveCondDto.lotId">
                                         </div>
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
+                                                   [(ngModel)]="retrieveCondDto.mainProgramName">
                                         </div>
                                         <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
-                                                   [(ngModel)]="data.boardId">
+                                                   [(ngModel)]="retrieveCondDto.boardId">
                                         </div>
                                     </div>
                                 </fieldset>

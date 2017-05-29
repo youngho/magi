@@ -35,7 +35,7 @@ def version = [slf4j: '1.7.12']
 
 dependencies {
     //액주에이터 엔드포인트 활성화
-    compile('org.springframework.boot:spring-boot-starter-actuator')
+//    compile('org.springframework.boot:spring-boot-starter-actuator')
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.session:spring-session:1.3.0.RELEASE")
     compile('org.springframework.data:spring-data-redis')

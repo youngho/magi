@@ -11,9 +11,12 @@ public class DataSummaryResultDto {
     private String endTime = ""; //
     private String testerModel = ""; //
     private String testNumber = "";  //
-//    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
+    //    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
     private String mainProgramName = ""; //
 
+    private String boardRow = ""; // x 축 시작,끝값
+    private String boardColumn = ""; // y축 시작,끝값
+    private String socketNumber = ""; //
     private int input;
     private int pass;
     private float yield;
@@ -250,5 +253,29 @@ public class DataSummaryResultDto {
 
     public void setBin15(int bin15) {
         this.bin15 = bin15;
+    }
+
+    public String getBoardRow() {
+        return boardRow;
+    }
+
+    public void setBoardRow(String boardRow) {
+        this.boardRow = boardRow;
+    }
+
+    public String getBoardColumn() {
+        return boardColumn;
+    }
+
+    public void setBoardColumn(String boardColumn) {
+        this.boardColumn = boardColumn;
+    }
+
+    public String getSocketNumber() {
+        return socketNumber;
+    }
+
+    public void setSocketNumber(String socketNumber) {
+        this.socketNumber = socketNumber;
     }
 }

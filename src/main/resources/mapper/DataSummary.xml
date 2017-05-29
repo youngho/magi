@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.famos.bets.tdbiAnalysis.dataSummary.mapper.DataSummaryMapper">
-    <select id="retrieveDataSummary" parameterType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryDto" resultType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryDto">
+    <select id="retrieveDataSummary" parameterType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryDto" resultType="kr.famos.bets.tdbiAnalysis.dataSummary.dto.DataSummaryResultDto">
         SELECT
-                BI_SEQ AS SEQ,
                 BI_LOT_ID AS LOT_ID,
                 BI_MAIN_PROGRAM_NAME AS MAIN_PROGRAM_NAME,
                 BI_PROCESS_CODE AS PROCESS_CODE,
-                BI_OPERATOR_ID AS OPERATOR_ID,
                 SUBSTR(BI_START_TIME,1,4)||'-'||SUBSTR(BI_START_TIME,5,2)||'-'||SUBSTR(BI_START_TIME,7,2)||' '||SUBSTR(BI_START_TIME,9,2)||':'||SUBSTR(BI_START_TIME,11,2)||':'||SUBSTR(BI_START_TIME,13,2) AS START_TIME,
                 SUBSTR(BI_END_TIME,1,4)||'-'||SUBSTR(BI_END_TIME,5,2)||'-'||SUBSTR(BI_END_TIME,7,2)||' '||SUBSTR(BI_END_TIME,9,2)||':'||SUBSTR(BI_END_TIME,11,2)||':'||SUBSTR(BI_END_TIME,13,2) AS END_TIME,
                 BI_TESTER_MODEL AS TESTER_MODEL,
                 BI_TEST_NUMBER AS TEST_NUMBER,
                 BI_BOARD_ID AS BOARD_ID,
-                BI_ZONE_NUMBER AS ZONE_NUMBER,
-                BI_SLOT_NUMBER AS SLOT_NUMBER,
                 BI_BOARD_ROW AS BOARD_ROW,
                 BI_BOARD_COLUMN AS BOARD_COLUMN,
                 BI_SOCKET_NUMBER AS SOCKET_NUMBER,
@@ -28,14 +24,17 @@
             <if test=" endTimeEnd != null and endTimeEnd != '' ">
                 AND BI_END_TIME <![CDATA[<=]]> #{endTimeEnd}
             </if>
+            <if test=" testerModel != null and testerModel != '' ">
+                AND BI_TESTER_MODEL=#{testerModel}
+            </if>
             <if test=" partNumber != null and partNumber != '' ">
                 AND BI_PART_NUMBER=#{partNumber}
             </if>
             <if test=" processCode != null and processCode != '' ">
                 AND BI_PROCESS_CODE=#{processCode}
             </if>
-            <if test=" testerModel != null and testerModel != '' ">
-                AND BI_TESTER_MODEL=#{testerModel}
+            <if test=" testNumber != null and testNumber != '' ">
+                AND BI_TEST_NUMBER=#{testNumber}
             </if>
             <if test=" lotId != null and lotId != '' ">
                 AND BI_LOT_ID=#{lotId}
@@ -45,12 +44,6 @@
             </if>
             <if test=" boardId != null and boardId != '' ">
                 AND BI_BOARD_ID=#{boardId}
-            </if>
-            <if test=" zoneNumber != null and zoneNumber != '' ">
-                AND BI_ZONE_NUMBER=#{zoneNumber}
-            </if>
-            <if test=" slotNumber != null and slotNumber != '' ">
-                AND BI_SLOT_NUMBER=#{slotNumber}
             </if>
         </where>
     </select>
