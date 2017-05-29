@@ -26,6 +26,11 @@ export const routes: Routes = [
         path: 'boardYield',
         loadChildren: 'app/50tdbiAnalysis/boardYield/boardYield.module#boardYieldModule',
         data: {pageTitle: 'Board Yield'}
+    },
+    {
+        path: 'tdbiDc',
+        loadChildren: 'app/50tdbiAnalysis/tdbidc/tdbiDc.module#TdbiDcModule',
+        data: {pageTitle: 'TDBI DC'}
     }
 ];
 

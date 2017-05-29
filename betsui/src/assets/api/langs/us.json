@@ -1,4 +1,6 @@
 {
+  "operatorId":"Operator ID",
+  "tdbiDc":"TDBI DC",
   "cid":"CID",
   "chipIdDuplicate":"Chip ID Duplicate",
   "BRAZILEMCPTESTSYSTEM": "Brazil EMCP Test System",

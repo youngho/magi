@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.tdbiAnalysis.tdbiDc.mapper.TdbiDcMapper">
+    <select id="retrieveTdbiDc" parameterType="kr.famos.bets.tdbiAnalysis.tdbiDc.dto.TdbiDcCondDto" resultType="kr.famos.bets.tdbiAnalysis.tdbiDc.dto.TdbiDcResultDto">
+        SELECT
+              SUBSTR(B.SYS_TRANS_TIME,1,4)||'-'||SUBSTR(B.SYS_TRANS_TIME,5,2)||'-'||SUBSTR(B.SYS_TRANS_TIME,7,2)||' '||SUBSTR(B.SYS_TRANS_TIME,9,2)||':'||SUBSTR(B.SYS_TRANS_TIME,11,2)||':'||SUBSTR(B.SYS_TRANS_TIME,13,2) AS END_TIME,
+              C.TRAN_USER_ID   AS OPERATOR_ID,
+              B.MAT_ID         AS PART_NUMBER,
+              B.OPER           AS PROCESS_CODE,
+              B.RES_ID         AS TEST_NUMBER,
+              A.LOT_ID,
+              D.RESV_FIELD_1 AS MAIN_PROGRAM_NAME,
+              B.QTY1         AS INPUT,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 1) AS BIN1,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 2) AS BIN2,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 3) AS BIN3,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 4) AS BIN4,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 5) AS BIN5,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 6) AS BIN6,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 7) AS BIN7,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 8) AS BIN8,
+              (SELECT F.BIN_QTY FROM MESMGR.MWIPBINSHS@BETSTOMES F WHERE F.LOT_ID = B.LOT_ID AND F.HIST_SEQ = B.HIST_SEQ AND F.BIN_SEQ = 9) AS BIN9
+        FROM
+              MESMGR.MWIPBINSHS@BETSTOMES A,
+              MESMGR.MWIPBINHIS@BETSTOMES B,
+              MESMGR.MWIPLOTHIS@BETSTOMES C,
+              MESMGR.CWIPTCDDEF@BETSTOMES D
+        <where>
+              A.LOT_ID    = B.LOT_ID
+          AND B.LOT_ID    = C.LOT_ID
+          AND A.HIST_SEQ  = B.HIST_SEQ
+          AND B.HIST_SEQ  = C.HIST_SEQ
+          AND B.MAT_ID    = D.MAT_ID
+          AND D.FACTORY   = 'HMBT1'
+          AND A.HIST_SEQ IN
+              (SELECT
+                    HIST_SEQ
+              FROM
+                    MESMGR.MWIPBINHIS@BETSTOMES
+              WHERE
+                    OPER IN ('T3100', 'T2100')
+              )
+            <if test=" endTimeStart != null and endTimeStart != '' ">
+                AND B.SYS_TRANS_TIME >= #{endTimeStart}
+            </if>
+            <if test=" endTimeEnd != null and endTimeEnd != '' ">
+                AND B.SYS_TRANS_TIME <![CDATA[<=]]> #{endTimeEnd}
+            </if>
+            <if test=" operatorId != null and operatorId != '' ">
+                AND C.TRAN_USER_ID = #{operatorId}
+            </if>
+            <if test=" partNumber != null and partNumber != '' ">
+                AND B.MAT_ID = #{partNumber}
+            </if>
+            <if test=" processCode != null and processCode != '' ">
+                AND B.OPER = #{processCode}
+            </if>
+            <if test=" testNumber != null and testNumber != '' ">
+                AND B.RES_ID = #{testNumber}
+            </if>
+            <if test=" lotId != null and lotId != '' ">
+                AND A.LOT_ID = #{lotId}
+            </if>
+            <if test=" mainProgramName != null and mainProgramName != '' ">
+                AND D.RESV_FIELD_1 = #{mainProgramName}
+            </if>
+        </where>
+    </select>
+</mapper>
