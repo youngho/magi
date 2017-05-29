@@ -1,0 +1,97 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <sa-widgets-grid>
+        <!-- row start -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                        <h2>Chip ID Duplicate Retrieve</h2>
+                    </header>
+                    <!-- widget div-->
+                    <div>
+                        <!-- widget content -->
+                        <div class="widget-body">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <!--검색조건 시작-->
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'lotId'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" [(ngModel)]="retrieveCondDto.lotId">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'cid'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text" [(ngModel)]="retrieveCondDto.cid">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button (click)="retrieveExecute()" class="btn btn-primary"><i class="fa fa-search"></i>
+                                                {{'retrieve'|i18n}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </sa-widget>
+                <!-- end widget -->
+                <!-- widget Grid Start -->
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>Chip ID Duplicate Retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <!--<wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>-->
+                                <wj-flex-grid-column [header]="'Fast Lot ID'" [binding]="'fastLotId'" [width]="200"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Fast CID'" [binding]="'fastCid'" [width]="200"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Lot ID'" [binding]="'lotId'" [width]="200"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'CID'" [binding]="'cid'" [width]="'*'"></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div>No data available in table</div>
+                            </div>
+                        </div>
+                    </div>
+                </sa-widget>
+                <!-- widget Grid End -->
+            </article>
+            <!-- WIDGET END -->
+        </div>
+        <!-- row end-->
+    </sa-widgets-grid>
+    <!-- end widget grid -->
+</div>

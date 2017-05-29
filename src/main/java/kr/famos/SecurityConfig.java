@@ -101,6 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveComUserUsage").permitAll()
                 .antMatchers("/insertComUserUsage").permitAll()
                 .antMatchers("/retrieveLcRevision").permitAll()
+                .antMatchers("/retrieveChipId").permitAll()
 // ADMINISTRATION
                 .antMatchers("/user").hasAuthority("USER")
                 .antMatchers("/user/retrieveRegister").permitAll()

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.history.chipId.mapper.ChipIdMapper">
+    <select id="retrieveChipId" parameterType="kr.famos.bets.history.chipId.dto.ChipIdCondDto" resultType="kr.famos.bets.history.chipId.dto.ChipIdResultDto">
+        SELECT
+            FAST_TESTER_NUMBER,
+            FAST_TESTER_MODEL,
+            FAST_LOT_ID,
+            FAST_PROCESS_CODE,
+            FAST_PART_NUMBER,
+            FAST_MAIN_PROGRAM_NAME,
+            FAST_FIRMWARE_NAME,
+            FAST_FIRMWARE_VERSION,
+            SUBSTR(FAST_FILE_CREATE_TIME,1,4)||'-'||SUBSTR(FAST_FILE_CREATE_TIME,5,2)||'-'||SUBSTR(FAST_FILE_CREATE_TIME,7,2)||' '||SUBSTR(FAST_FILE_CREATE_TIME,9,2)||':'||SUBSTR(FAST_FILE_CREATE_TIME,11,2)||':'||SUBSTR(FAST_FILE_CREATE_TIME,13,2) AS FAST_FILE_CREATE_TIME,
+            FAST_DUT_NO,
+            FAST_CID,
+            TESTER_NUMBER,
+            TESTER_MODEL,
+            LOT_ID,
+            PROCESS_CODE,
+            PART_NUMBER,
+            MAIN_PROGRAM_NAME,
+            FIRMWARE_NAME,
+            FIRMWARE_VERSION,
+            SUBSTR(FILE_CREATE_TIME,1,4)||'-'||SUBSTR(FILE_CREATE_TIME,5,2)||'-'||SUBSTR(FILE_CREATE_TIME,7,2)||' '||SUBSTR(FILE_CREATE_TIME,9,2)||':'||SUBSTR(FILE_CREATE_TIME,11,2)||':'||SUBSTR(FILE_CREATE_TIME,13,2) AS FILE_CREATE_TIME,
+            DUT_NO,
+            CID
+        FROM
+            CID_ERROR_DATA
+        <where>
+            1 = 1
+            <if test=" fileCreateTimeStart != null and fileCreateTimeStart != '' ">
+                AND FILE_CREATE_TIME <![CDATA[>=]]> #{fileCreateTimeStart}
+            </if>
+            <if test=" fileCreateTimeEnd != null and fileCreateTimeEnd != '' ">
+                AND FILE_CREATE_TIME <![CDATA[<=]]> #{fileCreateTimeEnd}
+            </if>
+            <if test=" lotId != null and lotId != '' ">
+                AND LOT_ID LIKE '%'|| #{lotId} || '%'
+            </if>
+            <if test=" cid != null and cid != '' ">
+                AND CID LIKE '%'|| #{cid} || '%'
+            </if>
+        </where>
+        ORDER BY FILE_CREATE_TIME DESC
+    </select>
+</mapper>

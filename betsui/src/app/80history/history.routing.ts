@@ -22,6 +22,11 @@ export const routes: Routes = [
         path: 'lcRevision',
         loadChildren: 'app/80history/lcRevision/lcRevision.module#LcRevisionModule',
         data: {pageTitle: 'Firmware revision'}
+    },
+    {
+        path: 'chipId',
+        loadChildren: 'app/80history/chipIdDuplicate/chipId.module#ChipIdModule',
+        data: {pageTitle: 'Chip ID Duplicate'}
     }
 ];
 
