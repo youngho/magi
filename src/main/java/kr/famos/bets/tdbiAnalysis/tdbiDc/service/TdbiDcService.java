@@ -32,7 +32,7 @@ public class TdbiDcService {
          */
         for(TdbiDcResultDto list : tdbiDcResultDtoList){
             list.setPass(list.getBin1());   // PASS BIN 을 BIN1으로 보여줌
-            list.setYield((float)list.getBin1() / (float)list.getInput());
+            list.setYield(((float)list.getBin1() / (float)list.getInput()) * 100);
             list.setBin9(list.getInput() - (list.getBin1() + list.getBin2() + list.getBin3() + list.getBin4() + list.getBin5() + list.getBin6() + list.getBin7() + list.getBin8()));
         }
         return tdbiDcResultDtoList;
