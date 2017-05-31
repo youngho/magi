@@ -13,7 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by yhkim on 2017-03-13.
+ * 2017-05-29
+ * 강래완 책임의 요청으로 아래와 같은 계산으로 처리함
+ * Input1 = (Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7+Bin8+Bin9)
+ * Input2 = (Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7)
+ * Yield1 = Bin1/(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7+Bin8+Bin9)
+ * Yield2 = Bin1/(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7)
+ * PDA = Bin4/(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7)
  */
 @Service
 public class DataSummaryService {
@@ -146,9 +152,8 @@ public class DataSummaryService {
             returnTotalDto.setBin14(returnTotalDto.getBin14() + returnDto.getBin14());   // Total Row 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
             returnTotalDto.setBin15(returnTotalDto.getBin15() + returnDto.getBin15());   // Total Row 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
-            // INPUT 계산값 셋팅
-            returnDto.setInput(returnDto.getBin0()
-                    + returnDto.getBin1()
+            // Input1 계산값 셋팅
+            returnDto.setInput1(returnDto.getBin1()
                     + returnDto.getBin2()
                     + returnDto.getBin3()
                     + returnDto.getBin4()
@@ -157,24 +162,29 @@ public class DataSummaryService {
                     + returnDto.getBin7()
                     + returnDto.getBin8()
                     + returnDto.getBin9()
-                    + returnDto.getBin10()
-                    + returnDto.getBin11()
-                    + returnDto.getBin12()
-                    + returnDto.getBin13()
-                    + returnDto.getBin14()
-                    + returnDto.getBin15()
             );
-            returnTotalDto.setInput(returnTotalDto.getInput() + returnDto.getInput());  // Total Row INPUT 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+            returnDto.setInput2(returnDto.getBin1()
+                    + returnDto.getBin2()
+                    + returnDto.getBin3()
+                    + returnDto.getBin4()
+                    + returnDto.getBin5()
+                    + returnDto.getBin6()
+                    + returnDto.getBin7()
+            );
+            returnTotalDto.setInput1(returnTotalDto.getInput1() + returnDto.getInput1());  // Total Row Input1 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+            returnTotalDto.setInput2(returnTotalDto.getInput2() + returnDto.getInput2());  // Total Row Input2 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             // PASS 계산값 셋팅
-            returnDto.setPass(returnDto.getBin1());     //BIN1을 PASS_BIN으로 가정하여 셋팅
+            returnDto.setPass(returnDto.getBin1());     //BIN1을 PASS_BIN으로 셋팅
             returnTotalDto.setPass(returnTotalDto.getPass() + returnDto.getPass()); // Total Row PASS 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
-            // YIELD 계산값 셋팅
-            float floatYield = (float) returnTotalDto.getPass() / (float) returnTotalDto.getInput() * 100;
-//            DecimalFormat fmt = new DecimalFormat("0.##");
-//            String strYield = fmt.format(floatYield);
-            returnTotalDto.setYield(floatYield);  // Total Row YIELD 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+            // Yield1 계산값 셋팅
+            returnTotalDto.setYield1((float) returnTotalDto.getPass() / (float) returnTotalDto.getInput1() * 100);  // Total Row Yield1 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+            // Yield2 계산값 셋팅
+            returnTotalDto.setYield2((float) returnTotalDto.getPass() / (float) returnTotalDto.getInput2() * 100);  // Total Row Yield1 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
+
+            // PDA 계산값 셋팅
+            returnTotalDto.setPda((float) returnTotalDto.getBin4() / (float) returnTotalDto.getInput2() * 100);
 
             //LOT번호가 같은것끼리 합친다.
             int searchcount = 0;
@@ -199,24 +209,20 @@ public class DataSummaryService {
                     returnDtoList.get(lotIndex).setBin14(returnDtoList.get(lotIndex).getBin14() + returnDto.getBin14());
                     returnDtoList.get(lotIndex).setBin15(returnDtoList.get(lotIndex).getBin15() + returnDto.getBin15());
 
-                    returnDtoList.get(lotIndex).setInput(returnDtoList.get(lotIndex).getInput() + returnDto.getInput());
+                    returnDtoList.get(lotIndex).setInput1(returnDtoList.get(lotIndex).getInput1() + returnDto.getInput1());
+                    returnDtoList.get(lotIndex).setInput2(returnDtoList.get(lotIndex).getInput2() + returnDto.getInput2());
                     returnDtoList.get(lotIndex).setPass(returnDtoList.get(lotIndex).getPass() + returnDto.getPass());
-                    returnDtoList.get(lotIndex).setYield((float) returnDtoList.get(lotIndex).getPass() / (float) returnDtoList.get(lotIndex).getInput() * 100);
+                    returnDtoList.get(lotIndex).setYield1((float) returnDtoList.get(lotIndex).getPass() / (float) returnDtoList.get(lotIndex).getInput1() * 100);
+                    returnDtoList.get(lotIndex).setYield2((float) returnDtoList.get(lotIndex).getPass() / (float) returnDtoList.get(lotIndex).getInput2() * 100);
                 }
             }
 
-
             if (searchcount == 0) {
-                returnDto.setYield((float) returnDto.getPass() / (float) returnDto.getInput() * 100);
+                returnDto.setYield1((float) returnDto.getPass() / (float) returnDto.getInput1() * 100);
                 returnDtoList.add(returnDto);
             }
-
-
         }// End for // 리스트 개수만큼 반복
-
         returnDtoList.add(returnTotalDto);
         return returnDtoList;
     }
-
-
 }

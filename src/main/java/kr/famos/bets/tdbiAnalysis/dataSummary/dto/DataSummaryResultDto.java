@@ -11,12 +11,15 @@ public class DataSummaryResultDto {
     private String endTime = ""; //
     private String testerModel = ""; //
     private String testNumber = "";  //
-    //    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
+//    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
     private String mainProgramName = ""; //
 
-    private int input;
+    private int input1;      //Input1=(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7+Bin8+Bin9)
+    private int input2;     //Input2=(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7)
     private int pass;
-    private float yield;
+    private float yield1;    //Yield1 = Bin1/(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7+Bin8+Bin9)
+    private float yield2;   //Yield2 = Bin1/(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7)
+    private float pda;      //PDA = Bin4/(Bin1+Bin2+Bin3+Bin4+Bin5+Bin6+Bin7)
     private int bin0;
     private int bin1;
     private int bin2;
@@ -82,16 +85,6 @@ public class DataSummaryResultDto {
         this.testNumber = testNumber;
     }
 
-/*
-    public String getProcessCode() {
-        return processCode;
-    }
-
-    public void setProcessCode(String processCode) {
-        this.processCode = processCode;
-    }
-*/
-
     public String getMainProgramName() {
         return mainProgramName;
     }
@@ -100,12 +93,20 @@ public class DataSummaryResultDto {
         this.mainProgramName = mainProgramName;
     }
 
-    public int getInput() {
-        return input;
+    public int getInput1() {
+        return input1;
     }
 
-    public void setInput(int input) {
-        this.input = input;
+    public void setInput1(int input1) {
+        this.input1 = input1;
+    }
+
+    public int getInput2() {
+        return input2;
+    }
+
+    public void setInput2(int input2) {
+        this.input2 = input2;
     }
 
     public int getPass() {
@@ -116,12 +117,28 @@ public class DataSummaryResultDto {
         this.pass = pass;
     }
 
-    public float getYield() {
-        return yield;
+    public float getYield1() {
+        return yield1;
     }
 
-    public void setYield(float yield) {
-        this.yield = yield;
+    public void setYield1(float yield1) {
+        this.yield1 = yield1;
+    }
+
+    public float getYield2() {
+        return yield2;
+    }
+
+    public void setYield2(float yield2) {
+        this.yield2 = yield2;
+    }
+
+    public float getPda() {
+        return pda;
+    }
+
+    public void setPda(float pda) {
+        this.pda = pda;
     }
 
     public int getBin0() {
@@ -251,5 +268,4 @@ public class DataSummaryResultDto {
     public void setBin15(int bin15) {
         this.bin15 = bin15;
     }
-
 }
