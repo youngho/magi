@@ -59,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveProgramRegister").permitAll()
                 .antMatchers("/retrieveProgramRegisterByKey").permitAll()
                 .antMatchers("/insertProgramRegister").hasAuthority("ADMIN")
+                .antMatchers("/insertProgramRegister").hasAuthority("OPERATOR")
 
                 .antMatchers("/retrieveTdbiBoardType").permitAll()
                 .antMatchers("/retrieveTdbiBoardTypeByKey").permitAll()
@@ -69,6 +70,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/insertBinDescription").permitAll()
 
                 .antMatchers("/insertLcVersionRegister").permitAll()
+
+                .antMatchers("/retrieveTesterIp").permitAll()
 // YIELD ANAYSIS
                 .antMatchers("/retrieveLotYield").permitAll()
                 .antMatchers("/retrieveNgBin").permitAll()

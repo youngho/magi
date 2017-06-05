@@ -30,6 +30,13 @@ export const routes: Routes = [
             data: {
                 pageTitle: 'LC Version Register'
             }
+        },
+        {
+            path: 'testerIpInfo',
+            loadChildren: 'app/10basis/testerIpInfo/testerIpInfo.module#TesterIpInfoModule',
+            data: {
+                pageTitle: 'Tester IP Info'
+            }
         }
     ]
     ;

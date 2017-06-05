@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.basisInformation.testerIp.mapper.TesterIpMapper">
+    <select id="retrieveTesterIp" parameterType="kr.famos.bets.basisInformation.testerIp.dto.TesterIpDto" resultType="kr.famos.bets.basisInformation.testerIp.dto.TesterIpDto">
+        SELECT
+            TESTER_NUMBER,
+            TESTER_IP
+        FROM TESTER_IP
+        <where>
+            1 = 1
+            <if test=" testerNumber != null and testerNumber != '' ">
+                AND TESTER_NUMBER = #{testerNumber}
+            </if>
+            <if test=" testerIp != null and testerIp != '' ">
+                AND TESTER_IP = #{testerIp}
+            </if>
+        </where>
+    </select>
+</mapper>
