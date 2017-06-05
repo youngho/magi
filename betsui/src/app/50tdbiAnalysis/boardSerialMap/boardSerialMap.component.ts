@@ -56,7 +56,8 @@ export class BoardSerialMapComponent {
     retrieveExecute() {
         console.log("endTimeStart : " + this.data.endTimeStart);
         console.log("endTimeEnd : " + this.data.endTimeEnd);
-
+        this.data.endTimeStart = this.startDate + "000000";
+        this.data.endTimeEnd = this.endDate + "999999";
         this.service.retrieveService(this.data)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);

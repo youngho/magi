@@ -7,11 +7,11 @@ export const routes:Routes = [
 /*  { path: 'lot',
     loadChildren: 'app/70rawData/Lot/Lot.module#LotModule',
     data: {pageTitle: 'Lot'}
-  },
+  },*/
   { path: 'chip',
-    loadChildren: 'app/70rawData/chip/Chip.module#ChipModule',
+    loadChildren: 'app/70rawData/chip/chip.module#ChipModule',
     data: {pageTitle: 'Chip'}
-  },
+  },/*
   { path: 'log',
     loadChildren: 'app/70rawData/log/Log.module#LogModule',
     data: {pageTitle: 'Log'}

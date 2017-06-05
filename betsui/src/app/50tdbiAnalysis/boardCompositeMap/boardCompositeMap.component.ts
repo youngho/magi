@@ -60,7 +60,8 @@ export class BoardCompositeMapComponent {
         // console.log("processName : " + this.data.biProcessCode);
         // console.log("testerName : " + this.data.biTesterModel);
         // console.log("testerHead : " + this.data.biTestNumber);
-
+        this.data.biEndTimeStart = this.startDate + "000000";
+        this.data.biEndTimeEnd = this.endDate + "999999";
         this.service.postLastTable(this.data)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);

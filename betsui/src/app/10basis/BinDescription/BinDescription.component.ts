@@ -15,6 +15,9 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
     templateUrl: 'BinDescription.component.html',
     providers: [BinDescriptionService, BinDescription, UserUsage]
 })
+/**
+ *
+ */
 export class BinDescriptionComponent implements OnInit{
 
     constructor(private service: BinDescriptionService, private notificationService: NotificationService, private binDescription: BinDescription) {

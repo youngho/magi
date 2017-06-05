@@ -85,11 +85,12 @@ export class TdbiComponent {
     }
 
     retrieveExecute() {
+        this.retrieveCond.createDateStart = this.startDate + "000000";
+        this.retrieveCond.createDateEnd = this.endDate + "999999";
+        this.retrieveCond.fileType = "TDBI";
         console.log("endTimeStart : " + this.retrieveCond.createDateStart);
         console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
         console.log("fileName : " + this.retrieveCond.fileName);
-
-        this.retrieveCond.fileType = "TDBI";
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);

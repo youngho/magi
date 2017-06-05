@@ -6,23 +6,23 @@ import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 import {UserUsage} from "../../shared/usage/userUsage.model";
 import {NotificationService} from "../../shared/utils/notification.service";
 
-import {CasiService} from "./casi.service";
+import {ChipService} from "./chip.service";
 import {RawData} from '../rawData.model';
 
 declare var $: any;
 /**
- * BETS-UI-0701
- * Test RAW Data
- * Test 공정에서 발생한 RAW Data를 조회한다
+ * BETS-UI-0703
+ * Chip RAW Data
+ * CID 판별을 위해 만들어지는 파일들에 대한 조회 기능
  */
 @FadeInTop()
 @Component({
     selector: 'casi',
-    templateUrl: 'casi.component.html',
-    providers: [CasiService, RawData]
+    templateUrl: 'chip.component.html',
+    providers: [ChipService, RawData]
 })
-export class CasiComponent {
-    UIID: string = "BETS-UI-0701";
+export class ChipComponent {
+    UIID: string = "BETS-UI-0703";
     startDate = "";
     endDate = "";
     empty = true;
@@ -37,7 +37,7 @@ export class CasiComponent {
     private usageInfo = new UserUsage();
     private Files: string[];
 
-    constructor(private service: CasiService, private notificationService: NotificationService,) {
+    constructor(private service: ChipService, private notificationService: NotificationService,) {
     }
 
     ngOnInit() {
@@ -82,10 +82,10 @@ export class CasiComponent {
     retrieveExecute() {
         this.retrieveCond.createDateStart = this.startDate + "000000";
         this.retrieveCond.createDateEnd = this.endDate + "999999";
+        this.retrieveCond.fileType = "CID";
         console.log("endTimeStart : " + this.retrieveCond.createDateStart);
         console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
         console.log("fileName : " + this.retrieveCond.fileName);
-        this.retrieveCond.fileType = "TEST";
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
@@ -138,7 +138,7 @@ export class CasiComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_TestRAWList' + '.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_CIDRAWList' + '.xlsx');
     }
 
 }

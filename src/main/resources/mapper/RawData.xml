@@ -15,12 +15,12 @@
     -->
     <select id="retrieveRawData" parameterType="kr.famos.bets.rawData.dto.RawDataRetrieveCondDto" resultType="kr.famos.bets.rawData.dto.RawDataResultDto">
         SELECT
-            LOCATION,
-            FILE_NAME,
-            SUBSTR(CREATE_DATE,1,4)||'-'||SUBSTR(CREATE_DATE,5,2)||'-'||SUBSTR(CREATE_DATE,7,2)||' '||SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2)||':'||SUBSTR(CREATE_DATE,13,2) AS CREATE_DATE,
-            FILE_TYPE
+        LOCATION,
+        FILE_NAME,
+        SUBSTR(CREATE_DATE,1,4)||'-'||SUBSTR(CREATE_DATE,5,2)||'-'||SUBSTR(CREATE_DATE,7,2)||' '||SUBSTR(CREATE_DATE,9,2)||':'||SUBSTR(CREATE_DATE,11,2)||':'||SUBSTR(CREATE_DATE,13,2) AS CREATE_DATE,
+        FILE_TYPE
         FROM
-            RAW_DATA
+        RAW_DATA
         <where>
             1 = 1
             <if test=" createDateStart != null and createDateStart != '' ">
@@ -33,9 +33,12 @@
                 AND FILE_NAME LIKE '%'|| #{fileName} || '%'
             </if>
             <if test=" fileType != null and fileType == 'TEST' ">
-                AND FILE_TYPE <![CDATA[<>]]> 'TDBI'
+                AND FILE_TYPE IN ('MAIN_BIN','NG_BIN','CASI_BIN')
             </if>
             <if test=" fileType != null and fileType == 'TDBI' ">
+                AND FILE_TYPE=#{fileType}
+            </if>
+            <if test=" fileType != null and fileType == 'CID' ">
                 AND FILE_TYPE=#{fileType}
             </if>
         </where>
