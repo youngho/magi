@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.tdbiAnalysis.boardCompositeSocketYield.mapper.BoardCompositeSocketYieldMapper">
+    <!--
+    BETS-UI-0507 : BoardCompositeSocketYield
+    단일 보드의 소켓별 수율을 보드 형태로 보여준다.
+    -->
+    <select id="retrieveBoardCompositeSocketYield" parameterType="kr.famos.bets.tdbiAnalysis.boardCompositeSocketYield.dto.BoardCompositeSocketYieldCondDto"
+            resultType="kr.famos.bets.tdbiAnalysis.boardCompositeSocketYield.dto.BoardCompositeSocketYieldResultDto">
+        SELECT
+            BI_BOARD_ID,
+            BI_BOARD_ROW,
+            BI_BOARD_COLUMN,
+            BI_SOCKET_NUMBER
+        FROM BURN_IN_BOARD_MAP
+        <where>
+            1 = 1
+            <if test=" biEndTimeStart != null and biEndTimeStart != '' ">
+                AND BI_END_TIME >= #{biEndTimeStart}
+            </if>
+            <if test=" biEndTimeEnd != null and biEndTimeEnd != '' ">
+                AND BI_END_TIME <![CDATA[<=]]> #{biEndTimeEnd}
+            </if>
+            <if test=" biBoardId != null and biBoardId != '' ">
+                AND BI_BOARD_ID=#{biBoardId}
+            </if>
+            <if test=" biPartNumber != null and biPartNumber != '' ">
+                AND BI_PART_NUMBER=#{biPartNumber}
+            </if>
+            <if test=" biMainProgramName != null and biMainProgramName != '' ">
+                AND BI_MAIN_PROGRAM_NAME=#{biMainProgramName}
+            </if>
+            <if test=" biTestNumber != null and biTestNumber != '' ">
+                AND BI_TEST_NUMBER=#{biTestNumber}
+            </if>
+        </where>
+        ORDER BY BI_BOARD_ID
+    </select>
+</mapper>

@@ -31,6 +31,11 @@ export const routes: Routes = [
         path: 'tdbiDc',
         loadChildren: 'app/50tdbiAnalysis/tdbidc/tdbiDc.module#TdbiDcModule',
         data: {pageTitle: 'TDBI DC'}
+    },
+    {
+        path: 'boardCompositeSocketYield',
+        loadChildren: 'app/50tdbiAnalysis/boardCompositeSocketYield/boardCompositeSocketYield.module#BoardCompositeSocketYieldModule',
+        data: {pageTitle: 'TDBI DC'}
     }
 ];
 

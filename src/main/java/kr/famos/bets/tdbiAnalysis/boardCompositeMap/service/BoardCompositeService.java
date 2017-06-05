@@ -34,7 +34,7 @@ public class BoardCompositeService {
             String[] strBoardCol = board.getBiBoardColumn().split(",");
             int maxRow = (Integer.parseInt(strBoardRow[0]) > Integer.parseInt(strBoardRow[1])) ? Integer.parseInt(strBoardRow[0]) : Integer.parseInt(strBoardRow[1]);
             int maxCol = (Integer.parseInt(strBoardCol[0]) > Integer.parseInt(strBoardCol[0])) ? Integer.parseInt(strBoardCol[0]) : Integer.parseInt(strBoardCol[0]);
-            String[][] strArraySocketNum = new String[maxCol][maxRow];
+//            String[][] strArraySocketNum = new String[maxCol][maxRow];
             String strScoketTemp = strSocketNum;
             int col = 0;
             int row = Integer.parseInt(strBoardCol[0]);
@@ -52,7 +52,7 @@ public class BoardCompositeService {
                 mapSocketNum.put("boardId", String.valueOf(board.getBiBoardId()));
                 mapSocketNum.put(".", "Col" + String.valueOf(row));
                 for (int j = 0; j < maxRow; j++) {
-                    strArraySocketNum[col][j] = Character.toString(strRow.charAt(j));
+//                    strArraySocketNum[col][j] = Character.toString(strRow.charAt(j));
                     mapSocketNum.put("row" + String.valueOf(j + 1), Character.toString(strRow.charAt(j)));
                 }
                 col++;

@@ -88,6 +88,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveDataSummary").permitAll()
                 .antMatchers("/retrieveSlotYield").permitAll()
                 .antMatchers("/retrieveTdbiDc").permitAll()
+                .antMatchers("/retrieveBoardCompositeSocketYield").permitAll()
 // EFFICIENCY ANAYSIS
                 .antMatchers("/retrieveTestEfficiency").permitAll()
                 .antMatchers("/retrieveTestTime").permitAll()

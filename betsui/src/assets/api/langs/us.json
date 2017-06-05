@@ -1,4 +1,6 @@
 {
+  "biTestNumber":"Tester Number",
+  "boardCompositeSocketYield":"Board Composite Socket Yield",
   "operatorId":"Operator ID",
   "tdbiDc":"TDBI DC",
   "cid":"CID",
