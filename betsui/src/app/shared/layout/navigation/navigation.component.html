@@ -34,7 +34,7 @@
                     </li>
                 </ul>
             </li>
-            <li *ngIf="menuAuthority == 'ADMIN'">
+            <li *ngIf="menuAuthority == 'ADMIN' || menuAuthority == 'OPERATOR'">
                 <a title="BASIS INFORMATION"><i class="fa fa-lg fa-fw fa-gears"></i> <span class="menu-item-parent">{{'BASIS INFORMATION' | i18n}}</span></a>
                 <ul>
                     <li routerLinkActive="active">
@@ -54,6 +54,9 @@
                     </li>
                     <li routerLinkActive="active">
                         <a routerLink="/basis/testerIpInfo">{{'Tseter IP' | i18n}}</a>
+                    </li>
+                    <li routerLinkActive="active">
+                        <a routerLink="/basis/badBlock">{{'BAD Block' | i18n}}</a>
                     </li>
                 </ul>
             </li>

@@ -31,8 +31,7 @@ import {UtilsModule} from "../utils/utils.module";
     TooltipModule.forRoot(),
     DropdownModule.forRoot(),
   ],
-  declarations: [
-    FooterComponent,
+  declarations: [    FooterComponent,
     RibbonComponent,
     ShortcutComponent,
     LayoutSwitcherComponent,
@@ -40,6 +39,7 @@ import {UtilsModule} from "../utils/utils.module";
     EmptyLayoutComponent,
     AuthLayoutComponent,
     RouteBreadcrumbsComponent,
+
   ],
   exports:[
     HeaderModule,

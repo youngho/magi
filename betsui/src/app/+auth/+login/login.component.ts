@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
                             if (value.authority == "ADMIN") {
                                 localStorage.setItem('authority', "ADMIN");
                             } else if(localStorage.getItem('authority') != "ADMIN" ){
-                                localStorage.setItem('authority', "USER");
+                                localStorage.setItem('authority', value.authority);
                             }
                         }
                         console.log("localStorage.setItem('token') : " + localStorage.getItem('token'));

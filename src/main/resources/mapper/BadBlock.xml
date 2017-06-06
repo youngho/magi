@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.famos.bets.basisInformation.badBlock.mapper.BadBlockMapper">
+    <select id="retrieveBadBlock" parameterType="kr.famos.bets.basisInformation.badBlock.dto.BadBlockDto" resultType="kr.famos.bets.basisInformation.badBlock.dto.BadBlockDto">
+        SELECT
+              LOT_ID,
+              CID,
+              WF,
+              X,
+              Y,
+              BAD_CNT
+        FROM
+              BAD_BLOCK
+        <where>
+            1 = 1
+            <if test=" lotId != null and lotId != '' ">
+                AND LOT_ID=#{lotId}
+            </if>
+            <if test=" cid != null and cid != '' ">
+                AND CID=#{cid}
+            </if>
+            <if test=" wf != null and wf != '' ">
+                AND WF=#{wf}
+            </if>
+        </where>
+    </select>
+
+    <select id="retrieveBadBlockByKey" parameterType="kr.famos.bets.basisInformation.badBlock.dto.BadBlockDto" resultType="kr.famos.bets.basisInformation.badBlock.dto.BadBlockDto">
+        SELECT
+            LOT_ID,
+            CID,
+            WF,
+            X,
+            Y,
+            BAD_CNT
+        FROM
+              BAD_BLOCK
+        <where>
+            1 = 1
+            <if test=" lotId != null and lotId != '' ">
+                AND LOT_ID=#{lotId}
+            </if>
+            <if test=" cid != null and cid != '' ">
+                AND CID=#{cid}
+            </if>
+            <if test=" wf != null and wf != '' ">
+                AND WF=#{wf}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insertBadBlock" parameterType="kr.famos.bets.basisInformation.badBlock.dto.BadBlockDto">
+        MERGE INTO BAD_BLOCK USING DUAL ON (LOT_ID=#{lodId})
+        WHEN MATCHED THEN
+        UPDATE
+        <trim prefix="SET" suffixOverrides=",">
+                X = #{x},
+            <if test="y!=null and y!=''">
+                Y = #{y},
+            </if>
+            <if test="wf != null and wf !=''">
+                WF = #{wf},
+            </if>
+        </trim>
+        WHEN NOT MATCHED THEN
+        INSERT
+        (
+        LOT_ID,
+        CID,
+        WF,
+        X,
+        Y,
+        BAD_CNT
+        )
+        VALUES
+        (
+        #{lotId},
+        #{cid},
+        #{wf},
+        #{x},
+        #{y},
+        #{badCnt}
+        )
+    </insert>
+</mapper>

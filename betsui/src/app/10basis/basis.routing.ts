@@ -37,6 +37,13 @@ export const routes: Routes = [
             data: {
                 pageTitle: 'Tester IP Info'
             }
+        },
+        {
+            path: 'badBlock',
+            loadChildren: 'app/10basis/badBlock/badBlock.module#BadBlockModule',
+            data: {
+                pageTitle: 'BAD Block'
+            }
         }
     ]
     ;

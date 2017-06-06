@@ -1,0 +1,167 @@
+<!-- MAIN CONTENT -->
+<div id="content">
+    <!-- widget grid -->
+    <sa-widgets-grid>
+        <!-- row start -->
+        <div class="row">
+            <!-- NEW WIDGET START -->
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <!-- Widget ID (each widget will need unique ID)-->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
+                        <h2>BAD Block Retrieve</h2>
+                    </header>
+                    <!-- widget div-->
+                    <div>
+                        <!-- widget content -->
+                        <div class="widget-body">
+                            <div class="form-horizontal">
+                                <fieldset>
+                                    <!--POP UP Modal dialog Stat-->
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">{{'Lod ID'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="lodId" type="text" name="lodId" [(ngModel)]="badBlock.lodId">
+                                        </div>
+                                        <label class="col-md-2 control-label">{{'cid'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="cid" type="text" name="cid" [(ngModel)]="badBlock.cid">
+                                        </div>
+
+                                        <!--
+                                                                                <label class="col-md-2 control-label">{{'tdbiBoardDescription'|i18n}}</label>
+                                                                                <div class="col-md-2">
+                                                                                    <input class="form-control" placeholder="{{'tdbiBoardDescription'|i18n}}" type="text" name="tdbiBoardDescription" [(ngModel)]="retrieveCondDto.tdbiBoardDescription">
+                                                                                </div>
+                                        -->
+                                    </div>
+                                </fieldset>
+                                <!--Retest Skip 기준 end-->
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-default" (click)="resetForm()">
+                                                {{'reset'|i18n}}
+                                            </button>
+                                            <button type="button" class="btn btn-success" (click)="lgModal.show()">
+                                                <i class="fa file-o"></i>
+                                                New
+                                            </button>
+                                            <button (click)="retrieveExecute()" class="btn btn-primary">
+                                                <i class="fa fa-search"></i>
+                                                {{'Retrieve'|i18n}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end widget content -->
+                    </div>
+                    <!-- end widget div -->
+                </sa-widget>
+                <!-- end widget -->
+                <!-- widget Grid Start -->
+                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>BAD Block Retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="editByKye(flexGrid)">Edit</button>
+                                </div>
+                            </div>
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <!--<wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col [width]="'*'"></wj-flex-grid-column>-->
+                                <wj-flex-grid-column [header]="'Lod ID'" [binding]="'lodId'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'CID'" [binding]="'cid'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'WAFER'" [binding]="'wf'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'X Socket Qty'" [binding]="'x'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Y Socket Qty'" [binding]="'y'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'BAD Count'" [binding]="'badCnt'" [width]="'*'"></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div>No data available in table</div>
+                            </div>
+                        </div>
+                    </div>
+                </sa-widget>
+                <!-- widget Grid End -->
+            </article>
+            <!-- WIDGET END -->
+        </div>
+        <!-- row end-->
+    </sa-widgets-grid>
+    <!-- end widget grid -->
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" (click)="lgModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">BAD Block Register</h4>
+            </div>
+            <form class="form-horizontal" #tableForm="ngForm" (ngSubmit)="saveForm()" novalidate>
+                <div class="modal-body">
+                    <fieldset>
+                        <!--<legend>Last TABLED efault Form Elements</legend>-->
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'lodId'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="" type="text" id="lodId" name="lodId" [(ngModel)]="badBlock.lodId">
+                            </div>
+                            <label class="col-md-2 control-label">{{'cid'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="" type="text" id="cid" name="cid" [(ngModel)]="badBlock.cid">
+                            </div>
+                            <label class="col-md-2 control-label">WAFER</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="" type="text" id="wf" name="wf" [(ngModel)]="badBlock.wf">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">{{'x'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="" type="text" id="x" name="x" [(ngModel)]="badBlock.x">
+                            </div>
+                            <label class="col-md-2 control-label">{{'y'|i18n}}</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="" type="text" id="y" name="y" [(ngModel)]="badBlock.y">
+                            </div>
+                            <label class="col-md-2 control-label">BAD Count</label>
+                            <div class="col-md-2">
+                                <input class="form-control" placeholder="" type="text" id="badCnt" name="badCnt" [(ngModel)]="badBlock.badCnt">
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" (click)="lgModal.hide()">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn btn-primary" type="submit">
+                        <i class="fa fa-save"></i>
+                        {{'save'|i18n}}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

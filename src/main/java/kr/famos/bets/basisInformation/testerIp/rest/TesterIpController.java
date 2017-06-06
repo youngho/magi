@@ -28,26 +28,14 @@ public class TesterIpController {
     public ResponseEntity<List<TesterIpDto>> retrieveTesterIp(@RequestBody TesterIpDto testerIpDto) {
         return new ResponseEntity<List<TesterIpDto>>(testerIpService.retrieveTesterIp(testerIpDto), HttpStatus.OK);
     }
-/*
-    @RequestMapping(value = "/retrieveBinDescriptionByKey", method = RequestMethod.POST)
-    public ResponseEntity<TesterIpDto> retrieveBinDescriptionByKey(@RequestBody TesterIpDto testerIpDto) {
 
-        logger.debug("BinDescriptionController - retireve 메소드");
-
-        return new ResponseEntity<TesterIpDto>(testerIpService.retrieveBinDescriptionByKey(testerIpDto), HttpStatus.OK);
+    @RequestMapping(value = "/retrieveTesterIpByKey", method = RequestMethod.POST)
+    public ResponseEntity<TesterIpDto> retrieveTesterIpByKey(@RequestBody TesterIpDto testerIpDto) {
+        return new ResponseEntity<TesterIpDto>(testerIpService.retrieveTesterIpByKey(testerIpDto), HttpStatus.OK);
     }
 
-
-    @RequestMapping(value = "/insertBinDescription", method = RequestMethod.POST)
-    public void post(@RequestBody TesterIpDto testerIpDto) {
-        logger.debug("BinDescriptionController - post 함수");
-
-        logger.debug(testerIpDto.getPartNumber());
-        logger.debug(testerIpDto.getMainProgramName());
-        logger.debug(testerIpDto.getProcessCode());
-        logger.debug(testerIpDto.getTesterModel());
-
-        testerIpService.insertBinDescription(testerIpDto);
+    @RequestMapping(value = "/insertTesterIp", method = RequestMethod.POST)
+    public void insertBadBlock(@RequestBody TesterIpDto testerIpDto) {
+        testerIpService.insertBadBlock(testerIpDto);
     }
-*/
 }

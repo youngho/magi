@@ -72,6 +72,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/insertLcVersionRegister").permitAll()
 
                 .antMatchers("/retrieveTesterIp").permitAll()
+
+                .antMatchers("/retrieveBadBlock").permitAll()
+                .antMatchers("/retrieveBadBlockByKey").permitAll()
 // YIELD ANAYSIS
                 .antMatchers("/retrieveLotYield").permitAll()
                 .antMatchers("/retrieveNgBin").permitAll()

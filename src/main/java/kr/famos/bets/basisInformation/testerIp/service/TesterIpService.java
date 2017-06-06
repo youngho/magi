@@ -27,20 +27,14 @@ public class TesterIpService {
 
     public List<TesterIpDto> retrieveTesterIp(TesterIpDto testerIpDto){
         List<TesterIpDto> testerIpDtoList = testerIpMapper.retrieveTesterIp(testerIpDto);
-        // TODO
         return testerIpDtoList;
     }
-/*
-    public TesterIpDto retrieveBinDescriptionByKey(TesterIpDto testerIpDto){
-        logger.debug("BinDescriptionService - retrieveBinDescription");
-        TesterIpDto binDescriptionByKey = testerIpMapper.retrieveBinDescriptionByKey(testerIpDto);
-        // TODO
+    public TesterIpDto retrieveTesterIpByKey(TesterIpDto testerIpDto){
+        TesterIpDto binDescriptionByKey = testerIpMapper.retrieveTesterIpByKey(testerIpDto);
         return binDescriptionByKey;
     }
 
-    public void insertBinDescription(TesterIpDto testerIpDto){
-
-        testerIpMapper.insertBinDescription(testerIpDto);
+    public void insertBadBlock(TesterIpDto testerIpDto){
+        testerIpMapper.insertBadBlock(testerIpDto);
     }
-    */
 }

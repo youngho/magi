@@ -13,24 +13,7 @@ public interface TesterIpMapper {
 
     List<TesterIpDto> retrieveTesterIp(TesterIpDto testerIpDto);
 
-//    TesterIpDto retrieveBinDescriptionByKey(TesterIpDto testerIpDto);
+    TesterIpDto retrieveTesterIpByKey(TesterIpDto testerIpDto);
 
-//    void insertBinDescription(TesterIpDto testerIpDto);
-/*    @Autowired
-    private SqlSession sqlSession;
-
-    public BinDescriptionMapper(SqlSession sqlSession) {
-        this.sqlSession = sqlSession;
-    }*/
-
-
-//    public List<BinDescription> retrieveBinDescription(BinDescription binDescription) {
-//        logger.info("BinDescriptionDao - retrieveBinDescription 메소드 호출");
-//        return this.sqlSession.selectList("retrieveBinDescription", binDescription);
-//    }
-//
-//
-//    public void insertBinDescription(BinDescription binDescription) {
-//        this.sqlSession.insert("insertBinDescription", binDescription);
-//    }
+    void insertBadBlock(TesterIpDto testerIpDto);
 }
