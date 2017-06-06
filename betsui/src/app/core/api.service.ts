@@ -3,7 +3,15 @@ import {Http, Headers, RequestOptions, Response, URLSearchParams} from '@angular
 import {Observable} from 'rxjs/Rx';
 
 //import { APP_CONFIG, AppConfig } from '../app.config';
-
+/**
+ * 1. File name     : api.service.ts
+ * 2. Discription   : Restful 서비스를 호출하는 로직 (POST, GET)
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @Injectable()
 export class ApiService {
 
@@ -12,8 +20,8 @@ export class ApiService {
         'Accept': 'application/json'
     });
 
-    private API_URL: string = 'http://172.16.55.41:8080/';
-    // private API_URL: string = 'http://localhost:8080/';
+    private API_URL: string = 'http://172.16.55.41:8080/';  // 개발 서버 IP 주소
+    // private API_URL: string = 'http://localhost:8080/';  // local에서 개발시 접속 주소
 
     constructor(private http: Http/*, @Inject(APP_CONFIG) config: AppConfig*/) {
         //this.API_URL = config.apiEndpoint;
