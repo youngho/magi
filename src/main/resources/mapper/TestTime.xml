@@ -10,9 +10,9 @@
     <select id="retrieveTestTimeGroup" parameterType="kr.famos.bets.efficiencyAnalysis.testTime.dto.TestTimeCondDto" resultType="kr.famos.bets.efficiencyAnalysis.testTime.dto.TestTimeResultDto">
         SELECT
               MAIN_PROGRAM_NAME,
-              MAX(SHOT_END_TIME - SHOT_START_TIME) AS TEST_TIME_MAX,
-              MIN(CASI_BIN.SHOT_END_TIME - SHOT_START_TIME) AS TEST_TIME_MIN,
-              TRUNC(AVG(SHOT_END_TIME - SHOT_START_TIME)) AS TEST_TIME_AVERAGE
+              TRUNC(MAX(TO_DATE(SHOT_END_TIME, 'YYYYMMDDHH24MISS') - TO_DATE(SHOT_START_TIME, 'YYYYMMDDHH24MISS')) * 24 * 60 * 60) AS TEST_TIME_MAX,
+              TRUNC(MIN(TO_DATE(SHOT_END_TIME, 'YYYYMMDDHH24MISS') - TO_DATE(SHOT_START_TIME, 'YYYYMMDDHH24MISS')) * 24 * 60 * 60) AS TEST_TIME_MIN,
+              TRUNC(AVG(TO_DATE(SHOT_END_TIME, 'YYYYMMDDHH24MISS') - TO_DATE(SHOT_START_TIME, 'YYYYMMDDHH24MISS')) * 24 * 60 * 60) AS TEST_TIME_AVERAGE
         FROM CASI_BIN
         <where>
             1 = 1
