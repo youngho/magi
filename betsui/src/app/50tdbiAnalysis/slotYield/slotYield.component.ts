@@ -7,7 +7,17 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {SlotYieldService} from "./slotYield.service";
 import {SlotYield} from './slotYield.model';
-
+/**
+ * 1. File name     : slotYield.component.ts
+ * 2. Discription   : BURN_IN_BOARD_MAP 테이블에서 Slot 별로 BIN의 결과를 보여준다
+ *                    BI_SOCKET_NUMBER 컬럼에 들어 있는 BIN 문자열을 파싱하여 BIN별로 형태로 보여주는것이 핵심이다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0504 : slotYield
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'slotYield',
@@ -25,14 +35,14 @@ export class SlotYieldComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: SlotYield = new SlotYield();
+    private retrieveCondDto: SlotYield = new SlotYield();
     private usageInfo = new UserUsage();
 
     constructor(private service: SlotYieldService) {
     }
 
     ngOnInit() {
-        // this.data.createDate = It makes server side service class
+        // this.retrieveCondDto.createDate = It makes server side service class
         this.usageInfo.userId = localStorage.getItem("loginId");
         this.usageInfo.uiId = this.UIID;
         this.service.postUsage(this.usageInfo).subscribe(
@@ -50,21 +60,22 @@ export class SlotYieldComponent {
     }
 
     resetForm() {
-        this.data = new SlotYield();
+        this.retrieveCondDto = new SlotYield();
     }
 
     retrieveExecute() {
         // if(this.componentData){this.componentData.}
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
-        console.log("partNumber : " + this.data.partNumber);
-        console.log("processCode : " + this.data.processCode);
-        console.log("testerModel : " + this.data.testerModel);
-        // console.log("testerNumber : " + this.data.testerNumber);
-        // console.log("head : " + this.data.head);
-        // console.log("testCounter : " + this.data.testCounter);
-
-        this.service.retrieveService(this.data)
+        // console.log("endTimeStart : " + this.retrieveCondDto.endTimeStart);
+        // console.log("endTimeEnd : " + this.retrieveCondDto.endTimeEnd);
+        // console.log("partNumber : " + this.retrieveCondDto.partNumber);
+        // console.log("processCode : " + this.retrieveCondDto.processCode);
+        // console.log("testerModel : " + this.retrieveCondDto.testerModel);
+        // console.log("testerNumber : " + this.retrieveCondDto.testerNumber);
+        // console.log("head : " + this.retrieveCondDto.head);
+        // console.log("testCounter : " + this.retrieveCondDto.testCounter);
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.service.retrieveService(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {

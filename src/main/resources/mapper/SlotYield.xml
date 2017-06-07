@@ -38,6 +38,9 @@
             <if test=" testerModel != null and testerModel != '' ">
                 AND BI_TESTER_MODEL=#{testerModel}
             </if>
+            <if test=" testNumber != null and testNumber != '' ">
+                AND BI_TEST_NUMBER=#{testNumber}
+            </if>
             <if test=" lotId != null and lotId != '' ">
                 AND BI_LOT_ID=#{lotId}
             </if>
@@ -52,6 +55,9 @@
             </if>
             <if test=" slotNumber != null and slotNumber != '' ">
                 AND BI_SLOT_NUMBER=#{slotNumber}
+            </if>
+            <if test=" boardType != null and boardType != '' ">
+                AND BI_BOARD_ID LIKE #{boardType} || '%'
             </if>
         </where>
         ORDER BY BI_SLOT_NUMBER ASC
