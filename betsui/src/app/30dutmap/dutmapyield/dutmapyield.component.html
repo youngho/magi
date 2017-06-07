@@ -22,112 +22,115 @@
                     <div>
                         <!-- widget content -->
                         <div class="widget-body">
-                            <div class="form-horizontal">
-                                <fieldset>
-                                    <!--검색조건 시작-->
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                            <form #form="ngForm">
+                                <div class="form-horizontal">
+                                    <fieldset>
+                                        <!--검색조건 시작-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <label class="col-md-2 control-label"><sup>*</sup>{{'testerNumber'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="MAGNUM5-001" name="testerNumber" type="text" required [(ngModel)]="retrieveCondDto.testerNumber">
+                                            </div>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <!--<input class="form-control" placeholder="BIN Select" type="text" [(ngModel)]="retrieveCondDto.binSelection">-->
+                                                <label class="select">
+                                                    <select class="input-sm" name="binSelection" [(ngModel)]="retrieveCondDto.binSelection" (change)="onBinSelectionChange($event)">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="0">ALL</option>
+                                                    </select> <i></i>
+                                                </label>
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'binYieldLowerLimit'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="%" name="binYieldLowerLimit" type="text" [readonly]="binYieldLowerLimitReadonly" [(ngModel)]="retrieveCondDto.binYieldLowerLimit">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'binYieldUpperLimit'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="%" name="binYieldUpperLimit" type="text" [readonly]="binYieldUpperLimitReadonly" [(ngModel)]="retrieveCondDto.binYieldUpperLimit">
+                                            </div>
                                         </div>
-                                        <label class="col-md-2 control-label"><sup>*</sup>{{'testerNumber'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="MAGNUM5-001" type="text" required [(ngModel)]="retrieveCondDto.testerNumber">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <!--<input class="form-control" placeholder="BIN Select" type="text" [(ngModel)]="retrieveCondDto.binSelection">-->
-                                            <label class="select">
-                                                <select class="input-sm" [(ngModel)]="retrieveCondDto.binSelection" (change)="onBinSelectionChange($event)">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="0">ALL</option>
-                                                </select> <i></i>
-                                            </label>
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'binYieldLowerLimit'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="%" type="text" [readonly]="binYieldLowerLimitReadonly" [(ngModel)]="retrieveCondDto.binYieldLowerLimit">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'binYieldUpperLimit'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="%" type="text" [readonly]="binYieldUpperLimitReadonly" [(ngModel)]="retrieveCondDto.binYieldUpperLimit">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="retrieveCondDto.partNumber">
-                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Part Number" name="partNumber" type="text" [(ngModel)]="retrieveCondDto.partNumber">
+                                            </div>
 
-                                        <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="retrieveCondDto.processCode">
-                                        </div>
+                                            <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Process Code" name="processCode" type="text" [(ngModel)]="retrieveCondDto.processCode">
+                                            </div>
 
-                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="retrieveCondDto.testerModel">
+                                            <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Tester Model" name="testerModel" type="text" [(ngModel)]="retrieveCondDto.testerModel">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="retrieveCondDto.head">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Tester Head" name="head" type="text" [(ngModel)]="retrieveCondDto.head">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Test Counter" name="testCounter" type="text" [(ngModel)]="retrieveCondDto.testCounter">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Lot ID" name="lotId" type="text" [(ngModel)]="retrieveCondDto.lotId">
+                                            </div>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text" [(ngModel)]="retrieveCondDto.testCounter">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" name="mainProgramName" type="text" [(ngModel)]="retrieveCondDto.mainProgramName">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'boardId'|i18n}}" name="boardId" type="text" [(ngModel)]="retrieveCondDto.boardId">
+                                            </div>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot ID" type="text" [(ngModel)]="retrieveCondDto.lotId">
+                                        <!--
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'sblDutLimit'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'sblDutLimit'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.sblDutLimit">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.mainProgramName">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.boardId">
-                                        </div>
-                                    </div>
-                                    <!--
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'sblDutLimit'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'sblDutLimit'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.sblDutLimit">
-                                        </div>
-                                    </div>
-                                    -->
-                                </fieldset>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button class="btn btn-default" (click)="resetForm()">
-                                                {{'reset'|i18n}}
-                                            </button>
-                                            <button (click)="retrieveExecute()" class="btn btn-primary"><i class="fa fa-search"></i>
-                                                {{'retrieve'|i18n}}
-                                            </button>
+                                        -->
+                                    </fieldset>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-default" (click)="resetForm()">
+                                                    {{'reset'|i18n}}
+                                                </button>
+                                                <button type="submit" [disabled]="!form.form.valid" (click)="retrieveExecute()" class="btn btn-primary">
+                                                    <i class="fa fa-search"></i>
+                                                    {{'retrieve'|i18n}}
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- end widget content -->
                     </div>
