@@ -25,7 +25,7 @@ export class BoardYieldComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: BoardYield = new BoardYield();
+    private retrieveCondDto: BoardYield = new BoardYield();
     private usageInfo = new UserUsage();
 
     constructor(private service: BoardYieldService) {
@@ -50,21 +50,22 @@ export class BoardYieldComponent {
     }
 
     resetForm() {
-        this.data = new BoardYield();
+        this.retrieveCondDto = new BoardYield();
     }
 
     saveLastTableForm() {
         // if(this.componentData){this.componentData.}
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
-        console.log("partNumber : " + this.data.partNumber);
-        console.log("processCode : " + this.data.processCode);
-        console.log("testerModel : " + this.data.testerModel);
+        // console.log("endTimeStart : " + this.data.endTimeStart);
+        // console.log("endTimeEnd : " + this.data.endTimeEnd);
+        // console.log("partNumber : " + this.data.partNumber);
+        // console.log("processCode : " + this.data.processCode);
+        // console.log("testerModel : " + this.data.testerModel);
         // console.log("testerNumber : " + this.data.testerNumber);
         // console.log("head : " + this.data.head);
         // console.log("testCounter : " + this.data.testCounter);
-
-        this.service.retrieveService(this.data)
+        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.service.retrieveService(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {

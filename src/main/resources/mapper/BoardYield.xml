@@ -53,6 +53,10 @@
             <if test=" slotNumber != null and slotNumber != '' ">
                 AND BI_SLOT_NUMBER=#{slotNumber}
             </if>
+            <if test=" testNumber != null and testNumber != '' ">
+                AND BI_TEST_NUMBER=#{testNumber}
+            </if>
+
         </where>
         ORDER BY BI_BOARD_ID ASC
     </select>
