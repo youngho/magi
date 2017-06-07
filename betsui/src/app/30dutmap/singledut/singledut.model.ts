@@ -1,15 +1,32 @@
 /**
- * Created by yhkim on 2017-02-17.
+ * 1. File name     : singledut.component.ts
+ * 2. Discription   : CASI_BIN 테이블에서 SHOT 별로 DUT의 결과를 보여준다
+ *                    DUT_MAIN_BIN 컬럼에 들어 있는 BIN 문자열을 파싱하여 표(DUT Map) 형태로 보여주는것이 핵심이다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0301 : Single DUT map
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 export class SingleDut {
-    testerNumber: string;
-    testerModel: string;
-    handlerModel: string;
-    head: string;
-    lotId: string;
-    processCode: string;
+    endTimeStart: string;
+    endTimeEnd: string;
+    binSelection: string;
+
     partNumber: string;
+    processCode: string;
+    testerModel: string;
+
+    testerNumber: string;
+    head: string;
+    testCounter: string;
+
+    lotId: string;
     mainProgramName: string;
+    boardId: string;
+/*
+    handlerModel: string;
     grade: string;
     fab: string;
     firmwareName: string;
@@ -17,18 +34,12 @@ export class SingleDut {
     temperature: string;
     operatorId: string;
     quantity: string;
-    testCounter: string;
     reworkFlag: string;
-    boardId: string;
     lotInTime: string;
     endTime: string;
     sblResult: string;
     sblYieldLimit: string;
-
     sblBin9Counter: string;
     sblBin9Limit: string;
-
-    endTimeStart: string;
-    endTimeEnd: string;
-
+*/
 }

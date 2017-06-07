@@ -7,8 +7,17 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {SingleDutService} from "./singledut.service";
 import {SingleDut} from "./singledut.model";
-
-
+/**
+ * 1. File name     : singledut.component.ts
+ * 2. Discription   : CASI_BIN 테이블에서 SHOT 별로 DUT의 결과를 보여준다
+ *                    DUT_MAIN_BIN 컬럼에 들어 있는 BIN 문자열을 파싱하여 표(DUT Map) 형태로 보여주는것이 핵심이다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0301 : Single DUT map
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'SingledDutBin',
@@ -49,10 +58,13 @@ export class SingleDutComponent {
         },300);
     }
 
+    /**
+     * UI의 Reset 버튼 클릭 함수
+     */
     resetForm() {
-        this.retrieveCondDto = new SingleDut();
-        this.empty = true;
-        this.isRequesting = false;
+        this.retrieveCondDto = new SingleDut(); // 조회 DTO를 초기화한다
+        this.empty = true;                      // Grid의 데이터 여부
+        this.isRequesting = false;              // 데이터 조회중 표시 기능 여부
     }
 
     retrieveExecute() {
