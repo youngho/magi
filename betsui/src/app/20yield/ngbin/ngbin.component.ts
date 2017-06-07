@@ -51,6 +51,10 @@ export class NgBinComponent {
         },300);
     }
 
+    resetForm() {
+        this.retrieveCondDto = new NgBin();
+    }
+
     retrieveExecute() {
         // console.log("endTimeStart : " + this.data.endTimeStart);
         // console.log("endTimeEnd : " + this.data.endTimeEnd);
