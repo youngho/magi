@@ -38,6 +38,10 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
 
     constructor(private service: ProgramRegisterRetrieveService, private notificationService: NotificationService, private programRegister: ProgramRegister) {
     }
+
+    /**
+     * 로그인한 사용자가 해당 메뉴에 접근할 경우 postUsage 서비스를 호출하여 해당 사용자의 접근 로그를 기록한다.
+     */
     ngOnInit() {
         // this.data.createDate = It makes server side service class
         this.usageInfo.userId = localStorage.getItem("loginId");
@@ -110,7 +114,6 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
 
     //팝업 객체로부터 이벤트를 받아 팝업 모달 창을 닫음(감춤);
     modalClose(clsoe: boolean) {
-
         if (clsoe) {
             this.bgModel.hide();
         }

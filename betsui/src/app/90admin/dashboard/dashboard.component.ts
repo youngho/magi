@@ -5,6 +5,18 @@ import {DashboardService} from "./dashboard.service";
 import * as wjcChart from 'wijmo/wijmo.chart';
 import * as wjcCore from 'wijmo/wijmo';
 import * as wjcInput from 'wijmo/wijmo.input';
+/**
+ * 1. File name     : dashboard.component.ts
+ * 2. Discription   : BETS의 초기화면, MAIN_BIN 테이블에서 -3M,-2M,-1M,-3W,-2W,-1W,-3D,-2D,-1D의 수율을 공정별로 표시한다
+ *                    PROGRAM_REGISTER 테이블에서 가장 최근 변경이력 5개를 보여준다
+ *                    MAIN_BIN 테이블에서 수율이 낮은 5개읠 LOT_ID 를 보여준다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI ID         : BETS-UI-0903
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 
 @FadeInTop()
 @Component({
@@ -13,6 +25,10 @@ import * as wjcInput from 'wijmo/wijmo.input';
     providers: [DashboardService]
 })
 export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecked {
+    /**
+     * chart를 동적으로 생성하기 위해 필요한 chart에 대해 미리 선언한다
+     * wijmo.chart를 사용하였다
+     */
     @ViewChild('chart1') chart1: wjcChart.FlexChart;
     @ViewChild('chart2') chart2: wjcChart.FlexChart;
     @ViewChild('chart3') chart3: wjcChart.FlexChart;
@@ -36,11 +52,10 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
         this.chartDataDetail = [];
     }
 
-
-
     ngAfterViewInit() {
         this.chart1Flag = false;
     }
+
     ngAfterViewChecked(){
         if (this.chart1) {
             this.chart1.hostElement.onmouseup = (e) => {
@@ -138,12 +153,15 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
 
     ocap: any[] = null;
 
+    /**
+     * 화면 로딩시 init 에서 필요한 데이터를 조회한다
+     */
     ngOnInit() {
         this.chartDatas = [];
         this.service.retrievePost()
-            .subscribe((apps) => {
+            .subscribe((apps) => {  // Dashboard 형식의 DTO 클래스형식으로 리턴된 값이 apps에 들어있다.
                     console.log(apps);
-                    this.lowYieldLot = apps.lowYieldLot;
+                    this.lowYieldLot = apps.lowYieldLot;        // lowYieldLot 클래스형식
                     this.changeControl = apps.changeControl;
                     this.chartDatas = apps.processChartList;
                     this.ocap = apps.ocap;
@@ -157,12 +175,7 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
                         }
                         i++;
                     }
-
                 },
                 error => this.errorMessage = error);
-
-
     } // ngOnInit End
-
-
 }

@@ -63,7 +63,6 @@ export class ApiService {
 
     public put(path: string, data: any): Observable<any> {
         let body = JSON.stringify(data);
-
         return this.http.put(`${this.API_URL}${path}`, body, {headers: this.headers})
         //.map(this.extractData)
             .catch(this.handleError);
@@ -95,7 +94,6 @@ export class ApiService {
         if (res.status >= 200 && res.status <= 300) {
             return res.json() || {};
         }
-
         return res;
     }
 
