@@ -21,90 +21,94 @@
                     <div>
                         <!-- widget content -->
                         <div class="widget-body">
-                            <div class="form-horizontal">
-                                <fieldset>
-                                    <!--검색조건 시작-->
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                            <form #form="ngForm">
+                                <div class="form-horizontal">
+                                    <fieldset>
+                                        <!--검색조건 시작-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <!-- 설계 화면에 있었으나, 이 화면에선 BIN을 1~8까지 고정으로 분류 하기 때문에 특정 BIN을 선택할 수 없어서 삭제함
+                                                                                    <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
+                                                                                    <div class="col-md-2">
+                                                                                        <input class="form-control" placeholder="BIN Select" type="text">
+                                                                                    </div>
+                                            -->
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
-                                        </div>
-<!-- 설계 화면에 있었으나, 이 화면에선 BIN을 1~8까지 고정으로 분류 하기 때문에 특정 BIN을 선택할 수 없어서 삭제함
-                                        <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text">
-                                        </div>
--->
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="retrieveCondDto.partNumber">
-                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Part Number" name="partNumber" type="text" [(ngModel)]="retrieveCondDto.partNumber">
+                                            </div>
 
-                                        <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text" [(ngModel)]="retrieveCondDto.processCode">
-                                        </div>
+                                            <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Process Code" name="processCode" type="text" [(ngModel)]="retrieveCondDto.processCode">
+                                            </div>
 
-                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="retrieveCondDto.testerModel">
+                                            <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Tester Model" name="testerModel" type="text" [(ngModel)]="retrieveCondDto.testerModel">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label"><sup>*</sup>{{'testerNumber'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'testerNumber'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.testerNumber">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label"><sup>*</sup>{{'testerNumber'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'testerNumber'|i18n}}" name="testerNumber" type="text" required [(ngModel)]="retrieveCondDto.testerNumber">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Tester Head" name="head" type="text" [(ngModel)]="retrieveCondDto.head">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Test Counter" name="testCounter" type="text" [(ngModel)]="retrieveCondDto.testCounter">
+                                            </div>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Tester Head'|i18n}}</label>
-                                        <div class="col-md-2"><input class="form-control" placeholder="Tester Head" type="text" [(ngModel)]="retrieveCondDto.head"></div>
-                                        <label class="col-md-2 control-label">{{'Tester Counter'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Test Counter" type="text"
-                                                   [(ngModel)]="retrieveCondDto.testCounter">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Lot ID" name="lotId" type="text" [(ngModel)]="retrieveCondDto.lotId">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" name="mainProgramName" type="text" [(ngModel)]="retrieveCondDto.mainProgramName">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'boardId'|i18n}}" name="boardId" type="text" [(ngModel)]="retrieveCondDto.boardId">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot ID" type="text" [(ngModel)]="retrieveCondDto.lotId">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.mainProgramName">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.boardId">
-                                        </div>
-                                    </div>
-<!-- 이 변수에 들어오는 값을 기준으로 색깔을 다르게 보여주려 했으나 flexgrid에서 동적 컬럼에 대한 색깔을 바꿀 수 없어 실패함
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'sblDutLimit'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'sblDutLimit'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.sblDutLimit">
-                                        </div>
-                                    </div>
--->
-                                </fieldset>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button class="btn btn-default" (click)="resetForm()">
-                                                {{'reset'|i18n}}
-                                            </button>
-                                            <button (click)="retrieveExecute()" class="btn btn-primary"><i class="fa fa-search"></i>
-                                                {{'retrieve'|i18n}}
-                                            </button>
+                                        <!-- 이 변수에 들어오는 값을 기준으로 색깔을 다르게 보여주려 했으나 flexgrid에서 동적 컬럼에 대한 색깔을 바꿀 수 없어 실패함
+                                                                            <div class="form-group">
+                                                                                <label class="col-md-2 control-label">{{'sblDutLimit'|i18n}}</label>
+                                                                                <div class="col-md-2">
+                                                                                    <input class="form-control" placeholder="{{'sblDutLimit'|i18n}}" type="text" [(ngModel)]="retrieveCondDto.sblDutLimit">
+                                                                                </div>
+                                                                            </div>
+                                        -->
+                                    </fieldset>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-default" (click)="resetForm()">
+                                                    {{'reset'|i18n}}
+                                                </button>
+                                                <button type="submit" [disabled]="!form.form.valid" (click)="retrieveExecute()" class="btn btn-primary">
+                                                    <i class="fa fa-search"></i>
+                                                    {{'retrieve'|i18n}}
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- end widget content -->
                     </div>
