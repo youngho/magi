@@ -58,9 +58,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label"><sup>*</sup>{{'dutMap'|i18n}}</label>
+            <label class="col-md-2 control-label">{{'dutMap'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="dutMap" name="dutMap" maxlength="40" required
+                <input type="text" class="form-control" id="dutMap" name="dutMap" maxlength="40"
                        placeholder="ex) 256DUT_MAP" [(ngModel)]="programRegister.dutMap">
             </div>
             <label class="col-md-2 control-label">{{'firmwareName'|i18n}}</label>
@@ -170,9 +170,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label"><sup>*</sup>{{'firmwareDirectory'|i18n}}</label>
+            <label class="col-md-2 control-label">{{'firmwareDirectory'|i18n}}</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" id="firmwareDirectory" maxlength="100" required
+                <input type="text" class="form-control" id="firmwareDirectory" maxlength="100"
                        name="firmwareDirectory" placeholder="ex) f:\firmware" title="The 'Firmware Directory' is only used for MAGNUM5"
                        [(ngModel)]="programRegister.firmwareDirectory">
             </div>
