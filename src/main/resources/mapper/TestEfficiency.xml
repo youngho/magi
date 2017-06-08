@@ -16,11 +16,11 @@
         FROM CASI_BIN
         <where>
             1 = 1
-            <if test=" endTimeStart != null and endTimeStart != '' ">
-                AND END_TIME >= #{endTimeStart}
+            <if test=" searchTimeStart != null and searchTimeStart != '' ">
+                AND END_TIME >= #{searchTimeStart}
             </if>
-            <if test=" endTimeEnd != null and endTimeEnd != '' ">
-                AND END_TIME <![CDATA[<=]]> #{endTimeEnd}
+            <if test=" searchTimeEnd != null and searchTimeEnd != '' ">
+                AND END_TIME <![CDATA[<=]]> #{searchTimeEnd}
             </if>
             <if test=" partNumber != null and partNumber != '' ">
                 AND PART_NUMBER=#{partNumber}

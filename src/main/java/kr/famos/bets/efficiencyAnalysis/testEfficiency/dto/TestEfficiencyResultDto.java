@@ -5,77 +5,89 @@ package kr.famos.bets.efficiencyAnalysis.testEfficiency.dto;
  * Test Efficiency
  */
 public class TestEfficiencyResultDto {
-    private String partNumber        = ""; // PART NUMBER
-    private String processCode       = ""; // PROCESS CODE
-    private String mainProgramName   = ""; // MAIN PROGRAM NAME
-    private String testerModel       = ""; // TESTER MODEL NAME
-    private String para              = ""; //
+    private String testerNumber      = "";
 
-    private String testTimeAverage   = ""; // 평균 테스트 시간
-    private String testTimeMax       = ""; // 테스트 최대시간
-    private String testTimeMin       = ""; // 테스트 최소시간
+    /**
+     * 8종류의 loseTime 에 대한 정의
+     */
+    private int loseTimeOfLotChage      = 0; // 이전 lot의 test가 완료된 이후부터 다음 lot의 test_in이 될 때까지 시간
+    private int loseTimeOfPgmLoading    = 0; // lot이 test_in 이후부터 program을 가져와서 loading까지의 시간
+    private int loseTimeOfHdLoading     = 0; // Program loading 이후 H/D로부터 최초의 test start signal이 발생까지의 시간
+    private int loseTimeOfTestTime      = 0; // test time 1/n shot
+    private int loseTimeOfRetestLoading = 0; // retest loading time
+    private int loseTimeOfRetest        = 0; // retest
+    private int loseTimeOfUnload        = 0; // 최종 retest 결과 발생 시간부터 최종 완료 신호까지의 시간
+    private int loseTimeOfSbl           = 0; // 작업자가 Bin 값을 처리하는 시간, FINAL_END_TIME이 PRELOT_END_TIME과 동일
 
-    public String getPartNumber() {
-        return partNumber;
+    public String getTesterNumber() {
+        return testerNumber;
     }
 
-    public void setPartNumber(String partNumber) {
-        this.partNumber = partNumber;
+    public void setTesterNumber(String testerNumber) {
+        this.testerNumber = testerNumber;
     }
 
-    public String getProcessCode() {
-        return processCode;
+    public int getLoseTimeOfLotChage() {
+        return loseTimeOfLotChage;
     }
 
-    public void setProcessCode(String processCode) {
-        this.processCode = processCode;
+    public void setLoseTimeOfLotChage(int loseTimeOfLotChage) {
+        this.loseTimeOfLotChage = loseTimeOfLotChage;
     }
 
-    public String getMainProgramName() {
-        return mainProgramName;
+    public int getLoseTimeOfPgmLoading() {
+        return loseTimeOfPgmLoading;
     }
 
-    public void setMainProgramName(String mainProgramName) {
-        this.mainProgramName = mainProgramName;
+    public void setLoseTimeOfPgmLoading(int loseTimeOfPgmLoading) {
+        this.loseTimeOfPgmLoading = loseTimeOfPgmLoading;
     }
 
-    public String getTesterModel() {
-        return testerModel;
+    public int getLoseTimeOfHdLoading() {
+        return loseTimeOfHdLoading;
     }
 
-    public void setTesterModel(String testerModel) {
-        this.testerModel = testerModel;
+    public void setLoseTimeOfHdLoading(int loseTimeOfHdLoading) {
+        this.loseTimeOfHdLoading = loseTimeOfHdLoading;
     }
 
-    public String getPara() {
-        return para;
+    public int getLoseTimeOfTestTime() {
+        return loseTimeOfTestTime;
     }
 
-    public void setPara(String para) {
-        this.para = para;
+    public void setLoseTimeOfTestTime(int loseTimeOfTestTime) {
+        this.loseTimeOfTestTime = loseTimeOfTestTime;
     }
 
-    public String getTestTimeAverage() {
-        return testTimeAverage;
+    public int getLoseTimeOfRetestLoading() {
+        return loseTimeOfRetestLoading;
     }
 
-    public void setTestTimeAverage(String testTimeAverage) {
-        this.testTimeAverage = testTimeAverage;
+    public void setLoseTimeOfRetestLoading(int loseTimeOfRetestLoading) {
+        this.loseTimeOfRetestLoading = loseTimeOfRetestLoading;
     }
 
-    public String getTestTimeMax() {
-        return testTimeMax;
+    public int getLoseTimeOfRetest() {
+        return loseTimeOfRetest;
     }
 
-    public void setTestTimeMax(String testTimeMax) {
-        this.testTimeMax = testTimeMax;
+    public void setLoseTimeOfRetest(int loseTimeOfRetest) {
+        this.loseTimeOfRetest = loseTimeOfRetest;
     }
 
-    public String getTestTimeMin() {
-        return testTimeMin;
+    public int getLoseTimeOfUnload() {
+        return loseTimeOfUnload;
     }
 
-    public void setTestTimeMin(String testTimeMin) {
-        this.testTimeMin = testTimeMin;
+    public void setLoseTimeOfUnload(int loseTimeOfUnload) {
+        this.loseTimeOfUnload = loseTimeOfUnload;
+    }
+
+    public int getLoseTimeOfSbl() {
+        return loseTimeOfSbl;
+    }
+
+    public void setLoseTimeOfSbl(int loseTimeOfSbl) {
+        this.loseTimeOfSbl = loseTimeOfSbl;
     }
 }

@@ -85,10 +85,10 @@
                 </sa-widget>
                 <!-- end widget -->
                 <!-- widget Grid Start -->
-                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>NSlot Yield Retrieve Result</h2>
+                        <h2>Slot Yield Retrieve Result</h2>
                     </header>
                     <div *ngIf="!empty">
                         <div class="widget-body no-padding">
@@ -109,7 +109,7 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
