@@ -149,9 +149,10 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
         if (this.programRegister.partNumber != null) this.strInputResult += "Part Number : " + this.programRegister.partNumber + "<br>";
         if (this.programRegister.processCode != null) this.strInputResult += "Process Code : " + this.programRegister.processCode + "<br>";
         if (this.programRegister.mainProgramName != null) this.strInputResult += "Main Program Name : " + this.programRegister.mainProgramName + "<br>";
-        if (this.programRegister.dutMap != null) this.strInputResult += "DUT Map : " + this.programRegister.dutMap + "<br>";
+        // if (this.programRegister.dutMap != null) this.strInputResult += "DUT Map : " + this.programRegister.dutMap + "<br>";
         if (this.programRegister.temperature != null) this.strInputResult += "Temperature : " + this.programRegister.temperature + "<br>";
-        if (this.programRegister.firmwareDirectory != null) this.strInputResult += "Firmware Directory : " + this.programRegister.firmwareDirectory + "<br>";
+        if (this.programRegister.temperatureLimit != null) this.strInputResult += "Temperature : " + this.programRegister.temperatureLimit + "<br>";
+        // if (this.programRegister.firmwareDirectory != null) this.strInputResult += "Firmware Directory : " + this.programRegister.firmwareDirectory + "<br>";
         // if (this.programRegister.customer != null) this.strInputResult += "Customer : " + this.programRegister.customer + "<br>";
         // this.strInputResult += '<div>';
 
