@@ -70,7 +70,8 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData">
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData"
+                                          (loadedRows)="onGridLoaded($event)">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <!--<wj-flex-grid-column [header]="'Part Number'" [binding]="'partNumber'" [allowMerging]="true"></wj-flex-grid-column>-->
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
@@ -123,7 +124,24 @@
                     </div>
                 </sa-widget>
             </article>
-
+            <!--파이차트-->
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <!--<article class="col-sm-12 col-md-12 col-lg-12">-->
+                <sa-widget [colorbutton]="false" [editbutton]="false" [togglebutton]="true" [deletebutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Efficiency Pie Chart</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <wj-flex-pie  style="display:block"
+                                          #flexPie [itemsSource]="pieData" binding="value" bindingName="name" [innerRadius]="innerRadius">
+                                <wj-flex-chart-animation #animation [easing]="easing" [duration]="duration"></wj-flex-chart-animation>
+                            </wj-flex-pie>
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
         </div>
         <!-- row end-->
     </sa-widgets-grid>

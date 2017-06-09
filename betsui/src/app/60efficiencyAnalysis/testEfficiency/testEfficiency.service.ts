@@ -19,6 +19,11 @@ export class TestEfficiencyService {
         return this.api.retrievePost(`${this.path}`, data);
     }
 
+    postRetrievePie(data: TestEfficiency) {
+        this.path = 'retrievePieData';
+        return this.api.retrievePost(`${this.path}`, data);
+    }
+
     postUsage(data: UserUsage) {
         this.path = 'insertComUserUsage';
         return this.api.post(`${this.path}`, data);

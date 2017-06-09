@@ -97,6 +97,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 // EFFICIENCY ANAYSIS
                 .antMatchers("/retrieveTestEfficiency").permitAll()
                 .antMatchers("/retrieveUsingLot").permitAll()
+                .antMatchers("/retrievePieData").permitAll()
                 .antMatchers("/retrieveTestTime").permitAll()
 // RAW DATA
                 .antMatchers("/get-resources").permitAll()

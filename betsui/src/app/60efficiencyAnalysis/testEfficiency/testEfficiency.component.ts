@@ -3,6 +3,8 @@ import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import * as wjcChart from 'wijmo/wijmo.chart';
+import * as wjcChartAnimation from 'wijmo/wijmo.chart.animation';
 import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {TestEfficiencyService} from "./testEfficiency.service";
@@ -29,7 +31,30 @@ export class TestEfficiencyComponent implements OnInit {
     private retrieveCondDto: TestEfficiency = new TestEfficiency();
     private usageInfo = new UserUsage();
 
+    /**
+     * 파이차트를 그리기 위한 선언 부분
+     * @param service
+     */
+    pieData: wjcCore.ObservableArray;
+    flexPiePoints: number;
+    title: string;
+    duration: number;
+    innerRadius: number;
+    easing: string;
+    animationMode: string;
+    insertPieIdx: number;
+    // references control in the view
+    @ViewChild('flexPie') flexPie: wjcChart.FlexPie;
+    @ViewChild('animation') animation: wjcChartAnimation.ChartAnimation;
+
     constructor(private service: TestEfficiencyService) {
+        // 파이차트 기본값 설정
+        this.flexPiePoints = 5;
+        this.title = 'FlexPie';
+        this.duration = 400;
+        this.innerRadius = 0;
+        this.easing = 'Swing';
+        this.animationMode = 'All';
     }
 
     ngOnInit() {
@@ -41,6 +66,13 @@ export class TestEfficiencyComponent implements OnInit {
             error => alert(error),
             // () => console.log("Finish onSave()")
         );
+    }
+
+    onGridLoaded(){
+        var self = this;
+        setTimeout(function() {
+            self.flexGrid.autoSizeColumns();
+        },300);
     }
 
     resetForm() {
@@ -70,6 +102,15 @@ export class TestEfficiencyComponent implements OnInit {
         this.service.postRetrieveLot(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.efficiencyLots = apps;
+                },
+                error => this.errorMessage = error
+            );
+        // Pie용 데이터 형식으로 조회
+        this.service.postRetrievePie(this.retrieveCondDto)
+            .subscribe((apps) => {
+                    console.log(apps);
+                    this.pieData = new wjcCore.ObservableArray(apps);
+                    this.insertPieIdx = 1;
                 },
                 error => this.errorMessage = error
             );
