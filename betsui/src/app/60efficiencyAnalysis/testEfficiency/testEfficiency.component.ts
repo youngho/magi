@@ -49,9 +49,11 @@ export class TestEfficiencyComponent implements OnInit {
         this.gridData = null;
     }
 
+    efficiencyLots: any[] = null;
+
     retrieveExecute() {
-        this.retrieveCondDto.endTimeStart = this.startDate + "000000";
-        this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.retrieveCondDto.searchTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.searchTimeEnd = this.endDate + "999999";
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
@@ -61,6 +63,13 @@ export class TestEfficiencyComponent implements OnInit {
                         this.empty = false;
                         this.stopRefreshing();
                     }
+                },
+                error => this.errorMessage = error
+            );
+        // 효율에 사용된 LOT 조회
+        this.service.postRetrieveLot(this.retrieveCondDto)
+            .subscribe((apps) => {
+                    this.efficiencyLots = apps;
                 },
                 error => this.errorMessage = error
             );

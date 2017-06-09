@@ -5,32 +5,59 @@
      * BETS-UI-0601
      * Test Efficiency
     -->
-    <select id="retrieveTestEfficiency" parameterType="kr.famos.bets.efficiencyAnalysis.testEfficiency.dto.TestEfficiencyCondDto" resultType="kr.famos.bets.efficiencyAnalysis.testEfficiency.dto.TestEfficiencyResultDto">
+    <select id="retrieveTestEfficiency" parameterType="kr.famos.bets.efficiencyAnalysis.testEfficiency.dto.TestEfficiencyCondDto" resultType="kr.famos.bets.efficiencyAnalysis.testEfficiency.dto.MainTimeResultDto">
         SELECT
-            PART_NUMBER,
+            TESTER_NUMBER,
+            LOT_ID,
             PROCESS_CODE,
-            MAIN_PROGRAM_NAME,
-            TESTER_MODEL,
-            PARA,
-            SHOT_END_TIME - SHOT_START_TIME AS TEST_TIME
-        FROM CASI_BIN
+            PRELOT_END_TIME,
+            LOT_IN_TIME,
+            LOT_IN_END_TIME,
+            SBL_END_TIME,
+            FINAL_END_TIME,
+            (TO_DATE(LOT_IN_TIME, 'YYYYMMDDHH24MISS') - TO_DATE(PRELOT_END_TIME, 'YYYYMMDDHH24MISS')) * 86400 AS LOSE_TIME_OF_LOT_CHAGE,
+            (TO_DATE(LOT_IN_END_TIME, 'YYYYMMDDHH24MISS') - TO_DATE(LOT_IN_TIME, 'YYYYMMDDHH24MISS')) * 86400 AS LOSE_TIME_OF_PGM_LOADING,
+            (TO_DATE(SBL_END_TIME, 'YYYYMMDDHH24MISS') - TO_DATE(FINAL_END_TIME, 'YYYYMMDDHH24MISS')) * 86400 AS LOSE_TIME_OF_SBL
+        FROM MAIN_BIN
         <where>
             1 = 1
             <if test=" searchTimeStart != null and searchTimeStart != '' ">
-                AND END_TIME >= #{searchTimeStart}
+                AND PRELOT_END_TIME > #{searchTimeStart}
             </if>
             <if test=" searchTimeEnd != null and searchTimeEnd != '' ">
-                AND END_TIME <![CDATA[<=]]> #{searchTimeEnd}
+                AND SBL_END_TIME <![CDATA[<]]> #{searchTimeEnd}
             </if>
-            <if test=" partNumber != null and partNumber != '' ">
-                AND PART_NUMBER=#{partNumber}
+            <if test=" testerNumber != null and testerNumber != '' ">
+                AND TESTER_NUMBER=#{testerNumber}
+            </if>
+        </where>
+    </select>
+
+    <select id="retrieveCasiTime" parameterType="kr.famos.bets.efficiencyAnalysis.testEfficiency.dto.CasiTimeCondDto" resultType="kr.famos.bets.efficiencyAnalysis.testEfficiency.dto.CasiTimeResultDto">
+        SELECT
+            MAX(TESTER_NUMBER) AS TESTER_NUMBER,
+            MAX(LOT_ID) AS LOT_ID,
+            MAX(PROCESS_CODE) AS PROCESS_CODE,
+            MIN(SHOT_START_TIME) AS SHOT_START_TIME,
+            MAX(SHOT_END_TIME) AS SHOT_END_TIME,
+            TEST_COUNTER,
+            TEST_FLOW,
+            TRUNC(SUM(TO_DATE(SHOT_END_TIME, 'YYYYMMDDHH24MISS') - TO_DATE(SHOT_START_TIME, 'YYYYMMDDHH24MISS')) * 24 * 60 * 60) AS TEST_TIME_SUM
+        FROM
+            CASI_BIN
+        <where>
+        1 = 1
+            <if test=" testerNumber != null and testerNumber != '' ">
+                AND TESTER_NUMBER = #{testerNumber}
             </if>
             <if test=" processCode != null and processCode != '' ">
                 AND PROCESS_CODE=#{processCode}
             </if>
-            <if test=" mainProgramName != null and mainProgramName != '' ">
-                AND MAIN_PROGRAM_NAME=#{mainProgramName}
+            <if test=" lotId != null and lotId != '' ">
+                AND LOT_ID = #{lotId}
             </if>
         </where>
+        GROUP BY TEST_COUNTER, TEST_FLOW
+        ORDER BY TEST_COUNTER ASC
     </select>
 </mapper>

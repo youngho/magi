@@ -59,7 +59,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveProgramRegister").permitAll()
                 .antMatchers("/retrieveProgramRegisterByKey").permitAll()
                 .antMatchers("/insertProgramRegister").hasAuthority("ADMIN")
-                .antMatchers("/insertProgramRegister").hasAuthority("OPERATOR")
 
                 .antMatchers("/retrieveTdbiBoardType").permitAll()
                 .antMatchers("/retrieveTdbiBoardTypeByKey").permitAll()
@@ -97,6 +96,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/retrieveBoardCompositeSocketYield").permitAll()
 // EFFICIENCY ANAYSIS
                 .antMatchers("/retrieveTestEfficiency").permitAll()
+                .antMatchers("/retrieveUsingLot").permitAll()
                 .antMatchers("/retrieveTestTime").permitAll()
 // RAW DATA
                 .antMatchers("/get-resources").permitAll()

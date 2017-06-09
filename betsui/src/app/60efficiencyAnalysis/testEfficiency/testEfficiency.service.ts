@@ -14,6 +14,11 @@ export class TestEfficiencyService {
         return this.api.retrievePost(`${this.path}`, data);
     }
 
+    postRetrieveLot(data: TestEfficiency) {
+        this.path = 'retrieveUsingLot';
+        return this.api.retrievePost(`${this.path}`, data);
+    }
+
     postUsage(data: UserUsage) {
         this.path = 'insertComUserUsage';
         return this.api.post(`${this.path}`, data);

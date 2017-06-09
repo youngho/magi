@@ -10,73 +10,47 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                        <h2>Test Efficiency Retrieve</h2>
+                        <h2>{{'testEfficiency'|i18n}} Retrieve</h2>
                     </header>
                     <!-- widget div-->
                     <div>
                         <!-- widget content -->
                         <div class="widget-body">
-                            <div class="form-horizontal">
-                                <fieldset>
-                                    <!--검색조건 시작-->
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                            <form #form="ngForm">
+                                <div class="form-horizontal">
+                                    <fieldset>
+                                        <!--검색조건 시작-->
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <label class="col-md-2 control-label"><sup>*</sup>{{'testerNumber'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" placeholder="{{'testerNumber'|i18n}}" name="testerNumber" required [(ngModel)]="retrieveCondDto.testerNumber">
+                                            </div>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'firmwareName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
-                                        <div class="col-md-2">
-                                            <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="retrieveCondDto.firmwareName">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="retrieveCondDto.partNumber">
-                                        </div>
-
-                                        <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="retrieveCondDto.processCode">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'testerOsVersion'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
-                                        <div class="col-md-2">
-                                            <input type="text" class="form-control"
-                                                   name="testerOsVersion" placeholder="{{'testerOsVersion'|i18n}}" [(ngModel)]="retrieveCondDto.testerOsVersion">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text"
-                                                   [(ngModel)]="retrieveCondDto.testerModel">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="retrieveCondDto.mainProgramName">
-                                        </div>
-                                    </div>
-
-                                </fieldset>
-                                <!--Retest Skip 기준 end-->
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
-                                                <i class="fa fa-search"></i>
-                                                {{'retrieve'|i18n}}
-                                            </button>
+                                    </fieldset>
+                                    <!--Retest Skip 기준 end-->
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-default" (click)="resetForm()">
+                                                    {{'reset'|i18n}}
+                                                </button>
+                                                <button type="submit" [disabled]="!form.form.valid" (click)="retrieveExecute()" class="btn btn-primary">
+                                                    <i class="fa fa-search"></i>
+                                                    {{'retrieve'|i18n}}
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- end widget content -->
                     </div>
@@ -87,7 +61,7 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Test Time Retrieve Result</h2>
+                        <h2>{{'testEfficiency'|i18n}} Retrieve Result</h2>
                     </header>
                     <div *ngIf="!empty">
                         <div class="widget-body no-padding">
@@ -106,7 +80,7 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
@@ -114,6 +88,42 @@
                 <!-- widget Grid End -->
             </article>
             <!-- WIDGET END -->
+            <!--USING LOT 조회-->
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <sa-widget [colorbutton]="false" [editbutton]="false" [togglebutton]="true" [deletebutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-bar-chart-o"></i> </span>
+                        <h2>Lot List</h2>
+                    </header>
+                    <div>
+                        <div class="widget-body ">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Tester Number</th>
+                                        <th>Process Code</th>
+                                        <th>Lot ID</th>
+                                        <!--                                     <th>Yield</th>-->
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr *ngFor="let item of efficiencyLots">
+                                        <td>{{item.testerNumber}}</td>
+                                        <td>{{item.processCode}}</td>
+                                        <td>{{item.lotId}}</td>
+                                        <!--                                         <td *ngIf="lowYield.yield < 90" class="txt-color-red">{{lowYield.yield}}</td>
+                                                                                <td *ngIf="lowYield.yield >= 90">{{lowYield.yield}}</td>-->
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </sa-widget>
+            </article>
+
         </div>
         <!-- row end-->
     </sa-widgets-grid>
