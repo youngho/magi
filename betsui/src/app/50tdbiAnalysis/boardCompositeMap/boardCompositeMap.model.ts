@@ -5,13 +5,13 @@ export class BoardCompositeMap {
     biSeq: string;
     biLotId: string;
     biMainProgramName: string;
-    biProcessCode: string;
+//    biProcessCode: string;
     biOperatorId: string;
     biStartTime: string;
     biEndTime: string;
     biEndTimeStart: string;
     biEndTimeEnd: string;
-    biTesterModel: string;
+//    biTesterModel: string;
     biTestNumber: string;
     biBoardId: string;
     biZoneNumber: string;
@@ -20,5 +20,4 @@ export class BoardCompositeMap {
     biBoardColumn: string;
     biSocketNumber: string;
     biPartNumber: string;
-
 }

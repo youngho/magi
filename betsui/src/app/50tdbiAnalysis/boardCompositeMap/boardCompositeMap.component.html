@@ -29,57 +29,61 @@
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'mode'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="" type="text">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text" name="biPartNumber"
                                                    [(ngModel)]="data.biPartNumber">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
+                                        
+                                        <!-- <label class="col-md-2 control-label">{{'mode'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="" type="text">
+                                        </div> -->
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        
+                                        <!-- <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text" name="biProcessCode"
                                                    [(ngModel)]="data.biProcessCode">
-                                        </div>
+                                        </div> -->
 
-                                        <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
+                                        <!-- <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Model" type="text" name="biTesterModel"
                                                    [(ngModel)]="data.biTesterModel">
-                                        </div>
+                                        </div> -->
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label class="col-md-2 control-label"><sup>*</sup>{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Lot ID" type="text" name="biLotId" required minlength="4" maxlength="24"
                                                    [(ngModel)]="data.biLotId">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                                        <!-- <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" name="biMainProgramName"
                                                    [(ngModel)]="data.biMainProgramName">
-                                        </div>
+                                        </div> -->
                                         <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" name="biBoardId"
                                                    [(ngModel)]="data.biBoardId">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="col-md-2 control-label">{{'zoneNumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'zoneNumber'|i18n}}" type="text" name="biZoneNumber"
                                                    [(ngModel)]="data.biZoneNumber">
                                         </div>
-                                        <label class="col-md-2 control-label">{{'slotNumber'|i18n}}</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <label class="col-md-2 control-label">{{'slotNumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'slotNumber'|i18n}}" type="text" name="biSlotNumber"
                                                    [(ngModel)]="data.biSlotNumber">
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </fieldset>
                                 <div class="form-actions">

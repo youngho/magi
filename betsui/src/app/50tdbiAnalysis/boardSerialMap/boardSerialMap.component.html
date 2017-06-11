@@ -19,6 +19,7 @@
                             <!--<legend>Retrieve Elements</legend>-->
                             <div class="form-horizontal">
                                 <fieldset>
+                                    
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
                                         <div class="col-md-2">
@@ -28,20 +29,25 @@
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'mode'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="Lot ID" type="text"
+                                                   [(ngModel)]="data.lotId">
+                                        </div>
+                                        
+                                        <!-- <label class="col-md-2 control-label">{{'mode'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text">
-                                        </div>
+                                        </div> -->
+                                        
                                     </div>
-                                    <div class="form-group">
-
-
+                                    
+                                    <!-- <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
                                                    [(ngModel)]="data.partNumber">
                                         </div>
-
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
@@ -51,13 +57,9 @@
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot ID" type="text"
-                                                   [(ngModel)]="data.lotId">
-                                        </div>
+                                    </div> -->
+                                    
+                                    <!-- <div class="form-group">
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
@@ -68,7 +70,8 @@
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
                                                    [(ngModel)]="data.boardId">
                                         </div>
-                                    </div>
+                                    </div> -->
+                                    
                                 </fieldset>
                                 <div class="form-actions">
                                     <div class="row">
