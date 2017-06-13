@@ -19,16 +19,17 @@ export class NestableListComponent implements OnChanges {
   }
 
   ngOnInit() {
-
-  }
-
-  ngOnChanges() {
-    this.items && System.import('script-loader!smartadmin-plugins/bower_components/jquery-nestable/jquery.nestable.js').then(()=> {
+    System.import('script-loader!smartadmin-plugins/bower_components/jquery-nestable/jquery.nestable.js').then(()=> {
       this.render();
     })
   }
 
+  ngOnChanges() {
+    this.render();
+  }
+
   private render() {
+    if(!this.items) return;
     const root = this.el.nativeElement.getElementsByTagName('div')[0];
     root.appendChild(this.createBranch(this.items));
     let options = this.options || {};

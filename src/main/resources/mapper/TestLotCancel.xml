@@ -3,8 +3,8 @@
 <mapper namespace="kr.famos.bets.sblAnalysis.testLotCancel.mapper.TestLotCancelMapper">
     <select id="retrieveTestLotCancel" parameterType="kr.famos.bets.sblAnalysis.testLotCancel.dto.TestLotCancelDto" resultType="kr.famos.bets.sblAnalysis.testLotCancel.dto.TestLotCancelDto">
         SELECT
-            PART_NUMBER
-            <!-- OPERATOR_ID,
+            PART_NUMBER,
+            OPERATOR_ID,
             LOT_ID,
             SUBSTR(LOT_IN_TIME,1,4)||'-'||SUBSTR(LOT_IN_TIME,5,2)||'-'||SUBSTR(LOT_IN_TIME,7,2)||' '||SUBSTR(LOT_IN_TIME,9,2)||':'||SUBSTR(LOT_IN_TIME,11,2)||':'||SUBSTR(LOT_IN_TIME,13,2) AS LOT_IN_TIME,
             SUBSTR(END_TIME,1,4)||'-'||SUBSTR(END_TIME,5,2)||'-'||SUBSTR(END_TIME,7,2)||' '||SUBSTR(END_TIME,9,2)||':'||SUBSTR(END_TIME,11,2)||':'||SUBSTR(END_TIME,13,2) AS END_TIME,
@@ -15,7 +15,7 @@
             TEST_COUNTER,
             HANDLER_MODEL,
             BOARD_ID,
-            DUT_MAIN_BIN -->
+            DUT_MAIN_BIN
         FROM
             CANCEL_BIN
         <where>
@@ -58,8 +58,9 @@
     <select id="retrieveTestLotCancelMap" parameterType="kr.famos.bets.sblAnalysis.testLotCancel.dto.TestLotCancelDto" resultType="java.util.LinkedHashMap">
         SELECT
             PART_NUMBER
-            <!-- OPERATOR_ID,
+            OPERATOR_ID,
             LOT_ID,
+            MAIN_PROGRAM_NAME,
             SUBSTR(LOT_IN_TIME,1,4)||'-'||SUBSTR(LOT_IN_TIME,5,2)||'-'||SUBSTR(LOT_IN_TIME,7,2)||' '||SUBSTR(LOT_IN_TIME,9,2)||':'||SUBSTR(LOT_IN_TIME,11,2)||':'||SUBSTR(LOT_IN_TIME,13,2) AS LOT_IN_TIME,
             END_TIME,
             PROCESS_CODE,
@@ -69,7 +70,7 @@
             TEST_COUNTER,
             HANDLER_MODEL,
             BOARD_ID,
-            DUT_MAIN_BIN -->
+            DUT_MAIN_BIN
         FROM
             CANCEL_BIN
         <where>

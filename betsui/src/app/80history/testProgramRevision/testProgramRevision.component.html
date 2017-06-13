@@ -30,7 +30,7 @@
                                         </div>
                                         <label class="col-md-2 control-label">{{'firmwareName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
                                         <div class="col-md-2">
-                                            <input type="text" class="form-control"  placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="retrieveCondDto.firmwareName">
+                                            <input type="text" class="form-control" placeholder="{{'firmwareName'|i18n}}" [(ngModel)]="retrieveCondDto.firmwareName">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -98,11 +98,27 @@
                             </div>
                             <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
                                           (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
+                                          [autoSizeMode]="'Both'">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
                                                      [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
+
+                            <wj-flex-grid [itemsSource]="gridData">
+                                <wj-flex-grid-column [header]="'testerModel'" [binding]="'testerModel'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'processCode'" [binding]="'processCode'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'temperature'" [binding]="'temperature'" [format]="'n0'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div *ngIf="cell.item.temperature < 90">
+                                            <div [ngStyle]="{'background-color':'yellow'}">
+                                            {{cell.item.temperature}}
+                                        </div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'Active'" [binding]="'active'"></wj-flex-grid-column>
+                            </wj-flex-grid>
+
                         </div>
                     </div>
                     <div *ngIf="empty == true">
@@ -115,6 +131,7 @@
                 </sa-widget>
                 <!-- widget Grid End -->
             </article>
+
             <!-- WIDGET END -->
         </div>
         <!-- row end-->

@@ -4,11 +4,7 @@ import {CommonModule} from "@angular/common";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {SettingsService} from "./settings.service";
 
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import {Setting} from './settings.model';
-
-import {DatatableComponent} from './datatable.component';
 import {NotificationService} from "../../shared/utils/notification.service";
 
 
@@ -79,40 +75,7 @@ export class SettingsComponent implements OnInit {
         console.log("betsValue : " + this.setting.betsValue);
 
 
-        this.service.postRetrieve(this.retrieveCondDto)
-            .subscribe((apps) => {
-                    this.componentData = {
-                        component: DatatableComponent,
-                        inputs: {
-                            options: {
-                                colReorder: false,
-                                data: apps,
-                                //select: { style: 'single'},
-                                columns: [
-                                    {data: 'betsKey'},
-                                    {data: 'betsValue'},
-                                    {data: 'betsKeyDesc'},
-                                    {data: 'settingUser'},
-                                ],
-                                rowCallback: (nRow: number, aData: any, iDisplayIndex: number, iDisplayIndexFull: number) => {
-                                    let self = this;
-                                    // Unbind first in order to avoid any duplicate handler
-                                    // (see https://github.com/l-lin/angular-datatables/issues/87)
-                                    $('td', nRow).unbind('click');
-                                    $('td', nRow).bind('click', () => {
-                                        self.someClickHandler(aData);
-                                    });
-                                    return nRow;
-                                },
-                                buttons: [
-                                    'copy', 'excel', 'pdf', 'print'
-                                ]
-                            }
-                        }
-                    };
-                },
-                error => this.errorMessage = error);
-    }
+        }
 
     saveForm() {
         this.smartModEg1();

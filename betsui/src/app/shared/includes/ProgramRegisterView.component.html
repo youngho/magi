@@ -58,9 +58,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label">{{'dutMap'|i18n}}</label>
+            <label class="col-md-2 control-label"><sup>*</sup>{{'dutMap'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="dutMap" name="dutMap" maxlength="40"
+                <input type="text" class="form-control" id="dutMap" name="dutMap" maxlength="40" required
                        placeholder="ex) 256DUT_MAP" [(ngModel)]="programRegister.dutMap">
             </div>
             <label class="col-md-2 control-label">{{'firmwareName'|i18n}}</label>
@@ -85,7 +85,8 @@
             </div>
             <label class="col-md-2 control-label">{{'firmwareVersion'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="firmwareVersion" maxlength="20"
+                <input type="text" class="form-control" id="firmwareVersion" maxlength="20" 
+                       [attr.required]="programRegister.processCode === 'T8100' || programRegister.processCode === 'T8200'? true : null"
                        name="firmwareVersion" placeholder="ex) SM-REV0"
                        [(ngModel)]="programRegister.firmwareVersion">
             </div>
@@ -97,9 +98,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label"><sup>*</sup>{{'temperatureLimit'|i18n}}</label>
+            <label class="col-md-2 control-label">{{'temperatureLimit'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="temperatureLimit" maxlength="3" required
+                <input type="text" class="form-control" id="temperatureLimit" maxlength="3"
                        name="temperatureLimit" placeholder="ex) 2"
                        [(ngModel)]="programRegister.temperatureLimit">
             </div>
@@ -170,9 +171,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label">{{'firmwareDirectory'|i18n}}</label>
+            <label class="col-md-2 control-label"><sup>*</sup>{{'firmwareDirectory'|i18n}}</label>
             <div class="col-md-6">
-                <input type="text" class="form-control" id="firmwareDirectory" maxlength="100"
+                <input type="text" class="form-control" id="firmwareDirectory" maxlength="100" required
                        name="firmwareDirectory" placeholder="ex) f:\firmware" title="The 'Firmware Directory' is only used for MAGNUM5"
                        [(ngModel)]="programRegister.firmwareDirectory">
             </div>

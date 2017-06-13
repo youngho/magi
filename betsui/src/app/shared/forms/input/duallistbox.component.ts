@@ -5,7 +5,7 @@ declare var $: any;
 @Component({
   selector: 'duallistbox',
   template: `
-     <select multiple (click)="onChange()" class="smart-duallistbox">
+     <select multiple class="smart-duallistbox">
         <option *ngFor="let item of items" [selected]="item.selected" [value]="item.key">{{item.value}}</option>
       </select>
   `,

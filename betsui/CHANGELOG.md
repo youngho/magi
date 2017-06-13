@@ -1,3 +1,23 @@
+# 0.4.5
+  * AOT support
+  * update ngx-bootstrap@2, dygraphs@2.0.0 and other plugins
+
+# 0.4.4 
+  * update ngx-bootstrap, datatables-responsive, default include polyfills
+
+# 0.4.3 
+  * update ng2-bootstrap, ngx-popover, @angular-redux 
+
+# 0.4.2
+  * freeze dependencies
+
+# 0.4.1
+  * remove flexbox layout
+
+# 0.4.0
+  * angular@4 support 
+  * angular-cli@1 
+
 # 0.3.1
   * restore angular-cli support
   

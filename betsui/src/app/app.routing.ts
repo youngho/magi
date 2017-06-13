@@ -69,12 +69,13 @@ export const routes: Routes = [
                 path: 'setting',
                 loadChildren: 'app/setting/setting.module#SettingModule',
                 data: {pageTitle: 'Setting'}
-            },
+            }
         ]
     },
 
     {path: 'auth', component: AuthLayoutComponent, loadChildren: 'app/+auth/auth.module#AuthModule'},
 
+    {path: '**', redirectTo: 'miscellaneous/error404'}
 
 ];
 

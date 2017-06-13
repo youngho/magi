@@ -13,7 +13,7 @@ import { MainLayoutComponent } from './app-layouts/main-layout.component';
 import { EmptyLayoutComponent } from './app-layouts/empty-layout.component';
 import {RouterModule} from "@angular/router";
 import { AuthLayoutComponent } from './app-layouts/auth-layout.component';
-import {TooltipModule, DropdownModule} from "ng2-bootstrap";
+import {TooltipModule, BsDropdownModule} from "ngx-bootstrap";
 import { RouteBreadcrumbsComponent } from './ribbon/route-breadcrumbs.component';
 import {UtilsModule} from "../utils/utils.module";
 
@@ -28,10 +28,11 @@ import {UtilsModule} from "../utils/utils.module";
     UtilsModule,
 
 
-    TooltipModule.forRoot(),
-    DropdownModule.forRoot(),
+    TooltipModule,
+    BsDropdownModule,
   ],
-  declarations: [    FooterComponent,
+  declarations: [
+    FooterComponent,
     RibbonComponent,
     ShortcutComponent,
     LayoutSwitcherComponent,
@@ -39,7 +40,6 @@ import {UtilsModule} from "../utils/utils.module";
     EmptyLayoutComponent,
     AuthLayoutComponent,
     RouteBreadcrumbsComponent,
-
   ],
   exports:[
     HeaderModule,

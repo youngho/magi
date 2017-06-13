@@ -1,5 +1,7 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -15,7 +17,6 @@ import { AppState, InternalStateType } from './app.service';
 // Core providers
 import {CoreModule} from "./core/core.module";
 import {SmartadminLayoutModule} from "./shared/layout/layout.module";
-import {BasisModule} from "./10basis/basis.module";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -39,10 +40,15 @@ type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
+
     CoreModule,
     SmartadminLayoutModule,
+
+
+
     routing
   ],
   exports: [

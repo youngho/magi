@@ -6,12 +6,12 @@ declare var $: any;
 
   selector: 'sa-datatable',
   template: `
-      <table class="dataTable {{tableClass}}" width="{{width}}">
+      <table class="dataTable responsive {{tableClass}}" width="{{width}}">
         <ng-content></ng-content>
       </table>
 `,
   styles: [
-    require('smartadmin-plugins/datatables-bundle/datatables.min.css')
+    require('smartadmin-plugins/datatables/datatables.min.css')
   ]
 })
 export class DatatableComponent implements OnInit {
@@ -30,7 +30,7 @@ export class DatatableComponent implements OnInit {
 
   ngOnInit() {
     Promise.all([
-      System.import('script-loader!smartadmin-plugins/datatables-bundle/datatables.min.js'),
+      System.import('script-loader!smartadmin-plugins/datatables/datatables.min.js'),
     ]).then(()=>{
       this.render()
 
@@ -110,6 +110,7 @@ export class DatatableComponent implements OnInit {
         }
       })
     }
+
 
   }
 

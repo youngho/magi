@@ -1,5 +1,6 @@
 import {Component, ViewContainerRef} from '@angular/core';
-import {Router} from '@angular/router';
+import {NavigationEnd, NavigationStart, Router, RoutesRecognized} from "@angular/router";
+
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,15 @@ import {Router} from '@angular/router';
 export class AppComponent {
   public title = 'app works!';
 
-  public constructor(router:Router,private viewContainerRef: ViewContainerRef) {
-    router.events.subscribe(e => {
-      if(e.url !== '/auth/login') {
-        // if(!loginService.isAuthenticated()) {
-        // console.log("localStorage.getItem('loginID') : " + localStorage.getItem("loginID"));
-        if(localStorage.getItem("loginId") == null) {
+  public constructor(router: Router) {
+    router.events.subscribe(event => {
+      //console.log(event);
+      if (event instanceof NavigationEnd) {
+        console.log("NavigationEnd");
+        console.log(event);
+        console.log(event.url);
+        if (localStorage.getItem("loginId") == null) {
           router.navigate(['/auth/login']);
-        } else {
-          ;
-          // loginService.sendLoginSuccess();
-          // console.log("sendLoginSuccess");
         }
       }
     });

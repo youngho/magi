@@ -202,7 +202,6 @@ export class LayoutService {
 
   processBody(state) {
     let $body = $('body');
-    let $html = $('html');
     $body.removeClass(state.skins.map((it)=>(it.name)).join(' '));
     $body.addClass(state.skin.name);
     $("#logo img").attr('src', state.skin.logo);
@@ -234,11 +233,11 @@ export class LayoutService {
 
 
     if (!state.menuOnTop) {
-      $html.toggleClass("hidden-menu-mobile-lock", state.menuCollapsed);
-      $html.toggleClass("hidden-menu", state.menuCollapsed);
+      $body.toggleClass("hidden-menu-mobile-lock", state.menuCollapsed);
+      $body.toggleClass("hidden-menu", state.menuCollapsed);
       $body.removeClass("minified");
     } else if (state.menuOnTop && state.mobileViewActivated) {
-      $html.toggleClass("hidden-menu-mobile-lock", state.menuCollapsed);
+      $body.toggleClass("hidden-menu-mobile-lock", state.menuCollapsed);
       $body.toggleClass("hidden-menu", state.menuCollapsed);
       $body.removeClass("minified");
     }
@@ -246,7 +245,7 @@ export class LayoutService {
     if(state.menuMinified && !state.menuOnTop && !state.mobileViewActivated){
        $body.addClass("minified");
        $body.removeClass("hidden-menu");
-       $html.removeClass("hidden-menu-mobile-lock");
+       $body.removeClass("hidden-menu-mobile-lock");
     }
   }
 }

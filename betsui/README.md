@@ -1,13 +1,20 @@
 # Smartadmin
 
-[live](http://sang2-shockwave.rhcloud.com) demo
+[live](https://sang2-shockwave.rhcloud.com) demo
 
-## Note
-Starting from version 0.3.1 we get integrated angular-cli back. This template consist of many libraries and not all of them support AOT compilation. But as soon as we get this resolved we will introduce AOT compilable version 
+## AOT Note
+Starting from version 1.8.7.2 we are supporting AOT builds.  
+ 
+use `npm run build:aot` to run AOT build
+ 
+if you'll get `FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory` use `npm run build:aot2` or increase node memory heep size even more (check `package.json` `scripts` section for details) 
+
 
 ## Prerequisites
 
-The generated project has dependencies that require **Node 4.x.x and NPM 3.x.x**.
+Make sure latest [angular-cli] installed globally. Follow [update-how-to](https://github.com/angular/angular-cli#updating-angular-cli)  
+
+This project has dependencies that require **Node 4.x.x and NPM 3.x.x**.
 
 For Windows users [git-bash](https://git-scm.com/downloads) is perfect **terminal**-window to manage nodejs projects. [1]
  
@@ -25,7 +32,7 @@ For Windows users [git-bash](https://git-scm.com/downloads) is perfect **termina
 
 #### tip 
 quick way to speed up builds when testing 
-* exclude whole templates parts from compilation by commenting them in `src/app/app.routing.ts` 
+* exclude whole template parts from compilation by commenting them in `src/app/app.routing.ts` 
 
 
  
@@ -98,7 +105,7 @@ Checkout `scripts` section in `package.json` for tools launching shortcuts
 * dev build off app with dozen routes/pages takes comparatively acceptable time (~ 1 min)
 * inspect built chunks, just to get idea how 
 * Use the `npm run build:prod` for a production build.
-* On huge app prod build may take more than 10 mins. On the final step it may look frozen completely. Be patient. Alocate at least 1Gb of free RAM. Consider to do some exersizes or tee while waiting.  
+* On huge app prod build may take more than 10 mins. On the final step it may look frozen completely. Be patient. Alocate at least 1Gb of free RAM. 
    * production code goes through optimizations, minifying, uglyfying, tree-shaking algorithm  -  but that's just price for nice chunked minimalist builds. 
    * there are some code rules, how to help tree-shacking compilers to do their [job](http://www.2ality.com/2015/12/webpack-tree-shaking.html)
     
@@ -141,9 +148,6 @@ App is configured for running end-to-end (via [Protractor](http://www.protractor
 `npm run test` for unit tests.
 
 
-
-
-
 ## cookbook
  
 *  download, unpack, rename template into your new project dir
@@ -179,7 +183,7 @@ App is configured for running end-to-end (via [Protractor](http://www.protractor
 
 
 ## resources
-- [live project demo](http://sang2-shockwave.rhcloud.com)
+- [live project demo](https://sang2-shockwave.rhcloud.com)
 - [webpack 2 docs](https://webpack.js.org)
 - [angular-cli docs](https://github.com/angular/angular-cli)
 
