@@ -1,3 +1,9 @@
+<!--
+* 1. File name     : lcRevision.model.ts
+* 2. Discription   : LC 이력을 조회하는 화면이다. 사실상 LC관련 입력 업무가 없기 때문에 사용하지 않는 화면이다.
+* 3. writer        : yhkim     2017.02.17
+* 4. modifier      :
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -47,6 +53,9 @@
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <button class="btn btn-default" (click)="resetForm()">
+                                                {{'reset'|i18n}}
+                                            </button>
                                             <button (click)="retrieveExecute()" class="btn btn-primary"><i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>
@@ -87,7 +96,7 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
