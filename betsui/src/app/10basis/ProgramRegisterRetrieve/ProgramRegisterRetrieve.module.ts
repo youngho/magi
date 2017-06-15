@@ -15,7 +15,7 @@ import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 import {ProgramRegisterViewComponent} from "./ProgramRegisterView.component"
 import {IncludesModule} from "../../shared/includes/Includes.module";
 
-
+import {AccordionModule, CarouselModule} from "ngx-bootstrap";
 
 @NgModule({
     imports: [
@@ -29,6 +29,8 @@ import {IncludesModule} from "../../shared/includes/Includes.module";
         FormsModule,
         ReactiveFormsModule,
         IncludesModule,
+        AccordionModule.forRoot(),
+        CarouselModule.forRoot(),
     ],
     declarations: [ProgramRegisterRetrieveComponent]
 })

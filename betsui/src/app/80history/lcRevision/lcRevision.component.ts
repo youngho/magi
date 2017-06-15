@@ -8,6 +8,9 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {LcRevisionService} from "./lcRevision.service";
 import {LcRevision} from './lcRevision.model';
 
+/**
+ * LC 이력을 조회하는 화면이다. 사실상 LC관련 입력 업무가 없기 때문에 사용하지 않는 화면이다.
+ */
 @FadeInTop()
 @Component({
     selector: 'lcRevision',

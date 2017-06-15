@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild, AfterViewInit, ViewChildren, QueryList, AfterViewChecked} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
-import {ModalDirective} from "ngx-bootstrap";
 import {DashboardService} from "./dashboard.service";
 
 import * as wjcChart from 'wijmo/wijmo.chart';
@@ -40,8 +39,7 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
     @ViewChild('chart8') chart8: wjcChart.FlexChart;
     @ViewChild('chartDetail') chartDetail: wjcChart.FlexChart;
     @ViewChild('chartDetailPupup') chartDetailPupup: wjcInput.Popup;
-    // @ViewChild('lgModal') bgModel;
-    @ViewChild('lgModal') public lgModal:ModalDirective;
+    @ViewChild('lgModal') bgModel;
     @ViewChild('saWidget1') saWidget1;
 
     chart1Flag = true;
@@ -140,7 +138,7 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
             .subscribe((apps) => {
                     console.log(apps);
                     this.chartDataDetail = apps.yieldItemList;
-                    this.lgModal.show()
+                    this.bgModel.show()
                     // this.chartDetailEdit();
                 },
                 error => this.errorMessage = error);
@@ -159,7 +157,7 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
      * 화면 로딩시 init 에서 필요한 데이터를 조회한다
      */
     ngOnInit() {
-/*        this.chartDatas = [];
+        this.chartDatas = [];
         this.service.retrievePost()
             .subscribe((apps) => {  // Dashboard 형식의 DTO 클래스형식으로 리턴된 값이 apps에 들어있다.
                     console.log(apps);
@@ -178,6 +176,6 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
                         i++;
                     }
                 },
-                error => this.errorMessage = error);*/
+                error => this.errorMessage = error);
     } // ngOnInit End
 }

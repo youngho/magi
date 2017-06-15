@@ -5,11 +5,13 @@ import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 
 
-import {
-  ModalModule, ButtonsModule, TooltipModule, BsDropdownModule, ProgressbarModule, AlertModule, TabsModule,
-  AccordionModule, CarouselModule
-} from 'ngx-bootstrap'
-// import {ModalModule} from 'ngx-bootstrap'
+/*
+ import {
+ ModalModule, ButtonsModule, TooltipModule, BsDropdownModule, ProgressbarModule, AlertModule, TabsModule,
+ AccordionModule, CarouselModule
+ } from 'ngx-bootstrap'
+ */
+import {ModalModule} from 'ngx-bootstrap'
 
 import {PopoverModule} from "ngx-popover";
 
@@ -33,51 +35,49 @@ import {UtilsModule} from "./utils/utils.module";
 
 
 @NgModule({
-  imports: [
-    CommonModule, FormsModule, HttpModule, RouterModule,
+    imports: [
+        CommonModule, FormsModule, HttpModule, RouterModule,
 
 
+    ],
+    declarations: [],
+    exports: [
+        CommonModule, FormsModule, HttpModule, RouterModule,
 
-  ],
-  declarations: [
+        ModalModule,
+        // ButtonsModule,
+        // TooltipModule,
+        // DropdownModule,
+        // ProgressbarModule,
+        // AlertModule,
+        // TabsModule,
+        // AccordionModule,
+        // CarouselModule,
 
-  ],
-  exports: [
-    CommonModule, FormsModule, HttpModule, RouterModule,
+        PopoverModule,
 
-    ModalModule,
-    ButtonsModule,
-    TooltipModule,
-    BsDropdownModule,
-    ProgressbarModule,
-    AlertModule,
-    TabsModule,
-    AccordionModule,
-    CarouselModule,
+        SmartadminLayoutModule,
 
-    PopoverModule,
+        I18nModule,
 
-    SmartadminLayoutModule,
-
-    I18nModule,
-
-    UtilsModule,
+        UtilsModule,
 
 
-    // SmartadminFormsLiteModule,
+        // SmartadminFormsLiteModule,
 
-    // SmartProgressbarModule,
+        // SmartProgressbarModule,
 
-    // InlineGraphsModule,
+        // InlineGraphsModule,
 
-    SmartadminWidgetsModule,
+        SmartadminWidgetsModule,
 
-    // ChatModule,
+        // ChatModule,
 
-    // StatsModule,
+        // StatsModule,
 
-    // VoiceControlModule,
+        // VoiceControlModule,
 
-  ]
+    ]
 })
-export class SmartadminModule {}
+export class SmartadminModule {
+}

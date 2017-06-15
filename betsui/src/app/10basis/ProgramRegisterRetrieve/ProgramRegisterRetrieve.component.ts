@@ -9,6 +9,8 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {ProgramRegisterRetrieveService} from "./ProgramRegisterRetrieve.service";
 import {ProgramRegister} from "../ProgramRegister.model";
 
+import {ModalDirective} from "ngx-bootstrap";
+
 @FadeInTop()
 @Component({
     selector: 'ProgramRegisterRetrieveComponent',
@@ -27,7 +29,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
     gridData: wjcCore.CollectionView;
     private colInfo = new Array();// Grid dynamic columns title
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    @ViewChild('lgModal') bgModel;
+    @ViewChild('lgModal') public lgModal:ModalDirective;
 
     retrieveCondDto = {
         partNumber: "",
@@ -109,13 +111,13 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
                     this.programRegister = ProgramRegister.fromJSON(response);
                 },
                 error => alert(error));
-        this.bgModel.show();
+        this.lgModal.show();
     }
 
     //팝업 객체로부터 이벤트를 받아 팝업 모달 창을 닫음(감춤);
     modalClose(clsoe: boolean) {
         if (clsoe) {
-            this.bgModel.hide();
+            this.lgModal.hide();
         }
         this.retrieveExecute();
     }

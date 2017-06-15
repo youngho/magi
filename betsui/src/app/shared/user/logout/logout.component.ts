@@ -28,15 +28,13 @@ export class LogoutComponent implements OnInit {
 
     }, (ButtonPressed) => {
       if (ButtonPressed == "Yes") {
-        localStorage.clear();
-        location.reload()
         this.logout()
       }
     });
   }
 
   logout(){
-    this.router.navigate(['/auth/login'])
+      this.router.navigate(['/auth/login'])
   }
 
   ngOnInit() {

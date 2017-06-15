@@ -7,6 +7,9 @@ import {LcVersionRegister} from "./lcVersionRegister.model";
 import {concat} from "rxjs/observable/concat";
 import {UserUsage} from "../../shared/usage/userUsage.model";
 
+/**
+ * 각 LC 버전이 변할때 이를 기록 하여 관리 할 수 있는 화면이다.
+ */
 @FadeInTop()
 @Component({
     selector: 'LcVersionRegister',

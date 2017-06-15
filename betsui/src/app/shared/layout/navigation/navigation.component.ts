@@ -3,20 +3,20 @@ import {NavigationService} from './navigation.service';
 
 @Component({
 
-    selector: 'sa-navigation',
-    templateUrl: './navigation.component.html',
-    providers: [NavigationService]
+  selector: 'sa-navigation',
+  templateUrl: './navigation.component.html',
+  providers: [NavigationService]
 })
 
 export class NavigationComponent implements OnInit {
 
-    menuAuthority: string
+  menuAuthority: string
 
-    constructor(private service: NavigationService) {
-        this.menuAuthority = localStorage.getItem('authority');
-    }
+  constructor(private service: NavigationService) {
+    this.menuAuthority = localStorage.getItem('authority');
+  }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
 }

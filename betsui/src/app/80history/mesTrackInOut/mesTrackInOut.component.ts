@@ -8,6 +8,9 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {MesTrackInOutService} from "./mesTrackInOut.service";
 import {MesTrackInOut} from './mesTrackInOut.model';
 
+/**
+ * Process 로직에서 MES와 통신한 이력을 보여주는 화면이다.
+ */
 @FadeInTop()
 @Component({
     selector: 'testMesTrackInOut',

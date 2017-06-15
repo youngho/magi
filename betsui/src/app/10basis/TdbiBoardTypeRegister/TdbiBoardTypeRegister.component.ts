@@ -8,7 +8,9 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {TdbiBoardTypeRegisterService} from "./TdbiBoardTypeRegister.service";
 import {TdbiBoardType} from './TdbiBoardType.model';
-
+/**
+ * TDBI 보드의 x,y 축 소켓의 갯수를 관리하는 화면이다. 보드 타입(보드번호 앞 4자리)별로 관리 하도록 되어있다.
+ */
 @FadeInTop()
 @Component({
     selector: 'TdbiBoardTypeRegisterRetrieveComponent',
