@@ -16,12 +16,13 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-eye"></i> </span>
-                        <h2>Test Time Retrieve</h2>
+                        <h2>{{'testTime'|i18n}} Retrieve</h2>
                     </header>
                     <!-- widget div-->
                     <div>
                         <!-- widget content -->
                         <div class="widget-body">
+                            <form #form="ngForm">
                             <div class="form-horizontal">
                                 <fieldset>
                                     <!--검색조건 시작-->
@@ -34,22 +35,22 @@
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}<sup><span class="txt-color-red">%</span></sup></label>
+                                        <label class="col-md-2 control-label"><sup>*</sup>{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
+                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" name="mainProgramName" type="text" required
                                                    [(ngModel)]="retrieveCondDto.mainProgramName">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text"
+                                            <input class="form-control" placeholder="Part Number" name="partNumber" type="text"
                                                    [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Process Code" type="text"
+                                            <input class="form-control" placeholder="Process Code" name="processCode" type="text"
                                                    [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
 <!--
@@ -68,13 +69,15 @@
                                             <button class="btn btn-default" (click)="resetForm()">
                                                 {{'reset'|i18n}}
                                             </button>
-                                            <button (click)="retrieveExecute()" class="btn btn-primary"><i class="fa fa-search"></i>
+                                            <button type="submit" [disabled]="!form.form.valid" (click)="retrieveExecute()" class="btn btn-primary">
+                                                <i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
                         <!-- end widget content -->
                     </div>
@@ -85,7 +88,7 @@
                 <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
-                        <h2>Test Time Retrieve Result</h2>
+                        <h2>{{'testTime'|i18n}} Retrieve Result</h2>
                     </header>
                     <div *ngIf="!empty">
                         <div class="widget-body no-padding">
@@ -104,7 +107,7 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
