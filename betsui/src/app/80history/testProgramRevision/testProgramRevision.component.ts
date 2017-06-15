@@ -7,9 +7,17 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {ProgramRevisionService} from "./testProgramRevision.service";
 import {ProgramRevision} from './testProgramRevision.model';
+
 /**
- * Test프로그램을 저장 할 경우 업데이트 되지 않고 모두 Insert 동작이 일어나는데 등록 조회 화면에선 최근 데이터 1건만 보여진다. 이 히스토리 화면에선 모든 데이터가 보여진다.
+ * 1. File name     : testProgramRevision.component.ts
+ * 2. Discription   : RTest프로그램을 저장 할 경우 업데이트 되지 않고 모두 Insert 동작이 일어나는데 등록 조회 화면에선 최근 데이터 1건만 보여진다. 이 히스토리 화면에선 모든 데이터가 보여진다.
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
  */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
+
 @FadeInTop()
 @Component({
     selector: 'testProgramRevision',
@@ -51,7 +59,13 @@ export class ProgramRevisionComponent {
         },300);
     }
 
-    saveLastTableForm() {
+    resetForm() {
+        this.retrieveCondDto = new ProgramRevision();
+        // this.stopRefreshing();
+        this.gridData = null;
+    }
+
+    retrieveExecute() {
         // console.log("endTimeStart : " + this.retrieveCondDto.createDateStart);
         // console.log("createDateEnd : " + this.retrieveCondDto.createDateEnd);
         // console.log("partNumber : " + this.retrieveCondDto.partNumber);
