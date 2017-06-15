@@ -58,9 +58,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label"><sup>*</sup>{{'dutMap'|i18n}}</label>
+            <label class="col-md-2 control-label">{{'dutMap'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="dutMap" name="dutMap" maxlength="40" required
+                <input type="text" class="form-control" id="dutMap" name="dutMap" maxlength="40"
                        placeholder="ex) 256DUT_MAP" [(ngModel)]="programRegister.dutMap">
             </div>
             <label class="col-md-2 control-label">{{'firmwareName'|i18n}}</label>
@@ -85,7 +85,7 @@
             </div>
             <label class="col-md-2 control-label">{{'firmwareVersion'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="firmwareVersion" maxlength="20" 
+                <input type="text" class="form-control" id="firmwareVersion" maxlength="20"
                        [attr.required]="programRegister.processCode === 'T8100' || programRegister.processCode === 'T8200'? true : null"
                        name="firmwareVersion" placeholder="ex) SM-REV0"
                        [(ngModel)]="programRegister.firmwareVersion">
