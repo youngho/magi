@@ -42,6 +42,16 @@ export class ChipIdComponent {
         );
     }
 
+    resetForm() {
+        // let rightNow = new Date();
+        // let res = rightNow.toISOString().slice(0, 10).replace(/-/g, "");
+        // this.startDate = res;
+        // this.endDate = res;
+        this.retrieveCondDto = new ChipId();
+        // this.stopRefreshing();
+        this.gridData = null;
+    }
+
     retrieveExecute() {
         // console.log("endTimeStart : " + this.retrieveCondDto.fileCreateTimeStart);
         // console.log("createDateEnd : " + this.retrieveCondDto.fileCreateTimeEnd);
