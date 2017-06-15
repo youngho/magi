@@ -9,8 +9,6 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {ProgramRegisterRetrieveService} from "./ProgramRegisterRetrieve.service";
 import {ProgramRegister} from "../ProgramRegister.model";
 
-import {ModalDirective} from "ngx-bootstrap";
-
 @FadeInTop()
 @Component({
     selector: 'ProgramRegisterRetrieveComponent',
@@ -29,7 +27,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
     gridData: wjcCore.CollectionView;
     private colInfo = new Array();// Grid dynamic columns title
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    @ViewChild('lgModal') public lgModal:ModalDirective;
+    @ViewChild('lgModal') bgModel;
 
     retrieveCondDto = {
         partNumber: "",
@@ -58,7 +56,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
     onGridLoaded() {
         var self = this;
         setTimeout(function () {
-            self.flexGrid.autoSizeColumns();
+            // self.flexGrid.autoSizeColumns();
         }, 300);
     }
 
@@ -66,6 +64,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
         this.retrieveCondDto.partNumber = null;
         this.retrieveCondDto.processCode = null;
         this.retrieveCondDto.testerModel = null;
+        this.gridData = null;
         this.empty = true;
     }
 
@@ -111,13 +110,13 @@ export class ProgramRegisterRetrieveComponent implements OnInit{
                     this.programRegister = ProgramRegister.fromJSON(response);
                 },
                 error => alert(error));
-        this.lgModal.show();
+        this.bgModel.show();
     }
 
     //팝업 객체로부터 이벤트를 받아 팝업 모달 창을 닫음(감춤);
     modalClose(clsoe: boolean) {
         if (clsoe) {
-            this.lgModal.hide();
+            this.bgModel.hide();
         }
         this.retrieveExecute();
     }

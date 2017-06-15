@@ -30,7 +30,7 @@
   "Board composite map": "Board composite map",
   "EFFICIENCY ANAYSIS": "EFFICIENCY ANAYSIS",
   "Test efficiency": "Test efficiency",
-  "Test time": "Test time",
+  "testTime": "Test Time",
   "RAW DATA": "RAW DATA",
   "Lot": "Lot",
   "Chip": "Chip",
@@ -129,7 +129,7 @@
   "passBinSelection6": "6",
   "passBinSelection7": "7",
   "passBinSelection8": "8",
-  
+
   "retestBinSelection1": "1",
   "retestBinSelection2": "2",
   "retestBinSelection3": "3",
