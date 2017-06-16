@@ -1,3 +1,12 @@
+<!--
+* 1. File name     : ProgramRegisterRetrieve.component.html
+* 2. Discription   : 기본 테스트 프로그램 정보를 조회 수정한다
+* 3. writer        : yhkim     2017.03.01
+* 4. modifier      :
+*/
+/**
+* version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -73,14 +82,20 @@
                                     <button class="btn btn-default" (click)="someClickHandler(flexGrid)">Edit</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [selectionMode]="'Row'"
-                                          [isReadOnly]="true"
+                            <!-- the grid -->
+                            <wj-flex-grid #flexGrid [allowResizing]="'Both'"
+                                          class="grid"
                                           [itemsSource]="gridData"
-                                          [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
-                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
+                                          [isReadOnly]="true">
+                                <wj-flex-grid-column *ngFor="let col of columns"
+                                                     [header]="col.header"
+                                                     [binding]="col.binding"
+                                                     [format]="col.format"
+                                                     [width]="col.width">
+                                    <ng-template *ngIf="col.cellTemplate" wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <wj-component-loader [component]="col.cellTemplate" [properties]="{item: cell.item}"></wj-component-loader>
+                                    </ng-template>
+                                </wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
                     </div>

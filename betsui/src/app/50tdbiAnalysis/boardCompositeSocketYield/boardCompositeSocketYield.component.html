@@ -109,7 +109,7 @@
                             <wj-flex-grid #flexGrid [allowResizing]="'Both'"
                                           class="grid"
                                           [itemsSource]="gridData"
-                                          [isReadOnly]="false">
+                                          [isReadOnly]="true">
                                 <wj-flex-grid-column *ngFor="let col of columns"
                                                      [header]="col.header"
                                                      [binding]="col.binding"
