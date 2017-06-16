@@ -1,3 +1,12 @@
+<!--
+* 1. File name     : boardCompositeSocketYield.component.html
+* 2. Discription   : 특정 보드의 기간동안 소켓의 수율을 보여준다
+* 3. writer        : yhkim     2017.06.06
+* 4. modifier      :
+*/
+/**
+* version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -32,32 +41,32 @@
                                         <label class="col-md-2 control-label"><sup>*</sup>{{'boardId'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" name="biBoardId" required
-                                                   [(ngModel)]="data.biBoardId">
+                                                   [(ngModel)]="retrieveCondDto.biBoardId">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text" name="biPartNumber"
-                                                   [(ngModel)]="data.biPartNumber">
+                                                   [(ngModel)]="retrieveCondDto.biPartNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" name="biMainProgramName"
-                                                   [(ngModel)]="data.biMainProgramName">
+                                                   [(ngModel)]="retrieveCondDto.biMainProgramName">
                                         </div>
 
                                         <label class="col-md-2 control-label">{{'sblBoardLimit'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'sblBoardLimit'|i18n}}" type="text" name="sblBoardLimit"
-                                                   [(ngModel)]="data.sblBoardLimit">
+                                                   [(ngModel)]="retrieveCondDto.sblBoardLimit">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">{{'biTestNumber'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'biTestNumber'|i18n}}" type="text" name="biTestNumber"
-                                                   [(ngModel)]="data.biTestNumber">
+                                                   [(ngModel)]="retrieveCondDto.biTestNumber">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -96,19 +105,27 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
-                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
+                            <!-- the grid -->
+                            <wj-flex-grid #flexGrid [allowResizing]="'Both'"
+                                          class="grid"
+                                          [itemsSource]="gridData"
+                                          [isReadOnly]="false">
+                                <wj-flex-grid-column *ngFor="let col of columns"
+                                                     [header]="col.header"
+                                                     [binding]="col.binding"
+                                                     [format]="col.format"
+                                                     [width]="col.width">
+                                    <ng-template *ngIf="col.cellTemplate" wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <wj-component-loader [component]="col.cellTemplate" [properties]="{item: cell.item}"></wj-component-loader>
+                                    </ng-template>
+                                </wj-flex-grid-column>
                             </wj-flex-grid>
                         </div>
                     </div>
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>

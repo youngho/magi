@@ -1,4 +1,4 @@
-import {Component, ViewChild} from "@angular/core";
+import {Component, ViewChild, Type} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
@@ -7,12 +7,21 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {BoardCompositeSocketYieldService} from "./boardCompositeSocketYield.service";
 import {BoardCompositeSocketYield} from './boardCompositeSocketYield.model';
-
+/**
+ * 1. File name     : boardCompositeSocketYield.component.ts
+ * 2. Discription   : 특정 보드의 기간동안 소켓의 수율을 보여준다
+ * 3. writer        : yhkim     2017.06.06
+ * 4. modifier      :
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'boardCompositeSocketYield',
     templateUrl: 'boardCompositeSocketYield.component.html',
-    providers: [BoardCompositeSocketYieldService, BoardCompositeSocketYield]
+    providers: [BoardCompositeSocketYieldService, BoardCompositeSocketYield],
+
 })
 export class BoardCompositeSocketYieldComponent {
     UIID: string = "BETS-UI-0507";  //Board Composite Socket Yield
@@ -24,10 +33,13 @@ export class BoardCompositeSocketYieldComponent {
     public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
-    private data: BoardCompositeSocketYield = new BoardCompositeSocketYield();
+    private retrieveCondDto: BoardCompositeSocketYield = new BoardCompositeSocketYield();
     private usageInfo = new UserUsage();
+    columns: { binding?: string, header?: string, width?: any, format?: string, cellTemplate?: Type<any> }[];
 
     constructor(private service: BoardCompositeSocketYieldService) {
+        // wijmo 표에 컬럼형식을 표시하기 위한 변수 초기화
+        this.columns = [];
     }
 
     ngOnInit() {
@@ -48,23 +60,40 @@ export class BoardCompositeSocketYieldComponent {
         },300);
     }
 
+    /**
+     *  Reset 버튼시 작동하는 함수
+     */
     resetForm() {
-        this.data = new BoardCompositeSocketYield();
+        // 조회조건 DTO를 초기화 시킨다
+        this.retrieveCondDto = new BoardCompositeSocketYield();
     }
 
+    /**
+     * 조회함수
+     */
     retrieveExecute() {
-        // console.log("biEndTimeStart : " + this.data.biEndTimeStart);
-        // console.log("biEndTimeEnd : " + this.data.biEndTimeEnd);
-        // console.log("partnumberName : " + this.data.biPartNumber);
-        // console.log("lotNumber : " + this.data.biLotId);
-        // console.log("processName : " + this.data.biProcessCode);
-        // console.log("testerName : " + this.data.biTesterModel);
-        // console.log("testerHead : " + this.data.biTestNumber);
-        this.data.biEndTimeStart = this.startDate + "000000";
-        this.data.biEndTimeEnd = this.endDate + "999999";
-        this.service.postLastTable(this.data)
-            .subscribe((apps) => {
-                    this.gridData = new wjcCore.CollectionView(apps);
+        this.retrieveCondDto.biEndTimeStart = this.startDate + "000000";
+        this.retrieveCondDto.biEndTimeEnd = this.endDate + "999999";
+        // service 클래스 호출
+        this.service.postLastTable(this.retrieveCondDto)
+            .subscribe((arrayJson) => {
+                    var columnTypeObj;
+                    var objJson = arrayJson[0]; // 반환 받은 json 배열의 첫번채 ROW를 사용한다
+
+                    // Object 의 전체 컬럼요소에 대해 wijmo 에서 제공하는 컬럼타입으로 변환한다
+                    for (let key in objJson) {
+                        if (key == "temperature") {
+                            columnTypeObj = {binding: key, header: this.unCamelCase(key), cellTemplate: ExpenceCellCmp};
+                        } else {
+                            columnTypeObj = {binding: key, header: this.unCamelCase(key), width: key.length * 10};
+                        }
+                        this.columns.push(columnTypeObj);
+                    }
+
+                    // 실제 데이터가 표에 데이터를 맵핑 시키는 부분이다
+                    this.gridData = new wjcCore.CollectionView(arrayJson);
+
+                    // 조회 결과가 없을 경우
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
@@ -75,7 +104,38 @@ export class BoardCompositeSocketYieldComponent {
                 error => this.errorMessage = error);
     }
 
+    /**
+     * 엑셀 다운로드 함수
+     */
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_SocketYield'+'.xlsx');
+    }
+
+    // 컬럼헤더로 오는 java camel case 변수명을 문자열로 변환하는 함수
+    unCamelCase(str) {
+        return str
+        // insert a space between lower & upper
+            .replace(/([a-z])([A-Z])/g, '$1 $2')
+            // space before last upper in a sequence followed by lower
+            .replace(/\b([A-Z]+)([A-Z])([a-z])/, '$1 $2$3')
+            // uppercase the first character
+            .replace(/^./, function (str) {
+                return str.toUpperCase();
+            })
+    }
+}
+@Component({
+    selector: 'expence-cell-cmp',
+    template: `
+        <div [ngStyle]="{color: item.temperature < retrieveCondDto.sblBoardLimt ? 'red' : 'blue'}">
+            {{item.temperature}}
+        </div>
+        `,
+})
+
+export class ExpenceCellCmp {
+    item: any;
+
+    constructor() {
     }
 }
