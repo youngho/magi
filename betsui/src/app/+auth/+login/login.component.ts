@@ -47,19 +47,18 @@ export class LoginComponent implements OnInit {
     }
 
     login(f) {
-        console.log(this.tableForm.value);
-        //console.log("로그인 이름 : " + this.model.username + "패스워드 : " + this.model.password);
+//        console.log(this.tableForm.value);  // 요청내용
 
         this.loading = true;
         this.service.postRetrieve(f)
             .subscribe(
                 (response: User) => {
                     // login successful if there's a jwt token in the response
-                    console.log(response);
+                    // console.log(response);
                     let user = response;
                     if (user && user.token) {
                         // store user details and jwt token in local storage to keep user logged in between page refreshes
-                        console.log("유저 : " + user.username + " 토큰 : " + user.token);
+                        // console.log("유저 : " + user.username + " 토큰 : " + user.token);
                         localStorage.setItem('currentUser', JSON.stringify(user));
                         localStorage.setItem('token', user.token);
                         localStorage.setItem('loginId', user.username);
@@ -67,16 +66,16 @@ export class LoginComponent implements OnInit {
 
                         for(var key in user.authorities){
                             var value = user.authorities[key];
-                            console.log(value.authority);
+                            // console.log(value.authority);
                             if (value.authority == "ADMIN") {
                                 localStorage.setItem('authority', "ADMIN");
                             } else if(localStorage.getItem('authority') != "ADMIN" ){
                                 localStorage.setItem('authority', value.authority);
                             }
                         }
-                        console.log("localStorage.setItem('token') : " + localStorage.getItem('token'));
-                        console.log("localStorage.setItem('loginId') : " + localStorage.getItem('loginId'));
-                        console.log("localStorage.setItem('authority') : " + localStorage.getItem('authority'));
+                        // console.log("localStorage.setItem('token') : " + localStorage.getItem('token'));
+                        // console.log("localStorage.setItem('loginId') : " + localStorage.getItem('loginId'));
+                        // console.log("localStorage.setItem('authority') : " + localStorage.getItem('authority'));
                     }
                     this.router.navigate([this.returnUrl]);
                 },
