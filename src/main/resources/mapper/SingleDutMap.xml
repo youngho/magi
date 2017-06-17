@@ -25,7 +25,7 @@
                 AND A.END_TIME <![CDATA[<=]]> #{endTimeEnd}
             </if>
             <if test=" partNumber != null and partNumber != '' ">
-                AND A.PART_NUMBER=#{partNumber}
+                AND A.PART_NUMBER LIKE '%'|| #{partNumber} || '%'
             </if>
             <if test=" processCode != null and processCode != '' ">
                 AND A.PROCESS_CODE=#{processCode}

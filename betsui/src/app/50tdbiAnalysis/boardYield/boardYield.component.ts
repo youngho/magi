@@ -68,6 +68,7 @@ export class BoardYieldComponent {
         this.service.retrieveService(this.retrieveCondDto)
             .subscribe((apps) => {
                     this.gridData = new wjcCore.CollectionView(apps);
+
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {

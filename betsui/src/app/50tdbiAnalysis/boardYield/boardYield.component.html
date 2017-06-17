@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
+                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}<sup>%</sup></label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text" [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
@@ -108,6 +108,33 @@
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
                                                      [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
+
+
+                            <wj-flex-grid [itemsSource]="gridData">
+                                <wj-flex-grid-column [header]="'PART_NUMBER'" [binding]="'PART_NUMBER'" [width]="'*'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'PROCESS_CODE'" [binding]="'PROCESS_CODE'"></wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'INPUT'" [binding]="'INPUT'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div *ngIf="cell.item.INPUT == '360'">
+                                            <div [ngStyle]="{'background-color':'yellow'}">
+                                                {{cell.item.INPUT}}
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <wj-flex-grid-column [header]="'PASS'" [binding]="'PASS'"></wj-flex-grid-column>
+                            </wj-flex-grid>
+
+
+                            <wj-flex-grid [itemsSource]="gridData">
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col>
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                                {{cell.item}}
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                            </wj-flex-grid>
+
+
                         </div>
                     </div>
                     <div *ngIf="empty == true">

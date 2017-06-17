@@ -4,8 +4,9 @@ import {SmartadminModule} from "../../shared/smartadmin.module";
 import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
 import {WjGridFilterModule} from 'wijmo/wijmo.angular2.grid.filter';
 import {WjInputModule} from 'wijmo/wijmo.angular2.input';
+import { WjCoreModule } from 'wijmo/wijmo.angular2.core';
 
-import {ProgramRevisionComponent} from "./testProgramRevision.component";
+import {ExpenceCellCenterCmp, ExpenceCellCmp, ProgramRevisionComponent} from "./testProgramRevision.component";
 import {ProgramRevisionRouting} from "./testProgramRevision.routing";
 /**
  * 1. File name     : testProgramRevision.component.ts
@@ -18,12 +19,12 @@ import {ProgramRevisionRouting} from "./testProgramRevision.routing";
  */
 @NgModule({
     imports: [
-        WjInputModule, WjGridModule, WjGridFilterModule,
+        WjCoreModule, WjInputModule, WjGridModule, WjGridFilterModule,
         CommonModule,
         ProgramRevisionRouting,
         SmartadminModule,
     ],
-    declarations: [ProgramRevisionComponent]
+    declarations: [ProgramRevisionComponent, ExpenceCellCmp, ExpenceCellCenterCmp]
 })
 export class TestProgramRevisionModule {
 }

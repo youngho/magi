@@ -51,7 +51,7 @@
                 AND FIRMWARE_NAME  LIKE '%'||  #{firmwareName} || '%'
             </if>
             <if test=" partNumber != null and partNumber != '' ">
-                AND PART_NUMBER=#{partNumber}
+                AND PART_NUMBER LIKE '%'|| #{partNumber} || '%'
             </if>
             <if test=" processCode != null and processCode != '' ">
                 AND PROCESS_CODE=#{processCode}

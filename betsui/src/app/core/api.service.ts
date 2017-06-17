@@ -104,7 +104,13 @@ export class ApiService {
         // let errMsg = (error.message) ? error.message :
         //   error.status ? `${error.status} - ${error.statusText}` : 'Server error';
         // console.error(errMsg); // log to console instead
-        console.log(error);
+        if (error.status == 403) {
+            alert("ID or password invalid");
+        } else if (error.status == 500) {
+            alert("Server error. Please contact your administrator. ");
+        } else {
+            console.log(error);
+        }
         return Observable.throw(error);
     }
 

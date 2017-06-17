@@ -13,9 +13,9 @@
         NG_BIN
         FROM BIN_DESCRIPTION
         <where>
-
+            1 = 1
             <if test=" partNumber != null and partNumber != '' ">
-                AND PART_NUMBER=#{partNumber}
+                AND PART_NUMBER LIKE '%'|| #{partNumber} || '%'
             </if>
             <if test=" mainProgramName != null and mainProgramName != '' ">
                 AND MAIN_PROGRAM_NAME=#{mainProgramName}
@@ -53,9 +53,9 @@
         NG_BIN
         FROM BIN_DESCRIPTION
         <where>
-
+            1 = 1
             <if test=" partNumber != null and partNumber != '' ">
-                AND PART_NUMBER=#{partNumber}
+                AND PART_NUMBER LIKE '%'|| #{partNumber} || '%'
             </if>
             <if test=" mainProgramName != null and mainProgramName != '' ">
                 AND MAIN_PROGRAM_NAME=#{mainProgramName}

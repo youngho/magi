@@ -25,7 +25,7 @@
                 AND BI_BOARD_ID=#{biBoardId}
             </if>
             <if test=" biPartNumber != null and biPartNumber != '' ">
-                AND BI_PART_NUMBER=#{biPartNumber}
+                AND BI_PART_NUMBER LIKE '%'|| #{biPartNumber} || '%'
             </if>
             <if test=" biMainProgramName != null and biMainProgramName != '' ">
                 AND BI_MAIN_PROGRAM_NAME=#{biMainProgramName}
