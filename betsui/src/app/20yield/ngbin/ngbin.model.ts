@@ -6,13 +6,16 @@
 export class NgBin {
     endTimeStart: string;
     endTimeEnd: string;
+    binSelection: string;
 
     partNumber: string;
     processCode: string;
     testerModel: string;
+
     testerNumber: string;
     head: string;
     testCounter: string;
+
     lotId: string;
     mainProgramName: string;
     boardId: string;

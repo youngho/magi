@@ -1,7 +1,13 @@
 <!--
-    ** BETS-UI-0202
-    ** NG_BIN 테이블의 TESTER_COUNTER의 숫자가 0,1,2,OP_BIN(9999) 로들어온다.(분류조건)
-    ** NG_BIN 테이블에 있는 NG_BIN(SUB_BIN)(1~999)의 값의 각 NG_BIN숫자별로 몇개씩 나왔는지 보여준다.
+* 1. File name     : ngbin.component.ts
+* 2. Discription   : NG_BIN 테이블의 TESTER_COUNTER의 숫자가 0,1,2,OP_BIN(9999) 로들어온다.(분류조건)
+*                    NG_BIN 테이블에 있는 NG_BIN(SUB_BIN)(1~999)의 값의 각 NG_BIN숫자별로 몇개씩 나왔는지 보여준다.
+*                    BETS-UI-0202
+* 3. writer        : yhkim     2017.03.01
+* 4. modifier      :
+*/
+/**
+* version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
 -->
 <!-- MAIN CONTENT -->
 <div id="content">
@@ -41,7 +47,7 @@
                                         </div>
                                         <label class="col-md-2 control-label">{{'Bin Selection'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="BIN Select" type="text">
+                                            <input class="form-control" placeholder="BIN Select" type="text" [(ngModel)]="retrieveCondDto.binSelection">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -130,22 +136,28 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid
-                                          [isReadOnly]="true"
+                            <!-- the grid -->
+                            <wj-flex-grid #flexGrid [allowResizing]="'Both'"
+                                          class="grid"
                                           [itemsSource]="gridData"
-                                          [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
-                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
+                                          [isReadOnly]="false">
+                                <wj-flex-grid-column *ngFor="let col of columns"
+                                                     [header]="col.header"
+                                                     [binding]="col.binding"
+                                                     [format]="col.format"
+                                                     [width]="col.width">
+                                    <ng-template *ngIf="col.cellTemplate" wjFlexGridCellTemplate [cellType]="'CellEdit'" let-cell="cell">
+                                        <wj-component-loader [component]="col.cellTemplate" [properties]="{cell:cell, item: cell.item, value: col.binding, binSelection: col.binSelection}"></wj-component-loader>
+                                    </ng-template>
+                                </wj-flex-grid-column>
                             </wj-flex-grid>
+                            <!-- End gird -->
                         </div>
                     </div>
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
