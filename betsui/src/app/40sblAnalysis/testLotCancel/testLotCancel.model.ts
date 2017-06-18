@@ -1,15 +1,31 @@
 /**
- * Created by yhkim on 2017-02-17.
+ * 1. File name     : testLotCancel.model.ts
+ * 2. Discription   : CANCEL_BIN 테이블에서 조회한다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0301 : Single DUT map
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 export class TestLotCancel {
-    testerNumber: string;
-    testerModel: string;
-    handlerModel: string;
-    head: string;
-    lotId: string;
-    processCode: string;
+    endTimeStart: string;
+    endTimeEnd: string;
+    binSelection: string;
+
     partNumber: string;
+    processCode: string;
+    testerModel: string;
+
+    testerNumber: string;
+    head: string;
+    testCounter: string;
+
+    lotId: string;
     mainProgramName: string;
+    boardId: string;
+/*
+    handlerModel: string;
     grade: string;
     fab: string;
     firmwareName: string;
@@ -17,18 +33,12 @@ export class TestLotCancel {
     temperature: string;
     operatorId: string;
     quantity: string;
-    testCounter: string;
     reworkFlag: string;
-    boardId: string;
     lotInTime: string;
     endTime: string;
     sblResult: string;
     sblYieldLimit: string;
-
     sblBin9Counter: string;
     sblBin9Limit: string;
-
-    endTimeStart: string;
-    endTimeEnd: string;
-
+*/
 }
