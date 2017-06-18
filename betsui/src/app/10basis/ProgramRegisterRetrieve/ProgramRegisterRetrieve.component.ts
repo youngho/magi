@@ -37,6 +37,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     private colInfo = new Array();// Grid dynamic columns title
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     @ViewChild('lgModal') bgModel;
+    public loading = false; // Control for Grid Table Spinner
 
     retrieveCondDto = {
         partNumber: "",
@@ -80,6 +81,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
     }
 
     retrieveExecute() {
+        this.loading = true;
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((arrayJson) => {
                     var columnTypeObj;
@@ -99,6 +101,8 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                     // 실제 데이터가 표에 데이터를 맵핑 시키는 부분이다
                     this.gridData = new wjcCore.CollectionView(arrayJson);
 
+                    this.loading = false;
+
                     // 조회 결과가 없을 경우
                     if (this.gridData.isEmpty) {
                         this.empty = true;
@@ -106,7 +110,11 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                         this.empty = false;
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     retrieveByKeyDto = {

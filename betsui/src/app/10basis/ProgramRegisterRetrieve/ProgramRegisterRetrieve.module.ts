@@ -16,7 +16,7 @@ import { WjInputModule } from 'wijmo/wijmo.angular2.input';
 import {ProgramRegisterViewComponent} from "./ProgramRegisterView.component"
 import {IncludesModule} from "../../shared/includes/Includes.module";
 
-import {AccordionModule, CarouselModule} from "ngx-bootstrap";
+import {LoadingModule} from "ngx-loading";
 /**
  * 1. File name     : ProgramRegisterRetrieve.module.ts
  * 2. Discription   : 기본 테스트 프로그램 정보를 조회 수정한다
@@ -38,8 +38,7 @@ import {AccordionModule, CarouselModule} from "ngx-bootstrap";
         FormsModule,
         ReactiveFormsModule,
         IncludesModule,
-        AccordionModule.forRoot(),
-        CarouselModule.forRoot(),
+        LoadingModule
     ],
     declarations: [ProgramRegisterRetrieveComponent, ExpenceCellCmp]
 })
