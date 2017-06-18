@@ -4,20 +4,23 @@ import org.springframework.stereotype.Service;
 
 /**
  * Created by yhkim on 2017-03-08.
+ *
+ * 20170606 : 강래원 책임의 요구사함으로 컬럼 순서가 아래와 같이 바뀜
  */
 public class NgBinResultDto {
-    private String testerNumber      = ""; // TESTER 번호(Host id)
-    private String testerModel       = ""; // TESTER MODEL NAME
-    private String handlerModel      = ""; // HANDLER MODEL NAME
-    private String head              = ""; // HEAD NUMBER A or B
+    private String partNumber        = ""; // PART NUMBER
     private String lotId             = ""; // LOT ID
     private String processCode       = ""; // PROCESS CODE
-    private String partNumber        = ""; // PART NUMBER
-    private String operatorId        = ""; // OPERATOR ID
-    private String testCounter       = ""; // TEST 횟수 (0 or 1 or 2.....)
-    private String boardId           = ""; // TEST BOARD ID (FIX)
+    private String testerNumber      = ""; // TESTER 번호(Host id)
     private String lotInTime         = ""; // OPERATOR ID 입력 시점
     private String endTime           = ""; // SRQKIND#10 시점.
+    private String testerModel       = ""; // TESTER MODEL NAME
+    private String head              = ""; // HEAD NUMBER A or B
+    private String operatorId        = ""; // OPERATOR ID
+    private String handlerModel      = ""; // HANDLER MODEL NAME
+    private String testCounter       = ""; // TEST 횟수 (0 or 1 or 2.....)
+    private String boardId           = ""; // TEST BOARD ID (FIX)
+    private int total                = 0;
     private String ngBin             = ""; //
 
     public String getTesterNumber() {
@@ -122,5 +125,13 @@ public class NgBinResultDto {
 
     public void setNgBin(String ngBin) {
         this.ngBin = ngBin;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 }
