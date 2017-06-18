@@ -1,5 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
+import * as wjcCore from 'wijmo/wijmo';
+import * as wjcGrid from 'wijmo/wijmo.grid';
+import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
 import {CommonModule} from "@angular/common";
 import {FormGroup, FormControl, FormBuilder, Validators} from "@angular/forms";
 import {SettingsService} from "./settings.service";
@@ -7,7 +10,16 @@ import {SettingsService} from "./settings.service";
 import {Setting} from './settings.model';
 import {NotificationService} from "../../shared/utils/notification.service";
 
-
+/**
+ * 1. File name     : settings.component.ts
+ * 2. Discription   : 사용자 설정화면
+ * 3. writer        : yhkim     2017.06.18
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0902 : Setting
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'SettingsRetrieveComponent',
@@ -16,16 +28,18 @@ import {NotificationService} from "../../shared/utils/notification.service";
 })
 
 export class SettingsComponent implements OnInit {
-
-    @ViewChild('lgModal') bgModel;
-
-    constructor(private service: SettingsService, private notificationService: NotificationService, private setting: Setting) {
-    }
-
-    componentData = null;
+    UIID: string = "BETS-UI-0902";
+    startDate = "";
+    endDate = "";
+    empty = true;
     errorMessage = null;
-    message: string = '';
+    message = null;
     submitted = false;
+    private colInfo = new Array();
+    gridData: wjcCore.CollectionView;
+    @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
+    @ViewChild('lgModal') bgModel;
+    public loading = false; // Control for Grid Table Spinner
 
     retrieveCondDto = {
         betsKey: "",
@@ -33,6 +47,9 @@ export class SettingsComponent implements OnInit {
         betsKeyDesc: "",
         settingUser: "",
     };
+
+    constructor(private service: SettingsService, private notificationService: NotificationService, private setting: Setting) {
+    }
 
     /**
      *
@@ -68,20 +85,40 @@ export class SettingsComponent implements OnInit {
 
     resetForm() {
         this.retrieveCondDto = new Setting();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+        this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
         console.log("betsKey : " + this.setting.betsKey);
         console.log("betsValue : " + this.setting.betsValue);
+        this.loading = true;
+        this.service.postRetrieve(this.retrieveCondDto)
+            .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
+                    this.gridData = new wjcCore.CollectionView(apps);
+                    if (this.gridData.isEmpty) {
+                        this.empty = true;
+                    } else {
+                        this.empty = false;
+                    }
+                },
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
 
-
-        }
+    }
 
     saveForm() {
         this.smartModEg1();
         this.submitted = true;
     }
 
+    /**
+     * 저장전 확인 팝업창 호출함수
+     */
     smartModEg1() {
         this.notificationService.smartMessageBox({
             title: "BETS Alert!",

@@ -1,3 +1,15 @@
+<!--
+/**
+ * 1. File name     : settings.component.html
+ * 2. Discription   : 사용자 설정화면
+ * 3. writer        : yhkim     2017.06.18
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0902 : Setting
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -62,7 +74,40 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <dynamic-component [componentData]="componentData"></dynamic-component>
+                <!-- widget Grid Start -->
+                <sa-widget [colorbutton]="false" [editbutton]="false">
+                    <header>
+                        <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                        <h2>{{'userAuthorization' | i18n}} retrieve Result</h2>
+                    </header>
+                    <div *ngIf="!empty">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="exportExcel()">Export</button>
+                                </div>
+                                <div class="form-inline well well-lg">
+                                    <button class="btn btn-default" (click)="editByKye(flexGrid)">Edit</button>
+                                </div>
+                            </div>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col [width]="'*'"></wj-flex-grid-column>
+                            </wj-flex-grid>
+                        </div>
+                    </div>
+                    <div *ngIf="empty == true">
+                        <div class="widget-body no-padding">
+                            <div class="col-md-12 col-xs-12">
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
+                            </div>
+                        </div>
+                    </div>
+                </sa-widget>
+                <!-- widget Grid End -->
             </article>
             <!-- WIDGET END -->
         </div>
