@@ -8,6 +8,16 @@ import {RegisterService} from "./register.service";
 import {User} from "./user.model";
 import {NotificationService} from "../../shared/utils/notification.service";
 
+/**
+ * 1. File name     : register.component.ts
+ * 2. Discription   : 사용자 관리화면
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0901 : User Authorization
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'ProgramRegisterRetrieveComponent',
@@ -17,7 +27,7 @@ import {NotificationService} from "../../shared/utils/notification.service";
 })
 
 export class RegisterComponent implements OnInit {
-    UIID: string = "BETS-UI-0104";
+    UIID: string = "BETS-UI-0901";
     startDate = "";
     endDate = "";
     empty = true;
@@ -31,7 +41,7 @@ export class RegisterComponent implements OnInit {
     @ViewChild('lgModal') bgModel;
     private user: User = new User();
     private retrieveCondDto: User = new User();
-
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: RegisterService, private notificationService: NotificationService) {
     }
@@ -58,21 +68,19 @@ export class RegisterComponent implements OnInit {
         this.user.username = info.username;
         this.user.name = info.name;
 
-
         this.bgModel.show(function (info: any) {
             console.log(info);
         });
 
     }
 
-
-
     retrieveExecute() {
-        console.log("username : " + this.retrieveCondDto.username);
-        console.log("name : " + this.retrieveCondDto.name);
-
+        // console.log("username : " + this.retrieveCondDto.username);
+        // console.log("name : " + this.retrieveCondDto.name);
+        this.loading = true;
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
@@ -80,7 +88,11 @@ export class RegisterComponent implements OnInit {
                         this.empty = false;
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
 
