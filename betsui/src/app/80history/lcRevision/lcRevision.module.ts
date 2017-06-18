@@ -8,6 +8,7 @@ import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import {LcRevisionComponent} from "./lcRevision.component";
 import {LcRevisionRouting} from "./lcRevision.routing";
 
+import {LoadingModule} from "ngx-loading";
 /**
  * 1. File name     : lcRevision.model.ts
  * 2. Discription   : LC 이력을 조회하는 화면이다. 사실상 LC관련 입력 업무가 없기 때문에 사용하지 않는 화면이다.
@@ -20,6 +21,7 @@ import {LcRevisionRouting} from "./lcRevision.routing";
         CommonModule,
         LcRevisionRouting,
         SmartadminModule,
+        LoadingModule
     ],
     declarations: [LcRevisionComponent]
 })

@@ -8,6 +8,16 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {ChipIdService} from "./chipId.service";
 import {ChipId} from './chipId.model';
 
+/**
+ * 1. File name     : chipId.component.ts
+ * 2. Discription   : CID 중복 목록을 조회한다
+ * 3. writer        : yhkim     2017.06.10
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0804 : CID Duplicate Retrieve
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'chipId',
@@ -27,6 +37,7 @@ export class ChipIdComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: ChipId = new ChipId();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: ChipIdService) {
     }
@@ -48,8 +59,8 @@ export class ChipIdComponent {
         // this.startDate = res;
         // this.endDate = res;
         this.retrieveCondDto = new ChipId();
-        // this.stopRefreshing();
         this.gridData = null;
+        this.empty = false;
     }
 
     retrieveExecute() {
@@ -61,17 +72,22 @@ export class ChipIdComponent {
 
         this.retrieveCondDto.fileCreateTimeStart = this.startDate + "000000";
         this.retrieveCondDto.fileCreateTimeEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_cid'+'.xlsx');

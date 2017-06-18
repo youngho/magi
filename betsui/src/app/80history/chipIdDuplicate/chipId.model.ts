@@ -1,6 +1,13 @@
 /**
- * Created by yhkim on 2017-02-17.
- **/
+ * 1. File name     : chipId.model.ts
+ * 2. Discription   : CID 중복 목록을 조회한다
+ * 3. writer        : yhkim     2017.06.10
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0804 : CID Duplicate Retrieve
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */
 export class ChipId {
     // fastTesterNumber: String;    // 이전 TESTER 번호(Host id)
     // fastTesterModel: String;     // 이전 TESTER MODEL NAME

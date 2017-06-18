@@ -9,7 +9,14 @@ import {MesTrackInOutService} from "./mesTrackInOut.service";
 import {MesTrackInOut} from './mesTrackInOut.model';
 
 /**
- * Process 로직에서 MES와 통신한 이력을 보여주는 화면이다.
+ * 1. File name     : mesTrackInOut.component.ts
+ * 2. Discription   : Process 로직에서 MES와 통신한 이력을 보여주는 화면이다.
+ * 3. writer        : yhkim     2017.02.17
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0802 : Mes Track In Out
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 @FadeInTop()
 @Component({
@@ -30,6 +37,7 @@ export class MesTrackInOutComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: MesTrackInOut = new MesTrackInOut();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: MesTrackInOutService) {
     }
@@ -41,16 +49,17 @@ export class MesTrackInOutComponent {
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
             error => alert(error),
-            () => console.log("Finish onSave()")
+            // () => console.log("Finish onSave()")
         );
     }
 
-
-
     resetForm() {
         this.retrieveCondDto = new MesTrackInOut();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+        this.gridData = null;
+        this.empty = true;
     }
-    saveLastTableForm() {
+
+    retrieveExecute() {
         // console.log("endTimeStart : " + this.data.createDateStart);
         // console.log("createDateEnd : " + this.data.createDateEnd);
         // console.log("partNumber : " + this.data.partNumber);
@@ -59,17 +68,22 @@ export class MesTrackInOutComponent {
 
         this.retrieveCondDto.createDateStart = this.startDate + "000000";
         this.retrieveCondDto.createDateEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {

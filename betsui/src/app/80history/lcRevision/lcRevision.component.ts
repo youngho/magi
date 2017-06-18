@@ -13,6 +13,7 @@ import {LcRevision} from './lcRevision.model';
  * 2. Discription   : LC 이력을 조회하는 화면이다. 사실상 LC관련 입력 업무가 없기 때문에 사용하지 않는 화면이다.
  * 3. writer        : yhkim     2017.02.17
  * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0804 : Lc Revision
  */
 /**
  * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
@@ -36,6 +37,7 @@ export class LcRevisionComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: LcRevision = new LcRevision();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: LcRevisionService) {
     }
@@ -70,8 +72,10 @@ export class LcRevisionComponent {
 
         this.retrieveCondDto.createDateStart = this.startDate + "000000";
         this.retrieveCondDto.createDateEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
@@ -80,7 +84,11 @@ export class LcRevisionComponent {
                         // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_lcRevision'+'.xlsx');

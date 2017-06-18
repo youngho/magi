@@ -8,7 +8,14 @@ import {UserUsageService} from "./userUsage.service";
 import {UserUsage} from "../../shared/usage/userUsage.model";
 
 /**
- * 사용자 이력화면이다. 사용자 이력정보는 각 화면이 Init되는 시점에 UserUsage 서비스를 호출하여 자신의 화면 아이디를 시간과 함께 저장한다. 이렇게 저장된 내역을 조회하는 화면이다.
+ * 1. File name     : userUsage.component.ts
+ * 2. Discription   : 사용자 이력화면이다. 사용자 이력정보는 각 화면이 Init되는 시점에 UserUsage 서비스를 호출하여 자신의 화면 아이디를 시간과 함께 저장한다. 이렇게 저장된 내역을 조회하는 화면이다.
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0803 : Test Program Revision
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 @FadeInTop()
 @Component({
@@ -24,10 +31,10 @@ export class UserUsageComponent {
     componentData = null;
     errorMessage = null;
     private colInfo = new Array();
-    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private usageInfo: UserUsage = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     retrieveCondDto = {
         createDateStart: "",
@@ -45,7 +52,7 @@ export class UserUsageComponent {
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
             error => alert(error),
-            () => console.log("Finish onSave()")
+            // () => console.log("Finish onSave()")
         );
     }
 
@@ -54,6 +61,8 @@ export class UserUsageComponent {
         this.retrieveCondDto.createDateEnd = "";
         this.retrieveCondDto.userId = "";
         this.retrieveCondDto.uiId = "";
+        this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
@@ -63,17 +72,22 @@ export class UserUsageComponent {
         // console.log("uiId : " + this.data.uiId);
         this.retrieveCondDto.createDateStart = this.startDate + "000000";
         this.retrieveCondDto.createDateEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {

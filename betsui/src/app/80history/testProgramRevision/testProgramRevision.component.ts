@@ -38,6 +38,7 @@ export class ProgramRevisionComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: ProgramRevision = new ProgramRevision();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     columns: { binding?: string, header?: string, width?: any, format?: string, cellTemplate?: Type<any> }[];
 
@@ -62,7 +63,7 @@ export class ProgramRevisionComponent {
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
             error => alert(error),
-            () => console.log("Finish onSave()")
+            // () => console.log("Finish onSave()")
         );
     }
 
@@ -75,8 +76,8 @@ export class ProgramRevisionComponent {
 
     resetForm() {
         this.retrieveCondDto = new ProgramRevision();
-        // this.stopRefreshing();
         this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
@@ -88,6 +89,7 @@ export class ProgramRevisionComponent {
         this.startDate = "20170101";
         this.retrieveCondDto.createDateStart = this.startDate + "000000";
         this.retrieveCondDto.createDateEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((arrayJson) => {
                     var columnTypeObj;
@@ -107,6 +109,7 @@ export class ProgramRevisionComponent {
 
                     // 실제 데이터가 표에 데이터를 맵핑 시키는 부분이다
                     this.gridData = new wjcCore.CollectionView(arrayJson);
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
 
                     // 조회 결과가 없을 경우
                     if (this.gridData.isEmpty) {
@@ -116,7 +119,11 @@ export class ProgramRevisionComponent {
                         // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {
