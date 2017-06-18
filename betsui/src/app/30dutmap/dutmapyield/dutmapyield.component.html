@@ -1,8 +1,14 @@
 <!--
- * BETS-UI-0303
- * DUT Map Yiled
- * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
- * BIN Selection 에서 선택한 BIN의 비율을 보여준다
+* 1. File name     : dutmapyield.component.html
+* 2. Discription   : BETS-UI-0303
+*                    DUT Map Yiled
+*                    BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+*                    BIN Selection 에서 선택한 BIN의 비율을 보여준다
+* 3. writer        : yhkim     2017.03.01
+* 4. modifier      :
+*/
+/**
+* version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
 -->
 <!-- MAIN CONTENT -->
 <div id="content">
@@ -150,6 +156,8 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
                             <wj-flex-grid #flexGrid
                                           [itemsSource]="gridData"
                                           [autoSizeMode]="'Both'"
@@ -164,7 +172,8 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>

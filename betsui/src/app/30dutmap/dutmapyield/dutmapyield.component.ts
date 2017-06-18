@@ -1,9 +1,3 @@
-/**
- * BETS-UI-0303
- * DUT Map Yiled
- * BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
- * BIN Selection 에서 선택한 BIN의 비율을 보여준다
- */
 import {Component, EventEmitter, Output, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
@@ -14,7 +8,18 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {DutMapYieldService} from "./dutmapyield.service";
 import {DutMapYield} from "./dutmapyield.model";
 
-
+/**
+ * 1. File name     : dutmapyield.component.ts
+ * 2. Discription   : BETS-UI-0303
+ *                    DUT Map Yiled
+ *                    BIN Selection 이 정해지지 않을 경우에는 PASS BIN의 비율을 보여준다
+ *                    BIN Selection 에서 선택한 BIN의 비율을 보여준다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'DutMapYield',
@@ -29,13 +34,13 @@ export class DutMapYieldComponent {
     empty = true;
     errorMessage = null;
     private colInfo = new Array();
-    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: DutMapYield = new DutMapYield();
     private usageInfo = new UserUsage();
     binYieldLowerLimitReadonly: boolean = true; // INPUT 컨트롤 기본 ReadOnly
     binYieldUpperLimitReadonly: boolean = true; // INPUT 컨트롤 기본 ReadOnly
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: DutMapYieldService) {
     }
@@ -60,29 +65,29 @@ export class DutMapYieldComponent {
 
     resetForm() {
         this.retrieveCondDto = new DutMapYield();
-        this.stopRefreshing();
         this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
+        this.loading = true;
         this.retrieveCondDto.endTimeStart = this.startDate + "000000";
         this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error
-            );
-    }
-
-    private stopRefreshing() {
-        this.isRequesting = false;
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     /**
@@ -95,7 +100,7 @@ export class DutMapYieldComponent {
             this.retrieveCondDto.binYieldLowerLimit = "";
             this.binYieldLowerLimitReadonly = true;
             this.binYieldUpperLimitReadonly = false;
-        } else if ( 0 < Number(this.retrieveCondDto.binSelection) && Number(this.retrieveCondDto.binSelection) < 5) {
+        } else if (0 < Number(this.retrieveCondDto.binSelection) && Number(this.retrieveCondDto.binSelection) < 5) {
             this.retrieveCondDto.binYieldUpperLimit = "";
             this.binYieldLowerLimitReadonly = false;
             this.binYieldUpperLimitReadonly = true;

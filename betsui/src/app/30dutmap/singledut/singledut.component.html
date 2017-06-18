@@ -1,3 +1,14 @@
+<!--
+* 1. File name     : singledut.component.html
+* 2. Discription   : CASI_BIN 테이블에서 SHOT 별로 DUT의 결과를 보여준다
+*                    DUT_MAIN_BIN 컬럼에 들어 있는 BIN 문자열을 파싱하여 표(DUT Map) 형태로 보여주는것이 핵심이다
+* 3. writer        : yhkim     2017.03.01
+* 4. modifier      :
+* 5. UI Id         : BETS-UI-0301 : Single DUT map
+*/
+/**
+* version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -103,7 +114,7 @@
                     <!-- end widget div -->
                 </sa-widget>
                 <!-- end widget -->
-                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
                         <h2>Single DUT Map Retrieve Result</h2>
@@ -115,6 +126,8 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
                             <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
                                           (loadedRows)="onGridLoaded($event)"
                                           [autoSizeMode] = "'Both'">
@@ -126,12 +139,12 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
                 </sa-widget>
-                <my-spinner [isRunning]="isRequesting"></my-spinner>
 
             </article>
             <!-- WIDGET END -->
