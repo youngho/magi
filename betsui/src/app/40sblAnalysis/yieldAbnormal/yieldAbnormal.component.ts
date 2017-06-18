@@ -1,14 +1,21 @@
-/**
- * BETS-UI-0401 : Yield Abnormal
- */
 import {Component, ViewChild} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
 import * as wjcGridXlsx from 'wijmo/wijmo.grid.xlsx';
+import {UserUsage} from "../../shared/usage/userUsage.model";
 import {YieldAbnormalService} from "./yieldAbnormal.service";
 import {YieldAbnormal} from './yieldAbnormal.model';
-
+/**
+ * 1. File name     : yieldAbnormal.component.ts
+ * 2. Discription   : Abnormal 목록을 조회힌다.
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0401 : Yield Abnormal
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'SingledDutBin',
@@ -17,18 +24,31 @@ import {YieldAbnormal} from './yieldAbnormal.model';
     providers: [YieldAbnormalService,YieldAbnormal]
 })
 export class YieldAbnormalComponent {
-    constructor(private service: YieldAbnormalService) {}
-
+    UIID: string = "BETS-UI-0401";
     startDate = "";
     endDate = "";
     empty = true;
     componentData = null;
     errorMessage = null;
     private colInfo = new Array();
-    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCond : YieldAbnormal = new YieldAbnormal();
+    private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
+
+    constructor(private service: YieldAbnormalService) {}
+
+    ngOnInit() {
+        // this.data.createDate = It makes server side service class
+        this.usageInfo.userId = localStorage.getItem("loginId");
+        this.usageInfo.uiId = this.UIID;
+        this.service.postUsage(this.usageInfo).subscribe(
+            data => this.usageInfo = data,
+            error => alert(error),
+            () => console.log("Finish onSave()")
+        );
+    }
 
     /**
      * Reset the retrieve form fields
@@ -46,6 +66,8 @@ export class YieldAbnormalComponent {
         this.retrieveCond.mainProgramName = null;
         this.retrieveCond.boardId = null;
         this.retrieveCond.sblMode = null;
+        this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
@@ -59,9 +81,10 @@ export class YieldAbnormalComponent {
         // console.log("testCount : " + this.retrieveCond.testCount);
         // console.log("testerName : " + this.retrieveCond.testerName);
         // console.log("testerHead : " + this.retrieveCond.testerHead);
-
+        this.loading = true;
         this.service.retrieve(this.retrieveCond)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
@@ -70,7 +93,10 @@ export class YieldAbnormalComponent {
                         // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {

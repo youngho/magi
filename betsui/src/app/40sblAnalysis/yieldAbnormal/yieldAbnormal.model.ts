@@ -1,7 +1,13 @@
 /**
- * BETS-UI-0401 : Yield Abnormal
- * 2017.03.01
- * Yield Abnormal retrieve condition object
+ * 1. File name     : yieldAbnormal.model.ts
+ * 2. Discription   : Abnormal 목록을 조회힌다.
+ *                    Yield Abnormal retrieve condition object
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0401 : Yield Abnormal
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 export class YieldAbnormal {
     endTimeStart: string;
