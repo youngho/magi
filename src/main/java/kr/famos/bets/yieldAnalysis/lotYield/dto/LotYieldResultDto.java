@@ -2,26 +2,45 @@ package kr.famos.bets.yieldAnalysis.lotYield.dto;
 
 /**
  * Created by yhkim on 2017-02-22.
+ *
+ * 20170606 : 강래원 책임의 요구사함으로 컬럼 순서가 아래와 같이 바뀜
  */
 public class LotYieldResultDto {
     //    private int casiSeq              = 0;  //
     private String partNumber = ""; // PART NUMBER
+    private String lotId = ""; // LOT ID
     private String processCode = ""; // PROCESS CODE
+    private String temperature = ""; // TEMPERATURE SPEC
+    private String mainProgramName = ""; // MAIN PROGRAM NAME
+
+    private String lotStartTime      = ""; // SRQKIND#02 or SRQKIND#04 START 시점.
+
+    private String endTime = ""; // SRQKIND#10 시점.
+    private String sblResult = ""; // OPBIN1_ERROR/OPBIN2_ERROR/OPBIN3_ERROR/OPBIN4_ERROR/OPBIN9_ERROR/LOW_YIELD
+    private int quantity = 0; // 해당 LOT의 제품 수량
+    private int input = 0;
+    private float yield = 0;
+    private int pass = 0;
+    private int bin1 = 0;
+    private int bin2 = 0;
+    private int bin3 = 0;
+    private int bin4 = 0;
+    private int bin5 = 0;
+    private int bin6 = 0;
+    private int bin7 = 0;
+    private int bin8 = 0;
+    private int bin9 = 0;
+
+    private String firmwareName = ""; // FIREWARE NAME
+    private String functionKey = ""; // FUNCTION KEY(ADVANTEST T5503만 해당됨)
     private String testerModel = ""; // TESTER MODEL NAME
     private String testerNumber = ""; // TESTER 번호(Host id)
     private String handlerModel = ""; // HANDLER MODEL NAME
-
     private String head = ""; // HEAD NUMBER A or B
-    private String lotId = ""; // LOT ID
-    private String mainProgramName = ""; // MAIN PROGRAM NAME
     private String grade = ""; // HQ:HIGH QUALITY
     private String fab = ""; // FAB SITE
-    private String firmwareName = ""; // FIREWARE NAME
     private String firmwareVersion = ""; // FIRMWARE VERSION
-    private String temperature = ""; // TEMPERATURE SPEC
     private String operatorId = ""; // OPERATOR ID
-    private String quantity = ""; // 해당 LOT의 제품 수량
-    private String functionKey = ""; // FUNCTION KEY(ADVANTEST T5503만 해당됨)
     private String testCounter = ""; // TEST 횟수 (0 or 1 or 2.....)
     private String testInput = ""; // TEST INPUT LOADING방식 (AUTO or MANUAL)
     private String testFlow = ""; // TEST FLOW (RETEST or FINAL OR CANCEL)
@@ -33,15 +52,11 @@ public class LotYieldResultDto {
 //    private String betsInTime        = ""; // LC가 BETS한테 LOT 정보 주는 시점.
 //    private String betsEndTime       = ""; // LC가 BETS로 부터 LOT 정보를 받는 시점.(PROGREAM,LOT 정보)
 //    private String lotInEndTime      = ""; // TEST PROGRAM UPLOAD 시점.
-//    private String lotStartTime      = ""; // SRQKIND#02 or SRQKIND#04 START 시점.
-    private String endTime = ""; // SRQKIND#10 시점.
-    //    private String binInTime         = ""; // 작업자가 BIN 입력 시작 시점.(BIN POPUP창 활성화 시점)   --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
+//    private String binInTime         = ""; // 작업자가 BIN 입력 시작 시점.(BIN POPUP창 활성화 시점)   --->FINAL_END일경우만 표시,--->RE_TEST 경우는 0
 //    private String binEndTime        = ""; // 작업자가 BIN 입력 완료 시점.(TEST OUT Buttom Push 시점) ---
 //    private String sblInTime         = ""; // BETS 서버로 DATA 전송한 시점.
 //    private String sblEndTime        = ""; // BETS 서버로 부터 이상 유무의 명령을 받은 시점.
 //    private String finalEndTime      = ""; // 현재 LOT에 대한 LC의 완료시점에서 LC의 모든 DATA가 RESET된 시점을 뺀값.
-    private String sblResult = ""; // OPBIN1_ERROR/OPBIN2_ERROR/OPBIN3_ERROR/OPBIN4_ERROR/OPBIN9_ERROR/LOW_YIELD
-
     private String sblYieldResult = "";
     private String sblBin1Result = "";
     private String sblBin2Result = "";
@@ -64,20 +79,7 @@ public class LotYieldResultDto {
 //    private String shotEndTime       = ""; // DUT_MAIN_BIN 종료시간
 //    private String dutMainBin        = ""; //
 
-    //    private String endTimeStart = "";
-//    private String endTimeEnd = "";
-    private int input = 0;
-    private float yield = 0;
-    private int pass = 0;
-    private int bin1 = 0;
-    private int bin2 = 0;
-    private int bin3 = 0;
-    private int bin4 = 0;
-    private int bin5 = 0;
-    private int bin6 = 0;
-    private int bin7 = 0;
-    private int bin8 = 0;
-    private int bin9 = 0;
+
 
     public String getTesterNumber() {
         return testerNumber;
@@ -191,11 +193,19 @@ public class LotYieldResultDto {
         this.operatorId = operatorId;
     }
 
-    public String getQuantity() {
+    public String getLotStartTime() {
+        return lotStartTime;
+    }
+
+    public void setLotStartTime(String lotStartTime) {
+        this.lotStartTime = lotStartTime;
+    }
+
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 

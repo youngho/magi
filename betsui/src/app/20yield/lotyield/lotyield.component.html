@@ -141,11 +141,7 @@
                             </div>
                             <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                             <!-- the grid -->
-                            <wj-flex-grid  #flexGrid 
-                                           [isReadOnly]="true"
-                                           [itemsSource]="gridData"
-                                           [headersVisibility]="'Column'"
->
+                            <wj-flex-grid  #flexGrid [isReadOnly]="true" [itemsSource]="gridData">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
