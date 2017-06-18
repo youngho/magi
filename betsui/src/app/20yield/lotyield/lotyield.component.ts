@@ -1,10 +1,3 @@
-/**
- ** LOT YIELD SUMMARY(COMPOSITE) - BETS-UI-0201
- ** 특정기간 모든 LOTS, OP_BIN, YIELD, SUMMARY
- ** MAIN_BIN 테이블의 TESTER_COUNTER 컬럼의 숫자가 0,1,2,OP_BIN(9999)로 들어온다.(분류조건)
- ** MAIN_BIN 테이블에 있는 OP_BIN 컬럼 값에 BIN1 ~ BIN9가 들어있다.(콤마로 구분되어 있음)
- ** 각 BIN의 값을 보여주고 전체합, 패스빈값들의 합, YIELD를 보여준다.
- */
 import {Component, ViewChild} from '@angular/core';
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from 'wijmo/wijmo';
@@ -15,7 +8,19 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {Lotyield} from './lotyield.model';
 import {lotyieldService} from "./lotyield.service";
 
-
+/**
+ * 1. File name     : lotyield.component.ts
+ * 2. Discription   : LOT YIELD SUMMARY(COMPOSITE) - BETS-UI-0201
+ *                    특정기간 모든 LOTS, OP_BIN, YIELD, SUMMARY
+ *                    MAIN_BIN 테이블의 TESTER_COUNTER 컬럼의 숫자가 0,1,2,OP_BIN(9999)로 들어온다.(분류조건)
+ *                    MAIN_BIN 테이블에 있는 OP_BIN 컬럼 값에 BIN1 ~ BIN9가 들어있다.(콤마로 구분되어 있음)
+ *                    각 BIN의 값을 보여주고 전체합, 패스빈값들의 합, YIELD를 보여준다.
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'lotyield',
@@ -35,6 +40,7 @@ export class lotyieldComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: Lotyield = new Lotyield();
     private usageInfo = new UserUsage();
+    public loading = false;
 
     constructor(private service: lotyieldService) {
     }
@@ -64,8 +70,10 @@ export class lotyieldComponent {
     retrieveExecute() {
         this.retrieveCondDto.endTimeStart = this.startDate + "000000";
         this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
@@ -73,7 +81,10 @@ export class lotyieldComponent {
                         this.empty = false;
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {
