@@ -8,6 +8,8 @@ import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
 import {WjGridFilterModule} from 'wijmo/wijmo.angular2.grid.filter';
 import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import {WjCoreModule} from "wijmo/wijmo.angular2.core";
+import {LoadingModule} from "ngx-loading";
+
 /**
  * BETS-UI-0202 : NG bin
  * NG_BIN 테이블의 TESTER_COUNTER의 숫자가 0,1,2,OP_BIN(9999) 로들어온다.(분류조건)
@@ -20,6 +22,7 @@ import {WjCoreModule} from "wijmo/wijmo.angular2.core";
         NgBinRouting,
         SmartadminModule,
         SmartadminInputModule,
+        LoadingModule
     ],
     declarations: [NgBinComponent, ExpenceCellCmp]
 })

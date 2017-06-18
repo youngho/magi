@@ -136,6 +136,7 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                             <!-- the grid -->
                             <wj-flex-grid #flexGrid [allowResizing]="'Both'"
                                           class="grid"
@@ -157,6 +158,7 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                                 <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>

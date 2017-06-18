@@ -18,6 +18,9 @@ import { AppState, InternalStateType } from './app.service';
 import {CoreModule} from "./core/core.module";
 import {SmartadminLayoutModule} from "./shared/layout/layout.module";
 
+// ngx-loading is a customisable loading spinner for Angular 4. https://github.com/Zak-C/ngx-loading
+import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -47,7 +50,14 @@ type StoreType = {
     CoreModule,
     SmartadminLayoutModule,
 
-
+    LoadingModule.forRoot({
+      animationType: ANIMATION_TYPES.threeBounce,
+      backdropBackgroundColour: 'rgba(0,0,0,0.1)',
+      backdropBorderRadius: '8px',
+      primaryColour: '#919191',
+      secondaryColour: '#919191',
+      tertiaryColour: '#919191'
+    }),
 
     routing
   ],

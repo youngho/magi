@@ -36,6 +36,7 @@ export class NgBinComponent {
     private retrieveCondDto: NgBin = new NgBin();
     private usageInfo = new UserUsage();
     columns: { binding?: string, header?: string, width?: any, format?: string, binSelection?: string, cellTemplate?: Type<any> }[];
+    public loading = false;
 
     constructor(private service: NgBinService) {
         // wijmo 표에 컬럼형식을 표시하기 위한 변수 초기화
@@ -77,8 +78,10 @@ export class NgBinComponent {
         this.startDate = "20170101";
         this.retrieveCondDto.endTimeStart = this.startDate + "000000";
         this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((arrayJson) => {
+                    this.loading = false;
                     var columnTypeObj;
                     var objJson = arrayJson[0]; // 반환 받은 json 배열의 첫번채 ROW를 사용한다
 
@@ -103,7 +106,10 @@ export class NgBinComponent {
                         this.empty = false;
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.errorMessage = error;
+                });
 this.columns = [];
     }
 
