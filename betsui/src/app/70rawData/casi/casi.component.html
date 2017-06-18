@@ -1,7 +1,12 @@
 <!--
- * BETS-UI-0701
- * Test RAW Data
- * Test 공정에서 발생한 RAW Data를 조회한다
+ * 1. File name     : casi.component.ts
+ * 2. Discription   : Test 공정에서 발생한 RAW Data를 조회한다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0701 : Test RAW Data
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
 -->
 <!-- MAIN CONTENT -->
 <div id="content">
@@ -72,7 +77,9 @@
                                     <button class="btn btn-default" (click)="download(flexGrid)">Download</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'" [selectionMode]="'Row'">
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <wj-flex-grid-column [header]="'Location'" [binding]="'location'" [width]="300"></wj-flex-grid-column>
                                 <wj-flex-grid-column [header]="'File Name'" [binding]="'fileName'" [width]="'*'"></wj-flex-grid-column>
@@ -84,7 +91,8 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>

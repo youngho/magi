@@ -8,10 +8,16 @@ import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import {ChipComponent} from "./chip.component";
 import {ChipRouting} from "./chip.routing";
 
+import {LoadingModule} from "ngx-loading";
 /**
- * BETS-UI-0701
- * Test RAW Data
- * Test 공정에서 발생한 RAW Data를 조회한다
+ * 1. File name     : chip.module.ts
+ * 2. Discription   : CID 판별을 위해 만들어지는 파일들에 대한 조회 기능
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0703 : Chip RAW Data
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 @NgModule({
     imports: [
@@ -19,6 +25,7 @@ import {ChipRouting} from "./chip.routing";
         CommonModule,
         ChipRouting,
         SmartadminModule,
+        LoadingModule
     ],
     declarations: [ChipComponent]
 })

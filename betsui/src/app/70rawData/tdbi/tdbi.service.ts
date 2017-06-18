@@ -4,9 +4,14 @@ import {ApiService} from "../../core/api.service";
 import {UserUsage} from "../../shared/usage/userUsage.model";
 import {RawData} from "../rawData.model";
 /**
- * BETS-UI-0702
- * TDBI RAW Data
- * TDBI 공정에서 발생한 RAW Data를 조회한다
+ * 1. File name     : tdbi.service.ts
+ * 2. Discription   : TDBI 공정에서 발생한 RAW Data를 조회한다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0702 : TDBI RAW Data
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 @Injectable()
 export class TdbiService {

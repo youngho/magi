@@ -10,9 +10,14 @@ import {TdbiService} from "./tdbi.service";
 import {RawData} from '../rawData.model';
 
 /**
- * BETS-UI-0702
- * TDBI RAW Data
- * TDBI 공정에서 발생한 RAW Data를 조회한다
+ * 1. File name     : tdbi.component.ts
+ * 2. Discription   : TDBI 공정에서 발생한 RAW Data를 조회한다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0702 : TDBI RAW Data
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 @FadeInTop()
 @Component({
@@ -33,6 +38,7 @@ export class TdbiComponent {
     private retrieveCond: RawData = new RawData();
     private retrieveByKeyDto: RawData = new RawData();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
     private Files: string[];
 
     constructor(private service: TdbiService,private notificationService: NotificationService,) {
@@ -49,13 +55,6 @@ export class TdbiComponent {
         );
     }
 
-    onGridLoaded(){
-        var self = this;
-        setTimeout(function() {
-            self.flexGrid.autoSizeColumns();
-        },300);
-    }
-
     /**
      * 리스트 클릭시에 호출되는 함수로 팝업창을 보여주고 폼 컨트롤에 데이터를 로드한다.
      * @param info
@@ -67,8 +66,8 @@ export class TdbiComponent {
         let info: any
         info = flexGrid.selectedItems[0];
 
-        console.log(info.createDate);
-        console.log(info.fileName);
+        // console.log(info.createDate);
+        // console.log(info.fileName);
 
         //리스트에서 선택된 ROW의 키를 셋팅하여 조회한다
         this.retrieveByKeyDto.createDate = info.createDate;
@@ -91,17 +90,22 @@ export class TdbiComponent {
         console.log("endTimeStart : " + this.retrieveCond.createDateStart);
         console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
         console.log("fileName : " + this.retrieveCond.fileName);
+        this.loading = true;
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
+                    this.loading = false;
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     smartModEg1() {

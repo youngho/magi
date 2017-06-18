@@ -10,10 +10,16 @@ import {ChipService} from "./chip.service";
 import {RawData} from '../rawData.model';
 
 declare var $: any;
+
 /**
- * BETS-UI-0703
- * Chip RAW Data
- * CID 판별을 위해 만들어지는 파일들에 대한 조회 기능
+ * 1. File name     : chip.component.ts
+ * 2. Discription   : CID 판별을 위해 만들어지는 파일들에 대한 조회 기능
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0703 : Chip RAW Data
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
  */
 @FadeInTop()
 @Component({
@@ -35,6 +41,7 @@ export class ChipComponent {
     private retrieveCond: RawData = new RawData();
     private retrieveByKeyDto: RawData = new RawData();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
     private Files: string[];
 
     constructor(private service: ChipService, private notificationService: NotificationService,) {
@@ -83,11 +90,13 @@ export class ChipComponent {
         this.retrieveCond.createDateStart = this.startDate + "000000";
         this.retrieveCond.createDateEnd = this.endDate + "999999";
         this.retrieveCond.fileType = "CID";
-        console.log("endTimeStart : " + this.retrieveCond.createDateStart);
-        console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
-        console.log("fileName : " + this.retrieveCond.fileName);
+        // console.log("endTimeStart : " + this.retrieveCond.createDateStart);
+        // console.log("createDateEnd : " + this.retrieveCond.createDateEnd);
+        // console.log("fileName : " + this.retrieveCond.fileName);
+        this.loading = true;
         this.service.retrievePost(this.retrieveCond)
             .subscribe((apps) => {
+                    this.loading = false;
                     this.gridData = new wjcCore.CollectionView(apps);
                     console.log(this.gridData);
                     if (this.gridData.isEmpty) {
@@ -97,7 +106,11 @@ export class ChipComponent {
                         // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     smartModEg1() {
