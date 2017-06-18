@@ -1,3 +1,13 @@
+<!--
+* 1. File name     : testEfficiency.component.ts
+* 2. Discription   : Test Efficiency 조회 기능 각 시간을 산출하는 로직이 중요하다
+* 3. writer        : yhkim     2017.06.06
+* 4. modifier      :
+* 5. UI Id         : BETS-UI-0601 : Test Efficiency
+*/
+/**
+* version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -70,6 +80,8 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
                             <wj-flex-grid #flexGrid [itemsSource]="gridData"
                                           (loadedRows)="onGridLoaded($event)">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
@@ -81,6 +93,7 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                                 <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>

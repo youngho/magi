@@ -11,7 +11,16 @@ import {TestEfficiencyService} from "./testEfficiency.service";
 import {TestEfficiency} from './testEfficiency.model';
 
 declare var $: any;
-
+/**
+ * 1. File name     : testEfficiency.component.ts
+ * 2. Discription   : Test Efficiency 조회 기능 각 시간을 산출하는 로직이 중요하다
+ * 3. writer        : yhkim     2017.06.06
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0601 : Test Efficiency
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'testEfficiency',
@@ -30,6 +39,7 @@ export class TestEfficiencyComponent implements OnInit {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: TestEfficiency = new TestEfficiency();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     /**
      * 파이차트를 그리기 위한 선언 부분
@@ -77,8 +87,8 @@ export class TestEfficiencyComponent implements OnInit {
 
     resetForm() {
         this.retrieveCondDto = new TestEfficiency();
-        this.stopRefreshing();
         this.gridData = null;
+        this.empty = true;
     }
 
     efficiencyLots: any[] = null;
@@ -86,14 +96,15 @@ export class TestEfficiencyComponent implements OnInit {
     retrieveExecute() {
         this.retrieveCondDto.searchTimeStart = this.startDate + "000000";
         this.retrieveCondDto.searchTimeEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        this.stopRefreshing();
                     }
                 },
                 error => this.errorMessage = error
@@ -112,19 +123,14 @@ export class TestEfficiencyComponent implements OnInit {
                     this.pieData = new wjcCore.ObservableArray(apps);
                     this.insertPieIdx = 1;
                 },
-                error => this.errorMessage = error
-            );
-    }
-
-    private stopRefreshing() {
-        this.isRequesting = false;
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_TestEfficiency' + '.xlsx');
     }
-
-
-
-
 }
