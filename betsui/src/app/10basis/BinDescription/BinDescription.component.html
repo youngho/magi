@@ -1,3 +1,12 @@
+<!--
+* 1. File name     : BinDescription.component.html
+* 2. Discription   : BIN 에 대한 설명을 관리한다
+* 3. writer        : yhkim     2017.03.01
+* 4. modifier      :
+*/
+/**
+* version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -79,9 +88,9 @@
                                     <button class="btn btn-default" (click)="editByKye(flexGrid)">Edit</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true"
-                                          [selectionMode]="'Row'"
-                                          >
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <!--<wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col [width]="'*'"></wj-flex-grid-column>-->
                                 <wj-flex-grid-column [header]="'Part Number'" [binding]="'partNumber'" [width]="'*'"></wj-flex-grid-column>
@@ -98,7 +107,8 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
@@ -127,7 +137,7 @@
                 <div class="modal-body">
                     <fieldset>
                         <div class="form-group">
-                            <label class="col-md-2 control-label">{{'Part Number'|i18n}}<sup>%</sup></label>
+                            <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                             <div class="col-md-2">
                                 <input class="form-control" placeholder="partNumber" type="text" name="partNumber" [(ngModel)]="binDescription.partNumber">
                             </div>

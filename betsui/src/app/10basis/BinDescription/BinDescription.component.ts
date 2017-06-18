@@ -9,6 +9,15 @@ import {BinDescriptionService} from "./BinDescription.service";
 import {BinDescription} from './BinDescription.model';
 import {UserUsage} from "../../shared/usage/userUsage.model";
 
+/**
+ * 1. File name     : BinDescription.component.ts
+ * 2. Discription   : BIN 에 대한 설명을 관리한다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'BinDescriptionComponent',
@@ -38,6 +47,7 @@ export class BinDescriptionComponent implements OnInit{
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     retrieveCondDto = {
         partNumber: "",
@@ -90,18 +100,20 @@ export class BinDescriptionComponent implements OnInit{
         this.retrieveCondDto.itemName = null;
         this.retrieveCondDto.mainBin = null;
         this.retrieveCondDto.subBin = null;
-        this.retrieveCondDto.ngBin = null;
+        this.retrieveCondDto.ngBin = null
+        this.gridData = null;
     }
 
     retrieveExecute() {
-        console.log("partNumber : " + this.retrieveCondDto.partNumber);
-        console.log("mainProgramName : " + this.retrieveCondDto.mainProgramName);
-        console.log("processCode : " + this.retrieveCondDto.processCode);
-        console.log("testerModel : " + this.retrieveCondDto.testerModel);
+        // console.log("partNumber : " + this.retrieveCondDto.partNumber);
+        // console.log("mainProgramName : " + this.retrieveCondDto.mainProgramName);
+        // console.log("processCode : " + this.retrieveCondDto.processCode);
+        // console.log("testerModel : " + this.retrieveCondDto.testerModel);
 
-
+        this.loading = true;
         this.service.postRetrieve(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
@@ -109,7 +121,10 @@ export class BinDescriptionComponent implements OnInit{
                         this.empty = false;
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.errorMessage = error;
+                });
     }
 
     saveForm() {

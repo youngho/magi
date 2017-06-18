@@ -1,12 +1,17 @@
-/**
- * Created by yhkim on 2017-02-17.
- */
 import {Injectable} from "@angular/core";
 import "rxjs/add/operator/map";
 import {ApiService} from "../../core/api.service";
 import {BinDescription} from "./BinDescription.model";
 import {UserUsage} from "../../shared/usage/userUsage.model";
-
+/**
+ * 1. File name     : BinDescription.service.ts
+ * 2. Discription   : BIN 에 대한 설명을 관리한다
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ */
+/**
+ * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
+ */
 @Injectable()
 export class BinDescriptionService {
 
