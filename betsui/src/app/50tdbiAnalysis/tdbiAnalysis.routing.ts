@@ -35,7 +35,7 @@ export const routes: Routes = [
     {
         path: 'boardCompositeSocketYield',
         loadChildren: 'app/50tdbiAnalysis/boardCompositeSocketYield/boardCompositeSocketYield.module#BoardCompositeSocketYieldModule',
-        data: {pageTitle: 'TDBI DC'}
+        data: {pageTitle: 'Board Composite Socket Yield'}
     }
 ];
 
