@@ -1,3 +1,13 @@
+<!--/**
+ * 1. File name     : boardYield.component.html
+ * 2. Discription   : Board 별 Yield 를 보여주는 화면
+ * 3. writer        : yhkim     2017.06.10
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0505 : Board Yield
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -109,7 +119,8 @@
                                                      [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
 
-
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
                             <wj-flex-grid [itemsSource]="gridData">
                                 <wj-flex-grid-column [header]="'PART_NUMBER'" [binding]="'PART_NUMBER'" [width]="'*'"></wj-flex-grid-column>
                                 <wj-flex-grid-column [header]="'PROCESS_CODE'" [binding]="'PROCESS_CODE'"></wj-flex-grid-column>
@@ -140,7 +151,8 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>

@@ -8,12 +8,24 @@ import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 import {BoardYieldComponent} from "./boardYield.component";
 import {BoardYieldRouting} from "./boardYield.routing";
 
+import {LoadingModule} from "ngx-loading";
+/**
+ * 1. File name     :boardYield.module.ts
+ * 2. Discription   : Board 별 Yield 를 보여주는 화면
+ * 3. writer        : yhkim     2017.06.10
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0505 : Board Yield
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */
 @NgModule({
     imports: [
         WjInputModule, WjGridModule, WjGridFilterModule,
         CommonModule,
         BoardYieldRouting,
         SmartadminModule,
+        LoadingModule
     ],
     declarations: [BoardYieldComponent]
 })

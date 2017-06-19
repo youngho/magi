@@ -89,6 +89,7 @@ export class ChipIdComponent {
                     this.errorMessage = error;
                 });
     }
+
     exportExcel() {
         wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_cid'+'.xlsx');
     }
