@@ -35,6 +35,7 @@ export class BoardCompositeSocketYieldComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: BoardCompositeSocketYield = new BoardCompositeSocketYield();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
     columns: { binding?: string, header?: string, width?: any, format?: string, cellTemplate?: Type<any> }[];
 
     constructor(private service: BoardCompositeSocketYieldService) {
@@ -74,9 +75,11 @@ export class BoardCompositeSocketYieldComponent {
     retrieveExecute() {
         this.retrieveCondDto.biEndTimeStart = this.startDate + "000000";
         this.retrieveCondDto.biEndTimeEnd = this.endDate + "999999";
+        this.loading = true;
         // service 클래스 호출
         this.service.postLastTable(this.retrieveCondDto)
             .subscribe((arrayJson) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     var columnTypeObj;
                     var objJson = arrayJson[0]; // 반환 받은 json 배열의 첫번채 ROW를 사용한다
 
@@ -101,7 +104,11 @@ export class BoardCompositeSocketYieldComponent {
                         // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     /**

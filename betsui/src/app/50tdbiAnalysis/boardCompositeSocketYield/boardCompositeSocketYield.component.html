@@ -93,7 +93,7 @@
                 </sa-widget>
                 <!-- end widget -->
                 <!-- widget Grid Start -->
-                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
                         <h2>{{'boardCompositeSocketYield' | i18n}} Retrieve Result</h2>
@@ -105,7 +105,9 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                             <!-- the grid -->
+                            <!--
                             <wj-flex-grid #flexGrid [allowResizing]="'Both'"
                                           class="grid"
                                           [itemsSource]="gridData"
@@ -120,11 +122,24 @@
                                     </ng-template>
                                 </wj-flex-grid-column>
                             </wj-flex-grid>
+                            --->
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData">
+                                <wj-flex-grid-column [header]="'Row1'" [binding]="'row1'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div *ngIf="cell.item.row1 < retrieveCondDto.sblBoardLimit">
+                                            <div [ngStyle]="{'background-color':'red', 'text-align' : 'center' , 'color':'yellow'}">
+                                                {{cell.item.row1}}
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                            </wj-flex-grid>
                         </div>
                     </div>
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                                 <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>

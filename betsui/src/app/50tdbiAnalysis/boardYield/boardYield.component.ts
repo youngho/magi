@@ -63,11 +63,10 @@ export class BoardYieldComponent {
     resetForm() {
         this.retrieveCondDto = new BoardYield();
         this.gridData = null;
-        this.empty = false;
+        this.empty = true;
     }
 
-    saveLastTableForm() {
-        // if(this.componentData){this.componentData.}
+    retrieveExecute() {
         // console.log("endTimeStart : " + this.data.endTimeStart);
         // console.log("endTimeEnd : " + this.data.endTimeEnd);
         // console.log("partNumber : " + this.data.partNumber);
@@ -88,7 +87,6 @@ export class BoardYieldComponent {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
                 error => {

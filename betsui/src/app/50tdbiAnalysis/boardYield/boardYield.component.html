@@ -84,7 +84,7 @@
                                             <button class="btn btn-default" (click)="resetForm()">
                                                 {{'reset'|i18n}}
                                             </button>
-                                            <button (click)="saveLastTableForm()" class="btn btn-primary">
+                                            <button (click)="retrieveExecute()" class="btn btn-primary">
                                                 <i class="fa fa-search"></i>
                                                 {{'retrieve'|i18n}}
                                             </button>
@@ -99,7 +99,7 @@
                 </sa-widget>
                 <!-- end widget -->
                 <!-- widget Grid Start -->
-                <sa-widget [colorbutton]="false" [editbutton]="false" color="blueDark">
+                <sa-widget [colorbutton]="false" [editbutton]="false">
                     <header>
                         <span class="widget-icon"> <i class="fa fa-table"></i> </span>
                         <h2>Board Yield Retrieve Result</h2>
@@ -111,16 +111,14 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
-                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
-                            </wj-flex-grid>
-
                             <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                             <!-- the grid -->
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" (loadedRows)="onGridLoaded($event)" [autoSizeMode] = "'Both'">
+                                <wj-flex-grid-filter #filter></wj-flex-grid-filter>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
+                            </wj-flex-grid>
+
+                            <!-- the grid
                             <wj-flex-grid [itemsSource]="gridData">
                                 <wj-flex-grid-column [header]="'PART_NUMBER'" [binding]="'PART_NUMBER'" [width]="'*'"></wj-flex-grid-column>
                                 <wj-flex-grid-column [header]="'PROCESS_CODE'" [binding]="'PROCESS_CODE'"></wj-flex-grid-column>
@@ -135,8 +133,8 @@
                                 </wj-flex-grid-column>
                                 <wj-flex-grid-column [header]="'PASS'" [binding]="'PASS'"></wj-flex-grid-column>
                             </wj-flex-grid>
-
-
+-->
+<!--
                             <wj-flex-grid [itemsSource]="gridData">
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col>
                                     <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
@@ -144,7 +142,7 @@
                                     </ng-template>
                                 </wj-flex-grid-column>
                             </wj-flex-grid>
-
+-->
 
                         </div>
                     </div>

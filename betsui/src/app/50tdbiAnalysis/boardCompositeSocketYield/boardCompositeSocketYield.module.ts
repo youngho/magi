@@ -9,6 +9,8 @@ import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 
 import {BoardCompositeSocketYieldComponent, ExpenceCellCmp} from "./boardCompositeSocketYield.component";
 import {BoardCompositeSocketYieldRouting} from "./boardCompositeSocketYield.routing";
+
+import {LoadingModule} from "ngx-loading";
 /**
  * 1. File name     : boardCompositeSocketYield.module.ts
  * 2. Discription   : 특정 보드의 기간동안 소켓의 수율을 보여준다
@@ -26,6 +28,7 @@ import {BoardCompositeSocketYieldRouting} from "./boardCompositeSocketYield.rout
         ReactiveFormsModule,
         BoardCompositeSocketYieldRouting,
         SmartadminModule,
+        LoadingModule
     ],
     declarations: [BoardCompositeSocketYieldComponent,ExpenceCellCmp]
 })
