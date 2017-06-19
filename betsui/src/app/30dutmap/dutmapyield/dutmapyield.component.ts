@@ -113,6 +113,6 @@ export class DutMapYieldComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_CompositeDutMap' + '.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_DutMapYield' + '.xlsx');
     }
 }
