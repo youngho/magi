@@ -13,7 +13,7 @@ import {SlotYield} from './slotYield.model';
  *                    BI_SOCKET_NUMBER 컬럼에 들어 있는 BIN 문자열을 파싱하여 BIN별로 형태로 보여주는것이 핵심이다
  * 3. writer        : yhkim     2017.03.01
  * 4. modifier      :
- * 5. UI Id         : BETS-UI-0504 : slotYield
+ * 5. UI Id         : BETS-UI-0504 : Slot Yield
  */
 /**
  * version 1.0 : 2017.03.01  /  yhkim  / First Frame Creation
@@ -32,11 +32,11 @@ export class SlotYieldComponent {
     componentData = null;
     errorMessage = null;
     private colInfo = new Array();
-    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: SlotYield = new SlotYield();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: SlotYieldService) {
     }
@@ -48,7 +48,7 @@ export class SlotYieldComponent {
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
             error => alert(error),
-            () => console.log("Finish onSave()")
+            // () => console.log("Finish onSave()")
         );
     }
 
@@ -61,6 +61,8 @@ export class SlotYieldComponent {
 
     resetForm() {
         this.retrieveCondDto = new SlotYield();
+        this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
@@ -75,8 +77,10 @@ export class SlotYieldComponent {
         // console.log("testCounter : " + this.retrieveCondDto.testCounter);
         this.retrieveCondDto.endTimeStart = this.startDate + "000000";
         this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.retrieveService(this.retrieveCondDto)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
@@ -85,7 +89,11 @@ export class SlotYieldComponent {
                         // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {
