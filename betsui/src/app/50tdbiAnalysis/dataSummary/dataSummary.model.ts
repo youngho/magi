@@ -1,5 +1,12 @@
 /**
- * Created by yhkim on 2017-02-17.
+ * 1. File name     : dataSummary.model.ts
+ * 2. Discription   : TDBI Data Summary
+ * 3. writer        : yhkim     2017.06.10
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0501 : Data Summary
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
  */
 export class DataSummary {
     endTimeStart: string;

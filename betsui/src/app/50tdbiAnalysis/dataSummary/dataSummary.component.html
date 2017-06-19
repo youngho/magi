@@ -1,3 +1,14 @@
+<!--/**
+ * 1. File name     : dataSummary.component.html
+ * 2. Discription   : TDBI Data Summary
+ * 3. writer        : yhkim     2017.06.10
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0501 : Data Summary
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */
+ -->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -107,9 +118,9 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
-                                          (loadedRows)="onGridLoaded($event)"
-                                          [autoSizeMode] = "'Both'">
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
                                 <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
                                                      [binding]=col></wj-flex-grid-column>
@@ -119,7 +130,8 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
