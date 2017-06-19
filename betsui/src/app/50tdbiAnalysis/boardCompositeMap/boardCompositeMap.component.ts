@@ -8,6 +8,16 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 import {BoardCompositeMapService} from "./boardCompositeMap.service";
 import {BoardCompositeMap} from './boardCompositeMap.model';
 
+/**
+ * 1. File name     : boardCompositeMap.component.ts
+ * 2. Discription   : Board Composite Map
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0503 : Board Composite Map
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'boardCompositeMap',
@@ -21,11 +31,11 @@ export class BoardCompositeMapComponent {
     empty = true;
     errorMessage = null;
     private colInfo = new Array();
-    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: BoardCompositeMap = new BoardCompositeMap();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: BoardCompositeMapService) {
     }
@@ -37,7 +47,7 @@ export class BoardCompositeMapComponent {
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
             error => alert(error),
-            () => console.log("Finish onSave()")
+            // () => console.log("Finish onSave()")
         );
     }
 
@@ -50,6 +60,8 @@ export class BoardCompositeMapComponent {
 
     resetForm() {
         this.data = new BoardCompositeMap();
+        this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
@@ -62,17 +74,22 @@ export class BoardCompositeMapComponent {
         // console.log("testerHead : " + this.data.biTestNumber);
         this.data.biEndTimeStart = this.startDate + "000000";
         this.data.biEndTimeEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.postLastTable(this.data)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {

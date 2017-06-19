@@ -29,10 +29,8 @@ export class DataSummaryComponent {
     startDate = "";
     endDate = "";
     empty = true;
-    componentData = null;
     errorMessage = null;
     private colInfo = new Array();
-    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: DataSummary = new DataSummary();

@@ -1,3 +1,13 @@
+<!--/**
+ * 1. File name     : boardCompositeMap.component.html
+ * 2. Discription   : Board Composite Map
+ * 3. writer        : yhkim     2017.03.01
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0503 : Board Composite Map
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */-->
 <!-- MAIN CONTENT -->
 <div id="content">
     <!-- widget grid -->
@@ -59,7 +69,7 @@
                                     <div class="form-group">
                                         <label class="col-md-2 control-label"><sup>*</sup>{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot ID" type="text" name="biLotId" required minlength="4" maxlength="24"
+                                            <input class="form-control" placeholder="Lot ID" type="text" name="biLotId" required  maxlength="40"
                                                    [(ngModel)]="data.biLotId">
                                         </div>
                                         <!-- <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
@@ -121,6 +131,8 @@
                                     <button class="btn btn-default" (click)="exportExcel()">Export</button>
                                 </div>
                             </div>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                            <!-- the grid -->
                             <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" [headersVisibility]="'Column'"
                                           (loadedRows)="onGridLoaded($event)"
                                           [autoSizeMode] = "'Both'">
@@ -133,7 +145,8 @@
                     <div *ngIf="empty == true">
                         <div class="widget-body no-padding">
                             <div class="col-md-12 col-xs-12">
-                                <div>No data available in table</div>
+                                <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                                <div style="text-align: center" class="h6">No data available in table</div>
                             </div>
                         </div>
                     </div>
