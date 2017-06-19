@@ -80,7 +80,6 @@ export class DataSummaryComponent {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
                 error => {

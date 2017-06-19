@@ -7,7 +7,16 @@ import {UserUsage} from "../../shared/usage/userUsage.model";
 
 import {BoardSerialMapService} from "./boardSerialMap.service";
 import {BoardSerialMap} from './boardSerialMap.model';
-
+/**
+ * 1. File name     : boardSerialMap.component.ts
+ * 2. Discription   : Board Serial Map
+ * 3. writer        : yhkim     2017.06.10
+ * 4. modifier      :
+ * 5. UI Id         : BETS-UI-0502 : Board Serial Map
+ */
+/**
+ * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
+ */
 @FadeInTop()
 @Component({
     selector: 'boardSerialMap',
@@ -27,6 +36,7 @@ export class BoardSerialMapComponent {
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private data: BoardSerialMap = new BoardSerialMap();
     private usageInfo = new UserUsage();
+    public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: BoardSerialMapService) {
     }
@@ -38,7 +48,7 @@ export class BoardSerialMapComponent {
         this.service.postUsage(this.usageInfo).subscribe(
             data => this.usageInfo = data,
             error => alert(error),
-            () => console.log("Finish onSave()")
+            // () => console.log("Finish onSave()")
         );
     }
 
@@ -51,24 +61,31 @@ export class BoardSerialMapComponent {
 
     resetForm() {
         this.data = new BoardSerialMap();  //이 클래스가 INPUT박스와 바인딩되어 있어 초기화 한다.
+        this.gridData = null;
+        this.empty = true;
     }
 
     retrieveExecute() {
-        console.log("endTimeStart : " + this.data.endTimeStart);
-        console.log("endTimeEnd : " + this.data.endTimeEnd);
+        // console.log("endTimeStart : " + this.data.endTimeStart);
+        // console.log("endTimeEnd : " + this.data.endTimeEnd);
         this.data.endTimeStart = this.startDate + "000000";
         this.data.endTimeEnd = this.endDate + "999999";
+        this.loading = true;
         this.service.retrieveService(this.data)
             .subscribe((apps) => {
+                    this.loading = false;              // 데이터 조회중 표시 기능 여부
                     this.gridData = new wjcCore.CollectionView(apps);
                     if (this.gridData.isEmpty) {
                         this.empty = true;
                     } else {
                         this.empty = false;
-                        // this.stopRefreshing();
                     }
                 },
-                error => this.errorMessage = error);
+                error => {
+                    this.loading = false;
+                    this.empty = true;
+                    this.errorMessage = error;
+                });
     }
 
     exportExcel() {
