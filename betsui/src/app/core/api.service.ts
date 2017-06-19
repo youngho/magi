@@ -20,9 +20,9 @@ export class ApiService {
         'Accept': 'application/json'
     });
 
-    // private API_URL: string = 'http://172.16.55.41:8080/';  // 개발 서버 IP 주소
+    private API_URL: string = 'http://172.16.55.41:8080/';  // 개발 서버 IP 주소
     // private API_URL: string = 'http://localhost:8080/';  // local에서 개발시 접속 주소
-    private API_URL: string = 'http://210.125.212.127:8080/';  // for hanmi8
+    // private API_URL: string = 'http://210.125.212.127:8080/';  // for hanmi8
 
     constructor(private http: Http/*, @Inject(APP_CONFIG) config: AppConfig*/) {
         //this.API_URL = config.apiEndpoint;

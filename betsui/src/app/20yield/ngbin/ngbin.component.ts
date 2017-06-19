@@ -75,7 +75,7 @@ export class NgBinComponent {
         // console.log("testerNumber : " + this.data.testerNumber);
         // console.log("head : " + this.data.head);
         // console.log("testCounter : " + this.data.testCounter);
-        this.startDate = "20170101";
+        // this.startDate = "20170101";
         this.retrieveCondDto.endTimeStart = this.startDate + "000000";
         this.retrieveCondDto.endTimeEnd = this.endDate + "999999";
         this.loading = true;

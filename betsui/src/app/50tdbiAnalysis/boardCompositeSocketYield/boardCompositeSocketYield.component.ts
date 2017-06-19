@@ -67,12 +67,18 @@ export class BoardCompositeSocketYieldComponent {
     resetForm() {
         // 조회조건 DTO를 초기화 시킨다
         this.retrieveCondDto = new BoardCompositeSocketYield();
+        this.gridData = null;
+        this.empty = true;
     }
 
     /**
      * 조회함수
      */
     retrieveExecute() {
+        // Start for test -- "Must comment when operate"
+        // this.startDate = "20170101";
+        // this.retrieveCondDto.biBoardId = "023100019";
+        // End for test
         this.retrieveCondDto.biEndTimeStart = this.startDate + "000000";
         this.retrieveCondDto.biEndTimeEnd = this.endDate + "999999";
         this.loading = true;

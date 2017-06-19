@@ -28,63 +28,63 @@
                             <!--<legend>Retrieve Elements</legend>-->
                             <form #form="ngForm">
                                 <div class="form-horizontal">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Date From'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="startDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
+                                            </div>
+                                            <label class="col-md-2 control-label"><sup>*</sup>{{'boardId'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" name="biBoardId" required
+                                                       [(ngModel)]="retrieveCondDto.biBoardId">
+                                            </div>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Date to'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
-                                        </div>
-                                        <label class="col-md-2 control-label"><sup>*</sup>{{'boardId'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text" name="biBoardId" required
-                                                   [(ngModel)]="retrieveCondDto.biBoardId">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'Part Number'|i18n}}<sup>%</sup></label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="Part Number" type="text" name="biPartNumber"
-                                                   [(ngModel)]="retrieveCondDto.biPartNumber">
-                                        </div>
-                                        <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" name="biMainProgramName"
-                                                   [(ngModel)]="retrieveCondDto.biMainProgramName">
-                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'Part Number'|i18n}}<sup>%</sup></label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="Part Number" type="text" name="biPartNumber"
+                                                       [(ngModel)]="retrieveCondDto.biPartNumber">
+                                            </div>
+                                            <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text" name="biMainProgramName"
+                                                       [(ngModel)]="retrieveCondDto.biMainProgramName">
+                                            </div>
 
-                                        <label class="col-md-2 control-label">{{'sblBoardLimit'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'sblBoardLimit'|i18n}}" type="text" name="sblBoardLimit"
-                                                   [(ngModel)]="retrieveCondDto.sblBoardLimit">
+                                            <label class="col-md-2 control-label">{{'sblBoardLimit'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'sblBoardLimit'|i18n}}" type="text" name="sblBoardLimit"
+                                                       [(ngModel)]="retrieveCondDto.sblBoardLimit">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label">{{'biTestNumber'|i18n}}</label>
-                                        <div class="col-md-2">
-                                            <input class="form-control" placeholder="{{'biTestNumber'|i18n}}" type="text" name="biTestNumber"
-                                                   [(ngModel)]="retrieveCondDto.biTestNumber">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label">{{'biTestNumber'|i18n}}</label>
+                                            <div class="col-md-2">
+                                                <input class="form-control" placeholder="{{'biTestNumber'|i18n}}" type="text" name="biTestNumber"
+                                                       [(ngModel)]="retrieveCondDto.biTestNumber">
+                                            </div>
                                         </div>
-                                    </div>
-                                </fieldset>
-                                <div class="form-actions">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button class="btn btn-default" (click)="resetForm()">
-                                                {{'reset'|i18n}}
-                                            </button>
+                                    </fieldset>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-default" (click)="resetForm()">
+                                                    {{'reset'|i18n}}
+                                                </button>
 
-                                            <button type="submit" [disabled]="!form.form.valid" (click)="retrieveExecute()" class="btn btn-primary">
-                                                <i class="fa fa-search"></i>
-                                                {{'retrieve'|i18n}}
-                                            </button>
+                                                <button type="submit" [disabled]="!form.form.valid" (click)="retrieveExecute()" class="btn btn-primary">
+                                                    <i class="fa fa-search"></i>
+                                                    {{'retrieve'|i18n}}
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             </form>
                         </div>
                         <!-- end widget content -->
@@ -107,7 +107,7 @@
                             </div>
                             <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                             <!-- the grid -->
-                            <!--
+                            <!--컬럼을 동적으로 생성하는 로직, 동적컬럼은 색깔을 넣을 수 없어 실패한 로직이다
                             <wj-flex-grid #flexGrid [allowResizing]="'Both'"
                                           class="grid"
                                           [itemsSource]="gridData"
@@ -122,14 +122,142 @@
                                     </ng-template>
                                 </wj-flex-grid-column>
                             </wj-flex-grid>
-                            --->
-                            <wj-flex-grid #flexGrid [itemsSource]="gridData">
+-->
+                            <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true">
+                                <!--보드 아이디와 컬럼 정보-->
+                                <wj-flex-grid-column [header]=retrieveCondDto.biBoardId [binding]=retrieveCondDto.biBoardId [width]="'*'"></wj-flex-grid-column>
+                                <!--row1-->
                                 <wj-flex-grid-column [header]="'Row1'" [binding]="'row1'" [width]="'*'">
                                     <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
-                                        <div *ngIf="cell.item.row1 < retrieveCondDto.sblBoardLimit">
-                                            <div [ngStyle]="{'background-color':'red', 'text-align' : 'center' , 'color':'yellow'}">
-                                                {{cell.item.row1}}
-                                            </div>
+                                        <div [ngSwitch]="cell.item.row1 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row1}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row1}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row2-->
+                                <wj-flex-grid-column [header]="'Row2'" [binding]="'row2'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row2 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row2}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row2}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row3-->
+                                <wj-flex-grid-column [header]="'Row3'" [binding]="'row3'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row3 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row3}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row3}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row4-->
+                                <wj-flex-grid-column [header]="'Row4'" [binding]="'row4'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row4 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row4}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row4}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row5-->
+                                <wj-flex-grid-column [header]="'Row5'" [binding]="'row5'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row5 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row5}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row5}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row6-->
+                                <wj-flex-grid-column [header]="'Row6'" [binding]="'row6'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row6 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row6}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row6}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row7-->
+                                <wj-flex-grid-column [header]="'Row7'" [binding]="'row7'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row7 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row7}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row7}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row8-->
+                                <wj-flex-grid-column [header]="'Row8'" [binding]="'row8'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row8 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row8}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row8}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row9-->
+                                <wj-flex-grid-column [header]="'Row9'" [binding]="'row9'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row9 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row9}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row9}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row10-->
+                                <wj-flex-grid-column [header]="'Row10'" [binding]="'row10'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row10 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row10}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row10}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row11-->
+                                <wj-flex-grid-column [header]="'Row11'" [binding]="'row11'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row11 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row11}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row11}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row12-->
+                                <wj-flex-grid-column [header]="'Row12'" [binding]="'row12'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row12 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row12}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row12}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row13-->
+                                <wj-flex-grid-column [header]="'Row13'" [binding]="'row13'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row13 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row13}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row13}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row14-->
+                                <wj-flex-grid-column [header]="'Row14'" [binding]="'row14'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row14 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row14}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row14}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                                <!--row15-->
+                                <wj-flex-grid-column [header]="'Row15'" [binding]="'row15'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row15 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row15}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row15}}</div>
                                         </div>
                                     </ng-template>
                                 </wj-flex-grid-column>

@@ -144,8 +144,10 @@ public class BoardCompositeSocketYieldService {
                 LinkedHashMap<String, String> retrunMap = new LinkedHashMap<>();
                 retrunMap.put(resultDtos.get(0).getBiBoardId(), "Col" + String.valueOf(13 - i));
 
+
                 for (int j = 1; j <= resultDtos.get(0).getRowMax(); j++) {
-                    retrunMap.put("row" + String.valueOf(j), String.valueOf(socketYield[i * j]) + "(" + String.valueOf(socketCount[i * j]) + ")");
+                    //retrunMap.put("row" + String.valueOf(j), String.valueOf(socketYield[i * j]) + "(" + String.valueOf(socketCount[i * j]) + ")");  // 각 수율을 계산한 소켓 데이터의 총 개수를 보여주는 부분이다. 하지만 색깔을 보여주는 부분과 충돌하여 변경아래로 변경함
+                    retrunMap.put("row" + String.valueOf(j), String.valueOf(socketYield[i * j]));
                     //logger.debug("소켓 개수만큼 반복되어야 맞음");
                 }
                 returnDto.add(retrunMap);
