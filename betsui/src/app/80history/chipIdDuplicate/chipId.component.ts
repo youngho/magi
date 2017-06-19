@@ -32,7 +32,6 @@ export class ChipIdComponent {
     componentData = null;
     errorMessage = null;
     private colInfo = new Array();
-    public isRequesting: boolean;
     gridData: wjcCore.CollectionView;
     @ViewChild('flexGrid') flexGrid: wjcGrid.FlexGrid;
     private retrieveCondDto: ChipId = new ChipId();
