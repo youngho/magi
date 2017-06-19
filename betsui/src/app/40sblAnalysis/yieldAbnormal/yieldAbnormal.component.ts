@@ -100,6 +100,6 @@ export class YieldAbnormalComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yield'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_yieldAbnormal'+'.xlsx');
     }
 }
