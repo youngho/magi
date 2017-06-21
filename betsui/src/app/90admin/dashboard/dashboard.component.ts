@@ -167,8 +167,7 @@ export class DashboardComponent implements OnInit,AfterViewInit, AfterViewChecke
                     this.ocap = apps.ocap;
                     let i = 0;
                     for (let charData of apps.processChartList) {
-                        // this.chartDatas[0];
-                        if (i < 4) {
+                        if (i < apps.processChartList.length) {
                             this.chartDatas[i] = charData.chart;
                             this.processCodes[i] = charData.processCode
                             this.chart1Flag = true;
