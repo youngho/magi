@@ -28,17 +28,17 @@ export const routes: Routes = [
             {
                 path: 'yield',
                 loadChildren: 'app/20yield/yield.module#YieldModule',
-                data: {pageTitle: 'Yield'}
+                data: {pageTitle: 'TEST YIELD ANALYSIS'}
             },
             {
                 path: 'dutmap',
                 loadChildren: 'app/30dutmap/dutmap.module#DutmapModule',
-                data: {pageTitle: 'DUT Map'}
+                data: {pageTitle: 'TEST DUTMAP ANALYSIS'}
             },
             {
                 path: 'sblanal',
                 loadChildren: 'app/40sblAnalysis/sblAnalysis.module#SblAnalysisModule',
-                data: {pageTitle: 'Basis'}
+                data: {pageTitle: 'TEST SBL ANALYSIS'}
             },
             {
                 path: 'tdbianal',

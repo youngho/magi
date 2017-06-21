@@ -48,7 +48,7 @@
         </ul>
       </li>
       <li>
-        <a title="YIELD ANALYSIS"><i class="fa fa-lg fa-fw fa-line-chart"></i> <span class="menu-item-parent">{{'YIELD ANALYSIS' | i18n}}</span></a>
+        <a title="YIELD ANALYSIS"><i class="fa fa-lg fa-fw fa-line-chart"></i> <span class="menu-item-parent">TEST YIELD ANALYSIS</span></a>
         <ul>
           <li routerLinkActive="active">
             <a routerLink="/yield/lotyield">{{'Lot yield' | i18n}}</a>
@@ -58,7 +58,7 @@
           </li>
         </ul>
       <li>
-        <a title="DUTMAP ANALYSIS"><i class="fa fa-lg fa-fw fa-th-large"></i> <span class="menu-item-parent">{{'DUTMAP ANALYSIS' | i18n}}</span></a>
+        <a title="DUTMAP ANALYSIS"><i class="fa fa-lg fa-fw fa-th-large"></i> <span class="menu-item-parent">TEST DUTMAP ANALYSIS</span></a>
         <ul>
           <li routerLinkActive="active">
             <a routerLink="/dutmap/singledut">{{'Single DUT map' | i18n}}</a>
@@ -72,7 +72,7 @@
         </ul>
       </li>
       <li>
-        <a title="SBL ANALYSIS"><i class="fa fa-lg fa-fw fa-bar-chart"></i> <span class="menu-item-parent">{{'SBL ANALYSIS' | i18n}}</span></a>
+        <a title="SBL ANALYSIS"><i class="fa fa-lg fa-fw fa-bar-chart"></i> <span class="menu-item-parent">TEST SBL ANALYSIS</span></a>
         <ul>
           <li routerLinkActive="active">
             <a routerLink="/sblanal/yield">{{'Yield abnormal' | i18n}}</a>
@@ -86,7 +86,10 @@
         <a title="TDBI ANALYSIS"><i class="fa fa-lg fa-fw fa-bars"></i> <span class="menu-item-parent">{{'B/I ANALYSIS' | i18n}}</span></a>
         <ul>
           <li routerLinkActive="active">
-            <a routerLink="/tdbianal/datasummary">{{'Data Summary' | i18n}}</a>
+            <a routerLink="/tdbianal/tdbiDc">{{'tdbiDc' | i18n}}</a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/tdbianal/datasummary">Lot Yield</a>
           </li>
           <li routerLinkActive="active">
             <a routerLink="/tdbianal/serialmap">{{'Board Serial Map' | i18n}}</a>
@@ -95,16 +98,13 @@
             <a routerLink="/tdbianal/compomap">{{'Board Composite Map' | i18n}}</a>
           </li>
           <li routerLinkActive="active">
+            <a routerLink="/tdbianal/boardCompositeSocketYield">Board Composite Socket Map</a>
+          </li>
+          <li routerLinkActive="active">
             <a routerLink="/tdbianal/slotYield">{{'slotYield' | i18n}}</a>
           </li>
           <li routerLinkActive="active">
             <a routerLink="/tdbianal/boardYield">{{'boardYield' | i18n}}</a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="/tdbianal/tdbiDc">{{'tdbiDc' | i18n}}</a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="/tdbianal/boardCompositeSocketYield">{{'boardCompositeSocketYield' | i18n}}</a>
           </li>
         </ul>
       </li>

@@ -5,17 +5,17 @@ export const routes: Routes = [
     {
         path: 'datasummary',
         loadChildren: 'app/50tdbiAnalysis/dataSummary/dataSummary.module#DataSummaryModule',
-        data: {pageTitle: 'Data summary'}
+        data: {pageTitle: 'Lot Yield'}
     },
     {
         path: 'serialmap',
         loadChildren: 'app/50tdbiAnalysis/boardSerialMap/boardSerialMap.module#BoardSerialMapModule',
-        data: {pageTitle: 'Board serial map'}
+        data: {pageTitle: 'Board Serial Map'}
     },
     {
         path: 'compomap',
         loadChildren: 'app/50tdbiAnalysis/boardCompositeMap/boardCompositeMap.module#BoardCompositeMapModule',
-        data: {pageTitle: 'Board composite map'}
+        data: {pageTitle: 'Board Composite Map'}
     },
     {
         path: 'slotYield',
@@ -35,7 +35,7 @@ export const routes: Routes = [
     {
         path: 'boardCompositeSocketYield',
         loadChildren: 'app/50tdbiAnalysis/boardCompositeSocketYield/boardCompositeSocketYield.module#BoardCompositeSocketYieldModule',
-        data: {pageTitle: 'Board Composite Socket Yield'}
+        data: {pageTitle: 'Board Composite Socket Map'}
     }
 ];
 
