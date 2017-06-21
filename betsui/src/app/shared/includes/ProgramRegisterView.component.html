@@ -6,12 +6,12 @@
 
             <div class="col-md-2">
                 <input type="text" class="form-control" id="partNumber" name="partNumber" maxlength="30"
-                       title="This is Part Number" placeholder="ex) HTMECMP1" [(ngModel)]="programRegister.partNumber" required>
+                       title="This is Part Number" placeholder="ex) HTTC4G63CFR-RDA" [(ngModel)]="programRegister.partNumber" required>
             </div>
             <label class="col-md-2 control-label">{{'productName'|i18n}}</label>
             <div class="col-md-2">
                 <input type="text" class="form-control" id="product" name="product" maxlength="50"
-                       placeholder="ex) HTTC4G63CFR-RDA" [(ngModel)]="programRegister.productName">
+                       placeholder="ex) HTMECMP1" [(ngModel)]="programRegister.productName">
             </div>
             <label class="col-md-2 control-label">{{'sblYieldLimit'|i18n}}</label>
             <div class="col-md-2">
@@ -98,9 +98,9 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-2 control-label">{{'temperatureLimit'|i18n}}</label>
+            <label class="col-md-2 control-label"><sup>*</sup>{{'temperatureLimit'|i18n}}</label>
             <div class="col-md-2">
-                <input type="text" class="form-control" id="temperatureLimit" maxlength="3"
+                <input type="text" class="form-control" id="temperatureLimit" maxlength="3" required
                        name="temperatureLimit" placeholder="ex) 2"
                        [(ngModel)]="programRegister.temperatureLimit">
             </div>
