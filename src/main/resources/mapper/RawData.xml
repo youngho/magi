@@ -30,7 +30,7 @@
                 AND CREATE_DATE <![CDATA[<=]]> #{createDateEnd}
             </if>
             <if test=" fileName != null and fileName != '' ">
-                AND FILE_NAME LIKE '%'|| #{fileName} || '%'
+                AND FILE_NAME LIKE #{fileName}
             </if>
             <if test=" fileType != null and fileType == 'TEST' ">
                 AND FILE_TYPE IN ('MAIN_BIN','NG_BIN','CASI_BIN')

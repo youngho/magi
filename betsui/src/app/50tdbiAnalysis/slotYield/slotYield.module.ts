@@ -1,11 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SmartadminModule} from "../../shared/smartadmin.module";
+import {WjCoreModule} from "wijmo/wijmo.angular2.core";
 import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
 import {WjGridFilterModule} from 'wijmo/wijmo.angular2.grid.filter';
 import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 
-import {SlotYieldComponent} from "./slotYield.component";
+import {ExpenceCellCmp, SlotYieldComponent} from "./slotYield.component";
 import {SlotYieldRouting} from "./slotYield.routing";
 
 import {LoadingModule} from "ngx-loading";
@@ -22,13 +23,13 @@ import {LoadingModule} from "ngx-loading";
  */
 @NgModule({
     imports: [
-        WjInputModule, WjGridModule, WjGridFilterModule,
+        WjCoreModule, WjInputModule, WjGridModule, WjGridFilterModule,
         CommonModule,
         SlotYieldRouting,
         SmartadminModule,
         LoadingModule
     ],
-    declarations: [SlotYieldComponent]
+    declarations: [SlotYieldComponent, ExpenceCellCmp]
 })
 export class SlotYieldModule {
 }

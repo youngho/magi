@@ -46,37 +46,36 @@ public class SlotYieldService {
             if (!strBoardIdTemp.equals(String.valueOf(board.getSlotNumber()))) {
                 if (!strBoardIdTemp.equals("")) {
                     arrayMapSocketNum.add(mapBoardMap);
-                    mapBoardMap = null;
                     mapBoardMap = new LinkedHashMap<>();
                 }
 
                 strBoardIdTemp = String.valueOf(board.getSlotNumber());
-                mapBoardMap.put("PART_NUMBER", String.valueOf(board.getPartNumber()));
-                mapBoardMap.put("PROCESS_CODE", String.valueOf(board.getProcessCode()));
-                mapBoardMap.put("BOARD_TYPE", String.valueOf(board.getBoardId()).substring(0,4));
-                mapBoardMap.put("TESTER_MODEL", String.valueOf(board.getTesterModel()));
-                mapBoardMap.put("TESTER_NUMBER", String.valueOf(board.getTestNumber()));
-                mapBoardMap.put("SLOT_NUMBER", String.valueOf(board.getSlotNumber()));
-                mapBoardMap.put("INPUT", "0");
-                mapBoardMap.put("PASS", "0");
-                mapBoardMap.put("YIELD", "0");
+                mapBoardMap.put("partNumber", String.valueOf(board.getPartNumber()));
+                mapBoardMap.put("processCode", String.valueOf(board.getProcessCode()));
+                mapBoardMap.put("boardType", String.valueOf(board.getBoardId()).substring(0,4));
+                mapBoardMap.put("testerModel", String.valueOf(board.getTesterModel()));
+                mapBoardMap.put("testerNumber", String.valueOf(board.getTestNumber()));
+                mapBoardMap.put("slotNumber", String.valueOf(board.getSlotNumber()));
+                mapBoardMap.put("input", "0");
+                mapBoardMap.put("pass", "0");
+                mapBoardMap.put("yield", "0");
                 for (int k = 0; k <= 9; k++) {
-                    mapBoardMap.put("BIN" + String.valueOf(k), "0");
+                    mapBoardMap.put("bin" + String.valueOf(k), "0");
                 }
-                mapBoardMap.put("BINA", "0");
-                mapBoardMap.put("BINB", "0");
-                mapBoardMap.put("BINC", "0");
-                mapBoardMap.put("BIND", "0");
-                mapBoardMap.put("BINE", "0");
-                mapBoardMap.put("BINF", "0");
-                mapBoardMap.put("BING", "0");
+                mapBoardMap.put("binA", "0");
+                mapBoardMap.put("binB", "0");
+                mapBoardMap.put("binC", "0");
+                mapBoardMap.put("binD", "0");
+                mapBoardMap.put("binE", "0");
+                mapBoardMap.put("binF", "0");
+                mapBoardMap.put("binG", "0");
 
                 intBoardMapInputBinTotal = 0;
                 intBoardMapPassBinTotal = 0;
             }
             for (int i = 0; i < strSocketNum.length(); i++) {
-                if (Character.toString(strSocketNum.charAt(i)) != "X" && Character.toString(strSocketNum.charAt(i)) != "." && mapBoardMap.containsKey("BIN" + Character.toString(strSocketNum.charAt(i)))) {
-                    mapBoardMap.put("BIN" + Character.toString(strSocketNum.charAt(i)), String.valueOf(Integer.parseInt(mapBoardMap.get("BIN" + Character.toString(strSocketNum.charAt(i)))) + 1));
+                if (Character.toString(strSocketNum.charAt(i)) != "X" && Character.toString(strSocketNum.charAt(i)) != "." && mapBoardMap.containsKey("bin" + Character.toString(strSocketNum.charAt(i)))) {
+                    mapBoardMap.put("bin" + Character.toString(strSocketNum.charAt(i)), String.valueOf(Integer.parseInt(mapBoardMap.get("bin" + Character.toString(strSocketNum.charAt(i)))) + 1));
                     //Total
                     intBoardMapInputBinTotal++;
                     if (Character.toString(strSocketNum.charAt(i)).equals("1")) {
@@ -84,14 +83,13 @@ public class SlotYieldService {
                     }
                 }
             }
-            mapBoardMap.put("INPUT", String.valueOf(intBoardMapInputBinTotal));
-            mapBoardMap.put("PASS", String.valueOf(intBoardMapPassBinTotal));
-            mapBoardMap.put("YIELD", String.valueOf(format.format((intBoardMapPassBinTotal/(double)intBoardMapInputBinTotal)*100)));
+            mapBoardMap.put("input", String.valueOf(intBoardMapInputBinTotal));
+            mapBoardMap.put("pass", String.valueOf(intBoardMapPassBinTotal));
+            mapBoardMap.put("yield", String.valueOf(format.format((intBoardMapPassBinTotal/(double)intBoardMapInputBinTotal)*100)));
 
         }
-        if (mapBoardMap != null) {
+        if (mapBoardMap.size() > 0) {
             arrayMapSocketNum.add(mapBoardMap);
-            mapBoardMap = null;
         }
         return arrayMapSocketNum;
     }

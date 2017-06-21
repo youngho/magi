@@ -30,7 +30,7 @@
                 AND BI_END_TIME <![CDATA[<=]]> #{biEndTimeEnd}
             </if>
             <if test=" biPartNumber != null and biPartNumber != '' ">
-                AND BI_PART_NUMBER LIKE '%'|| #{biPartNumber} || '%'
+                AND BI_PART_NUMBER LIKE #{biPartNumber}
             </if>
             <if test=" biProcessCode != null and biProcessCode != '' ">
                 AND BI_PROCESS_CODE=#{biProcessCode}
