@@ -1,4 +1,4 @@
-import {Component, ViewChild, Type} from "@angular/core";
+import {Component, ViewChild, Type, forwardRef} from "@angular/core";
 import {FadeInTop} from "../../shared/animations/fade-in-top.decorator";
 import * as wjcCore from "wijmo/wijmo";
 import * as wjcGrid from "wijmo/wijmo.grid";
@@ -22,7 +22,8 @@ import {BoardYield} from './boardYield.model';
 @Component({
     selector: 'BoardYield',
     templateUrl: 'boardYield.component.html',
-    providers: [BoardYieldService, BoardYield]
+    providers: [BoardYieldService, BoardYield],
+    entryComponents: [forwardRef(() => ExpenceCellCmp)]
 })
 export class BoardYieldComponent {
     UIID: string = "BETS-UI-0505";
@@ -41,6 +42,8 @@ export class BoardYieldComponent {
     public loading = false; // Control for Grid Table Spinner
 
     constructor(private service: BoardYieldService) {
+        // wijmo 표에 컬럼형식을 표시하기 위한 변수 초기화
+        this.columns = [];
     }
 
     ngOnInit() {

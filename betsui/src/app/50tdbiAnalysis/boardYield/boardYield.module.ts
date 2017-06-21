@@ -6,7 +6,7 @@ import {WjGridModule} from 'wijmo/wijmo.angular2.grid';
 import {WjGridFilterModule} from 'wijmo/wijmo.angular2.grid.filter';
 import {WjInputModule} from 'wijmo/wijmo.angular2.input';
 
-import {BoardYieldComponent} from "./boardYield.component";
+import {BoardYieldComponent, ExpenceCellCmp} from "./boardYield.component";
 import {BoardYieldRouting} from "./boardYield.routing";
 
 import {LoadingModule} from "ngx-loading";
@@ -28,7 +28,7 @@ import {LoadingModule} from "ngx-loading";
         SmartadminModule,
         LoadingModule
     ],
-    declarations: [BoardYieldComponent]
+    declarations: [BoardYieldComponent, ExpenceCellCmp]
 })
 export class boardYieldModule{
 }
