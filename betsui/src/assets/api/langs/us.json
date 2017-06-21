@@ -1,4 +1,6 @@
 {
+  "binYieldLowerLimit" : "Yield Limit",
+  "binYieldUpperLimit" : "Fail Dut Limit",
   "testEfficiency":"Test Efficiency",
   "testerIp":"Tester IP",
   "biTestNumber":"Tester Number",
