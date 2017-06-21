@@ -99,7 +99,7 @@
         FROM
         PROGRAM_REGISTER
         <where>
-            1 = 1
+            CREATE_DATE IN (SELECT MAX(CREATE_DATE) FROM PROGRAM_REGISTER GROUP BY PART_NUMBER, PROCESS_CODE)
             <if test=" testerModel != null and testerModel != '' ">
                 AND TESTER_MODEL=#{testerModel}
             </if>
@@ -113,6 +113,7 @@
                 AND CREATE_DATE=#{createDate}
             </if>
         </where>
+        ORDER BY CREATE_DATE DESC
     </select>
 
     <insert id="insertProgramRegister" parameterType="kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto">
