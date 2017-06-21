@@ -66,5 +66,6 @@
                 AND MAIN_PROGRAM_NAME  LIKE #{mainProgramName}
             </if>
         </where>
+        ORDER BY CREATE_DATE DESC
     </select>
 </mapper>

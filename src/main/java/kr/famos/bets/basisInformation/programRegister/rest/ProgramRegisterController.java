@@ -2,6 +2,7 @@ package kr.famos.bets.basisInformation.programRegister.rest;
 
 
 import kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto;
+import kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterResultDto;
 import kr.famos.bets.basisInformation.programRegister.service.ProrgamRegisterService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,12 +32,12 @@ public class ProgramRegisterController {
 
 
     @RequestMapping(value = "/retrieveProgramRegister", method = RequestMethod.POST)
-    public ResponseEntity<List<ProgramRegisterDto>> retrieveProgramRegister(@RequestBody ProgramRegisterDto programRegisterDto) {
+    public ResponseEntity<List<ProgramRegisterResultDto>> retrieveProgramRegister(@RequestBody ProgramRegisterDto programRegisterDto) {
 
         logger.debug("ProgramRegisterController -  retrieveProgramRegister 메소드");
         logger.debug("Tester Model" + programRegisterDto.getTesterModel());
 
-        return new ResponseEntity<List<ProgramRegisterDto>>(prorgamRegisterService.retrieveProgramRegister(programRegisterDto), HttpStatus.OK);
+        return new ResponseEntity<List<ProgramRegisterResultDto>>(prorgamRegisterService.retrieveProgramRegister(programRegisterDto), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/retrieveProgramRegisterByKey", method = RequestMethod.POST)

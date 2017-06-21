@@ -1,6 +1,7 @@
 package kr.famos.bets.basisInformation.programRegister.service;
 
 import kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterDto;
+import kr.famos.bets.basisInformation.programRegister.dto.ProgramRegisterResultDto;
 import kr.famos.bets.basisInformation.programRegister.mapper.ProgramRegisterMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +22,8 @@ public class ProrgamRegisterService {
     @Autowired
     ProgramRegisterMapper programRegisterMapper;
 
-    public List<ProgramRegisterDto> retrieveProgramRegister(ProgramRegisterDto programRegisterDto){
-        List<ProgramRegisterDto> programRegisterDtoList = programRegisterMapper.retrieveProgramRegister(programRegisterDto);
+    public List<ProgramRegisterResultDto> retrieveProgramRegister(ProgramRegisterDto programRegisterDto){
+        List<ProgramRegisterResultDto> programRegisterDtoList = programRegisterMapper.retrieveProgramRegister(programRegisterDto);
         return programRegisterDtoList;
     }
 

@@ -1,11 +1,13 @@
-package kr.famos.bets.history.testProgramRevision.dto;
+package kr.famos.bets.basisInformation.programRegister.dto;
 
 /**
- * Created by yhkim on 2017-03-11.
+ * Created by yhkim on 2017-02-21.
+ *
+ * 반도체 테스트 기준정보 테이블 PROGRAM_REGISTER
+ * 테스트 장비와 테스트 프로그램에 대한 정보
  */
-public class ProgramRevisionResultDto {
-    private String createUser        = ""; // 최초생성 ID
-    private String createDate        = ""; // 생성일시
+public class ProgramRegisterResultDto {
+
     private String partNumber         = ""; // H9TQ17ABJTA-CUR
     private String processCode        = ""; // T0350
     private String testerModel        = ""; // TESTER 번호
@@ -15,45 +17,33 @@ public class ProgramRevisionResultDto {
     private String firmwareDirectory  = ""; // Test Program 저장 경로
     private String passBinSelection   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
     private String retestBinSelection = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
-    private String grade              = ""; // 제품 품질 설정
-    private String fab                = ""; // WAFER 제조 공장 번호
-    private String firmwareName       = ""; // 펌웨어 이름(MAGNUM5만 적용)
-    private String firmwareVersion    = ""; // 펌웨어 버전(MAGNUM5만 적용)
-    private String functionKey        = ""; // 스위치 16개의 값 Y/N
-    private int temperatureLimit      = 0;  // TEMPERATURE Limit
-    private String sblYieldLimit      = ""; // 95
-    private String sblSubBinaNumber   = ""; // 110
-    private String sblSubBinaLimit    = ""; // 3
-    private String sblSubBinaCount    = ""; // 1
-    private String sblSubBinbNumber   = ""; // 128
-    private String sblSubBinbLimit    = ""; // 5
-    private String sblSubBinbCount    = ""; // 3
-    private String sblBin9Counter     = ""; // OPBIN BIN9 개수
-    private String productName        = ""; // eMCP 16G16G
-    private String customer           = ""; // 판매처
-    private String packageType        = ""; // 221FBGA
-    private String programVersion     = ""; // TEST PROGRAM VERSION
-    private String binDescription     = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
-    private String testerOsVersion    = ""; // TESTER_MODEL OS VERSION
-    private String para               = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
-    private String sblBin9Limit       = ""; //
-    private String sblBin8Limit       = ""; //
 
-    public String getCreateUser() {
-        return createUser;
-    }
+    private String grade            = ""; // 제품 품질 설정
+    private String fab              = ""; // WAFER 제조 공장 번호
+    private String firmwareName     = ""; // 펌웨어 이름(MAGNUM5만 적용)
+    private String firmwareVersion  = ""; // 펌웨어 버전(MAGNUM5만 적용)
+    private String functionKey      = ""; // 스위치 16개의 값 Y/N
+    private int temperatureLimit    = 0;  // TEMPERATURE Limit
+    private String sblYieldLimit    = ""; // 95
+    private String sblSubBinaNumber = ""; // 110
+    private String sblSubBinaLimit  = ""; // 3
+    private String sblSubBinaCount  = ""; // 1
+    private String sblSubBinbNumber = ""; // 128
+    private String sblSubBinbLimit  = ""; // 5
+    private String sblSubBinbCount  = ""; // 3
+    private String sblBin9Counter   = ""; // OPBIN BIN9 개수
+    private String productName      = ""; // eMCP 16G16G
+    private String customer         = ""; // 판매처
+    private String packageType      = ""; // 221FBGA
+    private String programVersion   = ""; // TEST PROGRAM VERSION
+    private String binDescription   = ""; // PASS/FAIL BIN 선택 (YYYYNNNN) Y=PASS,N=FAIL
+    private String testerOsVersion  = ""; // TESTER_MODEL OS VERSION
+    private String para             = ""; // T5503/T5588/MAGNUM5의 동시 TEST가능수량
+    private String sblBin9Limit     = ""; //
+    private String sblBin8Limit     = ""; //
 
-    public void setCreateUser(String createUser) {
-        this.createUser = createUser;
-    }
-
-    public String getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
+    private String createUser       = ""; // 최초생성 ID
+    private String createDate       = ""; // 생성일시
 
     public String getPartNumber() {
         return partNumber;
@@ -309,5 +299,21 @@ public class ProgramRevisionResultDto {
 
     public void setSblBin8Limit(String sblBin8Limit) {
         this.sblBin8Limit = sblBin8Limit;
+    }
+
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 }
