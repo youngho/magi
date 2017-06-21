@@ -8,7 +8,7 @@ package kr.famos.bets.dutmap.compodut.dto;
 public class CompoDutMapDto {
     private String partNumber        = ""; // PART NUMBER
     private String operatorId        = ""; // OPERATOR ID
-    private String lotId             = ""; // LOT ID
+//    private String lotId             = ""; // LOT ID              // 특정 LotID를 지정하여 보여주는것이 아니어서 삭제함
     private String shotStartTime     = ""; // DUT_MAIN_BIN 시작시간
     private String shotEndTime       = ""; // DUT_MAIN_BIN 종료시간
     private String processCode       = ""; // PROCESS CODE
@@ -41,14 +41,6 @@ public class CompoDutMapDto {
 
     public void setOperatorId(String operatorId) {
         this.operatorId = operatorId;
-    }
-
-    public String getLotId() {
-        return lotId;
-    }
-
-    public void setLotId(String lotId) {
-        this.lotId = lotId;
     }
 
     public String getShotStartTime() {

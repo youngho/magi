@@ -9,7 +9,6 @@
     <select id="retrieveCompoDutMap" parameterType="kr.famos.bets.dutmap.compodut.dto.CompoDutMapDto" resultType="kr.famos.bets.dutmap.compodut.dto.CompoDutMapDto">
         SELECT
             PART_NUMBER,
-            LOT_ID,
             PROCESS_CODE,
             BOARD_ID,
             TESTER_NUMBER,
@@ -48,9 +47,6 @@
             </if>
             <if test=" testCounter != null and testCounter != '' ">
                 AND TEST_COUNTER=#{testCounter}
-            </if>
-            <if test=" lotId != null and lotId != '' ">
-                AND LOT_ID=#{lotId}
             </if>
             <if test=" mainProgramName != null and mainProgramName != '' ">
                 AND MAIN_PROGRAM_NAME=#{mainProgramName}

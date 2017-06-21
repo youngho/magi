@@ -102,7 +102,7 @@ public class CompoDutMapService {
                 mapDutMap.put("partNumber", lstCompoDutMapDto.get(0).getPartNumber());
                 mapDutMap.put("processCode", lstCompoDutMapDto.get(0).getProcessCode());
                 mapDutMap.put("testerNumber", lstCompoDutMapDto.get(0).getTesterNumber());
-                mapDutMap.put("lotId", lstCompoDutMapDto.get(0).getLotId());
+//                mapDutMap.put("lotId", lstCompoDutMapDto.get(0).getLotId());
                 mapDutMap.put("boardId", lstCompoDutMapDto.get(0).getBoardId());
                 mapDutMap.put("head", lstCompoDutMapDto.get(0).getHead());
                 mapDutMap.put("mainProgramName", lstCompoDutMapDto.get(0).getMainProgramName());
