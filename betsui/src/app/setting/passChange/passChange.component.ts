@@ -69,7 +69,7 @@ export class PassChangeComponent implements OnInit {
 
         this.user.username = localStorage.getItem("loginId");
         this.user.name = localStorage.getItem("loginName");
-        this.user.password = "test";
+        // this.user.password = "test";
         this.user.authority = localStorage.getItem("authority");
     }
 

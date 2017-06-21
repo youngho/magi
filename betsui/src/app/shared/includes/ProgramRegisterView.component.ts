@@ -104,7 +104,6 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
             && this.programRegister.mainProgramName != null
             && this.programRegister.temperature != null
         ) {
-            debugger;
             if(this.programRegister.processCode == 'T8100' || this.programRegister.processCode == 'T8200'){
                 if(this.programRegister.firmwareName != undefined){
                     this.programRegisterData();
