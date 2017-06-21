@@ -6,6 +6,7 @@ import {NotificationService} from "../utils/notification.service";
 import {ProgramRegister} from "../../10basis/ProgramRegister.model";
 import {concat} from "rxjs/observable/concat";
 import {UserUsage} from "../usage/userUsage.model";
+import {isUndefined} from "util";
 
 @FadeInTop()
 @Component({
@@ -98,21 +99,24 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
 
         this.programRegister.createUser = localStorage.getItem('loginId');  //�������� localStorage ���� �α��� ���̵� ������ ����� �ѱ��.
 
-        //���߽� �α��� ���̵� ������� ����ϱ� ���� ���� �ڵ�
-        if (localStorage.getItem('loginId') === null) {
-            this.programRegister.createUser = 'devdev';
-        }
-
         if (this.programRegister.partNumber != null
             && this.programRegister.processCode != null
             && this.programRegister.mainProgramName != null
-            && this.programRegister.dutMap != null
             && this.programRegister.temperature != null
-            && this.programRegister.firmwareDirectory != null
         ) {
-            this.programRegisterData();
-            this.smartModEg1();
-            this.submitted = true;
+            debugger;
+            if(this.programRegister.processCode == 'T8100' || this.programRegister.processCode == 'T8200'){
+                if(this.programRegister.firmwareName != undefined){
+                    this.programRegisterData();
+                    this.smartModEg1();
+                    this.submitted = true;
+                }
+            } else if(this.programRegister.processCode != 'T8100' && this.programRegister.processCode != 'T8200'){
+                this.programRegisterData();
+                this.smartModEg1();
+                this.submitted = true;
+            }
+
         }
 
     }
@@ -132,11 +136,11 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
                     },
                     error => alert(error),
                     () => console.log("Finish onSave()"));
-
+                this.strInputResult = "<br><br>";
 
             }
             if (ButtonPressed === "No") {
-
+                this.strInputResult = "<br><br>";
             }
 
         });
@@ -145,13 +149,10 @@ export class ProgramRegisterViewComponent implements OnInit, OnChanges {
     //required values show to Modal dialog
     programRegisterData() {
         // this.strInputResult += '<div class="col-md-offset-2 col-md-10">';
-        // if (this.programRegister.partNumber != null) this.strInputResult += "<label class='col-md-6 control-label'>Part Number : " + this.programRegister.partNumber + "</label>";
         if (this.programRegister.partNumber != null) this.strInputResult += "Part Number : " + this.programRegister.partNumber + "<br>";
         if (this.programRegister.processCode != null) this.strInputResult += "Process Code : " + this.programRegister.processCode + "<br>";
         if (this.programRegister.mainProgramName != null) this.strInputResult += "Main Program Name : " + this.programRegister.mainProgramName + "<br>";
-        // if (this.programRegister.dutMap != null) this.strInputResult += "DUT Map : " + this.programRegister.dutMap + "<br>";
         if (this.programRegister.temperature != null) this.strInputResult += "Temperature : " + this.programRegister.temperature + "<br>";
-        if (this.programRegister.temperatureLimit != null) this.strInputResult += "Temperature : " + this.programRegister.temperatureLimit + "<br>";
         // if (this.programRegister.firmwareDirectory != null) this.strInputResult += "Firmware Directory : " + this.programRegister.firmwareDirectory + "<br>";
         // if (this.programRegister.customer != null) this.strInputResult += "Customer : " + this.programRegister.customer + "<br>";
         // this.strInputResult += '<div>';

@@ -66,6 +66,7 @@
             <label class="col-md-2 control-label">{{'firmwareName'|i18n}}</label>
             <div class="col-md-2">
                 <input type="text" class="form-control" id="firmwareName" maxlength="50"
+                       [attr.required]="programRegister.processCode === 'T8100' || programRegister.processCode === 'T8200'? true : null"
                        name="firmwareName" placeholder="ex) SM2718AC 124C1A07_P1007R58 HAG4A32A5 1D5A000"
                        [(ngModel)]="programRegister.firmwareName">
             </div>
@@ -86,7 +87,6 @@
             <label class="col-md-2 control-label">{{'firmwareVersion'|i18n}}</label>
             <div class="col-md-2">
                 <input type="text" class="form-control" id="firmwareVersion" maxlength="20"
-                       [attr.required]="programRegister.processCode === 'T8100' || programRegister.processCode === 'T8200'? true : null"
                        name="firmwareVersion" placeholder="ex) SM-REV0"
                        [(ngModel)]="programRegister.firmwareVersion">
             </div>
