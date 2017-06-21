@@ -31,7 +31,7 @@
           FIRMWARE_NAME,
           FIRMWARE_VERSION,
           TEMPERATURE,
-          SBL_RESULT,
+          DECODE(SBL_RESULT, 'ERROR', 'FAIL','PASS') AS SBL_RESULT,
           SBL_YIELD_RESULT,
           SBL_BIN1_RESULT,
           SBL_BIN2_RESULT,
