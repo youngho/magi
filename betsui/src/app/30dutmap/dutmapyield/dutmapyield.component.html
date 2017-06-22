@@ -79,9 +79,9 @@
                                                 <input class="form-control" placeholder="Part Number" name="partNumber" type="text" [(ngModel)]="retrieveCondDto.partNumber">
                                             </div>
 
-                                            <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
+                                            <label class="col-md-2 control-label"><sup>*</sup>{{'Process Code'|i18n}}</label>
                                             <div class="col-md-2">
-                                                <input class="form-control" placeholder="Process Code" name="processCode" type="text" [(ngModel)]="retrieveCondDto.processCode">
+                                                <input class="form-control" placeholder="Process Code" name="processCode" type="text" required [(ngModel)]="retrieveCondDto.processCode">
                                             </div>
 
                                             <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
