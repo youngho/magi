@@ -112,6 +112,7 @@ export class BoardYieldComponent {
                     this.empty = true;
                     this.errorMessage = error;
                 });
+        this.columns = [];
     }
 
     exportExcel() {
