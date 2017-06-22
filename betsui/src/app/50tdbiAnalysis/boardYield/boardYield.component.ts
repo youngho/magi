@@ -112,7 +112,7 @@ export class BoardYieldComponent {
                     this.empty = true;
                     this.errorMessage = error;
                 });
-        this.columns = [];
+        this.columns = [];  // 중요!! 없을경우 재 조회시 컬럼폭이 증가함
     }
 
     exportExcel() {
