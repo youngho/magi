@@ -1,7 +1,6 @@
 package kr.famos.bets.yieldAnalysis.ngbin.rest;
 
-import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto;
-import kr.famos.bets.yieldAnalysis.ngbin.mapper.NgBinMapper;
+import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinCondDto;
 import kr.famos.bets.yieldAnalysis.ngbin.service.NgBinService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +25,9 @@ public class NgBinController {
     private NgBinService ngBinService;
 
     @RequestMapping(value = "/retrieveNgBinJson", method = RequestMethod.POST)
-    public ResponseEntity<String> retrieveSubBinJson(@RequestBody NgBinDto ngBinDto) {
+    public ResponseEntity<List<?>> retrieveSubBinJson(@RequestBody NgBinCondDto ngBinCondDto) {
         logger.debug("NgBinController - retireveNgBin 메소드");
 
-        return new ResponseEntity<String>(ngBinService.retrieveNgBinMap(ngBinDto), HttpStatus.OK);
+        return new ResponseEntity<List<?>>(ngBinService.retrieveNgBinMap(ngBinCondDto), HttpStatus.OK);
     }
 }

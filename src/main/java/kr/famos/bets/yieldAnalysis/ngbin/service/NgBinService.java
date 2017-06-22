@@ -1,7 +1,6 @@
 package kr.famos.bets.yieldAnalysis.ngbin.service;
 
-import com.google.gson.Gson;
-import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto;
+import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinCondDto;
 import kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinResultDto;
 import kr.famos.bets.yieldAnalysis.ngbin.mapper.NgBinMapper;
 import org.slf4j.Logger;
@@ -18,10 +17,10 @@ public class NgBinService {
     @Autowired
     NgBinMapper ngBinMapper;
 
-    public String retrieveNgBinMap(NgBinDto ngBinDto) {
+    public List<?> retrieveNgBinMap(NgBinCondDto ngBinCondDto) {
 
         //표현해야 할 NG_BIN리스트를 만들기 위해 NG_BIN_DTO를 LIST로가 져옴, MAP으로 가져오면 특정 필드를 꺼내오기 힘듬
-        List<NgBinResultDto> lstNgBinDto = ngBinMapper.retrieveNgBinList(ngBinDto);
+        List<NgBinResultDto> lstNgBinDto = ngBinMapper.retrieveNgBinList(ngBinCondDto);
         //ngBin을 ","로 split해서 Map에 key 를 누적 put 해서 표현 해야 할 ngBin리스트를 만듬 값은 "" 없음
         // 추후 NG_BIN_DTO 맴으로 가져와 여기서 만들어진 ngBin리스트를 추가 하고 맵으로 가져온 ngbin을 key, value로 put하면 없는 값은 "" 있는 값은 value로 치환될 것임
         Map<Integer, String> mapNgBin = new TreeMap<>();
@@ -33,12 +32,11 @@ public class NgBinService {
             }
         }
 
-        List<Map<String, NgBinDto>> mapNgBinDto = ngBinMapper.retrieveNgBinMap(ngBinDto);
+        List<Map<String, NgBinResultDto>> mapNgBinDto = ngBinMapper.retrieveNgBinMap(ngBinCondDto);
         List ArrayNgBinDto = new ArrayList();
-        int index;
-        for (Map<String, NgBinDto> map : mapNgBinDto) {
+        for (Map<String, NgBinResultDto> map : mapNgBinDto) {
             Map<String, String> mapNgBinDtoRow = new LinkedHashMap<String, String>();
-            for (Map.Entry<String, NgBinDto> entry : map.entrySet()) {
+            for (Map.Entry<String, NgBinResultDto> entry : map.entrySet()) {
                 String key = entry.getKey();
                 String value = String.valueOf(entry.getValue());
                 if (key.equals("NG_BIN")) {
@@ -52,24 +50,12 @@ public class NgBinService {
                     for (int i = 0; i < strBin.length - 2; i = i + 2) {
                         mapNgBinDtoRow.put("ngBin" + strBin[i], strBin[i + 1]);
                     }
-
                 } else {
                     mapNgBinDtoRow.put(key, value);
                 }
-
             }
             ArrayNgBinDto.add(mapNgBinDtoRow);
-            mapNgBinDtoRow = null;
         }
-
-        Gson gson = new Gson();
-        String strJsonNgBinDto = gson.toJson(ArrayNgBinDto);
-
-//        if (ArrayNgBinDto.size() == 0) {
-//            strJsonNgBinDto = "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "no data" + "\"" + "}]";
-//        }
-
-        return strJsonNgBinDto;
+        return ArrayNgBinDto;
     }
-
 }

@@ -6,7 +6,7 @@
     ** NG_BIN 테이블의 TESTER_COUNTER의 숫자가 0,1,2,OP_BIN(9999) 로들어온다.(분류조건)
     ** NG_BIN 테이블에 있는 NG_BIN(SUB_BIN)(1~999)의 값의 각 NG_BIN숫자별로 몇개씩 나왔는지 보여준다.
     -->
-    <select id="retrieveNgBinMap" parameterType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto" resultType="java.util.LinkedHashMap">
+    <select id="retrieveNgBinMap" parameterType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinCondDto" resultType="java.util.LinkedHashMap">
         SELECT
         PART_NUMBER,
         PROCESS_CODE,
@@ -61,7 +61,7 @@
         </where>
     </select>
 
-    <select id="retrieveNgBinList" parameterType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinDto" resultType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinResultDto">
+    <select id="retrieveNgBinList" parameterType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinCondDto" resultType="kr.famos.bets.yieldAnalysis.ngbin.dto.NgBinResultDto">
         SELECT
         PART_NUMBER,
         OPERATOR_ID,
