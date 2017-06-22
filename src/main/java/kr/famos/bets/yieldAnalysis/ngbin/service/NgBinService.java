@@ -33,29 +33,34 @@ public class NgBinService {
         }
 
         List<Map<String, NgBinResultDto>> mapNgBinDto = ngBinMapper.retrieveNgBinMap(ngBinCondDto);
-        List ArrayNgBinDto = new ArrayList();
+        List returnDto = new ArrayList();
+
         for (Map<String, NgBinResultDto> map : mapNgBinDto) {
-            Map<String, String> mapNgBinDtoRow = new LinkedHashMap<String, String>();
+            Map<String, String> ngBinRow = new LinkedHashMap<String, String>();
+            int totalBinCount = 0;
             for (Map.Entry<String, NgBinResultDto> entry : map.entrySet()) {
                 String key = entry.getKey();
                 String value = String.valueOf(entry.getValue());
+
                 if (key.equals("NG_BIN")) {
                     // 위에서 만든 ngBin리스트를 추가합
                     for (Map.Entry<Integer, String> entry2 : mapNgBin.entrySet()) {
                         String key2 = Integer.toString(entry2.getKey());
-                        mapNgBinDtoRow.put("ngBin" + key2, "");
+                        ngBinRow.put("ngBin" + key2, "");
                     }
                     //지금 읽어온 ngBin값을 put 해서 치환 함
                     String[] strBin = value.split(",");
                     for (int i = 0; i < strBin.length - 2; i = i + 2) {
-                        mapNgBinDtoRow.put("ngBin" + strBin[i], strBin[i + 1]);
+                        ngBinRow.put("ngBin" + strBin[i], strBin[i + 1]);
+                        totalBinCount += Integer.parseInt(strBin[i + 1]);   // 각 Row의 총 개수를 계산한다
                     }
                 } else {
-                    mapNgBinDtoRow.put(key, value);
+                    ngBinRow.put(key, value);
                 }
+                ngBinRow.put("total", String.valueOf(totalBinCount));
             }
-            ArrayNgBinDto.add(mapNgBinDtoRow);
+            returnDto.add(ngBinRow);
         }
-        return ArrayNgBinDto;
+        return returnDto;
     }
 }

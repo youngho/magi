@@ -39,46 +39,53 @@
                                         <div class="col-md-2">
                                             <wj-input-date [(text)]="endDate" [format]="'yyyyMMdd'"></wj-input-date>
                                         </div>
-                                        <label class="col-md-2 control-label">{{'Lot ID'|i18n}}</label>
+                                        <label class="col-md-2 control-label"><sup>*</sup>{{'Lot ID'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Lot ID" type="text"
-                                                   [(ngModel)]="data.lotId">
+                                            <input class="form-control" placeholder="Lot ID" type="text" required
+                                                   [(ngModel)]="retrieveCondDto.lotId">
                                         </div>
-                                        
+
                                         <!-- <label class="col-md-2 control-label">{{'mode'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="" type="text">
                                         </div> -->
-                                        
+
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label">SBL Board Limit</label>
+                                        <div class="col-md-2">
+                                            <input class="form-control" placeholder="SBL Board Limit" type="text"
+                                                   [(ngModel)]="retrieveCondDto.sblBoardLimit">
+                                        </div>
+                                    </div>
+
                                     <!-- <div class="form-group">
                                         <label class="col-md-2 control-label">{{'Part Number'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Part Number" type="text"
-                                                   [(ngModel)]="data.partNumber">
+                                                   [(ngModel)]="retrieveCondDto.partNumber">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Process Code'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="Process Code" type="text"
-                                                   [(ngModel)]="data.processCode">
+                                                   [(ngModel)]="retrieveCondDto.processCode">
                                         </div>
                                         <label class="col-md-2 control-label">{{'Tester Model'|i18n}}</label>
                                         <div class="col-md-2">
-                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="data.testerModel">
+                                            <input class="form-control" placeholder="Tester Model" type="text" [(ngModel)]="retrieveCondDto.testerModel">
                                         </div>
                                     </div> -->
-                                    
+
                                     <!-- <div class="form-group">
                                         <label class="col-md-2 control-label">{{'mainProgramName'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'mainProgramName'|i18n}}" type="text"
-                                                   [(ngModel)]="data.mainProgramName">
+                                                   [(ngModel)]="retrieveCondDto.mainProgramName">
                                         </div>
                                         <label class="col-md-2 control-label">{{'boardId'|i18n}}</label>
                                         <div class="col-md-2">
                                             <input class="form-control" placeholder="{{'boardId'|i18n}}" type="text"
-                                                   [(ngModel)]="data.boardId">
+                                                   [(ngModel)]="retrieveCondDto.boardId">
                                         </div>
                                     </div> -->
                                     
@@ -119,11 +126,28 @@
                             </div>
                             <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
                             <!-- the grid -->
+                            <!--
                             <wj-flex-grid #flexGrid [itemsSource]="gridData" [isReadOnly]="true" (loadedRows)="onGridLoaded($event)">
                                 <wj-flex-grid-filter #filter></wj-flex-grid-filter>
-                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col
-                                                     [binding]=col></wj-flex-grid-column>
+                                <wj-flex-grid-column *ngFor="let col of colInfo" [header]=col [binding]=col></wj-flex-grid-column>
                             </wj-flex-grid>
+                            -->
+
+                            <wj-flex-grid #flexGrid [allowResizing]="'Both'"
+                                          class="grid"
+                                          [itemsSource]="gridData"
+                                          [isReadOnly]="false">
+                                <wj-flex-grid-column *ngFor="let col of columns"
+                                                     [header]="col.header"
+                                                     [binding]="col.binding"
+                                                     [format]="col.format"
+                                                     [width]="col.width">
+                                    <ng-template *ngIf="col.cellTemplate" wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <wj-component-loader [component]="col.cellTemplate" [properties]="{item: cell.item, sblBoardLimit: col.sblBoardLimit}"></wj-component-loader>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+                            </wj-flex-grid>
+
                         </div>
                     </div>
                     <div *ngIf="empty == true">

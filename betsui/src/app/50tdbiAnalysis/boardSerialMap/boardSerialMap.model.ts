@@ -9,11 +9,11 @@
  * version 1.0 : 2017.06.10  /  yhkim  / First Frame Creation
  */
 export class BoardSerialMap {
-    seq: string;
-    lotId: string;
     endTimeStart: string;
     endTimeEnd: string;
-  
+    lotId: string;
+    sblBoardLimit: string;
+
 //    mainProgramName: string;
 //    processCode: string;
 //    operatorId: string;
