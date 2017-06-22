@@ -63,11 +63,11 @@ public class NgBinService {
         }
 
         Gson gson = new Gson();
-
         String strJsonNgBinDto = gson.toJson(ArrayNgBinDto);
-        if (ArrayNgBinDto.size() == 0) {
-            strJsonNgBinDto = "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "no data" + "\"" + "}]";
-        }
+
+//        if (ArrayNgBinDto.size() == 0) {
+//            strJsonNgBinDto = "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "no data" + "\"" + "}]";
+//        }
 
         return strJsonNgBinDto;
     }
