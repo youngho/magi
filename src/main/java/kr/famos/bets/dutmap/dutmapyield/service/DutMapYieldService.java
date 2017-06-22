@@ -25,8 +25,8 @@ public class DutMapYieldService {
     @Autowired
     DutMapYieldMapper dutMapYieldMapper;
 
-    public String retrieveCompoDutMap(DutMapYieldDto dutMapYieldDto) {
-
+    public List<?> retrieveCompoDutMap(DutMapYieldDto dutMapYieldDto) {
+        List<LinkedHashMap<String, Object>> returnDto = new ArrayList<>();
         logger.debug("UI BIN Selection ::: " + dutMapYieldDto.getBinSelection());    //화면에서 BIN Selection 으로 조회한 값
         logger.debug("UI BIN Yield Lower Limit::: " + dutMapYieldDto.getBinYieldLowerLimit());    //
         logger.debug("UI BIN Yield Lower Upper::: " + dutMapYieldDto.getBinYieldUpperLimit());    //
@@ -77,7 +77,6 @@ public class DutMapYieldService {
                 index++;
             }
 
-
             int[][] intDutMap2 = new int[8][maxDut];
             int[] intDutMapInputBinTotal = new int[maxDut];
             int[] intDutMapPassBinTotal = new int[maxDut];
@@ -115,29 +114,7 @@ public class DutMapYieldService {
                 inputBinSum += intDutMapInputBinTotal[i];
                 passBinSum += intDutMapPassBinTotal[i];
             }
-            //행령을 치환하여 Map에 넎고 다시 List에 추가 하다.
-            List<LinkedHashMap<String, Object>> arrayMapDutMap = new ArrayList<>();
-            /*
-            for (Integer i = 0; i < 8; i++) {
-                LinkedHashMap<String, String> mapDutMap = new LinkedHashMap<>();
-                //메인 빈 번호를 넣는다.
-                mapDutMap.put("partNumber", lstDutMapYieldDto.get(0).getPartNumber());
-                mapDutMap.put("processCode", lstDutMapYieldDto.get(0).getProcessCode());
-                mapDutMap.put("testerNumber", lstDutMapYieldDto.get(0).getTesterNumber());
-                mapDutMap.put("lotId", lstDutMapYieldDto.get(0).getLotId());
-                mapDutMap.put("boardId", lstDutMapYieldDto.get(0).getBoardId());
-                mapDutMap.put("head", lstDutMapYieldDto.get(0).getHead());
-                mapDutMap.put("mainProgramName", lstDutMapYieldDto.get(0).getMainProgramName());
-                mapDutMap.put("testCounter", lstDutMapYieldDto.get(0).getTestCounter());
-                mapDutMap.put("mainBIN", String.valueOf(i + 1));
-                mapDutMap.put("total", String.valueOf(mapDutMapTotal.get(i + 1)));
-                for (int j = 0; j < maxDut; j++) {
-                    mapDutMap.put("DUT" + String.valueOf(j + 1), String.valueOf(intDutMap2[i][j]));
-                }
-                arrayMapDutMap.add(mapDutMap);
-                mapDutMap = null;
-            }
-*/
+
             //input 및 Pass bin 수율추가
             LinkedHashMap<String, Object> mapDutMapInputBIN = new LinkedHashMap<>();
 //            LinkedHashMap<String, Object> mapDutMapPassBIN = new LinkedHashMap<>();
@@ -185,16 +162,10 @@ public class DutMapYieldService {
 //                }
 
             }
-//            arrayMapDutMap.add(mapDutMapPassBIN);
-            arrayMapDutMap.add(mapDutMapYieldBIN);
-            arrayMapDutMap.add(mapDutMapInputBIN);
-
-            Gson gson = new Gson();
-            String strJson = gson.toJson(arrayMapDutMap);
-            return strJson;
-        } else {
-            String strJson = "[{" + "\"" + "Message" + "\"" + ":" + "\"" + "No data available in table" + "\"" + "}]";
-            return strJson;
+//            returnDto.add(mapDutMapPassBIN);
+            returnDto.add(mapDutMapYieldBIN);
+            returnDto.add(mapDutMapInputBIN);
         }
+        return returnDto;
     }
 }
