@@ -115,6 +115,7 @@ export class ProgramRegisterRetrieveComponent implements OnInit {
                     this.empty = true;
                     this.errorMessage = error;
                 });
+        this.columns = [];
     }
 
     retrieveByKeyDto = {
