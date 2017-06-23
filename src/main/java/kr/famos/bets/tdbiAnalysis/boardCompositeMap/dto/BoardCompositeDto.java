@@ -6,7 +6,7 @@ public class BoardCompositeDto {
     private int biSeq                = 0;  //
     private String biLotId           = ""; //
     private String biMainProgramName = ""; //
-    private int biProcessCode        = 0;  //
+    private String biProcessCode     = "";
     private String biOperatorId      = ""; //
     private String biStartTime       = ""; //
     private String biEndTime         = ""; //
@@ -47,11 +47,11 @@ public class BoardCompositeDto {
         this.biMainProgramName = biMainProgramName;
     }
 
-    public int getBiProcessCode() {
+    public String getBiProcessCode() {
         return biProcessCode;
     }
 
-    public void setBiProcessCode(int biProcessCode) {
+    public void setBiProcessCode(String biProcessCode) {
         this.biProcessCode = biProcessCode;
     }
 
