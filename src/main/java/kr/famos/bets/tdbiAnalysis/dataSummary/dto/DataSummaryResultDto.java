@@ -10,7 +10,7 @@ public class DataSummaryResultDto {
     private String startTime = ""; //
     private String endTime = ""; //
     private String testerModel = ""; //
-    private String testNumber = "";  //
+    private String testerNumber = "";  //
 //    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
     private String mainProgramName = ""; //
 
@@ -77,12 +77,12 @@ public class DataSummaryResultDto {
         this.testerModel = testerModel;
     }
 
-    public String getTestNumber() {
-        return testNumber;
+    public String getTesterNumber() {
+        return testerNumber;
     }
 
-    public void setTestNumber(String testNumber) {
-        this.testNumber = testNumber;
+    public void setTesterNumber(String testerNumber) {
+        this.testerNumber = testerNumber;
     }
 
     public String getMainProgramName() {

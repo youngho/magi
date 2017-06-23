@@ -7,7 +7,7 @@ public class BoardSerialMapResultDto {
 
     private String partNumber = ""; //
     private String lotId = ""; //
-//    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
+    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
     private String mainProgramName = ""; //
     private String boardId = "";  //
     private String zoneNumber = "";  //
@@ -49,7 +49,6 @@ public class BoardSerialMapResultDto {
         this.lotId = lotId;
     }
 
-/*
     public String getProcessCode() {
         return processCode;
     }
@@ -57,7 +56,6 @@ public class BoardSerialMapResultDto {
     public void setProcessCode(String processCode) {
         this.processCode = processCode;
     }
-*/
 
     public String getMainProgramName() {
         return mainProgramName;

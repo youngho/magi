@@ -53,7 +53,7 @@ public class DataSummaryService {
             returnDto.setStartTime(list.getStartTime());                // LOT별 시간을 보여준다.
             returnDto.setEndTime(list.getEndTime());                    // LOT별 시간을 보여준다.
             returnDto.setTesterModel(list.getTesterModel());
-            returnDto.setTestNumber(list.getTestNumber());
+            returnDto.setTesterNumber(list.getTestNumber());
 //            returnDto.setProcessCode(list.getProcessCode());            // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
             returnDto.setMainProgramName(list.getMainProgramName());
 

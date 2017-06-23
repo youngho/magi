@@ -46,7 +46,7 @@ public class BoardCompositeService {
                 //mapSocketNum.put("Seq", String.valueOf(board.getBiSeq()));
                 mapSocketNum.put("partNumber", String.valueOf(board.getBiPartNumber()));
                 mapSocketNum.put("processCode", String.valueOf(board.getBiProcessCode()));
-                mapSocketNum.put("testNumber", String.valueOf(board.getBiTestNumber()));
+                mapSocketNum.put("testerNumber", String.valueOf(board.getBiTestNumber()));
                 mapSocketNum.put("lotId", String.valueOf(board.getBiLotId()));
                 mapSocketNum.put("zoneNumber", String.valueOf(board.getBiZoneNumber()));
                 mapSocketNum.put("boardId", String.valueOf(board.getBiBoardId()));

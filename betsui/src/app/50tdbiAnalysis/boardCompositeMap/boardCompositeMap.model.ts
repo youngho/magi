@@ -16,19 +16,20 @@ export class BoardCompositeMap {
     biLotId: string;
     biBoardId: string;
     biZoneNumber: string;
-/*
-    biSeq: string;
-    biMainProgramName: string;
-//    biProcessCode: string;
-    biOperatorId: string;
-    biStartTime: string;
-    biEndTime: string;
 
-//    biTesterModel: string;
-    biTestNumber: string;
-    biSlotNumber: string;
-    biBoardRow: string;
-    biBoardColumn: string;
-    biSocketNumber: string;
-*/
+    biProcessCode: string;
+    /*
+     biSeq: string;
+     biMainProgramName: string;
+     biOperatorId: string;
+     biStartTime: string;
+     biEndTime: string;
+
+     //    biTesterModel: string;
+     biTestNumber: string;
+     biSlotNumber: string;
+     biBoardRow: string;
+     biBoardColumn: string;
+     biSocketNumber: string;
+     */
 }

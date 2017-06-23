@@ -13,9 +13,9 @@ export class BoardSerialMap {
     endTimeEnd: string;
     lotId: string;
     sblBoardLimit: string;
+    processCode: string;
 
 //    mainProgramName: string;
-//    processCode: string;
 //    operatorId: string;
 //    startTime: string;
 //    endTime: string;
