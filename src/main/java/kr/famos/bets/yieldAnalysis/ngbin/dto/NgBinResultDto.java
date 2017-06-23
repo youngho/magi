@@ -20,7 +20,7 @@ public class NgBinResultDto {
     private String handlerModel      = ""; // HANDLER MODEL NAME
     private String testCounter       = ""; // TEST 횟수 (0 or 1 or 2.....)
     private String boardId           = ""; // TEST BOARD ID (FIX)
-    private int total                = 0;
+    private String ngBinTotal        = "";
     private String ngBin             = ""; //
 
     public String getTesterNumber() {
@@ -127,11 +127,11 @@ public class NgBinResultDto {
         this.ngBin = ngBin;
     }
 
-    public int getTotal() {
-        return total;
+    public String getNgBinTotal() {
+        return ngBinTotal;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setNgBinTotal(String ngBinTotal) {
+        this.ngBinTotal = ngBinTotal;
     }
 }

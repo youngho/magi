@@ -52,13 +52,14 @@ public class NgBinService {
                     String[] strBin = value.split(",");
                     for (int i = 0; i < strBin.length - 2; i = i + 2) {
                         ngBinRow.put("ngBin" + strBin[i], strBin[i + 1]);
+
                         totalBinCount += Integer.parseInt(strBin[i + 1]);   // 각 Row의 총 개수를 계산한다
                     }
                 } else {
-                    ngBinRow.put(key, value);
+                    ngBinRow.put(key, value);   // NG_BIN
                 }
-                ngBinRow.put("total", String.valueOf(totalBinCount));
             }
+            ngBinRow.put("NG_BIN_TOTAL", String.valueOf(totalBinCount));
             returnDto.add(ngBinRow);
         }
         return returnDto;

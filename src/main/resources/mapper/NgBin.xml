@@ -20,6 +20,7 @@
         SUBSTR(LOT_IN_TIME,1,4)||'-'||SUBSTR(LOT_IN_TIME,5,2)||'-'||SUBSTR(LOT_IN_TIME,7,2)||' '||SUBSTR(LOT_IN_TIME,9,2)||':'||SUBSTR(LOT_IN_TIME,11,2)||':'||SUBSTR(LOT_IN_TIME,13,2) AS LOT_IN_TIME,
         SUBSTR(END_TIME,1,4)||'-'||SUBSTR(END_TIME,5,2)||'-'||SUBSTR(END_TIME,7,2)||' '||SUBSTR(END_TIME,9,2)||':'||SUBSTR(END_TIME,11,2)||':'||SUBSTR(END_TIME,13,2) AS END_TIME,
         BOARD_ID,
+        'total' AS NG_BIN_TOTAL,
         NG_BIN
         FROM
         NG_BIN
@@ -75,6 +76,7 @@
         TEST_COUNTER,
         HANDLER_MODEL,
         BOARD_ID,
+        'total' AS NG_BIN_TOTAL,
         NG_BIN
         FROM
         NG_BIN
