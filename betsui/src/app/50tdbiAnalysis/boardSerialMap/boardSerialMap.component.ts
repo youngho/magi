@@ -56,11 +56,11 @@ export class BoardSerialMapComponent {
         );
     }
 
-    onGridLoaded(){
+    onGridLoaded() {
         var self = this;
-        setTimeout(function() {
+        setTimeout(function () {
             self.flexGrid.autoSizeColumns();
-        },300);
+        }, 300);
     }
 
     resetForm() {
@@ -84,7 +84,7 @@ export class BoardSerialMapComponent {
                     // Object 의 전체 컬럼요소에 대해 wijmo 에서 제공하는 컬럼타입으로 변환한다
                     for (let key in objJson) {
                         if (key == "yield") {
-                            columnTypeObj = {binding: key, header: this.unCamelCase(key), cellTemplate: ExpenceCellCmp, sblBoardLimit: this.retrieveCondDto.sblBoardLimit};
+                            columnTypeObj = {binding: key, header: this.unCamelCase(key), format: 'f2', cellTemplate: ExpenceCellCmp, sblBoardLimit: this.retrieveCondDto.sblBoardLimit};
                         } else {
                             // columnTypeObj = {binding: key, header: this.unCamelCase(key), width: key.length * 10};
                             columnTypeObj = {binding: key, header: this.unCamelCase(key)};
@@ -109,7 +109,7 @@ export class BoardSerialMapComponent {
     }
 
     exportExcel() {
-        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, { includeColumnHeaders: true, includeCellStyles: false }, this.startDate +"_"+this.endDate+'_BoardSerialMap'+'.xlsx');
+        wjcGridXlsx.FlexGridXlsxConverter.save(this.flexGrid, {includeColumnHeaders: true, includeCellStyles: false}, this.startDate + "_" + this.endDate + '_BoardSerialMap' + '.xlsx');
     }
 
 // 컬럼헤더로 오는 java camel case 변수명을 문자열로 변환하는 함수
@@ -133,8 +133,8 @@ export class BoardSerialMapComponent {
     selector: 'expence-cell-cmp',
     template: `
         <div [ngSwitch]="item.yield * 1 < sblBoardLimit * 1">
-              <div *ngSwitchCase="true" style="color:yellow ; text-align: right ; background-color:red">{{item.yield}}</div>
-              <div *ngSwitchDefault style="text-align: right">{{item.yield}}</div>
+              <div *ngSwitchCase="true" style="color:yellow ; text-align: right ; background-color:red">{{item.yield|number : '1.2-2'}}</div>
+              <div *ngSwitchDefault style="text-align: right">{{item.yield|number : '1.2-2'}}</div>
         </div>
         `,
 })
