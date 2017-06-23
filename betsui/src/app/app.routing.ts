@@ -43,7 +43,7 @@ export const routes: Routes = [
             {
                 path: 'tdbianal',
                 loadChildren: 'app/50tdbiAnalysis/tdbiAnalysis.module#TdbiAnalysisModule',
-                data: {pageTitle: 'TDBI Analisys'}
+                data: {pageTitle: 'TDBI ANALYSIS'}
             },
             {
                 path: 'efficiencyAnalysis',
