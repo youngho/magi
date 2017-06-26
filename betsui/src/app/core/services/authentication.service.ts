@@ -15,14 +15,13 @@ export class AuthenticationService {
 
     login(username: string, password: string) {
 
-        console.log("서비스 함수 진입");
+        // console.log("서비스 함수 진입");
         this.data.username = username;
         this.data.password = password;
 
-        console.log('service Component post :');
-        console.log('PATH : ' + this.path);
+        // console.log('service Component post :');
+        // console.log('PATH : ' + this.path);
         return this.api.retrievePost(`${this.path}`, this.data);
-
 
         /*
          return this.http.post('/user/login', JSON.stringify({username: username, password: password}))
@@ -40,7 +39,9 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+        localStorage.removeItem('token');
+        localStorage.removeItem('loginId');
+        localStorage.removeItem('loginName');
+        localStorage.removeItem('authority');
     }
-
-
 }
