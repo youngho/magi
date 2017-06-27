@@ -4,29 +4,30 @@ package kr.famos.bets.sblAnalysis.yieldAbnormal.dto;
  * Created by yhkim on 2017-03-13.
  */
 public class YieldAbnormalQueryResultDto {
-    private String partNumber       = ""; // PART NUMBER
-    private String operatorId       = ""; // OPERATOR ID
-    private String lotId            = ""; // LOT ID
-    private String lotInTime        = ""; // OPERATOR ID 입력 시점
-    private String endTime          = ""; // SRQKIND #08 또는 SRQKIND#10 시점.
-    private String processCode      = ""; // PROCESS CODE
-    private String testerModel      = ""; // TESTER MODEL NAME
-    private String testerNumber     = ""; // TESTER 번호(Host id)
-    private String head             = ""; // HEAD NUMBER A or B
+    private String partNumber        = ""; // PART NUMBER
+    private String operatorId        = ""; // OPERATOR ID
+    private String lotId             = ""; // LOT ID
+    private String lotInTime         = ""; // OPERATOR ID 입력 시점
+    private String endTime           = ""; // SRQKIND #08 또는 SRQKIND#10 시점.
+    private String processCode       = ""; // PROCESS CODE
+    private String testerModel       = ""; // TESTER MODEL NAME
+    private String testerNumber      = ""; // TESTER 번호(Host id)
+    private String head              = ""; // HEAD NUMBER A or B
     private String boardId           = ""; // TEST BOARD ID (FIX)
-    private String sblResult        = ""; // SBL_YIELD_RESULT,SBL_BIN1_RESULT,SBL_BIN2_RESULT………..SBL_BIN9_RESULT 가 아닌것 즉 SBL ERROR가 없는것은 PASS로
-    private String sblYieldResult   = ""; // SBL_YIELD_LIMIT 기준 이하일 경우 "ERROR"
-    private String sblBin1Result    = ""; // HANDLER_BIN BIN1대비 OPERATOR_BIN BIN1 수량이 많을 경우 "ERROR"
-    private String sblBin2Result    = ""; // HANDLER_BIN BIN2대비 OPERATOR_BIN BIN2 수량이 많을 경우 "ERROR"
-    private String sblBin3Result    = ""; // HANDLER_BIN BIN3대비 OPERATOR_BIN BIN3 수량이 많을 경우 "ERROR"
-    private String sblBin4Result    = ""; // HANDLER_BIN BIN4대비 OPERATOR_BIN BIN4 수량이 많을 경우 "ERROR"
-    private String sblBin5Result    = ""; // NOT USE
-    private String sblBin6Result    = ""; // NOT USE
-    private String sblBin7Result    = ""; // NOT USE
-    private String sblBin8Result    = ""; // SBL_BIN8_LIMIT 기준 이상일 경우 "ERROR"
-    private String sblBin9Result    = ""; // SBL_BIN9_COUNTER 기준 이상일 경우 "ERROR"
+    private String sblResult         = ""; // SBL_YIELD_RESULT,SBL_BIN1_RESULT,SBL_BIN2_RESULT………..SBL_BIN9_RESULT 가 아닌것 즉 SBL ERROR가 없는것은 PASS로
+    private String sblYieldResult    = ""; // SBL_YIELD_LIMIT 기준 이하일 경우 "ERROR"
+    private String sblBin1Result     = ""; // HANDLER_BIN BIN1대비 OPERATOR_BIN BIN1 수량이 많을 경우 "ERROR"
+    private String sblBin2Result     = ""; // HANDLER_BIN BIN2대비 OPERATOR_BIN BIN2 수량이 많을 경우 "ERROR"
+    private String sblBin3Result     = ""; // HANDLER_BIN BIN3대비 OPERATOR_BIN BIN3 수량이 많을 경우 "ERROR"
+    private String sblBin4Result     = ""; // HANDLER_BIN BIN4대비 OPERATOR_BIN BIN4 수량이 많을 경우 "ERROR"
+    private String sblBin5Result     = ""; // NOT USE
+    private String sblBin6Result     = ""; // NOT USE
+    private String sblBin7Result     = ""; // NOT USE
+    private String sblBin8Result     = ""; // SBL_BIN8_LIMIT 기준 이상일 경우 "ERROR"
+    private String sblBin9Result     = ""; // SBL_BIN9_COUNTER 기준 이상일 경우 "ERROR"
+    private String sblCID            = ""; // CID_ERROR_DATA 과 JOIN 하여 나오는 결과 값
     private String sblFirmwareResult = "";
-    private String mainProgramName  = ""; // MAIN PROGRAM NAME
+    private String mainProgramName   = ""; // MAIN PROGRAM NAME
 
     private String opInput = "";
     private String opYield = "";
@@ -537,5 +538,13 @@ public class YieldAbnormalQueryResultDto {
 
     public void setSblFirmwareResult(String sblFirmwareResult) {
         this.sblFirmwareResult = sblFirmwareResult;
+    }
+
+    public String getSblCID() {
+        return sblCID;
+    }
+
+    public void setSblCID(String sblCID) {
+        this.sblCID = sblCID;
     }
 }

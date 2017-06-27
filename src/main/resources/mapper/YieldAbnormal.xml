@@ -4,110 +4,113 @@
     <!-- BETS-UI-0401 : Yield Abnormal -->
     <select id="retrieveYieldAbnormal" parameterType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalDto" resultType="kr.famos.bets.sblAnalysis.yieldAbnormal.dto.YieldAbnormalQueryResultDto">
         SELECT
-                PART_NUMBER,
-                OPERATOR_ID,
-                LOT_ID,
-                SUBSTR(LOT_IN_TIME,1,4)||'-'||SUBSTR(LOT_IN_TIME,5,2)||'-'||SUBSTR(LOT_IN_TIME,7,2)||' '||SUBSTR(LOT_IN_TIME,9,2)||':'||SUBSTR(LOT_IN_TIME,11,2)||':'||SUBSTR(LOT_IN_TIME,13,2) AS LOT_IN_TIME,
-                SUBSTR(END_TIME,1,4)||'-'||SUBSTR(END_TIME,5,2)||'-'||SUBSTR(END_TIME,7,2)||' '||SUBSTR(END_TIME,9,2)||':'||SUBSTR(END_TIME,11,2)||':'||SUBSTR(END_TIME,13,2) AS END_TIME,
-                PROCESS_CODE,
-                TESTER_MODEL,
-                TESTER_NUMBER,
-                HEAD,
-                SBL_RESULT,
+                A.PART_NUMBER,
+                A.OPERATOR_ID,
+                A.LOT_ID,
+                SUBSTR(A.LOT_IN_TIME,1,4)||'-'||SUBSTR(A.LOT_IN_TIME,5,2)||'-'||SUBSTR(A.LOT_IN_TIME,7,2)||' '||SUBSTR(A.LOT_IN_TIME,9,2)||':'||SUBSTR(A.LOT_IN_TIME,11,2)||':'||SUBSTR(A.LOT_IN_TIME,13,2) AS LOT_IN_TIME,
+                SUBSTR(A.END_TIME,1,4)||'-'||SUBSTR(A.END_TIME,5,2)||'-'||SUBSTR(A.END_TIME,7,2)||' '||SUBSTR(A.END_TIME,9,2)||':'||SUBSTR(A.END_TIME,11,2)||':'||SUBSTR(A.END_TIME,13,2) AS END_TIME,
+                A.PROCESS_CODE,
+                A.TESTER_MODEL,
+                A.TESTER_NUMBER,
+                A.HEAD,
+                A.SBL_RESULT,
 
                 <if test=" sblMode == 'sblYieldResult' ">
-                SBL_YIELD_RESULT,
+                    A.SBL_YIELD_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin1Result' ">
-                SBL_BIN1_RESULT,
+                    A.SBL_BIN1_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin2Result' ">
-                SBL_BIN2_RESULT,
+                    A.SBL_BIN2_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin3Result' ">
-                SBL_BIN3_RESULT,
+                    A.SBL_BIN3_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin4Result' ">
-                SBL_BIN4_RESULT,
+                    A.SBL_BIN4_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin5Result' ">
-                SBL_BIN5_RESULT,
+                    A.SBL_BIN5_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin6Result' ">
-                SBL_BIN6_RESULT,
+                    A.SBL_BIN6_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin7Result' ">
-                SBL_BIN7_RESULT,
+                    A.SBL_BIN7_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin8Result' ">
-                SBL_BIN8_RESULT,
+                    A.SBL_BIN8_RESULT,
                 </if>
                 <if test=" sblMode == 'sblBin9Result' ">
-                SBL_BIN9_RESULT,
+                    A.SBL_BIN9_RESULT,
                 </if>
                 <if test=" sblMode == 'sblFirmwareResult' ">
-                SBL_FIRMWARE_RESULT,
+                    NVL2(B.LOT_ID,'ERROR',A.SBL_FIRMWARE_RESULT) AS SBL_FIRMWARE_RESULT,
                 </if>
 
                 <if test=" sblMode == 'all' or sblMode == '' ">
-                SBL_YIELD_RESULT,
-                SBL_BIN1_RESULT,
-                SBL_BIN2_RESULT,
-                SBL_BIN3_RESULT,
-                SBL_BIN4_RESULT,
-                SBL_BIN5_RESULT,
-                SBL_BIN6_RESULT,
-                SBL_BIN7_RESULT,
-                SBL_BIN8_RESULT,
-                SBL_BIN9_RESULT,
-                SBL_FIRMWARE_RESULT,
+                    A.SBL_YIELD_RESULT,
+                    A.SBL_BIN1_RESULT,
+                    A.SBL_BIN2_RESULT,
+                    A.SBL_BIN3_RESULT,
+                    A.SBL_BIN4_RESULT,
+                    A.SBL_BIN5_RESULT,
+                    A.SBL_BIN6_RESULT,
+                    A.SBL_BIN7_RESULT,
+                    A.SBL_BIN8_RESULT,
+                    A.SBL_BIN9_RESULT,
+                    NVL2(B.LOT_ID,'ERROR',A.SBL_FIRMWARE_RESULT) AS SBL_FIRMWARE_RESULT,
                 </if>
-                HANDLER_MODEL,
-                BOARD_ID,
-                MAIN_PROGRAM_NAME,
-                TO_NUMBER(SUBSTR(OP_BIN,1,4))         + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))+ TO_NUMBER(SUBSTR(OP_BIN,21,4))+ TO_NUMBER(SUBSTR(OP_BIN,26,4))+ TO_NUMBER(SUBSTR(OP_BIN,31,4))+ TO_NUMBER( SUBSTR(OP_BIN,36,4))+ TO_NUMBER(SUBSTR(OP_BIN,41,4))                                                                                                             AS OP_INPUT ,
-                TO_NUMBER(SUBSTR(OP_BIN,1,4))         + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))                                                                                                                                                                                                                                                                                AS OP_PASS,
-                TRUNC(((TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))) / (TO_NUMBER(SUBSTR(OP_BIN,1,4)) + TO_NUMBER( SUBSTR(OP_BIN,6,4)) + TO_NUMBER(SUBSTR(OP_BIN,11,4)) + TO_NUMBER(SUBSTR(OP_BIN,16,4))+ TO_NUMBER(SUBSTR(OP_BIN,21,4))+ TO_NUMBER(SUBSTR(OP_BIN,26,4))+ TO_NUMBER(SUBSTR(OP_BIN,31,4))+ TO_NUMBER( SUBSTR(OP_BIN,36,4)) + TO_NUMBER( SUBSTR(OP_BIN,41,4))))*100,2) AS OP_YIELD,
-                TO_NUMBER(SUBSTR(OP_BIN,1,4))                                                                                                                                                                                                                                                                                                                                                                                           AS OP_BIN1,
-                TO_NUMBER(SUBSTR(OP_BIN,6,4))                                                                                                                                                                                                                                                                                                                                                                                           AS OP_BIN2,
-                TO_NUMBER(SUBSTR(OP_BIN,11,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN3,
-                TO_NUMBER(SUBSTR(OP_BIN,16,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN4,
-                TO_NUMBER(SUBSTR(OP_BIN,21,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN5,
-                TO_NUMBER(SUBSTR(OP_BIN,26,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN6,
-                TO_NUMBER(SUBSTR(OP_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN7,
-                TO_NUMBER(SUBSTR(OP_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN8,
-                TO_NUMBER(SUBSTR(OP_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN9,
+
+                 NVL2(B.LOT_ID,'ERROR','PASS') AS SBL_CID,
+                A.HANDLER_MODEL,
+                A.BOARD_ID,
+                A.MAIN_PROGRAM_NAME,
+                TO_NUMBER(SUBSTR(A.OP_BIN,1,4))         + TO_NUMBER( SUBSTR(A.OP_BIN,6,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,11,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,16,4))+ TO_NUMBER(SUBSTR(A.OP_BIN,21,4))+ TO_NUMBER(SUBSTR(A.OP_BIN,26,4))+ TO_NUMBER(SUBSTR(A.OP_BIN,31,4))+ TO_NUMBER( SUBSTR(A.OP_BIN,36,4))+ TO_NUMBER(SUBSTR(A.OP_BIN,41,4))                                                                                               AS OP_INPUT ,
+                TO_NUMBER(SUBSTR(A.OP_BIN,1,4))         + TO_NUMBER( SUBSTR(A.OP_BIN,6,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,11,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,16,4))                                                                                                                                                                                                                                                                          AS OP_PASS,
+                TRUNC(((TO_NUMBER(SUBSTR(A.OP_BIN,1,4)) + TO_NUMBER( SUBSTR(A.OP_BIN,6,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,11,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,16,4))) / (TO_NUMBER(SUBSTR(A.OP_BIN,1,4)) + TO_NUMBER( SUBSTR(A.OP_BIN,6,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,11,4)) + TO_NUMBER(SUBSTR(A.OP_BIN,16,4))+ TO_NUMBER(SUBSTR(A.OP_BIN,21,4))+ TO_NUMBER(SUBSTR(A.OP_BIN,26,4))+ TO_NUMBER(SUBSTR(A.OP_BIN,31,4))+ TO_NUMBER( SUBSTR(A.OP_BIN,36,4)) + TO_NUMBER( SUBSTR(A.OP_BIN,41,4))))*100,2) AS OP_YIELD,
+                TO_NUMBER(SUBSTR(A.OP_BIN,1,4))                                                                                                                                                                                                                                                                                                                                                                                           AS OP_BIN1,
+                TO_NUMBER(SUBSTR(A.OP_BIN,6,4))                                                                                                                                                                                                                                                                                                                                                                                           AS OP_BIN2,
+                TO_NUMBER(SUBSTR(A.OP_BIN,11,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN3,
+                TO_NUMBER(SUBSTR(A.OP_BIN,16,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN4,
+                TO_NUMBER(SUBSTR(A.OP_BIN,21,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN5,
+                TO_NUMBER(SUBSTR(A.OP_BIN,26,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN6,
+                TO_NUMBER(SUBSTR(A.OP_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN7,
+                TO_NUMBER(SUBSTR(A.OP_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN8,
+                TO_NUMBER(SUBSTR(A.OP_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                          AS OP_BIN9,
                 '@',
-                TO_NUMBER(SUBSTR(HANDLER_BIN,1,4))         + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,21,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,26,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,31,4))+ TO_NUMBER( SUBSTR(HANDLER_BIN,36,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,41,4))                                                                          AS H_INPUT ,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,1,4))         + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))                                                                                                                                                                                                                                                                 AS H_PASS,
-                TRUNC(((TO_NUMBER(SUBSTR(HANDLER_BIN,1,4)) + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))) / (TO_NUMBER(SUBSTR(HANDLER_BIN,1,4)) + TO_NUMBER( SUBSTR(HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,21,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,26,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,31,4))+ TO_NUMBER( SUBSTR(HANDLER_BIN,36,4))+ TO_NUMBER(SUBSTR(HANDLER_BIN,41,4))))*100,2) AS H_YIELD,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,1,4))                                                                                                                                                                                                                                                                                                                                                                                           AS H_BIN1,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,6,4))                                                                                                                                                                                                                                                                                                                                                                                           AS H_BIN2,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,11,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN3,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,16,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN4,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,21,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN5,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,26,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN6,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN7,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN8,
-                TO_NUMBER(SUBSTR(HANDLER_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN9,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,1,4))         + TO_NUMBER( SUBSTR(A.HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,16,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,21,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,26,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,31,4))+ TO_NUMBER( SUBSTR(A.HANDLER_BIN,36,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,41,4))                                                       AS H_INPUT ,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,1,4))         + TO_NUMBER( SUBSTR(A.HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,16,4))                                                                                                                                                                                                                                                           AS H_PASS,
+                TRUNC(((TO_NUMBER(SUBSTR(A.HANDLER_BIN,1,4)) + TO_NUMBER( SUBSTR(A.HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,16,4))) / (TO_NUMBER(SUBSTR(A.HANDLER_BIN,1,4)) + TO_NUMBER( SUBSTR(A.HANDLER_BIN,6,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,11,4)) + TO_NUMBER(SUBSTR(A.HANDLER_BIN,16,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,21,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,26,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,31,4))+ TO_NUMBER( SUBSTR(A.HANDLER_BIN,36,4))+ TO_NUMBER(SUBSTR(A.HANDLER_BIN,41,4))))*100,2) AS H_YIELD,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,1,4))                                                                                                                                                                                                                                                                                                                                                                                           AS H_BIN1,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,6,4))                                                                                                                                                                                                                                                                                                                                                                                           AS H_BIN2,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,11,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN3,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,16,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN4,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,21,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN5,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,26,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN6,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN7,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN8,
+                TO_NUMBER(SUBSTR(A.HANDLER_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                          AS H_BIN9,
                 '@',
-                TO_NUMBER(SUBSTR(TEST_BIN,1,4))         + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))+ TO_NUMBER(SUBSTR(TEST_BIN,21,4))+ TO_NUMBER(SUBSTR(TEST_BIN,26,4))+ TO_NUMBER(SUBSTR(TEST_BIN,31,4))+ TO_NUMBER( SUBSTR(TEST_BIN,36,4))+ TO_NUMBER(SUBSTR(TEST_BIN,41,4))                                                                                               AS T_INPUT ,
-                TO_NUMBER(SUBSTR(TEST_BIN,1,4))         + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))                                                                                                                                                                                                                                                                          AS T_PASS,
-                TRUNC(((TO_NUMBER(SUBSTR(TEST_BIN,1,4)) + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))) / (TO_NUMBER(SUBSTR(TEST_BIN,1,4)) + TO_NUMBER( SUBSTR(TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(TEST_BIN,16,4))+ TO_NUMBER(SUBSTR(TEST_BIN,21,4))+ TO_NUMBER(SUBSTR(TEST_BIN,26,4))+ TO_NUMBER(SUBSTR(TEST_BIN,31,4))+ TO_NUMBER( SUBSTR(TEST_BIN,36,4)) + TO_NUMBER(SUBSTR(TEST_BIN,41,4))))*100,2) AS T_YIELD,
-                TO_NUMBER(SUBSTR(TEST_BIN,1,4))                                                                                                                                                                                                                                                                                                                                                                                           AS T_BIN1,
-                TO_NUMBER(SUBSTR(TEST_BIN,6,4))                                                                                                                                                                                                                                                                                                                                                                                           AS T_BIN2,
-                TO_NUMBER(SUBSTR(TEST_BIN,11,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN3,
-                TO_NUMBER(SUBSTR(TEST_BIN,16,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN4,
-                TO_NUMBER(SUBSTR(TEST_BIN,21,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN5,
-                TO_NUMBER(SUBSTR(TEST_BIN,26,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN6,
-                TO_NUMBER(SUBSTR(TEST_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN7,
-                TO_NUMBER(SUBSTR(TEST_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN8,
-                TO_NUMBER(SUBSTR(TEST_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN9
+                TO_NUMBER(SUBSTR(A.TEST_BIN,1,4))         + TO_NUMBER( SUBSTR(A.TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,16,4))+ TO_NUMBER(SUBSTR(A.TEST_BIN,21,4))+ TO_NUMBER(SUBSTR(A.TEST_BIN,26,4))+ TO_NUMBER(SUBSTR(A.TEST_BIN,31,4))+ TO_NUMBER( SUBSTR(A.TEST_BIN,36,4))+ TO_NUMBER(SUBSTR(A.TEST_BIN,41,4))                                                                               AS T_INPUT ,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,1,4))         + TO_NUMBER( SUBSTR(A.TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,16,4))                                                                                                                                                                                                                                                                    AS T_PASS,
+                TRUNC(((TO_NUMBER(SUBSTR(A.TEST_BIN,1,4)) + TO_NUMBER( SUBSTR(A.TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,16,4))) / (TO_NUMBER(SUBSTR(A.TEST_BIN,1,4)) + TO_NUMBER( SUBSTR(A.TEST_BIN,6,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,11,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,16,4))+ TO_NUMBER(SUBSTR(A.TEST_BIN,21,4))+ TO_NUMBER(SUBSTR(A.TEST_BIN,26,4))+ TO_NUMBER(SUBSTR(A.TEST_BIN,31,4))+ TO_NUMBER( SUBSTR(A.TEST_BIN,36,4)) + TO_NUMBER(SUBSTR(A.TEST_BIN,41,4))))*100,2) AS T_YIELD,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,1,4))                                                                                                                                                                                                                                                                                                                                                                                           AS T_BIN1,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,6,4))                                                                                                                                                                                                                                                                                                                                                                                           AS T_BIN2,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,11,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN3,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,16,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN4,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,21,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN5,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,26,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN6,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,31,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN7,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,36,4))                                                                                                                                                                                                                                                                                                                                                                                          AS T_BIN8,
+                TO_NUMBER(SUBSTR(A.TEST_BIN,41,4))                                                                                                                                                                                                                                                                                                                                                                                 AS T_BIN9
         FROM
-              MAIN_BIN
+              MAIN_BIN A
+              LEFT OUTER JOIN CID_ERROR_DATA B ON A.LOT_ID = B.LOT_ID
         <where>
             1 = 1
-            AND SBL_RESULT = 'ERROR'
+            AND SBL_RESULT = 'FAIL'
             <if test=" endTimeStart != null and endTimeStart != '' ">
                 AND END_TIME >= #{endTimeStart}
             </if>

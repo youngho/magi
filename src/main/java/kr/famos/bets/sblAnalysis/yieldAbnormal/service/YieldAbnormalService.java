@@ -51,6 +51,7 @@ public class YieldAbnormalService {
             tempDto.setBoardId(list.getBoardId());
             tempDto.setSblFirmwareResult(list.getSblFirmwareResult());
             tempDto.setMainProgramName(list.getMainProgramName());
+            tempDto.setSblCID(list.getSblCID());
             tempDto.setSblResult(list.getSblResult());
 
             // Tester Bin
@@ -82,6 +83,7 @@ public class YieldAbnormalService {
             tempDto.setBoardId(list.getBoardId());
             tempDto.setSblFirmwareResult(list.getSblFirmwareResult());
             tempDto.setMainProgramName(list.getMainProgramName());
+            tempDto.setSblCID(list.getSblCID());
             tempDto.setSblResult(list.getSblResult());
             // Handler Bin
             tempDto.setBinType("Handler Bin");
@@ -112,6 +114,7 @@ public class YieldAbnormalService {
             tempDto.setBoardId(list.getBoardId());
             tempDto.setSblFirmwareResult(list.getSblFirmwareResult());
             tempDto.setMainProgramName(list.getMainProgramName());
+            tempDto.setSblCID(list.getSblCID());
             tempDto.setSblResult(list.getSblResult());
             // OP Bin
             tempDto.setBinType("OP Bin");
@@ -142,6 +145,7 @@ public class YieldAbnormalService {
             tempDto.setBoardId(list.getBoardId());
             tempDto.setSblFirmwareResult(list.getSblFirmwareResult());
             tempDto.setMainProgramName(list.getMainProgramName());
+            tempDto.setSblCID(list.getSblCID());
             tempDto.setSblResult(list.getSblResult());
             // SBL Result
             tempDto.setBinType("SBL Result");

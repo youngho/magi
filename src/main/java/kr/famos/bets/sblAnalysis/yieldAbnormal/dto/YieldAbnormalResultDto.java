@@ -20,6 +20,7 @@ public class YieldAbnormalResultDto {
     private String boardId           = ""; // TEST BOARD ID (FIX)
     private String sblFirmwareResult = "";
     private String mainProgramName   = ""; // MAIN PROGRAM NAME
+    private String sblCID            = ""; // CID_ERROR_DATA 과 JOIN 하여 나오는 결과 값
     private String sblResult         = ""; // SBL_YIELD_RESULT,SBL_BIN1_RESULT,SBL_BIN2_RESULT………..SBL_BIN9_RESULT 가 아닌것 즉 SBL ERROR가 없는것은 PASS로
 
     private String binType = "";
@@ -130,6 +131,14 @@ public class YieldAbnormalResultDto {
 
     public void setMainProgramName(String mainProgramName) {
         this.mainProgramName = mainProgramName;
+    }
+
+    public String getSblCID() {
+        return sblCID;
+    }
+
+    public void setSblCID(String sblCID) {
+        this.sblCID = sblCID;
     }
 
     public String getSblResult() {

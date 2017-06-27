@@ -68,6 +68,7 @@ public class LotYieldResultDto {
     private String sblBin8Result = "";
     private String sblBin9Result = "";
     private String sblFirmwareResult = "";
+    private String sblCID = "";
 //    private String sblYieldLimit     = ""; // LOT YIELD 기준
 //    private String sblSubBinaCounter = ""; // 특정 SUB BIN COUNTER LIMIT 설정값
 //    private String sblSubBinaLimit   = ""; // 특정 SUB BIN % LIMIT 설정값
@@ -463,5 +464,13 @@ public class LotYieldResultDto {
 
     public void setSblFirmwareResult(String sblFirmwareResult) {
         this.sblFirmwareResult = sblFirmwareResult;
+    }
+
+    public String getSblCID() {
+        return sblCID;
+    }
+
+    public void setSblCID(String sblCID) {
+        this.sblCID = sblCID;
     }
 }
