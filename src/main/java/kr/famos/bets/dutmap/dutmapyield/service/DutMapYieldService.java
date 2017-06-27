@@ -147,7 +147,7 @@ public class DutMapYieldService {
                 dutYieldRow.put("partNumber", lstDutMapYieldDto.get(0).getPartNumber());
                 dutYieldRow.put("processCode", lstDutMapYieldDto.get(0).getProcessCode());
                 dutYieldRow.put("testerNumber", lstDutMapYieldDto.get(0).getTesterNumber());
-                dutYieldRow.put("lotId", lstDutMapYieldDto.get(0).getLotId());
+//                dutYieldRow.put("lotId", lstDutMapYieldDto.get(0).getLotId());                // 조회 결과에  LOT ID Column 삭제(6월23일 강래완책임)
                 dutYieldRow.put("boardId", lstDutMapYieldDto.get(0).getBoardId());
                 dutYieldRow.put("head", lstDutMapYieldDto.get(0).getHead());
                 dutYieldRow.put("mainProgramName", lstDutMapYieldDto.get(0).getMainProgramName());
