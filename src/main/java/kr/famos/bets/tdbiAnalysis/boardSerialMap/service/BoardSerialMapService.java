@@ -152,8 +152,8 @@ public class BoardSerialMapService {
             returnTotalDto.setBin15(returnTotalDto.getBin15() + returnDto.getBin15());   // Total Row 계산값 셋팅 - 제일 아랫줄에 전체 합을 보여준다.
 
             // INPUT 계산값 셋팅
-            returnDto.setInput(returnDto.getBin0()
-                    + returnDto.getBin1()
+            returnDto.setInput(
+                      returnDto.getBin1()
                     + returnDto.getBin2()
                     + returnDto.getBin3()
                     + returnDto.getBin4()
