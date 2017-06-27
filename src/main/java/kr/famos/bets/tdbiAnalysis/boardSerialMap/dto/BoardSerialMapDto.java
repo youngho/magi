@@ -12,8 +12,8 @@ public class BoardSerialMapDto {
     private String startTime       = ""; //
     private String endTime         = ""; //
     private String testerModel     = ""; //
-    private String testNumber      = ""; //
-    private String boardId         = "";  //
+    private String testerNumber    = "";
+    private String boardId         = "";
     private String zoneNumber      = ""; //
     private String slotNumber      = ""; //
     private String boardRow        = ""; // x 축 시작,끝값
@@ -88,12 +88,12 @@ public class BoardSerialMapDto {
         this.testerModel = testerModel;
     }
 
-    public String getTestNumber() {
-        return testNumber;
+    public String getTesterNumber() {
+        return testerNumber;
     }
 
-    public void setTestNumber(String testNumber) {
-        this.testNumber = testNumber;
+    public void setTesterNumber(String testerNumber) {
+        this.testerNumber = testerNumber;
     }
 
     public String getBoardId() {

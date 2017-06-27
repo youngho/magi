@@ -51,6 +51,8 @@ public class BoardSerialMapService {
             returnDto.setLotId(list.getLotId());
             returnDto.setProcessCode(list.getProcessCode());
             returnDto.setMainProgramName(list.getMainProgramName());
+            returnDto.setTesterNumber(list.getTesterNumber());
+            returnDto.setEndTime(list.getEndTime());
             returnDto.setBoardId(list.getBoardId());
             returnDto.setZoneNumber(list.getZoneNumber());
             returnDto.setSlotNumber(list.getSlotNumber());

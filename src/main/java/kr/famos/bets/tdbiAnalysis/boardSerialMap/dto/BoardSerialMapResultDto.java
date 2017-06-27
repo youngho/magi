@@ -5,13 +5,15 @@ package kr.famos.bets.tdbiAnalysis.boardSerialMap.dto;
  */
 public class BoardSerialMapResultDto {
 
-    private String partNumber = ""; //
-    private String lotId = ""; //
-    private String processCode = "";  // TDBI는 RAW파일에 ProcessCode가 기록되어 있지 않아 보드의 앞 4자리를 사용했으나, 혼란스러워서 사용하지 않기로 함
-    private String mainProgramName = ""; //
-    private String boardId = "";  //
-    private String zoneNumber = "";  //
-    private String slotNumber = "";  //
+    private String partNumber = "";
+    private String lotId = "";
+    private String processCode = "";
+    private String mainProgramName = "";
+    private String boardId = "";
+    private String testerNumber = "";
+    private String endTime = "";
+    private String zoneNumber = "";
+    private String slotNumber = "";
 
     private int input;
     private int pass;
@@ -39,6 +41,22 @@ public class BoardSerialMapResultDto {
 
     public void setPartNumber(String partNumber) {
         this.partNumber = partNumber;
+    }
+
+    public String getTesterNumber() {
+        return testerNumber;
+    }
+
+    public void setTesterNumber(String testerNumber) {
+        this.testerNumber = testerNumber;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getLotId() {
