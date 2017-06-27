@@ -261,6 +261,16 @@
                                         </div>
                                     </ng-template>
                                 </wj-flex-grid-column>
+                                <!--row16-->
+                                <wj-flex-grid-column [header]="'Row16'" [binding]="'row16'" [width]="'*'">
+                                    <ng-template wjFlexGridCellTemplate [cellType]="'Cell'" let-cell="cell">
+                                        <div [ngSwitch]="cell.item.row16 * 1 < retrieveCondDto.sblBoardLimit * 1">
+                                            <div *ngSwitchCase="true" style="color:yellow ; text-align: center ; background-color:red">{{cell.item.row16}}</div>
+                                            <div *ngSwitchDefault style="text-align: center">{{cell.item.row16}}</div>
+                                        </div>
+                                    </ng-template>
+                                </wj-flex-grid-column>
+
                             </wj-flex-grid>
                         </div>
                     </div>
