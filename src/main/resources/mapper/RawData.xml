@@ -33,7 +33,7 @@
                 AND FILE_NAME LIKE #{fileName}
             </if>
             <if test=" fileType != null and fileType == 'TEST' ">
-                AND FILE_TYPE IN ('MAIN_BIN','NG_BIN','CASI_BIN')
+                AND FILE_TYPE IN ('MAIN_BIN','NG_BIN','CASI_BIN','CANCEL_BIN')
             </if>
             <if test=" fileType != null and fileType == 'TDBI' ">
                 AND FILE_TYPE=#{fileType}
